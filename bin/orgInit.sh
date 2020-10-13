@@ -6,8 +6,12 @@ if [ "$#" -eq 1 ]; then
   DURATION=$1
 fi
 
-sfdx force:org:create -a apex-recipes -s -f config/project-scratch-def.json -d $DURATION
+sfdx force:org:create -f config/project-scratch-def.json --setalias ApexRecipes --durationdays 7 --setdefaultusername --json --loglevel fatal
 sfdx force:source:push
-sfdx force:user:permset:assign -n Proving_With_Security_Enforced_works
-sfdx force:org:open -p /lightning/page/home
+sfdx force:user:permset:assign -n Apex_Recipes
+sfdx force:user:permset:assign -n Walkthroughs
+sfdx force:data:tree:import -p ./data/data-plan.json
+sfdx force:data:tree:import -p ./data/data-plan2.json
+sfdx force:apex:execute --apexcodefile data/setup.apex
+sfdx force:org:open
 echo "Org is set up"

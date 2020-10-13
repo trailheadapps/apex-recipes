@@ -3,7 +3,7 @@ layout: default
 ---
 # QueueableChainingRecipes class
 
-Demonstrates how to use the Queueable interface to chain multiple queueable instances together. The methods in this class, with the exception of the constructor, are run automatically by the system as the job runs. To enqueue this job, use: `System.enqueueJob(new QueueableChainingRecipes());` More on the Queable interface: https:
+Demonstrates how to use the Queueable interface to chain multiple queueable instances together. The methods in this class, with the exception of the constructor, are run automatically by the system as the job runs. To enqueue this job, use: `System.enqueueJob(new QueueableChainingRecipes());` More on the Queuable interface: https:
 
 ## Related
 
