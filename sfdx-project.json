@@ -12,7 +12,6 @@
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "49.0",
     "packageAliases": {
-        "ApexRecipes": "0Ho4W000000sYAbSAM",
-        "ApexRecipes@49.0.0-39": "04t4W0000033vydQAA"
+        "ApexRecipes": "0Ho3g000000XZAHCA4"
     }
 }
