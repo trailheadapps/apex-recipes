@@ -38,7 +38,7 @@ System.debug(CanTheuser.bulkFLSAccessible('Account', fields));
 
 ### `bulkFLSUpdatable(String obj,Set<String> fields)` → `Boolean>`
 
-bulk form o flsUpdatable call
+bulk form of flsUpdatable call
 
 #### Parameters
 |Param|Description|
@@ -135,6 +135,17 @@ public method to determine if a given field on a given object is Updatable.
 ```java
 System.debug(CanTheuser.flsUpdatable('Account', 'Name'));
 ```
+
+### `getFLSForFieldOnObject(String obj,String field,FLSType checkType)` → `Boolean`
+
+Abstracted method for retrieving or calculating (memoization) of the FLS for a given field on a given object.
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`obj` |        String version of object name to check |
+|`field` |      String version of the field to check |
+|`checkType` |  Enum of Accessible or Updatable. |
 
 ### `memoizeFLSMDC(String objType, FLSType action)` → `set<String>`
 
