@@ -1,0 +1,17 @@
+@startuml
+RestClient <|-- CalloutRecipes : extends
+RestClient : NamedCredentialName
+RestClient : makeApiCall()
+RestClient : get()
+RestClient : put()
+RestClient : patch()
+RestClient : del()
+RestClient : post()
+
+CalloutRecipes : httpGetCalloutToSecondOrg()
+CalloutRecipes : httpDeleteCalloutToSecondOrg()
+CalloutRecipes : httpPostCalloutToSecondOrg()
+CalloutRecipes : httpPatchCalloutToSecondOrg()
+CalloutRecipes : httpPutCalloutToSecondOrg()
+
+@enduml

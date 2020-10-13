@@ -1,0 +1,20 @@
+<template>
+    <lightning-card>
+        <div class="slds-grid">
+            <div class="slds-size_1-of-1">
+                <div class="slds-grid">
+                    <div class="slds-size_1-of-4">
+                        <c-recipe-tree-view
+                            onselect={handleSelect}
+                        ></c-recipe-tree-view>
+                    </div>
+                    <div class="slds-size_3-of-4">
+                        <c-related-code-tabs
+                            recipe-name={selectedRecipe}
+                        ></c-related-code-tabs>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

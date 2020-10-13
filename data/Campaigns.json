@@ -1,0 +1,112 @@
+{
+    "records": [
+        {
+            "attributes": { "type": "Campaign", "referenceId": "CampaignRef1" },
+            "name": "American crow",
+            "budgetedCost": "2295.94",
+            "actualCost": "1735.49"
+        },
+        {
+            "attributes": { "type": "Campaign", "referenceId": "CampaignRef2" },
+            "name": "African wild dog",
+            "budgetedCost": "8451.23",
+            "actualCost": "17189.98"
+        },
+        {
+            "attributes": { "type": "Campaign", "referenceId": "CampaignRef3" },
+            "name": "Spotted wood sandpiper",
+            "budgetedCost": "4975.69",
+            "actualCost": "218.09"
+        },
+        {
+            "attributes": { "type": "Campaign", "referenceId": "CampaignRef4" },
+            "name": "Goose, snow",
+            "budgetedCost": "9972.81",
+            "actualCost": "5812.45"
+        },
+        {
+            "attributes": { "type": "Campaign", "referenceId": "CampaignRef5" },
+            "name": "Rat, desert kangaroo",
+            "budgetedCost": "9667.58",
+            "actualCost": "14620.64"
+        },
+        {
+            "attributes": { "type": "Campaign", "referenceId": "CampaignRef6" },
+            "name": "Monitor, water",
+            "budgetedCost": "5201.00",
+            "actualCost": "1454.28"
+        },
+        {
+            "attributes": { "type": "Campaign", "referenceId": "CampaignRef7" },
+            "name": "Blue waxbill",
+            "budgetedCost": "3925.61",
+            "actualCost": "17320.29"
+        },
+        {
+            "attributes": { "type": "Campaign", "referenceId": "CampaignRef8" },
+            "name": "Cougar",
+            "budgetedCost": "5257.64",
+            "actualCost": "3237.05"
+        },
+        {
+            "attributes": { "type": "Campaign", "referenceId": "CampaignRef9" },
+            "name": "Plover, blacksmith",
+            "budgetedCost": "8283.81",
+            "actualCost": "18501.80"
+        },
+        {
+            "attributes": {
+                "type": "Campaign",
+                "referenceId": "CampaignRef10"
+            },
+            "name": "Red squirrel",
+            "budgetedCost": "2720.03",
+            "actualCost": "1745.53"
+        },
+        {
+            "attributes": {
+                "type": "Campaign",
+                "referenceId": "CampaignRef11"
+            },
+            "name": "Worm snake (unidentified)",
+            "budgetedCost": "3855.08",
+            "actualCost": "15536.89"
+        },
+        {
+            "attributes": {
+                "type": "Campaign",
+                "referenceId": "CampaignRef12"
+            },
+            "name": "Elephant, african",
+            "budgetedCost": "4504.39",
+            "actualCost": "2976.54"
+        },
+        {
+            "attributes": {
+                "type": "Campaign",
+                "referenceId": "CampaignRef13"
+            },
+            "name": "Armadillo, nine-banded",
+            "budgetedCost": "7495.54",
+            "actualCost": "17808.90"
+        },
+        {
+            "attributes": {
+                "type": "Campaign",
+                "referenceId": "CampaignRef14"
+            },
+            "name": "Large-eared bushbaby",
+            "budgetedCost": "4799.12",
+            "actualCost": "6174.67"
+        },
+        {
+            "attributes": {
+                "type": "Campaign",
+                "referenceId": "CampaignRef15"
+            },
+            "name": "Kingfisher, pied",
+            "budgetedCost": "7372.38",
+            "actualCost": "15207.39"
+        }
+    ]
+}

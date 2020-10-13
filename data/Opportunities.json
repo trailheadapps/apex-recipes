@@ -1,0 +1,604 @@
+{
+    "records": [
+        {
+            "amount": "119373.34",
+            "closedate": "2020-12-22T21:16:01Z",
+            "description": "\"",
+            "name": "Cape starling",
+            "StageName": "Id. Decision Makers",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef1"
+            },
+            "accountId": "@AccountRef32"
+        },
+        {
+            "amount": "15065.74",
+            "closedate": "2021-01-19T00:30:44Z",
+            "description": "-1E02",
+            "name": "Pelican, great white",
+            "StageName": "Negotiation/Review",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef2"
+            },
+            "accountId": "@AccountRef35"
+        },
+        {
+            "amount": "456811.38",
+            "closedate": "2020-12-26T05:48:21Z",
+            "description": "⁰⁴⁵",
+            "name": "Bushbuck",
+            "StageName": "Negotiation/Review",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef3"
+            },
+            "accountId": "@AccountRef9"
+        },
+        {
+            "amount": "620786.70",
+            "closedate": "2021-06-06T17:33:25Z",
+            "description": "\"\"",
+            "name": "Crow, pied",
+            "StageName": "Negotiation/Review",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef4"
+            },
+            "accountId": "@AccountRef45"
+        },
+        {
+            "amount": "913401.77",
+            "closedate": "2021-05-21T07:55:11Z",
+            "description": "사회과학원 어학연구소",
+            "name": "Duck, blue",
+            "StageName": "Qualification",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef5"
+            },
+            "accountId": "@AccountRef21"
+        },
+        {
+            "amount": "939763.93",
+            "closedate": "2021-03-24T22:07:49Z",
+            "description": "部落格",
+            "name": "Iguana, marine",
+            "StageName": "Id. Decision Makers",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef6"
+            },
+            "accountId": "@AccountRef48"
+        },
+        {
+            "amount": "436355.85",
+            "closedate": "2021-01-24T01:49:16Z",
+            "description": "0.00",
+            "name": "Stork, white-necked",
+            "StageName": "Assigned dynamically",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef7"
+            },
+            "accountId": "@AccountRef3"
+        },
+        {
+            "amount": "653987.06",
+            "closedate": "2021-02-14T05:26:57Z",
+            "description": "<img src=x onerror=alert('hi') />",
+            "name": "Marine iguana",
+            "StageName": "Perception Analysis",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef8"
+            },
+            "accountId": "@AccountRef29"
+        },
+        {
+            "amount": "302336.99",
+            "closedate": "2021-06-21T06:40:28Z",
+            "description": "🐵 🙈 🙉 🙊",
+            "name": "Malagasy ground boa",
+            "StageName": "Needs Analysis",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef9"
+            },
+            "accountId": "@AccountRef39"
+        },
+        {
+            "amount": "858378.07",
+            "closedate": "2021-05-21T18:08:32Z",
+            "description": "1E02",
+            "name": "Tiger snake",
+            "StageName": "Proposal/Price Quote",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef10"
+            },
+            "accountId": "@AccountRef2"
+        },
+        {
+            "amount": "843044.83",
+            "closedate": "2020-11-06T17:41:25Z",
+            "description": "\"'\"'\"''''\"",
+            "name": "Alligator, american",
+            "StageName": "Value Proposition",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef11"
+            },
+            "accountId": "@AccountRef27"
+        },
+        {
+            "amount": "440239.40",
+            "closedate": "2021-04-14T01:12:37Z",
+            "description": "../../../../../../../../../../../etc/passwd%00",
+            "name": "Stork, painted",
+            "StageName": "Id. Decision Makers",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef12"
+            },
+            "accountId": "@AccountRef18"
+        },
+        {
+            "amount": "513643.41",
+            "closedate": "2021-05-18T07:39:55Z",
+            "description": "᠎",
+            "name": "Flycatcher, tyrant",
+            "StageName": "Perception Analysis",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef13"
+            },
+            "accountId": "@AccountRef2"
+        },
+        {
+            "amount": "51164.66",
+            "closedate": "2021-02-04T07:06:47Z",
+            "description": "(╯°□°）╯︵ ┻━┻)  ",
+            "name": "Australian masked owl",
+            "StageName": "Id. Decision Makers",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef14"
+            },
+            "accountId": "@AccountRef19"
+        },
+        {
+            "amount": "963748.99",
+            "closedate": "2021-01-09T22:29:57Z",
+            "description": "␡",
+            "name": "Booby, blue-faced",
+            "StageName": "Proposal/Price Quote",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef15"
+            },
+            "accountId": "@AccountRef33"
+        },
+        {
+            "amount": "607109.71",
+            "closedate": "2021-01-21T23:28:31Z",
+            "description": "'\"'",
+            "name": "Lizard, mexican beaded",
+            "StageName": "Closed Lost",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef16"
+            },
+            "accountId": "@AccountRef27"
+        },
+        {
+            "amount": "310190.00",
+            "closedate": "2020-11-15T11:53:25Z",
+            "description": "ヽ༼ຈل͜ຈ༽ﾉ ヽ༼ຈل͜ຈ༽ﾉ ",
+            "name": "Caribou",
+            "StageName": "Id. Decision Makers",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef17"
+            },
+            "accountId": "@AccountRef1"
+        },
+        {
+            "amount": "399514.09",
+            "closedate": "2021-05-20T09:48:14Z",
+            "description": "​",
+            "name": "Cobra, cape",
+            "StageName": "Value Proposition",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef18"
+            },
+            "accountId": "@AccountRef30"
+        },
+        {
+            "amount": "278715.65",
+            "closedate": "2021-04-16T11:03:45Z",
+            "description": "😍",
+            "name": "Chameleon (unidentified)",
+            "StageName": "Id. Decision Makers",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef19"
+            },
+            "accountId": "@AccountRef38"
+        },
+        {
+            "amount": "620440.88",
+            "closedate": "2020-12-02T09:21:16Z",
+            "description": "../../../../../../../../../../../etc/hosts",
+            "name": "Paradoxure",
+            "StageName": "Closed/Won",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef20"
+            },
+            "accountId": "@AccountRef18"
+        },
+        {
+            "amount": "725727.74",
+            "closedate": "2021-01-19T21:37:32Z",
+            "description": "１２３",
+            "name": "Bison, american",
+            "StageName": "Value Proposition",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef21"
+            },
+            "accountId": "@AccountRef48"
+        },
+        {
+            "amount": "811750.53",
+            "closedate": "2021-03-19T00:24:45Z",
+            "description": "울란바토르",
+            "name": "Stork, woolly-necked",
+            "StageName": "Assigned dynamically",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef22"
+            },
+            "accountId": "@AccountRef10"
+        },
+        {
+            "amount": "634024.56",
+            "closedate": "2021-05-22T19:11:07Z",
+            "description": "1;DROP TABLE users",
+            "name": "Antelope, sable",
+            "StageName": "Perception Analysis",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef23"
+            },
+            "accountId": "@AccountRef41"
+        },
+        {
+            "amount": "832619.54",
+            "closedate": "2021-06-13T14:49:24Z",
+            "description": "!@#$%^&*()",
+            "name": "Roller, lilac-breasted",
+            "StageName": "Negotiation/Review",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef24"
+            },
+            "accountId": "@AccountRef36"
+        },
+        {
+            "amount": "101333.85",
+            "closedate": "2021-04-19T22:53:38Z",
+            "description": "␣",
+            "name": "Helmeted guinea fowl",
+            "StageName": "Value Proposition",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef25"
+            },
+            "accountId": "@AccountRef29"
+        },
+        {
+            "amount": "856673.79",
+            "closedate": "2021-04-15T16:29:40Z",
+            "description": "部落格",
+            "name": "Goose, cereopsis",
+            "StageName": "Value Proposition",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef26"
+            },
+            "accountId": "@AccountRef16"
+        },
+        {
+            "amount": "941093.30",
+            "closedate": "2021-05-08T00:41:45Z",
+            "description": "<img src=x onerror=alert('hi') />",
+            "name": "Collared lizard",
+            "StageName": "Value Proposition",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef27"
+            },
+            "accountId": "@AccountRef31"
+        },
+        {
+            "amount": "765072.99",
+            "closedate": "2021-03-04T08:56:41Z",
+            "description": "사회과학원 어학연구소",
+            "name": "Ring-tailed coatimundi",
+            "StageName": "Assigned dynamically",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef28"
+            },
+            "accountId": "@AccountRef24"
+        },
+        {
+            "amount": "81942.54",
+            "closedate": "2021-03-05T14:31:49Z",
+            "description": "ﾟ･✿ヾ╲(｡◕‿◕｡)╱✿･ﾟ",
+            "name": "Dove, emerald-spotted wood",
+            "StageName": "Value Proposition",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef29"
+            },
+            "accountId": "@AccountRef48"
+        },
+        {
+            "amount": "615734.55",
+            "closedate": "2021-04-12T18:39:34Z",
+            "description": "␡",
+            "name": "Weaver, red-billed buffalo",
+            "StageName": "Assigned dynamically",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef30"
+            },
+            "accountId": "@AccountRef2"
+        },
+        {
+            "amount": "190216.32",
+            "closedate": "2020-12-24T10:21:52Z",
+            "description": "-1E+02",
+            "name": "Monitor, water",
+            "StageName": "Value Proposition",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef31"
+            },
+            "accountId": "@AccountRef33"
+        },
+        {
+            "amount": "669186.86",
+            "closedate": "2021-02-02T14:01:58Z",
+            "description": "̡͓̞ͅI̗̘̦͝n͇͇͙v̮̫ok̲̫̙͈i̖͙̭̹̠̞n̡̻̮̣̺g̲͈͙̭͙̬͎ ̰t͔̦h̞̲e̢̤ ͍̬̲͖f̴̘͕̣è͖ẹ̥̩l͖͔͚i͓͚̦͠n͖͍̗͓̳̮g͍ ̨o͚̪͡f̘̣̬ ̖̘͖̟͙̮c҉͔̫͖͓͇͖ͅh̵̤̣͚͔á̗̼͕ͅo̼̣̥s̱͈̺̖̦̻͢.̛̖̞̠̫̰",
+            "name": "Dove, emerald-spotted wood",
+            "StageName": "Id. Decision Makers",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef32"
+            },
+            "accountId": "@AccountRef24"
+        },
+        {
+            "amount": "284733.50",
+            "closedate": "2021-04-20T19:09:52Z",
+            "description": "❤️ 💔 💌 💕 💞 💓 💗 💖 💘 💝 💟 💜 💛 💚 💙",
+            "name": "American alligator",
+            "StageName": "Proposal/Price Quote",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef33"
+            },
+            "accountId": "@AccountRef6"
+        },
+        {
+            "amount": "385163.30",
+            "closedate": "2021-01-10T07:42:45Z",
+            "description": "部落格",
+            "name": "Common genet",
+            "StageName": "Needs Analysis",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef34"
+            },
+            "accountId": "@AccountRef26"
+        },
+        {
+            "amount": "969567.37",
+            "closedate": "2021-05-12T16:10:24Z",
+            "description": "1;DROP TABLE users",
+            "name": "Golden eagle",
+            "StageName": "Value Proposition",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef35"
+            },
+            "accountId": "@AccountRef46"
+        },
+        {
+            "amount": "877716.62",
+            "closedate": "2020-12-05T20:55:53Z",
+            "description": "__ﾛ(,_,*)",
+            "name": "Python, carpet",
+            "StageName": "Assigned dynamically",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef36"
+            },
+            "accountId": "@AccountRef19"
+        },
+        {
+            "amount": "752491.06",
+            "closedate": "2020-11-15T09:05:09Z",
+            "description": "(╯°□°）╯︵ ┻━┻)  ",
+            "name": "Dromedary camel",
+            "StageName": "Qualification",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef37"
+            },
+            "accountId": "@AccountRef28"
+        },
+        {
+            "amount": "946820.56",
+            "closedate": "2021-04-10T12:32:12Z",
+            "description": "הָיְתָהtestالصفحات التّحول",
+            "name": "Indian star tortoise",
+            "StageName": "Assigned dynamically",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef38"
+            },
+            "accountId": "@AccountRef1"
+        },
+        {
+            "amount": "789007.48",
+            "closedate": "2021-02-01T05:12:55Z",
+            "description": "울란바토르",
+            "name": "Giraffe",
+            "StageName": "Closed/Won",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef39"
+            },
+            "accountId": "@AccountRef3"
+        },
+        {
+            "amount": "623799.64",
+            "closedate": "2021-03-20T03:06:05Z",
+            "description": "⁰⁴⁵",
+            "name": "Squirrel, golden-mantled ground",
+            "StageName": "Qualification",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef40"
+            },
+            "accountId": "@AccountRef33"
+        },
+        {
+            "amount": "869401.55",
+            "closedate": "2021-02-08T07:37:07Z",
+            "description": "사회과학원 어학연구소",
+            "name": "Black-capped capuchin",
+            "StageName": "Assigned dynamically",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef41"
+            },
+            "accountId": "@AccountRef2"
+        },
+        {
+            "amount": "73799.08",
+            "closedate": "2020-12-21T22:21:11Z",
+            "description": "👩🏽",
+            "name": "Owl, white-browed",
+            "StageName": "Negotiation/Review",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef42"
+            },
+            "accountId": "@AccountRef24"
+        },
+        {
+            "amount": "420755.66",
+            "closedate": "2021-03-21T11:22:51Z",
+            "description": "⁰⁴⁵",
+            "name": "Lion, steller's sea",
+            "StageName": "Proposal/Price Quote",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef43"
+            },
+            "accountId": "@AccountRef5"
+        },
+        {
+            "amount": "356530.25",
+            "closedate": "2021-06-20T11:45:30Z",
+            "description": "1/2",
+            "name": "Spur-winged goose",
+            "StageName": "Id. Decision Makers",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef44"
+            },
+            "accountId": "@AccountRef7"
+        },
+        {
+            "amount": "892065.19",
+            "closedate": "2021-01-02T07:41:31Z",
+            "description": "１２３",
+            "name": "Canadian river otter",
+            "StageName": "Negotiation/Review",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef45"
+            },
+            "accountId": "@AccountRef20"
+        },
+        {
+            "amount": "549508.83",
+            "closedate": "2021-05-05T16:31:25Z",
+            "description": "/dev/null; touch /tmp/blns.fail ; echo",
+            "name": "Crowned eagle",
+            "StageName": "Assigned dynamically",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef46"
+            },
+            "accountId": "@AccountRef34"
+        },
+        {
+            "amount": "343248.34",
+            "closedate": "2020-12-19T20:55:40Z",
+            "description": "👾 🙇 💁 🙅 🙆 🙋 🙎 🙍 ",
+            "name": "Toucan, red-billed",
+            "StageName": "Value Proposition",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef47"
+            },
+            "accountId": "@AccountRef37"
+        },
+        {
+            "amount": "230009.14",
+            "closedate": "2021-04-19T00:36:36Z",
+            "description": "部落格",
+            "name": "Boa, columbian rainbow",
+            "StageName": "Qualification",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef48"
+            },
+            "accountId": "@AccountRef48"
+        },
+        {
+            "amount": "208464.69",
+            "closedate": "2021-04-08T23:05:23Z",
+            "description": ",./;'[]\\-=",
+            "name": "Ring-tailed possum",
+            "StageName": "Needs Analysis",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef49"
+            },
+            "accountId": "@AccountRef25"
+        },
+        {
+            "amount": "715534.24",
+            "closedate": "2020-11-16T12:04:19Z",
+            "description": "‪‪test‪",
+            "name": "Scarlet macaw",
+            "StageName": "Closed/Won",
+            "attributes": {
+                "type": "Opportunity",
+                "referenceId": "OpportunityRef50"
+            },
+            "accountId": "@AccountRef6"
+        }
+    ]
+}

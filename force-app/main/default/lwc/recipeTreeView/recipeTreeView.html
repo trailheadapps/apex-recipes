@@ -1,0 +1,14 @@
+<template>
+    <template if:true={treeData.data}>
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-tree
+                items={treeData.data}
+                header="Groups & Recipes"
+                onselect={handleOnSelect}
+            ></lightning-tree>
+        </div>
+    </template>
+    <template if:true={treeData.error}>
+        <c-error-panel errors={treeData.error}></c-error-panel>
+    </template>
+</template>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>parent1__c</fullName>
+    <externalId>false</externalId>
+    <label>Parent1</label>
+    <referenceTo>Junction_Demo_1__c</referenceTo>
+    <relationshipLabel>Junctions1</relationshipLabel>
+    <relationshipName>Junctions1</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

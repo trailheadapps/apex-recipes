@@ -1,0 +1,26 @@
+[
+    {
+        "sobject": "Campaign",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": ["Campaigns.json"]
+    },
+    {
+        "sobject": "Junction_Demo_1__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": ["Junction Demo 1.json"]
+    },
+    {
+        "sobject": "Junction_Demo_2__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": ["Junction Demo 2.json"]
+    },
+    {
+        "sobject": "Junction__c",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": ["Junction.json"]
+    }
+]

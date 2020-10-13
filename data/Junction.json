@@ -1,0 +1,404 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef1"
+            },
+            "parent1__c": "@JunctionDemoRef1",
+            "parent2__c": "@JunctionDemoTwoRef1"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef2"
+            },
+            "parent1__c": "@JunctionDemoRef2",
+            "parent2__c": "@JunctionDemoTwoRef2"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef3"
+            },
+            "parent1__c": "@JunctionDemoRef3",
+            "parent2__c": "@JunctionDemoTwoRef3"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef4"
+            },
+            "parent1__c": "@JunctionDemoRef4",
+            "parent2__c": "@JunctionDemoTwoRef4"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef5"
+            },
+            "parent1__c": "@JunctionDemoRef5",
+            "parent2__c": "@JunctionDemoTwoRef5"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef6"
+            },
+            "parent1__c": "@JunctionDemoRef6",
+            "parent2__c": "@JunctionDemoTwoRef6"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef7"
+            },
+            "parent1__c": "@JunctionDemoRef7",
+            "parent2__c": "@JunctionDemoTwoRef7"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef8"
+            },
+            "parent1__c": "@JunctionDemoRef8",
+            "parent2__c": "@JunctionDemoTwoRef8"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef9"
+            },
+            "parent1__c": "@JunctionDemoRef9",
+            "parent2__c": "@JunctionDemoTwoRef9"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef10"
+            },
+            "parent1__c": "@JunctionDemoRef10",
+            "parent2__c": "@JunctionDemoTwoRef10"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef11"
+            },
+            "parent1__c": "@JunctionDemoRef11",
+            "parent2__c": "@JunctionDemoTwoRef11"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef12"
+            },
+            "parent1__c": "@JunctionDemoRef12",
+            "parent2__c": "@JunctionDemoTwoRef12"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef13"
+            },
+            "parent1__c": "@JunctionDemoRef13",
+            "parent2__c": "@JunctionDemoTwoRef13"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef14"
+            },
+            "parent1__c": "@JunctionDemoRef14",
+            "parent2__c": "@JunctionDemoTwoRef14"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef15"
+            },
+            "parent1__c": "@JunctionDemoRef15",
+            "parent2__c": "@JunctionDemoTwoRef15"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef16"
+            },
+            "parent1__c": "@JunctionDemoRef16",
+            "parent2__c": "@JunctionDemoTwoRef16"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef17"
+            },
+            "parent1__c": "@JunctionDemoRef17",
+            "parent2__c": "@JunctionDemoTwoRef17"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef18"
+            },
+            "parent1__c": "@JunctionDemoRef18",
+            "parent2__c": "@JunctionDemoTwoRef18"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef19"
+            },
+            "parent1__c": "@JunctionDemoRef19",
+            "parent2__c": "@JunctionDemoTwoRef19"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef20"
+            },
+            "parent1__c": "@JunctionDemoRef20",
+            "parent2__c": "@JunctionDemoTwoRef20"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef21"
+            },
+            "parent1__c": "@JunctionDemoRef21",
+            "parent2__c": "@JunctionDemoTwoRef21"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef22"
+            },
+            "parent1__c": "@JunctionDemoRef22",
+            "parent2__c": "@JunctionDemoTwoRef22"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef23"
+            },
+            "parent1__c": "@JunctionDemoRef23",
+            "parent2__c": "@JunctionDemoTwoRef23"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef24"
+            },
+            "parent1__c": "@JunctionDemoRef24",
+            "parent2__c": "@JunctionDemoTwoRef24"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef25"
+            },
+            "parent1__c": "@JunctionDemoRef25",
+            "parent2__c": "@JunctionDemoTwoRef25"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef26"
+            },
+            "parent1__c": "@JunctionDemoRef26",
+            "parent2__c": "@JunctionDemoTwoRef26"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef27"
+            },
+            "parent1__c": "@JunctionDemoRef27",
+            "parent2__c": "@JunctionDemoTwoRef27"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef28"
+            },
+            "parent1__c": "@JunctionDemoRef28",
+            "parent2__c": "@JunctionDemoTwoRef28"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef29"
+            },
+            "parent1__c": "@JunctionDemoRef29",
+            "parent2__c": "@JunctionDemoTwoRef29"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef30"
+            },
+            "parent1__c": "@JunctionDemoRef30",
+            "parent2__c": "@JunctionDemoTwoRef30"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef31"
+            },
+            "parent1__c": "@JunctionDemoRef31",
+            "parent2__c": "@JunctionDemoTwoRef31"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef32"
+            },
+            "parent1__c": "@JunctionDemoRef32",
+            "parent2__c": "@JunctionDemoTwoRef32"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef33"
+            },
+            "parent1__c": "@JunctionDemoRef33",
+            "parent2__c": "@JunctionDemoTwoRef33"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef34"
+            },
+            "parent1__c": "@JunctionDemoRef34",
+            "parent2__c": "@JunctionDemoTwoRef34"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef35"
+            },
+            "parent1__c": "@JunctionDemoRef35",
+            "parent2__c": "@JunctionDemoTwoRef35"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef36"
+            },
+            "parent1__c": "@JunctionDemoRef36",
+            "parent2__c": "@JunctionDemoTwoRef36"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef37"
+            },
+            "parent1__c": "@JunctionDemoRef37",
+            "parent2__c": "@JunctionDemoTwoRef37"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef38"
+            },
+            "parent1__c": "@JunctionDemoRef38",
+            "parent2__c": "@JunctionDemoTwoRef38"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef39"
+            },
+            "parent1__c": "@JunctionDemoRef39",
+            "parent2__c": "@JunctionDemoTwoRef39"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef40"
+            },
+            "parent1__c": "@JunctionDemoRef40",
+            "parent2__c": "@JunctionDemoTwoRef40"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef41"
+            },
+            "parent1__c": "@JunctionDemoRef41",
+            "parent2__c": "@JunctionDemoTwoRef41"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef42"
+            },
+            "parent1__c": "@JunctionDemoRef42",
+            "parent2__c": "@JunctionDemoTwoRef42"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef43"
+            },
+            "parent1__c": "@JunctionDemoRef43",
+            "parent2__c": "@JunctionDemoTwoRef43"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef44"
+            },
+            "parent1__c": "@JunctionDemoRef44",
+            "parent2__c": "@JunctionDemoTwoRef44"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef45"
+            },
+            "parent1__c": "@JunctionDemoRef45",
+            "parent2__c": "@JunctionDemoTwoRef45"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef46"
+            },
+            "parent1__c": "@JunctionDemoRef46",
+            "parent2__c": "@JunctionDemoTwoRef46"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef47"
+            },
+            "parent1__c": "@JunctionDemoRef47",
+            "parent2__c": "@JunctionDemoTwoRef47"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef48"
+            },
+            "parent1__c": "@JunctionDemoRef48",
+            "parent2__c": "@JunctionDemoTwoRef48"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef49"
+            },
+            "parent1__c": "@JunctionDemoRef49",
+            "parent2__c": "@JunctionDemoTwoRef49"
+        },
+        {
+            "attributes": {
+                "type": "Junction__c",
+                "referenceId": "JunctionRef50"
+            },
+            "parent1__c": "@JunctionDemoRef50",
+            "parent2__c": "@JunctionDemoTwoRef50"
+        }
+    ]
+}

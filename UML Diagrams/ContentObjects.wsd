@@ -1,0 +1,25 @@
+@startuml
+
+ContentDocument "1" <-- "many" ContentVersion : "has"
+
+ContentDocument : id
+ContentDocument : fileType
+
+ContentVersion : id
+ContentVersion : pathOnClient
+
+SObject "1" <-- "many" ContentDocumentLink : "can have"
+
+class SObject
+note right: "This can be most any SObject"
+
+ContentDocument "many" --> "many" ContentDocumentLink : has
+
+ContentDistribution --> ContentVersion
+ContentDistribution : id
+ContentDistribution : contentDownloadUrl
+ContentDistribution : relatedRecordId
+
+SObject : id
+
+@enduml

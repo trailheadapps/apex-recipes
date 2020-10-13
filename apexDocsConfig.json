@@ -1,0 +1,8 @@
+{
+    "root": "https://github.com/trailheadapps/apex-recipes/wiki",
+    "sourceLanguage": "java",
+    "content": {
+        "startingHeadingLevel": 1,
+        "includeDate": true
+    }
+}

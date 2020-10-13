@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Prompt xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>Apex Recipes Intro Walkthrough</masterLabel>
+    <promptVersions>
+        <body>These recipes represent a succinct expression of how to solve a given problem, &lt;i&gt;correctly&lt;/i&gt;, in Apex. &lt;br/&gt; Using the tree navigation on the left, click the &lt;b&gt;&gt;&lt;/b&gt; next to &lt;b&gt;Data Recipes&lt;/b&gt;, and then click on &lt;b&gt;SOQLRecipes&lt;/b&gt;</body>
+        <customApplication>Apex_Recipes</customApplication>
+        <delayDays>1</delayDays>
+        <dismissButtonLabel>Close</dismissButtonLabel>
+        <displayPosition>TopCenter</displayPosition>
+        <displayType>FloatingPanel</displayType>
+        <isPublished>true</isPublished>
+        <masterLabel>Apex Recipes Intro Walkthrough Step 1</masterLabel>
+        <publishedDate>2020-10-07</publishedDate>
+        <shouldDisplayActionButton>false</shouldDisplayActionButton>
+        <shouldIgnoreGlobalDelay>false</shouldIgnoreGlobalDelay>
+        <startDate>2020-10-07</startDate>
+        <stepNumber>1</stepNumber>
+        <targetAppDeveloperName>Apex_Recipes</targetAppDeveloperName>
+        <targetPageKey1>Apex_Recipes</targetPageKey1>
+        <targetPageType>standard__navItemPage</targetPageType>
+        <timesToDisplay>1</timesToDisplay>
+        <title>Welcome to Apex Recipes</title>
+        <userAccess>Everyone</userAccess>
+        <userProfileAccess>Everyone</userProfileAccess>
+        <versionNumber>1</versionNumber>
+    </promptVersions>
+    <promptVersions>
+        <body>After selecting a recipe you&apos;ll see at least three tabs. tabs: &lt;i&gt;a Recipe class, Test Class, and Documentation&lt;/i&gt; &lt;br/&gt; Additionally, if there are any related classes, they will show as tabs on the right.</body>
+        <customApplication>Apex_Recipes</customApplication>
+        <dismissButtonLabel>Close</dismissButtonLabel>
+        <displayPosition>BottomCenter</displayPosition>
+        <displayType>FloatingPanel</displayType>
+        <isPublished>false</isPublished>
+        <masterLabel>Apex Recipes Intro Walkthrough Step 2</masterLabel>
+        <shouldDisplayActionButton>false</shouldDisplayActionButton>
+        <shouldIgnoreGlobalDelay>false</shouldIgnoreGlobalDelay>
+        <stepNumber>2</stepNumber>
+        <targetAppDeveloperName>Apex_Recipes</targetAppDeveloperName>
+        <targetPageKey1>Apex_Recipes</targetPageKey1>
+        <targetPageType>standard__navItemPage</targetPageType>
+        <title>Recipe View</title>
+        <userAccess>Everyone</userAccess>
+        <userProfileAccess>Everyone</userProfileAccess>
+        <versionNumber>1</versionNumber>
+    </promptVersions>
+    <promptVersions>
+        <body>Click on the Documentation Tab. As you read through the documentation, you&apos;ll notice &lt;i&gt;example&lt;/i&gt; blocks. These are syntax highlighted, and are self-contained execute-anonymous code snippets that exercise the recipe you&apos;re viewing.</body>
+        <customApplication>Apex_Recipes</customApplication>
+        <dismissButtonLabel>Close</dismissButtonLabel>
+        <displayPosition>TopCenter</displayPosition>
+        <displayType>FloatingPanel</displayType>
+        <isPublished>false</isPublished>
+        <masterLabel>Apex Recipes Intro Walkthrough Step 3</masterLabel>
+        <shouldDisplayActionButton>false</shouldDisplayActionButton>
+        <shouldIgnoreGlobalDelay>false</shouldIgnoreGlobalDelay>
+        <stepNumber>3</stepNumber>
+        <targetAppDeveloperName>Apex_Recipes</targetAppDeveloperName>
+        <targetPageKey1>Apex_Recipes</targetPageKey1>
+        <targetPageType>standard__navItemPage</targetPageType>
+        <title>Executable Examples</title>
+        <userAccess>Everyone</userAccess>
+        <userProfileAccess>Everyone</userProfileAccess>
+        <versionNumber>1</versionNumber>
+    </promptVersions>
+    <promptVersions>
+        <body>Above the formatted recipe view is a &lt;i&gt;Make a suggestion on Github&lt;/i&gt; button. Clicking this will open the current file in edit mode on Github. You can make suggested changes, and submit a pull request, all from your browser!</body>
+        <customApplication>Apex_Recipes</customApplication>
+        <dismissButtonLabel>Close</dismissButtonLabel>
+        <displayPosition>BottomCenter</displayPosition>
+        <displayType>FloatingPanel</displayType>
+        <isPublished>false</isPublished>
+        <masterLabel>Apex Recipes Intro Walkthrough Step 4</masterLabel>
+        <shouldDisplayActionButton>false</shouldDisplayActionButton>
+        <shouldIgnoreGlobalDelay>false</shouldIgnoreGlobalDelay>
+        <stepNumber>4</stepNumber>
+        <targetAppDeveloperName>Apex_Recipes</targetAppDeveloperName>
+        <targetPageKey1>Apex_Recipes</targetPageKey1>
+        <targetPageType>standard__navItemPage</targetPageType>
+        <title>Contributing</title>
+        <userAccess>Everyone</userAccess>
+        <userProfileAccess>Everyone</userProfileAccess>
+        <versionNumber>1</versionNumber>
+    </promptVersions>
+</Prompt>

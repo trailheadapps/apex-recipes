@@ -1,0 +1,54 @@
+{
+    "name": "apex-recipes",
+    "private": true,
+    "version": "1.0.0",
+    "description": "A sample app demonstrating various aspects of the Apex programming language and the Salesforce Platform",
+    "scripts": {
+        "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "prettier:apex:local": "prettier --apex-standalone-parser built-in --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "prettier:verify:apex:local": "prettier --apex-standalone-parser built-in --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "postinstall": "node bin/check-version.js",
+        "apexdocs": "apexdocs-generate -c apexDocsConfig.json -o false -p global public private protected namespaceaccessible -s force-app/main/default/classes && rm docs/index.md",
+        "apex:local:start": "node node_modules/prettier-plugin-apex/bin/start-apex-server.js",
+        "apex:local:stop": "node node_modules/prettier-plugin-apex/bin/stop-apex-server.js",
+        "precommit": "npm run apex:local:start & sleep 2 && npm run apexdocs && npm run prettier:apex:local && npm run apex:local:stop",
+        "test:unit": "sfdx-lwc-jest",
+        "test:unit:watch": "sfdx-lwc-jest --watch",
+        "test:unit:debug": "sfdx-lwc-jest --debug",
+        "test:unit:coverage": "sfdx-lwc-jest --coverage"
+    },
+    "author": "salesforce.com",
+    "license": "CC0-1.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/trailheadapps/apex-recipes"
+    },
+    "engines": {
+        "node": ">= 10.13.0",
+        "npm": ">= 6.5.0"
+    },
+    "devDependencies": {
+        "@cparra/apexdocs": "^1.10.2",
+        "@lwc/eslint-plugin-lwc": "^0.10.0",
+        "@prettier/plugin-xml": "^0.12.0",
+        "@sa11y/jest": "^0.1.4-beta.0",
+        "@salesforce/eslint-config-lwc": "^0.7.0",
+        "@salesforce/sfdx-lwc-jest": "^0.9.2",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.11.0",
+        "eslint-config-prettier": "^6.12.0",
+        "husky": "^4.2.5",
+        "jest-canvas-mock": "^2.3.0",
+        "lint-staged": "^10.2.13",
+        "prettier": "^2.1.1",
+        "prettier-plugin-apex": "^1.6.0",
+        "semver": "^7.3.2"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run precommit"
+        }
+    },
+    "dependencies": {}
+}

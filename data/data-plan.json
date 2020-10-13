@@ -1,0 +1,20 @@
+[
+    {
+        "sobject": "Account",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": ["Accounts.json"]
+    },
+    {
+        "sobject": "Contact",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": ["Contacts.json"]
+    },
+    {
+        "sobject": "Opportunity",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": ["Opportunities.json"]
+    }
+]
