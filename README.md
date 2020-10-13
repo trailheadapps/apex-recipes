@@ -96,7 +96,7 @@ Make sure to start from a brand-new environment to avoid conflicts with previous
 
     - Please be sure that the domain is both **registered** and **deployed** and that your user has logged into the new domain.
 
-1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t4W0000033vydQAA) to install the Apex Recipes unlocked package in your org.
+1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3g000000kdzQAAQ) to install the Apex Recipes unlocked package in your org.
 
 1. Select **Install for All Users**
 
