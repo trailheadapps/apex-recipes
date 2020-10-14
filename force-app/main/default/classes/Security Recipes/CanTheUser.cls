@@ -160,17 +160,7 @@ public inherited sharing class CanTheUser {
      * System.debug(CanTheuser.flsAccessible('Account', 'Name'));
      **/
     public static Boolean flsAccessible(String obj, String field) {
-        Cache.Partition defaultSession = PlatformCacheRecipes.getDefaultPartition(
-            PlatformCacheRecipes.PatitionType.SESSION
-        );
-        Map<String, Map<FLSType, Boolean>> objResults = (Map<String, Map<FLSType, Boolean>>) defaultSession.get(
-            PermissionCache.class,
-            obj
-        );
-        if (objResults.containsKey(field.toLowerCase())) {
-            return objResults.get(field.toLowerCase()).get(FLSType.ACCESSIBLE);
-        }
-        return false;
+        return getFLSForFieldOnObject(obj, field, FLSType.ACCESSIBLE);
     }
 
     /**
@@ -203,19 +193,11 @@ public inherited sharing class CanTheUser {
      * System.debug(CanTheuser.flsUpdatable('Account', 'Name'));
      **/
     public static Boolean flsUpdatable(String obj, String field) {
-        Cache.Partition defaultSession = PlatformCacheRecipes.getDefaultPartition(
-            PlatformCacheRecipes.PatitionType.SESSION
-        );
-        Map<String, Map<FLSType, Boolean>> objResults = (Map<String, Map<FLSType, Boolean>>) defaultSession
-            .get(PermissionCache.class, obj);
-        if (objResults.containsKey(field.toLowerCase())) {
-            return objResults.get(field.toLowerCase()).get(FLSType.UPDATABLE);
-        }
-        return false;
+        return getFLSForFieldOnObject(obj, field, FLSType.UPDATABLE);
     }
 
     /**
-     * @description  bulk form o flsUpdatable call
+     * @description  bulk form of flsUpdatable call
      * @param obj    Name of the object
      * @param fields Set of Field names to check
      * @return      `Map<String, Boolean>`
@@ -278,5 +260,27 @@ public inherited sharing class CanTheUser {
         } else {
             return CanTheUser.updatableFieldsByObject.get(objType);
         }
+    }
+
+    /**
+     * @description     Abstracted method for retrieving or calculating
+     * (memoization) of the FLS for a given field on a given object.
+     * @param obj       String version of object name to check
+     * @param field     String version of the field to check
+     * @param checkType Enum of Accessible or Updatable.
+     * @returns         `Boolean`
+     */
+    private static Boolean getFLSForFieldOnObject(
+        String obj,
+        String field,
+        FLSType checkType
+    ) {
+        Cache.Partition defaultSession = PlatformCacheRecipes.getDefaultPartition(
+            PlatformCacheRecipes.PatitionType.SESSION
+        );
+        Map<String, Map<FLSType, Boolean>> objResults = (Map<String, Map<FLSType, Boolean>>) defaultSession
+            .get(PermissionCache.class, obj);
+        Boolean results = objResults.get(field.toLowerCase())?.get(checkType);
+        return (results != null && results) ? true : false;
     }
 }
