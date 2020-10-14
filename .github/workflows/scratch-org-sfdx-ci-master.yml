@@ -105,9 +105,16 @@ jobs:
         runs-on: ubuntu-latest
         needs: scratch-org-test
         steps:
-            - uses: actions/checkout@v2
-            # Additional steps to generate documentation in "Documentation" directory
-            - name: Upload Documentation to Wiki
+            # Checkout the code
+            - name: 'Checkout source code'
+              uses: actions/checkout@v2
+
+            # Fetch history
+            - name: 'Fetch history'
+              run: git fetch origin ${{ github.event.before }} --depth=1
+
+            # Upload documentation to wiki
+            - name: Upload documentation to wiki
               uses: SwiftDocOrg/github-wiki-publish-action@v1
               with:
                   path: 'force-app/main/default/staticresources/documentation/docs/docs'
