@@ -194,7 +194,7 @@ This repository contains several files that are relevant if you want to integrat
 
 ### Apex Docs
 
-[ApexDocs](https://github.com/cesarParra/apexdocs#readme) is a NPM package for generating Markdown (.md) files from the Classes in this repository. The pacakge.json file in
+[ApexDocs](https://github.com/cesarParra/apexdocs#readme) is a NPM package for generating Markdown (.md) files from the Classes in this repository. The package.json file in
 this repo includes an npm script for generating these Apex docs. Execute `npm run apexdocs` to generate fresh docs. These docs are shipped as part of a Static Resource and are available in your org via the Apex Recipes app. Navigate to any class and click it's coresponding Docs tab.
 
 ### Pre-commit hook
