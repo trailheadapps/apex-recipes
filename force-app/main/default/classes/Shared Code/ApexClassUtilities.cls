@@ -1,6 +1,6 @@
 /**
  * @description Contains reusable code dealing with ApexClass objects.
- * This is primarialy used by the LWC components for displaying code
+ * This is primarily used by the LWC components for displaying code
  * in an org.
  * @group Shared Code
  * @see RecipeTreeViewController, FormattedRecipeDisplayController
