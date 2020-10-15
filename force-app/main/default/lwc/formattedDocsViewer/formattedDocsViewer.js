@@ -63,7 +63,7 @@ export default class FormattedDocsViewer extends LightningElement {
     applyStyling() {
         this.applyStyleTo('h1', 'slds-text-heading_large');
         this.applyStyleTo('h2', 'slds-text-heading_medium');
-        this.applyStyleTo('h3', 'slds-text-heading_small');
+        this.applyStyleTo('h3', 'slds-text-heading_small slds-m-top_large slds-m-bottom_x-small');
         this.applyStyleTo('h4', 'slds-text-title_bold');
         this.applyStyleTo('p', 'slds-text-body_regular');
     }
