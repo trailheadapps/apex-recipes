@@ -12,6 +12,10 @@ Provides the necessary data to populate a lightning-tree base component with rec
 ---
 ## Properties
 
+### `APEXRECIPESIDENTIFICATIONTAG` → `String`
+
+The String here represents a relatively unique tag that Apex Recipe uses to help group related classes.
+
 ### `groupToListOfNames` → `List<String>>`
 
 ---

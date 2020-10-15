@@ -8,6 +8,12 @@ public inherited sharing class RecipeTreeViewController {
     private static Map<String, List<String>> groupToListOfNames;
 
     /**
+     * @description The String here represents a relatively unique tag that
+     * Apex Recipe uses to help group related classes.
+     */
+    private static final String APEXRECIPESIDENTIFICATIONTAG = '* @group';
+
+    /**
      * @description Used to marshall data between Apex and the LWC component
      * that uses this data
      */
@@ -103,11 +109,12 @@ public inherited sharing class RecipeTreeViewController {
     @SuppressWarnings('PMD.ApexCRUDViolation')
     private static Map<String, List<String>> generateMapOfGroupToListOfNames() {
         Map<String, List<String>> returnMap = new Map<String, List<String>>();
-        ApexClass[] classes = [
-            SELECT Name, Body
-            FROM ApexClass
-            WHERE NOT Name LIKE '%_Tests'
+        List<List<SObject>> searchResults = [
+            FIND :APEXRECIPESIDENTIFICATIONTAG
+            IN ALL FIELDS
+            RETURNING ApexClass(Name, Body)
         ];
+        ApexClass[] classes = searchResults[0];
 
         for (ApexClass klass : classes) {
             String groupName = ApexClassUtilities.getGroupFromClassBody(klass);

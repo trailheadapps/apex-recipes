@@ -2,6 +2,16 @@
 private class RecipeTreeViewController_Tests {
     @isTest
     static void testGenerateTreeDataPositive() {
+        Map<Id, ApexClass> fakeResults = new Map<Id, ApexClass>(
+            [
+                SELECT Name, Body
+                FROM ApexClass
+                WHERE
+                    name LIKE 'RecipeTreeViewController'
+                    OR name LIKE 'SOQLRecipes'
+            ]
+        );
+        Test.setFixedSearchResults(new List<Id>(fakeResults.keyset()));
         Test.startTest();
         List<RecipeTreeViewController.RecipeTreeData> tree = RecipeTreeViewController.generateTreeData();
         Test.stopTest();
