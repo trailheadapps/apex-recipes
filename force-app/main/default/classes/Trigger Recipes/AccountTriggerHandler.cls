@@ -5,8 +5,8 @@
  * @see TriggerHandler, AccountServiceLayer
  */
 public inherited sharing class AccountTriggerHandler extends TriggerHandler {
-    private List<Account> triggerOld;
-    private List<Account> triggerNew;
+    private List<Account> triggerOld, List<Account> triggerNew;
+    private Map<Id, Account> triggerMapNew, triggerMapOld;
 
     @TestVisible
     private static Exception circuitBreaker;
@@ -24,6 +24,8 @@ public inherited sharing class AccountTriggerHandler extends TriggerHandler {
     public AccountTriggerHandler() {
         this.triggerOld = (List<Account>) Trigger.old;
         this.triggerNew = (List<Account>) Trigger.new;
+        this.triggerMapNew = (Map<Id, Account>) Trigger.newMap;
+        this.triggerMapOld = (Map<Id, Account>) Trigger.oldMap;
     }
 
     // Insert Contexts
