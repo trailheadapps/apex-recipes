@@ -88,13 +88,15 @@ for real world solutions and should relevant to developers of all skill levels. 
 
 Follow this set of instructions if you want to deploy the app to a more permanent environment than a Scratch org or if you don't want to install the local developement tools. You can use a non source-tracked orgs such as a free [Developer Edition Org](https://developer.salesforce.com/signup) or a [Trailhead Playground](https://trailhead.salesforce.com/).
 
-Make sure to start from a brand-new environment to avoid conflicts with previous work you may have done.
+Make sure to start from a **brand-new environment** to avoid conflicts with previous work you may have done.
 
 1. Log in to your org
 
 1. If you are setting up a Developer Edition: go to **Setup**, under **My Domain**, [register a My Domain](https://help.salesforce.com/articleView?id=domain_name_setup.htm&type=5).
 
     - Please be sure that the domain is both **registered** and **deployed** and that your user has logged into the new domain.
+
+1. Go to **Setup**, under **Platform Cache**, and click the "Request Trial Capacity" button. [Request a Platform Cache Trial](https://help.salesforce.com/articleView?id=data_platform_cache_trial.htm&type=5)
 
 1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3g000000kdzQAAQ) to install the Apex Recipes unlocked package in your org.
 
@@ -146,6 +148,8 @@ Make sure to start from a brand-new environment to avoid conflicts with previous
 
 1. If you are setting up a Developer Edition: go to **Setup**, under **My Domain**, [register a My Domain](https://help.salesforce.com/articleView?id=domain_name_setup.htm&type=5).
 
+1. If you are setting up a Developer Edition: go to **Setup**, under **Platform Cache**, and click the "Request Trial Capacity" button. [Request a Platform Cache Trial](https://help.salesforce.com/articleView?id=data_platform_cache_trial.htm&type=5)
+
 1. Run this command in a terminal to deploy the app.
 
     ```
@@ -194,7 +198,7 @@ This repository contains several files that are relevant if you want to integrat
 
 ### Apex Docs
 
-[ApexDocs](https://github.com/cesarParra/apexdocs#readme) is a NPM package for generating Markdown (.md) files from the Classes in this repository. The pacakge.json file in
+[ApexDocs](https://github.com/cesarParra/apexdocs#readme) is a NPM package for generating Markdown (.md) files from the Classes in this repository. The package.json file in
 this repo includes an npm script for generating these Apex docs. Execute `npm run apexdocs` to generate fresh docs. These docs are shipped as part of a Static Resource and are available in your org via the Apex Recipes app. Navigate to any class and click it's coresponding Docs tab.
 
 ### Pre-commit hook
