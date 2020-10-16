@@ -3,7 +3,7 @@ layout: default
 ---
 # ApexClassUtilities class
 
-Contains reusable code dealing with ApexClass objects. This is primarialy used by the LWC components for displaying code in an org.
+Contains reusable code dealing with ApexClass objects. This is primarily used by the LWC components for displaying code in an org.
 
 ## Related
 
