@@ -155,10 +155,6 @@ In the context of a TriggerHandler class,
 this.setMaxLoopCount(5);
 ```
 
-### `setTriggerContext()` → `void`
-
-internal method to forcibly set the trigger context
-
 ### `setTriggerContext(String ctx, Boolean testMode)` → `void`
 
 Internal method for manually setting the trigger context
@@ -168,6 +164,10 @@ Internal method for manually setting the trigger context
 |-----|-----------|
 |`ctx` |       The current trigger Context |
 |`testMode` |  Is the trigger running in a test context? |
+
+### `setTriggerContext()` → `void`
+
+internal method to forcibly set the trigger context
 
 ### `validateRun()` → `Boolean`
 

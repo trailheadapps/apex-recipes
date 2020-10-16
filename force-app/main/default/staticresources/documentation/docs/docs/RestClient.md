@@ -3,7 +3,7 @@ layout: default
 ---
 # RestClient class
 
-This class provides an exmaple of an intelligent abstraction for making REST callouts to external endpoints. It utilizes NamedCredentials for security. This class is designated as Virtual so that API Service classes can extend it, and make use of it's methods easily. See the CovidTrackerAPI class for an example of how an API service class can extend RestClient. This class also provides static methods - so that the abstractions provided can be used in a one-off or ad-hoc manner for situations where a full API Service class isn't needed. More on Named Credentials: https:
+This class provides an exmaple of an intelligent abstraction for making REST callouts to external endpoints. It utilizes NamedCredentials for security. This class is designated as Virtual so that API Service classes can extend it, and make use of it's methods easily. See the CovidTrackerAPI class for an example of how an API service class can extend RestClient. This class also provides static methods - so that the abstractions provided can be used in a one-off or ad-hoc manner for situations where a full API Service class isn't needed. More on Named Credentials: https://sfdc.co/named-credentials
 
 ## Related
 
@@ -135,6 +135,26 @@ convenience version of makeApiCall without body or query params. Invokes omnibus
 |`method` |  HTTPVerb to use. See the enum above. |
 |`path` |    Http path component of the URL. ie: `/path/to/resource` |
 
+### `makeApiCall(String namedCredential,HttpVerb method,String path,String query)` → `HTTPResponse`
+
+A static wrapper for the main makeApiCall method that assumes default headers.
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`namedCredential` |  The named credential to use |
+|`method` |           HTTPVerb enum value. See Enum above |
+|`path` |            Http path component of the URL. ie: `/path/to/resource` |
+|`query` |            Query component of the URL ie: after `?foo=bar` |
+
+#### Example
+```java
+System.Debug(RestClient.makeApiCall('MockBin',
+                                     RestClient.HttpVerb.GET,
+                                     '4cb453a6-a23b-42ea-a6ba-9be1c1f17050',
+                                     ''));
+```
+
 ### `makeApiCall(String namedCredential,HttpVerb method,String path,String query,String body,Map<String, String> headers)` → `HTTPResponse`
 
 A static wrapper for the main makeApiCall method
@@ -157,26 +177,6 @@ System.Debug(RestClient.makeApiCall('MockBin',
                                      '',
                                      '',
                                      new Map<String,String>()));
-```
-
-### `makeApiCall(String namedCredential,HttpVerb method,String path,String query)` → `HTTPResponse`
-
-A static wrapper for the main makeApiCall method that assumes default headers.
-
-#### Parameters
-|Param|Description|
-|-----|-----------|
-|`namedCredential` |  The named credential to use |
-|`method` |           HTTPVerb enum value. See Enum above |
-|`path` |            Http path component of the URL. ie: `/path/to/resource` |
-|`query` |            Query component of the URL ie: after `?foo=bar` |
-
-#### Example
-```java
-System.Debug(RestClient.makeApiCall('MockBin',
-                                     RestClient.HttpVerb.GET,
-                                     '4cb453a6-a23b-42ea-a6ba-9be1c1f17050',
-                                     ''));
 ```
 
 ### `makeApiCall(String namedCredential,HttpVerb method,String path)` → `HTTPResponse`
@@ -218,16 +218,6 @@ convenience method for a PATCH Call that only requires a path, query and body
 |`query` |   Query component of the URL ie: after `?foo=bar` |
 |`body` |    JSON string to post |
 
-### `post(String path, String body)` → `HTTPResponse`
-
-convenience method for a POST Call that only requires a path and body
-
-#### Parameters
-|Param|Description|
-|-----|-----------|
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
-|`body` |    JSON string to post |
-
 ### `post(String path, String query, String body)` → `HTTPResponse`
 
 convenience method for a POST Call that only requires a path, query and body
@@ -239,9 +229,9 @@ convenience method for a POST Call that only requires a path, query and body
 |`query` |   Query component of the URL ie: after `?foo=bar` |
 |`body` |    JSON string to post |
 
-### `put(String path, String body)` → `HTTPResponse`
+### `post(String path, String body)` → `HTTPResponse`
 
-convenience method for a PUT Call that only requires a path and body
+convenience method for a POST Call that only requires a path and body
 
 #### Parameters
 |Param|Description|
@@ -258,6 +248,16 @@ convenience method for a PUT Call that only requires a path, query and body
 |-----|-----------|
 |`path` |    Http path component of the URL. ie: `/path/to/resource` |
 |`query` |   Query component of the URL ie: after `?foo=bar` |
+|`body` |    JSON string to post |
+
+### `put(String path, String body)` → `HTTPResponse`
+
+convenience method for a PUT Call that only requires a path and body
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`path` |    Http path component of the URL. ie: `/path/to/resource` |
 |`body` |    JSON string to post |
 
 ---

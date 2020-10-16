@@ -24,7 +24,7 @@ private, test visible circiut breaker boolean.
 
 #### Example
 ```java
-curl —X DELETE -H "Authorization: Bearer <SessionID>" "https:
+curl —X DELETE -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/IntegrationService"
 ```
 
 ### `getRecordsToReturn()` → `String`
@@ -33,7 +33,7 @@ curl —X DELETE -H "Authorization: Bearer <SessionID>" "https:
 
 #### Example
 ```java
-curl -H "Authorization: Bearer <SessionID>" "https:
+curl -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/IntegrationService"
 ```
 
 ### `parseAndCreateNewContacts()` → `String`
@@ -48,7 +48,7 @@ Create file with the following JSON, named newContact.json
       "lastName": "Recipes",
       "phone" : "919-867-5309",
     }
-curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https:
+curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
 ```
 
 ### `updateAccountRecords()` → `String`
@@ -64,9 +64,9 @@ Create file with the following JSON, named newContact.json
       "phone" : "919-867-5309",
       "ExternalSalesforceId__c": "
     }
-curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https:
+curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
 Then, Modify the first name of your newContact.json file so it says "Apex2" and run
-curl —X PATCH -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https:
+curl —X PATCH -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
 ```
 
 ### `upsertContactRecords()` → `String`
@@ -82,9 +82,9 @@ Create file with the following JSON, named newContact.json
       "phone" : "919-867-5309",
       "ExternalSalesforceId__c": "
     }
-curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https:
+curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
 Then, Modify the first name of your newContact.json file so it says "Apex2" and run
-curl —X PUT -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https:
+curl —X PUT -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
 ```
 
 ---
