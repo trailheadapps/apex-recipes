@@ -54,7 +54,10 @@ public inherited sharing class AccountServiceLayer {
             uAcct.shippingStreet = '229b Baker st.';
             updated.add(uAcct);
         }
-        if (CanTheUser.edit(updated[0])) {
+        if (
+            CanTheUser.edit(updated[0]) &&
+            CanTheUser.flsUpdatable('Account', 'shippingStreet')
+        ) {
             update updated;
         } else {
             throw new CanTheUser.CanTheUserException(
