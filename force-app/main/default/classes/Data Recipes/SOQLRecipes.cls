@@ -10,9 +10,8 @@ public inherited sharing class SOQLRecipes {
      *   keeping FLS and CRUD in account.
      *
      * Note: This method has a false-positive PMD warning. PMD isn't aware of
-     * the purpose or functionality of CanTheUser.* so it doesn't undersatnd
-     * that we are, in fact, checking for CRUD / FLS permissions prior to
-     * querying.
+     * what WITH SECURITY_ENFORCED does, so it falsely thinks this code doesn't
+     * respect FLS/CRUD.
      * @return list<Account>
      * @example
      * List<Account> results = SOQLRecipes.querySingleObject();
@@ -21,13 +20,11 @@ public inherited sharing class SOQLRecipes {
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public static list<Account> querySingleObject() {
         List<Account> accounts = new List<Account>();
-        if (CanTheUser.read(new Account())) {
-            accounts = [
-                SELECT Name, ShippingStreet, ShippingCity
-                FROM Account
-                WITH SECURITY_ENFORCED
-            ];
-        }
+        accounts = [
+            SELECT Name, ShippingStreet, ShippingCity
+            FROM Account
+            WITH SECURITY_ENFORCED
+        ];
         return accounts;
     }
 

@@ -3,7 +3,7 @@ layout: default
 ---
 # QueueableRecipes class
 
-This class demonstrates how to construct a Queueable class. The methods in this class are run automatically by the system as the job runs. To enqueue this job, use: `System.enqueueJob(new QueueableRecipes());` More on the Queable interface: https://sfdc.co/queueable-apex
+This class demonstrates how to construct a Queueable class. The methods in this class are run automatically by the system as the job runs. To enqueue this job, use: `System.enqueueJob(new QueueableRecipes());` More on the Queable interface: https:
 
 ---
 ## Methods

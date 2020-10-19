@@ -35,17 +35,27 @@ private class SOQLRecipes_Tests {
     static void testProfileDeniesAccountAccessNegative() {
         TestDataHelpers.createAccount(false, '');
         User testUser = TestFactory.createMinAccessUser(true);
+        Boolean didCatchProperException = false;
         System.runAs(testUser) {
-            Boolean didCatchProperException = false;
             Test.startTest();
-            List<Account> testAccounts = SOQLRecipes.querySingleObject();
+            try {
+                List<Account> testAccounts = SOQLRecipes.querySingleObject();
+            } catch (QueryException qe) {
+                if (
+                    qe.getMessage()
+                        .containsIgnoreCase(
+                            'secure query included inaccessible'
+                        )
+                ) {
+                    didCatchProperException = true;
+                }
+            }
             Test.stopTest();
-            System.assertEquals(
-                0,
-                testAccounts.size(),
-                'Expected to find one account'
-            );
         }
+        System.assert(
+            didCatchProperException,
+            'Expected to have recieved a secure query exception'
+        );
     }
 
     @isTest
