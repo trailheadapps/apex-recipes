@@ -128,7 +128,7 @@ System.debug(SOQLRecipes.queryMassiveNumberOfRecordsReturningCount());
 
 ### `querySingleObject()` → `list<Account>`
 
-Demonstrates the proper way to query accounts with SOQL keeping FLS and CRUD in account. Note: This method has a false-positive PMD warning. PMD isn't aware of the purpose or functionality of CanTheUser.* so it doesn't undersatnd that we are, in fact, checking for CRUD / FLS permissions prior to querying.
+Demonstrates the proper way to query accounts with SOQL keeping FLS and CRUD in account. Note: This method has a false-positive PMD warning. PMD isn't aware of what WITH SECURITY_ENFORCED does, so it falsely thinks this code doesn't respect FLS/CRUD.
 
 #### Example
 ```java
