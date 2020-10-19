@@ -3,7 +3,7 @@ layout: default
 ---
 # BatchApexRecipes class
 
-Demonstrates the use of the Database.Batchable interface. The methods in this class are called by the system as the batch executes. To enqueue this batch use `Database.enqueueBatch(new BatchApexRecipes());` More on the Batchable interface: https://sfdc.co/batch_interface
+Demonstrates the use of the Database.Batchable interface. The methods in this class are called by the system as the batch executes. To enqueue this batch use `Database.enqueueBatch(new BatchApexRecipes());` More on the Batchable interface: https:
 
 ---
 ## Properties
