@@ -104,7 +104,7 @@ Make sure to start from a **brand-new environment** to avoid conflicts with prev
 
 1. Once installed:
 
-1. (Optional) Add additional data examples. [In the data folder](https://raw.githubusercontent.com/trailheadapps/apex-recipes/master/data/) are sample CSV files which can be
+1. (Optional) Add additional data examples. [In the data folder](https://github.com/trailheadapps/apex-recipes/tree/master/data/) are sample CSV files which can be
    used by dataloader.io or the Import Data Wizard.
 
 1. (Optional) Load the sample Junction objects data:
