@@ -54,9 +54,7 @@ private inherited sharing class PlatformEventRecipes_Tests {
         Test.startTest();
         System.runAs(testUser) {
             try {
-                Database.SaveResult publishResult = PlatformEventRecipes.publishEvent(
-                    event
-                );
+                PlatformEventRecipes.publishEvent(event);
             } catch (PlatformEventRecipes.PlatformEventRecipesException pere) {
                 if (
                     pere.getMessage()

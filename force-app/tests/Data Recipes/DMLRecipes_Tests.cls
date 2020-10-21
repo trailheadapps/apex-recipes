@@ -48,7 +48,6 @@ public class DMLRecipes_Tests {
     @isTest
     static void testDatabaseMethodInsertPositive() {
         Test.startTest();
-        Boolean didCatchTheRightException = false;
         DMLRecipes.insertAccountsViaDatabaseMethod('Texas', false);
         Test.stopTest();
 
@@ -92,7 +91,7 @@ public class DMLRecipes_Tests {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'IR');
 
         Test.startTest();
-        Account testAccount = DMLRecipes.upsertAccountViaUpsertKeyword(acct);
+        DMLRecipes.upsertAccountViaUpsertKeyword(acct);
         Test.stopTest();
 
         List<Account> resultingAccounts = [
@@ -265,7 +264,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
         try {
             String checkAcct = [SELECT name FROM Account WHERE id = :acct.Id]
-            .Name;
+            .Name; //NOPMD
         } catch (QueryException qe) {
             if (
                 qe.getMessage()
@@ -309,7 +308,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
         try {
             String checkAcct = [SELECT name FROM Account WHERE id = :acct.Id]
-            .Name;
+            .Name; //NOPMD
         } catch (QueryException qe) {
             if (
                 qe.getMessage()

@@ -57,7 +57,7 @@ public inherited sharing class PlatformCacheRecipes {
     /**
      * @description Retrieves a value from the cache identified by key
      * @param key   String key of which value to retrieve.
-     * @returns     `String`
+     * @return     `String`
      */
     public static String getValueFromSessionCache(String key) {
         Cache.Partition defPartition = getDefaultPartition(
@@ -117,7 +117,7 @@ public inherited sharing class PlatformCacheRecipes {
     /**
      * @description Retrieves a value from the cache identified by key
      * @param key   String key of which value to retrieve.
-     * @returns     `String`
+     * @return     `String`
      */
     public static String getValuefromOrgCache(String key) {
         Cache.Partition defPartition = getDefaultPartition(PatitionType.ORG);
@@ -144,7 +144,7 @@ public inherited sharing class PlatformCacheRecipes {
     /**
      * @description returns a Cache.Partition for a given name, and type
      * @param type  Enum of .SESSION or .ORG
-     * @returns     `Cache.Partition`
+     * @return     `Cache.Partition`
      */
     public static Cache.Partition getDefaultPartition(PatitionType type) {
         switch on type {

@@ -39,7 +39,7 @@ private class SOQLRecipes_Tests {
         System.runAs(testUser) {
             Test.startTest();
             try {
-                List<Account> testAccounts = SOQLRecipes.getRecords();
+                SOQLRecipes.getRecords();
             } catch (QueryException qe) {
                 if (
                     qe.getMessage()
@@ -92,11 +92,7 @@ private class SOQLRecipes_Tests {
          * skip that particular set of triggers.
          */
         TriggerHandler.bypass('AccountTriggerHandler');
-        List<Account> testAccounts = (List<Account>) TestFactory.createSObjectList(
-            new Account(),
-            3000,
-            true
-        );
+        TestFactory.createSObjectList(new Account(), 3000, true);
 
         System.assertEquals(
             [SELECT Id FROM Account].size(),
@@ -190,7 +186,7 @@ private class SOQLRecipes_Tests {
 
     @isTest
     static void testComplexFilterOmnibusPositive() {
-        Account acct1 = (Account) TestFactory.createSObject(
+        TestFactory.createSObject(
             new Account(
                 Name = 'With Fast Food',
                 ShippingCountry = 'US',
@@ -199,7 +195,7 @@ private class SOQLRecipes_Tests {
             ),
             true
         );
-        Account acct2 = (Account) TestFactory.createSObject(
+        TestFactory.createSObject(
             new Account(
                 Name = 'With Slow Food',
                 ShippingCountry = 'US',
@@ -221,11 +217,7 @@ private class SOQLRecipes_Tests {
 
     @isTest
     static void testComplexFilterOmnibusPositiveNoResults() {
-        List<Account> accounts = (List<Account>) TestFactory.createSObjectList(
-            new Account(),
-            5,
-            true
-        );
+        TestFactory.createSObjectList(new Account(), 5, true);
         Test.startTest();
         List<Account> results = SOQLRecipes.getRecordsByMultipleFieldValues();
         Test.stopTest();

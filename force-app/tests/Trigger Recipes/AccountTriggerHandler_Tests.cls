@@ -22,11 +22,7 @@ private inherited sharing class AccountTriggerHandler_Tests {
     @isTest
     static void afterInsertBulkTestPositive() {
         Test.startTest();
-        List<Account> accounts = (List<Account>) TestFactory.createSObjectList(
-            new Account(),
-            200,
-            true
-        );
+        TestFactory.createSObjectList(new Account(), 200, true);
         Test.stopTest();
 
         List<Account> checkAccounts = [
@@ -122,12 +118,12 @@ private inherited sharing class AccountTriggerHandler_Tests {
         Boolean didCatchProperException = false;
         Test.startTest();
         try {
-            Account[] testData = (Account[]) TestFactory.createSObjectList(
+            TestFactory.createSObjectList(
                 new Account(
                     ShippingStreet = '123 sesame st.',
                     ShippingState = 'BAD STATE CODE'
                 ),
-                200,
+                20,
                 true
             );
         } catch (DmlException dmle) {
@@ -222,7 +218,6 @@ private inherited sharing class AccountTriggerHandler_Tests {
 
     @isTest
     static void beforeDeleteTestPositive() {
-        // Triggers the before insert trigger.
         Account acct = (Account) TestFactory.createSObject(
             new Account(name = 'TheBestAccount'),
             true

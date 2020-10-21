@@ -2,11 +2,7 @@
 private inherited sharing class CustomRestEndpointRecipes_Tests {
     @isTest
     static void httpCalloutGetRecordsToReturnPositive() {
-        Account[] accountList = (Account[]) TestFactory.createSObjectList(
-            new Account(),
-            5,
-            true
-        );
+        TestFactory.createSObjectList(new Account(), 5, true);
         RestRequest request = new RestRequest();
         request.requestUri = '/services/apexrest/IntegrationService/';
         request.httpMethod = 'GET';
@@ -144,10 +140,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
     @isTest
     static void httpCalloutDeleteSingleContactNegativeException() {
         // Insert the contact
-        SObject contact = TestFactory.createSObject(
-            new Contact(LastName = 'test'),
-            true
-        );
+        TestFactory.createSObject(new Contact(LastName = 'test'), true);
         RestRequest request = new RestRequest();
         // Do not supply the contactId in the urlPath to test how the system handels a null paramater
         request.requestUri = '/services/apexrest/IntegrationService/';
@@ -170,10 +163,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
     @isTest
     static void httpCalloutDeleteSingleContactNegativeNoAccess() {
         // Insert the contact
-        SObject contact = TestFactory.createSObject(
-            new Contact(LastName = 'test'),
-            true
-        );
+        TestFactory.createSObject(new Contact(LastName = 'test'), true);
 
         User testUser = TestFactory.createMinAccessUser(true);
 
@@ -352,11 +342,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
 
     @isTest
     static void httpPutUpsertContactRecordsPositive() {
-        Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
-            new Contact(),
-            5,
-            true
-        );
+        TestFactory.createSObjectList(new Contact(), 5, true);
         List<Contact> contactsToUpdate = new List<Contact>();
         for (Contact contact : [SELECT Id FROM Contact LIMIT 5]) {
             contact.ExternalSalesforceId__c = contact.Id;
@@ -498,11 +484,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
 
     @isTest
     static void httpPatchUpdateAccountRecordsPositive() {
-        Account[] accountList = (Account[]) TestFactory.createSObjectList(
-            new Account(),
-            5,
-            true
-        );
+        TestFactory.createSObjectList(new Account(), 5, true);
         List<Account> accountsToUpdate = new List<Account>();
         for (Account account : [
             SELECT Id, Name, Website
@@ -547,11 +529,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
 
     @isTest
     static void httpPatchUpdateAccountRecordsNegative() {
-        Account[] accountList = (Account[]) TestFactory.createSObjectList(
-            new Account(),
-            5,
-            true
-        );
+        TestFactory.createSObjectList(new Account(), 5, true);
         List<Account> accountsToUpdate = new List<Account>();
         for (Account account : [
             SELECT Id, Name, Website
@@ -584,11 +562,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
 
     @isTest
     static void httpPatchUpdateAccountRecordsNegativeCatchException() {
-        Account[] accountList = (Account[]) TestFactory.createSObjectList(
-            new Account(),
-            5,
-            true
-        );
+        TestFactory.createSObjectList(new Account(), 5, true);
         List<Account> accountsToUpdate = new List<Account>();
         for (Account account : [
             SELECT Id, Name, Website
@@ -626,11 +600,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
 
     @isTest
     static void httpPatchUpdateAccountRecordsNegativeNoAccess() {
-        Account[] accountList = (Account[]) TestFactory.createSObjectList(
-            new Account(),
-            5,
-            true
-        );
+        TestFactory.createSObjectList(new Account(), 5, true);
         List<Account> accountsToUpdate = new List<Account>();
         for (Account account : [
             SELECT Id, Name, Website
@@ -674,11 +644,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
 
     @isTest
     static void httpPatchUpdateAccountRecordsNegativeJSONException() {
-        Account[] accountList = (Account[]) TestFactory.createSObjectList(
-            new Account(),
-            5,
-            true
-        );
+        TestFactory.createSObjectList(new Account(), 5, true);
         List<Account> accountsToUpdate = new List<Account>();
         for (Account account : [
             SELECT Id, Name, Website

@@ -53,7 +53,7 @@ private inherited sharing class CalloutRecipes_Tests {
 
         Test.startTest();
         try {
-            String results = CalloutRecipes.rawCallout();
+            CalloutRecipes.rawCallout();
         } catch (CalloutRecipes.CalloutRecipesException cre) {
             if (
                 cre.getMessage()

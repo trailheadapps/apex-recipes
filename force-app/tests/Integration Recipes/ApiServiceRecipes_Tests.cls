@@ -75,7 +75,7 @@ private class ApiServiceRecipes_Tests {
 
         Test.startTest();
         try {
-            List<ApiServiceRecipesDataModel> results = api.getCurrentData();
+            api.getCurrentData();
         } catch (ApiServiceRecipes.ApiException apiException) {
             if (
                 apiException.getMessage()
@@ -104,7 +104,7 @@ private class ApiServiceRecipes_Tests {
 
         Test.startTest();
         try {
-            List<ApiServiceRecipesDataModel> results = api.getCurrentData();
+            api.getCurrentData();
         } catch (ApiServiceRecipes.ApiException apiException) {
             if (apiException.getMessage().containsIgnoreCase('404 error')) {
                 didCatchTheRightException = true;
@@ -132,7 +132,7 @@ private class ApiServiceRecipes_Tests {
 
         Test.startTest();
         try {
-            List<ApiServiceRecipesDataModel> results = api.getCurrentData();
+            api.getCurrentData();
         } catch (ApiServiceRecipes.ApiException apiException) {
             if (
                 apiException.getMessage()

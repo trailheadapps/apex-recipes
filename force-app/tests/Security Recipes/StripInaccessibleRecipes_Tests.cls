@@ -2,7 +2,7 @@
 private inherited sharing class StripInaccessibleRecipes_Tests {
     @TestSetup
     static void createCampaigns() {
-        List<Campaign> campaigns = (List<Campaign>) TestFactory.createSObjectList(
+        TestFactory.createSObjectList(
             new Campaign(budgetedCost = 200, actualCost = 299),
             150,
             true
@@ -59,7 +59,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         System.runAs(minAccess) {
             Test.startTest();
             try {
-                List<Campaign> results = StripInaccessibleRecipes.stripInaccessibleFromQuery();
+                StripInaccessibleRecipes.stripInaccessibleFromQuery();
             } catch (NoAccessException nae) {
                 if (
                     nae.getMessage().containsIgnoreCase('no access to entity')
@@ -124,7 +124,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         for (Campaign cmp : results) {
             assertionChecks.put(cmp.Id, false);
             try {
-                Decimal value = cmp.BudgetedCost;
+                System.debug(System.LoggingLevel.NONE, cmp.BudgetedCost);
             } catch (SObjectException soe) {
                 if (
                     soe.getMessage()
@@ -190,7 +190,6 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
             minAccess,
             'Provides_Read_Only_Access_to_Account_and_all_fields'
         );
-        Boolean didCatchTheRightException = false;
         Map<Id, Boolean> assertionChecks = new Map<Id, Boolean>();
 
         List<Account> results;
