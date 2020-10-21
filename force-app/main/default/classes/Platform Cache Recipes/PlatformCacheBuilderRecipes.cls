@@ -9,12 +9,16 @@ public inherited sharing class PlatformCacheBuilderRecipes implements Cache.Cach
      * is either calculated by this method, or returned from the Cache by the
      * key
      * @param key   String used to help generate the Cache Key
-     * @returns     `Object` THis objeect should be casted at the call location
+     * @return     `Object` This object should be casted at the call location
      * @see CanTheUser
      * @example Account[] accounts = (Account[]) Cache.Session.get(PlatformCacheBuilderRecipes.class, 'myAccounts')
      */
     public Object doLoad(String key) {
-        Account[] accounts = [SELECT Id, Name FROM Account];
+        Account[] accounts = [
+            SELECT Id, Name
+            FROM Account
+            WITH SECURITY_ENFORCED
+        ];
         return accounts;
     }
 }

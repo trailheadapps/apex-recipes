@@ -2,11 +2,7 @@
 private inherited sharing class BatchApexRecipes_Tests {
     @TestSetup
     static void makeData() {
-        List<Account> accounts = (List<Account>) TestFactory.createSObjectList(
-            new Account(),
-            200,
-            true
-        );
+        TestFactory.createSObjectList(new Account(), 200, true);
     }
 
     @isTest

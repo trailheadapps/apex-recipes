@@ -23,7 +23,7 @@ private class RelatedCodeTabsController_Tests {
         Boolean didCatchProperException = false;
         Test.startTest();
         try {
-            String[] relatedClasses = RelatedCodeTabsController.getRelatedClasses(
+            RelatedCodeTabsController.getRelatedClasses(
                 'FormattedRecipeController_Tests' // this is a non-existant class
             );
         } catch (QueryException qe) {

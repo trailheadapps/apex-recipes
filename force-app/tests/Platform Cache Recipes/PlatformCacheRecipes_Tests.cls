@@ -133,9 +133,7 @@ private class PlatformCacheRecipes_Tests {
         );
     }
 
-    /**
-     * ORG partition
-     */
+    // ORG partition
     @isTest
     static void testStoreValueInOrgCachePositive() {
         Test.startTest();

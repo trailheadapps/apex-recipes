@@ -1,6 +1,15 @@
 @isTest
 public class TestFactory {
     /**
+     * @description When we create a list of SObjects, we need to have a unique field for the insert if there isn't an autonumber field.
+     * Usually we use the Name field, but some objects don't have a name field.
+     */
+    private static Map<Schema.SObjectType, Schema.SObjectField> nameFieldMap = new Map<Schema.SObjectType, Schema.SObjectField>{
+        Contact.SObjectType => Contact.LastName,
+        Case.SObjectType => Case.CaseNumber //this is the autonumber field
+    };
+
+    /**
      * @description Creates a single sObject.
      * @param sObj  Type of sObject to create.
      * @return     `SObject`
@@ -203,15 +212,6 @@ public class TestFactory {
             }
         }
     }
-
-    /**
-     * @description When we create a list of SObjects, we need to have a unique field for the insert if there isn't an autonumber field.
-     * Usually we use the Name field, but some objects don't have a name field.
-     */
-    private static Map<Schema.SObjectType, Schema.SObjectField> nameFieldMap = new Map<Schema.SObjectType, Schema.SObjectField>{
-        Contact.SObjectType => Contact.LastName,
-        Case.SObjectType => Case.CaseNumber //this is the autonumber field
-    };
 
     /**
      * @description Internal custom exception class

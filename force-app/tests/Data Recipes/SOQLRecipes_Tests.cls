@@ -21,7 +21,7 @@ private class SOQLRecipes_Tests {
         System.runAs(testUser) {
             TestDataHelpers.createAccount(false, '');
             Test.startTest();
-            List<Account> testAccounts = SOQLRecipes.querySingleObject();
+            List<Account> testAccounts = SOQLRecipes.getRecords();
             Test.stopTest();
             System.assertEquals(
                 1,
@@ -39,7 +39,7 @@ private class SOQLRecipes_Tests {
         System.runAs(testUser) {
             Test.startTest();
             try {
-                List<Account> testAccounts = SOQLRecipes.querySingleObject();
+                SOQLRecipes.getRecords();
             } catch (QueryException qe) {
                 if (
                     qe.getMessage()
@@ -59,7 +59,7 @@ private class SOQLRecipes_Tests {
     }
 
     @isTest
-    static void testSimpleQuerySingleObjectPositive() {
+    static void testSimplegetRecordsPositive() {
         TestDataHelpers.createAccount(false, '');
 
         System.assertEquals(
@@ -68,7 +68,7 @@ private class SOQLRecipes_Tests {
             'Expected only one account'
         );
         Test.startTest();
-        List<Account> testAccounts = SOQLRecipes.querySingleObject();
+        List<Account> testAccounts = SOQLRecipes.getRecords();
         Test.stopTest();
         System.assertEquals(
             testAccounts.size(),
@@ -92,11 +92,7 @@ private class SOQLRecipes_Tests {
          * skip that particular set of triggers.
          */
         TriggerHandler.bypass('AccountTriggerHandler');
-        List<Account> testAccounts = (List<Account>) TestFactory.createSObjectList(
-            new Account(),
-            3000,
-            true
-        );
+        TestFactory.createSObjectList(new Account(), 3000, true);
 
         System.assertEquals(
             [SELECT Id FROM Account].size(),
@@ -104,13 +100,13 @@ private class SOQLRecipes_Tests {
             'expected to have created 3k records'
         );
         Test.startTest();
-        Integer count = SOQLRecipes.queryMassiveNumberOfRecordsReturningCount();
+        Integer count = SOQLRecipes.getLargeNumberOfRecords();
         Test.stopTest(); // forces all asych work to complete
         System.assertEquals(count, 3000, 'Expected to find 3k records');
     }
 
     /**
-     * @description Executes a positive test case against getFilteredList
+     * @description Executes a positive test case against getRecordsByFieldValue
      */
     @isTest
     static void testQueryWithFilterWithNoMatchingAcctsPositive() {
@@ -121,7 +117,7 @@ private class SOQLRecipes_Tests {
             'Expected only one account'
         );
         Test.startTest();
-        List<Account> testAccounts = SOQLRecipes.getFilteredList();
+        List<Account> testAccounts = SOQLRecipes.getRecordsByFieldValue();
         Test.stopTest();
         System.assertEquals(
             testAccounts.size(),
@@ -144,7 +140,7 @@ private class SOQLRecipes_Tests {
         Boolean didCatchProperException = false;
         System.runAs(minAccess) {
             try {
-                testAccounts = SOQLRecipes.getFilteredList();
+                testAccounts = SOQLRecipes.getRecordsByFieldValue();
             } catch (QueryException qe) {
                 if (
                     qe.getMessage()
@@ -179,7 +175,7 @@ private class SOQLRecipes_Tests {
             'Expected only one account'
         );
         Test.startTest();
-        List<Account> testAccounts = SOQLRecipes.getFilteredList();
+        List<Account> testAccounts = SOQLRecipes.getRecordsByFieldValue();
         Test.stopTest();
         System.assertEquals(
             testAccounts.size(),
@@ -190,7 +186,7 @@ private class SOQLRecipes_Tests {
 
     @isTest
     static void testComplexFilterOmnibusPositive() {
-        Account acct1 = (Account) TestFactory.createSObject(
+        TestFactory.createSObject(
             new Account(
                 Name = 'With Fast Food',
                 ShippingCountry = 'US',
@@ -199,7 +195,7 @@ private class SOQLRecipes_Tests {
             ),
             true
         );
-        Account acct2 = (Account) TestFactory.createSObject(
+        TestFactory.createSObject(
             new Account(
                 Name = 'With Slow Food',
                 ShippingCountry = 'US',
@@ -210,7 +206,7 @@ private class SOQLRecipes_Tests {
         );
 
         Test.startTest();
-        List<Account> results = SOQLRecipes.getComplexFilteredList();
+        List<Account> results = SOQLRecipes.getRecordsByMultipleFieldValues();
         Test.stopTest();
         System.assertEquals(
             results.size(),
@@ -221,13 +217,9 @@ private class SOQLRecipes_Tests {
 
     @isTest
     static void testComplexFilterOmnibusPositiveNoResults() {
-        List<Account> accounts = (List<Account>) TestFactory.createSObjectList(
-            new Account(),
-            5,
-            true
-        );
+        TestFactory.createSObjectList(new Account(), 5, true);
         Test.startTest();
-        List<Account> results = SOQLRecipes.getComplexFilteredList();
+        List<Account> results = SOQLRecipes.getRecordsByMultipleFieldValues();
         Test.stopTest();
         System.assertEquals(
             0,
@@ -247,7 +239,7 @@ private class SOQLRecipes_Tests {
         List<Account> toInsert = TestDataHelpers.genXnumberOfAccounts(15);
         insert toinsert;
         Test.startTest();
-        List<Account> accts = SOQLRecipes.getSpecificNumberOfResults();
+        List<Account> accts = SOQLRecipes.getSpecificNumberOfRecords();
         Test.stopTest();
         System.assertEquals(
             10,
@@ -270,7 +262,7 @@ private class SOQLRecipes_Tests {
         List<Account> toInsert = TestDataHelpers.genXnumberOfAccounts(3);
         insert toinsert;
         Test.startTest();
-        List<Account> accts = SOQLRecipes.getSpecificNumberOfResults();
+        List<Account> accts = SOQLRecipes.getSpecificNumberOfRecords();
         Test.stopTest();
         System.assertEquals(
             3,
@@ -284,7 +276,7 @@ private class SOQLRecipes_Tests {
         List<Account> toInsert = TestDataHelpers.genXnumberOfAccounts(8);
         insert toInsert;
         Test.startTest();
-        List<Account> accts = SOQLRecipes.getFirstXResults(3);
+        List<Account> accts = SOQLRecipes.getFirstXRecords(3);
         Test.stopTest();
         System.assertEquals(
             3,
@@ -302,8 +294,8 @@ private class SOQLRecipes_Tests {
         insert toInsert;
 
         Test.startTest();
-        List<Account> accts = SOQLRecipes.getAccountsInState('Tx');
-        List<Account> acctsInWA = SOQLRecipes.getAccountsInState('Wa');
+        List<Account> accts = SOQLRecipes.getAccountRecordsInState('Tx');
+        List<Account> acctsInWA = SOQLRecipes.getAccountRecordsInState('Wa');
         Test.stopTest();
 
         System.assertEquals(
@@ -325,7 +317,7 @@ private class SOQLRecipes_Tests {
         insert toInsert;
 
         Test.startTest();
-        List<Account> accts = SOQLRecipes.getSecond10Accounts();
+        List<Account> accts = SOQLRecipes.getSecond10AccountRecords();
         Test.stopTest();
 
         List<Account> first10Accounts = [
@@ -356,7 +348,7 @@ private class SOQLRecipes_Tests {
         insert toinsert;
 
         Test.startTest();
-        List<Account> accts = SOQLRecipes.getSecond10Accounts();
+        List<Account> accts = SOQLRecipes.getSecond10AccountRecords();
         Test.stopTest();
 
         System.assertEquals(5, accts.size(), 'Expected to get 5 records back');
@@ -375,7 +367,7 @@ private class SOQLRecipes_Tests {
         insert contacts;
 
         Test.startTest();
-        List<Account> returnAccounts = SOQLRecipes.getContactsAndAccounts();
+        List<Account> returnAccounts = SOQLRecipes.getRecordsWithRelatedRecords();
         Test.stopTest();
 
         // we get 5 accounts.
@@ -418,7 +410,7 @@ private class SOQLRecipes_Tests {
         insert cnt;
 
         Test.startTest();
-        List<Contact> testContacts = SOQLRecipes.getParentDetailsForChild();
+        List<Contact> testContacts = SOQLRecipes.getParentRecordDetailsFromChildRecord();
         Test.stopTest();
 
         System.assertEquals(
@@ -434,7 +426,7 @@ private class SOQLRecipes_Tests {
     }
 
     @isTest
-    static void testGetDetailsFromBothParentsPositive() {
+    static void testgetDetailsFromBothParentRecordsPositive() {
         Junction_Demo_1__c jd1 = new Junction_Demo_1__c();
         Junction_Demo_2__c jd2 = new Junction_Demo_2__c();
 
@@ -449,7 +441,7 @@ private class SOQLRecipes_Tests {
         insert junction;
 
         Test.startTest();
-        List<Junction__c> results = SOQLRecipes.getDetailsFromBothParents();
+        List<Junction__c> results = SOQLRecipes.getDetailsFromBothParentRecords();
         Test.stopTest();
 
         System.assertNotEquals(
@@ -465,7 +457,7 @@ private class SOQLRecipes_Tests {
     }
 
     @isTest
-    static void testGetSumOfOpportunitiesPositive() {
+    static void testgetSumOfOpportunityRecordsPositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
         List<Opportunity> opps = new List<Opportunity>();
@@ -483,7 +475,7 @@ private class SOQLRecipes_Tests {
         insert opps;
 
         Test.startTest();
-        Double results = SOQLRecipes.getSumOfOpportunities(acct.Id);
+        Double results = SOQLRecipes.getSumOfOpportunityRecords(acct.Id);
         Test.stopTest();
 
         System.assertEquals(

@@ -2,11 +2,7 @@
 private inherited sharing class QueueableChainingRecipes_Tests {
     @TestSetup
     static void makeData() {
-        List<Account> accounts = (List<Account>) TestFactory.createSObjectList(
-            new Account(),
-            20,
-            true
-        );
+        TestFactory.createSObjectList(new Account(), 20, true);
     }
 
     @isTest

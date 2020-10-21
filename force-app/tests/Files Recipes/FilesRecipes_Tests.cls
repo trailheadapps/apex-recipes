@@ -43,7 +43,7 @@ private inherited sharing class FilesRecipes_Tests {
         ];
 
         Test.startTest();
-        Database.SaveResult sr = FilesRecipes.publishContent(cdl);
+        FilesRecipes.publishContent(cdl);
         Test.stopTest();
 
         ContentDistribution dist = [

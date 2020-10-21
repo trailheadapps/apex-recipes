@@ -19,25 +19,6 @@
  */
 public virtual class RestClient {
     /**
-     * @description The name of the Named Credential to use
-     */
-    @testVisible
-    protected String namedCredentialName { get; set; }
-
-    /**
-     * @description This ENUM lists possible HTTP Verbs. Note: 'Delete' is an Apex Keyword (DML)
-     * and as a result, the ENUM value 'DEL' is used for delete.
-     */
-    public enum HttpVerb {
-        GET,
-        POST,
-        PATCH,
-        PUT,
-        HEAD,
-        DEL
-    }
-
-    /**
      * These two properties are not public - which means that in
      * order to manipulate them during a Unit test, we have to
      * mark them @testVisible
@@ -55,6 +36,25 @@ public virtual class RestClient {
         'Content-Type' => 'application/json',
         'Accept' => 'application/json'
     };
+
+    /**
+     * @description The name of the Named Credential to use
+     */
+    @testVisible
+    protected String namedCredentialName { get; set; }
+
+    /**
+     * @description This ENUM lists possible HTTP Verbs. Note: 'Delete' is an Apex Keyword (DML)
+     * and as a result, the ENUM value 'DEL' is used for delete.
+     */
+    public enum HttpVerb {
+        GET,
+        POST,
+        PATCH,
+        PUT,
+        HEAD,
+        DEL
+    }
 
     /**
      * @description Constructor that sets Named Credential

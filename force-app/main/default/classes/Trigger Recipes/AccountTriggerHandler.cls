@@ -5,8 +5,10 @@
  * @see TriggerHandler, AccountServiceLayer
  */
 public inherited sharing class AccountTriggerHandler extends TriggerHandler {
-    private List<Account> triggerNew, triggerOld;
-    private Map<Id, Account> triggerMapNew, triggerMapOld;
+    private List<Account> triggerNew;
+    private List<Account> triggerOld;
+    private Map<Id, Account> triggerMapNew;
+    private Map<Id, Account> triggerMapOld;
 
     @TestVisible
     private static Exception circuitBreaker;

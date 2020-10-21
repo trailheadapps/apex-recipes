@@ -15,10 +15,22 @@
  * examples in your terminal application of choice.  You might also consider a
  * third party UI based tool like Postman to ease things like authentication.
  *
+ * Note: There is a @suppressWarnings annotation on this class for Cyclomatic
+ * Complexity. You can read more about what Cyclomatic Complexity is here:
+ * https://en.wikipedia.org/wiki/Cyclomatic_complexity Classes with a high
+ * Cyclomatic Compelexity score are harder to test, and more prone to bugs
+ * because of the sheer number of branching logic paths available. This class
+ * is made up of a number of small methods, each of whom does CRUD/FLS Checks
+ * and therefor every method includes at least one branching path - but not
+ * much else. Other classes in this repository do not have such a high
+ * Cyclomatic Complexity because the ratio of logic to if/else statments is much
+ * lower.
+ *
  * See CalloutRecipes for examples on how to call the custom REST endpoint.
  * @group Integration Recipes
  * @see CanTheUser
  */
+@SuppressWarnings('PMD.CyclomaticComplexity')
 @RestResource(urlmapping='/IntegrationService/*')
 global inherited sharing class CustomRestEndpointRecipes {
     /**
