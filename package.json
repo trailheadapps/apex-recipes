@@ -36,7 +36,7 @@
         "@salesforce/eslint-config-lwc": "^0.7.0",
         "@salesforce/sfdx-lwc-jest": "^0.10.1",
         "babel-eslint": "^10.1.0",
-        "eslint": "^7.11.0",
+        "eslint": "^7.12.1",
         "eslint-config-prettier": "^6.13.0",
         "husky": "^4.2.5",
         "jest-canvas-mock": "^2.3.0",
