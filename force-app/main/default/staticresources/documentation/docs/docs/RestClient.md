@@ -3,7 +3,7 @@ layout: default
 ---
 # RestClient class
 
-This class provides an exmaple of an intelligent abstraction for making REST callouts to external endpoints. It utilizes NamedCredentials for security. This class is designated as Virtual so that API Service classes can extend it, and make use of it's methods easily. See the CovidTrackerAPI class for an example of how an API service class can extend RestClient. This class also provides static methods - so that the abstractions provided can be used in a one-off or ad-hoc manner for situations where a full API Service class isn't needed. More on Named Credentials: https:
+This class provides an exmaple of an intelligent abstraction for making REST callouts to external endpoints. It utilizes NamedCredentials for security. This class is designated as Virtual so that API Service classes can extend it, and make use of it's methods easily. See the CovidTrackerAPI class for an example of how an API service class can extend RestClient. This class also provides static methods - so that the abstractions provided can be used in a one-off or ad-hoc manner for situations where a full API Service class isn't needed. More on Named Credentials: https://sfdc.co/named-credentials
 
 ## Related
 

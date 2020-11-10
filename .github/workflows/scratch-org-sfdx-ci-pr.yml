@@ -82,7 +82,7 @@ jobs:
             # Checkout the code in the pull request
             - name: 'Checkout source code'
               uses: actions/checkout@v2
-              
+
             # Run Salesforce CLI Scanner For Security checks
             - name: Scan For Security Exceptions
               run: 'sfdx scanner:run -c=Security -t=./force-app -f=json -v'
