@@ -86,6 +86,29 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
     }
 
     @isTest
+    static void simpleQueryBuilderTestNegativeOverridenQuiddity() {
+        Id acctId = [SELECT Id FROM Account LIMIT 1].Id;
+        List<String> fields = new List<String>{
+            'Name',
+            'NumberOfEmployees',
+            'BillingAddress'
+        };
+        String whereClause =
+            'id = \'' +
+            String.escapeSingleQuotes(acctId) +
+            '\'';
+        Test.startTest();
+        DynamicSOQLRecipes.injectedQuiddity = Quiddity.FUTURE;
+        List<Account> results = DynamicSOQLRecipes.simpleQueryBuilder(
+            fields,
+            whereClause
+        );
+        Test.stopTest();
+
+        System.assert(results.size() == 0, 'Expected to find an empty list');
+    }
+
+    @isTest
     static void simpleQueryBuilderTestPositive() {
         Id acctId = [SELECT Id FROM Account LIMIT 1].Id;
         List<String> fields = new List<String>{

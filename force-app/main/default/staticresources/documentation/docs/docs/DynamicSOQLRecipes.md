@@ -6,6 +6,11 @@ layout: default
 Demonstrates how to construct a SOQL query dynamically, and safely More on dynamic SOQL and SOQL injection: https:
 
 ---
+## Properties
+
+### `injectedQuiddity` → `Quiddity`
+
+---
 ## Methods
 ### `resolvedDynamicFieldsSOQLQuery(Account acct)` → `List<Account>`
 
