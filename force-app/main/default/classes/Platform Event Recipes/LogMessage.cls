@@ -36,6 +36,7 @@ public with sharing class LogMessage {
 
     public LogMessage(String message) {
         this.message = message;
+        this.severity = LogSeverity.INFO;
     }
 
     public LogMessage(Exception ex) {
@@ -47,5 +48,6 @@ public with sharing class LogMessage {
                 ex.getStackTraceString()
             }
         );
+        this.severity = LogSeverity.ERROR;
     }
 }

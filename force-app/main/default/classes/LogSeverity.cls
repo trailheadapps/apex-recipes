@@ -1,6 +1,6 @@
 public enum LogSeverity {
+    DEBUG,
     INFO,
-    ERROR,
     WARN,
-    DEBUG
+    ERROR
 }
