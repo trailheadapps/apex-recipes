@@ -3,7 +3,7 @@ layout: default
 ---
 # ApiServiceRecipes class
 
-This recipe extends the custom RestClient class and represents a specific API service we need to interact with - in this case a MockBin REST service. This APIService class is responsible for serializing and deserializing the Data Transfer Objects (Model Objects) necessary for input and output from this org to the third party system and back. More on MockBin here: http:
+This recipe extends the custom RestClient class and represents a specific API service we need to interact with - in this case a MockBin REST service. This APIService class is responsible for serializing and deserializing the Data Transfer Objects (Model Objects) necessary for input and output from this org to the third party system and back. More on MockBin here: http://mockbin.org/
 
 ## Related
 

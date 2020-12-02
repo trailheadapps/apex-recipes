@@ -24,7 +24,7 @@ publishes a platform event
 ```java
 Account acct = new Account(name = 'Awesome Events Ltd.');
 insert acct;
-Event_Recipes_Demo__e evt = new Event_Recipes_Demo__e(accountId__c = acct.id, title__c='Updated website', url__c = 'https:
+Event_Recipes_Demo__e evt = new Event_Recipes_Demo__e(accountId__c = acct.id, title__c='Updated website', url__c = 'https://developer.salesforce.com');
 Database.saveResults result = PlatformEventsRecipes.publishEvent(evt);
 System.debug(result);
 ```
