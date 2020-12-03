@@ -3,9 +3,17 @@
  * particular set of quiddities
  */
 public with sharing class QuiddityGuard {
+    /**
+     * @description a private testvisible variable allowing developers to
+     * inject a custom quiddity value during test execution.
+     */
     @TestVisible
     private static Quiddity testQuiddityOverride;
 
+    /**
+     * @description a non-exhaustive list of Quiddities that do not include user
+     * situations where users could be injecting malicious data.
+     */
     public static List<Quiddity> trustedQuiddities = new List<Quiddity>{
         Quiddity.SYNCHRONOUS,
         Quiddity.QUEUEABLE,
@@ -15,6 +23,10 @@ public with sharing class QuiddityGuard {
         Quiddity.RUNTEST_DEPLOY
     };
 
+    /**
+     * @description A list of quiddities that may include user-defined data and
+     * therefore should not be trusted without manual FLS/CRUD checks
+     */
     public static List<Quiddity> untrustedQuiddities = new List<Quiddity>{
         Quiddity.AURA,
         Quiddity.DISCOVERABLE_LOGIN,
@@ -28,10 +40,12 @@ public with sharing class QuiddityGuard {
         Quiddity.VF
     };
 
-    public static List<Quiddity> anonymous = new List<Quiddity>{
-        Quiddity.ANONYMOUS
-    };
-
+    /**
+     * @description A method to determine if the current Quiddity context is
+     * within a caller-supplied list of acceptable quiddity values.
+     * @param acceptableQuiddites A list of quiddities to check against
+     * @returns`boolean`
+     */
     public static boolean isAcceptableQuiddity(
         List<Quiddity> acceptableQuiddites
     ) {
