@@ -3,7 +3,7 @@ layout: default
 ---
 # DynamicSOQLRecipes class
 
-Demonstrates how to construct a SOQL query dynamically, and safely More on dynamic SOQL and SOQL injection: https:
+Demonstrates how to construct a SOQL query dynamically, and safely More on dynamic SOQL and SOQL injection: https://sfdc.co/soql-injection
 
 ---
 ## Properties
