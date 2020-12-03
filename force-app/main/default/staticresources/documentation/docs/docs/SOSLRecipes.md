@@ -3,7 +3,7 @@ layout: default
 ---
 # SOSLRecipes class
 
-Demonstrates how to use SOSL. SOSL is used for full text, and fuzzier text searching. More on the difference between SOQL and SOSL: https:
+Demonstrates how to use SOSL. SOSL is used for full text, and fuzzier text searching. More on the difference between SOQL and SOSL: https://sfdc.co/soql-sosl
 
 ---
 ## Methods
