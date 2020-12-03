@@ -103,7 +103,7 @@ Make sure to start from a **brand-new environment** to avoid conflicts with prev
 
 1. Go to **Setup**, under **Platform Cache**, and click the "Request Trial Capacity" button. [Request a Platform Cache Trial](https://help.salesforce.com/articleView?id=data_platform_cache_trial.htm&type=5)
 
-1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3g000000ki9vAAA) to install the Apex Recipes unlocked package in your org.
+1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3g000000kiCkAAI) to install the Apex Recipes unlocked package in your org.
 
 1. Select **Install for All Users**
 
