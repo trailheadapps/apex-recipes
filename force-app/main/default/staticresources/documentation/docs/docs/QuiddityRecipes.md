@@ -7,5 +7,8 @@ Demonstrates the use and functionaly of Quiddity
 
 ---
 ## Methods
-### `demonstrateGetQuiddity()` → `void`
+### `demonstrateGetQuiddity()` → `Quiddity`
+
+demonstrates the code needed to get the current requests Quiddity value.
+
 ---
