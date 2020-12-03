@@ -98,7 +98,7 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
             String.escapeSingleQuotes(acctId) +
             '\'';
         Test.startTest();
-        DynamicSOQLRecipes.injectedQuiddity = Quiddity.FUTURE;
+        QuiddityGuard.testQuiddityOverride = Quiddity.FUTURE;
         List<Account> results = DynamicSOQLRecipes.simpleQueryBuilder(
             fields,
             whereClause

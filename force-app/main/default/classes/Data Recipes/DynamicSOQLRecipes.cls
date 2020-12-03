@@ -161,22 +161,9 @@ public inherited sharing class DynamicSOQLRecipes {
         List<String> fields,
         String whereClause
     ) {
-        Quiddity q = System.Request.getCurrent().getQuiddity();
-        system.debug('######\n' + q);
-        // Acceptable quiddity's: Synchronous, Queueable, Batch
-        List<Quiddity> acceptedQuiddities = new List<Quiddity>{
-            Quiddity.SYNCHRONOUS,
-            Quiddity.QUEUEABLE,
-            Quiddity.BATCH_APEX,
-            Quiddity.RUNTEST_SYNC,
-            Quiddity.RUNTEST_ASYNC,
-            Quiddity.RUNTEST_DEPLOY
-        };
-        if (injectedQuiddity != null) {
-            q = injectedQuiddity;
-        }
-
-        if (!acceptedQuiddities.contains(q)) {
+        if (
+            !QuiddityGuard.isAcceptableQuiddity(QuiddityGuard.trustedQuiddities)
+        ) {
             return new List<Account>();
         }
         String fieldList = String.escapeSingleQuotes(String.join(fields, ', '));
