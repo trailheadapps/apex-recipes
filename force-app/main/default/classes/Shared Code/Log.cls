@@ -2,7 +2,7 @@
  * @description Generic logging framework that persists across DML reversions
  * by publishing a Platform Event
  */
-public with sharing class Log {
+public inherited sharing class Log {
     /**
      * @description private instance of this log class that backs the
      * singleton get() method.

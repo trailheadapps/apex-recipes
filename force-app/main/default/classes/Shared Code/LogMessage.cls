@@ -2,7 +2,7 @@
  * @description A class for automatically attaching metadata to log messages
  * like Quiddity and RequestID
  */
-public with sharing class LogMessage {
+public inherited sharing class LogMessage {
     private static final String EXCEPTION_STRING_FORMAT = 'Exception: [{0}] {1} \n StackTrace: {2}';
 
     public String requestId {

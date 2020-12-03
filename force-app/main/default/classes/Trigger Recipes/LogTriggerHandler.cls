@@ -1,4 +1,4 @@
-public with sharing class LogTriggerHandler extends TriggerHandler {
+public inherited sharing class LogTriggerHandler extends TriggerHandler {
     List<Log__e> incomingRecords = new List<Log__e>();
 
     public LogTriggerHandler() {

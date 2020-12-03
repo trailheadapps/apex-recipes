@@ -4,5 +4,5 @@
     <eventType>HighVolume</eventType>
     <label>Log</label>
     <pluralLabel>Logs</pluralLabel>
-    <publishBehavior>PublishAfterCommit</publishBehavior>
+    <publishBehavior>PublishImmediately</publishBehavior>
 </CustomObject>
