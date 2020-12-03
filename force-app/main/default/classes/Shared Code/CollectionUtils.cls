@@ -36,7 +36,7 @@ public inherited sharing class CollectionUtils {
         String key,
         List<sObject> incomingList
     ) {
-        String objType = String.valueOf(incomingList[0]?.getSObjectType());
+        String objType = !incomingList.isEmpty() ? String.valueOf(incomingList[0]?.getSObjectType()) : 'sObject';
         Type dynamicMapType = Type.forName('Map<Id,' + objType + '>');
         Map<Id, Sobject> returnValues = (Map<Id, Sobject>) dynamicMapType.newInstance();
         for (sObject current : incomingList) {
@@ -63,7 +63,7 @@ public inherited sharing class CollectionUtils {
         String key,
         List<sObject> incomingList
     ) {
-        String objType = String.valueOf(incomingList[0]?.getSObjectType());
+        String objType = !incomingList.isEmpty() ? String.valueOf(incomingList[0]?.getSObjectType()) : 'sObject';
         Type dynamicMapType = Type.forName('Map<String,' + objType + '>');
         Map<String, Sobject> returnValues = (Map<String, Sobject>) dynamicMapType.newInstance();
         for (sObject current : incomingList) {
@@ -90,7 +90,7 @@ public inherited sharing class CollectionUtils {
         String key,
         List<sObject> incomingList
     ) {
-        String objType = String.valueOf(incomingList[0]?.getSObjectType());
+        String objType = !incomingList.isEmpty() ? String.valueOf(incomingList[0]?.getSObjectType()) : 'sObject';
         Type listObjType = Type.forName('List<' + objType + '>');
         Type dynamicMapType = Type.forName('Map<Id, List<' + objType + '>>');
         Map<Id, List<Sobject>> returnValues = (Map<Id, List<Sobject>>) dynamicMapType.newInstance();
