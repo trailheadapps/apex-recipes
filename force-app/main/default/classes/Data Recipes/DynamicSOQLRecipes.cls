@@ -158,6 +158,11 @@ public inherited sharing class DynamicSOQLRecipes {
         List<String> fields,
         String whereClause
     ) {
+        if (
+            !QuiddityGuard.isAcceptableQuiddity(QuiddityGuard.trustedQuiddities)
+        ) {
+            return new List<Account>();
+        }
         String fieldList = String.escapeSingleQuotes(String.join(fields, ', '));
         String queryString =
             'SELECT ' +
