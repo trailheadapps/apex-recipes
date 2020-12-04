@@ -1,5 +1,5 @@
 @isTest
-private with sharing class OrderAppMenu_Tests {
+private inherited sharing class OrderAppMenu_Tests {
     @isTest
     static void testQueueableWithCalloutRecipesPositive() {
         Test.startTest();

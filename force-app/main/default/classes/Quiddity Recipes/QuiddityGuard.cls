@@ -2,7 +2,7 @@
  * @description contains methods and static lists for rapid acceptence of a
  * particular set of quiddities
  */
-public with sharing class QuiddityGuard {
+public inherited sharing class QuiddityGuard {
     /**
      * @description a private testvisible variable allowing developers to
      * inject a custom quiddity value during test execution.
