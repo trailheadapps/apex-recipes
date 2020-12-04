@@ -3,7 +3,6 @@
  * particular set of quiddities
  */
 public inherited sharing class QuiddityGuard {
-
     /**
      * @description a private testvisible variable allowing developers to
      * inject a custom quiddity value during test execution.
