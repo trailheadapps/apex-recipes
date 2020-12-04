@@ -14,9 +14,6 @@ public inherited sharing class DynamicSOQLRecipes {
     public class DynamicSoqlException extends Exception {
     }
 
-    @testVisible
-    private static Quiddity injectedQuiddity;
-
     /**
      * @description demonstrates a simple dynamic SOQL query where the query is
      * defined in Apex
