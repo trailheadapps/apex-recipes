@@ -97,10 +97,6 @@ Make sure to start from a **brand-new environment** to avoid conflicts with prev
 
 1. Log in to your org
 
-1. If you are setting up a Developer Edition: go to **Setup**, under **My Domain**, [register a My Domain](https://help.salesforce.com/articleView?id=domain_name_setup.htm&type=5).
-
-    - Please be sure that the domain is both **registered** and **deployed** and that your user has logged into the new domain.
-
 1. Go to **Setup**, under **Platform Cache**, and click the "Request Trial Capacity" button. [Request a Platform Cache Trial](https://help.salesforce.com/articleView?id=data_platform_cache_trial.htm&type=5)
 
 1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3g000000kiDJAAY) to install the Apex Recipes unlocked package in your org.
@@ -129,7 +125,8 @@ Make sure to start from a **brand-new environment** to avoid conflicts with prev
     - Check your user and click **Add Assignments**.
 
 1. In App Launcher, select the **Apex Recipes** app.
-    - If the app does not load, please double check that My Domain is **registered** and **deployed** and that the **Apex Recipes** permission set active on your user.
+
+    - If the app does not load, please double check that the Apex Recipes permission set active on your user.
 
 ## Installing the App using a Developer Edition Org or a Trailhead Playground via the Salesforce CLI
 
@@ -150,8 +147,6 @@ Make sure to start from a brand-new environment to avoid conflicts with previous
     ```
     sfdx force:auth:web:login -s -a mydevorg
     ```
-
-1. If you are setting up a Developer Edition: go to **Setup**, under **My Domain**, [register a My Domain](https://help.salesforce.com/articleView?id=domain_name_setup.htm&type=5).
 
 1. If you are setting up a Developer Edition: go to **Setup**, under **Platform Cache**, and click the "Request Trial Capacity" button. [Request a Platform Cache Trial](https://help.salesforce.com/articleView?id=data_platform_cache_trial.htm&type=5)
 
@@ -187,7 +182,7 @@ Make sure to start from a brand-new environment to avoid conflicts with previous
     ```
 
 1. In App Launcher, select the **Apex Recipes** app.
-    - If the app does not load, please double check that My Domain is **registered** and **deployed** and that the **Apex Recipes** permission set active on your user.
+    - If the app does not load, please double check that the **Apex Recipes** permission set active on your user.
 
 ## Optional Installation Instructions
 
