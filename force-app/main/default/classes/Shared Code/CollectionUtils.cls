@@ -84,7 +84,7 @@ public inherited sharing class CollectionUtils {
      * @return            `Map<Id, List<sObject>>`
      * @example
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
-     * Map<Id, List<Contact>> contactsByAccountId = (Map<Id, List<Contact>>) CollectionUtils.idMapFromCollectionByKey('accountId', contacts);
+     * Map<Id, List<Contact>> contactsByAccountId = (Map<Id, List<Contact>>) CollectionUtils.mapFromCollectionWithCollectionValues('accountId', contacts);
      */
     public static Map<Id, List<sObject>> mapFromCollectionWithCollectionValues(
         String key,
