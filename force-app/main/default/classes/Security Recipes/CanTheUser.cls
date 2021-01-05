@@ -50,6 +50,10 @@ public inherited sharing class CanTheUser {
          * @returns       `Object`
          */
         public Object doLoad(string objType) {
+            return calculateFLS(objType);
+        }
+
+        public Map<String, Map<FLSType, Boolean>> calculateFLS(string objType) {
             Schema.DescribeSObjectResult[] descResult = Schema.describeSObjects(
                 new List<String>{ objType }
             );
@@ -278,8 +282,16 @@ public inherited sharing class CanTheUser {
         Cache.Partition defaultSession = PlatformCacheRecipes.getDefaultPartition(
             PlatformCacheRecipes.PatitionType.SESSION
         );
-        Map<String, Map<FLSType, Boolean>> objResults = (Map<String, Map<FLSType, Boolean>>) defaultSession
-            .get(PermissionCache.class, obj);
+
+        Map<String, Map<FLSType, Boolean>> objResults;
+
+        if (Feature.platformCache()) {
+            objResults = (Map<String, Map<FLSType, Boolean>>) defaultSession
+                .get(PermissionCache.class, obj);
+        } else {
+            objResults = new PermissionCache().calculateFLS(obj);
+        }
+
         Boolean results = objResults.get(field.toLowerCase())?.get(checkType);
         return (results != null && results) ? true : false;
     }

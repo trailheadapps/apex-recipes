@@ -185,6 +185,7 @@ Internal custom exception class
 
 ---
 #### Methods
+##### `calculateFLS(string objType)` → `Boolean>>`
 ##### `doLoad(string objType)` → `Object`
 
 Required method for the CacheBuilder interface. Used here to either calcuate an objects per-user FLS, OR to return it from Cache. The return datastructure for this is Map<String, Map<FLSType,Boolean>> and represents: FieldName -> FLStype -> True/False
