@@ -13,8 +13,8 @@ public inherited sharing class LogTriggerHandler extends TriggerHandler {
                 new LogEvent__c(
                     Log_Data__c = event.Log_Message__c,
                     Quiddity__c = event.Quiddity__c,
-                    Request_Id__c = event.request_id__c,
-                    Severity__c = event.severity__c
+                    Request_Id__c = event.Request_Id__c,
+                    Severity__c = event.Severity__c
                 )
             );
         }

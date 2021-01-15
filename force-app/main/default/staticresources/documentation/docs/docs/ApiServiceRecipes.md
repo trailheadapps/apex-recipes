@@ -17,9 +17,9 @@ default constructor. Sets the inherited named credential to the DEFAULTNAMEDCRED
 ---
 ## Properties
 
-### `DEFAULTNAMEDCREDENTIAL` → `string`
+### `DEFAULTNAMEDCREDENTIAL` → `String`
 
-### `GETBINPATH` → `string`
+### `GETBINPATH` → `String`
 
 ---
 ## Methods

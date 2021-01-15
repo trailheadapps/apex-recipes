@@ -30,7 +30,7 @@ public inherited sharing class RelatedCodeTabsController {
                 FROM ApexClass
                 WHERE Name LIKE :mainClassName
             ];
-            if (klass.body.contains('@see')) {
+            if (klass.Body.contains('@see')) {
                 String[] untrimmed = ApexClassUtilities.getRelatedClassesFromClassBody(
                         klass
                     )

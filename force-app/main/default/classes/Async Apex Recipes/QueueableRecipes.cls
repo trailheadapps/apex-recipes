@@ -24,7 +24,7 @@ public inherited sharing class QueueableRecipes implements Queueable {
      **/
     public static void execute(QueueableContext qc) {
         List<Account> accounts = [
-            SELECT Id, description
+            SELECT Id, Description
             FROM Account
             LIMIT 1000
         ];
@@ -33,7 +33,7 @@ public inherited sharing class QueueableRecipes implements Queueable {
         }
         try {
             update accounts;
-        } catch (DMLException dmle) {
+        } catch (DmlException dmle) {
             System.debug(
                 LoggingLevel.INFO,
                 'real life use cases should do more than just logging the error: ' +

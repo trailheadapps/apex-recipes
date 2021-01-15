@@ -10,7 +10,7 @@
  */
 public inherited sharing class ScheduledApexRecipes implements Schedulable {
     @testVisible // Sets to run at midnight 5/28/2099
-    private final static string TEST_CRON_STATEMENT = '0 0 0 28 5 ? 2099';
+    private final static String TEST_CRON_STATEMENT = '0 0 0 28 5 ? 2099';
 
     /**
      * @description This is the one method required by the Schedulable

@@ -21,7 +21,7 @@ public inherited sharing class DataFactoryForPackageInstalls {
             junction1.add(new Junction_Demo_1__c());
             junction2.add(new Junction_Demo_2__c());
         }
-        sObject[] toInsert = new List<sObject>{};
+        SObject[] toInsert = new List<SObject>{};
         toInsert.addAll(junction1);
         toInsert.addAll(junction2);
         if (
@@ -34,7 +34,7 @@ public inherited sharing class DataFactoryForPackageInstalls {
             juctionObjs.add(
                 new Junction__c(
                     parent1__c = junction1.get(i).Id,
-                    parent2__c = junction2.get(i).Id
+                    Parent2__c = junction2.get(i).Id
                 )
             );
         }

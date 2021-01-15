@@ -12,7 +12,7 @@ ScheduledApexDemo, BatchApexRecipes
 ---
 ## Properties
 
-### `TEST_CRON_STATEMENT` → `string`
+### `TEST_CRON_STATEMENT` → `String`
 
 ---
 ## Methods

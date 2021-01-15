@@ -19,7 +19,7 @@ public inherited sharing class OrderAppMenu implements System.Queueable {
         );
         Id[] orderedItems = new List<Id>{};
         orderedItems.add(menuItemMap.remove('Apex_Recipes').ApplicationId);
-        for (String key : menuItemMap.keyset()) {
+        for (String key : menuItemMap.keySet()) {
             orderedItems.add(menuItemMap.get(key).ApplicationId);
         }
         AppLauncher.AppMenu.setOrgSortOrder(orderedItems);

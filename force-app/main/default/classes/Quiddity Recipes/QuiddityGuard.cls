@@ -46,7 +46,7 @@ public inherited sharing class QuiddityGuard {
      * @param acceptableQuiddites A list of quiddities to check against
      * @returns`boolean`
      */
-    public static boolean isAcceptableQuiddity(
+    public static Boolean isAcceptableQuiddity(
         List<Quiddity> acceptableQuiddites
     ) {
         Quiddity q = System.Request.getCurrent().getQuiddity();
