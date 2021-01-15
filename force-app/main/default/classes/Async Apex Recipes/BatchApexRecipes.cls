@@ -55,7 +55,7 @@ public inherited sharing class BatchApexRecipes implements Database.Batchable<SO
     ) {
         // Batch Processing
         for (Account acct : scope) {
-            acct.name += ' Edited by Batch class';
+            acct.Name += ' Edited by Batch class';
 
             /**
              * This is an example of a circuit breaker pattern. It's not
@@ -83,11 +83,11 @@ public inherited sharing class BatchApexRecipes implements Database.Batchable<SO
             if (sr.isSuccess()) {
                 // Only available *across* scope executions because of
                 // Database.stateful
-                successes.add(sr.Id);
+                successes.add(sr.id);
             } else {
                 // Only available *across* scope executions because of
                 // Database.stateful
-                failures.add(sr.Id);
+                failures.add(sr.id);
             }
         }
     }

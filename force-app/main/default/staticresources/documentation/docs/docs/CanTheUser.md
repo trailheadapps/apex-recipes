@@ -147,7 +147,7 @@ Abstracted method for retrieving or calculating (memoization) of the FLS for a g
 |`field` |      String version of the field to check |
 |`checkType` |  Enum of Accessible or Updatable. |
 
-### `memoizeFLSMDC(String objType, FLSType action)` → `set<String>`
+### `memoizeFLSMDC(String objType, FLSType action)` → `Set<String>`
 
 Utilizes the Metadata catalog to determine FLS Note: this method contains a false-positive PMD violation. Normally, we'd want to check for FLS/CRUD here, but for metadata catalog objects that admins cannot remove permissions to we're ok. Additionally, even the minimum access profile user has read access to the FieldPermissions object.
 
@@ -185,7 +185,7 @@ Internal custom exception class
 
 ---
 #### Methods
-##### `doLoad(string objType)` → `Object`
+##### `doLoad(String objType)` → `Object`
 
 Required method for the CacheBuilder interface. Used here to either calcuate an objects per-user FLS, OR to return it from Cache. The return datastructure for this is Map<String, Map<FLSType,Boolean>> and represents: FieldName -> FLStype -> True/False
 

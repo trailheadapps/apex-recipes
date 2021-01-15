@@ -49,7 +49,7 @@ public inherited sharing class CanTheUser {
          * @param objType String object name used as the cache key
          * @returns       `Object`
          */
-        public Object doLoad(string objType) {
+        public Object doLoad(String objType) {
             Schema.DescribeSObjectResult[] descResult = Schema.describeSObjects(
                 new List<String>{ objType }
             );
@@ -232,18 +232,18 @@ public inherited sharing class CanTheUser {
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @testVisible
-    private static set<String> memoizeFLSMDC(String objType, FLSType action) {
+    private static Set<String> memoizeFLSMDC(String objType, FLSType action) {
         List<FieldPermissions> fields = [
-            SELECT Id, field, permissionsEdit, permissionsRead, SObjectType
+            SELECT Id, Field, PermissionsEdit, PermissionsRead, SobjectType
             FROM FieldPermissions
-            WHERE SObjecttype = :objType
+            WHERE SobjectType = :objType
         ];
 
         if (!CanTheUser.accessibleFieldsByObject.containsKey(objType)) {
             Set<String> accessibleFields = new Set<String>();
             Set<String> updatableFields = new Set<String>();
             for (FieldPermissions field : fields) {
-                String[] parts = field.field.split('\\.');
+                String[] parts = field.Field.split('\\.');
                 if (field.PermissionsRead) {
                     accessibleFields.add(parts[1].toLowerCase());
                 }

@@ -48,7 +48,7 @@ Demonstrates how to use a bound variable to define the LIMIT
 System.debug(SOQLRecipes.getFirstXRecords(5));
 ```
 
-### `getLargeNumberOfRecords()` → `integer`
+### `getLargeNumberOfRecords()` → `Integer`
 
 Demonstrates how to loop over a SOQL query
 
@@ -66,7 +66,7 @@ Demonstrates how to query fields from a parent object through the relationship f
 System.debug(SOQLRecipes.getParentRecordDetailsFromChildRecord());
 ```
 
-### `getRecords()` → `list<Account>`
+### `getRecords()` → `List<Account>`
 
 Demonstrates the proper way to query accounts with SOQL keeping FLS and CRUD in account.
 

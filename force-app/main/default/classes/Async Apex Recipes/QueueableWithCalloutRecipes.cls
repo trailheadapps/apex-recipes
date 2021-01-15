@@ -54,7 +54,7 @@ public inherited sharing class QueueableWithCalloutRecipes implements Queueable,
 
         try {
             update accounts;
-        } catch (DMLException dmle) {
+        } catch (DmlException dmle) {
             System.debug(
                 LoggingLevel.INFO,
                 'real life use cases should do something more than just logging the error: ' +
