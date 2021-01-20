@@ -4,9 +4,6 @@
  * enabled. You could also write similar methods for experiences.
  */
 public inherited sharing class IsFeatureEnabled {
-    @TestVisible
-    private static Boolean disablePlatformCache = false;
-
     /**
      * @description Method determines if platform cache is enabled for this org
      * Note: failsafes to false.
@@ -16,12 +13,7 @@ public inherited sharing class IsFeatureEnabled {
      * @return      `Boolean`
      */
     public static Boolean platformCache() {
-        // guard statement, always return false (and disable cache)
-        // when the developer has set this.disablePlatformCache = true;
-        // In the bright shining future, replace/refactor this with an
-        // automated way of determining if a test is running with @seeAllData
-        // = true
-        if (IsFeatureEnabled.disablePlatformCache) {
+        if (isSeeAllDataTrue()) {
             return false;
         }
 
@@ -39,7 +31,7 @@ public inherited sharing class IsFeatureEnabled {
     private static Boolean isSeeAllDataTrue() {
         Boolean seeAllData = false;
         if (!Test.isRunningTest()) {
-            return seeAllData;
+            return seeAllData; // This line is not testable :(
         }
 
         try {

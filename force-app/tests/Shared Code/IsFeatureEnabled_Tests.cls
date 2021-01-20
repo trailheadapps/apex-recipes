@@ -15,15 +15,15 @@ class IsFeatureEnabled_Tests {
         );
     }
 
-    @isTest
-    static void testPlatformCachePositiveNoCache() {
-        IsFeatureEnabled.disablePlatformCache = true;
+    @isTest(SeeAllData=true)
+    static void testPlatformCacheDisabledWhenSeeAllDataTrue() {
         Test.startTest();
         Boolean result = IsFeatureEnabled.platformCache();
         Test.stopTest();
-        System.assert(
-            !result,
-            'Expected the @testVisible private static variable to override the presence of Org Cache'
+        System.assertEquals(
+            false,
+            result,
+            'Expected to see platform cache reported as disbled when see all data is true'
         );
     }
 
