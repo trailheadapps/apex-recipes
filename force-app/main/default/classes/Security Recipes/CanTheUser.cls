@@ -285,7 +285,7 @@ public inherited sharing class CanTheUser {
 
         Map<String, Map<FLSType, Boolean>> objResults;
 
-        if (Feature.platformCache()) {
+        if (IsFeatureEnabled.platformCache()) {
             objResults = (Map<String, Map<FLSType, Boolean>>) defaultSession
                 .get(PermissionCache.class, obj);
         } else {
