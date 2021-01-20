@@ -3,16 +3,16 @@
  * platform features are enabled here. For example, do we have platform cache
  * enabled. You could also write similar methods for experiences.
  */
-public inherited sharing class IsFeatureEnabled {
+public inherited sharing class OrgShape {
     /**
      * @description Method determines if platform cache is enabled for this org
-     * Note: failsafes to false.
-     * Note: Allows override by setting IsFeatureEnabled.disablePlatformCache
-     * equal to true. Use this in test contexts where cache is not availble like
+     * Note: fail-safes to false.
+     * Note: Allows override by setting OrgShape.disablePlatformCache
+     * equal to true. Use this in test contexts where cache is not available like
      * when you have to use seeAllData=true
      * @return      `Boolean`
      */
-    public static Boolean platformCache() {
+    public static Boolean isPlatformCacheEnabled() {
         if (isSeeAllDataTrue()) {
             return false;
         }
