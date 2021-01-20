@@ -27,6 +27,24 @@ public inherited sharing class OrgShape {
         return cacheAvailable;
     }
 
+    /**
+     * @description Certain features of the platform are incompatible with
+     * data-siloed tests. These features require testing with the annotation
+     * @test(seeAllData=true). Other platform features are incompatible with
+     * seeAllData=true. When used in a test context, this method determines if
+     * the currently running test is executing with, or without seeAllData=true.
+     *
+     * This method is therefore used to automatically disable platform features
+     * that require are incompatible with seeAllData=true. For example: platform
+     * cache is incompatible with seeAllData=true. However, our security
+     * library, CanTheUser utilizes platform cache to accelerate Crud and FLS
+     * checks. CanTheUser uses this method, in part, to determine, transparently
+     * if it should utilize platformCache during test execution
+     *
+     * Note: It is not a good idea, and against best practices to use
+     * seeAllData=true when not absolutely necessary.
+     * @return      `Boolean`
+     */
     @TestVisible
     private static Boolean isSeeAllDataTrue() {
         Boolean seeAllData = false;
@@ -43,7 +61,7 @@ public inherited sharing class OrgShape {
             seeAllData = true;
         } catch (UnsupportedOperationException UE) {
             // this means seeAllData != true
-            System.debug('Caught UnsupportedOpperationException');
+            System.debug('Caught UnsupportedOperationException');
         }
         return seeAllData;
     }
