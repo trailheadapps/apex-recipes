@@ -7,7 +7,7 @@ Illustrates how to programatically use the Platform Cache feature of Salesforce.
 
 ---
 ## Enums
-### PatitionType
+### PartitionType
 
 
  Enum for partition type.
@@ -21,7 +21,7 @@ Defines the default cache partition for use in this class.
 
 ---
 ## Methods
-### `getDefaultPartition(PatitionType type)` → `Cache.Partition`
+### `getDefaultPartition(PartitionType type)` → `Cache.Partition`
 
 returns a Cache.Partition for a given name, and type
 

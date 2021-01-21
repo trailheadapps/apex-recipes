@@ -15,6 +15,18 @@ class OrgShape_Tests {
         );
     }
 
+    @isTest
+    static void testGetSafeDefaultCachePartitionMemoized() {
+        OrgShape.safeDefaultCachePartition = 'foo';
+        Test.startTest();
+        Boolean result = OrgShape.isPlatformCacheEnabled();
+        Test.stopTest();
+        System.assert(
+            result,
+            'We expect this to be true. But it it might fail, if you\'ve not set a default cache partition'
+        );
+    }
+
     @isTest(SeeAllData=true)
     static void testPlatformCacheDisabledWhenSeeAllDataTrue() {
         Test.startTest();

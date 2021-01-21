@@ -280,7 +280,7 @@ public inherited sharing class CanTheUser {
         FLSType checkType
     ) {
         Cache.Partition defaultSession = PlatformCacheRecipes.getDefaultPartition(
-            PlatformCacheRecipes.PatitionType.SESSION
+            PlatformCacheRecipes.PartitionType.SESSION
         );
 
         Map<String, Map<FLSType, Boolean>> objResults;

@@ -4,6 +4,9 @@
  * enabled. You could also write similar methods for experiences.
  */
 public inherited sharing class OrgShape {
+    @TestVisible
+    private static String safeDefaultCachePartition;
+
     /**
      * @description Method determines if platform cache is enabled for this org
      * Note: fail-safes to false.
@@ -13,13 +16,13 @@ public inherited sharing class OrgShape {
      * @return      `Boolean`
      */
     public static Boolean isPlatformCacheEnabled() {
-        if (isSeeAllDataTrue()) {
+        if (isSeeAllDataTrue() || findCachePartition() == null) {
             return false;
         }
 
         Boolean cacheAvailable = false;
         try {
-            Cache.org.getCapacity();
+            Cache.Org.getPartition(findCachePartition()).getCapacity();
             cacheAvailable = true;
         } catch (Exception ex) {
             system.debug('Failed to get orgCache');
@@ -64,5 +67,37 @@ public inherited sharing class OrgShape {
             System.debug('Caught UnsupportedOperationException');
         }
         return seeAllData;
+    }
+
+    /**
+     * @description This method is responsible for discovering a cache partition
+     * that can be used for determining if platformCache is enabled and
+     * configured.
+     *
+     * Note: This method memoizes the result of the query, ensuring that the
+     * underlying soql query is only ever run once per transaction.
+     *
+     * @return      `String`
+     */
+    private static String findCachePartition() {
+        if (OrgShape.safeDefaultCachePartition != null) {
+            return OrgShape.safeDefaultCachePartition;
+        }
+        try {
+            PlatformCachePartition partition = [
+                SELECT developerName
+                FROM PlatformCachePartition
+                WHERE NamespacePrefix = ''
+                LIMIT 1
+            ];
+            OrgShape.safeDefaultCachePartition =
+                'local.' + partition.DeveloperName;
+        } catch (QueryException qe) {
+            System.debug(
+                LoggingLevel.WARN,
+                'Caught QueryException looking for cache partition'
+            );
+        }
+        return OrgShape.safeDefaultCachePartition;
     }
 }

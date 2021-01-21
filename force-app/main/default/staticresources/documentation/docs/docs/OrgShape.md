@@ -6,7 +6,16 @@ layout: default
 Class contains static methods for determining if specific platform features are enabled here. For example, do we have platform cache enabled. You could also write similar methods for experiences.
 
 ---
+## Properties
+
+### `safeDefaultCachePartition` → `String`
+
+---
 ## Methods
+### `findCachePartition()` → `String`
+
+This method is responsible for discovering a cache partition that can be used for determining if platformCache is enabled and configured. Note: This method memoizes the result of the query, ensuring that the underlying soql query is only ever run once per transaction.
+
 ### `isPlatformCacheEnabled()` → `Boolean`
 
 Method determines if platform cache is enabled for this org Note: fail-safes to false. Note: Allows override by setting OrgShape.disablePlatformCache equal to true. Use this in test contexts where cache is not available like when you have to use seeAllData=true
