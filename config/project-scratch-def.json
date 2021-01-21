@@ -3,7 +3,7 @@
     "edition": "Developer",
     "country": "US",
     "language": "en_US",
-    "features": ["TransactionFinalizers", "Walkthroughs", "PlatformCache"],
+    "features": ["Walkthroughs", "PlatformCache"],
     "settings": {
         "lightningExperienceSettings": {
             "enableS1DesktopEnabled": true

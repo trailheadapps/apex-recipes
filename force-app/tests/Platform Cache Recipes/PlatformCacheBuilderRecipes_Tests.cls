@@ -1,7 +1,7 @@
 @isTest
 private class PlatformCacheBuilderRecipes_Tests {
     static Cache.Partition defaultOrgPartition = PlatformCacheRecipes.getDefaultPartition(
-        PlatformCacheRecipes.PatitionType.ORG
+        PlatformCacheRecipes.PartitionType.ORG
     );
 
     @isTest
