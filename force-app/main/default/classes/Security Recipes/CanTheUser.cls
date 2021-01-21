@@ -1,5 +1,5 @@
 /**
- * @description A reusable, intuitive library for determing wether or not the
+ * @description A reusable, intuitive library for determining wether or not the
  * current use can create, read, edit, or delete objects as well as
  * determining if the user has access or update permissions on specific fields.
  * This class name was chosen to facilitate easy-to-understand and read code.
@@ -33,7 +33,7 @@ public inherited sharing class CanTheUser {
     }
 
     /**
-     * Description this cachebuilder interface allows the CanTheUser clas to
+     * Description this cachebuilder interface allows the CanTheUser class to
      * cache per-object results for each object requested. This prevents the
      * need to repeatedly calculate permission usage by calling
      * Schema.Describe* calls
@@ -41,7 +41,7 @@ public inherited sharing class CanTheUser {
     private class PermissionCache implements Cache.CacheBuilder {
         /**
          * @description   Required method for the CacheBuilder interface. Used
-         * here to either calcuate an objects per-user FLS, OR to return it
+         * here to either calculate an objects per-user FLS, OR to return it
          * from Cache.
          * The return datastructure for this is
          * Map<String, Map<FLSType,Boolean>> and represents:
@@ -161,7 +161,7 @@ public inherited sharing class CanTheUser {
      * @param field the field in question in SObjectField form
      * @return Boolean
      * @example
-     * System.debug(CanTheuser.flsAccessible('Account', 'Name'));
+     * System.debug(CanTheUser.flsAccessible('Account', 'Name'));
      **/
     public static Boolean flsAccessible(String obj, String field) {
         return getFLSForFieldOnObject(obj, field, FLSType.ACCESSIBLE);
@@ -174,7 +174,7 @@ public inherited sharing class CanTheUser {
      * @return      `Map<String, Boolean>`
      * @example
      * String[] fields = new String[]{'Name', 'ShippingStreet'};
-     * System.debug(CanTheuser.bulkFLSAccessible('Account', fields));
+     * System.debug(CanTheUser.bulkFLSAccessible('Account', fields));
      */
     public static Map<String, Boolean> bulkFLSAccessible(
         String obj,
@@ -194,7 +194,7 @@ public inherited sharing class CanTheUser {
      * @param field the field to check
      * @return Boolean
      * @example
-     * System.debug(CanTheuser.flsUpdatable('Account', 'Name'));
+     * System.debug(CanTheUser.flsUpdatable('Account', 'Name'));
      **/
     public static Boolean flsUpdatable(String obj, String field) {
         return getFLSForFieldOnObject(obj, field, FLSType.UPDATABLE);
@@ -207,7 +207,7 @@ public inherited sharing class CanTheUser {
      * @return      `Map<String, Boolean>`
      * @example
      * String[] fields = new String[]{'Name', 'ShippingStreet'};
-     * System.debug(CanTheuser.bulkFLSUpdatable('Account', fields));
+     * System.debug(CanTheUser.bulkFLSUpdatable('Account', fields));
      */
     public static Map<String, Boolean> bulkFLSUpdatable(
         String obj,

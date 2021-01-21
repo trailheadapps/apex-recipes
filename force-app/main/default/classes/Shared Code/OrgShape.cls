@@ -56,7 +56,7 @@ public inherited sharing class OrgShape {
         }
 
         try {
-            // this will throw an exception in a data-silo'd test.
+            // this will throw an exception in a data-siloed test.
             ConnectApi.ChatterUsers.getFollowings(
                 null,
                 String.valueOf(UserInfo.getUserId())
@@ -79,6 +79,7 @@ public inherited sharing class OrgShape {
      *
      * @return      `String`
      */
+    @SuppressWarnings('PMD.ApexCRUDViolation')
     private static String findCachePartition() {
         if (OrgShape.safeDefaultCachePartition != null) {
             return OrgShape.safeDefaultCachePartition;

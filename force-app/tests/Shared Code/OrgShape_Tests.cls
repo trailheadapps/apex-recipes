@@ -28,6 +28,7 @@ class OrgShape_Tests {
     }
 
     @isTest(SeeAllData=true)
+    @SuppressWarnings('PMD.ApexUnitTestShouldNotUseSeeAllDataTrue')
     static void testPlatformCacheDisabledWhenSeeAllDataTrue() {
         Test.startTest();
         Boolean result = OrgShape.isPlatformCacheEnabled();
@@ -40,6 +41,7 @@ class OrgShape_Tests {
     }
 
     @isTest(SeeAllData=true)
+    @SuppressWarnings('PMD.ApexUnitTestShouldNotUseSeeAllDataTrue')
     static void testSeeAllDataPostiveWhenEnabled() {
         System.assert(
             OrgShape.isSeeAllDataTrue(),
