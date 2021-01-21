@@ -22,7 +22,7 @@ class OrgShape_Tests {
         Boolean result = OrgShape.isPlatformCacheEnabled();
         Test.stopTest();
         System.assert(
-            result,
+            !result,
             'We expect this to be true. But it it might fail, if you\'ve not set a default cache partition'
         );
     }
