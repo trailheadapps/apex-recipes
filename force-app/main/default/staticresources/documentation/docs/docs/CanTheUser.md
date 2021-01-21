@@ -3,7 +3,7 @@ layout: default
 ---
 # CanTheUser class
 
-A reusable, intuitive library for determing wether or not the current use can create, read, edit, or delete objects as well as determining if the user has access or update permissions on specific fields. This class name was chosen to facilitate easy-to-understand and read code. Whenever you need to check FLS or CRUD access your code reads like this `if(CanTheUser.read(new account())){}` making the calling and use of this code easy and intuitive.
+A reusable, intuitive library for determining wether or not the current use can create, read, edit, or delete objects as well as determining if the user has access or update permissions on specific fields. This class name was chosen to facilitate easy-to-understand and read code. Whenever you need to check FLS or CRUD access your code reads like this `if(CanTheUser.read(new account())){}` making the calling and use of this code easy and intuitive.
 
 ---
 ## Enums
@@ -33,7 +33,7 @@ bulk form of flsAccessible
 #### Example
 ```java
 String[] fields = new String[]{'Name', 'ShippingStreet'};
-System.debug(CanTheuser.bulkFLSAccessible('Account', fields));
+System.debug(CanTheUser.bulkFLSAccessible('Account', fields));
 ```
 
 ### `bulkFLSUpdatable(String obj,Set<String> fields)` → `Boolean>`
@@ -49,7 +49,7 @@ bulk form of flsUpdatable call
 #### Example
 ```java
 String[] fields = new String[]{'Name', 'ShippingStreet'};
-System.debug(CanTheuser.bulkFLSUpdatable('Account', fields));
+System.debug(CanTheUser.bulkFLSUpdatable('Account', fields));
 ```
 
 ### `create(SObject obj)` → `Boolean`
@@ -118,7 +118,7 @@ public method to determine if a given field on a given object is Accessible (rea
 
 #### Example
 ```java
-System.debug(CanTheuser.flsAccessible('Account', 'Name'));
+System.debug(CanTheUser.flsAccessible('Account', 'Name'));
 ```
 
 ### `flsUpdatable(String obj, String field)` → `Boolean`
@@ -133,7 +133,7 @@ public method to determine if a given field on a given object is Updatable.
 
 #### Example
 ```java
-System.debug(CanTheuser.flsUpdatable('Account', 'Name'));
+System.debug(CanTheUser.flsUpdatable('Account', 'Name'));
 ```
 
 ### `getFLSForFieldOnObject(String obj,String field,FLSType checkType)` → `Boolean`
@@ -181,13 +181,14 @@ Internal custom exception class
 ---
 ### CanTheUser.PermissionCache class
 
- Description this cachebuilder interface allows the CanTheUser clas to cache per-object results for each object requested. This prevents the need to repeatedly calculate permission usage by calling Schema.Describe* calls
+ Description this cachebuilder interface allows the CanTheUser class to cache per-object results for each object requested. This prevents the need to repeatedly calculate permission usage by calling Schema.Describe* calls
 
 ---
 #### Methods
+##### `calculateFLS(string objType)` → `Boolean>>`
 ##### `doLoad(string objType)` → `Object`
 
-Required method for the CacheBuilder interface. Used here to either calcuate an objects per-user FLS, OR to return it from Cache. The return datastructure for this is Map<String, Map<FLSType,Boolean>> and represents: FieldName -> FLStype -> True/False
+Required method for the CacheBuilder interface. Used here to either calculate an objects per-user FLS, OR to return it from Cache. The return datastructure for this is Map<String, Map<FLSType,Boolean>> and represents: FieldName -> FLStype -> True/False
 
 ###### Parameters
 |Param|Description|
