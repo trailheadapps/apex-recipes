@@ -30,6 +30,16 @@ bulk form of flsAccessible
 |`obj` |     Obj name on which to check |
 |`fields` |  Set of Fields to check for accessibility. |
 
+#### Return
+
+**Type**
+
+Boolean>
+
+**Description**
+
+`Map<String, Boolean>`
+
 #### Example
 ```java
 String[] fields = new String[]{'Name', 'ShippingStreet'};
@@ -46,6 +56,16 @@ bulk form of flsUpdatable call
 |`obj` |     Name of the object |
 |`fields` |  Set of Field names to check |
 
+#### Return
+
+**Type**
+
+Boolean>
+
+**Description**
+
+`Map<String, Boolean>`
+
 #### Example
 ```java
 String[] fields = new String[]{'Name', 'ShippingStreet'};
@@ -61,6 +81,16 @@ convenience api for determining if the running user can create the specified obj
 |-----|-----------|
 |`obj` |  Object type to check create permissions on |
 
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
 #### Example
 ```java
 System.debug(CanTheUser.create(new Account()));
@@ -72,6 +102,16 @@ System.debug(CanTheUser.create(new Account()));
 |-----|-----------|
 |`obj` |  the object type to check |
 |`permission` |  create, read, update or delete |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
 
 #### Example
 ```java
@@ -87,6 +127,16 @@ convenience api for determining if the running user can delete/destroy the speci
 |-----|-----------|
 |`obj` |  object type to check destroy permissions on |
 
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
 #### Example
 ```java
 System.debug(CanTheUser.destroy(new Account()));
@@ -100,6 +150,16 @@ convenience api for determining if the running user can edit / update the specif
 |Param|Description|
 |-----|-----------|
 |`obj` |  object type to check edit permissions on |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
 
 #### Example
 ```java
@@ -116,6 +176,16 @@ public method to determine if a given field on a given object is Accessible (rea
 |`obj` |  the object in question, in string form |
 |`field` |  the field in question in SObjectField form |
 
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
 #### Example
 ```java
 System.debug(CanTheUser.flsAccessible('Account', 'Name'));
@@ -130,6 +200,16 @@ public method to determine if a given field on a given object is Updatable.
 |-----|-----------|
 |`obj` |  the string version of an object name |
 |`field` |  the field to check |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
 
 #### Example
 ```java
@@ -147,6 +227,16 @@ Abstracted method for retrieving or calculating (memoization) of the FLS for a g
 |`field` |      String version of the field to check |
 |`checkType` |  Enum of Accessible or Updatable. |
 
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+`Boolean`
+
 ### `memoizeFLSMDC(String objType, FLSType action)` → `Set<String>`
 
 Utilizes the Metadata catalog to determine FLS Note: this method contains a false-positive PMD violation. Normally, we'd want to check for FLS/CRUD here, but for metadata catalog objects that admins cannot remove permissions to we're ok. Additionally, even the minimum access profile user has read access to the FieldPermissions object.
@@ -157,6 +247,16 @@ Utilizes the Metadata catalog to determine FLS Note: this method contains a fals
 |`objType` |  String version of the object type to check |
 |`action` |   Enum of the FLS action to check permissions for |
 
+#### Return
+
+**Type**
+
+set<String>
+
+**Description**
+
+`set<String>`
+
 ### `read(SObject obj)` → `Boolean`
 
 convenience api for determining if the running user can read / access the specified object
@@ -165,6 +265,16 @@ convenience api for determining if the running user can read / access the specif
 |Param|Description|
 |-----|-----------|
 |`obj` |  object type to check read permissions on |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
 
 #### Example
 ```java
@@ -186,6 +296,24 @@ Internal custom exception class
 ---
 #### Methods
 ##### `calculateFLS(string objType)` → `Boolean>>`
+
+Calculates the FLS for a given object type
+
+###### Parameters
+|Param|Description|
+|-----|-----------|
+|`objType` |  String name of the object type |
+
+###### Return
+
+**Type**
+
+Boolean>>
+
+**Description**
+
+`Map<String, Map<FLSType, Boolean>>`
+
 ##### `doLoad(String objType)` → `Object`
 
 Required method for the CacheBuilder interface. Used here to either calculate an objects per-user FLS, OR to return it from Cache. The return datastructure for this is Map<String, Map<FLSType,Boolean>> and represents: FieldName -> FLStype -> True/False
@@ -194,5 +322,15 @@ Required method for the CacheBuilder interface. Used here to either calculate an
 |Param|Description|
 |-----|-----------|
 |`objType` |  String object name used as the cache key |
+
+###### Return
+
+**Type**
+
+Object
+
+**Description**
+
+`Object`
 
 ---

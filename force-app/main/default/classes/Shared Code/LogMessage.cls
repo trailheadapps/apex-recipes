@@ -5,6 +5,9 @@
 public inherited sharing class LogMessage {
     private static final String EXCEPTION_STRING_FORMAT = 'Exception: [{0}] {1} \n StackTrace: {2}';
 
+    /**
+     * @description public read only property for the request ID. Privately set.
+     */
     public String requestId {
         get {
             if (requestId == null) {
@@ -15,6 +18,9 @@ public inherited sharing class LogMessage {
         private set;
     }
 
+    /**
+     * @description Public read only property for quiddity. Privately set.
+     */
     public Quiddity quiddity {
         get {
             if (quiddity == null) {
@@ -25,10 +31,20 @@ public inherited sharing class LogMessage {
         private set;
     }
 
+    /**
+     * @description Public message property.
+     */
     public String message { get; set; }
 
+    /**
+     * @description Public severity property.
+     */
     public LogSeverity severity { get; set; }
 
+    /**
+     * @description converts this object to an event for publishing
+     * @return      `SObject`
+     */
     public SObject toEvent() {
         return new Log__e(
             Log_Message__c = this.message,
@@ -38,11 +54,20 @@ public inherited sharing class LogMessage {
         );
     }
 
+    /**
+     * @description   Constructor accepting a message to log.
+     * Severity is auto set to info
+     * @param message
+     */
     public LogMessage(String message) {
         this.message = message;
         this.severity = LogSeverity.INFO;
     }
 
+    /**
+     * @description Constructor accepting an exception object.
+     * @param ex
+     */
     public LogMessage(Exception ex) {
         this.message = String.format(
             EXCEPTION_STRING_FORMAT,

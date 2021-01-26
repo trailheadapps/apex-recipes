@@ -117,6 +117,16 @@ this.clearMaxLoopCount();
 
 Returns the string version of the handler class being invoked
 
+#### Return
+
+**Type**
+
+String
+
+**Description**
+
+`String` Name of the Handler
+
 ### `isBypassed(String handlerName)` → `Boolean`
 
 Allows developers to check whether a given trigger handler class is currently bypassed.
@@ -125,6 +135,16 @@ Allows developers to check whether a given trigger handler class is currently by
 |Param|Description|
 |-----|-----------|
 |`handlerName` |  The name of the trigger handler class to check for |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+`Boolean`
 
 #### Example
 ```java
@@ -173,6 +193,16 @@ Internal method for manually setting the trigger context
 
 make sure this trigger should continue to run
 
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+`Boolean`
+
 ---
 ## Inner Classes
 
@@ -206,17 +236,57 @@ Sets loop count based on the param.
 
 Determines if this we're about to exceed the loop count.
 
+###### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+`Boolean` true if less than 0 or more than max.
+
 ##### `getCount()` → `Integer`
 
 Returns the current loop count.
+
+###### Return
+
+**Type**
+
+Integer
+
+**Description**
+
+`Integer` current loop count.
 
 ##### `getMax()` → `Integer`
 
 Returns the max loop count.
 
+###### Return
+
+**Type**
+
+Integer
+
+**Description**
+
+`Integer` max loop count.
+
 ##### `increment()` → `Boolean`
 
 Increment the internal counter returning the results of this.exceeded().
+
+###### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+`Boolean` true if count will exceed max count or is less
 
 ##### `setMax(Integer max)` → `void`
 

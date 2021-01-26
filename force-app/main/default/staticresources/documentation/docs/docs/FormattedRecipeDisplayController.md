@@ -20,6 +20,16 @@ AuraEnabled, and cached read-only method for grabbing the body of a given Apex C
 |-----|-----------|
 |`recipeName` |  Name of the Class to return |
 
+#### Return
+
+**Type**
+
+ClassData
+
+**Description**
+
+`ClassData`
+
 #### Example
 ```java
 System.debug(FormattedRecipeDisplayController.getRecipeCode('FormattedRecipeDisplayController'));

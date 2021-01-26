@@ -58,6 +58,16 @@ This method is required by the Batchable interface. It's responsible for identif
 |-----|-----------|
 |`context` |  dependency injected by the system |
 
+#### Return
+
+**Type**
+
+Database.QueryLocator
+
+**Description**
+
+Database.QueryLocator QueryLocator object used for context
+
 #### Example
 ```java
 Database.enqueueBatch(new BatchApexRecipes());

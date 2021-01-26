@@ -15,6 +15,16 @@ Demonstrates how to expose a class method to Aura and LWC components. Also demon
 
 Demonstrates how to make a method available to Aura or LWC for read-only operations. This method returns a hard-coded string, but you could do a SOQL query, or other work.
 
+#### Return
+
+**Type**
+
+string
+
+**Description**
+
+return description
+
 #### Example
 ```java
 System.debug(AuraEnabledRecipes.getFieldValue());
@@ -29,6 +39,16 @@ Updates a given account's name. Demonstrates how to receive information from an 
 |-----|-----------|
 |`accountId` |  Id of the account to update |
 |`newValue` |   String of the name to set |
+
+#### Return
+
+**Type**
+
+boolean
+
+**Description**
+
+Boolean
 
 #### Example
 ```java

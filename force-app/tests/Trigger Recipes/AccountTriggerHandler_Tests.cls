@@ -217,6 +217,9 @@ private inherited sharing class AccountTriggerHandler_Tests {
     }
 
     @isTest
+    /**
+     * @description tests before delete
+     */
     static void beforeDeleteTestPositive() {
         Account acct = (Account) TestFactory.createSObject(
             new Account(name = 'TheBestAccount'),

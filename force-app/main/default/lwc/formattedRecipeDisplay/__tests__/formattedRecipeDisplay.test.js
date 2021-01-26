@@ -67,7 +67,7 @@ describe('c-formatted-recipe-display', () => {
         // ending the test and fail the test if the promise rejects.
         return flushPromises().then(() => {
             const errorPanelEl = element.shadowRoot.querySelector(
-                'c-error-panel'
+                'div.slds-illustration'
             );
             expect(errorPanelEl).not.toBeNull();
         });
@@ -89,10 +89,8 @@ describe('c-formatted-recipe-display', () => {
         // ending the test and fail the test if the promise rejects.
         return Promise.resolve().then(() => {
             // Select elements for validation
-            const h3El = element.shadowRoot.querySelector('h3');
-            expect(h3El.textContent).toBe(
-                `${mockGetRecipeCode.groupName} / ${mockGetRecipeCode.name}`
-            );
+            const codeEl = element.shadowRoot.querySelector('code');
+            expect(codeEl.textContent).not.toBeNull();
         });
     });
 
@@ -111,10 +109,10 @@ describe('c-formatted-recipe-display', () => {
         // will automatically wait for the Promise chain to complete before
         // ending the test and fail the test if the promise rejects.
         return Promise.resolve().then(() => {
-            const errorPanelEl = element.shadowRoot.querySelector(
-                'c-error-panel'
+            const illustrationDivEl = element.shadowRoot.querySelector(
+                'div.slds-illustration'
             );
-            expect(errorPanelEl).not.toBeNull();
+            expect(illustrationDivEl).not.toBeNull();
         });
     });
 

@@ -26,7 +26,7 @@ public inherited sharing class Log {
 
     /**
      * @description Singleton pattern `get` method.
-     * @returns     `Log`
+     * @return     `Log`
      */
     public static Log get() {
         if (currentInstance == null) {

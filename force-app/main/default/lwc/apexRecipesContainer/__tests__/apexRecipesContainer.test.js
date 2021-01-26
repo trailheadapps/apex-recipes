@@ -7,6 +7,27 @@ jest.mock('../../recipeTreeView/recipeTreeView');
 jest.mock('../../formattedRecipeDisplay/formattedRecipeDisplay');
 
 describe('c-apex-recipes-container', () => {
+    // Helper function to mock a resolved fetch call.
+    function mockFetch(data) {
+        return jest
+            .fn()
+            .mockImplementation(() =>
+                Promise.resolve({ ok: true, json: () => Promise.resolve(data) })
+            );
+    }
+
+    // Mock the successful fetch call. An empty response value is
+    // sufficient, as we only test that fetch is called with the
+    // expected parameter.
+    const fetch = (global.fetch = mockFetch({ items: [] }));
+
+    // Helper function to wait until the microtask queue is empty.
+    // This is needed for promise timing.
+    function flushPromises() {
+        // eslint-disable-next-line no-undef
+        return new Promise((resolve) => setImmediate(resolve));
+    }
+
     afterEach(() => {
         // The jsdom instance is shared across test cases in a single file so reset the DOM
         while (document.body.firstChild) {
@@ -36,11 +57,11 @@ describe('c-apex-recipes-container', () => {
         // ending the test and fail the test if the promise rejects.
         return Promise.resolve().then(() => {
             // Select element for validation
-            const formattedRecipeDisplayEl = element.shadowRoot.querySelector(
-                'c-formatted-recipe-display'
+            const relatedCodeTabsEl = element.shadowRoot.querySelector(
+                'c-related-code-tabs'
             );
 
-            expect(formattedRecipeDisplayEl.recipeName).toBe('SOQLRecipes');
+            expect(relatedCodeTabsEl.recipeName).toBe('SOQLRecipes');
         });
     });
 
@@ -51,6 +72,8 @@ describe('c-apex-recipes-container', () => {
         });
         document.body.appendChild(element);
 
-        return Promise.resolve().then(() => expect(element).toBeAccessible());
+        return flushPromises().then(() => {
+            expect(element).toBeAccessible();
+        });
     });
 });

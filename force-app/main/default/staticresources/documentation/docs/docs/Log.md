@@ -65,6 +65,16 @@ Add an formated exception message to the buffer without publishing it.
 
 Singleton pattern `get` method.
 
+#### Return
+
+**Type**
+
+Log
+
+**Description**
+
+`Log`
+
 ### `publish()` → `void`
 
 Publish any messages currently in the buffer, without adding any new ones.
