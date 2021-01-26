@@ -22,7 +22,7 @@ A list of quiddities that may include user-defined data and therefore should not
 
 ---
 ## Methods
-### `isAcceptableQuiddity(List<Quiddity> acceptableQuiddites)` → `boolean`
+### `isAcceptableQuiddity(List<Quiddity> acceptableQuiddites)` → `Boolean`
 
 A method to determine if the current Quiddity context is within a caller-supplied list of acceptable quiddity values.
 

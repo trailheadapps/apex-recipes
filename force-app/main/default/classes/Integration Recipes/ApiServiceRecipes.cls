@@ -13,8 +13,8 @@
  */
 public inherited sharing class ApiServiceRecipes extends RestClient {
     @testVisible
-    private static final string DEFAULTNAMEDCREDENTIAL = 'MockBin';
-    private static final string GETBINPATH = '4cb453a6-a23b-42ea-a6ba-9be1c1f17050';
+    private static final String DEFAULTNAMEDCREDENTIAL = 'MockBin';
+    private static final String GETBINPATH = '4cb453a6-a23b-42ea-a6ba-9be1c1f17050';
 
     /**
      * @description Internal custom exception used by this class for errors

@@ -29,10 +29,10 @@ public inherited sharing class FormattedRecipeDisplayController {
          * @param klass An ApexClass object to build this object from.
          */
         public ClassData(ApexClass klass) {
-            this.name = klass.name;
-            this.apiVersion = klass.apiVersion;
-            this.body = klass.body;
-            this.lengthWithoutComments = klass.lengthWithoutComments;
+            this.name = klass.Name;
+            this.apiVersion = klass.ApiVersion;
+            this.body = klass.Body;
+            this.lengthWithoutComments = klass.LengthWithoutComments;
             // Some of the Test classes cause a Limits error on
             // `Regex too complicated`
             // Until this is sorted, we'll explicitly bypass this on Test
@@ -65,7 +65,7 @@ public inherited sharing class FormattedRecipeDisplayController {
     @AuraEnabled(cacheable=true)
     public static ClassData getRecipeCode(String recipeName) {
         ApexClass klass = [
-            SELECT id, Name, ApiVersion, Body, LengthWithoutComments
+            SELECT Id, Name, ApiVersion, Body, LengthWithoutComments
             FROM ApexClass
             WHERE Name LIKE :recipeName.trim()
             LIMIT 1

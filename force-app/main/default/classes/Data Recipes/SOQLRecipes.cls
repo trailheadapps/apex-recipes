@@ -14,7 +14,7 @@ public inherited sharing class SOQLRecipes {
      * List<Account> results = SOQLRecipes.querySingleObject();
      * System.debug(results);
      **/
-    public static list<Account> getRecords() {
+    public static List<Account> getRecords() {
         List<Account> accounts = new List<Account>();
         accounts = [
             SELECT Name, ShippingStreet, ShippingCity
@@ -31,7 +31,7 @@ public inherited sharing class SOQLRecipes {
      * @example
      * System.debug(SOQLRecipes.getLargeNumberOfRecords());
      **/
-    public static integer getLargeNumberOfRecords() {
+    public static Integer getLargeNumberOfRecords() {
         Integer count = 0;
         /**
          * You'll see this pattern, called a SQOL for loop used
@@ -91,7 +91,7 @@ public inherited sharing class SOQLRecipes {
     public static List<Account> getSpecificNumberOfRecords() {
         //LIMIT clause
         return [
-            SELECT name
+            SELECT Name
             FROM Account
             WITH SECURITY_ENFORCED
             ORDER BY Industry DESC
@@ -109,7 +109,7 @@ public inherited sharing class SOQLRecipes {
      **/
     public static List<Account> getFirstXRecords(Integer wantedNumberOfRows) {
         return [
-            SELECT name
+            SELECT Name
             FROM Account
             WITH SECURITY_ENFORCED
             ORDER BY Industry DESC
@@ -143,7 +143,7 @@ public inherited sharing class SOQLRecipes {
      **/
     public static List<Account> getSecond10AccountRecords() {
         return [
-            SELECT id
+            SELECT Id
             FROM Account
             WITH SECURITY_ENFORCED
             ORDER BY Industry DESC
@@ -178,9 +178,9 @@ public inherited sharing class SOQLRecipes {
      **/
     public static List<Contact> getParentRecordDetailsFromChildRecord() {
         return [
-            SELECT Id, Name, Email, account.Name, account.ShippingState
+            SELECT Id, Name, Email, Account.Name, Account.ShippingState
             FROM Contact
-            WHERE account.ShippingState = 'KS'
+            WHERE Account.ShippingState = 'KS'
             WITH SECURITY_ENFORCED
         ];
     }
@@ -195,7 +195,7 @@ public inherited sharing class SOQLRecipes {
      **/
     public static List<Junction__c> getDetailsFromBothParentRecords() {
         return [
-            SELECT Id, parent1__r.Name, parent2__r.Name
+            SELECT Id, parent1__r.Name, Parent2__r.Name
             FROM Junction__c
             WITH SECURITY_ENFORCED
         ];
@@ -216,9 +216,9 @@ public inherited sharing class SOQLRecipes {
         List<AggregateResult> groupedResults = [
             SELECT SUM(Amount) total
             FROM Opportunity
-            WHERE accountId = :accountId
+            WHERE AccountId = :accountId
             WITH SECURITY_ENFORCED
         ];
-        return (double) groupedResults[0].get('total');
+        return (Double) groupedResults[0].get('total');
     }
 }
