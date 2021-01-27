@@ -56,7 +56,7 @@ public inherited sharing class CustomMetadataUtilties {
     public List<Bucketed_Picklist__mdt> getBucketedPicklistsForObject(
         Id objId
     ) {
-        if (!CanTheUser.read(new Bucketed_Picklist__mdt())) {
+        if (objId.isNull() || !CanTheUser.read(new Bucketed_Picklist__mdt())) {
             return new List<Bucketed_Picklist__mdt>();
         }
         String obj = String.valueof(objId.getSObjectType());
