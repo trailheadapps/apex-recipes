@@ -251,7 +251,7 @@ Utilizes the Metadata catalog to determine FLS Note: this method contains a fals
 
 **Type**
 
-set<String>
+Set<String>
 
 **Description**
 
@@ -291,7 +291,7 @@ Internal custom exception class
 ---
 ### CanTheUser.PermissionCache class
 
- Description this cachebuilder interface allows the CanTheUser class to cache per-object results for each object requested. This prevents the need to repeatedly calculate permission usage by calling Schema.Describe* calls
+this cachebuilder interface allows the CanTheUser class to cache per-object results for each object requested. This prevents the need to repeatedly calculate permission usage by calling Schema.Describe* calls
 
 ---
 #### Methods

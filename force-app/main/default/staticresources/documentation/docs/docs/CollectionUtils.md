@@ -22,7 +22,7 @@ This is a generic, reusable but still typesafe method for generating a Map<Id, S
 
 **Type**
 
-sObject>
+SObject>
 
 **Description**
 
@@ -48,7 +48,7 @@ This method accepts an incoming List of sObjects and generates a Map<id,List<sOb
 
 **Type**
 
-List<sObject>>
+List<SObject>>
 
 **Description**
 
@@ -74,7 +74,7 @@ Method functions as the above methods do, but returns a map whose keys are strin
 
 **Type**
 
-sObject>
+SObject>
 
 **Description**
 

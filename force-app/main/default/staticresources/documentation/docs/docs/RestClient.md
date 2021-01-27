@@ -51,9 +51,11 @@ convenience method for deleteing a resource based only on path
 |-----|-----------|
 |`path` |    Http path component of the URL. ie: `/path/to/resource` |
 
+#### Return
+
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -73,7 +75,7 @@ convenience method for a Delete Call that only requires a path and query
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -111,7 +113,7 @@ convenience method for a GET Call that only requires a path
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -131,7 +133,7 @@ convenience method for a GET Call that only requires a path and query
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -154,7 +156,7 @@ Omnibus callout method. This is the primary method for making a REST callout. Mo
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -197,7 +199,7 @@ convenience version of makeApiCall without body param. Invokes omnibus version a
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -217,7 +219,7 @@ convenience version of makeApiCall without body or query params. Invokes omnibus
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -241,7 +243,7 @@ A static wrapper for the main makeApiCall method
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -273,7 +275,7 @@ A static wrapper for the main makeApiCall method that assumes default headers.
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -302,7 +304,7 @@ A static wrapper for the main makeApiCall method where you only need the path
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -329,7 +331,7 @@ convenience method for a PATCH Call that only requires a path, query and body
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -350,7 +352,7 @@ convenience method for a PATCH Call that only requires a path, query and body
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -370,7 +372,7 @@ convenience method for a POST Call that only requires a path and body
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -391,7 +393,7 @@ convenience method for a POST Call that only requires a path, query and body
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -411,7 +413,7 @@ convenience method for a PUT Call that only requires a path and body
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 
@@ -432,7 +434,7 @@ convenience method for a PUT Call that only requires a path, query and body
 
 **Type**
 
-HTTPResponse
+HttpResponse
 
 **Description**
 

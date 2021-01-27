@@ -19,7 +19,7 @@ Demonstrates how to make a method available to Aura or LWC for read-only operati
 
 **Type**
 
-string
+String
 
 **Description**
 
@@ -44,7 +44,7 @@ Updates a given account's name. Demonstrates how to receive information from an 
 
 **Type**
 
-boolean
+Boolean
 
 **Description**
 

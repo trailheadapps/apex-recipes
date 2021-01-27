@@ -86,7 +86,7 @@ Demonstrates how to loop over a SOQL query
 
 **Type**
 
-integer
+Integer
 
 **Description**
 
@@ -124,7 +124,7 @@ Demonstrates the proper way to query accounts with SOQL keeping FLS and CRUD in 
 
 **Type**
 
-list<Account>
+List<Account>
 
 **Description**
 
