@@ -31,4 +31,14 @@ A method to determine if the current Quiddity context is within a caller-supplie
 |-----|-----------|
 |`acceptableQuiddites` |  A list of quiddities to check against |
 
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+`boolean`
+
 ---

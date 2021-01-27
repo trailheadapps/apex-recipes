@@ -33,7 +33,7 @@ public inherited sharing class CanTheUser {
     }
 
     /**
-     * Description this cachebuilder interface allows the CanTheUser class to
+     * @description this cachebuilder interface allows the CanTheUser class to
      * cache per-object results for each object requested. This prevents the
      * need to repeatedly calculate permission usage by calling
      * Schema.Describe* calls
@@ -47,12 +47,17 @@ public inherited sharing class CanTheUser {
          * Map<String, Map<FLSType,Boolean>> and represents:
          * FieldName -> FLStype -> True/False
          * @param objType String object name used as the cache key
-         * @returns       `Object`
+         * @return       `Object`
          */
         public Object doLoad(String objType) {
             return calculateFLS(objType);
         }
 
+        /**
+         * @description   Calculates the FLS for a given object type
+         * @param objType String name of the object type
+         * @return        `Map<String, Map<FLSType, Boolean>>`
+         */
         public Map<String, Map<FLSType, Boolean>> calculateFLS(string objType) {
             Schema.DescribeSObjectResult[] descResult = Schema.describeSObjects(
                 new List<String>{ objType }
@@ -272,7 +277,7 @@ public inherited sharing class CanTheUser {
      * @param obj       String version of object name to check
      * @param field     String version of the field to check
      * @param checkType Enum of Accessible or Updatable.
-     * @returns         `Boolean`
+     * @return         `Boolean`
      */
     private static Boolean getFLSForFieldOnObject(
         String obj,

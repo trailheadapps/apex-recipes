@@ -18,6 +18,16 @@ This is a generic, reusable but still typesafe method for generating a Map<Id, S
 |`key` |  String representation of the field name to use as the Key. |
 |`incomingList` |  Any list of objects that can be cast to a list of |
 
+#### Return
+
+**Type**
+
+SObject>
+
+**Description**
+
+`Map<Id, sObject>`
+
 #### Example
 ```java
 Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
@@ -34,6 +44,16 @@ This method accepts an incoming List of sObjects and generates a Map<id,List<sOb
 |`key` |           String name of an field that is of the ID type. |
 |`incomingList` |  List of sObjects to build the map from. |
 
+#### Return
+
+**Type**
+
+List<SObject>>
+
+**Description**
+
+`Map<Id, List<sObject>>`
+
 #### Example
 ```java
 Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
@@ -49,6 +69,16 @@ Method functions as the above methods do, but returns a map whose keys are strin
 |-----|-----------|
 |`key` |           String field name of a field who's value is castable to String. |
 |`incomingList` |  List of incoming sObjects to build the map from |
+
+#### Return
+
+**Type**
+
+SObject>
+
+**Description**
+
+`Map<String, sObject>`
 
 #### Example
 ```java

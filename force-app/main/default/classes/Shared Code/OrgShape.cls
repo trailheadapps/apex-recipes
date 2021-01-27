@@ -25,7 +25,7 @@ public inherited sharing class OrgShape {
             Cache.Org.getPartition(findCachePartition()).getCapacity();
             cacheAvailable = true;
         } catch (Exception ex) {
-            system.debug('Failed to get orgCache');
+            system.debug(LoggingLevel.WARN, 'Failed to get orgCache');
         }
         return cacheAvailable;
     }
@@ -64,7 +64,10 @@ public inherited sharing class OrgShape {
             seeAllData = true;
         } catch (UnsupportedOperationException UE) {
             // this means seeAllData != true
-            System.debug('Caught UnsupportedOperationException');
+            System.debug(
+                LoggingLevel.INFO,
+                'Caught UnsupportedOperationException'
+            );
         }
         return seeAllData;
     }

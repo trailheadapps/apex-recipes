@@ -51,6 +51,16 @@ convenience method for deleteing a resource based only on path
 |-----|-----------|
 |`path` |    Http path component of the URL. ie: `/path/to/resource` |
 
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
+
 ### `del(String path, String query)` → `HttpResponse`
 
 convenience method for a Delete Call that only requires a path and query
@@ -61,6 +71,16 @@ convenience method for a Delete Call that only requires a path and query
 |`path` |    Http path component of the URL. ie: `/path/to/resource` |
 |`query` |   Query component of the URL ie: after `?foo=bar` |
 
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
+
 ### `ensureStringEndsInSlash(String resource)` → `String`
 
 Ensures that the inputted string ends in a `/` makes callouts more robust.
@@ -69,6 +89,16 @@ Ensures that the inputted string ends in a `/` makes callouts more robust.
 |Param|Description|
 |-----|-----------|
 |`resource` |  string to ensure ends in `/` |
+
+#### Return
+
+**Type**
+
+String
+
+**Description**
+
+inputted string with `/` if it didn't already end in one.
 
 ### `get(String path)` → `HttpResponse`
 
@@ -79,6 +109,16 @@ convenience method for a GET Call that only requires a path
 |-----|-----------|
 |`path` |    Http path component of the URL. ie: `/path/to/resource` |
 
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
+
 ### `get(String path, String query)` → `HttpResponse`
 
 convenience method for a GET Call that only requires a path and query
@@ -88,6 +128,16 @@ convenience method for a GET Call that only requires a path and query
 |-----|-----------|
 |`path` |    Http path component of the URL. ie: `/path/to/resource` |
 |`query` |   Query component of the URL ie: after `?foo=bar` |
+
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
 
 ### `makeApiCall(HttpVerb method,String path,String query,String body,Map<String, String> headers)` → `HttpResponse`
 
@@ -102,6 +152,16 @@ Omnibus callout method. This is the primary method for making a REST callout. Mo
 |`body` |  JSON string representing the body of the callout in post/patch situations |
 |`headers` |  A map<String,String> of headers to use while making this callout |
 
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+HttpResponse  HttpResponse Obj
+
 ### `makeApiCall(HttpVerb method,String path,String query,String body)` → `HttpResponse`
 
 Makes an HTTP Callout to an api resource. Convienence method that assumes the Default Headers.
@@ -114,6 +174,16 @@ Makes an HTTP Callout to an api resource. Convienence method that assumes the De
 |`query` |   Query component of the URL ie: after `?foo=bar` |
 |`body` |    Body to send with this call. |
 
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HttpResponse`
+
 ### `makeApiCall(HttpVerb method,String path,String query)` → `HttpResponse`
 
 convenience version of makeApiCall without body param. Invokes omnibus version above, with blank body param and default headers.
@@ -125,6 +195,16 @@ convenience version of makeApiCall without body param. Invokes omnibus version a
 |`path` |    Http path component of the URL. ie: `/path/to/resource` |
 |`query` |   Query component of the URL ie: after `?foo=bar` |
 
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
+
 ### `makeApiCall(HttpVerb method, String path)` → `HttpResponse`
 
 convenience version of makeApiCall without body or query params. Invokes omnibus version above, with blank body and query params
@@ -134,6 +214,16 @@ convenience version of makeApiCall without body or query params. Invokes omnibus
 |-----|-----------|
 |`method` |  HTTPVerb to use. See the enum above. |
 |`path` |    Http path component of the URL. ie: `/path/to/resource` |
+
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
 
 ### `makeApiCall(String namedCredential,HttpVerb method,String path,String query,String body,Map<String, String> headers)` → `HttpResponse`
 
@@ -148,6 +238,16 @@ A static wrapper for the main makeApiCall method
 |`query` |            Query component of the URL ie: after `?foo=bar` |
 |`body` |             JSON string to post |
 |`headers` |          Map<String,String> representing outgoing Request |
+
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
 
 #### Example
 ```java
@@ -171,6 +271,16 @@ A static wrapper for the main makeApiCall method that assumes default headers.
 |`path` |            Http path component of the URL. ie: `/path/to/resource` |
 |`query` |            Query component of the URL ie: after `?foo=bar` |
 
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
+
 #### Example
 ```java
 System.Debug(RestClient.makeApiCall('MockBin',
@@ -190,6 +300,16 @@ A static wrapper for the main makeApiCall method where you only need the path
 |`method` |           HTTPVerb enum value. See Enum above |
 |`path` |            Http path component of the URL. ie: `/path/to/resource` |
 
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
+
 #### Example
 ```java
 System.Debug(RestClient.makeApiCall('MockBin',
@@ -207,6 +327,16 @@ convenience method for a PATCH Call that only requires a path, query and body
 |`path` |    Http path component of the URL. ie: `/path/to/resource` |
 |`body` |    JSON string to post |
 
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
+
 ### `patch(String path, String query, String body)` → `HttpResponse`
 
 convenience method for a PATCH Call that only requires a path, query and body
@@ -218,6 +348,16 @@ convenience method for a PATCH Call that only requires a path, query and body
 |`query` |   Query component of the URL ie: after `?foo=bar` |
 |`body` |    JSON string to post |
 
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
+
 ### `post(String path, String body)` → `HttpResponse`
 
 convenience method for a POST Call that only requires a path and body
@@ -227,6 +367,16 @@ convenience method for a POST Call that only requires a path and body
 |-----|-----------|
 |`path` |    Http path component of the URL. ie: `/path/to/resource` |
 |`body` |    JSON string to post |
+
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
 
 ### `post(String path, String query, String body)` → `HttpResponse`
 
@@ -239,6 +389,16 @@ convenience method for a POST Call that only requires a path, query and body
 |`query` |   Query component of the URL ie: after `?foo=bar` |
 |`body` |    JSON string to post |
 
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
+
 ### `put(String path, String body)` → `HttpResponse`
 
 convenience method for a PUT Call that only requires a path and body
@@ -248,6 +408,16 @@ convenience method for a PUT Call that only requires a path and body
 |-----|-----------|
 |`path` |    Http path component of the URL. ie: `/path/to/resource` |
 |`body` |    JSON string to post |
+
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
 
 ### `put(String path, String query, String body)` → `HttpResponse`
 
@@ -259,5 +429,15 @@ convenience method for a PUT Call that only requires a path, query and body
 |`path` |    Http path component of the URL. ie: `/path/to/resource` |
 |`query` |   Query component of the URL ie: after `?foo=bar` |
 |`body` |    JSON string to post |
+
+#### Return
+
+**Type**
+
+HttpResponse
+
+**Description**
+
+`HTTPResponse`
 
 ---

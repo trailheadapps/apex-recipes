@@ -27,6 +27,16 @@ default constructor. Sets the inherited named credential to the DEFAULTNAMEDCRED
 
 Encapsulates a specific callout to the Named Credential URL that returns JSON into an method that transforms the raw JSON into an Apex Object.
 
+#### Return
+
+**Type**
+
+List<ApiServiceRecipesDataModel>
+
+**Description**
+
+`List<ApiServiceRecipesDataModel>`
+
 #### Example
 ```java
 ApiServiceRecipes asr = new ApiServiceRecipes();

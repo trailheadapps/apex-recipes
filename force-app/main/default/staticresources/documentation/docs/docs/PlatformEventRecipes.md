@@ -20,6 +20,16 @@ publishes a platform event
 |-----|-----------|
 |`event` |  an Event_Recipes_Demo__e object |
 
+#### Return
+
+**Type**
+
+Database.SaveResult
+
+**Description**
+
+Database.SaveResult
+
 #### Example
 ```java
 Account acct = new Account(name = 'Awesome Events Ltd.');
