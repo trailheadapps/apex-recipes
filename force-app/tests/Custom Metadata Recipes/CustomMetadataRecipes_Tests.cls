@@ -17,7 +17,6 @@ class CustomMetadataRecipes_Tests {
     @isTest
     static void testBucketingContactAttendancePositive() {
         final String asleep = 'Asleep';
-        // @Todo: Fix this skipped unit test
         Contact con = (Contact) TestFactory.createSObject(
             new Contact(LastName = 'Testy', AttendanceStatus__c = asleep),
             true
