@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Object__c</fullName>
     <externalId>false</externalId>
-    <fieldManageability>SubscriberControlled</fieldManageability>
+    <fieldManageability>DeveloperControlled</fieldManageability>
     <label>Object</label>
     <referenceTo>EntityDefinition</referenceTo>
     <relationshipLabel>Metadata_Driven_Triggerss</relationshipLabel>
