@@ -106,6 +106,11 @@ private class SOQLRecipes_Tests {
     }
 
     @isTest
+    /**
+     * @description This test method demonstrates an alternative form of a soql
+     * for loop. This form gives you lists of records, rather than one record
+     * at a time.
+     */
     static void testGetChunksOfLargeNumbersOfRecords() {
         /**
          * this next line is a feature of the trigger handler in use

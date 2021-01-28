@@ -52,6 +52,11 @@ public inherited sharing class SOQLRecipes {
      * over each *chunk of records*. As the code below demonstrates, specifying
      * the iteration variable as a list/array will return 200 record chunks
      * from the query, rather than individual records.
+     *
+     * Note: Normally, if you're only dealing with counts of records, you'd
+     * utilize the Count() soql method, but in this case we're demonstrating
+     * that this form of a soql for loop gives you access both to a list of
+     * records, and to the records themselves.
      * @return      `Integer`
      */
     public static Integer[] getChunksOfLargeNumbersOfRecords() {
