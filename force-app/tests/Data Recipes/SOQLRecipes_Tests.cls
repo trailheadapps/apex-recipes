@@ -105,6 +105,35 @@ private class SOQLRecipes_Tests {
         System.assertEquals(count, 3000, 'Expected to find 3k records');
     }
 
+    @isTest
+    static void testGetChunksOfLargeNumbersOfRecords() {
+        /**
+         * this next line is a feature of the trigger handler in use
+         * it demonstrates the kinds of gotcha's you can hit when testing large data volumes
+         * in this case we need 3k accounts - but inserting them means running two triggers
+         * Creating those 3k accounts exceeds our CPU governor limit. By inserting after
+         * setting the TriggerHandler bypass for accountTriggerHandler, the trigger framework will
+         * skip that particular set of triggers.
+         */
+        TriggerHandler.bypass('AccountTriggerHandler');
+        TestFactory.createSObjectList(new Account(), 3000, true);
+
+        System.assertEquals(
+            [SELECT Id FROM Account].size(),
+            3000,
+            'expected to have created 3k records'
+        );
+        Test.startTest();
+        Integer[] counts = SOQLRecipes.getChunksOfLargeNumbersOfRecords();
+        Test.stopTest(); // forces all asych work to complete
+        System.assertEquals(
+            15,
+            counts[0],
+            'Expected the chunk count to be 15 - 3000 / 200'
+        );
+        System.assertEquals(3000, counts[1], 'Expected to find 3k records');
+    }
+
     /**
      * @description Executes a positive test case against getRecordsByFieldValue
      */
