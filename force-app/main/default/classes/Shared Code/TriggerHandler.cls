@@ -11,7 +11,7 @@ public virtual class TriggerHandler {
 
     // the current context of the trigger, overridable in tests
     @testVisible
-    private TriggerContext context;
+    protected TriggerContext context;
 
     // the current context of the trigger, overridable in tests
     @testVisible
@@ -43,7 +43,7 @@ public virtual class TriggerHandler {
      * @example
      * AccountTriggerHandler.run();
      */
-    public void run() {
+    public virtual void run() {
         if (!validateRun()) {
             return;
         }
@@ -235,7 +235,7 @@ public virtual class TriggerHandler {
      * @exception   Throws loop count exception if the max loop count is reached
      */
     @testVisible
-    private void addToLoopCount() {
+    protected void addToLoopCount() {
         String handlerName = getHandlerName();
         if (TriggerHandler.loopCountMap.containsKey(handlerName)) {
             Boolean exceeded = TriggerHandler.loopCountMap.get(handlerName)
@@ -259,7 +259,7 @@ public virtual class TriggerHandler {
      * trigger
      */
     @testVisible
-    private Boolean validateRun() {
+    protected Boolean validateRun() {
         if (!this.isTriggerExecuting || this.context == null) {
             throw new TriggerHandlerException(
                 'Trigger handler called outside of Trigger execution'
@@ -425,7 +425,7 @@ public virtual class TriggerHandler {
      * @description possible trigger contexts
      */
     @testVisible
-    private enum TriggerContext {
+    public enum TriggerContext {
         BEFORE_INSERT,
         BEFORE_UPDATE,
         BEFORE_DELETE,

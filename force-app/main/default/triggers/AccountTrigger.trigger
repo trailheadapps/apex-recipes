@@ -11,5 +11,5 @@ trigger AccountTrigger on Account(
     // For more information on how the framework operates, see the following classes:
     // * TriggerHandler.cls
     // * AccountTriggerHandler.cls
-    new AccountTriggerHandler().run();
+    new MetadataTriggerHandler().run();
 }
