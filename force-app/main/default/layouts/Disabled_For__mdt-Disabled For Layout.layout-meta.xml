@@ -20,7 +20,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>User_Email__c</field>
+                <field>UserEmail__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
