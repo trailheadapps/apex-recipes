@@ -47,6 +47,34 @@ public inherited sharing class SOQLRecipes {
     }
 
     /**
+     * @description One of the little known features of SOQL for loops is that
+     * you can iterate not only over each record returned by the query, but also
+     * over each *chunk of records*. As the code below demonstrates, specifying
+     * the iteration variable as a list/array will return 200 record chunks
+     * from the query, rather than individual records.
+     *
+     * Note: Normally, if you're only dealing with counts of records, you'd
+     * utilize the Count() soql method, but in this case we're demonstrating
+     * that this form of a soql for loop gives you access both to a list of
+     * records, and to the records themselves.
+     * @return      `Integer`
+     */
+    public static Integer[] getChunksOfLargeNumbersOfRecords() {
+        Integer countOfChunks = 0;
+        Integer recordCount = 0;
+
+        for (List<Account> accounts : [
+            SELECT Name
+            FROM Account
+            WITH SECURITY_ENFORCED
+        ]) {
+            countOfChunks += 1;
+            recordCount += accounts.size();
+        }
+        return new List<Integer>{ countOfChunks, recordCount };
+    }
+
+    /**
      * @description Demonstrates how to use a WHERE clause in a SOQL query
      *
      * @return List<Account>
