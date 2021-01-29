@@ -102,7 +102,7 @@ public with sharing class MetadataTriggerHandler extends TriggerHandler {
         ];
 
         /**
-         * This loop is responsible for instantiating the trigger
+         * @description This loop is responsible for instantiating the trigger
          * handler classes identified by the query above, and then calling the
          * proper context methods.
          */
