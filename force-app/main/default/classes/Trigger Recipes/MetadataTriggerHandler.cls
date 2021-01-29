@@ -71,7 +71,23 @@ public with sharing class MetadataTriggerHandler extends TriggerHandler {
                 AND Id NOT IN (
                     SELECT Metadata_Driven_Trigger__c
                     FROM Disabled_for__mdt
-                    WHERE UserEmail__c = :UserInfo.getUserEmail()
+                    /**
+                     * Note: The use raised on stream for this feature - to
+                     * selectively disable triggers per e-mail is different than
+                     * what's implemented here. Email addresses do not have to
+                     * be unique, but usernames are. You may want to use email
+                     * if, for instance, you want to disable all integration
+                     * users who share an email address.
+                     *
+                     * You can use any of the UserInfo.* methods to make this
+                     * kind of decision, so long as the CMT is able to represent
+                     * the data. You could use a UserID, but that's not portable
+                     * across environments/orgs and it's less likely, in my
+                     * estimation, that you'd typo an email address you can read
+                     * rather than an id that is seemingly random
+                     *
+                     */
+                    WHERE UserEmail__c = :UserInfo.getUsername()
                 )
             ORDER BY Execution_Order__c
         ];
