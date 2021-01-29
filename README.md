@@ -1,6 +1,6 @@
 # Apex Recipes
 
-[![CI Workflow](https://github.com/trailheadapps/apex-recipes/workflows/CI/badge.svg)](https://github.com/trailheadapps/apex-recipes/actions?query=workflow%3ACI) [![Packaging Workflow](https://github.com/trailheadapps/apex-recipes/workflows/Packaging/badge.svg)](https://github.com/trailheadapps/apex-recipes/actions?query=workflow%3APackaging) [![codecov](https://codecov.io/gh/trailheadapps/apex-recipes/branch/master/graph/badge.svg)](https://codecov.io/gh/trailheadapps/apex-recipes)
+[![Github Workflow](<https://github.com/trailheadapps/apex-recipes/workflows/Salesforce%20DX%20(scratch%20org)/badge.svg?branch=master>)](https://github.com/trailheadapps/apex-recipes/actions?query=workflow%3A%22Salesforce+DX+%28scratch+org%29%22) [![Packaging](https://github.com/trailheadapps/apex-recipes/workflows/Packaging/badge.svg)](https://github.com/trailheadapps/apex-recipes/actions?query=workflow%3A%22Packaging%22) [![codecov](https://codecov.io/gh/trailheadapps/apex-recipes/branch/master/graph/badge.svg?token=cfmEqAWAKr)](https://codecov.io/gh/trailheadapps/apex-recipes)
 
 ## Introduction
 
@@ -99,7 +99,7 @@ Make sure to start from a **brand-new environment** to avoid conflicts with prev
 
 1. Go to **Setup**, under **Platform Cache**, and click the "Request Trial Capacity" button. [Request a Platform Cache Trial](https://help.salesforce.com/articleView?id=data_platform_cache_trial.htm&type=5)
 
-1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3g000000kiSsAAI) to install the Apex Recipes unlocked package in your org.
+1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3g000000kiK0AAI) to install the Apex Recipes unlocked package in your org.
 
 1. Select **Install for All Users**
 
