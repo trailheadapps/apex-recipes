@@ -63,7 +63,7 @@ private class SOQLRecipes_Tests {
         TestDataHelpers.createAccount(false, '');
 
         System.assertEquals(
-            [SELECT Id FROM Account].size(),
+            [SELECT COUNT() FROM Account],
             1,
             'Expected only one account'
         );
@@ -95,7 +95,7 @@ private class SOQLRecipes_Tests {
         TestFactory.createSObjectList(new Account(), 3000, true);
 
         System.assertEquals(
-            [SELECT Id FROM Account].size(),
+            [SELECT COUNT() FROM Account],
             3000,
             'expected to have created 3k records'
         );
@@ -124,7 +124,7 @@ private class SOQLRecipes_Tests {
         TestFactory.createSObjectList(new Account(), 3000, true);
 
         System.assertEquals(
-            [SELECT Id FROM Account].size(),
+            [SELECT COUNT() FROM Account],
             3000,
             'expected to have created 3k records'
         );
@@ -146,7 +146,7 @@ private class SOQLRecipes_Tests {
     static void testQueryWithFilterWithNoMatchingAcctsPositive() {
         TestDataHelpers.createAccount(false, '');
         System.assertEquals(
-            [SELECT Id FROM Account].size(),
+            [SELECT COUNT() FROM Account],
             1,
             'Expected only one account'
         );
@@ -164,7 +164,7 @@ private class SOQLRecipes_Tests {
     static void testQueryWithFilterNegativeNoPermsToAccountNegative() {
         TestDataHelpers.createAccount(true, 'UK');
         System.assertEquals(
-            [SELECT ID FROM ACCOUNT].size(),
+            [SELECT COUNT() FROM ACCOUNT],
             1,
             'expected only one account'
         );
@@ -204,7 +204,7 @@ private class SOQLRecipes_Tests {
     static void testQueryWithFilterPositive() {
         TestDataHelpers.createAccount(true, 'UK');
         System.assertEquals(
-            [SELECT Id FROM Account].size(),
+            [SELECT COUNT() FROM Account],
             1,
             'Expected only one account'
         );
