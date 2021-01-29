@@ -80,7 +80,7 @@ public with sharing class MetadataTriggerHandler extends TriggerHandler {
                 AND Id NOT IN (
                     SELECT Metadata_Driven_Trigger__c
                     FROM Disabled_for__mdt
-                    WHERE UserEmail__c = :UserInfo.getUserEmail()
+                    /**
                      * Note: The use raised on stream for this feature - to
                      * selectively disable triggers per e-mail is different than
                      * what's implemented here. Email addresses do not have to
