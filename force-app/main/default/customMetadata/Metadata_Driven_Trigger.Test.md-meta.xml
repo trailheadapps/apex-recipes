@@ -11,6 +11,10 @@
         <value xsi:type="xsd:string">AccountTriggerHandler</value>
     </values>
     <values>
+        <field>Enabled__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
         <field>Execution_Order__c</field>
         <value xsi:type="xsd:double">1.0</value>
     </values>

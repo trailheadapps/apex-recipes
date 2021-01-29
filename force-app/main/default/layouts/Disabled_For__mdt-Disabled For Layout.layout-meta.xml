@@ -16,19 +16,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Object__c</field>
+                <field>Metadata_Driven_Trigger__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Execution_Order__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Class__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Enabled__c</field>
+                <field>UserEmail__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -69,12 +61,6 @@
         <layoutColumns />
         <style>CustomLinks</style>
     </layoutSections>
-    <relatedLists>
-        <fields>MasterLabel</fields>
-        <fields>DeveloperName</fields>
-        <fields>NamespacePrefix</fields>
-        <relatedList>Disabled_For__mdt.Metadata_Driven_Trigger__c</relatedList>
-    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
