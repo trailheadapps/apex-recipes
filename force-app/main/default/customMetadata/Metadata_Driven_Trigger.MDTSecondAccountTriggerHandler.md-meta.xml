@@ -4,11 +4,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 >
-    <label>Test</label>
+    <label>MDTSecondAccountTriggerHandler</label>
     <protected>false</protected>
     <values>
         <field>Class__c</field>
-        <value xsi:type="xsd:string">AccountTriggerHandler</value>
+        <value xsi:type="xsd:string">MDTSecondAccountTriggerHandler</value>
     </values>
     <values>
         <field>Enabled__c</field>
@@ -16,7 +16,7 @@
     </values>
     <values>
         <field>Execution_Order__c</field>
-        <value xsi:type="xsd:double">1.0</value>
+        <value xsi:type="xsd:double">3.0</value>
     </values>
     <values>
         <field>Object__c</field>

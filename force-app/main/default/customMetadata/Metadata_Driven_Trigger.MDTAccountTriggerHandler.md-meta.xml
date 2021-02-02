@@ -4,14 +4,22 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 >
-    <label>Disabled for</label>
+    <label>MDTAccountTriggerHandler</label>
     <protected>false</protected>
     <values>
-        <field>Metadata_Driven_Trigger__c</field>
+        <field>Class__c</field>
         <value xsi:type="xsd:string">MDTAccountTriggerHandler</value>
     </values>
     <values>
-        <field>UserEmail__c</field>
-        <value xsi:type="xsd:string">foo@bar.com</value>
+        <field>Enabled__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Execution_Order__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+    <values>
+        <field>Object__c</field>
+        <value xsi:type="xsd:string">Account</value>
     </values>
 </CustomMetadata>

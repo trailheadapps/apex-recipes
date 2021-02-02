@@ -92,6 +92,7 @@ private class SOQLRecipes_Tests {
          * skip that particular set of triggers.
          */
         TriggerHandler.bypass('AccountTriggerHandler');
+        TriggerHandler.bypass('MetadataTriggerHandler');
         TestFactory.createSObjectList(new Account(), 3000, true);
 
         System.assertEquals(
@@ -121,6 +122,7 @@ private class SOQLRecipes_Tests {
          * skip that particular set of triggers.
          */
         TriggerHandler.bypass('AccountTriggerHandler');
+        TriggerHandler.bypass('MetadataTriggerHandler');
         TestFactory.createSObjectList(new Account(), 3000, true);
 
         System.assertEquals(
@@ -325,6 +327,7 @@ private class SOQLRecipes_Tests {
         for (Account acct : toInsert) {
             acct.shippingState = 'Tx';
         }
+        TriggerHandler.bypass('MetadataTriggerHandler');
         insert toInsert;
 
         Test.startTest();
@@ -436,6 +439,7 @@ private class SOQLRecipes_Tests {
     static void testGetAccountInfoWhenQueryingContactPositive() {
         List<Account> accts = TestDataHelpers.genXnumberOfAccounts(1);
         accts[0].ShippingState = 'KS';
+        TriggerHandler.bypass('MetadataTriggerHandler');
         insert accts;
         Contact cnt = new Contact(
             LastName = 'Hello James',

@@ -18,6 +18,11 @@ trigger AccountTrigger on Account(
      * syntax: new TriggerHandlerName().run(); For instance, you could directly
      * invoke the AccountTriggerHandler().run();
      *
+     */
+
+    new AccountTriggerHandler().run();
+
+    /**
      * 2. Alternatively, you can use the MetadataTriggerHandler().run();
      * method. This is responsible for identifying from custom metadata which
      * trigger handler classes are to be invoked, and in what order.
