@@ -28,13 +28,21 @@
  * records, instantiating the classes specified. It then calls the appropriate
  * context methods on those classes.
  *
+ * Note: The TriggerHandler framework below does *not* give you the ability to
+ * order, or re-arrange the trigger work of managed packages. It also does not
+ * allow you to declare the *order of methods* within the triggerHandler classes
+ * themselves. When using the MetadataTriggerHandler, it's better to have a
+ * high number of singularly focused trigger handler classes than a few classes
+ * with multiple methods.
+ *
  */
-public with sharing class MetadataTriggerHandler extends TriggerHandler {
+public inherited sharing class MetadataTriggerHandler extends TriggerHandler {
     /**
      * @description Overrides the standard Run() method, which allows this
      * metadata based trigger handler can be an incremental update / sit beside
      * other trigger handlers classes that are directly invoked by a trigger
      */
+    @SuppressWarnings('PMD.ApexCRUDViolation')
     override public void run() {
         /**
          * This is standard validation checking for triggers / triggerhandlers
@@ -93,7 +101,7 @@ public with sharing class MetadataTriggerHandler extends TriggerHandler {
         ];
 
         /**
-         * @description This loop is responsible for instantiating the trigger
+         * This loop is responsible for instantiating the trigger
          * handler classes identified by the query above, and then calling the
          * proper context methods.
          */
