@@ -95,7 +95,7 @@ public inherited sharing class MetadataTriggerHandler extends TriggerHandler {
                      * rather than an id that is seemingly random
                      *
                      */
-                    WHERE UserEmail__c = :UserInfo.getUsername()
+                    WHERE User_Email__c = :UserInfo.getUsername()
                 )
             ORDER BY Execution_Order__c
         ];
