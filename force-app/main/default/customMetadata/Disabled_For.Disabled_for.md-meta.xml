@@ -11,7 +11,7 @@
         <value xsi:type="xsd:string">MDTAccountTriggerHandler</value>
     </values>
     <values>
-        <field>UserEmail__c</field>
+        <field>User_Email__c</field>
         <value xsi:type="xsd:string">foo@bar.com</value>
     </values>
 </CustomMetadata>
