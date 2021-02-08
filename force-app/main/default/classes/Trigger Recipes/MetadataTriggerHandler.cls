@@ -36,6 +36,7 @@
  * with multiple methods.
  *
  * @group Trigger Recipes
+ * @see TriggerHandler
  */
 public inherited sharing class MetadataTriggerHandler extends TriggerHandler {
     /**
