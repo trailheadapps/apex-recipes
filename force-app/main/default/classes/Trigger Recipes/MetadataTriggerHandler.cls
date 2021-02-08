@@ -36,6 +36,7 @@
  * with multiple methods.
  *
  * @group Trigger Recipes
+ * @see TriggerHandler
  */
 public with sharing class MetadataTriggerHandler extends TriggerHandler {
     @testVisible
