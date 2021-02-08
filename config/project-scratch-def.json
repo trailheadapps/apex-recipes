@@ -3,7 +3,7 @@
     "edition": "Developer",
     "country": "US",
     "language": "en_US",
-    "features": ["Walkthroughs", "PlatformCache"],
+    "features": ["Walkthroughs", "PlatformCache", "EnableSetPasswordInApi"],
     "settings": {
         "lightningExperienceSettings": {
             "enableS1DesktopEnabled": true
