@@ -1,6 +1,8 @@
 /**
  * @description This class utilizes Custom Metadata objects and the example
  * use case we've established for Apex Recipes.
+ *
+ * @group Custom Metadata Recipes
  * @see CustomMetadataRecipes_Tests
  */
 public inherited sharing class CustomMetadataUtilties {
