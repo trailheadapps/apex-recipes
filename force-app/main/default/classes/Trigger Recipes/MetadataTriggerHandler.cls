@@ -35,6 +35,7 @@
  * high number of singularly focused trigger handler classes than a few classes
  * with multiple methods.
  *
+ * @group Trigger Recipes
  */
 public inherited sharing class MetadataTriggerHandler extends TriggerHandler {
     /**
