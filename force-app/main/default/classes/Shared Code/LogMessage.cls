@@ -45,7 +45,7 @@ public inherited sharing class LogMessage {
      * @description converts this object to an event for publishing
      * @return      `SObject`
      */
-    public SObject toEvent() {
+    public Log__e toEvent() {
         return new Log__e(
             Log_Message__c = this.message,
             Request_Id__c = this.requestId,
