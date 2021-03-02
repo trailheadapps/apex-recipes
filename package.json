@@ -8,15 +8,15 @@
         "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prettier:apex:local": "prettier --apex-standalone-parser built-in --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prettier:verify:apex:local": "prettier --apex-standalone-parser built-in --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
-        "postinstall": "node bin/check-version.js",
         "apexdocs": "apexdocs-generate -c apexDocsConfig.json -o false -p global public private protected namespaceaccessible -s force-app/main/default/classes && rm docs/index.md",
         "apex:local:start": "node node_modules/prettier-plugin-apex/bin/start-apex-server.js",
         "apex:local:stop": "node node_modules/prettier-plugin-apex/bin/stop-apex-server.js",
-        "precommit": "npm run apex:local:start & sleep 2 && npm run apexdocs && npm run prettier:apex:local && npm run apex:local:stop",
         "test:unit": "sfdx-lwc-jest",
         "test:unit:watch": "sfdx-lwc-jest --watch",
         "test:unit:debug": "sfdx-lwc-jest --debug",
-        "test:unit:coverage": "sfdx-lwc-jest --coverage"
+        "test:unit:coverage": "sfdx-lwc-jest --coverage",
+        "postinstall": "node bin/check-version.js && husky install",
+        "precommit": "npm run apex:local:start & sleep 2 && npm run apexdocs && npm run prettier:apex:local && npm run apex:local:stop"
     },
     "author": "salesforce.com",
     "license": "CC0-1.0",
@@ -32,22 +32,15 @@
         "@cparra/apexdocs": "^1.11.0",
         "@lwc/eslint-plugin-lwc": "^0.11.0",
         "@prettier/plugin-xml": "^0.13.0",
-        "@sa11y/jest": "^0.2.1",
+        "@sa11y/jest": "^0.3.0",
         "@salesforce/eslint-config-lwc": "^0.9.0",
-        "@salesforce/sfdx-lwc-jest": "^0.11.0",
+        "@salesforce/sfdx-lwc-jest": "^0.10.4",
         "babel-eslint": "^10.1.0",
-        "eslint": "^7.19.0",
-        "eslint-config-prettier": "^7.2.0",
-        "husky": "^4.3.8",
-        "lint-staged": "^10.5.3",
+        "eslint": "^7.21.0",
+        "eslint-config-prettier": "^8.1.0",
+        "husky": "^5.1.3",
         "prettier": "^2.2.1",
         "prettier-plugin-apex": "^1.8.0",
         "semver": "^7.3.4"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm run precommit"
-        }
-    },
-    "dependencies": {}
+    }
 }
