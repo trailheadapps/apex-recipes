@@ -1,6 +1,8 @@
 /**
  * @description contains methods and static lists for rapid acceptence of a
  * particular set of quiddities
+ *
+ * @group Quiddity Recipes
  */
 public inherited sharing class QuiddityGuard {
     /**
