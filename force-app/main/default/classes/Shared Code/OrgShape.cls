@@ -2,6 +2,8 @@
  * @description Class contains static methods for determining if specific
  * platform features are enabled here. For example, do we have platform cache
  * enabled. You could also write similar methods for experiences.
+ *
+ * @group Shared Code
  */
 public inherited sharing class OrgShape {
     @TestVisible
