@@ -1,6 +1,9 @@
 /**
  * @description Trigger handler for persisting Platform Event based
  * log messages.
+ *
+ * @group Trigger Recipes
+ * @see Log
  */
 public inherited sharing class LogTriggerHandler extends TriggerHandler {
     List<Log__e> incomingRecords = new List<Log__e>();
