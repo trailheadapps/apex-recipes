@@ -1,5 +1,8 @@
 /**
  * @description Demonstrates the use and functionaly of Quiddity
+ *
+ * @group Quiddity Recipes
+ *
  */
 public inherited sharing class QuiddityRecipes {
     /**

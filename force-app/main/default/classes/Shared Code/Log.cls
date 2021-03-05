@@ -1,6 +1,9 @@
 /**
  * @description Generic logging framework that persists across DML reversions
  * by publishing a Platform Event
+ *
+ * @group Shared Code
+ *
  */
 public inherited sharing class Log {
     /**

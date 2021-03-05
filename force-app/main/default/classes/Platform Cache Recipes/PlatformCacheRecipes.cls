@@ -3,6 +3,8 @@
  * feature of Salesforce. Many of these recipes are, taken together, not very
  * DRY (don't repeat yourself). However, they're intentionally listed here as a
  * way of repeatedly demonstrating Platform Cache functionality
+ *
+ * @group Platform Cache Recipes
  */
 public inherited sharing class PlatformCacheRecipes {
     /**

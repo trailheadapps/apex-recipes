@@ -1,5 +1,7 @@
 /**
  * @description Responsible for showing how to use schema and schema tokens
+ *
+ * @group Schema Recipes
  */
 public inherited sharing class SchemaRecipes {
     /**

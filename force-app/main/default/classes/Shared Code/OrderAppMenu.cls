@@ -3,6 +3,9 @@
  * App Menu. This is done as a Queuable, because calling setOrgSortOrder causes
  * an exeception if your setup script is also creating non-metadata records,
  * for instance accounts.
+ *
+ * @group Shared Code
+ *
  */
 public inherited sharing class OrderAppMenu implements System.Queueable {
     /**

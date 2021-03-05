@@ -10,6 +10,7 @@ public inherited sharing class PlatformCacheBuilderRecipes implements Cache.Cach
      * key
      * @param key   String used to help generate the Cache Key
      * @return     `Object` This object should be casted at the call location
+     * @group Platform Cache Recipes
      * @see CanTheUser
      * @example Account[] accounts = (Account[]) Cache.Session.get(PlatformCacheBuilderRecipes.class, 'myAccounts')
      */
