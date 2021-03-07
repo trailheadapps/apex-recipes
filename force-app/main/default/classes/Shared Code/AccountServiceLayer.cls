@@ -13,7 +13,7 @@ public inherited sharing class AccountServiceLayer {
     /**
      * @description Internal custom exception class
      */
-    public class ASLException extends exception {
+    public class ASLException extends Exception {
     }
 
     /**
@@ -51,7 +51,7 @@ public inherited sharing class AccountServiceLayer {
         List<Account> updated = new List<Account>();
         for (Account account : accounts) {
             Account uAcct = account.clone(true);
-            uAcct.shippingStreet = '229b Baker st.';
+            uAcct.ShippingStreet = '229b Baker st.';
             updated.add(uAcct);
         }
         if (
@@ -123,7 +123,7 @@ public inherited sharing class AccountServiceLayer {
                 accounts
             );
             update decision.getRecords();
-        } catch (DMLException dmle) {
+        } catch (DmlException dmle) {
             System.debug(
                 LoggingLevel.INFO,
                 'Hey, a DML error occurred while updating.'

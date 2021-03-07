@@ -120,8 +120,8 @@ global inherited sharing class CustomRestEndpointRecipes {
         RestRequest request = RestContext.request;
         // We can get the Id of the contact from the URL params by isolating the
         // requestUri from the RestRequest
-        String recordId = request.requestUri.substring(
-            request.requestUri.lastIndexOf('/') + 1
+        String recordId = request.requestURI.substring(
+            request.requestURI.lastIndexOf('/') + 1
         );
         RestResponse response = RestContext.response;
         if (!CanTheUser.destroy(new Contact())) {
@@ -159,7 +159,7 @@ global inherited sharing class CustomRestEndpointRecipes {
             );
             response.statusCode = 400;
             return qe.getMessage();
-        } catch (DMLException dmle) {
+        } catch (DmlException dmle) {
             // If we have an issue deleting the Contact we can catch the DML
             // exception
             // We are unable to test this for code coverage as we can't trigger
@@ -235,7 +235,7 @@ global inherited sharing class CustomRestEndpointRecipes {
             );
             response.statusCode = 400;
             return je.getMessage();
-        } catch (DMLException dmle) {
+        } catch (DmlException dmle) {
             // If we have an issue inserting the Contacts we can catch the DML
             // exception
             // We are unable to test this for code coverage as we can't trigger
@@ -318,7 +318,7 @@ global inherited sharing class CustomRestEndpointRecipes {
             );
             response.statusCode = 400;
             return je.getMessage();
-        } catch (DMLException dmle) {
+        } catch (DmlException dmle) {
             // If we have an issue upserting the Contacts we can catch the DML
             // exception
             System.debug(
@@ -403,7 +403,7 @@ global inherited sharing class CustomRestEndpointRecipes {
             );
             response.statusCode = 400;
             return je.getMessage();
-        } catch (DMLException dmle) {
+        } catch (DmlException dmle) {
             // If we have an issue updating the Accounts we can catch the DML
             // exception
             System.debug(

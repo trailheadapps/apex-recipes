@@ -11,6 +11,16 @@ Demonstrates how to query the Metadata Catalog. This is sometimes faster that Sc
 
 Demonstrates how to query the metadata catalog to find all fields on the Contact object that establish a relationship to the Account Object. Note: This method has a false-positive PMD warning. PMD isn't aware of the purpose or functionality of CanTheUser.* so it doesn't undersatnd that we are, in fact, checking for CRUD / FLS permissions prior to querying.
 
+#### Return
+
+**Type**
+
+List<MetadataCatalogRecipes.LookupRelationshipDefinition>
+
+**Description**
+
+List<MetadataCatalogRecipes.LookupRelationshipDefinition>
+
 #### Example
 ```java
 List<MetadataCatalogRecipes.LookupRelationshipDefinition> results =
@@ -21,6 +31,16 @@ System.debug(results);
 ### `findAllFormulaFields()` → `String>>`
 
 Demonstrates how to query the EntityDefinition Object to find all formula fields in your Org. This method returns a Map of Object's Qualified API name -> Map of Field Names -> Types Note: This method has a false-positive PMD warning. PMD isn't aware of the purpose or functionality of CanTheUser.* so it doesn't undersatnd that we are, in fact, checking for CRUD / FLS permissions prior to querying.
+
+#### Return
+
+**Type**
+
+String>>
+
+**Description**
+
+Map<String, Map<String, String>>
 
 #### Example
 ```java

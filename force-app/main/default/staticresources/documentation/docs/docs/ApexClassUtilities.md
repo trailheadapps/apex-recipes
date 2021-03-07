@@ -20,6 +20,16 @@ Extracts the @group annotation from a class' body. Also demonstrates the use of 
 |-----|-----------|
 |`klass` |  an ApexClass object |
 
+#### Return
+
+**Type**
+
+String
+
+**Description**
+
+`String` This is the text following '@group' through
+
 #### Example
 ```java
 ApexClass klass = [SELECT Name, Body FROM ApexClass LIMIT 1];
@@ -34,6 +44,16 @@ Extracts the @see annotation from a class' body. Also demonstrates the use of Re
 |Param|Description|
 |-----|-----------|
 |`klass` |  an ApexClass object |
+
+#### Return
+
+**Type**
+
+String
+
+**Description**
+
+`String` This is the text following '@see' through
 
 #### Example
 ```java

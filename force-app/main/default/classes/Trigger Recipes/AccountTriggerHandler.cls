@@ -124,21 +124,21 @@ public inherited sharing class AccountTriggerHandler extends TriggerHandler {
         if (CanTheUser.create(new Task()) && CanTheUser.read(new Task())) {
             for (Account acct : this.triggerNew) {
                 Task tsk = new Task(
-                    whatId = acct.Id,
-                    subject = 'Account was updated, please verify'
+                    WhatId = acct.Id,
+                    Subject = 'Account was updated, please verify'
                 );
                 newTasks.add(tsk);
             }
 
             try {
                 if (
-                    test.isRunningTest() &&
+                    Test.isRunningTest() &&
                     AccountTriggerHandler.circuitBreaker != null
                 ) {
                     throw AccountTriggerHandler.circuitBreaker;
                 }
                 insert newTasks;
-            } catch (DMLException dmle) {
+            } catch (DmlException dmle) {
                 System.debug(
                     LoggingLevel.INFO,
                     'Inserting Tasks for newly updated accounts failed with a DML exception. Details: ' +
@@ -181,7 +181,7 @@ public inherited sharing class AccountTriggerHandler extends TriggerHandler {
             if (CanTheUser.create(new Account())) {
                 insert clonedAccounts;
             }
-        } catch (DMLException dmle) {
+        } catch (DmlException dmle) {
             System.debug(
                 LoggingLevel.INFO,
                 'Inserting cloned accounts failed with DML exception. Details: ' +
@@ -211,7 +211,7 @@ public inherited sharing class AccountTriggerHandler extends TriggerHandler {
         System.debug(LoggingLevel.INFO, 'After Delete Action');
         List<Task> newTasks = new List<Task>();
         for (Account acct : this.triggerOld) {
-            Task tsk = new Task(subject = 'Account was deleted, please verify');
+            Task tsk = new Task(Subject = 'Account was deleted, please verify');
             newTasks.add(tsk);
         }
 
@@ -219,13 +219,13 @@ public inherited sharing class AccountTriggerHandler extends TriggerHandler {
             if (CanTheUser.create(new Task())) {
                 insert newTasks;
             }
-        } catch (DMLException dmle) {
+        } catch (DmlException dmle) {
             System.debug(
                 LoggingLevel.INFO,
                 'Inserting Tasks for deleted accounts failed with a DML exception. Details: ' +
                 dmle.getMessage()
             );
-            throw new accountTriggerHandlerException(
+            throw new AccountTriggerHandlerException(
                 'Failed to insert Tasks: ' + dmle.getMessage()
             );
         }
@@ -256,8 +256,8 @@ public inherited sharing class AccountTriggerHandler extends TriggerHandler {
         List<Task> newTasks = new List<Task>();
         for (Account acct : this.triggerNew) {
             Task tsk = new Task(
-                whatId = acct.Id,
-                subject = 'Previously deleted account restored. Please verify'
+                WhatId = acct.Id,
+                Subject = 'Previously deleted account restored. Please verify'
             );
             newTasks.add(tsk);
         }
@@ -266,7 +266,7 @@ public inherited sharing class AccountTriggerHandler extends TriggerHandler {
             if (CanTheUser.create(new Task())) {
                 insert newTasks;
             }
-        } catch (DMLException dmle) {
+        } catch (DmlException dmle) {
             System.debug(
                 LoggingLevel.INFO,
                 'Inserting Tasks for restored accounts failed with a DML exception. Details: ' +

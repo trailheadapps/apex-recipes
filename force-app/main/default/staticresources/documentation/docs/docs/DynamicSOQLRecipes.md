@@ -3,7 +3,7 @@ layout: default
 ---
 # DynamicSOQLRecipes class
 
-Demonstrates how to construct a SOQL query dynamically, and safely More on dynamic SOQL and SOQL injection: https:
+Demonstrates how to construct a SOQL query dynamically, and safely More on dynamic SOQL and SOQL injection: https://sfdc.co/soql-injection
 
 ---
 ## Methods
@@ -15,6 +15,16 @@ Demonstrates how to use a field from a passed param in a bound dynamic SOQL quer
 |Param|Description|
 |-----|-----------|
 |`acct` |  Account to base the search off of |
+
+#### Return
+
+**Type**
+
+List<Account>
+
+**Description**
+
+List<Account>
 
 #### Example
 ```java
@@ -32,6 +42,16 @@ Demonstrates the use of a bound variable in a dynamic SOQL query. DANGER Because
 |-----|-----------|
 |`name` |  Name of the account to search for |
 
+#### Return
+
+**Type**
+
+List<Account>
+
+**Description**
+
+List<Account>
+
 #### Example
 ```java
 System.debug(DynamicSoqlRecipes.simpleBindingSOQLQuery('hello'))
@@ -40,6 +60,16 @@ System.debug(DynamicSoqlRecipes.simpleBindingSOQLQuery('hello'))
 ### `simpleDynamicSOQLQuery()` → `List<Account>`
 
 demonstrates a simple dynamic SOQL query where the query is defined in Apex
+
+#### Return
+
+**Type**
+
+List<Account>
+
+**Description**
+
+List<Account> with security enforced
 
 #### Example
 ```java
@@ -55,6 +85,16 @@ Demonstrates the power of Dynamic SOQL to create a SOQL query on the fly Note: T
 |-----|-----------|
 |`fields` |       A list of String field names to include in the query |
 |`whereClause` |  A string containing the where clause |
+
+#### Return
+
+**Type**
+
+List<Account>
+
+**Description**
+
+`List<Account>`
 
 #### Example
 ```java
@@ -82,6 +122,16 @@ Demonstrates intelligent typecasting to enforce sanitized dynamic queries DANGER
 |Param|Description|
 |-----|-----------|
 |`numberOfRecords` |  String to be used as the comparison in the query |
+
+#### Return
+
+**Type**
+
+List<Account>
+
+**Description**
+
+List<Account>
 
 #### Example
 ```java

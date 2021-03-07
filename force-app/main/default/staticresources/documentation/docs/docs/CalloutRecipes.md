@@ -25,6 +25,16 @@ Constructor accepting a named credential.
 
 Now that we have demonstrated how to callout to an endpoint, lets take a look at what else we can do with the response. When calling out to an external endpoint, the data may not always be in a format that can be directly deserialised into a Salesforce Object. If your callout returns untyped JSON, you can deserialize this into a Map<String, Object> by using a deserializeUntyped method to convert the string.
 
+#### Return
+
+**Type**
+
+Object>
+
+**Description**
+
+Map<String, Object>
+
 #### Example
 ```java
 System.debug(CalloutRecipes.httpCalloutWithUntypedResponse());
@@ -39,6 +49,16 @@ Demonstrates a DELETE request to a second Salesforce org - A DELETE request is u
 |-----|-----------|
 |`contactId` |  the Id of the contact that you would like to delete in |
 
+#### Return
+
+**Type**
+
+Integer
+
+**Description**
+
+String
+
 #### Example
 ```java
 Id contactId = [SELECT id FROM Contact LIMIT 1].id;
@@ -48,6 +68,16 @@ System.debug(CalloutRecipes.httpDeleteCalloutToSecondOrg(contactId));
 ### `httpGetCalloutToSecondOrg()` → `List<Account>`
 
 Demonstrates a GET request to a second Salesforce org. A Get request is used to retrieve data from a target endpoint, We will be using the performRestCallout method to make the callout. In this example, we will be requesting a list of Accounts from our second org. We will pass the endpoint our named credential, the url path to our IntegrationService custom REST endpoint, a null body and the GET method. We will then deserialize the JSON into a known object, in this case, a list of Accounts.
+
+#### Return
+
+**Type**
+
+List<Account>
+
+**Description**
+
+List<Account>
 
 #### Example
 ```java
@@ -62,6 +92,16 @@ Demonstrates a PATCH request to a second Salesforce org a PATCH request is used 
 |Param|Description|
 |-----|-----------|
 |`accountRecords` |  a list of account records to be updated in the |
+
+#### Return
+
+**Type**
+
+Integer
+
+**Description**
+
+String The status of the callout
 
 #### Example
 ```java
@@ -78,6 +118,16 @@ Demonstrates a POST request to a second Salesforce org a POST request is used to
 |-----|-----------|
 |`contactRecords` |  a list of contact records to be inserted in the |
 
+#### Return
+
+**Type**
+
+Integer
+
+**Description**
+
+String
+
 #### Example
 ```java
 List<Contact> contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
@@ -92,6 +142,16 @@ Demonstrates a PUT request to a second Salesforce org a PUT request is used to s
 |Param|Description|
 |-----|-----------|
 |`contactRecords` |  a list of contact records to be upsert in the |
+
+#### Return
+
+**Type**
+
+Integer
+
+**Description**
+
+String
 
 #### Example
 ```java
@@ -116,6 +176,16 @@ CalloutRecipes.insertAccountAndContactsFromUntypedResponse(CalloutRecipes_Tests.
 ### `rawCallout()` → `String`
 
 Demonstrates how to make a raw HTTP request. This method demonstrates how to use the Http, HttpRequest and HttpResponse objects to construct a single get reuqest. The other methods in this class demonstrate the use of an intelligent abstraction layer - RestClient.cls - to make sending Http Requests easier, easier to test, and less error prone.
+
+#### Return
+
+**Type**
+
+String
+
+**Description**
+
+String
 
 #### Example
 ```java

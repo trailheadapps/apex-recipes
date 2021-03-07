@@ -16,6 +16,16 @@ The doLoad method is required by the CacheBuilder interface This method needs to
 |-----|-----------|
 |`key` |    String used to help generate the Cache Key |
 
+#### Return
+
+**Type**
+
+Object
+
+**Description**
+
+`Object` This object should be casted at the call location
+
 #### Example
 ```java
 Account[] accounts = (Account[]) Cache.Session.get(PlatformCacheBuilderRecipes.class, 'myAccounts')

@@ -119,9 +119,9 @@ public inherited sharing class RecipeTreeViewController {
         for (ApexClass klass : classes) {
             String groupName = ApexClassUtilities.getGroupFromClassBody(klass);
             if (returnMap.keySet().contains(groupName)) {
-                returnMap.get(groupName).add(klass.name);
+                returnMap.get(groupName).add(klass.Name);
             } else {
-                returnMap.put(groupName, new List<String>{ klass.name });
+                returnMap.put(groupName, new List<String>{ klass.Name });
             }
         }
         return returnMap;

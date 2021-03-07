@@ -25,6 +25,16 @@ Creates a file and links it to a given record
 |`attachedTo` |    the record to link this file to, initially |
 |`fileName` |      the name of the file. Note that the system determines |
 
+#### Return
+
+**Type**
+
+Database.SaveResult
+
+**Description**
+
+`Database.SaveResult`
+
 #### Example
 ```java
 Blob fileContents = Blob.valueOf('Hello World 2');
@@ -64,6 +74,16 @@ Searches for content version records linked to this record Filtering by a generi
 |`genericFileType` |  Enum of image, audio, document |
 |`recordId` |         Record id to limit searching to |
 
+#### Return
+
+**Type**
+
+List<ContentVersion>
+
+**Description**
+
+`List<ContentVersion>`
+
 #### Example
 ```java
 Account acct = [SELECT id FROM Account LIMIT 1];
@@ -79,6 +99,16 @@ Given a content document link, publish the content version
 |Param|Description|
 |-----|-----------|
 |`cdl` |    Content Document link record to publish |
+
+#### Return
+
+**Type**
+
+Database.SaveResult
+
+**Description**
+
+`Database.SaveResult`
 
 #### Example
 ```java

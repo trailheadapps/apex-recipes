@@ -1,5 +1,5 @@
 /**
- * @description A reusable, intuitive library for determing wether or not the
+ * @description A reusable, intuitive library for determining wether or not the
  * current use can create, read, edit, or delete objects as well as
  * determining if the user has access or update permissions on specific fields.
  * This class name was chosen to facilitate easy-to-understand and read code.
@@ -33,7 +33,7 @@ public inherited sharing class CanTheUser {
     }
 
     /**
-     * Description this cachebuilder interface allows the CanTheUser clas to
+     * @description this cachebuilder interface allows the CanTheUser class to
      * cache per-object results for each object requested. This prevents the
      * need to repeatedly calculate permission usage by calling
      * Schema.Describe* calls
@@ -41,15 +41,24 @@ public inherited sharing class CanTheUser {
     private class PermissionCache implements Cache.CacheBuilder {
         /**
          * @description   Required method for the CacheBuilder interface. Used
-         * here to either calcuate an objects per-user FLS, OR to return it
+         * here to either calculate an objects per-user FLS, OR to return it
          * from Cache.
          * The return datastructure for this is
          * Map<String, Map<FLSType,Boolean>> and represents:
          * FieldName -> FLStype -> True/False
          * @param objType String object name used as the cache key
-         * @returns       `Object`
+         * @return       `Object`
          */
-        public Object doLoad(string objType) {
+        public Object doLoad(String objType) {
+            return calculateFLS(objType);
+        }
+
+        /**
+         * @description   Calculates the FLS for a given object type
+         * @param objType String name of the object type
+         * @return        `Map<String, Map<FLSType, Boolean>>`
+         */
+        public Map<String, Map<FLSType, Boolean>> calculateFLS(string objType) {
             Schema.DescribeSObjectResult[] descResult = Schema.describeSObjects(
                 new List<String>{ objType }
             );
@@ -157,7 +166,7 @@ public inherited sharing class CanTheUser {
      * @param field the field in question in SObjectField form
      * @return Boolean
      * @example
-     * System.debug(CanTheuser.flsAccessible('Account', 'Name'));
+     * System.debug(CanTheUser.flsAccessible('Account', 'Name'));
      **/
     public static Boolean flsAccessible(String obj, String field) {
         return getFLSForFieldOnObject(obj, field, FLSType.ACCESSIBLE);
@@ -170,7 +179,7 @@ public inherited sharing class CanTheUser {
      * @return      `Map<String, Boolean>`
      * @example
      * String[] fields = new String[]{'Name', 'ShippingStreet'};
-     * System.debug(CanTheuser.bulkFLSAccessible('Account', fields));
+     * System.debug(CanTheUser.bulkFLSAccessible('Account', fields));
      */
     public static Map<String, Boolean> bulkFLSAccessible(
         String obj,
@@ -190,7 +199,7 @@ public inherited sharing class CanTheUser {
      * @param field the field to check
      * @return Boolean
      * @example
-     * System.debug(CanTheuser.flsUpdatable('Account', 'Name'));
+     * System.debug(CanTheUser.flsUpdatable('Account', 'Name'));
      **/
     public static Boolean flsUpdatable(String obj, String field) {
         return getFLSForFieldOnObject(obj, field, FLSType.UPDATABLE);
@@ -203,7 +212,7 @@ public inherited sharing class CanTheUser {
      * @return      `Map<String, Boolean>`
      * @example
      * String[] fields = new String[]{'Name', 'ShippingStreet'};
-     * System.debug(CanTheuser.bulkFLSUpdatable('Account', fields));
+     * System.debug(CanTheUser.bulkFLSUpdatable('Account', fields));
      */
     public static Map<String, Boolean> bulkFLSUpdatable(
         String obj,
@@ -232,18 +241,18 @@ public inherited sharing class CanTheUser {
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @testVisible
-    private static set<String> memoizeFLSMDC(String objType, FLSType action) {
+    private static Set<String> memoizeFLSMDC(String objType, FLSType action) {
         List<FieldPermissions> fields = [
-            SELECT Id, field, permissionsEdit, permissionsRead, SObjectType
+            SELECT Id, Field, PermissionsEdit, PermissionsRead, SobjectType
             FROM FieldPermissions
-            WHERE SObjecttype = :objType
+            WHERE SobjectType = :objType
         ];
 
         if (!CanTheUser.accessibleFieldsByObject.containsKey(objType)) {
             Set<String> accessibleFields = new Set<String>();
             Set<String> updatableFields = new Set<String>();
             for (FieldPermissions field : fields) {
-                String[] parts = field.field.split('\\.');
+                String[] parts = field.Field.split('\\.');
                 if (field.PermissionsRead) {
                     accessibleFields.add(parts[1].toLowerCase());
                 }
@@ -268,7 +277,7 @@ public inherited sharing class CanTheUser {
      * @param obj       String version of object name to check
      * @param field     String version of the field to check
      * @param checkType Enum of Accessible or Updatable.
-     * @returns         `Boolean`
+     * @return         `Boolean`
      */
     private static Boolean getFLSForFieldOnObject(
         String obj,
@@ -276,10 +285,18 @@ public inherited sharing class CanTheUser {
         FLSType checkType
     ) {
         Cache.Partition defaultSession = PlatformCacheRecipes.getDefaultPartition(
-            PlatformCacheRecipes.PatitionType.SESSION
+            PlatformCacheRecipes.PartitionType.SESSION
         );
-        Map<String, Map<FLSType, Boolean>> objResults = (Map<String, Map<FLSType, Boolean>>) defaultSession
-            .get(PermissionCache.class, obj);
+
+        Map<String, Map<FLSType, Boolean>> objResults;
+
+        if (OrgShape.isPlatformCacheEnabled()) {
+            objResults = (Map<String, Map<FLSType, Boolean>>) defaultSession
+                .get(PermissionCache.class, obj);
+        } else {
+            objResults = new PermissionCache().calculateFLS(obj);
+        }
+
         Boolean results = objResults.get(field.toLowerCase())?.get(checkType);
         return (results != null && results) ? true : false;
     }

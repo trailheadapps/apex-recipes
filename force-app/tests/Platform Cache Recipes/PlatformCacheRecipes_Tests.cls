@@ -20,7 +20,7 @@ private class PlatformCacheRecipes_Tests {
 
         System.assert(
             PlatformCacheRecipes.getDefaultPartition(
-                    PlatformCacheRecipes.PatitionType.SESSION
+                    PlatformCacheRecipes.PartitionType.SESSION
                 )
                 .getKeys()
                 .contains('Account'),
@@ -29,7 +29,7 @@ private class PlatformCacheRecipes_Tests {
         System.assertEquals(
             'This is a test',
             PlatformCacheRecipes.getDefaultPartition(
-                    PlatformCacheRecipes.PatitionType.SESSION
+                    PlatformCacheRecipes.PartitionType.SESSION
                 )
                 .get('Account'),
             'expected Account key to hold \'this is a test\''
@@ -48,7 +48,7 @@ private class PlatformCacheRecipes_Tests {
 
         System.assert(
             PlatformCacheRecipes.getDefaultPartition(
-                    PlatformCacheRecipes.PatitionType.SESSION
+                    PlatformCacheRecipes.PartitionType.SESSION
                 )
                 .getKeys()
                 .contains('Account'),
@@ -57,7 +57,7 @@ private class PlatformCacheRecipes_Tests {
         System.assertEquals(
             'This is a test',
             PlatformCacheRecipes.getDefaultPartition(
-                    PlatformCacheRecipes.PatitionType.SESSION
+                    PlatformCacheRecipes.PartitionType.SESSION
                 )
                 .get('Account'),
             'expected Account key to hold \'this is a test\''
@@ -107,7 +107,7 @@ private class PlatformCacheRecipes_Tests {
         Test.stopTest();
         System.assert(
             !PlatformCacheRecipes.getDefaultPartition(
-                    PlatformCacheRecipes.PatitionType.SESSION
+                    PlatformCacheRecipes.PartitionType.SESSION
                 )
                 .getKeys()
                 .contains('Account'),
@@ -142,7 +142,7 @@ private class PlatformCacheRecipes_Tests {
 
         System.assert(
             PlatformCacheRecipes.getDefaultPartition(
-                    PlatformCacheRecipes.PatitionType.ORG
+                    PlatformCacheRecipes.PartitionType.ORG
                 )
                 .getKeys()
                 .contains('Account'),
@@ -151,7 +151,7 @@ private class PlatformCacheRecipes_Tests {
         System.assertEquals(
             'This is a test',
             PlatformCacheRecipes.getDefaultPartition(
-                    PlatformCacheRecipes.PatitionType.ORG
+                    PlatformCacheRecipes.PartitionType.ORG
                 )
                 .get('Account'),
             'expected Account key to hold \'this is a test\''
@@ -170,7 +170,7 @@ private class PlatformCacheRecipes_Tests {
 
         System.assert(
             PlatformCacheRecipes.getDefaultPartition(
-                    PlatformCacheRecipes.PatitionType.ORG
+                    PlatformCacheRecipes.PartitionType.ORG
                 )
                 .getKeys()
                 .contains('Account'),
@@ -179,7 +179,7 @@ private class PlatformCacheRecipes_Tests {
         System.assertEquals(
             'This is a test',
             PlatformCacheRecipes.getDefaultPartition(
-                    PlatformCacheRecipes.PatitionType.ORG
+                    PlatformCacheRecipes.PartitionType.ORG
                 )
                 .get('Account'),
             'expected Account key to hold \'this is a test\''
@@ -219,7 +219,7 @@ private class PlatformCacheRecipes_Tests {
         Test.stopTest();
         System.assert(
             !PlatformCacheRecipes.getDefaultPartition(
-                    PlatformCacheRecipes.PatitionType.ORG
+                    PlatformCacheRecipes.PartitionType.ORG
                 )
                 .getKeys()
                 .contains('Account'),

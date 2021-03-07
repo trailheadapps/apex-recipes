@@ -3,7 +3,7 @@ layout: default
 ---
 # ApiServiceRecipes class
 
-This recipe extends the custom RestClient class and represents a specific API service we need to interact with - in this case a MockBin REST service. This APIService class is responsible for serializing and deserializing the Data Transfer Objects (Model Objects) necessary for input and output from this org to the third party system and back. More on MockBin here: http:
+This recipe extends the custom RestClient class and represents a specific API service we need to interact with - in this case a MockBin REST service. This APIService class is responsible for serializing and deserializing the Data Transfer Objects (Model Objects) necessary for input and output from this org to the third party system and back. More on MockBin here: http://mockbin.org/
 
 ## Related
 
@@ -17,15 +17,25 @@ default constructor. Sets the inherited named credential to the DEFAULTNAMEDCRED
 ---
 ## Properties
 
-### `DEFAULTNAMEDCREDENTIAL` → `string`
+### `DEFAULTNAMEDCREDENTIAL` → `String`
 
-### `GETBINPATH` → `string`
+### `GETBINPATH` → `String`
 
 ---
 ## Methods
 ### `getCurrentData()` → `List<ApiServiceRecipesDataModel>`
 
 Encapsulates a specific callout to the Named Credential URL that returns JSON into an method that transforms the raw JSON into an Apex Object.
+
+#### Return
+
+**Type**
+
+List<ApiServiceRecipesDataModel>
+
+**Description**
+
+`List<ApiServiceRecipesDataModel>`
 
 #### Example
 ```java

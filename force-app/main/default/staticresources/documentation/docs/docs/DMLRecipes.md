@@ -3,7 +3,7 @@ layout: default
 ---
 # DMLRecipes class
 
-Demonstrates various ways of making Data Manipulation Language (DML) calls. Note that this class demonstrates both Database.* methods as well as DML Keywords. Note: There is a @suppressWarnings annotation on this class for Cyclomatic Complexity. You can read more about what Cyclomatic Complexity is here: https: Cyclomatic Compelexity score are harder to test, and more prone to bugs because of the sheer number of branching logic paths available. This class is made up of a number of small methods, each of whom does CRUD/FLS Checks and therefor every method includes at least one branching path - but not much else. Because this class is designed to teach safe DML I've decided to mute this warning. Other classes in this repository do not have such a high Cyclomatic Complexity because the ratio of logic to if/else statments is much lower.
+Demonstrates various ways of making Data Manipulation Language (DML) calls. Note that this class demonstrates both Database.* methods as well as DML Keywords. Note: There is a @suppressWarnings annotation on this class for Cyclomatic Complexity. You can read more about what Cyclomatic Complexity is here: https://en.wikipedia.org/wiki/Cyclomatic_complexity Classes with a high Cyclomatic Compelexity score are harder to test, and more prone to bugs because of the sheer number of branching logic paths available. This class is made up of a number of small methods, each of whom does CRUD/FLS Checks and therefor every method includes at least one branching path - but not much else. Because this class is designed to teach safe DML I've decided to mute this warning. Other classes in this repository do not have such a high Cyclomatic Complexity because the ratio of logic to if/else statments is much lower.
 
 ## Related
 
@@ -81,6 +81,16 @@ undeletes a list of accounts via the Database.undelete method.
 |-----|-----------|
 |`accts` |  list of accounts to undelete |
 
+#### Return
+
+**Type**
+
+List<Account>
+
+**Description**
+
+List<Account>
+
 #### Example
 ```java
 List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
@@ -98,6 +108,16 @@ Undeletes a list of accounts via the undelete DML keyword
 |Param|Description|
 |-----|-----------|
 |`accts` |  List of accounts to undelete |
+
+#### Return
+
+**Type**
+
+List<Account>
+
+**Description**
+
+List<Account>
 
 #### Example
 ```java
@@ -117,6 +137,16 @@ Demonstrates how to Update a list of accounts via the Update DML keyword
 |-----|-----------|
 |`accts` |  List of accounts to update |
 
+#### Return
+
+**Type**
+
+List<Account>
+
+**Description**
+
+List<Account>
+
 #### Example
 ```java
 Account acct = new Account(name='Hello World');
@@ -132,6 +162,16 @@ Demonstrates how to update a list of accounts via the Database.update() method
 |Param|Description|
 |-----|-----------|
 |`accts` |  list of accounts to update |
+
+#### Return
+
+**Type**
+
+List<Account>
+
+**Description**
+
+List<Account>
 
 #### Example
 ```java
@@ -151,6 +191,16 @@ Upserts an account with a potential of all or nothing, using the Database.upsert
 |`acct` |  The account object to upsert |
 |`allOrNothing` |  all or nothing flag |
 
+#### Return
+
+**Type**
+
+Database.UpsertResult
+
+**Description**
+
+UpsertResult
+
 #### Example
 ```java
 DMLRecipes.upsertAccountViaDatabaseMethod(
@@ -165,6 +215,16 @@ Demonstrates the use of the upsert keyword to either insert or update a record
 |Param|Description|
 |-----|-----------|
 |`acct` |  account to upsert |
+
+#### Return
+
+**Type**
+
+Account
+
+**Description**
+
+Account
 
 #### Example
 ```java

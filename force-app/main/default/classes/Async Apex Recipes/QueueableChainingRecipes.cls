@@ -28,7 +28,7 @@ public inherited sharing class QueueableChainingRecipes implements Queueable {
         }
         try {
             update accounts;
-        } catch (DMLException dmle) {
+        } catch (DmlException dmle) {
             System.debug(
                 LoggingLevel.INFO,
                 'Failed to update accounts. Error is: ' + dmle.getMessage()

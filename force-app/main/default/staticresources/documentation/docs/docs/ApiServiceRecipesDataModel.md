@@ -39,6 +39,16 @@ Parses the provided JSON string into a list of ApiServiceRecipesDataModel object
 |-----|-----------|
 |`json` |   Incoming JSON string. Often from an api call's results. |
 
+#### Return
+
+**Type**
+
+List<ApiServiceRecipesDataModel>
+
+**Description**
+
+`List<ApiServiceRecipesDataModel>`
+
 #### Example
 ```java
 System.debug(ApiServiceRecipesDataModel.parse(ApiServiceRecipesDataModel_Tests.testJSON));

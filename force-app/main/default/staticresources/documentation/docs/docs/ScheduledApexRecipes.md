@@ -3,7 +3,7 @@ layout: default
 ---
 # ScheduledApexRecipes class
 
-Demonstrates how to implement the Schedulable interface. The methods in this class are designed to be scheduled, similar to a cron job. More on the Schedulable interface: https:
+Demonstrates how to implement the Schedulable interface. The methods in this class are designed to be scheduled, similar to a cron job. More on the Schedulable interface: https://sfdc.co/scheduled-apex
 
 ## Related
 
@@ -12,7 +12,7 @@ ScheduledApexDemo, BatchApexRecipes
 ---
 ## Properties
 
-### `TEST_CRON_STATEMENT` → `string`
+### `TEST_CRON_STATEMENT` → `String`
 
 ---
 ## Methods

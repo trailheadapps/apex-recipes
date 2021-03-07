@@ -90,7 +90,7 @@ public virtual class RestClient {
      */
     @testVisible
     @SuppressWarnings('PMD.ExcessiveParameterList')
-    protected HTTPResponse makeApiCall(
+    protected HttpResponse makeApiCall(
         HttpVerb method,
         String path,
         String query,
@@ -169,7 +169,7 @@ public virtual class RestClient {
      * @return      `HTTPResponse`
      */
     @testVisible
-    protected HTTPResponse makeApiCall(
+    protected HttpResponse makeApiCall(
         HttpVerb method,
         String path,
         String query
@@ -192,7 +192,7 @@ public virtual class RestClient {
      * @return      `HTTPResponse`
      */
     @testVisible
-    protected HTTPResponse makeApiCall(HttpVerb method, String path) {
+    protected HttpResponse makeApiCall(HttpVerb method, String path) {
         return this.makeApiCall(
             method,
             path,
@@ -208,7 +208,7 @@ public virtual class RestClient {
      * @return     `HTTPResponse`
      */
     @testVisible
-    protected HTTPResponse get(String path) {
+    protected HttpResponse get(String path) {
         return this.makeApiCall(HttpVerb.GET, path);
     }
 
@@ -220,7 +220,7 @@ public virtual class RestClient {
      * @return     `HTTPResponse`
      */
     @testVisible
-    protected HTTPResponse get(String path, String query) {
+    protected HttpResponse get(String path, String query) {
         return this.makeApiCall(HttpVerb.GET, path, query);
     }
 
@@ -231,7 +231,7 @@ public virtual class RestClient {
      * @return     `HTTPResponse`
      */
     @testVisible
-    protected HTTPResponse del(String path) {
+    protected HttpResponse del(String path) {
         return this.makeApiCall(HttpVerb.DEL, path);
     }
 
@@ -243,7 +243,7 @@ public virtual class RestClient {
      * @return     `HTTPResponse`
      */
     @testVisible
-    protected HTTPResponse del(String path, String query) {
+    protected HttpResponse del(String path, String query) {
         return this.makeApiCall(HttpVerb.DEL, path, query);
     }
 
@@ -255,7 +255,7 @@ public virtual class RestClient {
      * @return     `HTTPResponse`
      */
     @testVisible
-    protected HTTPResponse post(String path, String body) {
+    protected HttpResponse post(String path, String body) {
         return this.makeApiCall(HttpVerb.POST, path, '', body);
     }
 
@@ -268,7 +268,7 @@ public virtual class RestClient {
      * @return     `HTTPResponse`
      */
     @testVisible
-    protected HTTPResponse post(String path, String query, String body) {
+    protected HttpResponse post(String path, String query, String body) {
         return this.makeApiCall(HttpVerb.POST, path, query, body);
     }
 
@@ -280,7 +280,7 @@ public virtual class RestClient {
      * @return     `HTTPResponse`
      */
     @testVisible
-    protected HTTPResponse put(String path, String body) {
+    protected HttpResponse put(String path, String body) {
         return this.makeApiCall(HttpVerb.PUT, path, '', body);
     }
 
@@ -293,7 +293,7 @@ public virtual class RestClient {
      * @return     `HTTPResponse`
      */
     @testVisible
-    protected HTTPResponse put(String path, String query, String body) {
+    protected HttpResponse put(String path, String query, String body) {
         return this.makeApiCall(HttpVerb.PUT, path, query, body);
     }
 
@@ -305,7 +305,7 @@ public virtual class RestClient {
      * @return     `HTTPResponse`
      */
     @testVisible
-    protected HTTPResponse patch(String path, String body) {
+    protected HttpResponse patch(String path, String body) {
         return this.makeApiCall(HttpVerb.PATCH, path, '', body);
     }
 
@@ -318,7 +318,7 @@ public virtual class RestClient {
      * @return     `HTTPResponse`
      */
     @testVisible
-    protected HTTPResponse patch(String path, String query, String body) {
+    protected HttpResponse patch(String path, String query, String body) {
         return this.makeApiCall(HttpVerb.PATCH, path, query, body);
     }
 
@@ -356,7 +356,7 @@ public virtual class RestClient {
      *                                      new Map<String,String>()));
      */
     @SuppressWarnings('PMD.ExcessiveParameterList')
-    public static HTTPResponse makeApiCall(
+    public static HttpResponse makeApiCall(
         String namedCredential,
         HttpVerb method,
         String path,
@@ -383,7 +383,7 @@ public virtual class RestClient {
      *                                      ''));
      */
     @SuppressWarnings('PMD.ExcessiveParameterList')
-    public static HTTPResponse makeApiCall(
+    public static HttpResponse makeApiCall(
         String namedCredential,
         HttpVerb method,
         String path,
@@ -405,7 +405,7 @@ public virtual class RestClient {
      *                                      RestClient.HttpVerb.GET,
      *                                      '4cb453a6-a23b-42ea-a6ba-9be1c1f17050'));
      */
-    public static HTTPResponse makeApiCall(
+    public static HttpResponse makeApiCall(
         String namedCredential,
         HttpVerb method,
         String path

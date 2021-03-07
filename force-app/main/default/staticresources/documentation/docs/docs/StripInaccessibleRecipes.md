@@ -30,6 +30,16 @@ System.debug([SELECT Id, lastName FROM Contact WHERE lastName like 'example last
 
 Demonstrates how to use stripInaccessible to remove fields and objects from a queries results.
 
+#### Return
+
+**Type**
+
+List<Campaign>
+
+**Description**
+
+List<Campaign>
+
 #### Example
 ```java
 System.debug(StripInaccessibleRecipes.stripInaccessibleFromQuery());
@@ -38,6 +48,16 @@ System.debug(StripInaccessibleRecipes.stripInaccessibleFromQuery());
 ### `stripInaccessibleFromSubquery()` → `List<Account>`
 
 Demonstrates how to use stripInaccessible to remove fields and objects not only from the primary object in this case account but also from related child objects that are queried in this case contacts.
+
+#### Return
+
+**Type**
+
+List<Account>
+
+**Description**
+
+List<Account>
 
 #### Example
 ```java

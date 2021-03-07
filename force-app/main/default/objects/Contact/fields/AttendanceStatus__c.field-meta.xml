@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AttendanceStatus__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>This is only on Contact for expediency</inlineHelpText>
+    <label>Attendance Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Partial</fullName>
+                <default>false</default>
+                <label>Partial</label>
+            </value>
+            <value>
+                <fullName>Full</fullName>
+                <default>false</default>
+                <label>Full</label>
+            </value>
+            <value>
+                <fullName>Asleep</fullName>
+                <default>false</default>
+                <label>Asleep</label>
+            </value>
+            <value>
+                <fullName>Excused Absence</fullName>
+                <default>false</default>
+                <label>Excused Absence</label>
+            </value>
+            <value>
+                <fullName>Unexcused Absence</fullName>
+                <default>false</default>
+                <label>Unexcused Absence</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
