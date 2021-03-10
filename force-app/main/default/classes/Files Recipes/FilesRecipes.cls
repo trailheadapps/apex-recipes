@@ -4,6 +4,16 @@
  */
 public inherited sharing class FilesRecipes {
     /**
+     * An inner class representing a file to be created and linked to a given record.
+     * Useful for bulk-creating files and linking them.
+     */
+    public class FileAndLinkObject {
+        Blob fileContents { get; set; }
+        Id attachedTo { get; set; }
+        String fileName { get; set; }
+    }
+
+    /**
      * @description Internal exception class
      */
     public class FilesRecipesException extends Exception {
@@ -81,6 +91,52 @@ public inherited sharing class FilesRecipes {
             System.debug(
                 LoggingLevel.INFO,
                 'Failed to insert fileToUpload, error is: ' + DMLE.getMessage()
+            );
+        }
+        return saveResult;
+    }
+
+    /**
+     * @description    Convenience method for creating a file and linking it to a given record
+     * @param toCreate a FileAndLinkObject (inner class above) object representing the file to be created and linked
+     * @return         `Database.SaveResult`
+     */
+    public static Database.SaveResult createFileAttachedToRecord(
+        FilesRecipes.FileAndLinkObject toCreate
+    ) {
+        return createFileAttachedToRecord(
+            toCreate.fileContents,
+            toCreate.attachedTo,
+            toCreate.fileName
+        );
+    }
+
+    /**
+     * @description    Bulk method for inserting multiple files and link them to records
+     * @param toCreate List<FilesRecipes.FileAndLinkObject>
+     * @return         `List<Database.SaveResult>`
+     */
+    public static List<Database.SaveResult> createFilesAttachedToRecords(
+        List<FilesRecipes.FileAndLinkObject> toCreate
+    ) {
+        List<ContentVersion> filesToCreate = new List<ContentVersion>();
+        for (FilesRecipes.FileAndLinkObject files : toCreate) {
+            ContentVersion fileToUpload = new ContentVersion();
+            fileToUpload.ContentLocation = 'S';
+            fileToUpload.PathOnClient = files.fileName;
+            fileToUpload.Title = files.fileName;
+            fileToUpload.VersionData = files.fileContents;
+            fileToUpload.FirstPublishLocationId = files.attachedTo;
+            filesToCreate.add(fileToUpload);
+        }
+
+        List<Database.SaveResult> saveResult = new List<Database.SaveResult>();
+        try {
+            saveResult = Database.insert(filesToCreate);
+        } catch (DmlException DMLE) {
+            System.debug(
+                LoggingLevel.INFO,
+                'Failed to insert filesToUpload, error is: ' + DMLE.getMessage()
             );
         }
         return saveResult;
