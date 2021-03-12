@@ -8,9 +8,9 @@ public with sharing class FilesRecipes {
      * Useful for bulk-creating files and linking them.
      */
     public class FileAndLinkObject {
-        Blob fileContents { get; set; }
-        Id attachedTo { get; set; }
-        String fileName { get; set; }
+        public Blob fileContents { get; set; }
+        public Id attachedTo { get; set; }
+        public String fileName { get; set; }
     }
 
     /**

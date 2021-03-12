@@ -1,6 +1,6 @@
 /**
  * @description Demonstrates inboundEmailHandler
- * Inbound email address: arinbound@75eb587mjq0etxe2n8j5gpc7o7pwrxu0zs1sxyglm4dqsf2ex.1h-hbd9eag.cs79.apex.sandbox.salesforce.com
+ * Inbound email address: demo@h-1g734z80cz6m6ydd6b7wddc06vaq3vc5v65mt3p2pqkysg5rsx.1f-naxeua0.cs90.apex.sandbox.salesforce.com
  */
 public inherited sharing class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler {
     public Messaging.InboundEmailResult handleInboundEmail(
@@ -12,7 +12,9 @@ public inherited sharing class InboundEmailHandlerRecipes implements Messaging.I
         try {
             // identify contact
             Contact sender = getContactBySender(email.fromAddress);
+            createFilesByEmailAttachments(email.binaryAttachments, sender.Id);
             createEmailRecord(sender, email);
+            result.success = true;
         } catch (Exception ex) {
             result.success = false;
             errorMessage = ex.getMessage() + ' ' + ex.getStackTraceString();
@@ -21,12 +23,29 @@ public inherited sharing class InboundEmailHandlerRecipes implements Messaging.I
         if (!result.success) {
             result.message = errorMessage;
         }
-        // insert email message
-        // create an email record (email object) from email
-        //  - associate that email with a contact(sender)
-        // handle attachment(s)
-        //  - attach
+
         return result;
+    }
+
+    private void createFilesByEmailAttachments(
+        List<Messaging.inboundEmail.BinaryAttachment> inboundAttachments,
+        Id contactId
+    ) {
+        // guard against invalid data
+        if (inboundAttachments == null || contactId == null) {
+            return;
+        }
+        List<FilesRecipes.FileAndLinkObject> toCreate = new List<FilesRecipes.FileAndLinkObject>();
+        for (
+            Messaging.inboundEmail.BinaryAttachment currentAttachment : inboundAttachments
+        ) {
+            FilesRecipes.FileAndLinkObject newFile = new FilesRecipes.FileAndLinkObject();
+            newFile.fileContents = currentAttachment.body;
+            newFile.fileName = currentAttachment.fileName;
+            newFile.attachedTo = contactId;
+            toCreate.add(newFile);
+        }
+        FilesRecipes.createFilesAttachedToRecords(toCreate);
     }
 
     private Contact getContactBySender(String senderAddress) {
