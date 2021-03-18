@@ -1,6 +1,5 @@
 /**
  * @description Demonstrates inboundEmailHandler
- * Inbound email address: demo@h-1g734z80cz6m6ydd6b7wddc06vaq3vc5v65mt3p2pqkysg5rsx.1f-naxeua0.cs90.apex.sandbox.salesforce.com
  */
 public inherited sharing class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler {
     /**
