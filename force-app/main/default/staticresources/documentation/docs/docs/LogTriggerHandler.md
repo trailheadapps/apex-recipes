@@ -5,6 +5,10 @@ layout: default
 
 Trigger handler for persisting Platform Event based log messages.
 
+## Related
+
+[Log](https://github.com/trailheadapps/apex-recipes/wiki/Log.md)
+
 ---
 ## Constructors
 ### `LogTriggerHandler()`
