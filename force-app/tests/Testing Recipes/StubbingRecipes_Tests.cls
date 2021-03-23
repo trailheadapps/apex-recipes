@@ -29,7 +29,7 @@ private class StubbingRecipes_Tests {
             )
             .returning('Hola');
 
-        // this first 'methodToTrack' is superfulous to the test but
+        // this first 'methodToTrack' is superfluous to the test but
         // a good demonstration of the fluid api interface and how
         // you can chain multiple track commands together.
         TestDouble stub = new TestDouble(StubExample.class)
