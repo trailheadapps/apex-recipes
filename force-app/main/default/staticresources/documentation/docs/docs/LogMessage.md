@@ -46,7 +46,7 @@ Public severity property.
 
 ---
 ## Methods
-### `toEvent()` → `SObject`
+### `toEvent()` → `Log__e`
 
 converts this object to an event for publishing
 
@@ -54,7 +54,7 @@ converts this object to an event for publishing
 
 **Type**
 
-SObject
+Log__e
 
 **Description**
 
