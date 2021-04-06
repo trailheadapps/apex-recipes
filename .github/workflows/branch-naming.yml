@@ -5,7 +5,7 @@ name: Enforce branch naming
 on:
     push:
         branches-ignore:
-            - master
+            - main
 
 # Jobs to be executed
 jobs:

@@ -1,6 +1,6 @@
 # Apex Recipes
 
-[![CI Workflow](https://github.com/trailheadapps/apex-recipes/workflows/CI/badge.svg)](https://github.com/trailheadapps/apex-recipes/actions?query=workflow%3ACI) [![Packaging Workflow](https://github.com/trailheadapps/apex-recipes/workflows/Packaging/badge.svg)](https://github.com/trailheadapps/apex-recipes/actions?query=workflow%3APackaging) [![codecov](https://codecov.io/gh/trailheadapps/apex-recipes/branch/master/graph/badge.svg)](https://codecov.io/gh/trailheadapps/apex-recipes)
+[![CI Workflow](https://github.com/trailheadapps/apex-recipes/workflows/CI/badge.svg)](https://github.com/trailheadapps/apex-recipes/actions?query=workflow%3ACI) [![Packaging Workflow](https://github.com/trailheadapps/apex-recipes/workflows/Packaging/badge.svg)](https://github.com/trailheadapps/apex-recipes/actions?query=workflow%3APackaging) [![codecov](https://codecov.io/gh/trailheadapps/apex-recipes/branch/main/graph/badge.svg)](https://codecov.io/gh/trailheadapps/apex-recipes)
 
 ## Introduction
 
@@ -105,7 +105,7 @@ Make sure to start from a **brand-new environment** to avoid conflicts with prev
 
 1. Once installed:
 
-1. (Optional) Add additional data examples. [In the data folder](https://github.com/trailheadapps/apex-recipes/tree/master/data/) are sample CSV files which can be
+1. (Optional) Add additional data examples. [In the data folder](https://github.com/trailheadapps/apex-recipes/tree/main/data/) are sample CSV files which can be
    used by dataloader.io or the Import Data Wizard.
 
 1. (Optional) Load the sample Junction objects data:
