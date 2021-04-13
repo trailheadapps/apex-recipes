@@ -40,8 +40,5 @@
         "prettier": "^2.2.1",
         "prettier-plugin-apex": "^1.8.0",
         "semver": "^7.3.4"
-    },
-    "dependencies": {
-        "sfdx-cli": "^7.96.0"
     }
 }

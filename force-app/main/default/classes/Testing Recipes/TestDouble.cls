@@ -85,6 +85,7 @@ public with sharing class TestDouble implements System.StubProvider {
      * @return                  `Object` Object to be returned by the Method
      * object this method delegates to.
      */
+    @SuppressWarnings('PMD.ExcessiveParameterList')
     public Object handleMethodCall(
         Object stubbedObject,
         String stubbedMethodName,
