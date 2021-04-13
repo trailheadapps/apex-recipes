@@ -17,7 +17,7 @@ private class MetadataTriggerService_Tests {
     }
 
     @isTest
-    static void testGetSObjectType_Negative() {
+    static void testGetSObjectTypeNegative() {
         Boolean didCatchProperException = false;
         Test.startTest();
         try {
