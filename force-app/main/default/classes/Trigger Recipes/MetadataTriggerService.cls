@@ -1,4 +1,6 @@
 public with sharing class MetadataTriggerService {
+    public class MetadataTriggerServiceException extends Exception {
+    }
     private String objType = '';
 
     public MetadataTriggerService(String objectTypeName) {
@@ -57,8 +59,11 @@ public with sharing class MetadataTriggerService {
     public static String getSObjectType() {
         if (Trigger.new != null) {
             return Trigger.new[0].getSObjectType().getDescribe().getName();
-        } else {
+        } else if (Trigger.old != null) {
             return Trigger.old[0].getSObjectType().getDescribe().getName();
         }
+        throw new MetadataTriggerServiceException(
+            'Trigger.new && Trigger.old are both null. Are you excercising this method outside of a trigger context?'
+        );
     }
 }
