@@ -54,9 +54,9 @@ private class MetadataTriggerHandler_Tests {
         Test.stopTest();
 
         System.assertEquals(
-            'sampleHandler',
+            'SampleHandler',
             TestHelper.getUnkownObjectType(mdtHandler.activeHandler),
-            'Expected the activeHandler Property to be \'sampleHandler\'.'
+            'Expected the activeHandler Property to be \'SampleHandler\'.'
         );
     }
 }
