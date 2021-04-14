@@ -26,6 +26,16 @@ public inherited sharing class QuiddityGuard {
     };
 
     /**
+     * @description An exaustive list of quiddities that are valid for a test
+     * execution
+     */
+    public static List<Quiddity> trustedTestQuiddities = new List<Quiddity>{
+        Quiddity.RUNTEST_SYNC,
+        Quiddity.RUNTEST_ASYNC,
+        Quiddity.RUNTEST_DEPLOY
+    };
+
+    /**
      * @description A list of quiddities that may include user-defined data and
      * therefore should not be trusted without manual FLS/CRUD checks
      */
@@ -57,5 +67,11 @@ public inherited sharing class QuiddityGuard {
             q = testQuiddityOverride;
         }
         return acceptableQuiddites.contains(q);
+    }
+
+    public static Boolean isNotAcceptableQuiddity(
+        List<Quiddity> acceptableQuiddites
+    ) {
+        return !QuiddityGuard.isAcceptableQuiddity(acceptableQuiddites);
     }
 }

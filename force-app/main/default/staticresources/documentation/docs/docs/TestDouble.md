@@ -3,7 +3,7 @@ layout: default
 ---
 # TestDouble class
 
-Implements an easy and re-usable StubProvider Utilizes a fluid interface for ease of use. This is meerly an example of how you could build a reusable stub provider class. There are definitely edge cases or features not handled by this class. The general mechanism for use looks like this: ```apex TestDouble stub = new TestDouble(SomeClass.class); TestDouble.Method methodToTrack = new TestDouble.Method('methodName') .returning(someObject); stub.track(methodToTrack); ConsumingClass consumer = new ConsumingClass( (someClass) stub.generate() ); ```
+Implements an easy and re-usable StubProvider Utilizes a fluent interface for ease of use. This is merly an example of how you could build a reusable stub provider class. There are definitely edge cases or features not handled by this class. The general mechanism for use looks like this: ```apex TestDouble stub = new TestDouble(SomeClass.class); TestDouble.Method methodToTrack = new TestDouble.Method('methodName') .returning(someObject); stub.track(methodToTrack); ConsumingClass consumer = new ConsumingClass( (someClass) stub.generate() ); ```
 
 ---
 ## Constructors
