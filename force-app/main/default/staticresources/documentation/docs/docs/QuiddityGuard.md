@@ -16,6 +16,10 @@ a private testvisible variable allowing developers to inject a custom quiddity v
 
 a non-exhaustive list of Quiddities that do not include user situations where users could be injecting malicious data.
 
+### `trustedTestQuiddities` → `List<Quiddity>`
+
+An exaustive list of quiddities that are valid for a test execution
+
 ### `untrustedQuiddities` → `List<Quiddity>`
 
 A list of quiddities that may include user-defined data and therefore should not be trusted without manual FLS/CRUD checks
@@ -41,4 +45,5 @@ Boolean
 
 `boolean`
 
+### `isNotAcceptableQuiddity(List<Quiddity> acceptableQuiddites)` → `Boolean`
 ---
