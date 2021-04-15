@@ -56,7 +56,7 @@ public inherited sharing class CollectionUtils {
      * @param incomingList List of incoming sObjects to build the map from
      * @return            `Map<String, sObject>`
      * @example
-     * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
+     * Contact[] contacts = [SELECT AccountId, firstName, lastName, shippingStreet FROM Contact LIMIT 50];
      * Map<String, Contact> contactsByAccountId = (Map<String, Contact>) CollectionUtils.StringMapFromCollectionByKey('shippingStreet', contacts);
      */
     public static Map<String, SObject> stringMapFromCollectionByKey(
