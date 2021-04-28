@@ -74,6 +74,7 @@ jobs:
                   mkdir ~/sfdx
                   tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
                   echo "$HOME/sfdx/bin" >> $GITHUB_PATH
+                  sfdx version
 
             # Install Salesforce CLI Scanner
             - name: 'Install Salesforce CLI Scanner'
