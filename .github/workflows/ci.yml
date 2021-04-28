@@ -63,7 +63,7 @@ jobs:
                   mkdir ~/sfdx
                   tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
                   echo "$HOME/sfdx/bin" >> $GITHUB_PATH
-                  sfdx version
+                  ./~/sfdx/bin/sfdx version
 
             # Checkout the source code
             - name: 'Checkout source code'
