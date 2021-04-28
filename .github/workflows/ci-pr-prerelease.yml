@@ -60,10 +60,10 @@ jobs:
             - name: 'Install Salesforce CLI'
               run: |
                   wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
-                  mkdir sfdx
-                  tar xJf sfdx-linux-x64.tar.xz -C sfdx --strip-components 1
+                  mkdir ~/sfdx
+                  tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
                   echo "$HOME/sfdx/bin" >> $GITHUB_PATH
-                  ./sfdx/bin/sfdx version
+                  ~/sfdx/bin/sfdx version
 
             # Checkout the source code
             - name: 'Checkout source code'
