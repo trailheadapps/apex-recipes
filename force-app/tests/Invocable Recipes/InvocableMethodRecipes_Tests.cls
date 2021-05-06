@@ -1,5 +1,5 @@
 @isTest
-public class InvocableMethodRecipes_Tests {
+private class InvocableMethodRecipes_Tests {
     @isTest
     static void contactSearchRequestConstructorPositive() {
         Test.startTest();
