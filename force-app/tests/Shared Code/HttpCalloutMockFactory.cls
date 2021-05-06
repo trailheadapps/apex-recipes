@@ -1,5 +1,5 @@
 @isTest
-private class HttpCalloutMockFactory implements HttpCalloutMock {
+public class HttpCalloutMockFactory implements HttpCalloutMock {
     // Holds a list of HTTP Response objects to return.
     protected List<HttpResponse> orderedResponses = new List<HttpResponse>();
 

@@ -1,5 +1,5 @@
 @isTest
-private class ApiServiceRecipesDataModel_Tests {
+public class ApiServiceRecipesDataModel_Tests {
     @testVisible
     public static String testJSONBad =
         '[' +
