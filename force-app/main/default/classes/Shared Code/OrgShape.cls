@@ -5,7 +5,7 @@
  *
  * @group Shared Code
  */
-public inherited sharing class OrgShape {
+public with sharing class OrgShape {
     @TestVisible
     private static String safeDefaultCachePartition;
 

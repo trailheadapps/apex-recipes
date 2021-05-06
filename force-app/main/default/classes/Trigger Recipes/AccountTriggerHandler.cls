@@ -4,7 +4,7 @@
  * @group Trigger Recipes
  * @see TriggerHandler, AccountServiceLayer
  */
-public inherited sharing class AccountTriggerHandler extends TriggerHandler {
+public with sharing class AccountTriggerHandler extends TriggerHandler {
     private List<Account> triggerNew;
     private List<Account> triggerOld;
     private Map<Id, Account> triggerMapNew;

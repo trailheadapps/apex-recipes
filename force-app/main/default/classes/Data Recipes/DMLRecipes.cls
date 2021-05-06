@@ -19,7 +19,7 @@
  * @see CanTheUser
  */
 @SuppressWarnings('PMD.CyclomaticComplexity')
-public inherited sharing class DMLRecipes {
+public with sharing class DMLRecipes {
     /**
      * @description This exception is for throwing a custom exception to
      * highlight how negative tests operate.

@@ -4,7 +4,7 @@
  * @group Trigger Recipes
  * @see TriggerHandler
  */
-public inherited sharing class PlatformEventRecipesTriggerHandler extends TriggerHandler {
+public with sharing class PlatformEventRecipesTriggerHandler extends TriggerHandler {
     private List<Event_Recipes_Demo__e> triggerNew;
 
     /**

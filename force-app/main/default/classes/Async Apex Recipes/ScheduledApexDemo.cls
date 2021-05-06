@@ -3,7 +3,7 @@
  * @group Async Apex Recipes
  * @see ScheduledApexRecipes
  */
-public inherited sharing class ScheduledApexDemo {
+public with sharing class ScheduledApexDemo {
     @testVisible
     private Integer counter = 0;
 

@@ -6,7 +6,7 @@
  * @group Shared Code
  * @see AccountTriggerHandler
  */
-public inherited sharing class AccountServiceLayer {
+public with sharing class AccountServiceLayer {
     @testVisible
     private static String didExecuteMethod;
 

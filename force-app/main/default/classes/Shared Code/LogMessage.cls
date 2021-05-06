@@ -5,7 +5,7 @@
  * @group Shared Code
  *
  */
-public inherited sharing class LogMessage {
+public with sharing class LogMessage {
     private static final String EXCEPTION_STRING_FORMAT = 'Exception: [{0}] {1} \n StackTrace: {2}';
 
     /**

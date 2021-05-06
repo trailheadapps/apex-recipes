@@ -4,7 +4,7 @@
  * @group Quiddity Recipes
  *
  */
-public inherited sharing class QuiddityRecipes {
+public with sharing class QuiddityRecipes {
     /**
      * @description demonstrates the code needed to get the current requests
      * Quiddity value.

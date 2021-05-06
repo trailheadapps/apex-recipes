@@ -4,7 +4,7 @@
  * @group Shared Code
  * @see ApexClassUtilities
  */
-public inherited sharing class RelatedCodeTabsController {
+public with sharing class RelatedCodeTabsController {
     /**
      * @description Inspects the ApexClass body definition for a @see
      * tag in the opening class level doc block. It then parses the

@@ -18,7 +18,7 @@
  * ```
  */
 @isTest
-public with sharing class TestDouble implements System.StubProvider {
+public class TestDouble implements System.StubProvider {
     /**
      * Internal exception class.
      */

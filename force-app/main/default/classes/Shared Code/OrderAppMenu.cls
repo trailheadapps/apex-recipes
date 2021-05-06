@@ -7,7 +7,7 @@
  * @group Shared Code
  *
  */
-public inherited sharing class OrderAppMenu implements System.Queueable {
+public with sharing class OrderAppMenu implements System.Queueable {
     /**
      * @description reorders the org wide AppMenu order so Apex Recipes is the
      * first seen.

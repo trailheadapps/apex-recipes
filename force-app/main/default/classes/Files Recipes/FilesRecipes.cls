@@ -2,7 +2,7 @@
  * @description Demonstrates how to create, link and share Files
  * @group Files Recipes
  */
-public inherited sharing class FilesRecipes {
+public with sharing class FilesRecipes {
     /**
      * @description Internal exception class
      */

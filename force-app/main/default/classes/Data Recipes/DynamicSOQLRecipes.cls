@@ -7,7 +7,7 @@
  *
  * @group Data Recipes
  */
-public inherited sharing class DynamicSOQLRecipes {
+public with sharing class DynamicSOQLRecipes {
     /**
      * @description Internal exception class
      */

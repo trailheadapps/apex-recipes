@@ -5,7 +5,7 @@
  *
  * @see MetadataTriggerHandler
  */
-public inherited sharing class MDTAccountTriggerHandler extends TriggerHandler {
+public with sharing class MDTAccountTriggerHandler extends TriggerHandler {
     override public void beforeUpdate() {
         for (Account acct : (List<Account>) Trigger.new) {
             Acct.BillingState = 'IN';

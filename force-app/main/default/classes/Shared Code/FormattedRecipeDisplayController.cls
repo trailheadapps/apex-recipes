@@ -6,7 +6,7 @@
  * @group Shared Code
  * @see ApexClassUtilities
  */
-public inherited sharing class FormattedRecipeDisplayController {
+public with sharing class FormattedRecipeDisplayController {
     /**
      * @description Data transfer object for marshalling information form this
      * class to the LWC that consumes it

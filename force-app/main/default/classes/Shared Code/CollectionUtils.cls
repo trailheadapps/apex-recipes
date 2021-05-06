@@ -2,7 +2,7 @@
  * @description Library of generic, type safe collection methods.
  * @group Shared Code
  */
-public inherited sharing class CollectionUtils {
+public with sharing class CollectionUtils {
     /**
      * @description This is a generic, reusable but still typesafe method for
      * generating a Map<Id, Some_SObject> from a list. This code is intended to

@@ -4,7 +4,7 @@
  * @group Data Recipes
  * @see CanTheUser
  */
-public inherited sharing class SOQLRecipes {
+public with sharing class SOQLRecipes {
     /**
      * @description Demonstrates the proper way to query accounts with SOQL
      *   keeping FLS and CRUD in account.

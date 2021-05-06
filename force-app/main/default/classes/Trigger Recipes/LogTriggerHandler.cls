@@ -5,7 +5,7 @@
  * @group Trigger Recipes
  * @see Log
  */
-public inherited sharing class LogTriggerHandler extends TriggerHandler {
+public with sharing class LogTriggerHandler extends TriggerHandler {
     List<Log__e> incomingRecords = new List<Log__e>();
 
     /**

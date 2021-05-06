@@ -5,7 +5,7 @@
  * @group Shared Code
  *
  */
-public inherited sharing class DataFactoryForPackageInstalls {
+public with sharing class DataFactoryForPackageInstalls {
     /**
      * @description generates three sets of data, used to demonstrate how
      * junction objects work. It creates two lists of parent records and a list

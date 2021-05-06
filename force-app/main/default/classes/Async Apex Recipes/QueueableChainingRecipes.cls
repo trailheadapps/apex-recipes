@@ -11,7 +11,7 @@
  * @group Async Apex Recipes
  * @see QueueableRecipes
  */
-public inherited sharing class QueueableChainingRecipes implements Queueable {
+public with sharing class QueueableChainingRecipes implements Queueable {
     /**
      * @description This recipe demonstrates how one queuable (this one) can
      * enqueue a second Queueable class.

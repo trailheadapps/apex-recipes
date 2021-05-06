@@ -8,7 +8,7 @@
  * @group Async Apex Recipes
  * @see ScheduledApexDemo, BatchApexRecipes
  */
-public inherited sharing class ScheduledApexRecipes implements Schedulable {
+public with sharing class ScheduledApexRecipes implements Schedulable {
     @testVisible // Sets to run at midnight 5/28/2099
     private final static String TEST_CRON_STATEMENT = '0 0 0 28 5 ? 2099';
 

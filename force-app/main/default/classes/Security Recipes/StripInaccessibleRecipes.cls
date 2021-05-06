@@ -5,7 +5,7 @@
  * they cannot access.
  * @group Security Recipes
  */
-public inherited sharing class StripInaccessibleRecipes {
+public with sharing class StripInaccessibleRecipes {
     /**
      * @description Internal custom exception used by this class.
      */
