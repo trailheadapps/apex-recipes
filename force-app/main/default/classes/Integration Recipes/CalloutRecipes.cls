@@ -4,7 +4,7 @@
  * @group Integration Recipes
  * @see RestClient, CanTheUser
  */
-public inherited sharing class CalloutRecipes extends RestClient {
+public with sharing class CalloutRecipes extends RestClient {
     /**
      * @description Internal custom exception class
      */

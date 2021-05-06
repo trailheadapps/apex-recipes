@@ -5,7 +5,7 @@
  * @group Shared Code
  * @see RecipeTreeViewController, FormattedRecipeDisplayController
  */
-public inherited sharing class ApexClassUtilities {
+public with sharing class ApexClassUtilities {
     /**
      * @description Extracts the @group annotation from a class' body.
      * Also demonstrates the use of Regex matchers in Apex.

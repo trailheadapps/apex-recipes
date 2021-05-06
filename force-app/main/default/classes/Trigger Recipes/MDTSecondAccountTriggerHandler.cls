@@ -5,7 +5,7 @@
  *
  * @see MetadataTriggerHandler
  */
-public inherited sharing class MDTSecondAccountTriggerHandler extends TriggerHandler {
+public with sharing class MDTSecondAccountTriggerHandler extends TriggerHandler {
     override public void beforeUpdate() {
         for (Account acct : (List<Account>) Trigger.new) {
             Acct.ShippingState = 'IN';

@@ -8,7 +8,7 @@
  *
  * @group Async Apex Recipes
  */
-public inherited sharing class QueueableRecipes implements Queueable {
+public with sharing class QueueableRecipes implements Queueable {
     /**
      * @description This is the only required method to implement Queueable.
      * In our case, it's simply updating account names, but this execute method

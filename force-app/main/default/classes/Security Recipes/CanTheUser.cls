@@ -8,7 +8,7 @@
  * code easy and intuitive.
  * @group Security Recipes
  */
-public inherited sharing class CanTheUser {
+public with sharing class CanTheUser {
     @testVisible
     private static Map<String, Set<String>> accessibleFieldsByObject = new Map<String, Set<String>>();
     @testVisible

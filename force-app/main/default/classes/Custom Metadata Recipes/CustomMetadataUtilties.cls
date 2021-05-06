@@ -5,7 +5,7 @@
  * @group Custom Metadata Recipes
  * @see CustomMetadataRecipes_Tests
  */
-public inherited sharing class CustomMetadataUtilties {
+public with sharing class CustomMetadataUtilties {
     /**
      * Understanding this class, and it's utility requires understanding the use
      * case we've setup for:

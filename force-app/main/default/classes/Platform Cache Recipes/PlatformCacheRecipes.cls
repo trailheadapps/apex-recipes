@@ -6,7 +6,7 @@
  *
  * @group Platform Cache Recipes
  */
-public inherited sharing class PlatformCacheRecipes {
+public with sharing class PlatformCacheRecipes {
     /**
      * @description Defines the default cache partition for use in this class.
      */

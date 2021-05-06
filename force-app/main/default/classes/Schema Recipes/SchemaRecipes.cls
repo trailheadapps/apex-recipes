@@ -3,7 +3,7 @@
  *
  * @group Schema Recipes
  */
-public inherited sharing class SchemaRecipes {
+public with sharing class SchemaRecipes {
     /**
      * @description demonstrates how to use a field token for schema access
      */

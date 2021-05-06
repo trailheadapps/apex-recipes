@@ -1,7 +1,7 @@
 /**
  * @description demonstrates how to use the Cache.CacheBuilder Interface
  */
-public inherited sharing class PlatformCacheBuilderRecipes implements Cache.CacheBuilder {
+public with sharing class PlatformCacheBuilderRecipes implements Cache.CacheBuilder {
     /**
      * @description The doLoad method is required by the CacheBuilder interface
      * This method needs to return an Object - and that's the key to the Cache

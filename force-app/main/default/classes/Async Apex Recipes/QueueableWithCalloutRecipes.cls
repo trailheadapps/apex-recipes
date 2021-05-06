@@ -9,7 +9,7 @@
  * @group Async Apex Recipes
  * @see RestClient
  */
-public inherited sharing class QueueableWithCalloutRecipes implements Queueable, Database.AllowsCallouts {
+public with sharing class QueueableWithCalloutRecipes implements Queueable, Database.AllowsCallouts {
     // This allows us to cause a DML failure in execute batch, enabling testing.
     @testVisible
     private static Boolean throwError = false;

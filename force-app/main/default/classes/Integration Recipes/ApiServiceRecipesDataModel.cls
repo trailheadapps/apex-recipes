@@ -5,7 +5,7 @@
  * @group Integration Recipes
  * @see ApiServiceRecipes
  */
-public inherited sharing class ApiServiceRecipesDataModel {
+public with sharing class ApiServiceRecipesDataModel {
     /**
      * These properties represent the JSON keys that we need
      * to send or recieve.

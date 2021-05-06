@@ -5,7 +5,7 @@
  * @group Shared Code
  *
  */
-public inherited sharing class Log {
+public with sharing class Log {
     /**
      * @description private instance of this log class that backs the
      * singleton get() method.

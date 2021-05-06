@@ -4,7 +4,7 @@
  * @group Integration Recipes
  * @see CanTheUser
  */
-public inherited sharing class AuraEnabledRecipes {
+public with sharing class AuraEnabledRecipes {
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @AuraEnabled
     /**

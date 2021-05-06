@@ -3,7 +3,7 @@
  * @group Platform Event Recipes
  * @see PlatformEventTriggerHandler, TriggerHandler
  */
-public inherited sharing class PlatformEventRecipes {
+public with sharing class PlatformEventRecipes {
     /**
      * @description Internal custom exception class
      */

@@ -4,7 +4,7 @@
  * @group Shared Code
  * @see ApexClassUtilities
  */
-public inherited sharing class RecipeTreeViewController {
+public with sharing class RecipeTreeViewController {
     private static Map<String, List<String>> groupToListOfNames;
 
     /**

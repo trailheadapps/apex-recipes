@@ -3,7 +3,7 @@
  * sometimes faster that Schema Describe calls especially for large complex orgs
  * @group Data Recipes
  */
-public inherited sharing class MetadataCatalogRecipes {
+public with sharing class MetadataCatalogRecipes {
     /**
      * @description internal data object for information about a Lookup
      * Relationship

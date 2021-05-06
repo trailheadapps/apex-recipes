@@ -6,7 +6,7 @@
  * returns data to the flow
  * @group Invocable Recipes
  */
-public inherited sharing class InvocableMethodRecipes {
+public with sharing class InvocableMethodRecipes {
     /**
      * @description Internal custom exception class
      */
