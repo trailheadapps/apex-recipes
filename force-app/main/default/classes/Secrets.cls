@@ -30,7 +30,8 @@ public inherited sharing class Secrets {
         if(memoizedKeys.containsKey(keyname)) {
             return memoizedKeys.get(keyName);
         } else {
-            List<Secrets__c> keyRecord = [SELECT Name, Private_Key__c FROM Secrets__c WHERE Name = :keyName LIMIT 1];
+            List<Secrets__c> keyRecord = [SELECT Name, Private_Key__c FROM Secrets__c 
+                WHERE Name = :keyName LIMIT 1];
             if(keyRecord.isEmpty()){
                 throw new SecretException('Unable to retrieve key:' + keyName);
             }
@@ -56,58 +57,6 @@ public inherited sharing class Secrets {
         }
     }
 
-    // An approximate constant time comparison algorithm
-    private static Boolean ConstantTimeCompare(String First, String Second){
-        Boolean result = true;
-        if(First.length() != Second.length()){
-            result = false;
-        }
-        Integer max = First.length() > Second.length() ? Second.length() : First.length();
-        for(Integer i = 0; i < max; i++){
-            if(First.substring(i,i+1) != Second.substring(i,i+1)){
-                result = false;
-            }
-        }
-        return result;
-    }
-
-    public static String fetchSecret(String secretName) {
-        List<SecretMDT__mdt> secret = [
-            SELECT DeveloperName, Value__c
-            FROM SecretMDT__mdt
-            WHERE DeveloperName = :secretName
-            LIMIT 1
-        ];
-        if(secret.isEmpty()){
-            throw new SecretException('Secret ' + secretName + 'is empty');
-        }
-        // Ensure the secret value meets the required format of: 
-        // <ENCRYPTION KEY NAME>~<ENCRYPTION ALGORITHM>~<HMAC ALGORITHM>~<ENCRYPTED VALUE>~<HMAC VALUE>
-        List<String> data = secret[0].Value__c.split('~');
-        if(data.size() != 5){
-            throw new SecretException('Secret ' + secretName + 'has invalid format');
-        }
-        Blob key = getKey(data[0]);
-        String algo = data[1];
-        String hmacalgoPayload = data[2];
-        Blob enc = EncodingUtil.base64Decode(data[3]);
-        String hmacPayload = data[4];
-        // Verify that the data has not been tampred with by generating an HMAC of the encrypted data and comparing it to the HMAC of the payload.
-        // HMAC generation uses the name of the secret as the key to ensure integrity.
-        String hmac = EncodingUtil.base64Encode(crypto.generateMac(hmacalgoPayload, enc, Blob.valueOf(secretName)));
-        // Use a (relatively) time constant comparison operation to mitigate timing attacks 
-        if(!ConstantTimeCompare(hmac, hmacPayload)){
-            throw new SecretException('Secret ' + secretName + 'has invalid HMAC');
-        }
-        // The data has not been tampered with so decrypt the data
-        Blob decryptedSecret = Crypto.decryptWithManagedIV(
-            algo,
-            key,
-            enc
-        );
-        return decryptedSecret.toString();
-    }
-
     public static Boolean storeSecret(String secretName, String secretValue, string keyName) {
         Blob key = getKey(keyName);
         if (key == null) {
@@ -123,7 +72,8 @@ public inherited sharing class Secrets {
         );
         String encrypted = EncodingUtil.base64Encode(encryptedAsBlob);
         // Generate an HMAC of the encrypted data to mitigate tampering. Use the name of the secret as the HMAC key to ensure data integrity.
-        String hmac = EncodingUtil.base64Encode(crypto.generateMac(HMACALGO, encryptedAsBlob, Blob.valueOf(secretName)));
+        String hmac = EncodingUtil.base64Encode(crypto.generateMac(HMACALGO, encryptedAsBlob, 
+            Blob.valueOf(secretName)));
         // Represent the secret value using  the required format of: 
         // <ENCRYPTION KEY NAME>~<ENCRYPTION ALGORITHM>~<HMAC ALGORITHM>~<ENCRYPTED VALUE>~<HMAC VALUE>        
         String value = keyName + '~' + ENCRYPTIONALGO + '~' + HMACALGO + '~' + encrypted + '~' + hmac;
@@ -150,6 +100,59 @@ public inherited sharing class Secrets {
             jobId = Metadata.Operations.enqueueDeployment(mdContainer, callback);
         }
         return true;
+    }
+
+    public static String fetchSecret(String secretName) {
+        List<SecretMDT__mdt> secret = [
+            SELECT DeveloperName, Value__c
+            FROM SecretMDT__mdt
+            WHERE DeveloperName = :secretName
+            LIMIT 1
+        ];
+        if(secret.isEmpty()){
+            throw new SecretException('Secret ' + secretName + 'is empty');
+        }
+        // Ensure the secret value meets the required format of: 
+        // <ENCRYPTION KEY NAME>~<ENCRYPTION ALGORITHM>~<HMAC ALGORITHM>~<ENCRYPTED VALUE>~<HMAC VALUE>
+        List<String> data = secret[0].Value__c.split('~');
+        if(data.size() != 5){
+            throw new SecretException('Secret ' + secretName + 'has invalid format');
+        }
+        Blob key = getKey(data[0]);
+        String algo = data[1];
+        String hmacalgoPayload = data[2];
+        Blob enc = EncodingUtil.base64Decode(data[3]);
+        String hmacPayload = data[4];
+        // Verify that the data has not been tampred with by generating an HMAC of the encrypted data and comparing it to the HMAC of the payload.
+        // HMAC generation uses the name of the secret as the key to ensure integrity.
+        String hmac = EncodingUtil.base64Encode(crypto.generateMac(hmacalgoPayload, enc, 
+            Blob.valueOf(secretName)));
+        // Use a (relatively) time constant comparison operation to mitigate timing attacks 
+        if(!ConstantTimeCompare(hmac, hmacPayload)){
+            throw new SecretException('Secret ' + secretName + 'has invalid HMAC');
+        }
+        // The data has not been tampered with so decrypt the data
+        Blob decryptedSecret = Crypto.decryptWithManagedIV(
+            algo,
+            key,
+            enc
+        );
+        return decryptedSecret.toString();
+    }
+
+    // An approximate constant time comparison algorithm
+    private static Boolean ConstantTimeCompare(String First, String Second){
+        Boolean result = true;
+        if(First.length() != Second.length()){
+            result = false;
+        }
+        Integer max = First.length() > Second.length() ? Second.length() : First.length();
+        for(Integer i = 0; i < max; i++){
+            if(First.substring(i,i+1) != Second.substring(i,i+1)){
+                result = false;
+            }
+        }
+        return result;
     }
 
 
