@@ -37,7 +37,7 @@
         "eslint": "^7.22.0",
         "eslint-config-prettier": "^8.1.0",
         "husky": "^5.2.0",
-        "prettier": "^2.2.1",
+        "prettier": "^2.3.0",
         "prettier-plugin-apex": "^1.8.0",
         "semver": "^7.3.4"
     }
