@@ -11,6 +11,8 @@
  *
  * Note: This should be refactored to be an abstract class that you can extend
  * named 'Ouroboros'. (Ouroboros = the snake eating it's own tail)
+ *
+ * @group LDV Recipes
  */
 public with sharing class LDVRecipes implements Queueable {
     private final Integer chunkSize = 20;
