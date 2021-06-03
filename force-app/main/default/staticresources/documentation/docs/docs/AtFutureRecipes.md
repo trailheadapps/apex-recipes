@@ -10,7 +10,7 @@ Demonstrates the @future syntax and usage
 
 ### `testCircuitBreaker` → `Boolean`
 
- This class features a 'circuit breaker' variable. While this is not a pattern I routinely turn to, it is a valuable pattern for testing code that is otherwise hard to test. For instance, @future methods must be static void methods. This makes it hard to assert against return values. The idea behind this pattern is set a private static class variable to true, only when irreversible conditions or actions have occured. The circuit breaker 'breaks', giving you something you can assert on. Again this isn't a pattern I *often* turn to, but it can be valuable in certain circumstances.
+ This class features a 'circuit breaker' variable. While this is not a pattern I routinely turn to, it is a valuable pattern for testing code that is otherwise hard to test. For instance, @future methods must be static void methods. This makes it hard to assert against return values. The idea behind this pattern is set a private static class variable to true, only when irreversible conditions or actions have occurred. The circuit breaker 'breaks', giving you something you can assert on. Again this isn't a pattern I *often* turn to, but it can be valuable in certain circumstances.
 
 ---
 ## Methods

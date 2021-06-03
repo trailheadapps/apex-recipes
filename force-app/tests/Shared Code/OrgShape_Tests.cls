@@ -168,6 +168,11 @@ class OrgShape_Tests {
     static void testCacheIsUsedPositive() {
         OrgShape orgShape = new OrgShape();
         // this should populate the cache.
+        System.assertEquals(
+            0,
+            Cache.Org.getNumKeys(),
+            'Expected to no cache keys yet'
+        );
         Boolean discard = orgShape.isReadOnly;
         Test.startTest();
         // this should use the cache.
