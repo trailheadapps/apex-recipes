@@ -1,8 +1,7 @@
 @isTest
 public class Secrets_Tests {
-
     @isTest(SeeAllData=true)
-    public static void storeSecret1_Test(){
+    public static void storeSecret1_Test() {
         String keyName = 'key001';
         String secretName = 'secret1';
         String secretValue = 'secret1Value';
@@ -32,6 +31,4 @@ public class Secrets_Tests {
         String result = Secrets.fetchSecret(secretName);
         System.assertNotEquals('', result);
     }
-
-
 }

@@ -27,6 +27,10 @@ public class Secrets_Tests {
 
     @isTest
     public static void fetchSecretTest() {
+        @testVisible
+        Secret secret = new Secret();
+        List<String> secretData = secret.validateSecretFormat(serializedSecret);
+        secret.hydrateSecret(secretData);
         SecretsStorageService storageService = (SecretsStorageService) new Stub.Builder(
                 SecretsStorageService.class
             )
