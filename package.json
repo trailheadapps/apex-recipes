@@ -6,7 +6,7 @@
     "scripts": {
         "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
-        "prettier:apex:local": "prettier --apex-standalone-parser built-in --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "prettier:apex:local": "npm run apex:local:start & sleep 2 && prettier --apex-standalone-parser built-in --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\" && npm run apex:local:stop",
         "prettier:verify:apex:local": "prettier --apex-standalone-parser built-in --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "apexdocs": "apexdocs-generate -c apexDocsConfig.json -o false -p global public private protected namespaceaccessible -s force-app/main/default/classes && rm docs/index.md",
         "apex:local:start": "node node_modules/prettier-plugin-apex/bin/start-apex-server.js",
