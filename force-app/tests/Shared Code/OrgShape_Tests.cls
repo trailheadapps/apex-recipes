@@ -124,7 +124,7 @@ class OrgShape_Tests {
 
     @isTest
     static void testGetSafeDefaultCachePartitionMemoized() {
-        orgShape.safeDefaultCachePartition = 'OrgShapeDefault';
+        orgShape.safeDefaultCachePartition = 'default';
         Test.startTest();
         Boolean result = orgShape.isPlatformCacheEnabled();
         Test.stopTest();
@@ -166,13 +166,14 @@ class OrgShape_Tests {
 
     @isTest
     static void testCacheIsUsedPositive() {
-        OrgShape orgShape = new OrgShape();
-        // this should populate the cache.
+        Cache.Org.remove(OrgShape.CachedOrgShape.class, 'requiredButNotUsed');
         System.assertEquals(
             0,
             Cache.Org.getNumKeys(),
             'Expected to no cache keys yet'
         );
+        OrgShape orgShape = new OrgShape();
+        // this should populate the cache.
         Boolean discard = orgShape.isReadOnly;
         Test.startTest();
         // this should use the cache.
@@ -186,10 +187,6 @@ class OrgShape_Tests {
         System.assert(
             Cache.Org.getKeys().toString().containsIgnoreCase('cachedorgshape'),
             'Expected the single cache key to be tied to our CachedOrgShape cacheBuilder class'
-        );
-        System.assert(
-            Cache.Org.getMissRate() <= 0.25,
-            'Expected a cache miss rate no higher than .25'
         );
     }
 }

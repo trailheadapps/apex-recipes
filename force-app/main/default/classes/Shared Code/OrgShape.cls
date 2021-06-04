@@ -307,7 +307,7 @@ public with sharing class OrgShape {
         return [SELECT FIELDS(STANDARD) FROM Organization LIMIT 1];
     }
 
-    private with sharing class CachedOrgShape implements Cache.CacheBuilder {
+    public with sharing class CachedOrgShape implements Cache.CacheBuilder {
         @SuppressWarnings('PMD.ApexCRUDViolation')
         /**
          * Note: We're suppressing PMD warning on Crud Checking because we want
