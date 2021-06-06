@@ -86,7 +86,7 @@ jobs:
 
             # Run Salesforce CLI Scanner For Security checks
             - name: 'Scan For Security Exceptions'
-              run: sfdx scanner:run -e=pmd -t=./force-app -f=json -v —-pmdconfig "ruleset.xml"
+              run: sfdx scanner:run -e=pmd -t=./force-app -f=json -v —-pmdconfig="ruleset.xml"
 
             # Store secret for dev hub
             - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
