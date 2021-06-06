@@ -52,12 +52,12 @@
     >
       <priority>3</priority>
    </rule>
-   <rule
+  <!-- <rule
         ref="category/apex/security.xml/ApexCRUDViolation"
         message="Validate CRUD permission before SOQL/DML operation"
     >
       <priority>3</priority>
-   </rule>
+   </rule>-->
    <rule
         ref="category/apex/security.xml/ApexDangerousMethods"
         message="Calling potentially dangerous method"
