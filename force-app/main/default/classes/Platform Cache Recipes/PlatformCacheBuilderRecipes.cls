@@ -1,7 +1,7 @@
 /**
  * @description demonstrates how to use the Cache.CacheBuilder Interface
  */
-public inherited sharing class PlatformCacheBuilderRecipes implements Cache.CacheBuilder {
+public with sharing class PlatformCacheBuilderRecipes implements Cache.CacheBuilder {
     /**
      * @description The doLoad method is required by the CacheBuilder interface
      * This method needs to return an Object - and that's the key to the Cache
@@ -10,6 +10,7 @@ public inherited sharing class PlatformCacheBuilderRecipes implements Cache.Cach
      * key
      * @param key   String used to help generate the Cache Key
      * @return     `Object` This object should be casted at the call location
+     * @group Platform Cache Recipes
      * @see CanTheUser
      * @example Account[] accounts = (Account[]) Cache.Session.get(PlatformCacheBuilderRecipes.class, 'myAccounts')
      */

@@ -5,7 +5,7 @@
  * @group Shared Code
  * @see RecipeTreeViewController, FormattedRecipeDisplayController
  */
-public inherited sharing class ApexClassUtilities {
+public with sharing class ApexClassUtilities {
     /**
      * @description Extracts the @group annotation from a class' body.
      * Also demonstrates the use of Regex matchers in Apex.
@@ -20,7 +20,7 @@ public inherited sharing class ApexClassUtilities {
         Pattern patternForFindingGroupTagInHeader = Pattern.compile(
             '.*@group.(.*)'
         );
-        Matcher matcher = patternForFindingGroupTagInHeader.matcher(klass.body);
+        Matcher matcher = patternForFindingGroupTagInHeader.matcher(klass.Body);
         matcher.find();
         String groupName = '';
         try {
@@ -28,7 +28,7 @@ public inherited sharing class ApexClassUtilities {
         } catch (StringException matcherException) {
             System.debug(
                 LoggingLevel.INFO,
-                'Failed to extract group name. Class name: ' + klass.name
+                'Failed to extract group name. Class name: ' + klass.Name
             );
         }
 
@@ -49,7 +49,7 @@ public inherited sharing class ApexClassUtilities {
         Pattern patternForFindingSeeTagInHeader = Pattern.compile(
             '.*@see.(.*)'
         );
-        Matcher matcher = patternForFindingSeeTagInHeader.matcher(klass.body);
+        Matcher matcher = patternForFindingSeeTagInHeader.matcher(klass.Body);
         matcher.find();
         String relatedClasses = '';
         try {
@@ -58,7 +58,7 @@ public inherited sharing class ApexClassUtilities {
         } catch (StringException matcherException) {
             System.debug(
                 LoggingLevel.INFO,
-                'Failed to extract related names. Class name: ' + klass.name
+                'Failed to extract related names. Class name: ' + klass.Name
             );
         }
         return '';

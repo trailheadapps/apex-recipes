@@ -4,7 +4,7 @@
  * @group Integration Recipes
  * @see RestClient, CanTheUser
  */
-public inherited sharing class CalloutRecipes extends RestClient {
+public with sharing class CalloutRecipes extends RestClient {
     /**
      * @description Internal custom exception class
      */
@@ -313,12 +313,12 @@ public inherited sharing class CalloutRecipes extends RestClient {
         // here we will use an ExternalId__c field
         Account accountReference = new Account();
         // We can use a .get('fieldName') to extract data from the map
-        accountReference.ExternalSalesforceID__c = responseMap.get('Id')
+        accountReference.ExternalSalesforceId__c = responseMap.get('Id')
             .toString();
         // We can then instantiate a new Account and populate it with data using
         // the .get('fieldName') again
         Account newAccount = new Account();
-        newAccount.ExternalSalesforceID__c = responseMap.get('Id').toString();
+        newAccount.ExternalSalesforceId__c = responseMap.get('Id').toString();
         newAccount.Name = responseMap.get('Name').toString();
         newAccount.Website = responseMap.get('Website').toString();
         // Add the account to our List<SObject> for us to insert
@@ -351,9 +351,9 @@ public inherited sharing class CalloutRecipes extends RestClient {
         List<Id> failures = new List<Id>();
         for (Database.SaveResult sr : saveResults) {
             if (sr.isSuccess()) {
-                successes.add(sr.Id);
+                successes.add(sr.id);
             } else {
-                failures.add(sr.Id);
+                failures.add(sr.id);
             }
         }
         System.debug(LoggingLevel.INFO, 'Successes: ' + successes);

@@ -3,7 +3,7 @@
  * sometimes faster that Schema Describe calls especially for large complex orgs
  * @group Data Recipes
  */
-public inherited sharing class MetadataCatalogRecipes {
+public with sharing class MetadataCatalogRecipes {
     /**
      * @description internal data object for information about a Lookup
      * Relationship
@@ -70,7 +70,7 @@ public inherited sharing class MetadataCatalogRecipes {
                 (
                     SELECT DeveloperName, DataType
                     FROM Fields
-                    WHERE isCalculated = TRUE
+                    WHERE IsCalculated = TRUE
                 )
             FROM EntityDefinition
         ];
@@ -89,7 +89,7 @@ public inherited sharing class MetadataCatalogRecipes {
                 } else {
                     objectToFormulaFieldsToDataTypeMap.put(
                         String.valueOf(e.QualifiedApiName),
-                        new Map<String, String>{ f.developerName => f.DataType }
+                        new Map<String, String>{ f.DeveloperName => f.DataType }
                     );
                 }
             }

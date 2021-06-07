@@ -20,6 +20,16 @@ Inspects the ApexClass body definition for a @see tag in the opening class level
 |-----|-----------|
 |`mainClassName` |  The name of the class to inspect |
 
+#### Return
+
+**Type**
+
+List<String>
+
+**Description**
+
+`List<String>`
+
 #### Example
 ```java
 System.debug(RelatedCodeTabsController.getRelatedClasses('RelatedCodeTabsController'));

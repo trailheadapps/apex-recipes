@@ -6,17 +6,17 @@
     "scripts": {
         "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
-        "prettier:apex:local": "prettier --apex-standalone-parser built-in --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "prettier:apex:local": "npm run apex:local:start & sleep 2 && prettier --apex-standalone-parser built-in --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\" && npm run apex:local:stop",
         "prettier:verify:apex:local": "prettier --apex-standalone-parser built-in --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
-        "postinstall": "node bin/check-version.js",
         "apexdocs": "apexdocs-generate -c apexDocsConfig.json -o false -p global public private protected namespaceaccessible -s force-app/main/default/classes && rm docs/index.md",
         "apex:local:start": "node node_modules/prettier-plugin-apex/bin/start-apex-server.js",
         "apex:local:stop": "node node_modules/prettier-plugin-apex/bin/stop-apex-server.js",
-        "precommit": "npm run apex:local:start & sleep 2 && npm run apexdocs && npm run prettier:apex:local && npm run apex:local:stop",
-        "test:unit": "sfdx-lwc-jest",
-        "test:unit:watch": "sfdx-lwc-jest --watch",
-        "test:unit:debug": "sfdx-lwc-jest --debug",
-        "test:unit:coverage": "sfdx-lwc-jest --coverage"
+        "test:unit": "sfdx-lwc-jest --skipApiVersionCheck",
+        "test:unit:watch": "sfdx-lwc-jest --watch --skipApiVersionCheck",
+        "test:unit:debug": "sfdx-lwc-jest --debug --skipApiVersionCheck",
+        "test:unit:coverage": "sfdx-lwc-jest --coverage --skipApiVersionCheck",
+        "postinstall": "node bin/check-version.js && husky install",
+        "precommit": "npm run apex:local:start & sleep 2 && npm run apexdocs && npm run prettier:apex:local && npm run apex:local:stop"
     },
     "author": "salesforce.com",
     "license": "CC0-1.0",
@@ -29,26 +29,16 @@
         "npm": ">= 6.5.0"
     },
     "devDependencies": {
-        "@cparra/apexdocs": "^1.10.3",
-        "@lwc/eslint-plugin-lwc": "^0.10.0",
-        "@prettier/plugin-xml": "^0.12.0",
-        "@sa11y/jest": "^0.1.4-beta.0",
-        "@salesforce/eslint-config-lwc": "^0.7.0",
-        "@salesforce/sfdx-lwc-jest": "^0.10.2",
-        "babel-eslint": "^10.1.0",
-        "eslint": "^7.14.0",
-        "eslint-config-prettier": "^6.15.0",
-        "husky": "^4.2.5",
-        "jest-canvas-mock": "^2.3.0",
-        "lint-staged": "^10.5.2",
+        "@cparra/apexdocs": "^1.11.0",
+        "@prettier/plugin-xml": "^0.13.1",
+        "@sa11y/jest": "^0.3.0",
+        "@salesforce/eslint-config-lwc": "^0.11.0",
+        "@salesforce/sfdx-lwc-jest": "^0.10.4",
+        "eslint": "^7.22.0",
+        "eslint-config-prettier": "^8.1.0",
+        "husky": "^5.2.0",
         "prettier": "^2.2.1",
-        "prettier-plugin-apex": "^1.6.0",
-        "semver": "^7.3.2"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm run precommit"
-        }
-    },
-    "dependencies": {}
+        "prettier-plugin-apex": "^1.8.0",
+        "semver": "^7.3.4"
+    }
 }

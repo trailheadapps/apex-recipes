@@ -63,7 +63,7 @@ private class SOQLRecipes_Tests {
         TestDataHelpers.createAccount(false, '');
 
         System.assertEquals(
-            [SELECT Id FROM Account].size(),
+            [SELECT COUNT() FROM Account],
             1,
             'Expected only one account'
         );
@@ -92,10 +92,11 @@ private class SOQLRecipes_Tests {
          * skip that particular set of triggers.
          */
         TriggerHandler.bypass('AccountTriggerHandler');
+        TriggerHandler.bypass('MetadataTriggerHandler');
         TestFactory.createSObjectList(new Account(), 3000, true);
 
         System.assertEquals(
-            [SELECT Id FROM Account].size(),
+            [SELECT COUNT() FROM Account],
             3000,
             'expected to have created 3k records'
         );
@@ -105,6 +106,41 @@ private class SOQLRecipes_Tests {
         System.assertEquals(count, 3000, 'Expected to find 3k records');
     }
 
+    @isTest
+    /**
+     * @description This test method demonstrates an alternative form of a soql
+     * for loop. This form gives you lists of records, rather than one record
+     * at a time.
+     */
+    static void testGetChunksOfLargeNumbersOfRecords() {
+        /**
+         * this next line is a feature of the trigger handler in use
+         * it demonstrates the kinds of gotcha's you can hit when testing large data volumes
+         * in this case we need 3k accounts - but inserting them means running two triggers
+         * Creating those 3k accounts exceeds our CPU governor limit. By inserting after
+         * setting the TriggerHandler bypass for accountTriggerHandler, the trigger framework will
+         * skip that particular set of triggers.
+         */
+        TriggerHandler.bypass('AccountTriggerHandler');
+        TriggerHandler.bypass('MetadataTriggerHandler');
+        TestFactory.createSObjectList(new Account(), 3000, true);
+
+        System.assertEquals(
+            [SELECT COUNT() FROM Account],
+            3000,
+            'expected to have created 3k records'
+        );
+        Test.startTest();
+        Integer[] counts = SOQLRecipes.getChunksOfLargeNumbersOfRecords();
+        Test.stopTest(); // forces all asych work to complete
+        System.assertEquals(
+            15,
+            counts[0],
+            'Expected the chunk count to be 15 - 3000 / 200'
+        );
+        System.assertEquals(3000, counts[1], 'Expected to find 3k records');
+    }
+
     /**
      * @description Executes a positive test case against getRecordsByFieldValue
      */
@@ -112,7 +148,7 @@ private class SOQLRecipes_Tests {
     static void testQueryWithFilterWithNoMatchingAcctsPositive() {
         TestDataHelpers.createAccount(false, '');
         System.assertEquals(
-            [SELECT Id FROM Account].size(),
+            [SELECT COUNT() FROM Account],
             1,
             'Expected only one account'
         );
@@ -130,7 +166,7 @@ private class SOQLRecipes_Tests {
     static void testQueryWithFilterNegativeNoPermsToAccountNegative() {
         TestDataHelpers.createAccount(true, 'UK');
         System.assertEquals(
-            [SELECT ID FROM ACCOUNT].size(),
+            [SELECT COUNT() FROM ACCOUNT],
             1,
             'expected only one account'
         );
@@ -170,7 +206,7 @@ private class SOQLRecipes_Tests {
     static void testQueryWithFilterPositive() {
         TestDataHelpers.createAccount(true, 'UK');
         System.assertEquals(
-            [SELECT Id FROM Account].size(),
+            [SELECT COUNT() FROM Account],
             1,
             'Expected only one account'
         );
@@ -291,6 +327,7 @@ private class SOQLRecipes_Tests {
         for (Account acct : toInsert) {
             acct.shippingState = 'Tx';
         }
+        TriggerHandler.bypass('MetadataTriggerHandler');
         insert toInsert;
 
         Test.startTest();
@@ -402,6 +439,7 @@ private class SOQLRecipes_Tests {
     static void testGetAccountInfoWhenQueryingContactPositive() {
         List<Account> accts = TestDataHelpers.genXnumberOfAccounts(1);
         accts[0].ShippingState = 'KS';
+        TriggerHandler.bypass('MetadataTriggerHandler');
         insert accts;
         Contact cnt = new Contact(
             LastName = 'Hello James',

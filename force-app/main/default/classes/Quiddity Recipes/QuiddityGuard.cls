@@ -1,8 +1,10 @@
 /**
  * @description contains methods and static lists for rapid acceptence of a
  * particular set of quiddities
+ *
+ * @group Quiddity Recipes
  */
-public inherited sharing class QuiddityGuard {
+public with sharing class QuiddityGuard {
     /**
      * @description a private testvisible variable allowing developers to
      * inject a custom quiddity value during test execution.
@@ -18,6 +20,16 @@ public inherited sharing class QuiddityGuard {
         Quiddity.SYNCHRONOUS,
         Quiddity.QUEUEABLE,
         Quiddity.BATCH_APEX,
+        Quiddity.RUNTEST_SYNC,
+        Quiddity.RUNTEST_ASYNC,
+        Quiddity.RUNTEST_DEPLOY
+    };
+
+    /**
+     * @description An exaustive list of quiddities that are valid for a test
+     * execution
+     */
+    public static List<Quiddity> trustedTestQuiddities = new List<Quiddity>{
         Quiddity.RUNTEST_SYNC,
         Quiddity.RUNTEST_ASYNC,
         Quiddity.RUNTEST_DEPLOY
@@ -44,9 +56,9 @@ public inherited sharing class QuiddityGuard {
      * @description A method to determine if the current Quiddity context is
      * within a caller-supplied list of acceptable quiddity values.
      * @param acceptableQuiddites A list of quiddities to check against
-     * @returns`boolean`
+     * @return `boolean`
      */
-    public static boolean isAcceptableQuiddity(
+    public static Boolean isAcceptableQuiddity(
         List<Quiddity> acceptableQuiddites
     ) {
         Quiddity q = System.Request.getCurrent().getQuiddity();
@@ -55,5 +67,11 @@ public inherited sharing class QuiddityGuard {
             q = testQuiddityOverride;
         }
         return acceptableQuiddites.contains(q);
+    }
+
+    public static Boolean isNotAcceptableQuiddity(
+        List<Quiddity> acceptableQuiddites
+    ) {
+        return !QuiddityGuard.isAcceptableQuiddity(acceptableQuiddites);
     }
 }

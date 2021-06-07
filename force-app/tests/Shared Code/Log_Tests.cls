@@ -94,11 +94,10 @@ private class Log_Tests {
             //debug info warn error - proposed
         }
 
-        system.debug('##### ' + events);
-
         System.assert(
             events[0].Log_Data__c.split('\n')[0]
-                .containsIgnoreCase('Exception: [System.DMLException] meh')
+                .containsIgnoreCase('Exception: [System.DMLException] meh'),
+            'Expected the log data to contain [System.DMLException] meh'
         );
         //System.AssertException: Assertion Failed: Expected: Exception: [System.DmlException] meh , Actual: Exception: [System.DMLException] meh
     }

@@ -40,3 +40,6 @@ $RECYCLE.BIN/
 .pmdCache
 /scan_results.csv
 /quickstart.sh
+
+# Scratch Files - not for commit
+/Scratch/

@@ -7,7 +7,7 @@ Illustrates how to programatically use the Platform Cache feature of Salesforce.
 
 ---
 ## Enums
-### PatitionType
+### PartitionType
 
 
  Enum for partition type.
@@ -21,7 +21,7 @@ Defines the default cache partition for use in this class.
 
 ---
 ## Methods
-### `getDefaultPartition(PatitionType type)` → `Cache.Partition`
+### `getDefaultPartition(PartitionType type)` → `Cache.Partition`
 
 returns a Cache.Partition for a given name, and type
 
@@ -29,6 +29,16 @@ returns a Cache.Partition for a given name, and type
 |Param|Description|
 |-----|-----------|
 |`type` |   Enum of .SESSION or .ORG |
+
+#### Return
+
+**Type**
+
+Cache.Partition
+
+**Description**
+
+`Cache.Partition`
 
 ### `getValueFromSessionCache(String key)` → `String`
 
@@ -39,6 +49,16 @@ Retrieves a value from the cache identified by key
 |-----|-----------|
 |`key` |    String key of which value to retrieve. |
 
+#### Return
+
+**Type**
+
+String
+
+**Description**
+
+`String`
+
 ### `getValuefromOrgCache(String key)` → `String`
 
 Retrieves a value from the cache identified by key
@@ -47,6 +67,16 @@ Retrieves a value from the cache identified by key
 |Param|Description|
 |-----|-----------|
 |`key` |    String key of which value to retrieve. |
+
+#### Return
+
+**Type**
+
+String
+
+**Description**
+
+`String`
 
 ### `removeKeyFromOrgCache(String key)` → `void`
 

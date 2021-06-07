@@ -4,7 +4,7 @@
  * @group Integration Recipes
  * @see CanTheUser
  */
-public inherited sharing class AuraEnabledRecipes {
+public with sharing class AuraEnabledRecipes {
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @AuraEnabled
     /**
@@ -25,7 +25,7 @@ public inherited sharing class AuraEnabledRecipes {
      * Id accountId = [SELECT Id FROM Account LIMIT 1].Id;
      * System.debug(AuraEnabledRecipes.updateAccountName(accountId, 'New value set by AuraEnabled method'));
      **/
-    public static boolean updateAccountName(Id accountId, String newValue) {
+    public static Boolean updateAccountName(Id accountId, String newValue) {
         if (CanTheUser.edit(new Account())) {
             Account acct = [
                 SELECT Id
@@ -51,7 +51,7 @@ public inherited sharing class AuraEnabledRecipes {
                     new List<Account>{ acct }
                 );
                 update securityDecision.getRecords();
-            } catch (DMLException dmle) {
+            } catch (DmlException dmle) {
                 throw new AuraHandledException(
                     'DML Failed: ' + dmle.getMessage()
                 );
@@ -72,7 +72,7 @@ public inherited sharing class AuraEnabledRecipes {
      * @example
      * System.debug(AuraEnabledRecipes.getFieldValue());
      */
-    public static string getFieldValue() {
+    public static String getFieldValue() {
         return 'hello world';
     }
 }

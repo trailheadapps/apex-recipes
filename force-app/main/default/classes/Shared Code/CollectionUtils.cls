@@ -2,7 +2,7 @@
  * @description Library of generic, type safe collection methods.
  * @group Shared Code
  */
-public inherited sharing class CollectionUtils {
+public with sharing class CollectionUtils {
     /**
      * @description This is a generic, reusable but still typesafe method for
      * generating a Map<Id, Some_SObject> from a list. This code is intended to
@@ -32,14 +32,14 @@ public inherited sharing class CollectionUtils {
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
      * Map<Id, Contact> contactsByAccountId = (Map<Id, Contact>) CollectionUtils.idMapFromCollectionByKey('accountId', contacts);
      */
-    public static Map<Id, sObject> idMapFromCollectionByKey(
+    public static Map<Id, SObject> idMapFromCollectionByKey(
         String key,
-        List<sObject> incomingList
+        List<SObject> incomingList
     ) {
         String objType = getSobjectTypeFromList(incomingList);
         Type dynamicMapType = Type.forName('Map<Id,' + objType + '>');
-        Map<Id, Sobject> returnValues = (Map<Id, Sobject>) dynamicMapType.newInstance();
-        for (sObject current : incomingList) {
+        Map<Id, SObject> returnValues = (Map<Id, SObject>) dynamicMapType.newInstance();
+        for (SObject current : incomingList) {
             if (current.get(key) != null) {
                 returnValues.put((Id) current.get(key), current);
             }
@@ -59,14 +59,14 @@ public inherited sharing class CollectionUtils {
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
      * Map<String, Contact> contactsByAccountId = (Map<String, Contact>) CollectionUtils.StringMapFromCollectionByKey('shippingStreet', contacts);
      */
-    public static Map<String, sObject> stringMapFromCollectionByKey(
+    public static Map<String, SObject> stringMapFromCollectionByKey(
         String key,
-        List<sObject> incomingList
+        List<SObject> incomingList
     ) {
         String objType = getSobjectTypeFromList(incomingList);
         Type dynamicMapType = Type.forName('Map<String,' + objType + '>');
-        Map<String, Sobject> returnValues = (Map<String, Sobject>) dynamicMapType.newInstance();
-        for (sObject current : incomingList) {
+        Map<String, SObject> returnValues = (Map<String, SObject>) dynamicMapType.newInstance();
+        for (SObject current : incomingList) {
             if (current.get(key) != null) {
                 returnValues.put((String) current.get(key), current);
             }
@@ -86,24 +86,24 @@ public inherited sharing class CollectionUtils {
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
      * Map<Id, List<Contact>> contactsByAccountId = (Map<Id, List<Contact>>) CollectionUtils.idMapFromCollectionByKey('accountId', contacts);
      */
-    public static Map<Id, List<sObject>> mapFromCollectionWithCollectionValues(
+    public static Map<Id, List<SObject>> mapFromCollectionWithCollectionValues(
         String key,
-        List<sObject> incomingList
+        List<SObject> incomingList
     ) {
         String objType = getSobjectTypeFromList(incomingList);
         Type listObjType = Type.forName('List<' + objType + '>');
         Type dynamicMapType = Type.forName('Map<Id, List<' + objType + '>>');
-        Map<Id, List<Sobject>> returnValues = (Map<Id, List<Sobject>>) dynamicMapType.newInstance();
-        for (sObject current : incomingList) {
+        Map<Id, List<SObject>> returnValues = (Map<Id, List<SObject>>) dynamicMapType.newInstance();
+        for (SObject current : incomingList) {
             if (current.get(key) != null) {
                 if (returnValues.keySet().contains((Id) current.get(key))) {
-                    List<sObject> existingList = (List<sObject>) returnValues.get(
+                    List<SObject> existingList = (List<SObject>) returnValues.get(
                         (Id) current.get(key)
                     );
                     existingList.add(current);
                     returnValues.put((id) current.get(key), existingList);
                 } else {
-                    List<sObject> newList = (List<Sobject>) listObjType.newInstance();
+                    List<SObject> newList = (List<SObject>) listObjType.newInstance();
                     newList.add(current);
                     returnValues.put((id) current.get(key), newList);
                 }
@@ -112,7 +112,7 @@ public inherited sharing class CollectionUtils {
         return returnValues;
     }
 
-    private static String getSobjectTypeFromList(List<sObject> incomingList) {
+    private static String getSobjectTypeFromList(List<SObject> incomingList) {
         return (!incomingList.isEmpty())
             ? String.valueOf(incomingList[0]?.getSObjectType())
             : 'sObject';

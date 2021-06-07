@@ -22,6 +22,16 @@ private, test visible circiut breaker boolean.
 
 @HttpDelete exposes the method to a DELETE request when the custom REST endpoint is called. A DELETE request allows us to delete data in Salesforce. In this Example, we're going to take a record Id that was sent in the RestRequest and delete the record from Salesforce. We will take the RestRequest Parameters and get the ExternalSalesforceId__c param from the request. Note: This method has a false-positive PMD warning. Our Query includes the keyword 'WITH SECURITY_ENFORCED' which prevents this Query from accessing fields and objects that they don't have permission to access. This is a form of inline CRUD/FLS Check.
 
+#### Return
+
+**Type**
+
+String
+
+**Description**
+
+RestResponse A success message or the exception message
+
 #### Example
 ```java
 curl —X DELETE -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/IntegrationService"
@@ -31,6 +41,16 @@ curl —X DELETE -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/
 
 @HttpGet exposes a method to a GET request when the custom REST endpoint is called. A GET request allows us to return data from Salesforce. In this example, we're going to query a list of Accounts that were created and return them to the application that called the endpoint. When creating a response we can use the RestResponse class to specify certain fields of the payload that is sent. We are manually setting the statusCode as 200 for a successful get and 400 on error. In any other case, Salesforce will supply the error code. Note: This method has a false-positive PMD warning. Our Query includes the keyword 'WITH SECURITY_ENFORCED' which prevents this Query from accessing fields and objects that they don't have permission to access. This is a form of inline CRUD/FLS Check. The return statement is atomically serialized and returned in the responseBody.
 
+#### Return
+
+**Type**
+
+String
+
+**Description**
+
+RestResponse  A list of Accounts or the exception message
+
 #### Example
 ```java
 curl -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/IntegrationService"
@@ -39,6 +59,16 @@ curl -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/ape
 ### `parseAndCreateNewContacts()` → `String`
 
 @HttpPost exposes the method to a POST request when the custom REST endpoint is called. A POST request allows us to insert data into Salesforce. In this Example, we're going take the list of Contacts that was sent in the request and insert them into Salesforce. Note: This method has a false-positive PMD warning. PMD isn't aware of the purpose or functionality of CanTheUser.* so it doesn't undersatnd that we are, in fact, checking for Crud / FLS permissions prior to querying.
+
+#### Return
+
+**Type**
+
+String
+
+**Description**
+
+RestResponse A success message or the exception message
 
 #### Example
 ```java
@@ -54,6 +84,16 @@ curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" 
 ### `updateAccountRecords()` → `String`
 
 @HttpPatch exposes the method to a PATCH request when the custom REST endpoint is called. A PATCH request allows us to Update data in Salesforce. In this Example, we're going take the list of Accounts that was sent in the request and update in Salesforce. Note: This method has a false-positive PMD warning. PMD isn't aware of the purpose or functionality of CanTheUser.* so it doesn't undersatnd that we are, in fact, checking for CRUD / FLS permissions prior to querying.
+
+#### Return
+
+**Type**
+
+String
+
+**Description**
+
+RestResponse A success message or the exception message
 
 #### Example
 ```java
@@ -72,6 +112,16 @@ curl —X PATCH -H "Authorization: Bearer <SessionID>" -H "Content-Type: applica
 ### `upsertContactRecords()` → `String`
 
 @HttpPut exposes the method to a PUT request when the custom REST endpoint is called.  A PUT request allows us to Upsert data into Salesforce. In this Example, we're going take the list of Contacts that was sent in the request and upsert them into Salesforce. This method has a false-positive PMD warning. PMD isn't aware of the purpose or functionality of CanTheUser.* so it doesn't undersatnd that we are, in fact, checking for Crud / FLS permissions prior to querying.
+
+#### Return
+
+**Type**
+
+String
+
+**Description**
+
+RestResponse A success message or the exception message
 
 #### Example
 ```java

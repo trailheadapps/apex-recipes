@@ -6,7 +6,7 @@
  * returns data to the flow
  * @group Invocable Recipes
  */
-public inherited sharing class InvocableMethodRecipes {
+public with sharing class InvocableMethodRecipes {
     /**
      * @description Internal custom exception class
      */
@@ -72,11 +72,11 @@ public inherited sharing class InvocableMethodRecipes {
         List<ContactSearchRequest> inputParams
     ) {
         // Grab the first ContactSearchRequest from the list of inputParams
-        List<sObject> inputs = inputParams[0].inputs;
+        List<SObject> inputs = inputParams[0].inputs;
         String firstRecordId = inputs[0].Id;
         // Get the incoming input's concrete SObject type
         String sObjectType = inputs[0]
-            .Id.getSObjectType()
+            .Id.getSobjectType()
             .getDescribe()
             .getName();
         String queryString = '';
@@ -87,7 +87,7 @@ public inherited sharing class InvocableMethodRecipes {
             }
             when 'task' {
                 Task task = (Task) inputs[0];
-                String whoId = task.whoId;
+                String whoId = task.WhoId;
                 queryString = 'SELECT Id, Name FROM Contact WHERE Id = :whoId WITH SECURITY_ENFORCED LIMIT 1';
             }
             when else {

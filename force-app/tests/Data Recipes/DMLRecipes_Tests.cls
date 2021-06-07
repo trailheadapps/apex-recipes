@@ -3,12 +3,12 @@
 /**
  * @description There is a @suppressWarnings annotation on this class for Cyclomatic Complexity.
  * You can read more about what Cyclomatic Complexity is here: https://en.wikipedia.org/wiki/Cyclomatic_complexity
- * Classes with a high Cyclomatic Compelexity score are harder to test, and more prone to
+ * Classes with a high Cyclomatic Complexity score are harder to test, and more prone to
  * bugs because of the sheer number of branching logic paths available. This class' is made
  * up of a number of small methods, each of whom does Crud/FLS Checks and therefor every method
  * includes at least one branching path. Because this class is designed to teach safe DML
  * I've decided to mute this warning. Other classes in this Repo do not have such a high
- * Cyclomatic Complexity, because the ratio of logic to if/else statments is much lower.
+ * Cyclomatic Complexity, because the ratio of logic to if/else statements is much lower.
  *
  */
 public class DMLRecipes_Tests {

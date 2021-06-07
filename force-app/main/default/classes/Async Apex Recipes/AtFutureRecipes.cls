@@ -2,7 +2,7 @@
  * @description Demonstrates the @future syntax and usage
  * @group Async Apex Recipes
  */
-public inherited sharing class AtFutureRecipes {
+public with sharing class AtFutureRecipes {
     /**
      * This class features a 'circuit breaker' variable. While this is not a
      * pattern I routinely turn to, it is a valuable pattern for testing code

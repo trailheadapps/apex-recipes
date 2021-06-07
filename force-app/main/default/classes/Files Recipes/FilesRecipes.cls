@@ -2,7 +2,7 @@
  * @description Demonstrates how to create, link and share Files
  * @group Files Recipes
  */
-public inherited sharing class FilesRecipes {
+public with sharing class FilesRecipes {
     /**
      * @description Internal exception class
      */
@@ -70,17 +70,17 @@ public inherited sharing class FilesRecipes {
         // S = Salesforce. The other options are: 'E' (external)
         // and 'L' (social customer service)
         fileToUpload.ContentLocation = 'S';
-        fileToUpload.pathOnClient = fileName;
-        fileToUpload.title = fileName;
-        fileToUpload.versionData = fileContents;
-        fileToUpload.firstPublishLocationId = attachedTo;
+        fileToUpload.PathOnClient = fileName;
+        fileToUpload.Title = fileName;
+        fileToUpload.VersionData = fileContents;
+        fileToUpload.FirstPublishLocationId = attachedTo;
         Database.SaveResult saveResult;
         try {
             saveResult = Database.insert(fileToUpload);
         } catch (DmlException DMLE) {
             System.debug(
                 LoggingLevel.INFO,
-                'Failed to insert fileToUpload, error is: ' + dmle.getMessage()
+                'Failed to insert fileToUpload, error is: ' + DMLE.getMessage()
             );
         }
         return saveResult;

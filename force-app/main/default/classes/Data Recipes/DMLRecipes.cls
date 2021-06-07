@@ -19,7 +19,7 @@
  * @see CanTheUser
  */
 @SuppressWarnings('PMD.CyclomaticComplexity')
-public inherited sharing class DMLRecipes {
+public with sharing class DMLRecipes {
     /**
      * @description This exception is for throwing a custom exception to
      * highlight how negative tests operate.
@@ -35,7 +35,7 @@ public inherited sharing class DMLRecipes {
      */
     public static void insertAccountViaInsertKeyword(String name) {
         Account acct = new Account();
-        acct.name = name;
+        acct.Name = name;
 
         try {
             if (CanTheUser.create(acct)) {
@@ -44,7 +44,7 @@ public inherited sharing class DMLRecipes {
                 // checking CRUD/FLS. However, we're doing just that in the Line
                 // above - PMD just isn't aware of CanTheUser.*
             }
-        } catch (DMLException DMLe) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
     }
@@ -62,14 +62,14 @@ public inherited sharing class DMLRecipes {
         String name,
         Boolean allOrNothing
     ) {
-        Account acct = new Account(name = name);
+        Account acct = new Account(Name = name);
         Account acct2 = new Account();
 
         try {
             if (CanTheUser.create(acct)) {
                 Database.insert(new List<Account>{ acct, acct2 }, allOrNothing);
             }
-        } catch (DMLException DMLe) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
     }
@@ -141,7 +141,7 @@ public inherited sharing class DMLRecipes {
             if (CanTheUser.edit(accts[0])) {
                 update accts;
             }
-        } catch (DMLException DMLe) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
         return accts;
@@ -173,7 +173,7 @@ public inherited sharing class DMLRecipes {
                     throw dmle;
                 }
             }
-        } catch (DMLException DMLe) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
         return accts;
@@ -196,7 +196,7 @@ public inherited sharing class DMLRecipes {
                     System.debug(LoggingLevel.INFO, dmle.getMessage());
                 }
             }
-        } catch (DMLException DMLe) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
     }
@@ -214,7 +214,7 @@ public inherited sharing class DMLRecipes {
             if (CanTheUser.destroy(accts[0])) {
                 Database.delete(accts);
             }
-        } catch (DMLException DMLe) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
     }
@@ -240,7 +240,7 @@ public inherited sharing class DMLRecipes {
                     throw dmle;
                 }
             }
-        } catch (DMLException DMLe) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
         return accts;
@@ -264,7 +264,7 @@ public inherited sharing class DMLRecipes {
             if (CanTheUser.read(accts[0])) {
                 Database.undelete(accts);
             }
-        } catch (DMLException DMLe) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
         return accts;

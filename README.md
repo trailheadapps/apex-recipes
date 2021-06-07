@@ -1,6 +1,6 @@
 # Apex Recipes
 
-[![Github Workflow](<https://github.com/trailheadapps/apex-recipes/workflows/Salesforce%20DX%20(scratch%20org)/badge.svg?branch=master>)](https://github.com/trailheadapps/apex-recipes/actions?query=workflow%3A%22Salesforce+DX+%28scratch+org%29%22) [![Packaging](https://github.com/trailheadapps/apex-recipes/workflows/Packaging/badge.svg)](https://github.com/trailheadapps/apex-recipes/actions?query=workflow%3A%22Packaging%22) [![codecov](https://codecov.io/gh/trailheadapps/apex-recipes/branch/master/graph/badge.svg?token=cfmEqAWAKr)](https://codecov.io/gh/trailheadapps/apex-recipes)
+[![CI Workflow](https://github.com/trailheadapps/apex-recipes/workflows/CI/badge.svg)](https://github.com/trailheadapps/apex-recipes/actions?query=workflow%3ACI) [![Packaging Workflow](https://github.com/trailheadapps/apex-recipes/workflows/Packaging/badge.svg)](https://github.com/trailheadapps/apex-recipes/actions?query=workflow%3APackaging) [![codecov](https://codecov.io/gh/trailheadapps/apex-recipes/branch/main/graph/badge.svg)](https://codecov.io/gh/trailheadapps/apex-recipes)
 
 ## Introduction
 
@@ -34,7 +34,7 @@ for real world solutions and should relevant to developers of all skill levels. 
 1. If you haven't already done so, authorize with your hub org and provide it with an alias (**myhuborg** in the command below):
 
     ```
-    sfdx force:auth:web:login -d -a myhuborg
+    sfdx auth:web:login -d -a myhuborg
     ```
 
 1. Clone the apex-recipes repository:
@@ -97,19 +97,15 @@ Make sure to start from a **brand-new environment** to avoid conflicts with prev
 
 1. Log in to your org
 
-1. If you are setting up a Developer Edition: go to **Setup**, under **My Domain**, [register a My Domain](https://help.salesforce.com/articleView?id=domain_name_setup.htm&type=5).
-
-    - Please be sure that the domain is both **registered** and **deployed** and that your user has logged into the new domain.
-
 1. Go to **Setup**, under **Platform Cache**, and click the "Request Trial Capacity" button. [Request a Platform Cache Trial](https://help.salesforce.com/articleView?id=data_platform_cache_trial.htm&type=5)
 
-1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3g000000kiDJAAY) to install the Apex Recipes unlocked package in your org.
+1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3g000000TqGeAAK) to install the Apex Recipes unlocked package in your org.
 
 1. Select **Install for All Users**
 
 1. Once installed:
 
-1. (Optional) Add additional data examples. [In the data folder](https://github.com/trailheadapps/apex-recipes/tree/master/data/) are sample CSV files which can be
+1. (Optional) Add additional data examples. [In the data folder](https://github.com/trailheadapps/apex-recipes/tree/main/data/) are sample CSV files which can be
    used by dataloader.io or the Import Data Wizard.
 
 1. (Optional) Load the sample Junction objects data:
@@ -129,7 +125,8 @@ Make sure to start from a **brand-new environment** to avoid conflicts with prev
     - Check your user and click **Add Assignments**.
 
 1. In App Launcher, select the **Apex Recipes** app.
-    - If the app does not load, please double check that My Domain is **registered** and **deployed** and that the **Apex Recipes** permission set active on your user.
+
+    - If the app does not load, please double check that the Apex Recipes permission set active on your user.
 
 ## Installing the App using a Developer Edition Org or a Trailhead Playground via the Salesforce CLI
 
@@ -148,10 +145,8 @@ Make sure to start from a brand-new environment to avoid conflicts with previous
 1. Authorize with your Trailhead Playground or Developer Edition org and provide it with an alias (**mydevorg** in the command below):
 
     ```
-    sfdx force:auth:web:login -s -a mydevorg
+    sfdx auth:web:login -s -a mydevorg
     ```
-
-1. If you are setting up a Developer Edition: go to **Setup**, under **My Domain**, [register a My Domain](https://help.salesforce.com/articleView?id=domain_name_setup.htm&type=5).
 
 1. If you are setting up a Developer Edition: go to **Setup**, under **Platform Cache**, and click the "Request Trial Capacity" button. [Request a Platform Cache Trial](https://help.salesforce.com/articleView?id=data_platform_cache_trial.htm&type=5)
 
@@ -187,7 +182,7 @@ Make sure to start from a brand-new environment to avoid conflicts with previous
     ```
 
 1. In App Launcher, select the **Apex Recipes** app.
-    - If the app does not load, please double check that My Domain is **registered** and **deployed** and that the **Apex Recipes** permission set active on your user.
+    - If the app does not load, please double check that the **Apex Recipes** permission set active on your user.
 
 ## Optional Installation Instructions
 

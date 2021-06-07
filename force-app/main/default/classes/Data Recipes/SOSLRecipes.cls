@@ -7,7 +7,7 @@
  *
  * @group Data Recipes
  */
-public inherited sharing class SOSLRecipes {
+public with sharing class SOSLRecipes {
     /**
      * @description Demonstrates the syntax for a SOSL search.
      *  Note: SOSL Cannot be unit tested directly - you must use

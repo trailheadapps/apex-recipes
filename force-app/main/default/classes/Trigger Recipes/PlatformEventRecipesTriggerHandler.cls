@@ -4,7 +4,7 @@
  * @group Trigger Recipes
  * @see TriggerHandler
  */
-public inherited sharing class PlatformEventRecipesTriggerHandler extends TriggerHandler {
+public with sharing class PlatformEventRecipesTriggerHandler extends TriggerHandler {
     private List<Event_Recipes_Demo__e> triggerNew;
 
     /**
@@ -33,7 +33,7 @@ public inherited sharing class PlatformEventRecipesTriggerHandler extends Trigge
     public override void afterInsert() {
         List<Id> accountIds = new List<Id>();
         for (Event_Recipes_Demo__e evt : this.triggerNew) {
-            accountIds.add(evt.AccountId__c);
+            accountIds.add(evt.accountId__c);
         }
 
         Map<Id, Account> accounts = new Map<Id, Account>(
@@ -41,7 +41,7 @@ public inherited sharing class PlatformEventRecipesTriggerHandler extends Trigge
         );
 
         for (Event_Recipes_Demo__e curEvent : this.triggerNew) {
-            accounts.get(curEvent.AccountId__c).Website = curEvent.Url__c;
+            accounts.get(curEvent.accountId__c).Website = curEvent.url__c;
         }
 
         update accounts.values();

@@ -42,6 +42,16 @@ Increments a counter stored in the Description field. Demonstration method of th
 |`incomingAccounts` |  List of Account Objects. |
 |`save` |  Boolean determining if DML update is requested. |
 
+#### Return
+
+**Type**
+
+List<Account>
+
+**Description**
+
+List<Account>
+
 #### Example
 ```java
 Account[] accounts = [SELECT Description FROM Account LIMIT 50];

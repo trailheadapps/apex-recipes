@@ -4,7 +4,7 @@
  * @group Data Recipes
  * @see CanTheUser
  */
-public inherited sharing class SOQLRecipes {
+public with sharing class SOQLRecipes {
     /**
      * @description Demonstrates the proper way to query accounts with SOQL
      *   keeping FLS and CRUD in account.
@@ -14,7 +14,7 @@ public inherited sharing class SOQLRecipes {
      * List<Account> results = SOQLRecipes.querySingleObject();
      * System.debug(results);
      **/
-    public static list<Account> getRecords() {
+    public static List<Account> getRecords() {
         List<Account> accounts = new List<Account>();
         accounts = [
             SELECT Name, ShippingStreet, ShippingCity
@@ -31,7 +31,7 @@ public inherited sharing class SOQLRecipes {
      * @example
      * System.debug(SOQLRecipes.getLargeNumberOfRecords());
      **/
-    public static integer getLargeNumberOfRecords() {
+    public static Integer getLargeNumberOfRecords() {
         Integer count = 0;
         /**
          * You'll see this pattern, called a SQOL for loop used
@@ -44,6 +44,34 @@ public inherited sharing class SOQLRecipes {
             count++;
         }
         return count;
+    }
+
+    /**
+     * @description One of the little known features of SOQL for loops is that
+     * you can iterate not only over each record returned by the query, but also
+     * over each *chunk of records*. As the code below demonstrates, specifying
+     * the iteration variable as a list/array will return 200 record chunks
+     * from the query, rather than individual records.
+     *
+     * Note: Normally, if you're only dealing with counts of records, you'd
+     * utilize the Count() soql method, but in this case we're demonstrating
+     * that this form of a soql for loop gives you access both to a list of
+     * records, and to the records themselves.
+     * @return      `Integer`
+     */
+    public static Integer[] getChunksOfLargeNumbersOfRecords() {
+        Integer countOfChunks = 0;
+        Integer recordCount = 0;
+
+        for (List<Account> accounts : [
+            SELECT Name
+            FROM Account
+            WITH SECURITY_ENFORCED
+        ]) {
+            countOfChunks += 1;
+            recordCount += accounts.size();
+        }
+        return new List<Integer>{ countOfChunks, recordCount };
     }
 
     /**
@@ -91,7 +119,7 @@ public inherited sharing class SOQLRecipes {
     public static List<Account> getSpecificNumberOfRecords() {
         //LIMIT clause
         return [
-            SELECT name
+            SELECT Name
             FROM Account
             WITH SECURITY_ENFORCED
             ORDER BY Industry DESC
@@ -109,7 +137,7 @@ public inherited sharing class SOQLRecipes {
      **/
     public static List<Account> getFirstXRecords(Integer wantedNumberOfRows) {
         return [
-            SELECT name
+            SELECT Name
             FROM Account
             WITH SECURITY_ENFORCED
             ORDER BY Industry DESC
@@ -143,7 +171,7 @@ public inherited sharing class SOQLRecipes {
      **/
     public static List<Account> getSecond10AccountRecords() {
         return [
-            SELECT id
+            SELECT Id
             FROM Account
             WITH SECURITY_ENFORCED
             ORDER BY Industry DESC
@@ -178,9 +206,9 @@ public inherited sharing class SOQLRecipes {
      **/
     public static List<Contact> getParentRecordDetailsFromChildRecord() {
         return [
-            SELECT Id, Name, Email, account.Name, account.ShippingState
+            SELECT Id, Name, Email, Account.Name, Account.ShippingState
             FROM Contact
-            WHERE account.ShippingState = 'KS'
+            WHERE Account.ShippingState = 'KS'
             WITH SECURITY_ENFORCED
         ];
     }
@@ -195,7 +223,7 @@ public inherited sharing class SOQLRecipes {
      **/
     public static List<Junction__c> getDetailsFromBothParentRecords() {
         return [
-            SELECT Id, parent1__r.Name, parent2__r.Name
+            SELECT Id, parent1__r.Name, Parent2__r.Name
             FROM Junction__c
             WITH SECURITY_ENFORCED
         ];
@@ -216,9 +244,9 @@ public inherited sharing class SOQLRecipes {
         List<AggregateResult> groupedResults = [
             SELECT SUM(Amount) total
             FROM Opportunity
-            WHERE accountId = :accountId
+            WHERE AccountId = :accountId
             WITH SECURITY_ENFORCED
         ];
-        return (double) groupedResults[0].get('total');
+        return (Double) groupedResults[0].get('total');
     }
 }

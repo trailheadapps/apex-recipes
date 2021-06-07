@@ -1,4 +1,5 @@
 @isTest
+@testVisible
 private class TriggerHandler_Test {
     private static final String TRIGGER_CONTEXT_ERROR = 'Trigger handler called outside of Trigger execution';
 
@@ -363,6 +364,7 @@ private class TriggerHandler_Test {
 
     // test implementation of the TriggerHandler
 
+    @testVisible
     private class TestHandler extends TriggerHandler {
         public override void beforeInsert() {
             TriggerHandler_Test.lastMethodCalled = 'beforeInsert';

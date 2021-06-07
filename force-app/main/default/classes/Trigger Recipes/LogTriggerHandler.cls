@@ -1,10 +1,23 @@
-public inherited sharing class LogTriggerHandler extends TriggerHandler {
+/**
+ * @description Trigger handler for persisting Platform Event based
+ * log messages.
+ *
+ * @group Trigger Recipes
+ * @see Log
+ */
+public with sharing class LogTriggerHandler extends TriggerHandler {
     List<Log__e> incomingRecords = new List<Log__e>();
 
+    /**
+     * @description constructor accepting a list of log__e records
+     */
     public LogTriggerHandler() {
         this.incomingRecords = (List<Log__e>) Trigger.new;
     }
 
+    /**
+     * @description code to be executed in the afterInsert context
+     */
     override public void afterInsert() {
         List<LogEvent__c> events = new List<LogEvent__c>();
 
@@ -13,8 +26,8 @@ public inherited sharing class LogTriggerHandler extends TriggerHandler {
                 new LogEvent__c(
                     Log_Data__c = event.Log_Message__c,
                     Quiddity__c = event.Quiddity__c,
-                    Request_Id__c = event.request_id__c,
-                    Severity__c = event.severity__c
+                    Request_Id__c = event.Request_Id__c,
+                    Severity__c = event.Severity__c
                 )
             );
         }

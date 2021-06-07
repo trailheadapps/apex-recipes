@@ -1,8 +1,11 @@
 /**
  * @description Generic logging framework that persists across DML reversions
  * by publishing a Platform Event
+ *
+ * @group Shared Code
+ *
  */
-public inherited sharing class Log {
+public with sharing class Log {
     /**
      * @description private instance of this log class that backs the
      * singleton get() method.
@@ -26,7 +29,7 @@ public inherited sharing class Log {
 
     /**
      * @description Singleton pattern `get` method.
-     * @returns     `Log`
+     * @return     `Log`
      */
     public static Log get() {
         if (currentInstance == null) {
