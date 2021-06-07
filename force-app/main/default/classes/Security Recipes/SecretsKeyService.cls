@@ -9,15 +9,18 @@ public with sharing class SecretsKeyService {
         if (memoizedKeys.containsKey(keyName)) {
             return memoizedKeys.get(keyName);
         } else {
-            Secrets__c keyRecord = queryForKey(keyName)[0];
-            if (String.isBlank(keyRecord.Private_Key__c)) {
+            List<Secrets__c> foundKeys = queryForKey(keyName);
+            if (
+                foundKeys.size() <= 0 ||
+                String.isBlank(foundKeys.get(0).private_key__c)
+            ) {
                 throw new SecretsKeyServiceException(
                     'Unable to retrieve key:' + keyName
                 );
             }
             memoizedKeys.put(
                 keyName,
-                EncodingUtil.base64Decode(keyRecord.Private_Key__c)
+                EncodingUtil.base64Decode(foundKeys.get(0).private_key__c)
             );
             return memoizedKeys.get(keyName);
         }
@@ -37,13 +40,17 @@ public with sharing class SecretsKeyService {
         }
     }
 
+    @suppressWarnings('PMD.ApexCRUDViolation')
     private List<Secrets__c> queryForKey(String keyName) {
-        return [
-            SELECT Name, Private_Key__c
-            FROM Secrets__c
-            WHERE Name = :keyName
-            LIMIT 1
-        ];
+        if (CanTheUser.read(new Secrets__c())) {
+            return [
+                SELECT Name, Private_Key__c
+                FROM Secrets__c
+                WHERE Name = :keyName
+                LIMIT 1
+            ];
+        }
+        return new List<Secrets__c>();
     }
 
     // Method to generate a new random encryption key

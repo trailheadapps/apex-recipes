@@ -14,14 +14,12 @@ A class to encrypt and decrypt (store and retrieve) secrets where the encryption
 
 ---
 ## Methods
-### `Secret(SecretsStorageService storageService,SecretsKeyService keyService,String name,String serializedSecret)` → `public`
-### `Secret(SecretsStorageService storageService,SecretsKeyService keyService,String name)` → `public`
 ### `Secret(SecretsStorageService storageService,SecretsKeyService keyService,String name,String keyName,String clearTextValue)` → `public`
 ### `constantTimeCompare(String first, String second)` → `Boolean`
 ### `decryptSecret()` → `String`
 ### `hydrateSecret(List<String> secretData)` → `Void`
 ### `throwIfSecretHasBeenTamperedWith()` → `void`
-### `updateSecret()` → `Void`
+### `updateSecret(String newValue)` → `Void`
 ### `validateSecretFormat(String secretString)` → `List<String>`
 ---
 ## Inner Classes
@@ -30,7 +28,7 @@ A class to encrypt and decrypt (store and retrieve) secrets where the encryption
 ---
 #### Constructors
 ##### `Secret()`
-##### `Secret(SecretsStorageService storageService,SecretsKeyService keyService,String name,List<String> secretData)`
+##### `Secret(SecretsStorageService storageService,SecretsKeyService keyService,String name)`
 ---
 #### Properties
 
@@ -61,7 +59,7 @@ A class to encrypt and decrypt (store and retrieve) secrets where the encryption
 ##### `Secrets(SecretsStorageService storageService)` → `public`
 ##### `Secrets()` → `public`
 ##### `createKey(String keyName)` → `Boolean`
-##### `createSecret(String secretName,String secretValue,String keyName)` → `Boolean`
+##### `createSecret(String secretName,String secretValue,String keyName)` → `Secret`
 ##### `fetchDecryptedSecretValue(String secretName)` → `String`
 ##### `fetchSecret(String secretName)` → `Secrets.Secret`
 ---

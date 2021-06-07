@@ -32,30 +32,6 @@ public with sharing class Secrets {
         public Secret(
             SecretsStorageService storageService,
             SecretsKeyService keyService,
-            String name,
-            List<String> secretData
-        ) {
-            this.storageService = storageService;
-            this.keyService = keyService;
-            this.name = name;
-            hydrateSecret(secretData);
-        }
-
-        public Secret(
-            SecretsStorageService storageService,
-            SecretsKeyService keyService,
-            String name,
-            String serializedSecret
-        ) {
-            this.storageService = storageService;
-            this.keyService = keyService;
-            this.name = name;
-            hydrateSecret(validateSecretFormat(serializedSecret));
-        }
-
-        public Secret(
-            SecretsStorageService storageService,
-            SecretsKeyService keyService,
             String name
         ) {
             this.storageService = storageService;
@@ -81,10 +57,12 @@ public with sharing class Secrets {
             this.clearTextValue = clearTextValue;
         }
 
-        public Void updateSecret() {
+        public Void updateSecret(String newValue) {
+            this.clearTextValue = newValue;
             this.storageService.storeSecret(this);
         }
 
+        @testVisible
         private Void hydrateSecret(List<String> secretData) {
             this.key = keyService.getKey(secretData[0]);
             this.algorithm = secretData[1];
@@ -95,6 +73,7 @@ public with sharing class Secrets {
             this.hmacPayload = secretData[4];
         }
 
+        @testVisible
         private List<String> validateSecretFormat(String secretString) {
             // Ensure the secret value meets the required format of:
             // <ENCRYPTION KEY NAME>~<ENCRYPTION ALGORITHM>~<HMAC ALGORITHM>~<ENCRYPTED VALUE>~<HMAC VALUE>
@@ -143,6 +122,7 @@ public with sharing class Secrets {
         }
 
         // An approximate constant time comparison algorithm
+        @testVisible
         private Boolean constantTimeCompare(String first, String second) {
             Boolean result = true;
             if (first.length() != second.length()) {
@@ -179,7 +159,7 @@ public with sharing class Secrets {
             .decryptSecret();
     }
 
-    public Boolean createSecret(
+    public Secret createSecret(
         String secretName,
         String secretValue,
         String keyName
@@ -192,7 +172,7 @@ public with sharing class Secrets {
             secretValue
         );
         newSecret.storageService.storeSecret(newSecret);
-        return true;
+        return newSecret;
     }
 
     public Boolean createKey(String keyName) {

@@ -6,7 +6,7 @@ public with sharing class SecretsStorageService {
     @testVisible
     private String serializedSecret;
 
-    public class SecretStorageServiceException extends Exception {
+    public class SecretsStorageServiceException extends Exception {
     }
 
     public SecretsStorageService(SecretsKeyService keyService) {
@@ -46,7 +46,7 @@ public with sharing class SecretsStorageService {
                 queryException.getMessage()
                     .containsIgnoreCase('has no rows for assignment')
             ) {
-                throw new SecretStorageServiceException(
+                throw new SecretsStorageServiceException(
                     'Secret ' +
                     secretName +
                     ' could not be found. Have you deployed it yet?'
@@ -54,7 +54,7 @@ public with sharing class SecretsStorageService {
             }
         }
         if (String.isEmpty(secret.value__c)) {
-            throw new SecretStorageServiceException(
+            throw new SecretsStorageServiceException(
                 'Secret ' +
                 secretName +
                 ' is empty'

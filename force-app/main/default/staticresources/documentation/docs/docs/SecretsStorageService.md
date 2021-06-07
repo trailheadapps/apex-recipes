@@ -29,10 +29,10 @@ layout: default
 ---
 ## Inner Classes
 
-### SecretsStorageService.SecretStorageServiceException class
----
 ### SecretsStorageService.SecretsDeploymentCallback class
 ---
 #### Methods
 ##### `handleResult(Metadata.DeployResult result,Metadata.DeployCallbackContext context)` → `void`
+---
+### SecretsStorageService.SecretsStorageServiceException class
 ---
