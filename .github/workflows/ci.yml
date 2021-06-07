@@ -64,7 +64,7 @@ jobs:
                   tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
                   echo "$HOME/sfdx/bin" >> $GITHUB_PATH
                   ~/sfdx/bin/sfdx version
-                  
+
             # Install Salesforce CLI Scanner
             - name: 'Install Salesforce CLI Scanner'
               run: sfdx plugins:install @salesforce/sfdx-scanner
@@ -72,7 +72,7 @@ jobs:
             # Checkout the source code
             - name: 'Checkout source code'
               uses: actions/checkout@v2
-              
+
             # Run Salesforce CLI Scanner For Security checks
             - name: 'Scan For Security Exceptions'
               run: sfdx scanner:run --pmdconfig ruleset.xml --target ./force-app --engine pmd -v
