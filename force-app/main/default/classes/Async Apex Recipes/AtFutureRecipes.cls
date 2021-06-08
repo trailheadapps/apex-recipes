@@ -9,7 +9,7 @@ public with sharing class AtFutureRecipes {
      * that is otherwise hard to test. For instance, @future methods must be
      * static void methods. This makes it hard to assert against return values.
      * The idea behind this pattern is set a private static class variable to
-     * true, only when irreversible conditions or actions have occured. The
+     * true, only when irreversible conditions or actions have occurred. The
      * circuit breaker 'breaks', giving you something you can assert on. Again
      * this isn't a pattern I *often* turn to, but it can be valuable in certain
      * circumstances.

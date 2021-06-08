@@ -6,7 +6,7 @@ if [ "$#" -eq 1 ]; then
   DURATION=$1
 fi
 
-sfdx force:org:create -f config/project-scratch-def.json --setalias ApexRecipes --durationdays 7 --setdefaultusername --json --loglevel fatal
+sfdx force:org:create -f config/project-scratch-def.json --setalias $(git symbolic-ref --short -q HEAD) --durationdays 7 --setdefaultusername --json --loglevel fatal
 sfdx force:source:push
 sfdx force:user:permset:assign -n Apex_Recipes
 sfdx force:user:permset:assign -n Walkthroughs

@@ -3,16 +3,74 @@ layout: default
 ---
 # OrgShape class
 
-Class contains static methods for determining if specific platform features are enabled here. For example, do we have platform cache enabled. You could also write similar methods for experiences.
+Class contains static methods for determining if specific platform features are enabled. For example, do we have platform cache enabled. You could also write similar methods for experiences.
 
 ---
 ## Properties
 
-### `safeDefaultCachePartition` → `String`
+### `getFiscalYearStartMonth` → `Integer`
+
+returns this org's fiscal year starting month
+
+### `hasNamespacePrefix` → `Boolean`
+
+reports whether this transaction took place in an org with a namespace prefix
+
+### `id` → `Id`
+
+reports the org's ID. in practice, this is a constant
+
+### `instanceName` → `String`
+
+returns the instance name. In practice not null.
+
+### `isReadOnly` → `Boolean`
+
+reports the read-only status. this is a proxy for 'is this org active'
+
+### `isSandbox` → `Boolean`
+
+property reports whether this transaction took place in a sandbox.
+
+### `lightningEnabled` → `Boolean`
+
+reports the users' displayed theme.
+
+### `locale` → `String`
+
+reports the org's locale
+
+### `multiCurrencyEnabled` → `Boolean`
+
+reports whether or not this transaction took place in an org with multiCurrency enabled. Note: I have no idea why the underlying method is on UserInfo.
+
+### `name` → `String`
+
+reports the org's name
+
+### `namespacePrefix` → `String`
+
+reports the namespace prefix of this org. May return null;
+
+### `orgShape` → `Organization`
+
+### `orgType` → `String`
+
+reports this org's type. ie: 'Developer Edition'
+
+### `podName` → `String`
+
+convenience method. Alias for instanceName
+
+### `safeDefaultCachePartition` → `Cache.OrgPartition`
+
+### `timeZoneKey` → `String`
+
+reports the timeZoneSidKey
 
 ---
 ## Methods
-### `findCachePartition()` → `String`
+### `getAvailableOrgCachePartition()` → `Cache.OrgPartition`
 
 This method is responsible for discovering a cache partition that can be used for determining if platformCache is enabled and configured. Note: This method memoizes the result of the query, ensuring that the underlying soql query is only ever run once per transaction.
 
@@ -20,11 +78,43 @@ This method is responsible for discovering a cache partition that can be used fo
 
 **Type**
 
-String
+Cache.OrgPartition
 
 **Description**
 
 `String`
+
+### `getOrgRecord()` → `Organization`
+
+Private method for pulling the Organization record Note: We're suppressing PMD warning on Crud Checking because we want everyone to be able to pull this read-only record.
+
+### `getOrgShape()` → `Organization`
+
+Private method that memoizes the query result Suppressing the PMD warning to validate crud permissions before DML, because the Organization Object is always available.
+
+#### Return
+
+**Type**
+
+Organization
+
+**Description**
+
+`Organization`
+
+### `isAdvancedMultiCurrencyManagementEnabled()` → `Boolean`
+
+Uses a dynamic soql query to determine if Advanced MultiCurrency Management is enabled. Note, this must be a dynamic soql query because referencing DatedConversionRate will not compile in orgs without Advanced MultiCurrency Management enabled. Note: This was originally written by the NPSP team and can be found here: https://github.com/SalesforceFoundation/NPSP/blob/aad20ffb747ecda9a037c4bce9cd19617b6a727b/src/classes/UTIL_Currency.cls#L79
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+`Boolean`
 
 ### `isPlatformCacheEnabled()` → `Boolean`
 
@@ -53,5 +143,15 @@ Boolean
 **Description**
 
 `Boolean`
+
+---
+## Inner Classes
+
+### OrgShape.CachedOrgShape class
+---
+#### Methods
+##### `doLoad(String requiredButNotUsed)` → `Organization`
+
+ Note: We're suppressing PMD warning on Crud Checking because we want everyone to be able to pull this read-only record.
 
 ---
