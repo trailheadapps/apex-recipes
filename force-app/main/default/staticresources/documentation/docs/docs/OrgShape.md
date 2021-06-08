@@ -62,7 +62,7 @@ reports this org's type. ie: 'Developer Edition'
 
 convenience method. Alias for instanceName
 
-### `safeDefaultCachePartition` → `String`
+### `safeDefaultCachePartition` → `Cache.OrgPartition`
 
 ### `timeZoneKey` → `String`
 
@@ -70,6 +70,20 @@ reports the timeZoneSidKey
 
 ---
 ## Methods
+### `getAvailableOrgCachePartition()` → `Cache.OrgPartition`
+
+This method is responsible for discovering a cache partition that can be used for determining if platformCache is enabled and configured. Note: This method memoizes the result of the query, ensuring that the underlying soql query is only ever run once per transaction.
+
+#### Return
+
+**Type**
+
+Cache.OrgPartition
+
+**Description**
+
+`String`
+
 ### `getOrgRecord()` → `Organization`
 
 Private method for pulling the Organization record Note: We're suppressing PMD warning on Crud Checking because we want everyone to be able to pull this read-only record.
@@ -129,20 +143,6 @@ Boolean
 **Description**
 
 `Boolean`
-
-### `queryForDefaultCachePartition()` → `String`
-
-This method is responsible for discovering a cache partition that can be used for determining if platformCache is enabled and configured. Note: This method memoizes the result of the query, ensuring that the underlying soql query is only ever run once per transaction.
-
-#### Return
-
-**Type**
-
-String
-
-**Description**
-
-`String`
 
 ---
 ## Inner Classes

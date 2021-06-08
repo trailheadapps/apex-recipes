@@ -7,7 +7,7 @@
  */
 public with sharing class OrgShape {
     @TestVisible
-    private String safeDefaultCachePartition;
+    private Cache.OrgPartition safeDefaultCachePartition;
 
     @TestVisible
     private Organization orgShape = getOrgShape();
@@ -156,14 +156,14 @@ public with sharing class OrgShape {
      * @return      `Boolean`
      */
     public Boolean isPlatformCacheEnabled() {
-        String defaultCachePartition = queryForDefaultCachePartition();
+        Cache.OrgPartition defaultCachePartition = getAvailableOrgCachePartition();
         if (isSeeAllDataTrue() || defaultCachePartition == null) {
             return false;
         }
 
         Boolean cacheAvailable = false;
         try {
-            Cache.Org.getPartition(defaultCachePartition).getCapacity();
+            getAvailableOrgCachePartition().getCapacity();
             cacheAvailable = true;
         } catch (Exception ex) {
             system.debug(LoggingLevel.WARN, 'Failed to get orgCache');
@@ -223,7 +223,7 @@ public with sharing class OrgShape {
      * @return      `String`
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
-    private String queryForDefaultCachePartition() {
+    private Cache.OrgPartition getAvailableOrgCachePartition() {
         if (this.safeDefaultCachePartition != null) {
             return this.safeDefaultCachePartition;
         }
@@ -234,8 +234,12 @@ public with sharing class OrgShape {
                 WHERE NamespacePrefix = ''
                 LIMIT 1
             ];
-            this.safeDefaultCachePartition = 'local.' + partition.DeveloperName;
+            String partitionName = 'local.' + partition.DeveloperName;
+            this.safeDefaultCachePartition = Cache.Org.getPartition(
+                partitionName
+            );
         } catch (System.QueryException qe) {
+            String msg = qe.getMessage();
             System.debug(
                 LoggingLevel.WARN,
                 'Caught QueryException looking for cache partition'
@@ -283,10 +287,8 @@ public with sharing class OrgShape {
     @SuppressWarnings('PMD.ApexCRUDViolation')
     private Organization getOrgShape() {
         if (isPlatformCacheEnabled()) {
-            return (Organization) Cache.Org.get(
-                CachedOrgShape.class,
-                'requiredButNotUsed'
-            );
+            return (Organization) getAvailableOrgCachePartition()
+                .get(CachedOrgShape.class, 'requiredButNotUsed');
         } else {
             if (this.OrgShape != null) {
                 return this.orgShape;

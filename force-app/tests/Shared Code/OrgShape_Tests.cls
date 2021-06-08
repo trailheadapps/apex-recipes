@@ -8,7 +8,7 @@ class OrgShape_Tests {
     }
 
     @isTest
-    static void testProperties() {
+    static void testOrgShapeProperties() {
         System.assertEquals(
             orgCheck.isSandbox,
             orgShape.isSandbox,
@@ -124,7 +124,9 @@ class OrgShape_Tests {
 
     @isTest
     static void testGetSafeDefaultCachePartitionMemoized() {
-        orgShape.safeDefaultCachePartition = 'default';
+        OrgShape.safeDefaultCachePartition = Cache.Org.getPartition(
+            'local.default'
+        );
         Test.startTest();
         Boolean result = orgShape.isPlatformCacheEnabled();
         Test.stopTest();
@@ -166,10 +168,16 @@ class OrgShape_Tests {
 
     @isTest
     static void testCacheIsUsedPositive() {
-        Cache.Org.remove(OrgShape.CachedOrgShape.class, 'requiredButNotUsed');
+        Cache.OrgPartition defaultPartition = Cache.Org.getPartition(
+            'local.default'
+        );
+        defaultPartition.remove(
+            OrgShape.CachedOrgShape.class,
+            'requiredButNotUsed'
+        );
         System.assertEquals(
             0,
-            Cache.Org.getNumKeys(),
+            defaultPartition.getNumKeys(),
             'Expected to no cache keys yet'
         );
         OrgShape orgShape = new OrgShape();
@@ -181,11 +189,13 @@ class OrgShape_Tests {
         Test.stopTest();
         System.assertEquals(
             1,
-            Cache.Org.getNumKeys(),
+            defaultPartition.getNumKeys(),
             'Expected to see 1 and only 1 cache key'
         );
         System.assert(
-            Cache.Org.getKeys().toString().containsIgnoreCase('cachedorgshape'),
+            defaultPartition.getKeys()
+                .toString()
+                .containsIgnoreCase('cachedorgshape'),
             'Expected the single cache key to be tied to our CachedOrgShape cacheBuilder class'
         );
     }
