@@ -81,6 +81,7 @@ public with sharing class LDVRecipes implements Queueable {
         if (offsetId != null) {
             queryString += 'AND ID > :offsetId ';
         }
+        queryString += 'WITH SECURITY_ENFORCED ';
         queryString += 'ORDER BY ID ASC ';
         queryString += 'LIMIT :chunkSize';
         return Database.query(queryString);
