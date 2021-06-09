@@ -30,7 +30,7 @@ export default class FormattedDocsViewer extends LightningElement {
             .then(() => {
                 this.markdownItInitialized = true;
                 this.error = undefined;
-                this.prism = Prism;
+                this.prism = Prism; // eslint-disable-line no-undef
                 this.markdownIt = window.markdownit();
                 this.formatMarkdown();
                 this.highlightCodeSegments();
@@ -43,7 +43,7 @@ export default class FormattedDocsViewer extends LightningElement {
     formatMarkdown() {
         if (this.markdownDoc && this.markdownItInitialized) {
             let docsHtml = document.createElement('div');
-            docsHtml.innerHTML = this.markdownIt.render(this.markdownDoc);
+            docsHtml.innerHTML = this.markdownIt.render(this.markdownDoc); // eslint-disable-line
             this.template
                 .querySelector('div.markdownDoc')
                 .appendChild(docsHtml);
@@ -52,9 +52,8 @@ export default class FormattedDocsViewer extends LightningElement {
     }
 
     highlightCodeSegments() {
-        const codeElements = this.template.querySelectorAll(
-            'code.language-java'
-        );
+        const codeElements =
+            this.template.querySelectorAll('code.language-java');
         codeElements.forEach((element) => {
             this.prism.highlightElement(element);
         });

@@ -30,9 +30,8 @@ describe('c-formatted-recipe-display', () => {
 
     // Helper function to wait until the microtask queue is empty. This is needed for promise
     // timing when the platformResourceLoader promises.
-    function flushPromises() {
-        // eslint-disable-next-line no-undef
-        return new Promise((resolve) => setImmediate(resolve));
+    async function flushPromises() {
+        return Promise.resolve();
     }
 
     it('load prism library on rendered callback', () => {

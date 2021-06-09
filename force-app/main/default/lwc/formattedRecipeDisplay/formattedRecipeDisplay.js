@@ -29,13 +29,14 @@ export default class FormattedRecipeDisplay extends LightningElement {
 
     loadPrism() {
         this.prismInitialized = true;
-        if (this.prism == undefined) {
+        if (this.prism === undefined) {
             Promise.all([
                 loadStyle(this, highlight + '/prism.css'),
                 loadScript(this, highlight + '/prism.js')
             ])
                 .then(() => {
                     this.error = undefined;
+                    // eslint-disable-next-line no-undef
                     this.prism = Prism;
                     this.highlightCodeSegment();
                 })
@@ -50,7 +51,7 @@ export default class FormattedRecipeDisplay extends LightningElement {
     highlightCodeSegment() {
         if (this.recipe && this.prism) {
             const codeBlock = this.template.querySelector('code.language-java');
-            if (codeBlock != undefined) {
+            if (codeBlock !== undefined) {
                 codeBlock.textContent = this.recipe.body;
             }
             this.prism.highlightElement(
@@ -60,9 +61,10 @@ export default class FormattedRecipeDisplay extends LightningElement {
     }
 
     extractDescription() {
+        var description = '';
         if (this.recipe) {
             const regex = /\/\*{2,2}([\s\S]*?)\*\//m;
-            var description = regex.exec(this.recipe.body);
+            description = regex.exec(this.recipe.body);
             if (description && description[0]) {
                 description = description[0]
                     .replace('/**', '')
@@ -73,9 +75,9 @@ export default class FormattedRecipeDisplay extends LightningElement {
                     .replace(/@see.*/, '')
                     .replace(/ {2,}/, '')
                     .replace('\n', '');
-                return description;
             }
         }
+        return description;
     }
 
     get githubUrl() {
