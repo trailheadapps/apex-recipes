@@ -30,7 +30,7 @@ private class LDVRecipes_Tests {
         System.assertEquals(
             1,
             LDVRecipes.chunksExecuted,
-            'Expected to find the queueable executed 4 times'
+            'Expected to find the queueable executed once.'
         );
     }
 }
