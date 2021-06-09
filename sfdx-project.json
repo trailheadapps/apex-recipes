@@ -4,7 +4,7 @@
             "path": "force-app",
             "default": true,
             "package": "ApexRecipes",
-            "versionName": "Spring '21 release",
+            "versionName": "Summer '21 release",
             "versionNumber": "52.0.0.NEXT"
         }
     ],
