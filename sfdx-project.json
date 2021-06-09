@@ -5,12 +5,12 @@
             "default": true,
             "package": "ApexRecipes",
             "versionName": "Spring '21 release",
-            "versionNumber": "51.0.0.NEXT"
+            "versionNumber": "52.0.0.NEXT"
         }
     ],
     "namespace": "",
     "sfdcLoginUrl": "https://login.salesforce.com",
-    "sourceApiVersion": "51.0",
+    "sourceApiVersion": "52.0",
     "packageAliases": {
         "ApexRecipes": "0Ho3g000000XZAHCA4",
         "ApexRecipes@50.0.0-1": "04t3g000000ki8sAAA",
