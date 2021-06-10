@@ -1,0 +1,28 @@
+# Unique name for this workflow
+name: CI on PR
+
+permissions:
+    actions: none
+    pull-request: write
+    contents: write
+
+# Definition when the workflow should run
+on:
+    workflow_dispatch:
+    pull_request:
+        types: [opened, edited, synchronize, reopened]
+        branches-ignore:
+            - prerelease/spring[2-9][0-9]
+            - prerelease/summer[2-9][0-9]
+            - prerelease/winter[2-9][0-9]
+
+jobs:
+  testingScript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkoutv2
+      - uses: actions/github-script@v4
+        with:
+          script: |
+            const data = require("./sfdx-project.json");
+            console.log(data);
