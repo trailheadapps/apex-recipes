@@ -17,12 +17,12 @@ on:
             - prerelease/winter[2-9][0-9]
 
 jobs:
-  testingScript:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkoutv2
-      - uses: actions/github-script@v4
-        with:
-          script: |
-            const data = require("./sfdx-project.json");
-            console.log(data);
+    testingScript:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkoutv2
+            - uses: actions/github-script@v4
+              with:
+                  script: |
+                      const data = require("./sfdx-project.json");
+                      console.log(data);
