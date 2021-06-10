@@ -36,7 +36,7 @@ jobs:
                       }
                       data.packageDirectories[0].versionNumber = bumpVersion(data);
                       return data;
-            - uses: DamianReeves/write-file-action
+            - uses: DamianReeves/write-file-action@v1.0
               with:
                   path: ./sfdx-project.json
                   contents: ${{steps.bumpVersion.output.result}}
