@@ -3,7 +3,7 @@ name: CI on PR
 
 permissions:
     actions: none
-    pull-request: write
+    pull_request: write
     contents: write
 
 # Definition when the workflow should run
