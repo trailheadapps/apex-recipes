@@ -20,7 +20,7 @@ jobs:
     testingScript:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkoutv2
+            - uses: actions/checkout@v2
             - uses: actions/github-script@v4
               with:
                   script: |
