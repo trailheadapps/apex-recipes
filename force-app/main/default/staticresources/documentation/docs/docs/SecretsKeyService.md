@@ -7,7 +7,7 @@ layout: default
 
 ### `ENCRYPTIONKEYSIZE` → `Integer`
 
-### `memoizedKeys` → `Blob>`
+### `memoizedKeys` → `Map<String, Blob>`
 
 ---
 ## Methods
