@@ -25,4 +25,10 @@ jobs:
               with:
                   script: |
                       const data = require("./sfdx-project.json");
-                      console.log(data);
+                      function bumpVersion(data) {
+                          const versionNumber = data.packageDirectories[0].versionNumber;
+                          const [major, minor, patch, build] = versionNumber.split(".");
+                          const nextPatch = parseInt(patch) + 1;
+                          return [major, minor, nextPatch, build].join(".");
+                      }
+                      console.log(bumpVersion(data));
