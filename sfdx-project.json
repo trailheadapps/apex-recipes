@@ -1,36 +1,36 @@
 {
-    "packageDirectories": [
-        {
-            "path": "force-app",
-            "default": true,
-            "package": "ApexRecipes",
-            "versionName": "Spring '21 release",
-            "versionNumber": "51.0.0.NEXT"
-        }
-    ],
-    "namespace": "",
-    "sfdcLoginUrl": "https://login.salesforce.com",
-    "sourceApiVersion": "51.0",
-    "packageAliases": {
-        "ApexRecipes": "0Ho3g000000XZAHCA4",
-        "ApexRecipes@50.0.0-1": "04t3g000000ki8sAAA",
-        "ApexRecipes@50.0.0-4": "04t3g000000ki9CAAQ",
-        "ApexRecipes@50.0.0-6": "04t3g000000ki9vAAA",
-        "ApexRecipes@50.0.0-10": "04t3g000000kiCkAAI",
-        "ApexRecipes@50.0.0-14": "04t3g000000kiD4AAI",
-        "ApexRecipes@50.0.0-16": "04t3g000000kiDJAAY",
-        "ApexRecipes@50.0.0-18": "04t3g000000kiHpAAI",
-        "ApexRecipes@50.0.0-21": "04t3g000000kiInAAI",
-        "ApexRecipes@50.0.0-24": "04t3g000000kiJCAAY",
-        "ApexRecipes@50.0.0-27": "04t3g000000kiK0AAI",
-        "ApexRecipes@50.0.0-32": "04t3g000000kiMBAAY",
-        "ApexRecipes@51.0.0-1": "04t3g000000kiP0AAI",
-        "ApexRecipes@51.0.0-3": "04t3g000000kiQrAAI",
-        "ApexRecipes@51.0.0-5": "04t3g000000kiRGAAY",
-        "ApexRecipes@51.0.0-8": "04t3g000000kiSsAAI",
-        "ApexRecipes@51.0.0-11": "04t3g000000kiUjAAI",
-        "ApexRecipes@51.0.0-14": "04t3g000000TqGeAAK",
-        "ApexRecipes@51.0.0-17": "04t3g000000TqHwAAK",
-        "ApexRecipes@51.0.0-21": "04t3g000000TqIGAA0"
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true,
+      "package": "ApexRecipes",
+      "versionName": "Spring '21 release",
+      "versionNumber": "51.0.0.NEXT"
     }
+  ],
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "51.0",
+  "packageAliases": {
+    "ApexRecipes": "0Ho3g000000XZAHCA4",
+    "ApexRecipes@50.0.0-1": "04t3g000000ki8sAAA",
+    "ApexRecipes@50.0.0-4": "04t3g000000ki9CAAQ",
+    "ApexRecipes@50.0.0-6": "04t3g000000ki9vAAA",
+    "ApexRecipes@50.0.0-10": "04t3g000000kiCkAAI",
+    "ApexRecipes@50.0.0-14": "04t3g000000kiD4AAI",
+    "ApexRecipes@50.0.0-16": "04t3g000000kiDJAAY",
+    "ApexRecipes@50.0.0-18": "04t3g000000kiHpAAI",
+    "ApexRecipes@50.0.0-21": "04t3g000000kiInAAI",
+    "ApexRecipes@50.0.0-24": "04t3g000000kiJCAAY",
+    "ApexRecipes@50.0.0-27": "04t3g000000kiK0AAI",
+    "ApexRecipes@50.0.0-32": "04t3g000000kiMBAAY",
+    "ApexRecipes@51.0.0-1": "04t3g000000kiP0AAI",
+    "ApexRecipes@51.0.0-3": "04t3g000000kiQrAAI",
+    "ApexRecipes@51.0.0-5": "04t3g000000kiRGAAY",
+    "ApexRecipes@51.0.0-8": "04t3g000000kiSsAAI",
+    "ApexRecipes@51.0.0-11": "04t3g000000kiUjAAI",
+    "ApexRecipes@51.0.0-14": "04t3g000000TqGeAAK",
+    "ApexRecipes@51.0.0-17": "04t3g000000TqHwAAK",
+    "ApexRecipes@51.0.0-21": "04t3g000000TqIGAA0"
+  }
 }
