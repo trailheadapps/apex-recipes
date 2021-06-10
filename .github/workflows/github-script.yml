@@ -31,7 +31,7 @@ jobs:
                           const nextPatch = parseInt(patch) + 1;
                           return [major, minor, nextPatch, build].join(".");
                       }
-                      echo "::set-output name=NEXTVERSION::bumpVersion(data)";
+                      echo `::set-output name=NEXTVERSION::${bumpVersion(data)};`
             - uses: jossef/action-set-json-field@v1
               with:
                   file: sfdx-project.json
