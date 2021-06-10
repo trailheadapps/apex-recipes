@@ -43,21 +43,17 @@ jobs:
                   write-mode: overwrite
             - name: Prettify code
               uses: creyD/prettier_action@v3.3
+              run: |
+                  prettier --write sfdx-project.json
+            - name: set git user
+              run: |
+                  git config --global user.name ${GITHUB_ACTOR}
+                  git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+                  git add sfdx-project.json
+                  git commit -m 'bump package version'
+            - name: Push changes
+              uses: ad-m/github-push-action@master
               with:
-                  # This part is also where you can pass other options, for example:
-                  prettier_options: --write sfdx-project.json
-                  same_commit: true
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            # - name: set git user
-            #   run: |
-            #       git config --global user.name ${GITHUB_ACTOR}
-            #       git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-            #       git add sfdx-project.json
-            #       git commit -m 'bump package version'
-            # - name: Push changes
-            #   uses: ad-m/github-push-action@master
-            #   with:
-            #       github_token: ${{ secrets.GITHUB_TOKEN }}
-            #       branch: ${{ github.head_ref }}
-            #       force: true
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  branch: ${{ github.head_ref }}
+                  force: true
