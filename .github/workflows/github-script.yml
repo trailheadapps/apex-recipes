@@ -38,7 +38,14 @@ jobs:
                   file: sfdx-project.json
                   field: packageDirectories[0].versionNumber
                   value: ${steps.bumpVersion.output.result}
-            - uses: mikeal/publish-to-github-action@master
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  BRANCH_NAME: ${{github.ref}}
+            - name: set git user
+              run: |
+                  git config --global user.name ${GITHUB_ACTOR}
+                  git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+                  git add sfdx-project.json
+                  git commit -m 'bump package version'
+            - name: Push changes
+              uses: ad-m/github-push-action@master
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  branch: ${{ github.ref }}
