@@ -22,6 +22,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - uses: actions/github-script@v4
+              id: bumpVersion
               with:
                   script: |
                       const data = require("./sfdx-project.json");
@@ -31,9 +32,9 @@ jobs:
                           const nextPatch = parseInt(patch) + 1;
                           return [major, minor, nextPatch, build].join(".");
                       }
-                      echo `::set-output name=NEXTVERSION::${bumpVersion(data)};`
+                      return bumpVersion(data)};
             - uses: jossef/action-set-json-field@v1
               with:
                   file: sfdx-project.json
                   field: packageDirectories[0].versionNumber
-                  value: $NEXTVERSION
+                  value: ${steps.bumpVersion.output.result}
