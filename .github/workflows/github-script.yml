@@ -45,7 +45,7 @@ jobs:
               uses: creyD/prettier_action@v3.3
               with:
                   # This part is also where you can pass other options, for example:
-                  prettier_options: --write sfdx-project.json
+                  prettier_options: --write *.json
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: set git user
