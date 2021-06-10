@@ -39,7 +39,7 @@ jobs:
             - uses: DamianReeves/write-file-action@v1.0
               with:
                   path: ./sfdx-project.json
-                  contents: ${{steps.bumpVersion.output.result}}
+                  contents: ${{steps.bumpVersion.outputs.result}}
                   write-mode: overwrite
             - name: set git user
               run: |
