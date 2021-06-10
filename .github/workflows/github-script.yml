@@ -42,7 +42,6 @@ jobs:
                   contents: ${{steps.bumpVersion.outputs.result}}
                   write-mode: overwrite
             - name: Prettify code
-              uses: creyD/prettier_action@v3.3
               run: |
                   prettier --write sfdx-project.json
             - name: set git user
