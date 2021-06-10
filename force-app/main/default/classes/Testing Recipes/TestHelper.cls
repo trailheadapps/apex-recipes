@@ -35,8 +35,8 @@ public class TestHelper {
 
         return result;
     }
-    
-    public static Void testPullRequest(){
+
+    public static Void testPullRequest() {
         system.debug('hello');
     }
 }
