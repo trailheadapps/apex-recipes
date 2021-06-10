@@ -38,7 +38,7 @@ jobs:
             - uses: jossef/action-set-json-field@v1
               with:
                   file: sfdx-project.json
-                  field: packageDirectories[0].versionNumber
+                  field: packageDirectories.[0].versionNumber
                   value: ${steps.bumpVersion.output.result}
             - name: set git user
               run: |
