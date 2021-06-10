@@ -41,6 +41,13 @@ jobs:
                   path: ./sfdx-project.json
                   contents: ${{steps.bumpVersion.outputs.result}}
                   write-mode: overwrite
+            - name: Prettify code
+              uses: creyD/prettier_action@v3.3
+              with:
+                  # This part is also where you can pass other options, for example:
+                  prettier_options: --write sfdx-project.json
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: set git user
               run: |
                   git config --global user.name ${GITHUB_ACTOR}
