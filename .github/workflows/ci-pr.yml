@@ -1,9 +1,14 @@
 # Unique name for this workflow
 name: CI on PR
 
+permissions:
+    actions: none
+    pull-request: write
+    contents: write
+
 # Definition when the workflow should run
 on:
-    pull_request:
+    pull_request_target:
         types: [opened, edited, synchronize, reopened]
         branches-ignore:
             - prerelease/spring[2-9][0-9]
