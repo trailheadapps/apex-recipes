@@ -290,7 +290,7 @@ public with sharing class CanTheUser {
 
         Map<String, Map<FLSType, Boolean>> objResults;
 
-        if (OrgShape.isPlatformCacheEnabled()) {
+        if (new OrgShape().isPlatformCacheEnabled()) {
             objResults = (Map<String, Map<FLSType, Boolean>>) defaultSession
                 .get(PermissionCache.class, obj);
         } else {
