@@ -32,7 +32,7 @@ jobs:
                           const nextPatch = parseInt(patch) + 1;
                           return [major, minor, nextPatch, build].join(".");
                       }
-                      return bumpVersion(data)};
+                      return bumpVersion(data);
             - uses: jossef/action-set-json-field@v1
               with:
                   file: sfdx-project.json
