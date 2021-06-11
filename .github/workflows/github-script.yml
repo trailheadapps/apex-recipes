@@ -43,7 +43,7 @@ jobs:
                   write-mode: overwrite
             - name: Prettify code
               run: |
-                  npm install prettier
+                  npm install -g prettier
                   prettier --write sfdx-project.json
             - name: set git user
               run: |
