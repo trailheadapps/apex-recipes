@@ -41,10 +41,22 @@ jobs:
                   path: ./sfdx-project.json
                   contents: ${{steps.bumpVersion.outputs.result}}
                   write-mode: overwrite
+            # Cache node_modules to speed up the process
+            - name: 'Restore node_modules cache'
+              id: cache-npm
+              uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: npm-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      npm-${{ env.cache-name }}-
+                      npm-
+            # Install npm dependencies for Prettier and Jest
+            - name: 'Install npm dependencies'
+              if: steps.cache-npm.outputs.cache-hit != 'true'
+              run: npm ci
             - name: Prettify code
-              run: |
-                  npm install -g prettier
-                  prettier --write sfdx-project.json
+              run: npm run prettier:projectjson
             - name: set git user
               run: |
                   git config --global user.name ${GITHUB_ACTOR}
