@@ -43,9 +43,8 @@ describe('c-apex-recipes-container', () => {
         document.body.appendChild(element);
 
         // Emulate selecting a recipe
-        const recipeTreeViewEl = element.shadowRoot.querySelector(
-            'c-recipe-tree-view'
-        );
+        const recipeTreeViewEl =
+            element.shadowRoot.querySelector('c-recipe-tree-view');
         recipeTreeViewEl.dispatchEvent(
             new CustomEvent('select', {
                 detail: { name: 'SOQLRecipes' }

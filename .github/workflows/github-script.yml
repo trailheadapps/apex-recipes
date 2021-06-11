@@ -1,0 +1,71 @@
+# Unique name for this workflow
+name: CI on PR
+
+permissions:
+    actions: none
+    pull-requests: write
+    contents: write
+
+# Definition when the workflow should run
+on:
+    workflow_dispatch:
+    pull_request:
+        types: [opened, edited, synchronize, reopened]
+        branches-ignore:
+            - prerelease/spring[2-9][0-9]
+            - prerelease/summer[2-9][0-9]
+            - prerelease/winter[2-9][0-9]
+
+jobs:
+    testingScript:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+            - uses: actions/github-script@v4
+              id: bumpVersion
+              with:
+                  script: |
+                      const data = require("./sfdx-project.json");
+                      function bumpVersion(data) {
+                          const versionNumber = data.packageDirectories[0].versionNumber;
+                          const [major, minor, patch, build] = versionNumber.split(".");
+                          const nextPatch = parseInt(patch) + 1;
+                          return [major, minor, nextPatch, build].join(".");
+                      }
+                      data.packageDirectories[0].versionNumber = bumpVersion(data);
+                      return data;
+            - uses: DamianReeves/write-file-action@v1.0
+              with:
+                  path: ./sfdx-project.json
+                  contents: ${{steps.bumpVersion.outputs.result}}
+                  write-mode: overwrite
+            # Cache node_modules to speed up the process
+            - name: 'Restore node_modules cache'
+              id: cache-npm
+              uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: npm-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      npm-${{ env.cache-name }}-
+                      npm-
+            # Install npm dependencies for Prettier and Jest
+            - name: 'Install npm dependencies'
+              if: steps.cache-npm.outputs.cache-hit != 'true'
+              run: npm ci
+            - name: Prettify code
+              run: npm run prettier:projectjson
+            - name: set git user
+              run: |
+                  git config --global user.name ${GITHUB_ACTOR}
+                  git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+                  git add sfdx-project.json
+                  git commit -m 'bump package version'
+            - name: Push changes
+              uses: ad-m/github-push-action@master
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  branch: ${{ github.head_ref }}
+                  force: true
