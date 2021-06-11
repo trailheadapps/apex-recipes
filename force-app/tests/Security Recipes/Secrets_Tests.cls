@@ -5,39 +5,40 @@ public class Secrets_Tests {
     private static final string SECRETVALUE = 'This is a secret';
 
     private static Secrets secretsInstance;
-    private static SecretsStorageService storageService;
-    private static String serializedSecret;
-    private static Secrets.Secret testSecret;
+    private static SecretsKeyStorageService keyService;
+    private static SecretsStorageServiceCustomMetadata storageService;
+    private static SecretsData storedSecretData;
 
     static void beforeEach() {
-        storageService = new secretsStorageService();
-        secretsInstance = new Secrets();
-        secretsInstance.storageService = storageService;
+        keyService = new SecretsKeyServiceCustomSettings();
+        storageService = new SecretsStorageServiceCustomMetadata(keyService);
+        secretsInstance = new Secrets(storageService);
         secretsInstance.createKey(Secrets_Tests.KEYNAME);
-        testSecret = secretsInstance.createSecret(
+        secretsInstance.createSecret(
             Secrets_Tests.SECRETNAME,
             Secrets_Tests.SECRETVALUE,
             Secrets_Tests.KEYNAME
         );
-        serializedSecret = storageService.serializedSecret;
+        storedSecretData = secretsInstance.fetchSecret(Secrets_Tests.SECRETNAME);
         System.assert(
-            String.isNotEmpty(serializedSecret),
-            'Expected to have a valid value for serializedSecret'
+            String.isNotEmpty(storedSecretData.encryptedValue),
+            'Expected to have a valid value for storedSecretData.encryptedValue'
         );
     }
 
-    @isTest
+    @isTest(SeeAllData=true)
     public static void fetchSecretTest() {
         beforeEach();
-        Secrets.Secret secret = new Secrets.Secret();
-        List<String> secretData = secret.validateSecretFormat(serializedSecret);
-        SecretMDT__mdt returnObj = new SecretMDT__mdt();
-        returnObj.label = Secrets_Tests.SECRETNAME;
-        returnObj.value__c = serializedSecret;
-        SecretsStorageService checkStorageService = (SecretsStorageService) new Stub.Builder(
-                SecretsStorageService.class
+        List<String> secretData = storageService.validateSecretFormat(storedSecretData.encryptedValue);
+        SecretsData returnObj = new SecretsData();
+        returnObj.name = storedSecretData.name;
+        returnObj.keyName = storedSecretData.keyName;
+        returnObj.clearTextValue = storedSecretData.clearTextValue;
+        returnObj.encryptedValue = storedSecretData.encryptedValue;
+        SecretsStorageServiceCustomMetadata checkStorageService = (SecretsStorageServiceCustomMetadata) new Stub.Builder(
+            SecretsStorageServiceCustomMetadata.class
             )
-            .mockingMethodCall('fetchExistingSecret')
+            .mockingMethodCall('retrieve')
             .withParameterTypes(String.class)
             .withParameterValues(Secrets_Tests.SECRETNAME)
             .returning(returnObj)
@@ -46,12 +47,12 @@ public class Secrets_Tests {
         Secrets instance = new Secrets(checkStorageService);
 
         Test.startTest();
-        Secrets.Secret testSecret = instance.fetchSecret(SECRETNAME);
+        SecretsData testSecretData = instance.fetchSecret(SECRETNAME);
         Test.stopTest();
 
         System.assertEquals(
             SECRETVALUE,
-            testSecret.decryptSecret(),
+            testSecretData.clearTextValue,
             'Expected these to be the same'
         );
     }
@@ -59,15 +60,16 @@ public class Secrets_Tests {
     @isTest
     static void testFetchDecryptedSecretPositive() {
         beforeEach();
-        Secrets.Secret secret = new Secrets.Secret();
-        List<String> secretData = secret.validateSecretFormat(serializedSecret);
-        SecretMDT__mdt returnObj = new SecretMDT__mdt();
-        returnObj.label = Secrets_Tests.SECRETNAME;
-        returnObj.value__c = serializedSecret;
-        SecretsStorageService checkStorageService = (SecretsStorageService) new Stub.Builder(
-                SecretsStorageService.class
+        List<String> secretData = storageService.validateSecretFormat(storedSecretData.encryptedValue);
+        SecretsData returnObj = new SecretsData();
+        returnObj.name = storedSecretData.name;
+        returnObj.keyName = storedSecretData.keyName;
+        returnObj.clearTextValue = storedSecretData.clearTextValue;
+        returnObj.encryptedValue = storedSecretData.encryptedValue;
+        SecretsStorageServiceCustomMetadata checkStorageService = (SecretsStorageServiceCustomMetadata) new Stub.Builder(
+            SecretsStorageServiceCustomMetadata.class
             )
-            .mockingMethodCall('fetchExistingSecret')
+            .mockingMethodCall('retrieve')
             .withParameterTypes(String.class)
             .withParameterValues(Secrets_Tests.SECRETNAME)
             .returning(returnObj)
@@ -76,12 +78,12 @@ public class Secrets_Tests {
         Secrets instance = new Secrets(checkStorageService);
 
         Test.startTest();
-        String testSecret = instance.fetchDecryptedSecretValue(SECRETNAME);
+        SecretsData testSecretData = instance.fetchSecret(SECRETNAME);
         Test.stopTest();
 
         System.assertEquals(
             SECRETVALUE,
-            testSecret,
+            testSecretData.clearTextValue,
             'Expected these to be the same'
         );
     }
@@ -89,41 +91,40 @@ public class Secrets_Tests {
     @isTest
     static void testUpdateSecretPositive() {
         beforeEach();
+        storedSecretData.clearTextValue = 'newValue';
         Test.startTest();
-        testSecret.updateSecret('newValue');
+        secretsInstance.updateSecret(storedSecretData);
         Test.stopTest();
-        serializedSecret = testSecret.storageService.serializedSecret;
-        Secrets.Secret secret = new Secrets.Secret();
-        List<String> secretData = secret.validateSecretFormat(serializedSecret);
-        SecretMDT__mdt returnObj = new SecretMDT__mdt();
-        returnObj.label = Secrets_Tests.SECRETNAME;
-        returnObj.value__c = serializedSecret;
+        SecretsData returnObj = new SecretsData();
+        returnObj.name = storedSecretData.name;
+        returnObj.keyName = storedSecretData.keyName;
+        returnObj.clearTextValue = storedSecretData.clearTextValue;
+        returnObj.encryptedValue = storedSecretData.encryptedValue;
 
-        SecretsStorageService checkStorageService = (SecretsStorageService) new Stub.Builder(
-                SecretsStorageService.class
+        SecretsStorageServiceCustomMetadata checkStorageService = (SecretsStorageServiceCustomMetadata) new Stub.Builder(
+            SecretsStorageServiceCustomMetadata.class
             )
-            .mockingMethodCall('fetchExistingSecret')
+            .mockingMethodCall('retrieve')
             .withParameterTypes(String.class)
             .withParameterValues(Secrets_Tests.SECRETNAME)
             .returning(returnObj)
             .defineStub(true);
 
         Secrets instance = new Secrets(checkStorageService);
-        String checkValue = instance.fetchDecryptedSecretValue(SECRETNAME);
+        SecretsData checkValue = instance.fetchSecret(SECRETNAME);
         System.assertEquals(
             'newValue',
-            checkValue,
+            checkValue.clearTextValue,
             'Expected these to be the same'
         );
     }
 
     @isTest
     static void testValidateSecretFormatNegative() {
-        Secrets.Secret secret = new Secrets.Secret();
         Boolean didCatchTheRightException = false;
         Test.startTest();
         try {
-            List<String> checkList = secret.validateSecretFormat('notValid');
+            List<String> checkList = storageService.validateSecretFormat('notValid');
         } catch (Secrets.SecretException se) {
             if (se.getMessage().containsIgnoreCase('has invalid format')) {
                 didCatchTheRightException = true;
@@ -138,10 +139,9 @@ public class Secrets_Tests {
 
     @isTest
     static void testConstantTimeCompareDifferentLenghtNegative() {
-        Secrets.Secret secret = new Secrets.Secret();
         Boolean didCatchTheRightException = false;
         Test.startTest();
-        Boolean checkBool = secret.constantTimeCompare('notValid', 'notValid ');
+        Boolean checkBool = storageService.constantTimeCompare('notValid', 'notValid ');
         Test.stopTest();
         System.assertEquals(
             false,
@@ -152,10 +152,9 @@ public class Secrets_Tests {
 
     @isTest
     static void testConstantTimeCompareDifferentLenghtInverseNegative() {
-        Secrets.Secret secret = new Secrets.Secret();
         Boolean didCatchTheRightException = false;
         Test.startTest();
-        Boolean checkBool = secret.constantTimeCompare(' notValid', 'notValid');
+        Boolean checkBool = storageService.constantTimeCompare(' notValid', 'notValid');
         Test.stopTest();
         System.assertEquals(
             false,
@@ -170,10 +169,10 @@ public class Secrets_Tests {
         Boolean didCatchTheRightException = false;
         Test.startTest();
         try {
-            SecretMDT__mdt secret = storageService.fetchExistingSecret(
+            SecretsData secret = storageService.retrieve(
                 'nonExistant'
             );
-        } catch (SecretsStorageService.SecretsStorageServiceException ssse) {
+        } catch (SecretsStorageServiceCustomMetadata.SecretsStorageServiceException ssse) {
             if (
                 ssse.getMessage()
                     .containsIgnoreCase('could not be found. have you deployed')

@@ -1,8 +1,7 @@
-public with sharing class SecretsKeyService {
+public with sharing class SecretsKeyServiceCustomSettings implements SecretsKeyStorageService{
     private class SecretsKeyServiceException extends exception {
     }
 
-    private static final Integer ENCRYPTIONKEYSIZE = 256;
     private static Map<String, Blob> memoizedKeys = new Map<String, Blob>();
 
     public Blob getKey(String keyName) {
@@ -26,22 +25,19 @@ public with sharing class SecretsKeyService {
         }
     }
 
-    public Boolean createKey(String keyName) {
-        return this.writeKey(keyName);
-    }
-
-    public Blob fetchOrCreateNewKey(String keyName) {
-        try {
-            Blob key = getKey(keyName);
-            return key;
-        } catch (SecretsKeyServiceException skse) {
-            createKey(keyName);
-            return getKey(keyName);
-        }
+    public Boolean createKey(String keyName, Integer keySize) {
+        return this.writeKey(keyName, keySize);
     }
 
     @suppressWarnings('PMD.ApexCRUDViolation')
     private List<Secrets__c> queryForKey(String keyName) {
+        return [
+            SELECT Name, Private_Key__c
+            FROM Secrets__c
+            WHERE Name = :keyName
+            LIMIT 1
+        ];
+/*
         if (CanTheUser.read(new Secrets__c())) {
             return [
                 SELECT Name, Private_Key__c
@@ -51,13 +47,14 @@ public with sharing class SecretsKeyService {
             ];
         }
         return new List<Secrets__c>();
+*/
     }
 
     // Method to generate a new random encryption key
-    private Boolean writeKey(String keyName) {
+    private Boolean writeKey(String keyName, Integer keySize) {
         return this.writeKey(
             keyName,
-            EncodingUtil.base64Encode(Crypto.generateAesKey(ENCRYPTIONKEYSIZE))
+            EncodingUtil.base64Encode(Crypto.generateAesKey(keySize))
         );
     }
 
