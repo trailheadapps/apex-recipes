@@ -10,5 +10,5 @@ coverage/
 docs/
 force-app/main/default/prompts/*.prompt-meta.xml
 # Exclude project config (edited by CI workflow)
-sfdx-project.json
+#sfdx-project.json
 dependencies.json
