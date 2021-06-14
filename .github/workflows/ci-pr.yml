@@ -4,6 +4,12 @@ name: CI on PR
 # Definition when the workflow should run
 on:
     workflow_dispatch:
+    pull_request:
+        types: [opened, edited, synchronize, reopened]
+        branches-ignore:
+            - prerelease/spring[2-9][0-9]
+            - prerelease/summer[2-9][0-9]
+            - prerelease/winter[2-9][0-9]
     pull_request_target:
         types: [opened, edited, synchronize, reopened]
         branches-ignore:
