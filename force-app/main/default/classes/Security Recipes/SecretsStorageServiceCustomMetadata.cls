@@ -1,9 +1,11 @@
 public with sharing class SecretsStorageServiceCustomMetadata implements SecretsStorageService {
-    public enum EncryptionAlgorithm { AES128, 
-        AES192, 
-        AES256 
+    public enum EncryptionAlgorithm {
+        AES128,
+        AES192,
+        AES256
     }
-    public enum HmacAlgorithm { HmacSHA256,
+    public enum HmacAlgorithm {
+        HmacSHA256,
         HmacSHA512
     }
     private EncryptionAlgorithm ENCRYPTION_ALGO = EncryptionAlgorithm.AES256;
@@ -14,23 +16,26 @@ public with sharing class SecretsStorageServiceCustomMetadata implements Secrets
     public class SecretsStorageServiceException extends Exception {
     }
 
-    public SecretsStorageServiceCustomMetadata(SecretsKeyStorageService keyService) {
+    public SecretsStorageServiceCustomMetadata(
+        SecretsKeyStorageService keyService
+    ) {
         this.keyService = keyService;
     }
 
     public SecretsStorageServiceCustomMetadata(
-        SecretsKeyStorageService keyService, 
+        SecretsKeyStorageService keyService,
         EncryptionAlgorithm encyryptionAlgo,
         HmacAlgorithm hmacAlgo,
         Integer keySize
-        ) {
-            this.keyService = keyService;
-            this.ENCRYPTION_ALGO = encyryptionAlgo;
-            this.HMAC_ALGO = hmacAlgo;
-            this.ENCRYPTION_KEYSIZE = keySize;
+    ) {
+        this.keyService = keyService;
+        this.ENCRYPTION_ALGO = encyryptionAlgo;
+        this.HMAC_ALGO = hmacAlgo;
+        this.ENCRYPTION_KEYSIZE = keySize;
     }
 
-    private SecretsStorageServiceCustomMetadata() { }
+    private SecretsStorageServiceCustomMetadata() {
+    }
 
     public class SecretsDeploymentCallback implements Metadata.DeployCallback {
         public void handleResult(
@@ -58,18 +63,22 @@ public with sharing class SecretsStorageServiceCustomMetadata implements Secrets
         ret.keyName = secretParts[0];
         String payloadAlgorithm = secretParts[1];
         String payloadHmacAlgorithm = secretParts[2];
-        Blob payloadEncryptedValue = EncodingUtil.base64Decode(
-            secretParts[3]
-        );
+        Blob payloadEncryptedValue = EncodingUtil.base64Decode(secretParts[3]);
         String payloadHmac = secretParts[4];
         Blob keyValue = keyService.getKey(ret.keyName);
-        // validate 
-        throwIfSecretHasBeenTamperedWith(itemName, payloadHmac, payloadHmacAlgorithm, payloadEncryptedValue);
-        ret.clearTextValue = Crypto.decryptWithManagedIV(
-            payloadAlgorithm,
-            keyValue,
+        // validate
+        throwIfSecretHasBeenTamperedWith(
+            itemName,
+            payloadHmac,
+            payloadHmacAlgorithm,
             payloadEncryptedValue
-        ).toString();
+        );
+        ret.clearTextValue = Crypto.decryptWithManagedIV(
+                payloadAlgorithm,
+                keyValue,
+                payloadEncryptedValue
+            )
+            .toString();
         return ret;
     }
 
@@ -112,14 +121,18 @@ public with sharing class SecretsStorageServiceCustomMetadata implements Secrets
         List<String> secretData = secretString.split('~');
         if (secretData.size() != 5) {
             throw new SecretsStorageServiceException(
-                'Secret ' +
-                'has invalid format'
+                'Secret ' + 'has invalid format'
             );
         }
         return secretData;
     }
 
-    private void throwIfSecretHasBeenTamperedWith(string itemName, String payloadHmac, String payloadHmacAlgorithm, Blob payloadEncryptedValue ) {
+    private void throwIfSecretHasBeenTamperedWith(
+        string itemName,
+        String payloadHmac,
+        String payloadHmacAlgorithm,
+        Blob payloadEncryptedValue
+    ) {
         // Verify that the data has not been tampred with by generating an HMAC of the encrypted data and comparing it to the HMAC of the payload.
         // HMAC generation uses the name of the secret as the key to ensure integrity.
 
@@ -153,10 +166,7 @@ public with sharing class SecretsStorageServiceCustomMetadata implements Secrets
         return keyService.getKey(keyName);
     }
 
-    private String getEncodedHMAC(
-        string integrityValue,
-        Blob encryptedValue
-    ) {
+    private String getEncodedHMAC(string integrityValue, Blob encryptedValue) {
         return EncodingUtil.base64Encode(
             Crypto.generateMac(
                 HMAC_ALGO.name(),
@@ -177,14 +187,12 @@ public with sharing class SecretsStorageServiceCustomMetadata implements Secrets
             encodedEncryptedValue,
             hmac
         );
-        createAndDispatchMetadataRecordCreation(
-            itemName,
-            serializedSecret
-        );
+        createAndDispatchMetadataRecordCreation(itemName, serializedSecret);
         return true;
     }
 
-    private string serializeSecret(String keyName, 
+    private string serializeSecret(
+        String keyName,
         String encodedEncryptedValue,
         String hmac
     ) {
@@ -248,5 +256,4 @@ public with sharing class SecretsStorageServiceCustomMetadata implements Secrets
         }
         return result;
     }
-    
 }

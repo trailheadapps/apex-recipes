@@ -1,4 +1,4 @@
-public with sharing class SecretsKeyServiceCustomSettings implements SecretsKeyStorageService{
+public with sharing class SecretsKeyServiceCustomSettings implements SecretsKeyStorageService {
     private class SecretsKeyServiceException extends exception {
     }
 
@@ -37,7 +37,7 @@ public with sharing class SecretsKeyServiceCustomSettings implements SecretsKeyS
             WHERE Name = :keyName
             LIMIT 1
         ];
-/*
+        /*
         if (CanTheUser.read(new Secrets__c())) {
             return [
                 SELECT Name, Private_Key__c

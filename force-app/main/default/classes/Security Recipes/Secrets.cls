@@ -19,9 +19,7 @@ public with sharing class Secrets {
     }
 
     public SecretsData fetchSecret(String secretName) {
-        return this.storageService.retrieve(
-            secretName
-        ); 
+        return this.storageService.retrieve(secretName);
     }
 
     public Boolean createSecret(
@@ -33,7 +31,11 @@ public with sharing class Secrets {
     }
 
     public void updateSecret(SecretsData newValue) {
-        this.storageService.store(newValue.keyName, newValue.name, newValue.clearTextValue);
+        this.storageService.store(
+            newValue.keyName,
+            newValue.name,
+            newValue.clearTextValue
+        );
     }
 
     public Boolean createKey(String keyName) {

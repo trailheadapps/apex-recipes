@@ -19,7 +19,9 @@ public class Secrets_Tests {
             Secrets_Tests.SECRETVALUE,
             Secrets_Tests.KEYNAME
         );
-        storedSecretData = secretsInstance.fetchSecret(Secrets_Tests.SECRETNAME);
+        storedSecretData = secretsInstance.fetchSecret(
+            Secrets_Tests.SECRETNAME
+        );
         System.assert(
             String.isNotEmpty(storedSecretData.encryptedValue),
             'Expected to have a valid value for storedSecretData.encryptedValue'
@@ -29,14 +31,16 @@ public class Secrets_Tests {
     @isTest(SeeAllData=true)
     public static void fetchSecretTest() {
         beforeEach();
-        List<String> secretData = storageService.validateSecretFormat(storedSecretData.encryptedValue);
+        List<String> secretData = storageService.validateSecretFormat(
+            storedSecretData.encryptedValue
+        );
         SecretsData returnObj = new SecretsData();
         returnObj.name = storedSecretData.name;
         returnObj.keyName = storedSecretData.keyName;
         returnObj.clearTextValue = storedSecretData.clearTextValue;
         returnObj.encryptedValue = storedSecretData.encryptedValue;
         SecretsStorageServiceCustomMetadata checkStorageService = (SecretsStorageServiceCustomMetadata) new Stub.Builder(
-            SecretsStorageServiceCustomMetadata.class
+                SecretsStorageServiceCustomMetadata.class
             )
             .mockingMethodCall('retrieve')
             .withParameterTypes(String.class)
@@ -60,14 +64,16 @@ public class Secrets_Tests {
     @isTest
     static void testFetchDecryptedSecretPositive() {
         beforeEach();
-        List<String> secretData = storageService.validateSecretFormat(storedSecretData.encryptedValue);
+        List<String> secretData = storageService.validateSecretFormat(
+            storedSecretData.encryptedValue
+        );
         SecretsData returnObj = new SecretsData();
         returnObj.name = storedSecretData.name;
         returnObj.keyName = storedSecretData.keyName;
         returnObj.clearTextValue = storedSecretData.clearTextValue;
         returnObj.encryptedValue = storedSecretData.encryptedValue;
         SecretsStorageServiceCustomMetadata checkStorageService = (SecretsStorageServiceCustomMetadata) new Stub.Builder(
-            SecretsStorageServiceCustomMetadata.class
+                SecretsStorageServiceCustomMetadata.class
             )
             .mockingMethodCall('retrieve')
             .withParameterTypes(String.class)
@@ -102,7 +108,7 @@ public class Secrets_Tests {
         returnObj.encryptedValue = storedSecretData.encryptedValue;
 
         SecretsStorageServiceCustomMetadata checkStorageService = (SecretsStorageServiceCustomMetadata) new Stub.Builder(
-            SecretsStorageServiceCustomMetadata.class
+                SecretsStorageServiceCustomMetadata.class
             )
             .mockingMethodCall('retrieve')
             .withParameterTypes(String.class)
@@ -124,7 +130,9 @@ public class Secrets_Tests {
         Boolean didCatchTheRightException = false;
         Test.startTest();
         try {
-            List<String> checkList = storageService.validateSecretFormat('notValid');
+            List<String> checkList = storageService.validateSecretFormat(
+                'notValid'
+            );
         } catch (Secrets.SecretException se) {
             if (se.getMessage().containsIgnoreCase('has invalid format')) {
                 didCatchTheRightException = true;
@@ -141,7 +149,10 @@ public class Secrets_Tests {
     static void testConstantTimeCompareDifferentLenghtNegative() {
         Boolean didCatchTheRightException = false;
         Test.startTest();
-        Boolean checkBool = storageService.constantTimeCompare('notValid', 'notValid ');
+        Boolean checkBool = storageService.constantTimeCompare(
+            'notValid',
+            'notValid '
+        );
         Test.stopTest();
         System.assertEquals(
             false,
@@ -154,7 +165,10 @@ public class Secrets_Tests {
     static void testConstantTimeCompareDifferentLenghtInverseNegative() {
         Boolean didCatchTheRightException = false;
         Test.startTest();
-        Boolean checkBool = storageService.constantTimeCompare(' notValid', 'notValid');
+        Boolean checkBool = storageService.constantTimeCompare(
+            ' notValid',
+            'notValid'
+        );
         Test.stopTest();
         System.assertEquals(
             false,
@@ -169,9 +183,7 @@ public class Secrets_Tests {
         Boolean didCatchTheRightException = false;
         Test.startTest();
         try {
-            SecretsData secret = storageService.retrieve(
-                'nonExistant'
-            );
+            SecretsData secret = storageService.retrieve('nonExistant');
         } catch (SecretsStorageServiceCustomMetadata.SecretsStorageServiceException ssse) {
             if (
                 ssse.getMessage()

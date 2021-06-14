@@ -20,7 +20,7 @@ A reusable, intuitive library for determining wether or not the current use can 
 
 ---
 ## Methods
-### `bulkFLSAccessible(String obj,Set<String> fields)` → `Boolean>`
+### `bulkFLSAccessible(String obj,Set<String> fields)` → `Map<String, Boolean>`
 
 bulk form of flsAccessible
 
@@ -34,7 +34,7 @@ bulk form of flsAccessible
 
 **Type**
 
-Boolean>
+Map<String, Boolean>
 
 **Description**
 
@@ -46,7 +46,7 @@ String[] fields = new String[]{'Name', 'ShippingStreet'};
 System.debug(CanTheUser.bulkFLSAccessible('Account', fields));
 ```
 
-### `bulkFLSUpdatable(String obj,Set<String> fields)` → `Boolean>`
+### `bulkFLSUpdatable(String obj,Set<String> fields)` → `Map<String, Boolean>`
 
 bulk form of flsUpdatable call
 
@@ -60,7 +60,7 @@ bulk form of flsUpdatable call
 
 **Type**
 
-Boolean>
+Map<String, Boolean>
 
 **Description**
 
@@ -295,7 +295,7 @@ this cachebuilder interface allows the CanTheUser class to cache per-object resu
 
 ---
 #### Methods
-##### `calculateFLS(string objType)` → `Boolean>>`
+##### `calculateFLS(string objType)` → `Map<FLSType, Boolean>>`
 
 Calculates the FLS for a given object type
 
@@ -308,7 +308,7 @@ Calculates the FLS for a given object type
 
 **Type**
 
-Boolean>>
+Map<FLSType, Boolean>>
 
 **Description**
 
