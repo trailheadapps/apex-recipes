@@ -1,11 +1,9 @@
-public with sharing class SecretsStorageServiceCustomMetadata implements SecretsStorageService {
-    public enum EncryptionAlgorithm {
-        AES128,
-        AES192,
-        AES256
+public with sharing class SecretsStorageServiceCustomMetadata extends SecretsCustomMetadataStorageBase implements SecretsStorageService {
+    public enum EncryptionAlgorithm { AES128, 
+        AES192, 
+        AES256 
     }
-    public enum HmacAlgorithm {
-        HmacSHA256,
+    public enum HmacAlgorithm { HmacSHA256,
         HmacSHA512
     }
     private EncryptionAlgorithm ENCRYPTION_ALGO = EncryptionAlgorithm.AES256;
@@ -13,43 +11,24 @@ public with sharing class SecretsStorageServiceCustomMetadata implements Secrets
     private HmacAlgorithm HMAC_ALGO = HmacAlgorithm.HmacSHA256;
     private SecretsKeyStorageService keyService;
 
-    public class SecretsStorageServiceException extends Exception {
-    }
-
-    public SecretsStorageServiceCustomMetadata(
-        SecretsKeyStorageService keyService
-    ) {
+    public SecretsStorageServiceCustomMetadata(SecretsKeyStorageService keyService) {
         this.keyService = keyService;
     }
 
     public SecretsStorageServiceCustomMetadata(
-        SecretsKeyStorageService keyService,
+        SecretsKeyStorageService keyService, 
         EncryptionAlgorithm encyryptionAlgo,
         HmacAlgorithm hmacAlgo,
         Integer keySize
-    ) {
-        this.keyService = keyService;
-        this.ENCRYPTION_ALGO = encyryptionAlgo;
-        this.HMAC_ALGO = hmacAlgo;
-        this.ENCRYPTION_KEYSIZE = keySize;
-    }
-
-    private SecretsStorageServiceCustomMetadata() {
-    }
-
-    public class SecretsDeploymentCallback implements Metadata.DeployCallback {
-        public void handleResult(
-            Metadata.DeployResult result,
-            Metadata.DeployCallbackContext context
         ) {
-            if (result.status == Metadata.DeployStatus.Succeeded) {
-                // Deployment was successful
-                System.debug(LoggingLevel.INFO, 'Metadata success!');
-            } else {
-                system.debug(LoggingLevel.DEBUG, result);
-            }
-        }
+            this.keyService = keyService;
+            this.ENCRYPTION_ALGO = encyryptionAlgo;
+            this.HMAC_ALGO = hmacAlgo;
+            this.ENCRYPTION_KEYSIZE = keySize;
     }
+
+    private SecretsStorageServiceCustomMetadata() { }
+
 
     public Boolean createKey(String keyName) {
         return this.keyService.createKey(keyName, this.ENCRYPTION_KEYSIZE);
@@ -63,55 +42,19 @@ public with sharing class SecretsStorageServiceCustomMetadata implements Secrets
         ret.keyName = secretParts[0];
         String payloadAlgorithm = secretParts[1];
         String payloadHmacAlgorithm = secretParts[2];
-        Blob payloadEncryptedValue = EncodingUtil.base64Decode(secretParts[3]);
+        Blob payloadEncryptedValue = EncodingUtil.base64Decode(
+            secretParts[3]
+        );
         String payloadHmac = secretParts[4];
         Blob keyValue = keyService.getKey(ret.keyName);
-        // validate
-        throwIfSecretHasBeenTamperedWith(
-            itemName,
-            payloadHmac,
-            payloadHmacAlgorithm,
-            payloadEncryptedValue
-        );
+        // validate 
+        throwIfSecretHasBeenTamperedWith(itemName, payloadHmac, payloadHmacAlgorithm, payloadEncryptedValue);
         ret.clearTextValue = Crypto.decryptWithManagedIV(
-                payloadAlgorithm,
-                keyValue,
-                payloadEncryptedValue
-            )
-            .toString();
+            payloadAlgorithm,
+            keyValue,
+            payloadEncryptedValue
+        ).toString();
         return ret;
-    }
-
-    private String fetchEncryptedValue(String itemName) {
-        SecretMDT__mdt secret;
-        try {
-            secret = [
-                SELECT DeveloperName, Value__c
-                FROM SecretMDT__mdt
-                WHERE DeveloperName = :itemName
-                WITH SECURITY_ENFORCED
-                LIMIT 1
-            ];
-        } catch (QueryException queryException) {
-            if (
-                queryException.getMessage()
-                    .containsIgnoreCase('has no rows for assignment')
-            ) {
-                throw new SecretsStorageServiceException(
-                    'Secret ' +
-                    itemName +
-                    ' could not be found. Have you deployed it yet?'
-                );
-            }
-        }
-        if (String.isEmpty(secret.Value__c)) {
-            throw new SecretsStorageServiceException(
-                'Secret ' +
-                itemName +
-                ' is empty'
-            );
-        }
-        return secret.Value__c;
     }
 
     @testVisible
@@ -121,18 +64,14 @@ public with sharing class SecretsStorageServiceCustomMetadata implements Secrets
         List<String> secretData = secretString.split('~');
         if (secretData.size() != 5) {
             throw new SecretsStorageServiceException(
-                'Secret ' + 'has invalid format'
+                'Secret ' +
+                'has invalid format'
             );
         }
         return secretData;
     }
 
-    private void throwIfSecretHasBeenTamperedWith(
-        string itemName,
-        String payloadHmac,
-        String payloadHmacAlgorithm,
-        Blob payloadEncryptedValue
-    ) {
+    private void throwIfSecretHasBeenTamperedWith(string itemName, String payloadHmac, String payloadHmacAlgorithm, Blob payloadEncryptedValue ) {
         // Verify that the data has not been tampred with by generating an HMAC of the encrypted data and comparing it to the HMAC of the payload.
         // HMAC generation uses the name of the secret as the key to ensure integrity.
 
@@ -166,7 +105,10 @@ public with sharing class SecretsStorageServiceCustomMetadata implements Secrets
         return keyService.getKey(keyName);
     }
 
-    private String getEncodedHMAC(string integrityValue, Blob encryptedValue) {
+    private String getEncodedHMAC(
+        string integrityValue,
+        Blob encryptedValue
+    ) {
         return EncodingUtil.base64Encode(
             Crypto.generateMac(
                 HMAC_ALGO.name(),
@@ -187,12 +129,14 @@ public with sharing class SecretsStorageServiceCustomMetadata implements Secrets
             encodedEncryptedValue,
             hmac
         );
-        createAndDispatchMetadataRecordCreation(itemName, serializedSecret);
+        createAndDispatchMetadataRecordCreation(
+            itemName,
+            serializedSecret
+        );
         return true;
     }
 
-    private string serializeSecret(
-        String keyName,
+    private string serializeSecret(String keyName, 
         String encodedEncryptedValue,
         String hmac
     ) {
@@ -207,36 +151,6 @@ public with sharing class SecretsStorageServiceCustomMetadata implements Secrets
             encodedEncryptedValue +
             '~' +
             hmac;
-    }
-
-    private Void createAndDispatchMetadataRecordCreation(
-        string itemName,
-        String serializedValue
-    ) {
-        Metadata.CustomMetadata customMetadata = new Metadata.CustomMetadata();
-        customMetadata.fullName = 'SecretMDT__mdt';
-        Metadata.CustomMetadataValue customFieldValue = new Metadata.CustomMetadataValue();
-        customFieldValue.field = 'Value__c';
-        customFieldValue.value = serializedValue;
-        customMetadata.values.add(customFieldValue);
-
-        Metadata.CustomMetadataValue customFieldName = new Metadata.CustomMetadataValue();
-        customFieldName.field = 'DeveloperName';
-        customFieldName.value = itemName;
-        customMetadata.values.add(customFieldName);
-
-        Metadata.DeployContainer mdContainer = new Metadata.DeployContainer();
-        mdContainer.addMetadata(customMetadata);
-        SecretsStorageServiceCustomMetadata.SecretsDeploymentCallback callback = new SecretsStorageServiceCustomMetadata.SecretsDeploymentCallback();
-
-        // Enqueue custom metadata deployment
-        Id jobId;
-        if (!Test.isRunningTest()) {
-            jobId = Metadata.Operations.enqueueDeployment(
-                mdContainer,
-                callback
-            );
-        }
     }
 
     // An approximate constant time comparison algorithm
@@ -256,4 +170,5 @@ public with sharing class SecretsStorageServiceCustomMetadata implements Secrets
         }
         return result;
     }
+    
 }
