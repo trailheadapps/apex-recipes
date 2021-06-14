@@ -19,13 +19,13 @@ describe('c-apex-recipes-container', () => {
     // Mock the successful fetch call. An empty response value is
     // sufficient, as we only test that fetch is called with the
     // expected parameter.
+    // eslint-disable-next-line no-unused-vars
     const fetch = (global.fetch = mockFetch({ items: [] }));
 
     // Helper function to wait until the microtask queue is empty.
     // This is needed for promise timing.
-    function flushPromises() {
-        // eslint-disable-next-line no-undef
-        return new Promise((resolve) => setImmediate(resolve));
+    async function flushPromises() {
+        return Promise.resolve();
     }
 
     afterEach(() => {
@@ -43,9 +43,8 @@ describe('c-apex-recipes-container', () => {
         document.body.appendChild(element);
 
         // Emulate selecting a recipe
-        const recipeTreeViewEl = element.shadowRoot.querySelector(
-            'c-recipe-tree-view'
-        );
+        const recipeTreeViewEl =
+            element.shadowRoot.querySelector('c-recipe-tree-view');
         recipeTreeViewEl.dispatchEvent(
             new CustomEvent('select', {
                 detail: { name: 'SOQLRecipes' }

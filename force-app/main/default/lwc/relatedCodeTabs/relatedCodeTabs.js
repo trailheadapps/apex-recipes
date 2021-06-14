@@ -6,6 +6,7 @@ export default class RelatedCodeTabs extends LightningElement {
     relatedClasses;
 
     @wire(getRelatedClasses, { mainClassName: '$recipeName' })
+    // eslint-disable-next-line no-unused-vars
     relatedClassesWireFunc({ error, data }) {
         this.relatedClasses = data;
     }
