@@ -21,7 +21,3 @@ A class to encrypt and decrypt (store and retrieve) secrets where the encryption
 ### `fetchSecret(String secretName)` → `SecretsData`
 ### `updateSecret(SecretsData newValue)` → `void`
 ---
-## Inner Classes
-
-### Secrets.SecretException class
----

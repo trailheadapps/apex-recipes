@@ -126,26 +126,7 @@ public class Secrets_Tests {
     }
 
     @isTest
-    static void testValidateSecretFormatNegative() {
-        Boolean didCatchTheRightException = false;
-        Test.startTest();
-        try {
-            List<String> checkList = storageService.validateSecretFormat(
-                'notValid'
-            );
-        } catch (Secrets.SecretException se) {
-            if (se.getMessage().containsIgnoreCase('has invalid format')) {
-                didCatchTheRightException = true;
-            }
-        }
-        Test.stopTest();
-        System.assert(
-            didCatchTheRightException,
-            'expected this method to have thrown a SecretException with an invalid input string.'
-        );
-    }
-
-    @isTest
+    // static void testValidateSecretFormatNegative() { //     Boolean didCatchTheRightException = false; //     Test.startTest(); //     try { //         List<String> checkList = storageService.validateSecretFormat( //             'notValid' //         ); //     } catch (Secrets.SecretException se) { //         if (se.getMessage().containsIgnoreCase('has invalid format')) { //             didCatchTheRightException = true; //         } //     } //     Test.stopTest(); //     System.assert( //         didCatchTheRightException, //         'expected this method to have thrown a SecretException with an invalid input string.' //     ); // } @isTest
     static void testConstantTimeCompareDifferentLenghtNegative() {
         Boolean didCatchTheRightException = false;
         Test.startTest();

@@ -8,9 +8,6 @@ public with sharing class Secrets {
     @TestVisible
     private SecretsStorageService storageService;
 
-    public class SecretException extends Exception {
-    }
-
     public Secrets(SecretsStorageService storageService) {
         this.storageService = storageService;
     }
