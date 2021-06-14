@@ -1,8 +1,14 @@
 # Unique name for this workflow
 name: CI on PR
 
+permissions:
+    actions: none
+    pull-request: write
+    contents: write
+
 # Definition when the workflow should run
 on:
+    workflow_dispatch:
     pull_request:
         types: [opened, edited, synchronize, reopened]
         branches-ignore:
