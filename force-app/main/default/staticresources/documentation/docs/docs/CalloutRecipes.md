@@ -21,7 +21,7 @@ Constructor accepting a named credential.
 
 ---
 ## Methods
-### `httpCalloutWithUntypedResponse()` → `Map<String, Object>`
+### `httpCalloutWithUntypedResponse()` → `Object>`
 
 Now that we have demonstrated how to callout to an endpoint, lets take a look at what else we can do with the response. When calling out to an external endpoint, the data may not always be in a format that can be directly deserialised into a Salesforce Object. If your callout returns untyped JSON, you can deserialize this into a Map<String, Object> by using a deserializeUntyped method to convert the string.
 
@@ -29,7 +29,7 @@ Now that we have demonstrated how to callout to an endpoint, lets take a look at
 
 **Type**
 
-Map<String, Object>
+Object>
 
 **Description**
 

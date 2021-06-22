@@ -19,9 +19,9 @@ Constructor that sets class variables based on Trigger context vars
 
 ### `circuitBreaker` → `Exception`
 
-### `triggerMapNew` → `Map<Id, Account>`
+### `triggerMapNew` → `Account>`
 
-### `triggerMapOld` → `Map<Id, Account>`
+### `triggerMapOld` → `Account>`
 
 ### `triggerNew` → `List<Account>`
 

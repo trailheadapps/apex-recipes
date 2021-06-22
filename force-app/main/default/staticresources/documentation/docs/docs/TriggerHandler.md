@@ -30,7 +30,7 @@ possible trigger contexts
 
 ### `isTriggerExecuting` → `Boolean`
 
-### `loopCountMap` → `Map<String, LoopCount>`
+### `loopCountMap` → `LoopCount>`
 
 ---
 ## Methods

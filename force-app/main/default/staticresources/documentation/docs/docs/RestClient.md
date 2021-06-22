@@ -32,7 +32,7 @@ This ENUM lists possible HTTP Verbs. Note: 'Delete' is an Apex Keyword (DML) and
 ---
 ## Properties
 
-### `defaultHeaders` → `Map<String, String>`
+### `defaultHeaders` → `String>`
 
 The default headers to use, when none are specified
 

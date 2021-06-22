@@ -2,6 +2,9 @@
 layout: default
 ---
 # SecretsStorageService interface
+
+Interface defining the methods SecretsStorageServices must implement
+
 ---
 ## Methods
 ### `createKey(String keyName)` → `Boolean`

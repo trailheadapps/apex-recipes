@@ -52,8 +52,9 @@ export default class FormattedDocsViewer extends LightningElement {
     }
 
     highlightCodeSegments() {
-        const codeElements =
-            this.template.querySelectorAll('code.language-java');
+        const codeElements = this.template.querySelectorAll(
+            'code.language-java'
+        );
         codeElements.forEach((element) => {
             this.prism.highlightElement(element);
         });

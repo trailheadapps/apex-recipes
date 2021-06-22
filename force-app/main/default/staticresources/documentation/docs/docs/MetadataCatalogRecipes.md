@@ -28,7 +28,7 @@ List<MetadataCatalogRecipes.LookupRelationshipDefinition> results =
 System.debug(results);
 ```
 
-### `findAllFormulaFields()` → `Map<String, String>>`
+### `findAllFormulaFields()` → `String>>`
 
 Demonstrates how to query the EntityDefinition Object to find all formula fields in your Org. This method returns a Map of Object's Qualified API name -> Map of Field Names -> Types Note: This method has a false-positive PMD warning. PMD isn't aware of the purpose or functionality of CanTheUser.* so it doesn't undersatnd that we are, in fact, checking for CRUD / FLS permissions prior to querying.
 
@@ -36,7 +36,7 @@ Demonstrates how to query the EntityDefinition Object to find all formula fields
 
 **Type**
 
-Map<String, String>>
+String>>
 
 **Description**
 
