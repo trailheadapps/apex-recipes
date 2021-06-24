@@ -14,7 +14,20 @@ public with sharing class SecretsVaultCustomMetadata extends SecretsCustomMetada
     }
 
     public Boolean store(String keyName, string itemName, String clearText) {
-        return false;
+        String encodedEncryptedValue = encryptData(
+            keyName, 
+            itemName, 
+            clearText
+        );
+        String serializedSecret = serializeSecret(
+            keyName,
+            encodedEncryptedValue
+        );
+        createAndDispatchMetadataRecordCreation(
+            itemName,
+            serializedSecret
+        );
+        return true;
     }
 
     public SecretsData retrieve(string itemName) {
@@ -30,7 +43,7 @@ public with sharing class SecretsVaultCustomMetadata extends SecretsCustomMetada
     private string encryptData(String keyName, string itemName, String clearText) {
         HttpRequest req = new HttpRequest();
         req.setMethod('POST');
-        req.setEndpoint('callout:ApexToken/v1/transit/encrypt/' + keyName);
+        req.setEndpoint('callout:HashiCorpVaultToken/v1/transit/encrypt/' + keyName);
         req.setHeader('X-Vault-Token','{!$Credential.Password}');
         String context = EncodingUtil.base64Encode(Blob.valueOf(itemName));
         String plaintext = EncodingUtil.base64Encode(Blob.valueOf(clearText));
@@ -44,7 +57,7 @@ public with sharing class SecretsVaultCustomMetadata extends SecretsCustomMetada
     private string decryptData(String keyName, string itemName, string cipherText) {
         HttpRequest req = new HttpRequest();
         req.setMethod('POST');
-        req.setEndpoint('callout:ApexToken/v1/transit/decrypt/' + keyName);
+        req.setEndpoint('callout:HashiCorpVaultToken/v1/transit/decrypt/' + keyName);
         req.setHeader('X-Vault-Token','{!$Credential.Password}');
         String context = EncodingUtil.base64Encode(Blob.valueOf(itemName));
         req.setBody('{"context": "' + context + '", "ciphertext": "' + cipherText + '"}');
@@ -52,6 +65,10 @@ public with sharing class SecretsVaultCustomMetadata extends SecretsCustomMetada
         HTTPResponse res = http.send(req);
         VaultEncrypt data = VaultEncrypt.parse(res.getBody());
         return EncodingUtil.base64Decode(data.Data.plaintext).toString();
+    }
+
+    private string serializeSecret(String keyName, String cipherText) {
+        return keyName + '~' + cipherText;
     }
 
     @testVisible

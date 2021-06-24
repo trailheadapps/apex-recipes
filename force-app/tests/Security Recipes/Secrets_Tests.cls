@@ -26,7 +26,7 @@ public class Secrets_Tests {
         );
     }
 
-    @isTest(SeeAllData=true)
+    @isTest
     public static void fetchSecretTest() {
         beforeEach();
         List<String> secretData = storageService.validateSecretFormat(storedSecretData.encryptedValue);
