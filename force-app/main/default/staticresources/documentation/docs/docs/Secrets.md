@@ -5,61 +5,78 @@ layout: default
 
 A class to encrypt and decrypt (store and retrieve) secrets where the encryption keys are stored as custom settings. Note: Do not use this class, if you're simply storing a user/pass for an api callout - use a named credential instead for that use case.
 
+## Related
+
+[Secrets](https://github.com/trailheadapps/apex-recipes/wiki/Secrets.md)
+
+---
+## Constructors
+### `Secrets(SecretsStorageService storageService)`
+
+Standard constructor - requires a Storage Service instance.
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`storageService` |  Any object conforming to the SecretsStorageService |
+
 ---
 ## Properties
-
-### `keyService` → `SecretsKeyService`
 
 ### `storageService` → `SecretsStorageService`
 
 ---
 ## Methods
-### `Secret(SecretsStorageService storageService,SecretsKeyService keyService,String name,String keyName,String clearTextValue)` → `public`
-### `constantTimeCompare(String first, String second)` → `Boolean`
-### `decryptSecret()` → `String`
-### `hydrateSecret(List<String> secretData)` → `Void`
-### `throwIfSecretHasBeenTamperedWith()` → `void`
-### `updateSecret(String newValue)` → `Void`
-### `validateSecretFormat(String secretString)` → `List<String>`
----
-## Inner Classes
+### `createKey(String keyName)` → `Boolean`
 
-### Secrets.Secret class
----
-#### Constructors
-##### `Secret()`
-##### `Secret(SecretsStorageService storageService,SecretsKeyService keyService,String name)`
----
-#### Properties
+Creates a new Key to encrypt secrets with. Note: keys are immutable and cannot be updated.
 
-##### `algorithm` → `String`
+### `createSecret(String secretName,String secretValue,String keyName)` → `Boolean`
 
-##### `clearTextValue` → `String`
+Creates a net-new secret. Does not update.
 
-##### `encodedEncryptedValue` → `Blob`
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`secretName` |   Name of the secret to be created |
+|`secretValue` |  Clear text of the secret's value - this will be |
+|`keyName` |      Key to encrypt the secret with. |
 
-##### `hmacAlgorithmPayload` → `String`
+#### Return
 
-##### `hmacPayload` → `String`
+**Type**
 
-##### `key` → `Blob`
+Boolean
 
-##### `keyName` → `String`
+**Description**
 
-##### `keyService` → `SecretsKeyService`
+`Boolean`
 
-##### `name` → `String`
+### `fetchSecret(String secretName)` → `SecretsData`
 
-##### `storageService` → `SecretsStorageService`
+retrieves the named secret and returns an object with the secret's properties.
 
----
-### Secrets.SecretException class
----
-#### Methods
-##### `Secrets(SecretsStorageService storageService)` → `public`
-##### `Secrets()` → `public`
-##### `createKey(String keyName)` → `Boolean`
-##### `createSecret(String secretName,String secretValue,String keyName)` → `Secret`
-##### `fetchDecryptedSecretValue(String secretName)` → `String`
-##### `fetchSecret(String secretName)` → `Secrets.Secret`
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`secretName` |  the string naming the secret |
+
+#### Return
+
+**Type**
+
+SecretsData
+
+**Description**
+
+`SecretsData`
+
+### `updateSecret(SecretsData newSecretData)` → `void`
+
+Updates a secret, with the values of the newSecretsData parameter
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`newSecretData` |  The new version of the SecretsData to store. |
+
 ---
