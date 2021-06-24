@@ -7,6 +7,8 @@ public with sharing class SecretsVaultCustomMetadata implements SecretsStorageSe
     private SecretsKeyStorageService keyService;
     @testVisible
     private SecretsCustomMetadataStorageBase storageBase;
+    @testVisible
+    private String serializedSecret;
     /**
      * @description      Constructor requiring injected keyService
      * @param keyService Key service instance
@@ -34,7 +36,21 @@ public with sharing class SecretsVaultCustomMetadata implements SecretsStorageSe
      * @return          `Boolean`
      */
     public Boolean store(String keyName, String itemName, String clearText) {
-        return false;
+        if (String.isEmpty(clearText)) {
+            throw new SecretsCustomMetadataStorageBase.SecretsStorageServiceException(
+                'ClearText parameter is empty'
+            );
+        }
+        String encryptedValue = encryptData(keyName, itemName, clearText);
+        this.serializedSecret = serializeSecret(
+            keyName,
+            encryptedValue
+        );
+        this.storageBase.createAndDispatchMetadataRecordCreation(
+            itemName,
+            this.serializedSecret
+        );
+        return true;
     }
 
     /**
@@ -57,8 +73,8 @@ public with sharing class SecretsVaultCustomMetadata implements SecretsStorageSe
     }
 
     /**
-     * @description     Encrypts a clear text String and stores it in
-     * Hashicorp's Vault. Note this relies on a named credential being setup.
+     * @description     Uses Hasicorp Vault transit encryption to encrypt a clear text String and return the encrypted value.
+     * Note this relies on a named credential being setup.
      * @param keyName   Key to use
      * @param itemName  Name of the secret
      * @param clearText Unencrypted String to encrypt
@@ -90,8 +106,8 @@ public with sharing class SecretsVaultCustomMetadata implements SecretsStorageSe
     }
 
     /**
-     * @description      Makes a callout to Hashicorp's Vault service and
-     * retrieves the secret data from there.
+     * @description      Makes a callout to Hashicorp's Vault transit encryption service to 
+     * decrypt the secret data and returns the clear text.
      * @param keyName    Key to use
      * @param itemName   Secret to fetch
      * @param cipherText Local encrypted version of the secret
@@ -139,5 +155,17 @@ public with sharing class SecretsVaultCustomMetadata implements SecretsStorageSe
             );
         }
         return secretData;
+    }
+
+    @testVisible
+    /**
+     * @description  Represent the secret value using  the required format of:
+     * <ENCRYPTION KEY NAME>~<ENCRYPTED VALUE>
+     * @param keyName               Key name to use
+     * @param encryptedValue        Encoded and encrypted blob of the clear text
+     * @return                      `String`
+     */
+    private string serializeSecret(String keyName, string encryptedValue ) {
+        return keyName + '~' + encryptedValue;
     }
 }
