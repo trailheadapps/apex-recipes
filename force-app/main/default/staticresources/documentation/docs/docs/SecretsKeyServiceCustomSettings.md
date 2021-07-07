@@ -12,7 +12,7 @@ Secrets, SecretsKeyStorageService
 ---
 ## Properties
 
-### `memoizedKeys` → `Blob>`
+### `memoizedKeys` → `Map<String, Blob>`
 
  Because retrieving keys can be a time consuming, or query burning activity, this code 'memoizes' the keys previously accessed in this transaction
 
