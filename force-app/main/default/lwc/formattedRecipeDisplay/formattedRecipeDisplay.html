@@ -1,13 +1,11 @@
 <template>
     <template if:true={recipe}>
         <lightning-card>
-            <a
-                class="slds-button slds-button_neutral"
-                slot="actions"
-                href={githubUrl}
-                target="_blank"
-                >Make a suggestion on Github</a
+            <c-make-a-suggestion
+                group-name={recipe.groupName}
+                recipe-name={recipe.name}
             >
+            </c-make-a-suggestion>
             <div class="slds-grid slds-size_2-of-3">{description}</div>
             <div class="slds-p-horizontal_small slds-scrollable">
                 <pre>
