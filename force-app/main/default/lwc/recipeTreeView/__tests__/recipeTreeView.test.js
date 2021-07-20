@@ -1,13 +1,11 @@
 import { createElement } from 'lwc';
 import RecipeTreeView from 'c/recipeTreeView';
-import { registerApexTestWireAdapter } from '@salesforce/sfdx-lwc-jest';
 import generateTreeData from '@salesforce/apex/RecipeTreeViewController.generateTreeData';
 
 // Realistic data with a list of records
 const mockGenerateTreeData = require('./data/generateTreeData.json');
 
 // Register as Apex wire adapter. Some tests verify that provisioned values trigger desired behavior.
-const generateTreeDataAdapter = registerApexTestWireAdapter(generateTreeData);
 
 describe('c-recipe-tree-view', () => {
     afterEach(() => {
@@ -27,7 +25,7 @@ describe('c-recipe-tree-view', () => {
         document.body.appendChild(element);
 
         // Emit data from @wire
-        generateTreeDataAdapter.emit(mockGenerateTreeData);
+        generateTreeData.emit(mockGenerateTreeData);
 
         // Return a promise to wait for any asynchronous DOM updates. Jest
         // will automatically wait for the Promise chain to complete before
@@ -47,7 +45,7 @@ describe('c-recipe-tree-view', () => {
         document.body.appendChild(element);
 
         // Emit error from @wire
-        generateTreeDataAdapter.error();
+        generateTreeData.error();
 
         // Return a promise to wait for any asynchronous DOM updates. Jest
         // will automatically wait for the Promise chain to complete before
@@ -73,7 +71,7 @@ describe('c-recipe-tree-view', () => {
         element.addEventListener('select', handler);
 
         // Emit data from @wire, so that the tree is rendered
-        generateTreeDataAdapter.emit(mockGenerateTreeData);
+        generateTreeData.emit(mockGenerateTreeData);
 
         // Return a promise to wait for any asynchronous DOM updates. Jest
         // will automatically wait for the Promise chain to complete before
@@ -98,7 +96,7 @@ describe('c-recipe-tree-view', () => {
         document.body.appendChild(element);
 
         // Emit data from @wire
-        generateTreeDataAdapter.emit(mockGenerateTreeData);
+        generateTreeData.emit(mockGenerateTreeData);
 
         return Promise.resolve().then(() => expect(element).toBeAccessible());
     });
@@ -111,7 +109,7 @@ describe('c-recipe-tree-view', () => {
         document.body.appendChild(element);
 
         // Emit error from @wire
-        generateTreeDataAdapter.error();
+        generateTreeData.error();
 
         return Promise.resolve().then(() => expect(element).toBeAccessible());
     });
