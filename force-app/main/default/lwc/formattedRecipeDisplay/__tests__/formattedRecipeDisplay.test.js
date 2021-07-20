@@ -1,14 +1,10 @@
 import { createElement } from 'lwc';
 import FormattedRecipeDisplay from 'c/formattedRecipeDisplay';
-import { registerApexTestWireAdapter } from '@salesforce/sfdx-lwc-jest';
 import getRecipeCode from '@salesforce/apex/FormattedRecipeDisplayController.getRecipeCode';
 import { loadScript, loadStyle } from 'lightning/platformResourceLoader';
 
 // Realistic data with a list of records
 const mockGetRecipeCode = require('./data/getRecipeCode.json');
-
-// Register as Apex wire adapter. Some tests verify that provisioned values trigger desired behavior.
-const getRecipeCodeAdapter = registerApexTestWireAdapter(getRecipeCode);
 
 // Sample error for loadScript error
 const LOAD_SCRIPT_ERROR = {
@@ -81,7 +77,7 @@ describe('c-formatted-recipe-display', () => {
         document.body.appendChild(element);
 
         // Emit data from @wire
-        getRecipeCodeAdapter.emit(mockGetRecipeCode);
+        getRecipeCode.emit(mockGetRecipeCode);
 
         // Return a promise to wait for any asynchronous DOM updates. Jest
         // will automatically wait for the Promise chain to complete before
@@ -102,7 +98,7 @@ describe('c-formatted-recipe-display', () => {
         document.body.appendChild(element);
 
         // Emit error from @wire
-        getRecipeCodeAdapter.error();
+        getRecipeCode.error();
 
         // Return a promise to wait for any asynchronous DOM updates. Jest
         // will automatically wait for the Promise chain to complete before
@@ -147,7 +143,7 @@ describe('c-formatted-recipe-display', () => {
         document.body.appendChild(element);
 
         // Emit data from @wire
-        getRecipeCodeAdapter.emit(mockGetRecipeCode);
+        getRecipeCode.emit(mockGetRecipeCode);
 
         return Promise.resolve().then(() => expect(element).toBeAccessible());
     });
