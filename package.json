@@ -18,7 +18,7 @@
         "test:unit:watch": "sfdx-lwc-jest --watch --skipApiVersionCheck",
         "test:unit:debug": "sfdx-lwc-jest --debug --skipApiVersionCheck",
         "test:unit:coverage": "sfdx-lwc-jest --coverage --skipApiVersionCheck",
-        "postinstall": "node bin/check-version.js && husky install",
+        "postinstall": "husky install",
         "precommit": "lint-staged"
     },
     "lint-staged": {
@@ -37,10 +37,6 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/trailheadapps/apex-recipes"
-    },
-    "engines": {
-        "node": ">= 10.13.0",
-        "npm": ">= 6.5.0"
     },
     "devDependencies": {
         "@cparra/apexdocs": "^1.12.2",
@@ -61,5 +57,9 @@
         "prettier": "^2.3.2",
         "prettier-plugin-apex": "^1.10.0",
         "semver": "^7.3.5"
+    },
+    "volta": {
+        "node": "14.17.3",
+        "npm": "6.14.13"
     }
 }
