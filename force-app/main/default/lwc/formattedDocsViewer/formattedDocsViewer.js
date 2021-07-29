@@ -30,8 +30,12 @@ export default class FormattedDocsViewer extends LightningElement {
             .then(() => {
                 this.markdownItInitialized = true;
                 this.error = undefined;
-                this.prism = Prism; // eslint-disable-line no-undef
-                this.markdownIt = window.markdownit();
+                try {
+                    this.prism = Prism; // eslint-disable-line no-undef
+                    this.markdownIt = window.markdownit();
+                } catch (e) {
+                    this.error = 'Unable to load Prism or MarkdownIt';
+                }
                 this.formatMarkdown();
                 this.highlightCodeSegments();
             })
