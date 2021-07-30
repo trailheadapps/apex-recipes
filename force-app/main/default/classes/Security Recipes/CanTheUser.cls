@@ -24,7 +24,8 @@ public with sharing class CanTheUser {
         CREATE,
         READ,
         EDIT,
-        DEL
+        DEL,
+        UPS
     }
 
     public enum FLSType {
@@ -111,6 +112,18 @@ public with sharing class CanTheUser {
         return false;
     }
 
+    @testVisible
+    private static Boolean crud(List<SObject> objs, CrudType permission) {
+        return crud(objs?.get(0), permission);
+    }
+
+    @testVisible
+    private static Boolean crud(String objectName, CrudType permission) {
+        Type t = Type.forName(objectName);
+        SObject p = (SObject) JSON.deserialize('{}', t);
+        return crud(p, permission);
+    }
+
     /**
      * @description convenience api for determining if the running user can
      * create the specified object
@@ -121,6 +134,29 @@ public with sharing class CanTheUser {
      **/
     public static Boolean create(SObject obj) {
         return CanTheUser.crud(obj, CrudType.CREATE);
+    }
+
+    /**
+     * @description convenience api for determining if the running user can
+     * create the specified object
+     * @param  objs list of objects. Only the first will be checked. (logically, a list is of uniform type
+     * and, and if the user can create one)
+     * @return Boolean
+     */
+    public static Boolean create(List<SObject> objs) {
+        return crud(objs?.get(0), CrudType.CREATE);
+    }
+
+    /**
+     * @description convenience api for determining if the running user can
+     * create the specified object
+     * @param String Object type to check create permissions on
+     * @return Boolean
+     * @example
+     * System.debug(CanTheUser.create('Account'));
+     **/
+    public static Boolean create(String objName) {
+        return crud(objName, CrudType.CREATE);
     }
 
     /**
@@ -137,6 +173,29 @@ public with sharing class CanTheUser {
 
     /**
      * @description convenience api for determining if the running user can
+     * read / access the specified objects
+     * @param obj object type to check read permissions on
+     * @return Boolean
+     * @example
+     **/
+    public static Boolean read(List<SObject> objs) {
+        return crud(objs?.get(0), CrudType.READ);
+    }
+
+    /**
+     * @description convenience api for determining if the running user can
+     * read the specified object
+     * @param String Object type to check read permissions on
+     * @return Boolean
+     * @example
+     * System.debug(CanTheUser.read('Account'));
+     **/
+    public static Boolean read(String objName) {
+        return crud(objName, CrudType.READ);
+    }
+
+    /**
+     * @description convenience api for determining if the running user can
      * edit / update the specified object
      * @param obj object type to check edit permissions on
      * @return Boolean
@@ -149,6 +208,64 @@ public with sharing class CanTheUser {
 
     /**
      * @description convenience api for determining if the running user can
+     * edit / update the specified objects
+     * @param obj object type to check edit permissions on
+     * @return Boolean
+     * @example
+     **/
+    public static Boolean edit(List<SObject> objs) {
+        return crud(objs?.get(0), CrudType.EDIT);
+    }
+
+    /**
+     * @description convenience api for determining if the running user can
+     * edit the specified object
+     * @param String Object type to check edit permissions on
+     * @return Boolean
+     * @example
+     * System.debug(CanTheUser.edit('Account'));
+     **/
+    public static Boolean edit(String objName) {
+        return crud(objName, CrudType.EDIT);
+    }
+
+    /**
+     * @description convenience api for determining if the running user can
+     * upsert (insert and update) the specified objects
+     * @param obj object type to check edit permissions on
+     * @return Boolean
+     * @example
+     * System.debug(CanTheUser.ups(new Account()));
+     **/
+    public static Boolean ups(SObject obj) {
+        return crud(obj, CrudType.UPS);
+    }
+
+    /**
+     * @description convenience api for determining if the running user can
+     * edit / update the specified objects
+     * @param obj object type to check upsert permissions on
+     * @return Boolean
+     * @example
+     **/
+    public static Boolean ups(List<SObject> objs) {
+        return crud(objs?.get(0), CrudType.UPS);
+    }
+
+    /**
+     * @description convenience api for determining if the running user can
+     * upsert the specified object
+     * @param String Object type to check upsert permissions on
+     * @return Boolean
+     * @example
+     * System.debug(CanTheUser.ups('Account'));
+     **/
+    public static Boolean ups(String objName) {
+        return crud(objName, CrudType.UPS);
+    }
+
+    /**
+     * @description convenience api for determining if the running user can
      * delete/destroy the specified object
      * @param obj object type to check destroy permissions on
      * @return Boolean
@@ -157,6 +274,28 @@ public with sharing class CanTheUser {
      **/
     public static Boolean destroy(SObject obj) {
         return CanTheUser.crud(obj, CrudType.DEL);
+    }
+
+    /**
+     * @description convenience api for determining if the running user can
+     * delete the specified object
+     * @param String Object type to check delete permissions on
+     * @return Boolean
+     **/
+    public static Boolean destroy(List<SObject> objs) {
+        return crud(objs?.get(0), CrudType.DEL);
+    }
+
+    /**
+     * @description convenience api for determining if the running user can
+     * delete the specified object
+     * @param String Object type to check create permissions on
+     * @return Boolean
+     * @example
+     * System.debug(CanTheUser.destroy('Account'));
+     **/
+    public static Boolean destroy(String objName) {
+        return crud(objName, CrudType.DEL);
     }
 
     /**

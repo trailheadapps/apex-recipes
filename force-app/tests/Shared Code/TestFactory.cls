@@ -319,4 +319,14 @@ public class TestFactory {
         }
         return incoming;
     }
+
+    public static User createMarketingUser(Boolean doInsert) {
+        Id profileId = [
+            SELECT Id
+            FROM Profile
+            WHERE Name = 'Custom: Marketing Profile'
+        ]
+        .Id;
+        return createTestUser(profileId, doInsert);
+    }
 }
