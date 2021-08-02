@@ -47,9 +47,8 @@ describe('c-formatted-docs-viewer', () => {
         expect(loadScript.mock.calls[1][1]).toBe(PRISM_JS);
         expect(loadStyle.mock.calls[0][1]).toEqual(PRISM_CSS);
 
-        return flushPromises().then(() => {
-            const docsEl = element.shadowRoot.querySelector('div.markdownDoc');
-            expect(docsEl.textContent).toBe('');
-        });
+        await flushPromises();
+        const docsEl = element.shadowRoot.querySelector('div.markdownDoc');
+        expect(docsEl.textContent).toBe('');
     });
 });
