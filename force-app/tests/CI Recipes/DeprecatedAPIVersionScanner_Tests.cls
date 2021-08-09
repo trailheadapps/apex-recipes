@@ -31,6 +31,11 @@ private class DeprecatedAPIVersionScanner_Tests {
             );
         }
         // implicit else here is that we have no logFiles to check.
+        System.assertEquals(
+            0,
+            logFiles.size(),
+            'This assertion must logically be true.'
+        );
     }
 
     private static List<List<String>> parseLogFile(String logFile) {
