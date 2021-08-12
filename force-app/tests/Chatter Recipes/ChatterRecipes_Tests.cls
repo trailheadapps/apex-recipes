@@ -14,7 +14,7 @@ private class ChatterRecipes_Tests {
      * disable the use of platform cache in CanTheUser
      * during testing
      */
-    static void testMakeAPost_Postive() {
+    static void testMakeAPostPostive() {
         Account acct = [SELECT id FROM Account LIMIT 1];
         Test.startTest();
         cr.makeAPost(acct.Id, 'TestContents');
@@ -32,7 +32,7 @@ private class ChatterRecipes_Tests {
     }
 
     @isTest
-    static void testMakeACommentOnAPost_Postive() {
+    static void testMakeACommentOnAPostPostive() {
         Account acct = [SELECT id FROM Account LIMIT 1];
         Test.startTest();
         cr.makeAPost(acct.Id, 'TestContents');
@@ -58,6 +58,42 @@ private class ChatterRecipes_Tests {
             1,
             accountFeedWithComment.size(),
             'Expected to find one chatter post and one comment associated with this account'
+        );
+    }
+
+    @isTest
+    /**
+     * @description Tests making a chatter post
+     * @TODO: Refactor to create an account when
+     * platform cache work is merged and we can
+     * disable the use of platform cache in CanTheUser
+     * during testing
+     */
+    static void testMakeAPostWithMentionsPostive() {
+        Account acct = [SELECT id FROM Account LIMIT 1];
+        // need Users to mention
+        User atMentioned = TestFactory.createTestUser(true, 'Standard User');
+        Test.startTest();
+        cr.makeAPostWithMentions(
+            acct.Id,
+            'TestContents',
+            new List<User>{ atMentioned }
+        );
+        Test.stopTest();
+        List<AccountFeed> accountFeed = [
+            SELECT Title, Body
+            FROM AccountFeed
+            WHERE parentId = :acct.id
+        ];
+        System.assertEquals(
+            1,
+            accountFeed.size(),
+            'Expected to find one chatter post associated with this account'
+        );
+
+        System.assert(
+            accountFeed[0].Body.containsIgnoreCase(atMentioned.LastName),
+            'Expected message body to contain the @ mention of the test users\' last name'
         );
     }
 }
