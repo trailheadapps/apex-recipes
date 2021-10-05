@@ -63,7 +63,7 @@
         <versionNumber>1</versionNumber>
     </promptVersions>
     <promptVersions>
-        <body>Above the formatted recipe view is a &lt;i&gt;Make a suggestion on Github&lt;/i&gt; button. Clicking this will open the current file in edit mode on Github. You can make suggested changes, and submit a pull request, all from your browser!</body>
+        <body>Above the formatted recipe view is a &lt;i&gt;Make a suggestion on GitHub&lt;/i&gt; button. Clicking this will open the current file in edit mode on GitHub. You can make suggested changes, and submit a pull request, all from your browser!</body>
         <customApplication>Apex_Recipes</customApplication>
         <dismissButtonLabel>Close</dismissButtonLabel>
         <displayPosition>BottomCenter</displayPosition>
