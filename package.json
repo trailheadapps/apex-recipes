@@ -19,7 +19,7 @@
         "test:unit:debug": "sfdx-lwc-jest --debug --skipApiVersionCheck",
         "test:unit:coverage": "sfdx-lwc-jest --coverage --skipApiVersionCheck",
         "postinstall": "husky install",
-        "precommit": "lint-staged"
+        "precommit": "npm run apexdocs && lint-staged"
     },
     "lint-staged": {
         "**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}": [
