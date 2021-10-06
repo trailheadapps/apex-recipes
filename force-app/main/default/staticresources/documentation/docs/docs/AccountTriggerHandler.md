@@ -31,7 +31,7 @@ Constructor that sets class variables based on Trigger context vars
 ## Methods
 ### `afterDelete()` → `void`
 
-after delete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn't make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+after delete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn&apos;t make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
 
 #### Example
 ```java
@@ -55,7 +55,7 @@ insert accounts;
 
 ### `afterUndelete()` → `void`
 
-after undelete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn't make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+after undelete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn&apos;t make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
 
 #### Example
 ```java
@@ -68,7 +68,7 @@ undelete accounts;
 
 ### `afterUpdate()` → `void`
 
-after update context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn't make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+after update context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn&apos;t make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
 
 #### Example
 ```java
@@ -82,7 +82,7 @@ update accounts;
 
 ### `beforeDelete()` → `void`
 
-before delete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn't make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+before delete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn&apos;t make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
 
 #### Example
 ```java

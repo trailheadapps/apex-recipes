@@ -18,7 +18,7 @@ Demonstrates what a Service Layer object might look like for teh Account object.
 ## Methods
 ### `changeShippingStreet(List<Account> accounts)` → `void`
 
-Changes the account's Shipping Street field to a hardcoded value. You should do this kind of work in a before trigger, but this is a demo. Note: This method contains a false-positive PMD viloation around not checking FLS/CRUD before doing DML. This is because PMD is unaware of what the CanTheUser call right before it is doing - namely checking CRUD.
+Changes the account&apos;s Shipping Street field to a hardcoded value. You should do this kind of work in a before trigger, but this is a demo. Note: This method contains a false-positive PMD viloation around not checking FLS/CRUD before doing DML. This is because PMD is unaware of what the CanTheUser call right before it is doing - namely checking CRUD.
 
 #### Parameters
 |Param|Description|
@@ -46,11 +46,11 @@ Increments a counter stored in the Description field. Demonstration method of th
 
 **Type**
 
-List<Account>
+List&lt;Account&gt;
 
 **Description**
 
-List<Account>
+List&lt;Account&gt;
 
 #### Example
 ```java
