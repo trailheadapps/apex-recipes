@@ -96,6 +96,49 @@ Boolean
 System.debug(CanTheUser.create(new Account()));
 ```
 
+### `create(List<SObject> objs)` → `Boolean`
+
+convenience api for determining if the running user can create the specified object
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`objs` |  list of objects. Only the first will be checked. (logically, a list is of uniform type |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
+### `create(String objName)` → `Boolean`
+
+convenience api for determining if the running user can create the specified object
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`String` |  Object type to check create permissions on |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
+#### Example
+```java
+System.debug(CanTheUser.create('Account'));
+```
+
 ### `crud(SObject obj, CrudType permission)` → `Boolean`
 #### Parameters
 |Param|Description|
@@ -118,6 +161,8 @@ Boolean
 System.debug(CanTheUser.crud(new Account(), CanTheUser.CrudType.READ));
 ```
 
+### `crud(List<SObject> objs, CrudType permission)` → `Boolean`
+### `crud(String objectName, CrudType permission)` → `Boolean`
 ### `destroy(SObject obj)` → `Boolean`
 
 convenience api for determining if the running user can delete/destroy the specified object
@@ -142,6 +187,49 @@ Boolean
 System.debug(CanTheUser.destroy(new Account()));
 ```
 
+### `destroy(List<SObject> objs)` → `Boolean`
+
+convenience api for determining if the running user can delete the specified object
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`String` |  Object type to check delete permissions on |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
+### `destroy(String objName)` → `Boolean`
+
+convenience api for determining if the running user can delete the specified object
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`String` |  Object type to check create permissions on |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
+#### Example
+```java
+System.debug(CanTheUser.destroy('Account'));
+```
+
 ### `edit(SObject obj)` → `Boolean`
 
 convenience api for determining if the running user can edit / update the specified object
@@ -164,6 +252,49 @@ Boolean
 #### Example
 ```java
 System.debug(CanTheUser.edit(new Account()));
+```
+
+### `edit(List<SObject> objs)` → `Boolean`
+
+convenience api for determining if the running user can edit / update the specified objects
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`obj` |  object type to check edit permissions on |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
+### `edit(String objName)` → `Boolean`
+
+convenience api for determining if the running user can edit the specified object
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`String` |  Object type to check edit permissions on |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
+#### Example
+```java
+System.debug(CanTheUser.edit('Account'));
 ```
 
 ### `flsAccessible(String obj, String field)` → `Boolean`
@@ -279,6 +410,116 @@ Boolean
 #### Example
 ```java
 System.debug(CanTheUser.read(new Account()));
+```
+
+### `read(List<SObject> objs)` → `Boolean`
+
+convenience api for determining if the running user can read / access the specified objects
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`obj` |  object type to check read permissions on |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
+### `read(String objName)` → `Boolean`
+
+convenience api for determining if the running user can read the specified object
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`String` |  Object type to check read permissions on |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
+#### Example
+```java
+System.debug(CanTheUser.read('Account'));
+```
+
+### `ups(SObject obj)` → `Boolean`
+
+convenience api for determining if the running user can upsert (insert and update) the specified objects
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`obj` |  object type to check edit permissions on |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
+#### Example
+```java
+System.debug(CanTheUser.ups(new Account()));
+```
+
+### `ups(List<SObject> objs)` → `Boolean`
+
+convenience api for determining if the running user can edit / update the specified objects
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`obj` |  object type to check upsert permissions on |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
+### `ups(String objName)` → `Boolean`
+
+convenience api for determining if the running user can upsert the specified object
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`String` |  Object type to check upsert permissions on |
+
+#### Return
+
+**Type**
+
+Boolean
+
+**Description**
+
+Boolean
+
+#### Example
+```java
+System.debug(CanTheUser.ups('Account'));
 ```
 
 ---
