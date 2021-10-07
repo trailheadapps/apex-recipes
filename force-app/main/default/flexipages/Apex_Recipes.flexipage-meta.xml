@@ -3,7 +3,8 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>apexRecipesContainer</componentName>
+                <identifier>apexRecipesContainer</identifier>
+<componentName>apexRecipesContainer</componentName>
             </componentInstance>
         </itemInstances>
         <name>main</name>
