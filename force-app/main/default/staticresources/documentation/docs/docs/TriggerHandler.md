@@ -3,7 +3,7 @@ layout: default
 ---
 # TriggerHandler class
 
-An opinionated trigger handler framework. Originally by Kevin O&apos;Hara github.com/kevinohara80/sfdc-trigger-framework
+An opinionated trigger handler framework. Originally by Kevin O'Hara github.com/kevinohara80/sfdc-trigger-framework
 
 ## Related
 
@@ -153,7 +153,7 @@ TriggerHandler.isBypassed('AccountTriggerHandler');
 
 ### `run()` → `void`
 
-This is main brokering method that is called by the trigger. It&apos;s responsible for determining the proper context, and calling the correct method
+This is main brokering method that is called by the trigger. It's responsible for determining the proper context, and calling the correct method
 
 #### Example
 ```java
@@ -167,7 +167,7 @@ Allows developers to prevent trigger loops, or allow a limited number of them by
 #### Parameters
 |Param|Description|
 |-----|-----------|
-|`max` |    A valid number (generally 1) of times you&apos;d like |
+|`max` |    A valid number (generally 1) of times you'd like |
 
 #### Example
 ```java
@@ -234,7 +234,7 @@ Sets loop count based on the param.
 #### Methods
 ##### `exceeded()` → `Boolean`
 
-Determines if this we&apos;re about to exceed the loop count.
+Determines if this we're about to exceed the loop count.
 
 ###### Return
 

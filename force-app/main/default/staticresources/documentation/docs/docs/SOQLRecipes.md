@@ -24,11 +24,11 @@ Demonstrates how to use a bound variable in a WHERE clause
 
 **Type**
 
-List&lt;Account&gt;
+List<Account>
 
 **Description**
 
-List&lt;Account&gt;
+List<Account>
 
 #### Example
 ```java
@@ -37,7 +37,7 @@ System.debug(SOQLRecipes.getAccountRecordsInState('ks'));
 
 ### `getChunksOfLargeNumbersOfRecords()` → `Integer[]`
 
-One of the little known features of SOQL for loops is that you can iterate not only over each record returned by the query, but also over each *chunk of records*. As the code below demonstrates, specifying the iteration variable as a list/array will return 200 record chunks from the query, rather than individual records. Note: Normally, if you&apos;re only dealing with counts of records, you&apos;d utilize the Count() soql method, but in this case we&apos;re demonstrating that this form of a soql for loop gives you access both to a list of records, and to the records themselves.
+One of the little known features of SOQL for loops is that you can iterate not only over each record returned by the query, but also over each *chunk of records*. As the code below demonstrates, specifying the iteration variable as a list/array will return 200 record chunks from the query, rather than individual records. Note: Normally, if you're only dealing with counts of records, you'd utilize the Count() soql method, but in this case we're demonstrating that this form of a soql for loop gives you access both to a list of records, and to the records themselves.
 
 #### Return
 
@@ -57,11 +57,11 @@ Demonstrates how to write a query that pulls information from two parent objects
 
 **Type**
 
-List&lt;Junction__c&gt;
+List<Junction__c>
 
 **Description**
 
-List&lt;Junction__c&gt;
+List<Junction__c>
 
 #### Example
 ```java
@@ -81,11 +81,11 @@ Demonstrates how to use a bound variable to define the LIMIT
 
 **Type**
 
-List&lt;Account&gt;
+List<Account>
 
 **Description**
 
-List&lt;Account&gt;
+List<Account>
 
 #### Example
 ```java
@@ -119,11 +119,11 @@ Demonstrates how to query fields from a parent object through the relationship f
 
 **Type**
 
-List&lt;Contact&gt;
+List<Contact>
 
 **Description**
 
-List&lt;Contact&gt;
+List<Contact>
 
 #### Example
 ```java
@@ -138,11 +138,11 @@ Demonstrates the proper way to query accounts with SOQL keeping FLS and CRUD in 
 
 **Type**
 
-List&lt;Account&gt;
+List<Account>
 
 **Description**
 
-list&lt;Account&gt;
+list<Account>
 
 #### Example
 ```java
@@ -158,11 +158,11 @@ Demonstrates how to use a WHERE clause in a SOQL query
 
 **Type**
 
-List&lt;Account&gt;
+List<Account>
 
 **Description**
 
-List&lt;Account&gt;
+List<Account>
 
 #### Example
 ```java
@@ -177,11 +177,11 @@ Demonstrates how to use a complex WHERE clause in a SOQL query
 
 **Type**
 
-List&lt;Account&gt;
+List<Account>
 
 **Description**
 
-List&lt;Account&gt;
+List<Account>
 
 #### Example
 ```java
@@ -190,17 +190,17 @@ System.debug(SOQLRecipes.getRecordsByMultipleFieldValues());
 
 ### `getRecordsWithRelatedRecords()` → `List<Account>`
 
-Demonstrates how to query an object, as well as it&apos;s related child objects
+Demonstrates how to query an object, as well as it's related child objects
 
 #### Return
 
 **Type**
 
-List&lt;Account&gt;
+List<Account>
 
 **Description**
 
-List&lt;Account&gt;
+List<Account>
 
 #### Example
 ```java
@@ -215,11 +215,11 @@ Demonstrates how to get a limited number of results with a given offset; Ie: get
 
 **Type**
 
-List&lt;Account&gt;
+List<Account>
 
 **Description**
 
-List&lt;Account&gt;
+List<Account>
 
 #### Example
 ```java
@@ -234,11 +234,11 @@ Demonstrates how to use the LIMIT clause in a SOQL statement
 
 **Type**
 
-List&lt;Account&gt;
+List<Account>
 
 **Description**
 
-List&lt;Account&gt;
+List<Account>
 
 #### Example
 ```java
