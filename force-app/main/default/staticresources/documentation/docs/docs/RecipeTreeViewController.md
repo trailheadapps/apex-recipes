@@ -22,17 +22,17 @@ The String here represents a relatively unique tag that Apex Recipe uses to help
 ## Methods
 ### `generateMapOfGroupToListOfNames()` → `List<String>>`
 
-Generates a map containing Group names as the Keys tied to a List of class names. Note: this method contains a false-positive PMD violation. Normally, we'd want to check for FLS/CRUD here, but for ApexClass a system level object that Admins and users cannot really change we're ok.
+Generates a map containing Group names as the Keys tied to a List of class names. Note: this method contains a false-positive PMD violation. Normally, we&apos;d want to check for FLS/CRUD here, but for ApexClass a system level object that Admins and users cannot really change we&apos;re ok.
 
 #### Return
 
 **Type**
 
-List<String>>
+List&lt;String&gt;&gt;
 
 **Description**
 
-`Map<String, List<String>>`
+`Map&lt;String, List&lt;String&gt;&gt;`
 
 ### `generateTreeData()` → `List<RecipeTreeData>`
 
@@ -42,11 +42,11 @@ Generates a recursive list of RecipeTreeData objects to feed to a Lightning-tree
 
 **Type**
 
-List<RecipeTreeData>
+List&lt;RecipeTreeData&gt;
 
 **Description**
 
-`List<RecipeTreeData>`
+`List&lt;RecipeTreeData&gt;`
 
 #### Example
 ```java

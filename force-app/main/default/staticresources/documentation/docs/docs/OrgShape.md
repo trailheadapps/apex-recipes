@@ -10,7 +10,7 @@ Class contains static methods for determining if specific platform features are 
 
 ### `getFiscalYearStartMonth` → `Integer`
 
-returns this org's fiscal year starting month
+returns this org&apos;s fiscal year starting month
 
 ### `hasNamespacePrefix` → `Boolean`
 
@@ -18,7 +18,7 @@ reports whether this transaction took place in an org with a namespace prefix
 
 ### `id` → `Id`
 
-reports the org's ID. in practice, this is a constant
+reports the org&apos;s ID. in practice, this is a constant
 
 ### `instanceName` → `String`
 
@@ -26,7 +26,7 @@ returns the instance name. In practice not null.
 
 ### `isReadOnly` → `Boolean`
 
-reports the read-only status. this is a proxy for 'is this org active'
+reports the read-only status. this is a proxy for &apos;is this org active&apos;
 
 ### `isSandbox` → `Boolean`
 
@@ -34,11 +34,11 @@ property reports whether this transaction took place in a sandbox.
 
 ### `lightningEnabled` → `Boolean`
 
-reports the users' displayed theme.
+reports the users&apos; displayed theme.
 
 ### `locale` → `String`
 
-reports the org's locale
+reports the org&apos;s locale
 
 ### `multiCurrencyEnabled` → `Boolean`
 
@@ -46,7 +46,7 @@ reports whether or not this transaction took place in an org with multiCurrency 
 
 ### `name` → `String`
 
-reports the org's name
+reports the org&apos;s name
 
 ### `namespacePrefix` → `String`
 
@@ -56,7 +56,7 @@ reports the namespace prefix of this org. May return null;
 
 ### `orgType` → `String`
 
-reports this org's type. ie: 'Developer Edition'
+reports this org&apos;s type. ie: &apos;Developer Edition&apos;
 
 ### `podName` → `String`
 
@@ -86,7 +86,7 @@ Cache.OrgPartition
 
 ### `getOrgRecord()` → `Organization`
 
-Private method for pulling the Organization record Note: We're suppressing PMD warning on Crud Checking because we want everyone to be able to pull this read-only record.
+Private method for pulling the Organization record Note: We&apos;re suppressing PMD warning on Crud Checking because we want everyone to be able to pull this read-only record.
 
 ### `getOrgShape()` → `Organization`
 
@@ -152,6 +152,6 @@ Boolean
 #### Methods
 ##### `doLoad(String requiredButNotUsed)` → `Organization`
 
- Note: We're suppressing PMD warning on Crud Checking because we want everyone to be able to pull this read-only record.
+ Note: We&apos;re suppressing PMD warning on Crud Checking because we want everyone to be able to pull this read-only record.
 
 ---
