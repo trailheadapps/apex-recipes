@@ -23,7 +23,7 @@ jobs:
                   echo "Skipping CI run for automated PRs."
 
     # Formatting only runs on human-submitted PRs
-    formatting:
+    format-lint-lwc-tests:
         if: "github.actor != 'trailheadapps-bot'"
         runs-on: ubuntu-latest
         steps:
@@ -64,9 +64,21 @@ jobs:
               if: always()
               run: npm run apex:local:stop
 
+            # Lint LWC / Aura
+            - name: 'Lint Lightning Web Components / Aura Components'
+              run: npm run lint
+
+            # LWC unit tests
+            - name: 'Unit test Lightning Web Components'
+
+            # Upload code coverage data
+            - name: 'Upload code coverage for LWC to Codecov.io'
+              uses: codecov/codecov-action@v2.0.2
+              with:
+                  flags: LWC
     scratch-org-test:
         runs-on: ubuntu-latest
-        needs: formatting
+        needs: format-lint-lwc-tests
         if: ${{ github.actor != 'dependabot[bot]' }}
         steps:
             # Install Salesforce CLI
