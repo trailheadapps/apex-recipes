@@ -23,7 +23,7 @@ Constructor responsible for transfering Trigger.new into a class variable
 ## Methods
 ### `afterInsert()` → `void`
 
-This is an admittedly contrived example. The key to Platform Event's utility is their interoperabilty. This recipe demonstrate what happens when a Platform Event is committed. Platform Event Triggers fire regardless of how the event was created: - You can create these events either through Apex, low code tools - and external system integrations
+This is an admittedly contrived example. The key to Platform Event&apos;s utility is their interoperabilty. This recipe demonstrate what happens when a Platform Event is committed. Platform Event Triggers fire regardless of how the event was created: - You can create these events either through Apex, low code tools - and external system integrations
 
 #### Example
 ```java

@@ -31,11 +31,11 @@ Encapsulates a specific callout to the Named Credential URL that returns JSON in
 
 **Type**
 
-List<ApiServiceRecipesDataModel>
+List&lt;ApiServiceRecipesDataModel&gt;
 
 **Description**
 
-`List<ApiServiceRecipesDataModel>`
+`List&lt;ApiServiceRecipesDataModel&gt;`
 
 #### Example
 ```java

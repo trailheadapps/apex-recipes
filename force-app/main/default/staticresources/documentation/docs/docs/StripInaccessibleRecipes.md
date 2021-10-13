@@ -34,11 +34,11 @@ Demonstrates how to use stripInaccessible to remove fields and objects from a qu
 
 **Type**
 
-List<Campaign>
+List&lt;Campaign&gt;
 
 **Description**
 
-List<Campaign>
+List&lt;Campaign&gt;
 
 #### Example
 ```java
@@ -53,11 +53,11 @@ Demonstrates how to use stripInaccessible to remove fields and objects not only 
 
 **Type**
 
-List<Account>
+List&lt;Account&gt;
 
 **Description**
 
-List<Account>
+List&lt;Account&gt;
 
 #### Example
 ```java
