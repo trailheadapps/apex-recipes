@@ -34,11 +34,11 @@ bulk form of flsAccessible
 
 **Type**
 
-Map&lt;String, Boolean&gt;
+Map<String, Boolean>
 
 **Description**
 
-`Map&lt;String, Boolean&gt;`
+`Map<String, Boolean>`
 
 #### Example
 ```java
@@ -60,11 +60,11 @@ bulk form of flsUpdatable call
 
 **Type**
 
-Map&lt;String, Boolean&gt;
+Map<String, Boolean>
 
 **Description**
 
-`Map&lt;String, Boolean&gt;`
+`Map<String, Boolean>`
 
 #### Example
 ```java
@@ -370,7 +370,7 @@ Boolean
 
 ### `memoizeFLSMDC(String objType, FLSType action)` → `Set<String>`
 
-Utilizes the Metadata catalog to determine FLS Note: this method contains a false-positive PMD violation. Normally, we&apos;d want to check for FLS/CRUD here, but for metadata catalog objects that admins cannot remove permissions to we&apos;re ok. Additionally, even the minimum access profile user has read access to the FieldPermissions object.
+Utilizes the Metadata catalog to determine FLS Note: this method contains a false-positive PMD violation. Normally, we'd want to check for FLS/CRUD here, but for metadata catalog objects that admins cannot remove permissions to we're ok. Additionally, even the minimum access profile user has read access to the FieldPermissions object.
 
 #### Parameters
 |Param|Description|
@@ -382,11 +382,11 @@ Utilizes the Metadata catalog to determine FLS Note: this method contains a fals
 
 **Type**
 
-Set&lt;String&gt;
+Set<String>
 
 **Description**
 
-`set&lt;String&gt;`
+`set<String>`
 
 ### `read(SObject obj)` → `Boolean`
 
@@ -549,15 +549,15 @@ Calculates the FLS for a given object type
 
 **Type**
 
-Map&lt;FLSType, Boolean&gt;&gt;
+Map<FLSType, Boolean>>
 
 **Description**
 
-`Map&lt;String, Map&lt;FLSType, Boolean&gt;&gt;`
+`Map<String, Map<FLSType, Boolean>>`
 
 ##### `doLoad(String objType)` → `Object`
 
-Required method for the CacheBuilder interface. Used here to either calculate an objects per-user FLS, OR to return it from Cache. The return datastructure for this is Map&lt;String, Map&lt;FLSType,Boolean&gt;&gt; and represents: FieldName -&gt; FLStype -&gt; True/False
+Required method for the CacheBuilder interface. Used here to either calculate an objects per-user FLS, OR to return it from Cache. The return datastructure for this is Map<String, Map<FLSType,Boolean>> and represents: FieldName -> FLStype -> True/False
 
 ###### Parameters
 |Param|Description|

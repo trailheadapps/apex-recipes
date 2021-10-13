@@ -13,7 +13,7 @@ RecipeTreeViewController, FormattedRecipeDisplayController
 ## Methods
 ### `getGroupFromClassBody(ApexClass klass)` → `String`
 
-Extracts the @group annotation from a class&apos; body. Also demonstrates the use of Regex matchers in Apex.
+Extracts the @group annotation from a class' body. Also demonstrates the use of Regex matchers in Apex.
 
 #### Parameters
 |Param|Description|
@@ -28,7 +28,7 @@ String
 
 **Description**
 
-`String` This is the text following &apos;@group&apos; through
+`String` This is the text following '@group' through
 
 #### Example
 ```java
@@ -38,7 +38,7 @@ System.debug(ApexClassUtilities.getGroupBodyFromClassBody(klass));
 
 ### `getRelatedClassesFromClassBody(ApexClass klass)` → `String`
 
-Extracts the @see annotation from a class&apos; body. Also demonstrates the use of Regex matchers in Apex.
+Extracts the @see annotation from a class' body. Also demonstrates the use of Regex matchers in Apex.
 
 #### Parameters
 |Param|Description|
@@ -53,7 +53,7 @@ String
 
 **Description**
 
-`String` This is the text following &apos;@see&apos; through
+`String` This is the text following '@see' through
 
 #### Example
 ```java

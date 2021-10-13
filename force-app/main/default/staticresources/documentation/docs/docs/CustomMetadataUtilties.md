@@ -3,7 +3,7 @@ layout: default
 ---
 # CustomMetadataUtilties class
 
-This class utilizes Custom Metadata objects and the example use case we&apos;ve established for Apex Recipes.
+This class utilizes Custom Metadata objects and the example use case we've established for Apex Recipes.
 
 ## Related
 
@@ -24,15 +24,15 @@ Identifies Bucketed Picklists the given object id has associated with it.
 
 **Type**
 
-List&lt;Bucketed_Picklist__mdt&gt;
+List<Bucketed_Picklist__mdt>
 
 **Description**
 
-`List&lt;Bucketed_Picklist__mdt&gt;`
+`List<Bucketed_Picklist__mdt>`
 
 ### `getBucketedPicklistsForObject(List<Id> objIds)` → `List<Bucketed_Picklist__mdt>`
 
-Convenience method accepts a list and send the first entry in the list to it&apos;s twin above.
+Convenience method accepts a list and send the first entry in the list to it's twin above.
 
 #### Parameters
 |Param|Description|
@@ -43,11 +43,11 @@ Convenience method accepts a list and send the first entry in the list to it&apo
 
 **Type**
 
-List&lt;Bucketed_Picklist__mdt&gt;
+List<Bucketed_Picklist__mdt>
 
 **Description**
 
-`List&lt;Bucketed_Picklist__mdt&gt;`
+`List<Bucketed_Picklist__mdt>`
 
 ### `getPicklistBucketWithValues(List<Bucketed_Picklist__mdt> bPL,String search)` → `List<Picklist_Bucket__mdt>`
 
@@ -63,10 +63,10 @@ Returns a list of bucket names that match the given search term, and list of pos
 
 **Type**
 
-List&lt;Picklist_Bucket__mdt&gt;
+List<Picklist_Bucket__mdt>
 
 **Description**
 
-`List&lt;Picklist_Bucket__mdt&gt;`
+`List<Picklist_Bucket__mdt>`
 
 ---

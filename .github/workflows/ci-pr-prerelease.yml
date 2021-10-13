@@ -53,8 +53,8 @@ jobs:
               if: always()
               run: npm run apex:local:stop
 
-            # Lint LWC / Aura
-            - name: 'Lint Lightning Web Components / Aura Components'
+            # Lint LWC
+            - name: 'Lint Lightning Web Components'
               run: npm run lint
 
             # LWC unit tests

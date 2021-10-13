@@ -13,7 +13,7 @@ Apex server side controller for discovering other classes related to the one bei
 ## Methods
 ### `getRelatedClasses(String mainClassName)` → `List<String>`
 
-Inspects the ApexClass body definition for a @see tag in the opening class level doc block. It then parses the comma separated list and returns it as a list of strings Note: this method contains a false-positive PMD violation. Normally, we&apos;d want to check for FLS/CRUD here, but for ApexClass a system level object that Admins and users cannot really change we&apos;re ok.
+Inspects the ApexClass body definition for a @see tag in the opening class level doc block. It then parses the comma separated list and returns it as a list of strings Note: this method contains a false-positive PMD violation. Normally, we'd want to check for FLS/CRUD here, but for ApexClass a system level object that Admins and users cannot really change we're ok.
 
 #### Parameters
 |Param|Description|
@@ -24,11 +24,11 @@ Inspects the ApexClass body definition for a @see tag in the opening class level
 
 **Type**
 
-List&lt;String&gt;
+List<String>
 
 **Description**
 
-`List&lt;String&gt;`
+`List<String>`
 
 #### Example
 ```java

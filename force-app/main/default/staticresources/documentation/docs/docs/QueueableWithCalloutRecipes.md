@@ -3,7 +3,7 @@ layout: default
 ---
 # QueueableWithCalloutRecipes class
 
-Demmonstrates the use of the Queueable interface to make callouts. The methods in this class are called by the system at run time. To enqueue this job and see it&apos;s results, use `System.enqueueJob(new QueueableWithCalloutRecipes());` More on the Queable interface: https://sfdc.co/queueable-apex
+Demmonstrates the use of the Queueable interface to make callouts. The methods in this class are called by the system at run time. To enqueue this job and see it's results, use `System.enqueueJob(new QueueableWithCalloutRecipes());` More on the Queable interface: https://sfdc.co/queueable-apex
 
 ## Related
 
