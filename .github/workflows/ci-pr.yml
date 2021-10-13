@@ -70,6 +70,7 @@ jobs:
 
             # LWC unit tests
             - name: 'Unit test Lightning Web Components'
+              run: npm run test:unit:coverage
 
             # Upload code coverage data
             - name: 'Upload code coverage for LWC to Codecov.io'
