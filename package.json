@@ -4,9 +4,7 @@
     "version": "1.0.0",
     "description": "A sample app demonstrating various aspects of the Apex programming language and the Salesforce Platform",
     "scripts": {
-        "lint": "npm run lint:lwc && npm run lint:aura",
-        "lint:lwc": "eslint **/lwc/**",
-        "lint:aura": "eslint **/aura/**",
+        "lint": "eslint **/lwc/**/*.js",
         "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prettier:apex:local": "prettier --apex-standalone-parser built-in --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
@@ -25,7 +23,7 @@
         "**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}": [
             "prettier --write"
         ],
-        "**/{aura,lwc}/**": [
+        "**/lwc/**/*.js": [
             "eslint"
         ],
         "**/lwc/**": [
