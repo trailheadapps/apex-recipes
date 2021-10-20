@@ -15,7 +15,7 @@ public class SortableAccount_Tests {
         SortableAccount.sort(accounts);
 
         List<Account> expected = new List<Account>{ a2, a1, a3, a4 };
-        System.assertEquals(accounts, expected);
+        System.assertEquals(expected, accounts);
     }
 
     @isTest
