@@ -1,0 +1,47 @@
+/**
+ * @description Demonstrates how to iterate on lists and sets
+ *
+ * @group Collection Recipes
+ * @see IterableApiClient
+ */
+public with sharing class IterationRecipes {
+    /**
+     * @description Demonstrates how to iterate on a list of SObject thanks to the Iterable and Iterator interfaces.
+     * This example iterates on Accounts to sum the 'number of employees' field values
+     * (use the `SUM` SOQL function for a real-life application).
+     * @param accounts a list of accounts that will be iterated on
+     * @return Integer the total number of employees for the accounts
+     **/
+    public static Integer iterateOnAccountList(List<Account> accounts) {
+        Integer employeeCount = 0;
+        Iterator<Account> it = accounts.iterator();
+        // While the iterator is in use, the account list is locked in read-only mode
+        // any attempt to modify the collection will cause a System.FinalException
+        while (it.hasNext()) {
+            Account acct = it.next();
+            // Do something with the account
+            if (acct.NumberOfEmployees != null) {
+                employeeCount += acct.NumberOfEmployees;
+            }
+        }
+        return employeeCount;
+    }
+
+    /**
+     * @description Demonstrates how to use a REST API client that leverages the Iterator interface.
+     * This example iterates on a paginated record list. Records are represented as strings for simplicity.
+     * Remote records are retrieved on the fly by IterableApiClient when the Iterator is accessed.
+     * @return List<String> the 'records' retrieved
+     **/
+    public static List<String> iterableApiClientRecipe() {
+        List<String> records = new List<String>();
+        IterableApiClient client = new IterableApiClient('myNamedCredential');
+        Iterator<IterableApiClient.RecordPage> responseIt = client.iterator();
+        while (responseIt.hasNext()) {
+            // Calling the Iterator.next() method retrieves a record page with IterableApiClient
+            IterableApiClient.RecordPage page = responseIt.next();
+            records.addAll(page.getRecords());
+        }
+        return records;
+    }
+}

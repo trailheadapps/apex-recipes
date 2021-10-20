@@ -17,7 +17,7 @@ Constructor accepting a named credential.
 #### Parameters
 |Param|Description|
 |-----|-----------|
-|`namedCredential` |  name of the Named Credetial to use |
+|`namedCredential` |  name of the Named Credential to use |
 
 ---
 ## Methods
