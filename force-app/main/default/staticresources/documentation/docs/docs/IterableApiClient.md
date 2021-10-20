@@ -65,7 +65,7 @@ Public class used for JSON deserialization of record page response
 ---
 ### IterableApiClient.RecordPageIterator class
 
-Custom Iterator used to navigate IterableApiClient responses as RecordPage. The iterator keeps track on the iteration state with currentPage and totalRecords. It uses IterableApiClient to perform REST requests to load the record pages. Fun facts: we do not need know how many records are available before iterating.
+Custom Iterator used to navigate IterableApiClient responses as RecordPage. The iterator keeps track on the iteration state with currentPageIndex and totalRecordCount. It uses IterableApiClient to perform REST requests to load the record pages.
 
 ---
 #### Constructors
@@ -75,7 +75,7 @@ Custom Iterator used to navigate IterableApiClient responses as RecordPage. The 
 
 ##### `client` → `IterableApiClient`
 
-##### `currentPage` → `Integer`
+##### `currentPageIndex` → `Integer`
 
 ##### `totalRecordCount` → `Integer`
 
