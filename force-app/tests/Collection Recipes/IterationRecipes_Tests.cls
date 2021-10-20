@@ -4,7 +4,7 @@
  */
 public class IterationRecipes_Tests {
     @isTest
-    private static void iterateOnAccountList_works() {
+    private static void testIterateOnAccountListPositive() {
         List<Account> accounts = new List<Account>{
             new Account(NumberOfEmployees = 2),
             new Account(NumberOfEmployees = 3),
@@ -17,7 +17,7 @@ public class IterationRecipes_Tests {
     }
 
     @isTest
-    private static void iterableApiClientRecipe_works() {
+    private static void testIterableApiClientRecipePositive() {
         // Prepare mocks for REST API calls
         List<HttpResponse> responses = new List<HttpResponse>{
             HttpCalloutMockFactory.generateHttpResponse(
@@ -44,7 +44,7 @@ public class IterationRecipes_Tests {
     }
 
     @isTest
-    private static void iterableApiClientRecipe_fails_when_record_page_request_fails() {
+    private static void testIterableApiClientRecipeNegativeWhenRecordPageRequestFails() {
         HttpCalloutMockFactory mockHttp = new HttpCalloutMockFactory(
             500,
             'error',
@@ -57,9 +57,12 @@ public class IterationRecipes_Tests {
             Test.startTest();
             IterationRecipes.iterableApiClientRecipe();
             System.assert(false, 'Expected IterableApiException');
-        } catch (Exception e) {
+        } catch (Exception baseException) {
+            // Ensure that we caught our custom IterableApiException exception.
+            // The catch clause is voluntarily kept generic with Exception as other exceptions could be triggered.
+            // We use the instanceof operator to check that baseException is an instance of IterableApiException.
             System.assert(
-                e instanceof IterableApiClient.IterableApiException,
+                baseException instanceof IterableApiClient.IterableApiException,
                 'Expected an instance of IterableApiException'
             );
         } finally {

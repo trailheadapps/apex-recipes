@@ -9,7 +9,7 @@ public class SortableAccount_Tests {
     private final static Account a4 = new Account(ShippingCountry = 'C');
 
     @isTest
-    private static void sort_works() {
+    private static void testSortPositive() {
         List<Account> accounts = new List<Account>{ a4, a2, a3, a1 };
 
         SortableAccount.sort(accounts);
@@ -19,7 +19,7 @@ public class SortableAccount_Tests {
     }
 
     @isTest
-    private static void compareTo_fails_when_incompatible_type() {
+    private static void testCompareToFailsWhenIncompatibleType() {
         SortableAccount sa1 = new SortableAccount(a1);
         Integer i = 1;
 
