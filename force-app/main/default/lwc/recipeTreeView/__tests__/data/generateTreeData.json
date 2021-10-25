@@ -285,5 +285,18 @@
         ],
         "label": "  Integration Recipes",
         "name": "  Integration Recipes"
+    },
+    {
+        "expanded": false,
+        "items": [
+            {
+                "expanded": false,
+                "items": [],
+                "label": "EncryptionRecipes",
+                "name": "EncryptionRecipes"
+            }
+        ],
+        "label": "Encryption Recipes",
+        "name": "Encryption Recipes"
     }
 ]
