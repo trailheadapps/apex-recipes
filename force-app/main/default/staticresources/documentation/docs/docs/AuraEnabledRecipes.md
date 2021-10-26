@@ -32,7 +32,7 @@ System.debug(AuraEnabledRecipes.getFieldValue());
 
 ### `updateAccountName(Id accountId, String newValue)` → `Boolean`
 
-Updates a given account&apos;s name. Demonstrates how to receive information from an Aura or LWC component and use it to update an account. Note: This method contains a false-positive PMD warning. PMD is not aware of what CanTheUser is doing, and it falsely assumes that this code does not check for FSL / CRUD before querying. Additionally, this query contains &apos;WITH SECUIRTY_ENFORCED&apos; a form of inline FLS/CRUD checking.
+Updates a given account's name. Demonstrates how to receive information from an Aura or LWC component and use it to update an account. Note: This method contains a false-positive PMD warning. PMD is not aware of what CanTheUser is doing, and it falsely assumes that this code does not check for FSL / CRUD before querying. Additionally, this query contains 'WITH SECUIRTY_ENFORCED' a form of inline FLS/CRUD checking.
 
 #### Parameters
 |Param|Description|

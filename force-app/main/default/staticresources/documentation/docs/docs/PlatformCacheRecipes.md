@@ -3,7 +3,7 @@ layout: default
 ---
 # PlatformCacheRecipes class
 
-Illustrates how to programatically use the Platform Cache feature of Salesforce. Many of these recipes are, taken together, not very DRY (don&apos;t repeat yourself). However, they&apos;re intentionally listed here as a way of repeatedly demonstrating Platform Cache functionality
+Illustrates how to programatically use the Platform Cache feature of Salesforce. Many of these recipes are, taken together, not very DRY (don't repeat yourself). However, they're intentionally listed here as a way of repeatedly demonstrating Platform Cache functionality
 
 ---
 ## Enums

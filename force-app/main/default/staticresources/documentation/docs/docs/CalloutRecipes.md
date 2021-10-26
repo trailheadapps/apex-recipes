@@ -23,17 +23,17 @@ Constructor accepting a named credential.
 ## Methods
 ### `httpCalloutWithUntypedResponse()` → `Map<String, Object>`
 
-Now that we have demonstrated how to callout to an endpoint, lets take a look at what else we can do with the response. When calling out to an external endpoint, the data may not always be in a format that can be directly deserialised into a Salesforce Object. If your callout returns untyped JSON, you can deserialize this into a Map&lt;String, Object&gt; by using a deserializeUntyped method to convert the string.
+Now that we have demonstrated how to callout to an endpoint, lets take a look at what else we can do with the response. When calling out to an external endpoint, the data may not always be in a format that can be directly deserialised into a Salesforce Object. If your callout returns untyped JSON, you can deserialize this into a Map<String, Object> by using a deserializeUntyped method to convert the string.
 
 #### Return
 
 **Type**
 
-Map&lt;String, Object&gt;
+Map<String, Object>
 
 **Description**
 
-Map&lt;String, Object&gt;
+Map<String, Object>
 
 #### Example
 ```java
@@ -73,11 +73,11 @@ Demonstrates a GET request to a second Salesforce org. A Get request is used to 
 
 **Type**
 
-List&lt;Account&gt;
+List<Account>
 
 **Description**
 
-List&lt;Account&gt;
+List<Account>
 
 #### Example
 ```java
@@ -161,7 +161,7 @@ System.debug(CalloutRecipes.httpPutCalloutToSecondOrg(contacts));
 
 ### `insertAccountAndContactsFromUntypedResponse(String untypedResponse)` → `void`
 
-As seen in the httpCalloutWithUntypedResponse method, we don&apos;t always get a perfect datastructure back from our callout. In this case, we have received and account and it&apos;s contacts that need to be inserted into Salesforce. Check out the Test class for an example of an untyped data structure.
+As seen in the httpCalloutWithUntypedResponse method, we don't always get a perfect datastructure back from our callout. In this case, we have received and account and it's contacts that need to be inserted into Salesforce. Check out the Test class for an example of an untyped data structure.
 
 #### Parameters
 |Param|Description|
