@@ -9,17 +9,17 @@ public class SortableAccount_Tests {
     private final static Account a4 = new Account(ShippingCountry = 'C');
 
     @isTest
-    private static void sort_works() {
+    private static void testSortPositive() {
         List<Account> accounts = new List<Account>{ a4, a2, a3, a1 };
 
         SortableAccount.sort(accounts);
 
         List<Account> expected = new List<Account>{ a2, a1, a3, a4 };
-        System.assertEquals(accounts, expected);
+        System.assertEquals(expected, accounts);
     }
 
     @isTest
-    private static void compareTo_fails_when_incompatible_type() {
+    private static void testCompareToFailsWhenIncompatibleType() {
         SortableAccount sa1 = new SortableAccount(a1);
         Integer i = 1;
 

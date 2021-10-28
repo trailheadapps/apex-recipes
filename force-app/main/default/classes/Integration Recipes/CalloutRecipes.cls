@@ -13,7 +13,7 @@ public with sharing class CalloutRecipes extends RestClient {
 
     /**
      * @description Constructor accepting a named credential.
-     * @param  namedCredential name of the Named Credetial to use
+     * @param namedCredential name of the Named Credential to use
      */
     public CalloutRecipes(String namedCredential) {
         super(namedCredential);
