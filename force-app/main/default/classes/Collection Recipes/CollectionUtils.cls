@@ -1,6 +1,6 @@
 /**
  * @description Library of generic, type safe collection methods.
- * @group Shared Code
+ * @group Collection Recipes
  */
 public with sharing class CollectionUtils {
     /**
