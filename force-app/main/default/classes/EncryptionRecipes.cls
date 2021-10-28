@@ -3,44 +3,46 @@
  * @group Encryption Recipes
  */
 public with sharing class EncryptionRecipes {
+    // Keys are here for testing purposes. NEVER DO THIS!!!
+    // Use an approved secrets management solution like Shield Platform Encryption
     public static final Blob AES_KEY = Crypto.generateAESKey(256);
     public static final Blob HMAC_KEY = Blob.valueOf('HMAC super secret key!');
     public static final Blob DIGITAL_SIGNATURE_PRIVATE_KEY = EncodingUtil.base64Decode(
-        'MIIrvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDIxM3n2w5utLyI\n' +
-        'Umd4otfyrEYwl3s7E9j3yI2DrcCo3ZcRtX5I3bZYxeq9XzWH6+PzjeOBz+f5LtLN\n' +
-        'zMijhuR/mYITzBg3an6U87Lkyg4E5+nDat8NPwAiH04TldNl/oM231GUzo4YGl0g\n' +
-        'C6FBlsOEoU+UaZtC2QdKxKH7GFe9Ny4+YKRc8b/soK5gdFzJ12PFeWnfPrLaP415\n' +
-        'mNn2peUOhek4Zni5Xld6yzi9A5jdiLt8ZB+jggCID+zF2y1v9IQQywg4K6HIczLG\n' +
-        '65I0OXZSOu3pe0td226M72icVILXIYcjATvV7cFRXcka7/8ScNwW5pXX3gNmVp7z\n' +
-        'FlWTaVYxAgMBAAECggEBALoKLGdSBNCvKBkGix0tgQA9hRkX9bgrzxzkucWwZ1vT\n' +
-        'Yl6lmKz6zjL6y2fJ5vfZrbSN4ajzuBieu/a6cZ2erPRUkkW4FSScyUlLfZUmatE+\n' +
-        '+c38pU5H996mtZnOd0MHEh3x2E4VDXTmUS8Vt8roYqrvM6fqKFZMd8Zf6V2dFAif\n' +
-        'iMmUpYYivK7ZOGjvxmP4jBcVoK5pqAPW3QvBFKgq3KwfUrV8IXRNRkcnmS1vWWdh\n' +
-        'uBdESANgTOco2r5l7KHWSQOsqabZ7P4vt1TNg5RCtzAcaotPQgSK899sTNhcJ6Gv\n' +
-        'Hq0digaaWSMGxDKaDM3eGRnU1mIIcALMKJ6CFwjAcQUCgYEA9uIPhc1NA1T5KxY3\n' +
-        '7REmFnfVKyNSuNJ9Rgu6Wz+/rQQrDis1qIouH/9O0UDTGzch5SRRrOTu1b3zXtqG\n' +
-        'GrFnIKfIwTOv1X7vIIyg/6St1UYrkDnghpLSv69evXKNRz6jEjoAFHe12BcZkDWp\n' +
-        'GkXTUpPqQb5G+o/kIcnIYIC5TDcCgYEA0C7L76CRQxeecb+z9+LAGRI68J4O4Pi6\n' +
-        'JMi1EWpNae0XXfaN7J/HqJOrpkuP3siUfik+yyb7VpCjniXOY7Yje/YM/eCXP+mJ\n' +
-        'G0JcPfdOtbHysrmxZmw1H/KR6Tl2xLIGFlTUoBokPANizwCB96NynZcTpcD1/unc\n' +
-        '5L2Ud4MmTNcCgYAhlWDNL79BK8b1UIFtEz8eIVDzHEv9bkyyQZgpH4Pgcke1FrWm\n' +
-        '5p0dpyo+ltXgxuAqfoVJwp6mnr9DcPB7IxTHQWuytGg/35OB1v9zpyAqefAlH2pm\n' +
-        'hAR9JMr7dGC5h1DBgvhN0HcBHStSDaqiM0tq2UothUe8f+RloEBMuFX8gwKBgHCy\n' +
-        'xKfmTnz5jkaZtr1cvQ1Vdx7HEdrsCyjallrlJx9OwDWXwWD1Zkp2Fpghk7LQ9sIN\n' +
-        'ZfboFWvZRRnZ8Y69DRyQKJxPNtHchOKC3BiXhr6JpI7oQ4bk0SWIVUDiYM8+aFky\n' +
-        'dyBsxmzOkHDrH3CFxQhWvsYeXY0v4OrbTkIcd2FlAoGBAN7Z4YfQiPBAWXwLS0HX\n' +
-        'sc91GT/SifrX672TAQRPEv26uGXg27Vf7gJR53nXQo5MzQDAeuTkXmjwTt7rMUX4\n' +
-        'UyLhd8myC6T6CzJukae/74cCTQ1bgmzwsVQgKVjGrFTLBND7uzhx8A5UJUNUX2qG\n' +
-        'bzZat8b4jWDn5y0cImr3xbC/'
+        'MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCS7LXFvLFELXwy\n' +
+        '8DyWjb+7QneZZsrzKnIHg8M5MTSTF3Iawhk/9GSKNUbGW8y0XzgrkNUmfuwL+5pT\n' +
+        'HM/BQWToa8+QCIkCxPPJsw8N6gs/u7NYhD/Tv72HhBOoQNU5V45n/TSMmAMRjAnF\n' +
+        'VxPMMfBCmJadVj7rf5CLrfWRtpeCpot5iyeaqoLLcsgfuaDPtCCeFULwkVzPb1Zo\n' +
+        'KN7M790Aq9Tgez263dwyDw9wkmLinV6KBbnDBNEw0YZs/Zkzbo67MprJKjbCGRfs\n' +
+        'zoezW/qmipFChAUc7Pjq97wgM5WOh/M+HsR6uBiPxdyMKq4EfW56ne7PJdnKXfhm\n' +
+        'rYK77fyDAgMBAAECggEAOAkFjqPXq9v5KWhMg1MOk/nWqW/16WX/1XPgahilJ5Bi\n' +
+        'mWf7v1OTYM7O7mommYhTYPI9CRCRMETGZ/puFhO9y5MKt7E5qA+7tuqOzEy9+5G3\n' +
+        '5gOSYE0ZmOy7nokTiWomSuzcNN7pFLEnLNd4GoHVU2Dk2J8DIkgltdAj/233PQF0\n' +
+        'fYsYzjzXg/2keSzMCR7AK7qr+lg/wxjJj3H/4OcCHWvrB3Wqh9DGAXkIOQi+0aWs\n' +
+        'Ih6eO/bC38Ym3WaSX8X55Hm6FNU3I6T+s+uUCZiVsgLuRrFxI8VJ0swutvS19TEC\n' +
+        'vm3+FvXu9HFrNSRRvEUT5SQH7IkV3RCjybdIisoceQKBgQD+RK7uMqonDuMZF8Qj\n' +
+        'MtwIspODT2Gov/YIKLdETg8wWvmszJuQEV1yGRGbbU2Cf6lhBsUszzL2V/vQSDBP\n' +
+        'VNh4E7uGtTwr6oF3nUo0YU0okzsvEiRWkfvx1J97H8Dm8fsaM+AzGjbR4L62O1oc\n' +
+        'ibFsyOYMEHCQ10EyGDay20fCjwKBgQCT7N+Ew4nHR6BNQypbpAFoKVb11JQgJCg7\n' +
+        'rTZZlR/gvoB3vyT3Rus1yfjmCWzCs3iWChddGxkZp/Bir5ZiG98BS3w22AgEN4x1\n' +
+        'dXC4/ddl3LFtgAIxsKNbLHJwBYYPmC/5PIu55R5pFTghdyfSUOiphKdvs1Giz9Vo\n' +
+        '2Bs0We3QzQKBgAxmVRGQrvOQqkqC+jGtPUW/T6pLqLuOAPWM5sMR+3OkPCDNKZjw\n' +
+        '/9mcl1s5DVqb1yrAJcV1pUqWJ9WUb6auwI+6hp6fH/wUR5QJu6CqThT4eR5miBcg\n' +
+        'r2SvtcdPWRzqGBDDDt/vG1VI3IQOiOpzXI+tjGpyMssddDR5MdGvF+TJAoGAKWgv\n' +
+        '9TDrG05Qb/AyJi7VefvAbNXRlOGqJXJJ+W+F2dpZiauGxHUkmAzuUC4pNKMaSR2Q\n' +
+        'Bq70KrtYzbcK6HGWzfz8SznTnKKT/bkfEZl0tv286MLhWllwkK/zZKoXKbxXCXRK\n' +
+        'RIH/LjkTWkLJcdTWG8WXPOw8GNAGk++SReg6aq0CgYEAmIcjQgyOgr1SPPAPHBCD\n' +
+        'UVKIYJEI3j/7b4HUIOJ1IU1la1g2Vr5SKPn+GziMFhFcBjx6LlJxAkJQlOgBOnkO\n' +
+        'cHC3etOoAsrrRh4LPzZ6CXQeSRjilQnzaCdq2CIu+f8UqVWbwPtb3K/aQAX905Ck\n' +
+        'qC9DNbUBwQx01n161Nm6Wsg='
     );
     public static final Blob DIGITAL_SIGNATURE_PUBLIC_KEY = EncodingUtil.base64Decode(
-        'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyMTN59sObrS8iFJneKLX\n' +
-        '8qxGMJd7OxPY98iNg63AqN2XEbV+SN22WMXqvV81h+vj843jgc/n+S7SzczIo4bk\n' +
-        'f5mCE8wYN2p+lPOy5goOBOfpw2rfDT8AIhdOE5XTZf6DNt9RlM6OGBpdIAuhQZbD\n' +
-        'hKFPlGmbQtkHSsSh+xhXvTcuPmCkXPG/7KCuYHRcyddjxXlp3z6y2j+NeZjZ9qXl\n' +
-        'DoXpOGZ4uV5Xess4vQOY3Yi7fGQfo4IAiA/sxdstb/SEEMsIOCuhyHMyxuuSNDl2\n' +
-        'Ujrt6XtLXdtujO9onFSC1yGHIwE71e3BUV3JGu//EnDcFuaV194DZlae8xZVk2lW\n' +
-        'MQIDAQAB'
+        'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkuy1xbyxRC18MvA8lo2/\n' +
+        'u0J3mWbK8ypyB4PDOTE0kxdyGsIZP/RkijVGxlvMtF84K5DVJn7sC/uaUxzPwUFk\n' +
+        '6GvPkAiJAsTzybMPDeoLP7uzWIQ/07+9h4QTqEDVOVeOZ/00jJgDEYwJxVcTzDHw\n' +
+        'QpiWnVY+63+Qi631kbaXgqaLeYsnmqqCy3LIH7mgz7QgnhVC8JFcz29WaCjezO/d\n' +
+        'AKvU4Hs9ut3cMg8PcJJi4p1eigW5wwTRMNGGbP2ZM26OuzKaySo2whkX7M6Hs1v6\n' +
+        'poqRQoQFHOz46ve8IDOVjofzPh7EergYj8XcjCquBH1uep3uzyXZyl34Zq2Cu+38\n' +
+        'gwIDAQAB'
     );
 
     public enum AESAlgorithm {
@@ -239,7 +241,7 @@ public with sharing class EncryptionRecipes {
     }
 
     /**
-     * @description Generates one-way HMAC (encrypted with a symmetric key) that can be checked in destination to ensure integrity and authenticity.
+     * @description Generates one-way HMAC (using a symmetric key) that can be checked in destination to ensure integrity and authenticity.
      * @param dataToHmac Blob that contains some data for which to generate an HMAC
      * @return Blob
      * @example
@@ -258,7 +260,7 @@ public with sharing class EncryptionRecipes {
     }
 
     /**
-     * @description Recomputes HMAC for and compares it with the received one, throwing an exception if they're not equal.
+     * @description Recomputes HMAC using the symmetric key and compares it with the received one, throwing an exception if they're not equal.
      * @param hmac Blob that contains the received hmac
      * @param dataToCheck Blob that contains the data to check the hmac for
      * @return void
