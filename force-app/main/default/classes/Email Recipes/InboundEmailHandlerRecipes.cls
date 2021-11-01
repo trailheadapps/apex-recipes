@@ -1,5 +1,6 @@
 /**
  * @description Demonstrates inboundEmailHandler
+ * Inbound email address: arinbound@75eb587mjq0etxe2n8j5gpc7o7pwrxu0zs1sxyglm4dqsf2ex.1h-hbd9eag.cs79.apex.sandbox.salesforce.com
  */
 public inherited sharing class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler {
     /**
@@ -35,6 +36,10 @@ public inherited sharing class InboundEmailHandlerRecipes implements Messaging.I
         if (!result.success) {
             result.message = errorMessage;
         }
+        // insert email message
+        // create an email record (email object) from email
+        //  - associate that email with a contact(sender)
+        // handle attachment(s)
 
         return result;
     }

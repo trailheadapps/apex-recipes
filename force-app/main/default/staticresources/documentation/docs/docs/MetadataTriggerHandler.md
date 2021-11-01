@@ -13,6 +13,10 @@ This class exists as a unified, trigger handler class. It uses Custom Metadata, 
 ## Constructors
 ### `MetadataTriggerHandler()`
 
+This determines the active sObject type by describing the first record in the trigger New / Old list
+
+#### Return
+
 Constructor used by live triggers.
 ### `MetadataTriggerHandler(MetadataTriggerService mts)`
 ---
