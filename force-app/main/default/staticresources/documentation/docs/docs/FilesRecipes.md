@@ -47,6 +47,25 @@ Account acct = [SELECT id FROM Account LIMIT 1];
 System.debug('Look for files assoicated with account: ' + acct.id);
 ```
 
+### `createFileAttachedToRecord(FilesRecipes.FileAndLinkObject toCreate)` → `Database.SaveResult`
+
+Convenience method for creating a file and linking it to a given record
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`toCreate` |  a FileAndLinkObject (inner class above) object representing the file to be created and linked |
+
+#### Return
+
+**Type**
+
+Database.SaveResult
+
+**Description**
+
+`Database.SaveResult`
+
 ### `createFileFromStringAttachedToRecord(String text,Id firstLocation)` → `void`
 
 creates a file attachment containing the given string and links it to the object specified in firstLocation
@@ -63,6 +82,25 @@ Account acct = [SELECT id FROM Account LIMIT 1];
 FilesRecipes.createFileFromStringAttachedToRecord('Hello World', acct.Id);
 System.debug('Look for files assoicated with account: ' + acct.id);
 ```
+
+### `createFilesAttachedToRecords(List<FilesRecipes.FileAndLinkObject> toCreate)` → `List<Database.SaveResult>`
+
+Bulk method for inserting multiple files and link them to records
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`toCreate` |  List&lt;FilesRecipes.FileAndLinkObject&gt; |
+
+#### Return
+
+**Type**
+
+List&lt;Database.SaveResult&gt;
+
+**Description**
+
+`List&lt;Database.SaveResult&gt;`
 
 ### `getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType genericFileType,Id recordId)` → `List<ContentVersion>`
 
@@ -121,6 +159,20 @@ System.debug('Found the following ContentVersion Ids: ' + FilesRecipes.getFilter
 ---
 ## Inner Classes
 
+### FilesRecipes.FileAndLinkObject class
+
+ An inner class representing a file to be created and linked to a given record. Useful for bulk-creating files and linking them.
+
+---
+#### Properties
+
+##### `attachedTo` → `Id`
+
+##### `fileContents` → `Blob`
+
+##### `fileName` → `String`
+
+---
 ### FilesRecipes.FilesRecipesException class
 
 Internal exception class
