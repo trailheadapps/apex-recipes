@@ -14,6 +14,16 @@ public with sharing class FilesRecipes {
     }
 
     /**
+     * An inner class representing a file to be created and linked to a given record.
+     * Useful for bulk-creating files and linking them.
+     */
+    public class FileAndLinkObject {
+        public Blob fileContents { get; set; }
+        public Id attachedTo { get; set; }
+        public String fileName { get; set; }
+    }
+
+    /**
      * @description Internal exception class
      */
     public class FilesRecipesException extends Exception {
