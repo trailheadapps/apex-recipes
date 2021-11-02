@@ -7,12 +7,14 @@ private with sharing class EncryptionRecipesTest {
         Blob dataToEncrypt = Blob.valueOf(toEncrypt);
 
         // WHEN
+        Test.startTest();
         Blob encryptedData = EncryptionRecipes.encryptWithManagedIVRecipe(
             dataToEncrypt
         );
         Blob decryptedData = EncryptionRecipes.decryptWithManagedIVRecipe(
             encryptedData
         );
+        Test.stopTest();
 
         // THEN
         System.assertEquals(
@@ -30,11 +32,13 @@ private with sharing class EncryptionRecipesTest {
         Blob initializationVector = EncryptionRecipes.generateInitializationVector();
 
         // WHEN
+        Test.startTest();
         Blob encryptedData = EncryptionRecipes.encryptRecipe(
             dataToEncrypt,
             initializationVector
         );
         Blob decryptedData = EncryptionRecipes.decryptRecipe(encryptedData);
+        Test.stopTest();
 
         // THEN
         System.assertEquals(
@@ -51,8 +55,10 @@ private with sharing class EncryptionRecipesTest {
         Blob dataToHash = Blob.valueOf(toHash);
 
         // WHEN
+        Test.startTest();
         Blob hash = EncryptionRecipes.generateHashRecipe(dataToHash);
         EncryptionRecipes.checkHashRecipe(hash, dataToHash);
+        Test.stopTest();
 
         // THEN
         System.assert(true, 'No error was expected');
@@ -65,12 +71,14 @@ private with sharing class EncryptionRecipesTest {
         Blob dataToHash = Blob.valueOf(toHash);
 
         // WHEN
+        Test.startTest();
         Blob hash = EncryptionRecipes.generateHashRecipe(dataToHash);
         try {
             EncryptionRecipes.checkHashRecipe(
                 hash,
                 Blob.valueOf('Corrupted data')
             );
+            Test.stopTest();
             System.assert(false, 'An exception was expected');
         } catch (Exception e) {
             // THEN
@@ -88,8 +96,10 @@ private with sharing class EncryptionRecipesTest {
         Blob dataToHmac = Blob.valueOf(toHmac);
 
         // WHEN
+        Test.startTest();
         Blob hmac = EncryptionRecipes.generateHMACRecipe(dataToHmac);
         EncryptionRecipes.checkHMACRecipe(hmac, dataToHmac);
+        Test.stopTest();
 
         // THEN
         System.assert(true, 'No error was expected');
@@ -102,12 +112,14 @@ private with sharing class EncryptionRecipesTest {
         Blob dataToHmac = Blob.valueOf(toHmac);
 
         // WHEN
+        Test.startTest();
         Blob hmac = EncryptionRecipes.generateHMACRecipe(dataToHmac);
         try {
             EncryptionRecipes.checkHMACRecipe(
                 hmac,
                 Blob.valueOf('Corrupted data')
             );
+            Test.stopTest();
             System.assert(false, 'An exception was expected');
         } catch (Exception e) {
             // THEN
@@ -125,10 +137,12 @@ private with sharing class EncryptionRecipesTest {
         Blob dataToSign = Blob.valueOf(toSign);
 
         // WHEN
+        Test.startTest();
         Blob signature = EncryptionRecipes.generateDigitalSignatureRecipe(
             dataToSign
         );
         EncryptionRecipes.checkDigitalSignatureRecipe(signature, dataToSign);
+        Test.stopTest();
 
         // THEN
         System.assert(true, 'No error was expected');
@@ -141,6 +155,7 @@ private with sharing class EncryptionRecipesTest {
         Blob dataToSign = Blob.valueOf(toSign);
 
         // WHEN
+        Test.startTest();
         Blob signature = EncryptionRecipes.generateDigitalSignatureRecipe(
             dataToSign
         );
@@ -149,6 +164,7 @@ private with sharing class EncryptionRecipesTest {
                 signature,
                 Blob.valueOf('Corrupted data')
             );
+            Test.stopTest();
             System.assert(false, 'An exception was expected');
         } catch (Exception e) {
             // THEN
@@ -166,6 +182,7 @@ private with sharing class EncryptionRecipesTest {
         Blob dataToEncryptAndSign = Blob.valueOf(toEncryptAndSign);
 
         // WHEN
+        Test.startTest();
         EncryptionRecipes.EncryptedAndSignedData wrapper = EncryptionRecipes.encryptAndGenerateDigitalSignatureRecipe(
             dataToEncryptAndSign
         );
@@ -173,6 +190,7 @@ private with sharing class EncryptionRecipesTest {
             wrapper.signature,
             wrapper.encryptedData
         );
+        Test.stopTest();
 
         // THEN
         System.assertEquals(
@@ -189,6 +207,7 @@ private with sharing class EncryptionRecipesTest {
         Blob dataToEncryptAndSign = Blob.valueOf(toEncryptAndSign);
 
         // WHEN
+        Test.startTest();
         EncryptionRecipes.EncryptedAndSignedData wrapper = EncryptionRecipes.encryptAndGenerateDigitalSignatureRecipe(
             dataToEncryptAndSign
         );
@@ -197,6 +216,7 @@ private with sharing class EncryptionRecipesTest {
                 wrapper.signature,
                 Blob.valueOf('Encrypted and Corrupted data')
             );
+            Test.stopTest();
             System.assert(false, 'An exception was expected');
         } catch (Exception e) {
             // THEN

@@ -60,7 +60,7 @@ try {
 
 ### `checkHMACRecipe(Blob hmac, Blob dataToCheck)` → `void`
 
-Recomputes HMAC for and compares it with the received one, throwing an exception if they're not equal.
+Recomputes HMAC using the symmetric key and compares it with the received one, throwing an exception if they're not equal.
 
 #### Parameters
 |Param|Description|
@@ -276,7 +276,7 @@ System.debug(EncodingUtil.base64Encode(signature));
 
 ### `generateHMACRecipe(Blob dataToHmac)` → `Blob`
 
-Generates one-way HMAC (encrypted with a symmetric key) that can be checked in destination to ensure integrity and authenticity.
+Generates one-way HMAC (using a symmetric key) that can be checked in destination to ensure integrity and authenticity.
 
 #### Parameters
 |Param|Description|
