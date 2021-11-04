@@ -173,20 +173,6 @@ System.debug('Found the following ContentVersion Ids: ' + FilesRecipes.getFilter
 ##### `fileName` → `String`
 
 ---
-### FilesRecipes.FileAndLinkObject class
-
- An inner class representing a file to be created and linked to a given record. Useful for bulk-creating files and linking them.
-
----
-#### Properties
-
-##### `attachedTo` → `Id`
-
-##### `fileContents` → `Blob`
-
-##### `fileName` → `String`
-
----
 ### FilesRecipes.FilesRecipesException class
 
 Internal exception class
