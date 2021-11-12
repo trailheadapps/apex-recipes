@@ -6,7 +6,7 @@
 
 # Standard metadata
 package.xml
-**/appMenu/**
+**/appMenus/**
 **/appSwitcher/**
 **/objectTranslations/**
 **/profiles/**
