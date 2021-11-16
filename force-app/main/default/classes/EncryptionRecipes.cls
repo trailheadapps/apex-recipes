@@ -235,7 +235,7 @@ public with sharing class EncryptionRecipes {
         );
 
         // recomputedHash and hash should  be identical!
-        if (hash != recomputedHash) {
+        if (!areEqualConstantTime(hash, recomputedHash)) {
             throw new CryptographicException('Wrong hash!');
         }
     }
@@ -410,5 +410,26 @@ public with sharing class EncryptionRecipes {
             AES_KEY,
             dataToDecryptAndCheck
         );
+    }
+    /**
+     * Comparisons which involve cryptography need to be performed in constant time
+     * using specialized functions to avoid timing attack effects.
+     * https://en.wikipedia.org/wiki/Timing_attack
+     */
+    public static boolean areEqualConstantTime(Blob a, Blob b) {
+        if (a.size() != b.size()) {
+            return false;
+        }
+
+        String aBase64 = EncodingUtil.base64Encode(a);
+        String bBase64 = EncodingUtil.base64Encode(b);
+        Integer[] aChars = aBase64.getChars();
+        Integer[] bChars = bBase64.getChars();
+
+        Integer result = 0;
+        for (Integer i = 0; i < aChars.size(); i++) {
+            result |= aChars[i] ^ bChars[i];
+        }
+        return result == 0;
     }
 }

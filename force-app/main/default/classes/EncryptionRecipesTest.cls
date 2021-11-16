@@ -17,9 +17,11 @@ private with sharing class EncryptionRecipesTest {
         Test.stopTest();
 
         // THEN
-        System.assertEquals(
-            toEncrypt,
-            decryptedData.toString(),
+        System.assert(
+            EncryptionRecipes.areEqualConstantTime(
+                dataToEncrypt,
+                decryptedData
+            ),
             'Decrypted data does not match'
         );
     }
@@ -41,9 +43,11 @@ private with sharing class EncryptionRecipesTest {
         Test.stopTest();
 
         // THEN
-        System.assertEquals(
-            toEncrypt,
-            decryptedData.toString(),
+        System.assert(
+            EncryptionRecipes.areEqualConstantTime(
+                dataToEncrypt,
+                decryptedData
+            ),
             'Decrypted data does not match'
         );
     }
@@ -193,9 +197,11 @@ private with sharing class EncryptionRecipesTest {
         Test.stopTest();
 
         // THEN
-        System.assertEquals(
-            toEncryptAndSign,
-            decryptedData.toString(),
+        System.assert(
+            EncryptionRecipes.areEqualConstantTime(
+                dataToEncryptAndSign,
+                decryptedData
+            ),
             'Encrypted and decrypted values do not match'
         );
     }
