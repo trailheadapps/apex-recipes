@@ -358,6 +358,10 @@ Internal custom exception class
 
 ---
 #### Methods
+##### `areEqualConstantTime(Blob a, Blob b)` → `boolean`
+
+ Comparisons which involve cryptography need to be performed in constant time using specialized functions to avoid timing attack effects. https://en.wikipedia.org/wiki/Timing_attack
+
 ##### `decryptAndCheckDigitalSignatureRecipe(Blob signature,Blob dataToDecryptAndCheck)` → `Blob`
 
 Decrypts the message and verifies its Digital Signature.

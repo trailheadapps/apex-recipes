@@ -8,10 +8,10 @@ private with sharing class EncryptionRecipesTest {
 
         // WHEN
         Test.startTest();
-        Blob encryptedData = EncryptionRecipes.encryptWithManagedIVRecipe(
+        Blob encryptedData = EncryptionRecipes.encryptAES256WithManagedIVRecipe(
             dataToEncrypt
         );
-        Blob decryptedData = EncryptionRecipes.decryptWithManagedIVRecipe(
+        Blob decryptedData = EncryptionRecipes.decryptAES256WithManagedIVRecipe(
             encryptedData
         );
         Test.stopTest();
@@ -35,11 +35,13 @@ private with sharing class EncryptionRecipesTest {
 
         // WHEN
         Test.startTest();
-        Blob encryptedData = EncryptionRecipes.encryptRecipe(
+        Blob encryptedData = EncryptionRecipes.encryptAES256Recipe(
             dataToEncrypt,
             initializationVector
         );
-        Blob decryptedData = EncryptionRecipes.decryptRecipe(encryptedData);
+        Blob decryptedData = EncryptionRecipes.decryptAES256Recipe(
+            encryptedData
+        );
         Test.stopTest();
 
         // THEN
@@ -60,8 +62,8 @@ private with sharing class EncryptionRecipesTest {
 
         // WHEN
         Test.startTest();
-        Blob hash = EncryptionRecipes.generateHashRecipe(dataToHash);
-        EncryptionRecipes.checkHashRecipe(hash, dataToHash);
+        Blob hash = EncryptionRecipes.generateSHA512HashRecipe(dataToHash);
+        EncryptionRecipes.checkSHA512HashRecipe(hash, dataToHash);
         Test.stopTest();
 
         // THEN
@@ -76,9 +78,9 @@ private with sharing class EncryptionRecipesTest {
 
         // WHEN
         Test.startTest();
-        Blob hash = EncryptionRecipes.generateHashRecipe(dataToHash);
+        Blob hash = EncryptionRecipes.generateSHA512HashRecipe(dataToHash);
         try {
-            EncryptionRecipes.checkHashRecipe(
+            EncryptionRecipes.checkSHA512HashRecipe(
                 hash,
                 Blob.valueOf('Corrupted data')
             );
@@ -101,8 +103,8 @@ private with sharing class EncryptionRecipesTest {
 
         // WHEN
         Test.startTest();
-        Blob hmac = EncryptionRecipes.generateHMACRecipe(dataToHmac);
-        EncryptionRecipes.checkHMACRecipe(hmac, dataToHmac);
+        Blob hmac = EncryptionRecipes.generateHMACSHA512Recipe(dataToHmac);
+        EncryptionRecipes.checkHMACSHA512Recipe(hmac, dataToHmac);
         Test.stopTest();
 
         // THEN
@@ -117,9 +119,9 @@ private with sharing class EncryptionRecipesTest {
 
         // WHEN
         Test.startTest();
-        Blob hmac = EncryptionRecipes.generateHMACRecipe(dataToHmac);
+        Blob hmac = EncryptionRecipes.generateHMACSHA512Recipe(dataToHmac);
         try {
-            EncryptionRecipes.checkHMACRecipe(
+            EncryptionRecipes.checkHMACSHA512Recipe(
                 hmac,
                 Blob.valueOf('Corrupted data')
             );
@@ -142,10 +144,13 @@ private with sharing class EncryptionRecipesTest {
 
         // WHEN
         Test.startTest();
-        Blob signature = EncryptionRecipes.generateDigitalSignatureRecipe(
+        Blob signature = EncryptionRecipes.generateRSASHA512DigitalSignatureRecipe(
             dataToSign
         );
-        EncryptionRecipes.checkDigitalSignatureRecipe(signature, dataToSign);
+        EncryptionRecipes.checkRSASHA512DigitalSignatureRecipe(
+            signature,
+            dataToSign
+        );
         Test.stopTest();
 
         // THEN
@@ -160,11 +165,11 @@ private with sharing class EncryptionRecipesTest {
 
         // WHEN
         Test.startTest();
-        Blob signature = EncryptionRecipes.generateDigitalSignatureRecipe(
+        Blob signature = EncryptionRecipes.generateRSASHA512DigitalSignatureRecipe(
             dataToSign
         );
         try {
-            EncryptionRecipes.checkDigitalSignatureRecipe(
+            EncryptionRecipes.checkRSASHA512DigitalSignatureRecipe(
                 signature,
                 Blob.valueOf('Corrupted data')
             );
@@ -187,10 +192,10 @@ private with sharing class EncryptionRecipesTest {
 
         // WHEN
         Test.startTest();
-        EncryptionRecipes.EncryptedAndSignedData wrapper = EncryptionRecipes.encryptAndGenerateDigitalSignatureRecipe(
+        EncryptionRecipes.EncryptedAndSignedData wrapper = EncryptionRecipes.encryptAES256AndGenerateRSASHA512DigitalSignRecipe(
             dataToEncryptAndSign
         );
-        Blob decryptedData = EncryptionRecipes.decryptAndCheckDigitalSignatureRecipe(
+        Blob decryptedData = EncryptionRecipes.decryptAES256AndCheckRSASHA512DigitalSignRecipe(
             wrapper.signature,
             wrapper.encryptedData
         );
@@ -214,11 +219,11 @@ private with sharing class EncryptionRecipesTest {
 
         // WHEN
         Test.startTest();
-        EncryptionRecipes.EncryptedAndSignedData wrapper = EncryptionRecipes.encryptAndGenerateDigitalSignatureRecipe(
+        EncryptionRecipes.EncryptedAndSignedData wrapper = EncryptionRecipes.encryptAES256AndGenerateRSASHA512DigitalSignRecipe(
             dataToEncryptAndSign
         );
         try {
-            EncryptionRecipes.decryptAndCheckDigitalSignatureRecipe(
+            EncryptionRecipes.decryptAES256AndCheckRSASHA512DigitalSignRecipe(
                 wrapper.signature,
                 Blob.valueOf('Encrypted and Corrupted data')
             );
