@@ -28,37 +28,7 @@ Demonstrates how to use different encryption and signing algorithms in Apex
 
 ---
 ## Methods
-### `checkDigitalSignatureRecipe(Blob signature,Blob dataToCheck)` → `void`
-
-Recomputes Digital Signature for and compares it with the received one, throwing an exception if they're not equal.
-
-#### Parameters
-|Param|Description|
-|-----|-----------|
-|`signature` |  Blob that contains the received signature |
-|`dataToCheck` |  Blob that contains the data to check the signature for |
-
-#### Return
-
-**Type**
-
-void
-
-**Description**
-
-void
-
-#### Example
-```java
-try {
- EncryptionRecipes.checkDigitalSignatureRecipe(signature, corruptedData);
-} catch(Exception e) {
- // Should log exception
- System.debug(e.getMessage());
-}
-```
-
-### `checkHMACRecipe(Blob hmac, Blob dataToCheck)` → `void`
+### `checkHMACSHA512Recipe(Blob hmac, Blob dataToCheck)` → `void`
 
 Recomputes HMAC using the symmetric key and compares it with the received one, throwing an exception if they're not equal.
 
@@ -81,14 +51,44 @@ void
 #### Example
 ```java
 try {
- EncryptionRecipes.checkHMACRecipe(hmac, corruptedData);
+ EncryptionRecipes.checkHMACSHA512Recipe(hmac, corruptedData);
 } catch(Exception e) {
  // Should log exception
  System.debug(e.getMessage());
 }
 ```
 
-### `checkHashRecipe(Blob hash, Blob dataToCheck)` → `void`
+### `checkRSASHA512DigitalSignatureRecipe(Blob signature,Blob dataToCheck)` → `void`
+
+Recomputes Digital Signature for and compares it with the received one, throwing an exception if they're not equal.
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`signature` |  Blob that contains the received signature |
+|`dataToCheck` |  Blob that contains the data to check the signature for |
+
+#### Return
+
+**Type**
+
+void
+
+**Description**
+
+void
+
+#### Example
+```java
+try {
+ EncryptionRecipes.checkRSASHA512DigitalSignatureRecipe(signature, corruptedData);
+} catch(Exception e) {
+ // Should log exception
+ System.debug(e.getMessage());
+}
+```
+
+### `checkSHA512HashRecipe(Blob hash, Blob dataToCheck)` → `void`
 
 Recomputes hash digest for and compares it with the received one, throwing an exception if they're not equal.
 
@@ -111,14 +111,14 @@ void
 #### Example
 ```java
 try {
- EncryptionRecipes.checkHashRecipe(hash, corruptedData);
+ EncryptionRecipes.checkSHA512HashRecipe(hash, corruptedData);
 } catch(Exception e) {
  // Should log exception
  System.debug(e.getMessage());
 }
 ```
 
-### `decryptRecipe(Blob dataToDecrypt)` → `Blob`
+### `decryptAES256Recipe(Blob dataToDecrypt)` → `Blob`
 
 Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. In this case the sender needs to share the initialization vector with the receiver.
 
@@ -139,11 +139,11 @@ Blob
 
 #### Example
 ```java
-Blob decryptedData = EncryptionRecipes.decryptRecipe(encryptedData);
+Blob decryptedData = EncryptionRecipes.decryptAES256Recipe(encryptedData);
 System.debug(decryptedData.toString());
 ```
 
-### `decryptWithManagedIVRecipe(Blob dataToDecrypt)` → `Blob`
+### `decryptAES256WithManagedIVRecipe(Blob dataToDecrypt)` → `Blob`
 
 Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. In this case the initialization vector will be the first 128 bits (16 bytes) of the received data.
 
@@ -164,11 +164,11 @@ Blob
 
 #### Example
 ```java
-Blob decryptedData = EncryptionRecipes.decryptWithManagedIVRecipe(encryptedData);
+Blob decryptedData = EncryptionRecipes.decryptAES256WithManagedIVRecipe(encryptedData);
 System.debug(decryptedData.toString());
 ```
 
-### `encryptAndGenerateDigitalSignatureRecipe(Blob dataToEncryptAndSign)` → `EncryptedAndSignedData`
+### `encryptAES256AndGenerateRSASHA512DigitalSignRecipe(Blob dataToEncryptAndSign)` → `EncryptedAndSignedData`
 
 Encrypts the message with AES and then generates Digital Signature (encrypted with an asymmetric key) that can be checked in destination. This ensure confidentiality, integrity, authenticity and non-repudiation.
 
@@ -190,12 +190,12 @@ Blob
 #### Example
 ```java
 Blob dataToEncryptAndSign = Blob.valueOf('Test data');
-EncryptedAndSignedData wrapper = EncryptionRecipes.encryptAndGenerateDigitalSignatureRecipe();
+EncryptedAndSignedData wrapper = EncryptionRecipes.encryptAES256AndGenerateRSASHA512DigitalSignRecipe();
 System.debug(EncodingUtil.base64Encode(wrapper.encryptedData));
 System.debug(EncodingUtil.base64Encode(wrapper.signature));
 ```
 
-### `encryptRecipe(Blob dataToEncrypt,Blob initializationVector)` → `Blob`
+### `encryptAES256Recipe(Blob dataToEncrypt,Blob initializationVector)` → `Blob`
 
 Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. In this case the initialization vector is specified by the sender. It needs to be random and 16 bytes (128 bits).
 
@@ -218,11 +218,11 @@ Blob
 ```java
 Blob initializationVector = EncryptionRecipes.generateInitializationVector();
 Blob dataToEncrypt = Blob.valueOf('Test data');
-Blob encryptedData = EncryptionRecipes.encryptRecipe(dataToEncrypt, initializationVector);
+Blob encryptedData = EncryptionRecipes.encryptAES256Recipe(dataToEncrypt, initializationVector);
 System.debug(EncodingUtil.base64Encode(encryptedData));
 ```
 
-### `encryptWithManagedIVRecipe(Blob dataToEncrypt)` → `Blob`
+### `encryptAES256WithManagedIVRecipe(Blob dataToEncrypt)` → `Blob`
 
 Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. In this case the initialization vector is managed by Salesforce.
 
@@ -244,37 +244,11 @@ Blob
 #### Example
 ```java
 Blob dataToEncrypt = Blob.valueOf('Test data');
-Blob encryptedData = EncryptionRecipes.encryptWithManagedIVRecipe(dataToEncrypt);
+Blob encryptedData = EncryptionRecipes.encryptAES256WithManagedIVRecipe(dataToEncrypt);
 System.debug(EncodingUtil.base64Encode(encryptedData));
 ```
 
-### `generateDigitalSignatureRecipe(Blob dataToSign)` → `Blob`
-
-Generates one-way Digital Signature (encrypted with an asymmetric key) that can be checked in destination to ensure integrity, authenticity and non-repudiation.
-
-#### Parameters
-|Param|Description|
-|-----|-----------|
-|`dataToSign` |  Blob that contains some data to sign |
-
-#### Return
-
-**Type**
-
-Blob
-
-**Description**
-
-Blob
-
-#### Example
-```java
-Blob dataToSign = Blob.valueOf('Test data');
-Blob signature = EncryptionRecipes.generateDigitalSignatureRecipe();
-System.debug(EncodingUtil.base64Encode(signature));
-```
-
-### `generateHMACRecipe(Blob dataToHmac)` → `Blob`
+### `generateHMACSHA512Recipe(Blob dataToHmac)` → `Blob`
 
 Generates one-way HMAC (using a symmetric key) that can be checked in destination to ensure integrity and authenticity.
 
@@ -296,11 +270,51 @@ Blob
 #### Example
 ```java
 Blob dataToHmac = Blob.valueOf('Test data');
-Blob hmac = EncryptionRecipes.generateHMACRecipe();
+Blob hmac = EncryptionRecipes.generateHMACSHA512Recipe();
 System.debug(EncodingUtil.base64Encode(hmac));
 ```
 
-### `generateHashRecipe(Blob dataToHash)` → `Blob`
+### `generateInitializationVector()` → `Blob`
+
+Aux method to generate a random initialization vector.
+
+#### Return
+
+**Type**
+
+Blob
+
+**Description**
+
+Blob
+
+### `generateRSASHA512DigitalSignatureRecipe(Blob dataToSign)` → `Blob`
+
+Generates one-way Digital Signature (encrypted with an asymmetric key) that can be checked in destination to ensure integrity, authenticity and non-repudiation.
+
+#### Parameters
+|Param|Description|
+|-----|-----------|
+|`dataToSign` |  Blob that contains some data to sign |
+
+#### Return
+
+**Type**
+
+Blob
+
+**Description**
+
+Blob
+
+#### Example
+```java
+Blob dataToSign = Blob.valueOf('Test data');
+Blob signature = EncryptionRecipes.generateRSASHA512DigitalSignatureRecipe();
+System.debug(EncodingUtil.base64Encode(signature));
+```
+
+### `generateSHA512HashRecipe(Blob dataToHash)` → `Blob`
 
 Generates one-way hash digest that can be checked in destination to ensure integrity.
 
@@ -322,23 +336,9 @@ Blob
 #### Example
 ```java
 Blob dataToHash = Blob.valueOf('Test data');
-Blob hash = EncryptionRecipes.generateHashRecipe();
+Blob hash = EncryptionRecipes.generateSHA512HashRecipe();
 System.debug(EncodingUtil.base64Encode(hash));
 ```
-
-### `generateInitializationVector()` → `Blob`
-
-Aux method to generate a random initialization vector.
-
-#### Return
-
-**Type**
-
-Blob
-
-**Description**
-
-Blob
 
 ---
 ## Inner Classes
@@ -362,7 +362,7 @@ Internal custom exception class
 
  Comparisons which involve cryptography need to be performed in constant time using specialized functions to avoid timing attack effects. https://en.wikipedia.org/wiki/Timing_attack
 
-##### `decryptAndCheckDigitalSignatureRecipe(Blob signature,Blob dataToDecryptAndCheck)` → `Blob`
+##### `decryptAES256AndCheckRSASHA512DigitalSignRecipe(Blob signature,Blob dataToDecryptAndCheck)` → `Blob`
 
 Decrypts the message and verifies its Digital Signature.
 
@@ -385,7 +385,7 @@ Blob decrypted data
 ###### Example
 ```java
 try {
- EncryptionRecipes.decryptAndCheckDigitalSignatureRecipe(signature, corruptedData);
+ EncryptionRecipes.decryptAES256AndCheckRSASHA512DigitalSignRecipe(signature, corruptedData);
 } catch(Exception e) {
  // Should log exception
  System.debug(e.getMessage());
