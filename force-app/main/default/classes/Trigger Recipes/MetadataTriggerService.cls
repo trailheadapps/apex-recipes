@@ -25,7 +25,7 @@ public with sharing class MetadataTriggerService {
             SELECT Class__c
             FROM Metadata_Driven_Trigger__mdt
             WHERE
-                Object__c = :this.objType
+                Object__r.QualifiedApiName = :this.objType
                 AND Enabled__c = TRUE
                 AND Id NOT IN (
                     SELECT Metadata_Driven_Trigger__c
