@@ -235,7 +235,12 @@ public with sharing class EncryptionRecipes {
         );
 
         // recomputedHash and hash should  be identical!
-        if (!areEqualConstantTime(hash, recomputedHash)) {
+        if (
+            !areEqualConstantTime(
+                EncodingUtil.base64Encode(hash),
+                EncodingUtil.base64Encode(recomputedHash)
+            )
+        ) {
             throw new CryptographicException('Wrong hash!');
         }
     }
@@ -417,21 +422,23 @@ public with sharing class EncryptionRecipes {
      * Comparisons which involve cryptography need to be performed in constant time
      * using specialized functions to avoid timing attack effects.
      * https://en.wikipedia.org/wiki/Timing_attack
+     * @param first first String to compare
+     * @param second second String to compare
+     * @return Boolean strings are equal
      */
-    public static boolean areEqualConstantTime(Blob a, Blob b) {
-        if (a.size() != b.size()) {
-            return false;
+    public static boolean areEqualConstantTime(String first, String second) {
+        Boolean result = true;
+        if (first.length() != second.length()) {
+            result = false;
         }
-
-        String aBase64 = EncodingUtil.base64Encode(a);
-        String bBase64 = EncodingUtil.base64Encode(b);
-        Integer[] aChars = aBase64.getChars();
-        Integer[] bChars = bBase64.getChars();
-
-        Integer result = 0;
-        for (Integer i = 0; i < aChars.size(); i++) {
-            result |= aChars[i] ^ bChars[i];
+        Integer max = first.length() > second.length()
+            ? second.length()
+            : first.length();
+        for (Integer i = 0; i < max; i++) {
+            if (first.substring(i, i + 1) != second.substring(i, i + 1)) {
+                result = false;
+            }
         }
-        return result == 0;
+        return result;
     }
 }
