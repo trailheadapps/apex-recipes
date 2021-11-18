@@ -358,9 +358,25 @@ Internal custom exception class
 
 ---
 #### Methods
-##### `areEqualConstantTime(Blob a, Blob b)` → `boolean`
+##### `areEqualConstantTime(String first, String second)` → `boolean`
 
  Comparisons which involve cryptography need to be performed in constant time using specialized functions to avoid timing attack effects. https://en.wikipedia.org/wiki/Timing_attack
+
+###### Parameters
+|Param|Description|
+|-----|-----------|
+|`first` |  first String to compare |
+|`second` |  second String to compare |
+
+###### Return
+
+**Type**
+
+boolean
+
+**Description**
+
+Boolean strings are equal
 
 ##### `decryptAES256AndCheckRSASHA512DigitalSignRecipe(Blob signature,Blob dataToDecryptAndCheck)` → `Blob`
 
