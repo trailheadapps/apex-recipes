@@ -1,7 +1,14 @@
 /**
- * @description Demonstrates inboundEmailHandler
+ * @description Demonstrates how to use the inboundEmailHandler
+ * interface to create custom logic and automation on the reception
+ * of an email. This class demonstrates saving the email
+ * to an EmailMessage Object along with Attachments.
+ * @group Email Recipes
+ * @see Safely, FilesRecipes
  */
 public inherited sharing class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler {
+    public class InboundEmailHandlerRecipesException extends Exception {
+    }
     /**
      * @description    Messaging.InboundEmailHandler interface has one required
      * method - handleInboundEmail. This method must return an
@@ -23,13 +30,16 @@ public inherited sharing class InboundEmailHandlerRecipes implements Messaging.I
         String errorMessage = '';
         try {
             // identify contact
-            Contact sender = getContactBySender(email.fromAddress);
+            Contact sender = getContactBySender(email);
             createFilesByEmailAttachments(email.binaryAttachments, sender.Id);
             createEmailRecord(sender, email);
             result.success = true;
-        } catch (Exception ex) {
+        } catch (InboundEmailHandlerRecipesException iehre) {
             result.success = false;
-            errorMessage = ex.getMessage() + ' ' + ex.getStackTraceString();
+            errorMessage =
+                iehre.getMessage() +
+                ' ' +
+                iehre.getStackTraceString();
         }
 
         if (!result.success) {
@@ -76,18 +86,42 @@ public inherited sharing class InboundEmailHandlerRecipes implements Messaging.I
      * @param senderAddress
      * @return              `Contact`
      */
-    private Contact getContactBySender(String senderAddress) {
+    private Contact getContactBySender(Messaging.InboundEmail email) {
         List<Contact> contactList = [
             SELECT AccountId, Email
             FROM Contact
-            WHERE Email = :senderAddress
+            WHERE Email = :email.fromAddress
             WITH SECURITY_ENFORCED
             ORDER BY CreatedDate DESC
             LIMIT 1
         ];
-        return contactList.size() > 0
-            ? contactList[0]
-            : new Contact(Email = senderAddress);
+
+        if (contactList.size() > 0) {
+            return contactList[0];
+        } else {
+            /**
+             * Note: This attemptedLastName calcuation makes
+             * a series of assumptions about the nature and
+             * style of a 'last name'. Maybe don't use in prod.
+             */
+
+            String attemptedLastName;
+            if (String.isNotBlank(email.fromName)) {
+                attemptedLastName = email.fromName.split(' ')[1];
+            } else {
+                throw new InboundEmailHandlerRecipesException(
+                    'Unable to create new contact for this sender, because the email fromName is blank'
+                );
+            }
+
+            Contact newContact = new Contact(
+                email = (email.fromAddress != null) ? email.fromAddress : '',
+                lastName = attemptedLastName
+            );
+            new Safely().doInsert(newContact);
+
+            return newContact;
+        }
     }
 
     /**
@@ -106,7 +140,7 @@ public inherited sharing class InboundEmailHandlerRecipes implements Messaging.I
             return;
         }
 
-        EmailMessage EmailMessage = new EmailMessage(
+        EmailMessage emailMessage = new EmailMessage(
             TextBody = email.plainTextBody,
             HtmlBody = email.htmlBody,
             Headers = String.ValueOf(email.headers),
@@ -122,15 +156,15 @@ public inherited sharing class InboundEmailHandlerRecipes implements Messaging.I
             RelatedToId = sender.AccountId
         );
 
-        insert EmailMessage;
+        new Safely().doInsert(emailMessage);
 
-        EmailMessageRelation EmailRelationshipObj = new EmailMessageRelation(
-            EmailMessageId = EmailMessage.id,
+        EmailMessageRelation emailRelationshipObj = new EmailMessageRelation(
+            EmailMessageId = emailMessage.id,
             RelationId = sender.id,
             RelationType = 'FromAddress',
             RelationAddress = sender.email
         );
 
-        insert EmailRelationshipObj;
+        new Safely().doInsert(emailRelationshipObj);
     }
 }

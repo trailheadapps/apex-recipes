@@ -1,16 +1,18 @@
 @isTest
 private class InboundEmailHandlerRecipes_tests {
-    static final String fromEmail = 'kjp@codefriar.com';
+    static final String FROM_EMAIL = 'kjp@codefriar.com';
 
     @TestSetup
     static void makeData() {
+        TriggerHandler.bypass('AccountTriggerHandler');
+        TriggerHandler.bypass('MDTAccountTriggerHandler');
         Account testAccount = (Account) TestFactory.createSObject(
             new Account(Name = 'Testing Account'),
             true
         );
         Contact testContact = (Contact) TestFactory.createSObject(
             new Contact(
-                email = fromEmail,
+                email = FROM_EMAIL,
                 accountId = testAccount.Id,
                 Lastname = 'Poorman'
             ),
@@ -31,7 +33,7 @@ private class InboundEmailHandlerRecipes_tests {
     private static Messaging.InboundEmail createEmail() {
         Messaging.InboundEmail email = new Messaging.InboundEmail();
         email.fromName = 'Kevin Poorman';
-        email.fromAddress = fromEmail;
+        email.fromAddress = FROM_EMAIL;
         email.toAddresses = new List<String>{ 'invalid@invalid.com.invalid' };
         email.subject = 'Test Email';
         email.plainTextBody = 'Welcome CodeLive Viewers';
@@ -50,8 +52,51 @@ private class InboundEmailHandlerRecipes_tests {
 
     private static Messaging.InboundEnvelope createEnvelope() {
         Messaging.InboundEnvelope envelope = new Messaging.InboundEnvelope();
-        envelope.fromAddress = fromEmail;
+        envelope.fromAddress = FROM_EMAIL;
         return envelope;
+    }
+
+    @isTest
+    static void handleInboundEmailNegativeNoContactFound() {
+        Messaging.InboundEnvelope envelope = createEnvelope();
+        Messaging.InboundEmail email = new Messaging.InboundEmail();
+        email.fromAddress = FROM_EMAIL;
+
+        delete [SELECT id FROM Contact];
+        Test.startTest();
+        Messaging.InboundEmailResult result = new InboundEmailHandlerRecipes()
+            .handleInboundEmail(email, envelope);
+        Test.stopTest();
+
+        System.assertEquals(
+            false,
+            result.success,
+            'Expected to receive a false success property.'
+        );
+
+        System.assert(
+            result.message.containsIgnoreCase('Unable to create new contact'),
+            'Expected to recieve a InboudEmailHandlerRecipesException with the given message'
+        );
+    }
+
+    @isTest
+    static void handleInboundEmailNegativeNewContactCreated() {
+        Messaging.InboundEnvelope envelope = createEnvelope();
+        Messaging.InboundEmail email = createEmail();
+
+        delete [SELECT id FROM Contact];
+
+        Test.startTest();
+        Messaging.InboundEmailResult result = new InboundEmailHandlerRecipes()
+            .handleInboundEmail(email, envelope);
+        Test.stopTest();
+
+        System.assertEquals(
+            true,
+            result.success,
+            'Expected to receive a true success property when a new contact is created.'
+        );
     }
 
     @isTest
