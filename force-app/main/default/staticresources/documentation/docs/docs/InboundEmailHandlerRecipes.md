@@ -3,7 +3,11 @@ layout: default
 ---
 # InboundEmailHandlerRecipes class
 
-Demonstrates inboundEmailHandler
+Demonstrates how to use the inboundEmailHandler interface to create custom logic and automation on the reception of an email. This class demonstrates saving the email to an EmailMessage Object along with Attachments.
+
+## Related
+
+Safely, FilesRecipes
 
 ---
 ## Methods
@@ -27,7 +31,7 @@ This helper method bulk saves attachments from the incoming email. It relies on 
 |`` | s |
 |`` | d |
 
-### `getContactBySender(String senderAddress)` → `Contact`
+### `getContactBySender(Messaging.InboundEmail email)` → `Contact`
 
 Determines if we have an existing contact record with an email address that matches the sender of this email. If we do not have a contact that matches, return a new contact object with the email address set.
 
@@ -66,4 +70,8 @@ Messaging.InboundEmailResult
 
 `Messaging.InboundEmailResult`
 
+---
+## Inner Classes
+
+### InboundEmailHandlerRecipes.InboundEmailHandlerRecipesException class
 ---
