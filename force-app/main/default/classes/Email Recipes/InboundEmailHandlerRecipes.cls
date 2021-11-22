@@ -3,10 +3,19 @@
  * interface to create custom logic and automation on the reception
  * of an email. This class demonstrates saving the email
  * to an EmailMessage Object along with Attachments.
+ *
+ * NOTE: This class *does not* specify a sharing model.
+ * This is on purpose - When this class is executed, by the inbound
+ * email system, it will execute in a system context and pieces of
+ * this class need to be able to *read* all contacts - which is a
+ * common use case. Because of this, we're suppressing the PMD
+ * ApexSharingViolation warning.
+ *
  * @group Email Recipes
  * @see Safely, FilesRecipes
  */
-public inherited sharing class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler {
+@SuppressWarnings('PMD.ApexSharingViolations')
+public class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler {
     public class InboundEmailHandlerRecipesException extends Exception {
     }
     /**
@@ -17,8 +26,12 @@ public inherited sharing class InboundEmailHandlerRecipes implements Messaging.I
      * logic to ... do whatever it is you want to do with the incoming email.
      * Here you can attach the email to the contact record who sent it, a case
      * or ... The sky's the limit.
-     * @param email    This is dependency injected by the system at runtime.
-     * @param envelope This is dependency injected by the system at runtime.
+     * @param email    This is an Messaging.InboundEmail Object that is
+     * dependency injected by the system at runtime. Aside from testing, you
+     * should not need to call this method or worry about its params.
+     * @param envelope This is an Messaging.InboundEnvelope object that is
+     * dependency injected by the system at runtime. Aside form testing, you
+     * should not need to call this method or worry about its params.
      * @return         `Messaging.InboundEmailResult`
      * @see FilesRecipes
      */
@@ -34,16 +47,22 @@ public inherited sharing class InboundEmailHandlerRecipes implements Messaging.I
             createFilesByEmailAttachments(email.binaryAttachments, sender.Id);
             createEmailRecord(sender, email);
             result.success = true;
-        } catch (InboundEmailHandlerRecipesException iehre) {
+            /**
+             * I'm not generally a fan of catching generic Exception.
+             * But in this case, all the concrete exception types we
+             * could catch (InboundEmailHandlerRecipesException,
+             * DMLException) are all handled the same way - by setting
+             * the error message and result success flag to false.
+             *
+             * For the sake of not repeating code, this code just
+             * catches Exception.
+             */
+        } catch (Exception error) {
             result.success = false;
-            errorMessage =
-                iehre.getMessage() +
+            result.message =
+                error?.getMessage() +
                 ' ' +
-                iehre.getStackTraceString();
-        }
-
-        if (!result.success) {
-            result.message = errorMessage;
+                error?.getStackTraceString();
         }
 
         return result;
@@ -98,30 +117,29 @@ public inherited sharing class InboundEmailHandlerRecipes implements Messaging.I
 
         if (contactList.size() > 0) {
             return contactList[0];
-        } else {
-            /**
-             * Note: This attemptedLastName calcuation makes
-             * a series of assumptions about the nature and
-             * style of a 'last name'. Maybe don't use in prod.
-             */
-
-            String attemptedLastName;
-            if (String.isNotBlank(email.fromName)) {
-                attemptedLastName = email.fromName.split(' ')[1];
-            } else {
-                throw new InboundEmailHandlerRecipesException(
-                    'Unable to create new contact for this sender, because the email fromName is blank'
-                );
-            }
-
-            Contact newContact = new Contact(
-                email = (email.fromAddress != null) ? email.fromAddress : '',
-                lastName = attemptedLastName
-            );
-            new Safely().doInsert(newContact);
-
-            return newContact;
         }
+        /**
+         * Note: This attemptedLastName calcuation makes
+         * a series of assumptions about the nature and
+         * style of a 'last name'. Maybe don't use in prod.
+         */
+
+        String attemptedLastName;
+        if (String.isNotBlank(email.fromName)) {
+            attemptedLastName = email.fromName.split(' ')[1];
+        } else {
+            throw new InboundEmailHandlerRecipesException(
+                'Unable to create new contact for this sender, because the email fromName is blank'
+            );
+        }
+
+        Contact newContact = new Contact(
+            email = email.fromAddress,
+            lastName = attemptedLastName
+        );
+        new Safely().doInsert(newContact);
+
+        return newContact;
     }
 
     /**

@@ -3,7 +3,7 @@ layout: default
 ---
 # InboundEmailHandlerRecipes class
 
-Demonstrates how to use the inboundEmailHandler interface to create custom logic and automation on the reception of an email. This class demonstrates saving the email to an EmailMessage Object along with Attachments.
+Demonstrates how to use the inboundEmailHandler interface to create custom logic and automation on the reception of an email. This class demonstrates saving the email to an EmailMessage Object along with Attachments. NOTE: This class *does not* specify a sharing model. This is on purpose - When this class is executed, by the inbound email system, it will execute in a system context and pieces of this class need to be able to *read* all contacts - which is a common use case. Because of this, we&apos;re suppressing the PMD ApexSharingViolation warning.
 
 ## Related
 
@@ -57,8 +57,8 @@ Messaging.InboundEmailHandler interface has one required method - handleInboundE
 #### Parameters
 |Param|Description|
 |-----|-----------|
-|`email` |     This is dependency injected by the system at runtime. |
-|`envelope` |  This is dependency injected by the system at runtime. |
+|`email` |     This is an Messaging.InboundEmail Object that is |
+|`envelope` |  This is an Messaging.InboundEnvelope object that is |
 
 #### Return
 
