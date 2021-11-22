@@ -9,7 +9,7 @@ public class SObjectStringFieldComparator_Tests {
     private final static Account a4 = new Account(ShippingCountry = 'C');
 
     @isTest
-    private static void sort_works() {
+    private static void sortWorksPositive() {
         List<Account> accounts = new List<Account>{ a4, a2, a3, a1 };
 
         ListUtils.sort(
@@ -18,11 +18,15 @@ public class SObjectStringFieldComparator_Tests {
         );
 
         List<Account> expected = new List<Account>{ a2, a1, a3, a4 };
-        System.assertEquals(accounts, expected);
+        System.assertEquals(
+            accounts,
+            expected,
+            'Expected code sorted list to match manually sorted list'
+        );
     }
 
     @isTest
-    private static void sort_fails_when_incompatible_types() {
+    private static void sortFailsWhenIncompatibleTypesNegative() {
         String someString;
         List<Object> objects = new List<Object>{ a1, someString };
 
@@ -33,7 +37,10 @@ public class SObjectStringFieldComparator_Tests {
             );
             System.assert(false, 'Expected ListUtils.CompareException');
         } catch (ListUtils.CompareException e) {
-            System.assert(true);
+            System.assert(
+                true,
+                'Expected to catch a ListUtils.CompareException exception'
+            );
         }
     }
 }
