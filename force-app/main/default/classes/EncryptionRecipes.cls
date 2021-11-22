@@ -187,16 +187,8 @@ public with sharing class EncryptionRecipes {
      * @return Blob
      **/
     public static Blob generateInitializationVector() {
-        String characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
-        String randomString = '';
-        while (randomString.length() < 16) {
-            Integer index = Math.mod(
-                Math.abs(Crypto.getRandomInteger()),
-                characters.length()
-            );
-            randomString += characters.substring(index, index + 1);
-        }
-        return Blob.valueOf(randomString);
+        // Generating IV this way until there's an Apex method for it
+        return Crypto.generateAesKey(128);
     }
 
     /**
