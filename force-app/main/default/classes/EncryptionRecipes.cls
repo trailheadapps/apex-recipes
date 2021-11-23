@@ -188,6 +188,7 @@ public with sharing class EncryptionRecipes {
      **/
     public static Blob generateInitializationVector() {
         // Generating IV this way until there's an Apex method for it
+        //  Do not use the same value for the IV and AES key!!
         return Crypto.generateAesKey(128);
     }
 
