@@ -9,7 +9,7 @@ Generic logging framework that persists across DML reversions by publishing a Pl
 ## Constructors
 ### `Log()`
 
-establishes the buffer, if one doesn&apos;t yet exist private, to ensure we can&apos;t directly construct this class. Use the Singleton, Luke.
+establishes the buffer, if one doesn't yet exist private, to ensure we can't directly construct this class. Use the Singleton, Luke.
 ---
 ## Properties
 

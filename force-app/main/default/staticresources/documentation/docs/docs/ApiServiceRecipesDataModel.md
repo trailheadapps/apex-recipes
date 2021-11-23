@@ -3,7 +3,7 @@ layout: default
 ---
 # ApiServiceRecipesDataModel class
 
-This class contains the &apos;data transfer object&apos; details. Data transfer objects are used to serialize Apex objects to JSON and web service response JSON to Apex objects.
+This class contains the 'data transfer object' details. Data transfer objects are used to serialize Apex objects to JSON and web service response JSON to Apex objects.
 
 ## Related
 
@@ -37,17 +37,17 @@ Parses the provided JSON string into a list of ApiServiceRecipesDataModel object
 #### Parameters
 |Param|Description|
 |-----|-----------|
-|`json` |   Incoming JSON string. Often from an api call&apos;s results. |
+|`json` |   Incoming JSON string. Often from an api call's results. |
 
 #### Return
 
 **Type**
 
-List&lt;ApiServiceRecipesDataModel&gt;
+List<ApiServiceRecipesDataModel>
 
 **Description**
 
-`List&lt;ApiServiceRecipesDataModel&gt;`
+`List<ApiServiceRecipesDataModel>`
 
 #### Example
 ```java

@@ -3,7 +3,7 @@ layout: default
 ---
 # SortableAccount class
 
-Wrapper class around Account that provides an implementation of Comparable based on the ShippingCountry field and an &apos;in place&apos; sort method.
+Wrapper class around Account that provides an implementation of Comparable based on the ShippingCountry field and an 'in place' sort method.
 
 ---
 ## Constructors
@@ -32,7 +32,7 @@ Integer
 
 **Description**
 
-s 0 if objects are equal, 1 this object is &quot;greater&quot; than `otherObject` or 2 otherwise.
+s 0 if objects are equal, 1 this object is "greater" than `otherObject` or 2 otherwise.
 
 ### `sort(List<Account> accounts)` → `void`
 

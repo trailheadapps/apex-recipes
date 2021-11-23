@@ -19,15 +19,15 @@ Demonstrates how to use a REST API client that leverages the Iterator interface.
 
 **Type**
 
-List&lt;String&gt;
+List<String>
 
 **Description**
 
-List&lt;String&gt; the &apos;records&apos; retrieved
+List<String> the 'records' retrieved
 
 ### `iterateOnAccountList(List<Account> accounts)` → `Integer`
 
-Demonstrates how to iterate on a list of SObject thanks to the Iterable and Iterator interfaces. This example iterates on Accounts to sum the &apos;number of employees&apos; field values (use the `SUM` SOQL function for a real-life application).
+Demonstrates how to iterate on a list of SObject thanks to the Iterable and Iterator interfaces. This example iterates on Accounts to sum the 'number of employees' field values (use the `SUM` SOQL function for a real-life application).
 
 #### Parameters
 |Param|Description|

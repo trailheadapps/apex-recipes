@@ -3,7 +3,7 @@ layout: default
 ---
 # TestDouble class
 
-Implements an easy and re-usable StubProvider Utilizes a fluent interface for ease of use. This is merly an example of how you could build a reusable stub provider class. There are definitely edge cases or features not handled by this class. The general mechanism for use looks like this: ```apex TestDouble stub = new TestDouble(SomeClass.class); TestDouble.Method methodToTrack = new TestDouble.Method(&apos;methodName&apos;) .returning(someObject); stub.track(methodToTrack); ConsumingClass consumer = new ConsumingClass( (someClass) stub.generate() ); ```
+Implements an easy and re-usable StubProvider Utilizes a fluent interface for ease of use. This is merly an example of how you could build a reusable stub provider class. There are definitely edge cases or features not handled by this class. The general mechanism for use looks like this: ```apex TestDouble stub = new TestDouble(SomeClass.class); TestDouble.Method methodToTrack = new TestDouble.Method('methodName') .returning(someObject); stub.track(methodToTrack); ConsumingClass consumer = new ConsumingClass( (someClass) stub.generate() ); ```
 
 ---
 ## Constructors
@@ -103,7 +103,7 @@ Method
 
 ### TestDouble.Method class
 
- I&apos;m not normally a fan of such complex if statements, but doing it this way allows us to disambiguate overloaded methods. /** This inner class describes a Method that is to be stubbed. Multiple Method objects will likely be created in the course of your unit tests, and these Method objects are added to the `methods` property of your TestDouble instance.
+ I'm not normally a fan of such complex if statements, but doing it this way allows us to disambiguate overloaded methods. /** This inner class describes a Method that is to be stubbed. Multiple Method objects will likely be created in the course of your unit tests, and these Method objects are added to the `methods` property of your TestDouble instance.
 
 ---
 #### Constructors

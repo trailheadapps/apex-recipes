@@ -15,11 +15,11 @@ Demonstrates the syntax for a SOSL search. Note: SOSL Cannot be unit tested dire
 
 **Type**
 
-List&lt;List&lt;SObject&gt;&gt;
+List<List<SObject>>
 
 **Description**
 
-List&lt;List&lt;SObject&gt;&gt;
+List<List<SObject>>
 
 #### Example
 ```java
@@ -34,11 +34,11 @@ Demonstrates how to write a SOSL query that searches only name fields
 
 **Type**
 
-List&lt;List&lt;SObject&gt;&gt;
+List<List<SObject>>
 
 **Description**
 
-List&lt;List&lt;SObject&gt;&gt;
+List<List<SObject>>
 
 #### Example
 ```java
