@@ -90,17 +90,17 @@ Bulk method for inserting multiple files and link them to records
 #### Parameters
 |Param|Description|
 |-----|-----------|
-|`toCreate` |  List&lt;FilesRecipes.FileAndLinkObject&gt; |
+|`toCreate` |  List<FilesRecipes.FileAndLinkObject> |
 
 #### Return
 
 **Type**
 
-List&lt;Database.SaveResult&gt;
+List<Database.SaveResult>
 
 **Description**
 
-`List&lt;Database.SaveResult&gt;`
+`List<Database.SaveResult>`
 
 ### `getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType genericFileType,Id recordId)` → `List<ContentVersion>`
 
