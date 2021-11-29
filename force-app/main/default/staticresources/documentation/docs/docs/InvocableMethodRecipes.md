@@ -9,7 +9,7 @@ Demonstrates how to create Apex classes and methods that can be invoked from Vis
 ## Methods
 ### `findRelatedContacts(List<ContactSearchRequest> inputParams)` → `List<ContactSearchResult>`
 
-Invocable method accepts a list of incoming ContactSearchRequest objects. The first incoming request is extracted, and the incoming records' Id is used to determine the type of object. In this case, the code handles either an Account or a Task. A query is crafted specific to the incoming object, and it's type and the results of the query are converted to a Result object and returned.
+Invocable method accepts a list of incoming ContactSearchRequest objects. The first incoming request is extracted, and the incoming records&apos; Id is used to determine the type of object. In this case, the code handles either an Account or a Task. A query is crafted specific to the incoming object, and it&apos;s type and the results of the query are converted to a Result object and returned.
 
 #### Parameters
 |Param|Description|
@@ -20,11 +20,11 @@ Invocable method accepts a list of incoming ContactSearchRequest objects. The fi
 
 **Type**
 
-List<ContactSearchResult>
+List&lt;ContactSearchResult&gt;
 
 **Description**
 
-List<ContactSearchResult>
+List&lt;ContactSearchResult&gt;
 
 #### Example
 ```java

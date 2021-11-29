@@ -3,7 +3,7 @@ layout: default
 ---
 # RestClient class
 
-This class provides an exmaple of an intelligent abstraction for making REST callouts to external endpoints. It utilizes NamedCredentials for security. This class is designated as Virtual so that API Service classes can extend it, and make use of it's methods easily. See the CovidTrackerAPI class for an example of how an API service class can extend RestClient. This class also provides static methods - so that the abstractions provided can be used in a one-off or ad-hoc manner for situations where a full API Service class isn't needed. More on Named Credentials: https://sfdc.co/named-credentials
+This class provides an exmaple of an intelligent abstraction for making REST callouts to external endpoints. It utilizes NamedCredentials for security. This class is designated as Virtual so that API Service classes can extend it, and make use of it&apos;s methods easily. See the CovidTrackerAPI class for an example of how an API service class can extend RestClient. This class also provides static methods - so that the abstractions provided can be used in a one-off or ad-hoc manner for situations where a full API Service class isn&apos;t needed. More on Named Credentials: https://sfdc.co/named-credentials
 
 ## Related
 
@@ -21,13 +21,13 @@ Constructor that sets Named Credential
 
 ### `RestClient()`
 
-This constructor isn't intended for use, which is why it's access modifier is 'Protected'. However, any child class extending this class will either have to implement constructors matching the one above, or this constructor must exist. In order to make this abstraction as useful as possible, we've elected to leave this constructor here, but unavailable to anything but inner classes and classes that extend this one.
+This constructor isn&apos;t intended for use, which is why it&apos;s access modifier is &apos;Protected&apos;. However, any child class extending this class will either have to implement constructors matching the one above, or this constructor must exist. In order to make this abstraction as useful as possible, we&apos;ve elected to leave this constructor here, but unavailable to anything but inner classes and classes that extend this one.
 ---
 ## Enums
 ### HttpVerb
 
 
-This ENUM lists possible HTTP Verbs. Note: 'Delete' is an Apex Keyword (DML) and as a result, the ENUM value 'DEL' is used for delete.
+This ENUM lists possible HTTP Verbs. Note: &apos;Delete&apos; is an Apex Keyword (DML) and as a result, the ENUM value &apos;DEL&apos; is used for delete.
 
 ---
 ## Properties
@@ -98,7 +98,7 @@ String
 
 **Description**
 
-inputted string with `/` if it didn't already end in one.
+inputted string with `/` if it didn&apos;t already end in one.
 
 ### `get(String path)` → `HttpResponse`
 
@@ -150,7 +150,7 @@ Omnibus callout method. This is the primary method for making a REST callout. Mo
 |`path` |  patch component of the callout url i.e. `/services/data/v39.0/SObjects` |
 |`query` |  Query portion of the URL i.e. `?q=SELECT Id FROM Account` |
 |`body` |  JSON string representing the body of the callout in post/patch situations |
-|`headers` |  A map<String,String> of headers to use while making this callout |
+|`headers` |  A map&lt;String,String&gt; of headers to use while making this callout |
 
 #### Return
 
@@ -237,7 +237,7 @@ A static wrapper for the main makeApiCall method
 |`path` |            Http path component of the URL. ie: `/path/to/resource` |
 |`query` |            Query component of the URL ie: after `?foo=bar` |
 |`body` |             JSON string to post |
-|`headers` |          Map<String,String> representing outgoing Request |
+|`headers` |          Map&lt;String,String&gt; representing outgoing Request |
 
 #### Return
 

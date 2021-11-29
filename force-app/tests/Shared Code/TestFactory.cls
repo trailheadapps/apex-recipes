@@ -324,7 +324,8 @@ public class TestFactory {
         Id profileId = [
             SELECT Id
             FROM Profile
-            WHERE Name = 'Custom: Marketing Profile'
+            WHERE Name = 'Marketing User'
+            LIMIT 1
         ]
         .Id;
         return createTestUser(profileId, doInsert);
