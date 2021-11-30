@@ -10,7 +10,7 @@ Demonstrates how to create, link and share Files
 ### GenericFileType
 
 
-This enum encapsulates a 'generic' filetype a 'filetype' that may have multiple file extension and mime types associated with it. For instance, IMAGE encapsulates: jpg, gif, jpeg, & png this allows developers to say, 'give me all *image* attachments' without worrying about the actual file extension.
+This enum encapsulates a &apos;generic&apos; filetype a &apos;filetype&apos; that may have multiple file extension and mime types associated with it. For instance, IMAGE encapsulates: jpg, gif, jpeg, &amp; png this allows developers to say, &apos;give me all *image* attachments&apos; without worrying about the actual file extension.
 
 ---
 ## Methods
@@ -104,7 +104,7 @@ List&lt;Database.SaveResult&gt;
 
 ### `getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType genericFileType,Id recordId)` → `List<ContentVersion>`
 
-Searches for content version records linked to this record Filtering by a generic file type: image, audio, document etc. Note: This method has a false-positive PMD warning. Our Query includes the keyword 'WITH SECURITY_ENFORCED' which prevents this Query from accessing fields and objects that they don't have permission to access. This is a form of inline CRUD/FLS Check.
+Searches for content version records linked to this record Filtering by a generic file type: image, audio, document etc. Note: This method has a false-positive PMD warning. Our Query includes the keyword &apos;WITH SECURITY_ENFORCED&apos; which prevents this Query from accessing fields and objects that they don&apos;t have permission to access. This is a form of inline CRUD/FLS Check.
 
 #### Parameters
 |Param|Description|
@@ -116,11 +116,11 @@ Searches for content version records linked to this record Filtering by a generi
 
 **Type**
 
-List<ContentVersion>
+List&lt;ContentVersion&gt;
 
 **Description**
 
-`List<ContentVersion>`
+`List&lt;ContentVersion&gt;`
 
 #### Example
 ```java

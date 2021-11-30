@@ -30,7 +30,7 @@ Demonstrates how to use different encryption and signing algorithms in Apex
 ## Methods
 ### `checkHMACSHA512Recipe(Blob hmac, Blob dataToCheck)` → `void`
 
-Recomputes HMAC using the symmetric key and compares it with the received one, throwing an exception if they're not equal.
+Recomputes HMAC using the symmetric key and compares it with the received one, throwing an exception if they&apos;re not equal.
 
 #### Parameters
 |Param|Description|
@@ -60,7 +60,7 @@ try {
 
 ### `checkRSASHA512DigitalSignatureRecipe(Blob signature,Blob dataToCheck)` → `void`
 
-Recomputes Digital Signature for and compares it with the received one, throwing an exception if they're not equal.
+Recomputes Digital Signature for and compares it with the received one, throwing an exception if they&apos;re not equal.
 
 #### Parameters
 |Param|Description|
@@ -90,7 +90,7 @@ try {
 
 ### `checkSHA512HashRecipe(Blob hash, Blob dataToCheck)` → `void`
 
-Recomputes hash digest for and compares it with the received one, throwing an exception if they're not equal.
+Recomputes hash digest for and compares it with the received one, throwing an exception if they&apos;re not equal.
 
 #### Parameters
 |Param|Description|

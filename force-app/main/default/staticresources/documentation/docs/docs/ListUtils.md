@@ -42,7 +42,7 @@ Integer
 
 **Description**
 
-s 0 if objects are equal, 1 first object is 'greater' than the second or 2 otherwise.
+s 0 if objects are equal, 1 first object is &apos;greater&apos; than the second or 2 otherwise.
 
 ---
 ### ListUtils.CompareException class
