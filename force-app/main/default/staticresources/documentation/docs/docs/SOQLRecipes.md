@@ -16,8 +16,9 @@ Demonstrates how to make various types of SOQL calls including multi-object quer
 Demonstrates how to use a bound variable in a WHERE clause
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`state` |  String representing a US State code (AK, KS, etc.) |
 
 #### Return
@@ -73,8 +74,9 @@ System.debug(SOQLRecipes.getDetailsFromBothParentRecords());
 Demonstrates how to use a bound variable to define the LIMIT
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`wantedNumberOfRows` |  the number of rows desired |
 
 #### Return
@@ -250,8 +252,9 @@ System.debug(SOQLRecipes.getSpecificNumberOfRecords());
 demonstrates how to use aggregate methods, like Sum() or Count() in a SOQL query. This example generates the sum of opportunities associated with a specified Account
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`accountId` |  an AccountId |
 
 #### Return

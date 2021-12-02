@@ -16,8 +16,9 @@ Demonstrates various ways of making Data Manipulation Language (DML) calls. Note
 Deletes a list of accounts via the Database.delete method
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`accts` |  List of Accounts to delete |
 
 #### Example
@@ -32,8 +33,9 @@ DMLRecipes.deleteAccountViaDatabaseMethod(accounts);
 Deletes a list of accounts via the delete DML keyword
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`accts` |  list of accounts to delete |
 
 #### Example
@@ -48,8 +50,9 @@ DMLRecipes.deleteAccountViaDatabaseMethod(accounts);
 Demonstrates how to use the insert keyword to persist a net-new record to the database
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`name` |  name passed through to the name of the created account |
 
 #### Example
@@ -62,8 +65,9 @@ DMLRecipes.insertAccountViaInsertKeyword('Hello');
 Demonstrates how to use the Database.insert() method to persist a net-new record to the database.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`name` |          name Passed through to the account created |
 |`allOrNothing` |  allOrNothing determines whether or not all accounts |
 
@@ -77,8 +81,9 @@ DMLRecipes.insertAccountsViaDatabaseMethod('Hello', false);
 undeletes a list of accounts via the Database.undelete method.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`accts` |  list of accounts to undelete |
 
 #### Return
@@ -105,8 +110,9 @@ System.debug(results);
 Undeletes a list of accounts via the undelete DML keyword
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`accts` |  List of accounts to undelete |
 
 #### Return
@@ -133,8 +139,9 @@ System.debug(results);
 Demonstrates how to Update a list of accounts via the Update DML keyword
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`accts` |  List of accounts to update |
 
 #### Return
@@ -159,8 +166,9 @@ DMLRecipes.updateAcccountViaKeyword(acct);
 Demonstrates how to update a list of accounts via the Database.update() method
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`accts` |  list of accounts to update |
 
 #### Return
@@ -186,8 +194,9 @@ System.debug(results);
 Upserts an account with a potential of all or nothing, using the Database.upsert method
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`acct` |  The account object to upsert |
 |`allOrNothing` |  all or nothing flag |
 
@@ -212,8 +221,9 @@ DMLRecipes.upsertAccountViaDatabaseMethod(
 Demonstrates the use of the upsert keyword to either insert or update a record
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`acct` |  account to upsert |
 
 #### Return

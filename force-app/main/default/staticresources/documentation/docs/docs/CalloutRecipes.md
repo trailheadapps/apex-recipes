@@ -15,8 +15,9 @@ RestClient, CanTheUser
 
 Constructor accepting a named credential.
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`namedCredential` |  name of the Named Credential to use |
 
 ---
@@ -45,8 +46,9 @@ System.debug(CalloutRecipes.httpCalloutWithUntypedResponse());
 Demonstrates a DELETE request to a second Salesforce org - A DELETE request is used to delete data from the target endpoint. In this example, we will be deleting a contact from another Salesforce org. We will store the parameters in the urlPath which can then be accessed through the .getParams() method in the org receiving the delete request.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`contactId` |  the Id of the contact that you would like to delete in |
 
 #### Return
@@ -89,8 +91,9 @@ System.debug(CalloutRecipes.httpGetCalloutToSecondOrg());
 Demonstrates a PATCH request to a second Salesforce org a PATCH request is used to send data to a target endpoint and update already existing data. In this example, we will be sending a list of Account records to a second salesforce org for updating.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`accountRecords` |  a list of account records to be updated in the |
 
 #### Return
@@ -114,8 +117,9 @@ System.debug(CalloutRecipes.httpPatchCalloutToSecondOrg(contacts));
 Demonstrates a POST request to a second Salesforce org a POST request is used to send data to a target endpoint and insert it. In this example, we will be sending a list of contact records to a second Salesforce org. We will serilaize the list and POST it in body of the callout.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`contactRecords` |  a list of contact records to be inserted in the |
 
 #### Return
@@ -139,8 +143,9 @@ System.debug(CalloutRecipes.httpPostCalloutToSecondOrg(contacts));
 Demonstrates a PUT request to a second Salesforce org a PUT request is used to send data to a target endpoint and upsert it. In this example, we will be sending a list of contact records to a second org.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`contactRecords` |  a list of contact records to be upsert in the |
 
 #### Return
@@ -164,8 +169,9 @@ System.debug(CalloutRecipes.httpPutCalloutToSecondOrg(contacts));
 As seen in the httpCalloutWithUntypedResponse method, we don&apos;t always get a perfect datastructure back from our callout. In this case, we have received and account and it&apos;s contacts that need to be inserted into Salesforce. Check out the Test class for an example of an untyped data structure.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`untypedResponse` |  the untyped JSON response that we received from |
 
 #### Example

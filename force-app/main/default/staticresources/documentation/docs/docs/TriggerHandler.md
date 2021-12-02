@@ -71,8 +71,9 @@ Virtual method for the implementing class to override
 Allows developers to conditionally bypass (disable) other triggers that *also* implement this triggerHandler
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`handlerName` |  Class name (String) of the trigger handler to bypass |
 
 #### Example
@@ -94,8 +95,9 @@ Triggerhandler.clearAllBypasses();
 Removes a given trigger handler class name from the list of bypassed trigger handlers.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`handlerName` |  Handler class name to remove from the bypass list |
 
 #### Example
@@ -132,8 +134,9 @@ String
 Allows developers to check whether a given trigger handler class is currently bypassed.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`handlerName` |  The name of the trigger handler class to check for |
 
 #### Return
@@ -165,8 +168,9 @@ AccountTriggerHandler.run();
 Allows developers to prevent trigger loops, or allow a limited number of them by setting the maximum number of times this trigger is called.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`max` |    A valid number (generally 1) of times you&apos;d like |
 
 #### Example
@@ -184,8 +188,9 @@ internal method to forcibly set the trigger context
 Internal method for manually setting the trigger context
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`ctx` |       The current trigger Context |
 |`testMode` |  Is the trigger running in a test context? |
 
@@ -219,8 +224,9 @@ Loop counter method with default of 5.
 
 Sets loop count based on the param.
 ###### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`max` |    Maximum number of loops to allow. |
 
 ---
@@ -293,8 +299,9 @@ Boolean
 Sets the max loop size
 
 ###### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`max` |    The integer to set max to. |
 
 ---

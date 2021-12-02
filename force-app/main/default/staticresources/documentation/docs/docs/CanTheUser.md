@@ -25,8 +25,9 @@ A reusable, intuitive library for determining wether or not the current use can 
 bulk form of flsAccessible
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |     Obj name on which to check |
 |`fields` |  Set of Fields to check for accessibility. |
 
@@ -51,8 +52,9 @@ System.debug(CanTheUser.bulkFLSAccessible('Account', fields));
 bulk form of flsUpdatable call
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |     Name of the object |
 |`fields` |  Set of Field names to check |
 
@@ -77,8 +79,9 @@ System.debug(CanTheUser.bulkFLSUpdatable('Account', fields));
 convenience api for determining if the running user can create the specified object
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |  Object type to check create permissions on |
 
 #### Return
@@ -101,8 +104,9 @@ System.debug(CanTheUser.create(new Account()));
 convenience api for determining if the running user can create the specified object
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`objs` |  list of objects. Only the first will be checked. (logically, a list is of uniform type |
 
 #### Return
@@ -120,8 +124,9 @@ Boolean
 convenience api for determining if the running user can create the specified object
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`String` |  Object type to check create permissions on |
 
 #### Return
@@ -141,8 +146,9 @@ System.debug(CanTheUser.create('Account'));
 
 ### `crud(SObject obj, CrudType permission)` → `Boolean`
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |  the object type to check |
 |`permission` |  create, read, update or delete |
 
@@ -168,8 +174,9 @@ System.debug(CanTheUser.crud(new Account(), CanTheUser.CrudType.READ));
 convenience api for determining if the running user can delete/destroy the specified object
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |  object type to check destroy permissions on |
 
 #### Return
@@ -192,8 +199,9 @@ System.debug(CanTheUser.destroy(new Account()));
 convenience api for determining if the running user can delete the specified object
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`String` |  Object type to check delete permissions on |
 
 #### Return
@@ -211,8 +219,9 @@ Boolean
 convenience api for determining if the running user can delete the specified object
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`String` |  Object type to check create permissions on |
 
 #### Return
@@ -235,8 +244,9 @@ System.debug(CanTheUser.destroy('Account'));
 convenience api for determining if the running user can edit / update the specified object
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |  object type to check edit permissions on |
 
 #### Return
@@ -259,8 +269,9 @@ System.debug(CanTheUser.edit(new Account()));
 convenience api for determining if the running user can edit / update the specified objects
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |  object type to check edit permissions on |
 
 #### Return
@@ -278,8 +289,9 @@ Boolean
 convenience api for determining if the running user can edit the specified object
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`String` |  Object type to check edit permissions on |
 
 #### Return
@@ -302,8 +314,9 @@ System.debug(CanTheUser.edit('Account'));
 public method to determine if a given field on a given object is Accessible (readable)
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |  the object in question, in string form |
 |`field` |  the field in question in SObjectField form |
 
@@ -327,8 +340,9 @@ System.debug(CanTheUser.flsAccessible('Account', 'Name'));
 public method to determine if a given field on a given object is Updatable.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |  the string version of an object name |
 |`field` |  the field to check |
 
@@ -352,8 +366,9 @@ System.debug(CanTheUser.flsUpdatable('Account', 'Name'));
 Abstracted method for retrieving or calculating (memoization) of the FLS for a given field on a given object.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |        String version of object name to check |
 |`field` |      String version of the field to check |
 |`checkType` |  Enum of Accessible or Updatable. |
@@ -373,8 +388,9 @@ Boolean
 Utilizes the Metadata catalog to determine FLS Note: this method contains a false-positive PMD violation. Normally, we&apos;d want to check for FLS/CRUD here, but for metadata catalog objects that admins cannot remove permissions to we&apos;re ok. Additionally, even the minimum access profile user has read access to the FieldPermissions object.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`objType` |  String version of the object type to check |
 |`action` |   Enum of the FLS action to check permissions for |
 
@@ -393,8 +409,9 @@ Set&lt;String&gt;
 convenience api for determining if the running user can read / access the specified object
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |  object type to check read permissions on |
 
 #### Return
@@ -417,8 +434,9 @@ System.debug(CanTheUser.read(new Account()));
 convenience api for determining if the running user can read / access the specified objects
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |  object type to check read permissions on |
 
 #### Return
@@ -436,8 +454,9 @@ Boolean
 convenience api for determining if the running user can read the specified object
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`String` |  Object type to check read permissions on |
 
 #### Return
@@ -460,8 +479,9 @@ System.debug(CanTheUser.read('Account'));
 convenience api for determining if the running user can upsert (insert and update) the specified objects
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |  object type to check edit permissions on |
 
 #### Return
@@ -484,8 +504,9 @@ System.debug(CanTheUser.ups(new Account()));
 convenience api for determining if the running user can edit / update the specified objects
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`obj` |  object type to check upsert permissions on |
 
 #### Return
@@ -503,8 +524,9 @@ Boolean
 convenience api for determining if the running user can upsert the specified object
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`String` |  Object type to check upsert permissions on |
 
 #### Return
@@ -541,8 +563,9 @@ this cachebuilder interface allows the CanTheUser class to cache per-object resu
 Calculates the FLS for a given object type
 
 ###### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`objType` |  String name of the object type |
 
 ###### Return
@@ -560,8 +583,9 @@ Map&lt;FLSType, Boolean&gt;&gt;
 Required method for the CacheBuilder interface. Used here to either calculate an objects per-user FLS, OR to return it from Cache. The return datastructure for this is Map&lt;String, Map&lt;FLSType,Boolean&gt;&gt; and represents: FieldName -&gt; FLStype -&gt; True/False
 
 ###### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`objType` |  String object name used as the cache key |
 
 ###### Return

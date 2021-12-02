@@ -16,8 +16,9 @@ this is the server side controller for the Formatted Recipe Display component. I
 AuraEnabled, and cached read-only method for grabbing the body of a given Apex Class Note: this method contains a false-positive PMD violation. Normally, we&apos;d want to check for FLS/CRUD here, but for ApexClass a system level object that Admins and users cannot really change we&apos;re ok.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`recipeName` |  Name of the Class to return |
 
 #### Return
@@ -48,8 +49,9 @@ Data transfer object for marshalling information form this class to the LWC that
 
 constructor for ClassData that accepts an ApexClass object
 ###### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`klass` |  An ApexClass object to build this object from. |
 
 ---

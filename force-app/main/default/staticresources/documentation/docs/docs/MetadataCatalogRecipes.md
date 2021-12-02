@@ -62,8 +62,9 @@ internal data object for information about a Lookup Relationship
 
 Constructor that transforms a Field Definition object into a LookupRelationshipDefinition Object.
 ###### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`fd` |  a FieldDefinition Object |
 
 ###### Example

@@ -16,8 +16,9 @@ This is a utility class for List operations. It provides a method that allows to
 sorts a list of objects using bubble sort algorithm and a comparator
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`objects` |  a list of objects that will be sorted |
 |`comparator` |  an instance of the Comparator interface that describes the ordering logic used for sorting |
 

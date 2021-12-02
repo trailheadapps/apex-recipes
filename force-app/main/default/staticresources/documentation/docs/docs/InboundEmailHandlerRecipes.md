@@ -16,8 +16,9 @@ Safely, FilesRecipes
 Creates a Salesforce Email record and relates that email to the sender&apos;s contact record. This surfaces the Email record on the contact object.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`` | r |
 |`` | l |
 
@@ -26,8 +27,9 @@ Creates a Salesforce Email record and relates that email to the sender&apos;s co
 This helper method bulk saves attachments from the incoming email. It relies on FilesRecipes.cls to do the actual creation of the Files attachments as well as publishing the file to the specified record.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`` | s |
 |`` | d |
 
@@ -36,8 +38,9 @@ This helper method bulk saves attachments from the incoming email. It relies on 
 Determines if we have an existing contact record with an email address that matches the sender of this email. If we do not have a contact that matches, return a new contact object with the email address set.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`` | s |
 
 #### Return
@@ -55,8 +58,9 @@ Contact
 Messaging.InboundEmailHandler interface has one required method - handleInboundEmail. This method must return an Messaging.InboundEmailResult object, and you should take care to set that object&apos;s success property. This method is where you will write business logic to ... do whatever it is you want to do with the incoming email. Here you can attach the email to the contact record who sent it, a case or ... The sky&apos;s the limit.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`email` |     This is an Messaging.InboundEmail Object that is |
 |`envelope` |  This is an Messaging.InboundEnvelope object that is |
 

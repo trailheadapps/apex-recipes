@@ -16,8 +16,9 @@ PlatformEventTriggerHandler, TriggerHandler
 publishes a platform event
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`event` |  an Event_Recipes_Demo__e object |
 
 #### Return

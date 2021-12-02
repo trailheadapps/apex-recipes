@@ -33,8 +33,9 @@ Demonstrates how to use different encryption and signing algorithms in Apex
 Recomputes HMAC using the symmetric key and compares it with the received one, throwing an exception if they&apos;re not equal.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`hmac` |  Blob that contains the received hmac |
 |`dataToCheck` |  Blob that contains the data to check the hmac for |
 
@@ -63,8 +64,9 @@ try {
 Recomputes Digital Signature for and compares it with the received one, throwing an exception if they&apos;re not equal.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`signature` |  Blob that contains the received signature |
 |`dataToCheck` |  Blob that contains the data to check the signature for |
 
@@ -93,8 +95,9 @@ try {
 Recomputes hash digest for and compares it with the received one, throwing an exception if they&apos;re not equal.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`hash` |  Blob that contains the received hash |
 |`dataToCheck` |  Blob that contains the data to check the hash for |
 
@@ -123,8 +126,9 @@ try {
 Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. In this case the sender needs to share the initialization vector with the receiver.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`dataToDecrypt` |  Blob that contains the data to be decrypted |
 
 #### Return
@@ -148,8 +152,9 @@ System.debug(decryptedData.toString());
 Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. In this case the initialization vector will be the first 128 bits (16 bytes) of the received data.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`dataToDecrypt` |  Blob that contains the data to be decrypted |
 
 #### Return
@@ -173,8 +178,9 @@ System.debug(decryptedData.toString());
 Encrypts the message with AES and then generates Digital Signature (encrypted with an asymmetric key) that can be checked in destination. This ensure confidentiality, integrity, authenticity and non-repudiation.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`dataToEncryptAndSign` |  Blob that contains some data to encrypt and sign |
 
 #### Return
@@ -200,8 +206,9 @@ System.debug(EncodingUtil.base64Encode(wrapper.signature));
 Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. In this case the initialization vector is specified by the sender. It needs to be random and 16 bytes (128 bits).
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`dataToEncrypt` |  Blob that contains the data to encrypt |
 
 #### Return
@@ -227,8 +234,9 @@ System.debug(EncodingUtil.base64Encode(encryptedData));
 Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. In this case the initialization vector is managed by Salesforce.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`dataToEncrypt` |  Blob that contains the data to encrypt |
 
 #### Return
@@ -253,8 +261,9 @@ System.debug(EncodingUtil.base64Encode(encryptedData));
 Generates one-way HMAC (using a symmetric key) that can be checked in destination to ensure integrity and authenticity.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`dataToHmac` |  Blob that contains some data for which to generate an HMAC |
 
 #### Return
@@ -293,8 +302,9 @@ Blob
 Generates one-way Digital Signature (encrypted with an asymmetric key) that can be checked in destination to ensure integrity, authenticity and non-repudiation.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`dataToSign` |  Blob that contains some data to sign |
 
 #### Return
@@ -319,8 +329,9 @@ System.debug(EncodingUtil.base64Encode(signature));
 Generates one-way hash digest that can be checked in destination to ensure integrity.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`dataToHmac` |  Blob that contains some data for which to generate a hash |
 
 #### Return
@@ -363,8 +374,9 @@ Internal custom exception class
  Comparisons which involve cryptography need to be performed in constant time using specialized functions to avoid timing attack effects. https://en.wikipedia.org/wiki/Timing_attack
 
 ###### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`first` |  first String to compare |
 |`second` |  second String to compare |
 
@@ -383,8 +395,9 @@ Boolean strings are equal
 Decrypts the message and verifies its Digital Signature.
 
 ###### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`signature` |  Blob that contains the received signature |
 |`dataToDecryptAndCheck` |  Blob that contains the data to check the signature for |
 
