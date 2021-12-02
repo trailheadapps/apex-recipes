@@ -11,8 +11,9 @@ Demonstrates an interable REST API client that loads paginated records (strings)
 
 Constructor accepting a named credential.
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`namedCredential` |  name of the Named Credential to use |
 
 ---

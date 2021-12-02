@@ -78,8 +78,9 @@ Used to marshall data between Apex and the LWC component that uses this data
 Required by the Comparable interface, this method, once implemented allows us to sort of this object type.
 
 ###### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`compareTo` |  A RecipeTreeData object to compare this instance against. |
 
 ###### Return

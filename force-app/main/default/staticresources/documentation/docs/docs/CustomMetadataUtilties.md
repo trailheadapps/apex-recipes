@@ -16,8 +16,9 @@ CustomMetadataRecipes_Tests
 Identifies Bucketed Picklists the given object id has associated with it.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`` | d |
 
 #### Return
@@ -35,8 +36,9 @@ List&lt;Bucketed_Picklist__mdt&gt;
 Convenience method accepts a list and send the first entry in the list to it&apos;s twin above.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`` | s |
 
 #### Return
@@ -54,8 +56,9 @@ List&lt;Bucketed_Picklist__mdt&gt;
 Returns a list of bucket names that match the given search term, and list of possible fields.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`bPL` |     Bucketed Picklist list |
 |`search` |  Search String for Bucketed_Picklist_Value__mdt.label |
 

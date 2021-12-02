@@ -12,8 +12,9 @@ This class serves as a library of useful methods for writing more expressive, cl
 It can be useful to know what the type of an object is at runtime. This is especially useful when you&apos;re dynamically instantiating objects in code from the name of a class. I&apos;m not generally a fan of relying on an exception to make logic decisions, but in this case I&apos;ll make an exception as this is the cleanest method I&apos;ve yet found for efficently determining an objects class name that covers edge cases where the object is of an inner class&apos; type. This method parses a TypeException for the true name of a class. It generates the exception by forcing a cast from the Object parameter to DateTime. If no typeException occurs, we know it&apos;s a dateTime object.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`` | j |
 
 #### Return

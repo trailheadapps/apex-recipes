@@ -31,8 +31,9 @@ A list of quiddities that may include user-defined data and therefore should not
 A method to determine if the current Quiddity context is within a caller-supplied list of acceptable quiddity values.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`acceptableQuiddites` |  A list of quiddities to check against |
 
 #### Return

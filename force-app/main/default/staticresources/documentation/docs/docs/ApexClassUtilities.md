@@ -16,8 +16,9 @@ RecipeTreeViewController, FormattedRecipeDisplayController
 Extracts the @group annotation from a class&apos; body. Also demonstrates the use of Regex matchers in Apex.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`klass` |  an ApexClass object |
 
 #### Return
@@ -41,8 +42,9 @@ System.debug(ApexClassUtilities.getGroupBodyFromClassBody(klass));
 Extracts the @see annotation from a class&apos; body. Also demonstrates the use of Regex matchers in Apex.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`klass` |  an ApexClass object |
 
 #### Return

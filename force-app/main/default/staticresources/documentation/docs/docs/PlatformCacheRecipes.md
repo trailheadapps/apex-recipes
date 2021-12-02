@@ -26,8 +26,9 @@ Defines the default cache partition for use in this class.
 returns a Cache.Partition for a given name, and type
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`type` |   Enum of .SESSION or .ORG |
 
 #### Return
@@ -45,8 +46,9 @@ Cache.Partition
 Retrieves a value from the cache identified by key
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`key` |    String key of which value to retrieve. |
 
 #### Return
@@ -64,8 +66,9 @@ String
 Retrieves a value from the cache identified by key
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`key` |    String key of which value to retrieve. |
 
 #### Return
@@ -83,8 +86,9 @@ String
 removes a key/value from the cache manually
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`key` |    String key to remove |
 
 ### `removeKeyFromSessionCache(String key)` → `void`
@@ -92,8 +96,9 @@ removes a key/value from the cache manually
 removes a key/value from the cache manually
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`key` |    String key to remove |
 
 ### `storeValueInOrgCache(String key, String toStore)` → `void`
@@ -101,8 +106,9 @@ removes a key/value from the cache manually
 Stores a value in the Org cache with a default timeout of 3600 seconds (1hr)
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`key` |      String name of key used to store the value in the cache. |
 |`toStore` |  String value to store in the cache. |
 
@@ -111,8 +117,9 @@ Stores a value in the Org cache with a default timeout of 3600 seconds (1hr)
 Stores a value in the Org cache with a custom timeout.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`key` |      String Name to the store the value under. |
 |`toStore` |  String to store in the cache |
 |`ttl` |      Integer Time To Live (ttl) is the number of seconds this |
@@ -122,8 +129,9 @@ Stores a value in the Org cache with a custom timeout.
 Stores a value in the Session cache with a default timeout of 3600 seconds (1hr)
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`key` |      String name of key used to store the value in the cache. |
 |`toStore` |  String value to store in the cache. |
 
@@ -132,8 +140,9 @@ Stores a value in the Session cache with a default timeout of 3600 seconds (1hr)
 Stores a value in the Session cache with a custom timeout.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`key` |      String Name to the store the value under. |
 |`toStore` |  String to store in the cache |
 |`ttl` |      Integer Time To Live (ttl) is the number of seconds this |

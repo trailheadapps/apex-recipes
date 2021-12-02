@@ -19,8 +19,9 @@ This enum encapsulates a &apos;generic&apos; filetype a &apos;filetype&apos; tha
 Creates a file and links it to a given record
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`fileContents` |  the binary blob of the files contents |
 |`attachedTo` |    the record to link this file to, initially |
 |`fileName` |      the name of the file. Note that the system determines |
@@ -52,8 +53,9 @@ System.debug('Look for files assoicated with account: ' + acct.id);
 Convenience method for creating a file and linking it to a given record
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`toCreate` |  a FileAndLinkObject (inner class above) object representing the file to be created and linked |
 
 #### Return
@@ -71,8 +73,9 @@ Database.SaveResult
 creates a file attachment containing the given string and links it to the object specified in firstLocation
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`text` |           String to write to the file |
 |`firstLocation` |  object to immediately link this file to |
 
@@ -88,8 +91,9 @@ System.debug('Look for files assoicated with account: ' + acct.id);
 Bulk method for inserting multiple files and link them to records
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`toCreate` |  List&lt;FilesRecipes.FileAndLinkObject&gt; |
 
 #### Return
@@ -107,8 +111,9 @@ List&lt;Database.SaveResult&gt;
 Searches for content version records linked to this record Filtering by a generic file type: image, audio, document etc. Note: This method has a false-positive PMD warning. Our Query includes the keyword &apos;WITH SECURITY_ENFORCED&apos; which prevents this Query from accessing fields and objects that they don&apos;t have permission to access. This is a form of inline CRUD/FLS Check.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`genericFileType` |  Enum of image, audio, document |
 |`recordId` |         Record id to limit searching to |
 
@@ -134,8 +139,9 @@ System.debug('Found the following ContentVersion Ids: ' + FilesRecipes.getFilter
 Given a content document link, publish the content version
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`cdl` |    Content Document link record to publish |
 
 #### Return

@@ -12,8 +12,9 @@ Demonstrates how to create Apex classes and methods that can be invoked from Vis
 Invocable method accepts a list of incoming ContactSearchRequest objects. The first incoming request is extracted, and the incoming records&apos; Id is used to determine the type of object. In this case, the code handles either an Account or a Task. A query is crafted specific to the incoming object, and it&apos;s type and the results of the query are converted to a Result object and returned.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`inputParams` |  A list of ContactSearchRequest objects |
 
 #### Return
@@ -62,8 +63,9 @@ Represents the output from the invocable method
 
 Constructor building output object from SObject
 ###### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`toOutput` |   Object to output |
 
 ---

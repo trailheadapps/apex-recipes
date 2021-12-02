@@ -20,8 +20,9 @@ Wrapper class around Account that provides an implementation of Comparable based
 compares accounts based on ShippingCountry
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`otherObject` |  object used for comparision with this instance |
 
 #### Return
@@ -39,8 +40,9 @@ s 0 if objects are equal, 1 this object is &quot;greater&quot; than `otherObject
 sorts a list of Account records using SortableAccount.compareTo
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`accounts` |  list of account to sort |
 
 ---

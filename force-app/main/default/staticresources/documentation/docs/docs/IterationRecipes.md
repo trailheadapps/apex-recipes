@@ -30,8 +30,9 @@ List&lt;String&gt; the &apos;records&apos; retrieved
 Demonstrates how to iterate on a list of SObject thanks to the Iterable and Iterator interfaces. This example iterates on Accounts to sum the &apos;number of employees&apos; field values (use the `SUM` SOQL function for a real-life application).
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`accounts` |  a list of accounts that will be iterated on |
 
 #### Return

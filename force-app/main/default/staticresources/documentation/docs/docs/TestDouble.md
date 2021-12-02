@@ -11,8 +11,9 @@ Implements an easy and re-usable StubProvider Utilizes a fluent interface for ea
 
 Constructor requiring the Type parameter to ensure we always set the Type property.
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`objectType` |  Type name. ie: TestDouble.class |
 
 ---
@@ -37,8 +38,9 @@ Object
 Required method for the StubProvider interface This extensive parameter list is used to help disambiguate overloaded method names where needed. This method is used to delegate response to appropriate Method object - matched by name and params.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`stubbedObject` |       - This is the object being stubbed |
 |`stubbedMethodName` |   - This is the name of the Method being stubbed |
 |`returnType` |          - Return type |
@@ -63,8 +65,9 @@ Object
 This adds a given method object to the list of Methods that are actively overridden and stubbed by this TestDouble instance.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`toTrack` |  A TestDouble.Method object |
 
 #### Return
@@ -84,8 +87,9 @@ TestDouble
 Adds a matching ParamTypes list to this method definition. If added,
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`` | s |
 
 #### Return
@@ -111,8 +115,9 @@ Method
 
 Minimalist constructor for this class.
 ###### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`methodName` |  the name of the method to be stubbed. |
 
 ---

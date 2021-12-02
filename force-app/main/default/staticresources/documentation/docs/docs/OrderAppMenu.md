@@ -12,8 +12,9 @@ A queueable class to prioritize this sample app in the org wide App Menu. This i
 reorders the org wide AppMenu order so Apex Recipes is the first seen.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`qc` |     dependency injected by the system at runtime. |
 
 ---

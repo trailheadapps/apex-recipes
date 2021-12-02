@@ -35,8 +35,9 @@ This class contains the &apos;data transfer object&apos; details. Data transfer 
 Parses the provided JSON string into a list of ApiServiceRecipesDataModel objects
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`json` |   Incoming JSON string. Often from an api call&apos;s results. |
 
 #### Return

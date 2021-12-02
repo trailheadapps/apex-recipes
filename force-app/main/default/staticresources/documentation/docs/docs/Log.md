@@ -28,8 +28,9 @@ private instance of this log class that backs the singleton get() method.
 Add a message to the buffer without publishing it. Assumes a null severity
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`messageToLog` |   The string message to add to the buffer. |
 
 ### `add(String messageToLog, LogSeverity severity)` → `void`
@@ -37,8 +38,9 @@ Add a message to the buffer without publishing it. Assumes a null severity
 Add a message to the buffer without publishing it.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`messageToLog` |  The string message to add to the buffer. |
 |`severity` |      LogSeverity enum |
 
@@ -47,8 +49,9 @@ Add a message to the buffer without publishing it.
 Add an formated exception message to the buffer without publishing it. Assumes a null Severity
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`exceptionToLog` |  Exception to format and log |
 
 ### `add(Exception exceptionToLog, LogSeverity severity)` → `void`
@@ -56,8 +59,9 @@ Add an formated exception message to the buffer without publishing it. Assumes a
 Add an formated exception message to the buffer without publishing it.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`exceptionToLog` |  Exception to format and log |
 |`severity` |        LogSeverity enum |
 
@@ -84,8 +88,9 @@ Publish any messages currently in the buffer, without adding any new ones.
 Auto-format exception details, add it to the log buffer, and then publish the current buffer. Use the equivelent add method if you intend to add multiple messages rapidly to minimize DML usage.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`exceptionToLog` |  exception to format and log |
 
 ### `publish(String messageToLog)` → `void`
@@ -93,8 +98,9 @@ Auto-format exception details, add it to the log buffer, and then publish the cu
 Auto-format a custom log message string, add it to the log buffer, and then publish the current buffer. Use the equivelent add method if you intend to add multiple messages rapidly to minimize DML usage.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`messageToLog` |  String to log |
 
 ---

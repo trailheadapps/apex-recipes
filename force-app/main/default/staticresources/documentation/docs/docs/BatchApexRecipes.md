@@ -25,8 +25,9 @@ Demonstrates the use of the Database.Batchable interface. The methods in this cl
 This method is where the actual work occurs. It&apos;s run once per batch.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`context` |  dependency injected by the system in this batch. It&apos;s this |
 |`scope` |  a list of up to 200 SObject records to be processed |
 
@@ -40,8 +41,9 @@ Database.enqueueBatch(new BatchApexRecipes());
 This method is called by the system when all the individual batches have completed. Intrepid developers may send emails, or otherwise notify others of the job&apos;s completion here.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`context` |  dependency injected by the system |
 
 #### Example
@@ -54,8 +56,9 @@ Database.enqueueBatch(new BatchApexRecipes());
 This method is required by the Batchable interface. It&apos;s responsible for identifying the records that will be affected Your start method can either return a QueryLocator or an Iterable (List) The records identified here will be made available to the execute method below, in batches of up to 200 records at a time.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`context` |  dependency injected by the system |
 
 #### Return

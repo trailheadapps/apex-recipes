@@ -14,8 +14,9 @@ No param constructor. Use for starting the chain.
 
 Constructor accepting an ID to use as an offset. Use this version to *continue* the chain.
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`` | d |
 
 ---
@@ -36,8 +37,9 @@ Constructor accepting an ID to use as an offset. Use this version to *continue* 
 This method contains the &apos;what&apos; happens to each chunk of records. Note, that this example doesn&apos;t actually do any processing. In a real-life use case you&apos;d iterate over the records stored in this.objectsToProcess.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`` | t |
 
 ### `getRecordsToProcess(Id offsetId)` → `List<ContentDocumentLink>`
@@ -45,8 +47,9 @@ This method contains the &apos;what&apos; happens to each chunk of records. Note
 Returns a &apos;cursor&apos; - a set of records of size X from a given offset. Note: We originally intended to use OFFSET - the SOQL keyword, but discovered the max OFFSET size is 2000. This obviously won&apos;t work for large data volumes greater than 2000 so we switched to using the ID of the record. Since ID is an indexed field, this should also allow us to prevent full table scans even on the largest tables.
 
 #### Parameters
-|Param|Description|
-|-----|-----------|
+
+| Param | Description |
+| ----- | ----------- |
 |`offsetId` |  The offset id is used to demarcate already processed |
 
 #### Return
