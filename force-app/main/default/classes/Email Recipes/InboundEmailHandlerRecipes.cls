@@ -169,7 +169,9 @@ public class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler
             // This is a shortcut. You should query User to find the ID of the recipient
             toIds = new List<String>{ UserInfo.getUserId() },
             Incoming = true,
-            Status = '0', // '0' -> Draft. No status for received. (yes, it's odd)
+            Status = '3', // '3' -> Sent. No status for received. (yes, it's odd)
+            // This will allow you to add incoming attachments as related ContentDocuments to the EmailMessage
+            IsClientManaged = true, 
             MessageDate = DateTime.now(),
             RelatedToId = sender.AccountId
         );
