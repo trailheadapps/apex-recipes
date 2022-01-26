@@ -169,7 +169,8 @@ public class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler
             // This is a shortcut. You should query User to find the ID of the recipient
             toIds = new List<String>{ UserInfo.getUserId() },
             Incoming = true,
-            Status = '0', // '0' -> Draft. No status for received. (yes, it's odd)
+            Status = '3', // 3 = sent. 0 = draft
+            IsClientManaged = true,
             MessageDate = DateTime.now(),
             RelatedToId = sender.AccountId
         );
