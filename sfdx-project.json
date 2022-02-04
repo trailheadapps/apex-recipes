@@ -4,8 +4,8 @@
             "path": "force-app",
             "default": true,
             "package": "ApexRecipes",
-            "versionName": "Winter 22 release",
-            "versionNumber": "53.0.0.NEXT"
+            "versionName": "Spring 22 release",
+            "versionNumber": "54.0.0.NEXT"
         }
     ],
     "namespace": "",
