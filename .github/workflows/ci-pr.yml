@@ -128,10 +128,6 @@ jobs:
             - name: 'Run Apex tests'
               run: sfdx force:apex:test:run -c -r human -d ./tests/apex -w 20
 
-            # Run Jest tests
-            - name: 'Run Jest tests'
-              run: sfdx force:lightning:lwc:test:run
-
             # Delete temporary test file that Codecov is unable to parse
             - name: 'Delete coverage file (temporary step)'
               run: rm ./tests/apex/test-result-707*-codecoverage.json
