@@ -7,67 +7,194 @@
 >
    <description>Security Rules for Apex</description>
 
-   <rule
-        ref="category/apex/security.xml/ApexSharingViolations"
-        message="Apex classes should declare a sharing model if DML or SOQL is used"
-    >
-      <priority>3</priority>
+   <!--Code Style-->
+
+   <rule ref="category/apex/codestyle.xml/ForLoopsMustUseBraces"
+         message="Avoid using ‘for’ statements without using surrounding braces."
+   >
+      <priority>5</priority>
    </rule>
-   <rule
-        ref="category/apex/security.xml/ApexInsecureEndpoint"
-        message="Apex callouts should use encrypted communication channels"
-    >
-      <priority>3</priority>
+
+   <rule ref="category/apex/codestyle.xml/IfElseStmtsMustUseBraces"
+         message="Avoid using if..else statements without using surrounding braces."
+   >
+      <priority>5</priority>
    </rule>
-   <rule ref="category/apex/errorprone.xml/ApexCSRF">
-      <priority>3</priority>
+
+   <rule ref="category/apex/codestyle.xml/WhileLoopsMustUseBraces"
+         message="Avoid using ‘while’ statements without using braces to surround the code block."
+   >
+      <priority>5</priority>
    </rule>
-   <rule
-        ref="category/apex/security.xml/ApexOpenRedirect"
-        message="Apex classes should safely redirect to a known location"
-    >
-      <priority>3</priority>
+
+   <rule ref="category/apex/codestyle.xml/OneDeclarationPerLine"
+         message="Several variable declarations of the same type on one line can lead to quite messy code."
+   >
+      <priority>5</priority>
    </rule>
-   <rule
-        ref="category/apex/security.xml/ApexSOQLInjection"
-        message="Apex classes should escape variables merged in DML query"
-    >
-      <priority>3</priority>
-   </rule>
-   <rule
-        ref="category/apex/security.xml/ApexXSSFromURLParam"
-        message="Apex classes should escape Strings obtained from URL parameters"
-    >
-      <priority>3</priority>
-   </rule>
-   <rule
-        ref="category/apex/security.xml/ApexXSSFromEscapeFalse"
-        message="Apex classes should escape addError strings"
-    >
-      <priority>3</priority>
-   </rule>
-   <rule
-        ref="category/apex/security.xml/ApexBadCrypto"
-        message="Apex Crypto should use random IV/key"
-    >
-      <priority>3</priority>
-   </rule>
-  <rule
-        ref="category/apex/security.xml/ApexCRUDViolation"
-        message="Validate CRUD permission before SOQL/DML operation"
-    >
-      <priority>3</priority>
-   </rule>
-   <rule
-        ref="category/apex/security.xml/ApexDangerousMethods"
-        message="Calling potentially dangerous method"
-    >
-      <priority>3</priority>
-   </rule>
-   <rule
-        ref="category/apex/security.xml/ApexSuggestUsingNamedCred"
-        message="Consider using named credentials for authenticated callouts"
-    >
-      <priority>3</priority>
-   </rule>
+
+   <!--Design-->
+
+  <rule ref="category/apex/design.xml/AvoidDeeplyNestedIfStmts" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/design.xml/CyclomaticComplexity">
+    <priority>4</priority>
+  </rule>
+
+  <rule ref="category/apex/design.xml/ExcessiveClassLength">
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/design.xml/TooManyFields" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/design.xml/ExcessivePublicCount" >
+    <priority>4</priority>
+  </rule>
+
+  <rule ref="category/apex/design.xml/NcssConstructorCount" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/design.xml/NcssMethodCount" >
+    <priority>4</priority>
+  </rule>
+
+  <rule ref="category/apex/design.xml/NcssTypeCount" >
+    <priority>5</priority>
+  </rule>
+
+  <!--Documentation-->
+
+  <rule ref="category/apex/documentation.xml/ApexDoc" >
+    <priority>5</priority>
+  </rule>
+
+  <!--Emtpy Blocks (Error Prone)-->
+
+  <rule ref="category/apex/errorprone.xml/EmptyTryOrFinallyBlock" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/errorprone.xml/EmptyIfStmt" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/errorprone.xml/EmptyStatementBlock" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/errorprone.xml/EmptyWhileStmt" >
+    <priority>5</priority>
+  </rule>
+
+  <!--Error Prone-->
+
+  <rule ref="category/apex/errorprone.xml/AvoidHardcodingId" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/errorprone.xml/AvoidDirectAccessTriggerMap" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/errorprone.xml/AvoidNonExistentAnnotations" >
+    <priority>5</priority>
+  </rule>
+
+  <!--General best practices-->
+
+  <rule ref="category/apex/bestpractices.xml/AvoidLogicInTrigger" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/bestpractices.xml/AvoidGlobalModifier" >
+    <priority>5</priority>
+  </rule>
+
+  <!--Naming Conventions (Code Style)-->
+
+  <rule ref="category/apex/codestyle.xml/ClassNamingConventions" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/codestyle.xml/MethodNamingConventions" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/codestyle.xml/FieldNamingConventions" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/codestyle.xml/LocalVariableNamingConventions" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/codestyle.xml/PropertyNamingConventions" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/codestyle.xml/FormalParameterNamingConventions" >
+    <priority>5</priority>
+  </rule>
+
+  <!--Performance-->
+
+  <rule ref="category/apex/performance.xml/AvoidDmlStatementsInLoops" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/performance.xml/AvoidSoqlInLoops" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/performance.xml/AvoidSoslInLoops" >
+    <priority>5</priority>
+  </rule>
+
+  <!--Security-->
+
+  <rule ref="category/apex/security.xml/ApexOpenRedirect" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/security.xml/ApexSharingViolations" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/security.xml/ApexSOQLInjection" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/security.xml/ApexSuggestUsingNamedCred" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/security.xml/ApexXSSFromEscapeFalse" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/security.xml/ApexXSSFromURLParam" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/security.xml/ApexInsecureEndpoint" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/security.xml/ApexBadCrypto" >
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/apex/security.xml/ApexCSRF" >
+    <priority>5</priority>
+  </rule>
+
+    <rule ref="category/apex/security.xml/ApexDangerousMethods" >
+    <priority>5</priority>
+  </rule>
+
 </ruleset>
