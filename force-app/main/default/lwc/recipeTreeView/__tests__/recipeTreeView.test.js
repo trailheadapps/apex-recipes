@@ -2,6 +2,20 @@ import { createElement } from 'lwc';
 import RecipeTreeView from 'c/recipeTreeView';
 import generateTreeData from '@salesforce/apex/RecipeTreeViewController.generateTreeData';
 
+// Mock generateTreeData Apex wire adapter
+jest.mock(
+    '@salesforce/apex/RecipeTreeViewController.generateTreeData',
+    () => {
+        const {
+            createApexTestWireAdapter
+        } = require('@salesforce/sfdx-lwc-jest');
+        return {
+            default: createApexTestWireAdapter(jest.fn())
+        };
+    },
+    { virtual: true }
+);
+
 // Realistic data with a list of records
 const mockGenerateTreeData = require('./data/generateTreeData.json');
 

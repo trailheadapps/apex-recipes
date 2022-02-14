@@ -3,6 +3,19 @@ import FormattedRecipeDisplay from 'c/formattedRecipeDisplay';
 import getRecipeCode from '@salesforce/apex/FormattedRecipeDisplayController.getRecipeCode';
 import { loadScript, loadStyle } from 'lightning/platformResourceLoader';
 
+jest.mock(
+    '@salesforce/apex/FormattedRecipeDisplayController.getRecipeCode',
+    () => {
+        const {
+            createApexTestWireAdapter
+        } = require('@salesforce/sfdx-lwc-jest');
+        return {
+            default: createApexTestWireAdapter(jest.fn())
+        };
+    },
+    { virtual: true }
+);
+
 // Realistic data with a list of records
 const mockGetRecipeCode = require('./data/getRecipeCode.json');
 
