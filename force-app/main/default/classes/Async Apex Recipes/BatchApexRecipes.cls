@@ -1,7 +1,7 @@
 /**
  * @description Demonstrates the use of the Database.Batchable interface. The
  * methods in this class are called by the system as the batch executes.
- * To enqueue this batch use `Database.enqueueBatch(new BatchApexRecipes());`
+ * To execute this batch use `Database.executeBatch(new BatchApexRecipes());`
  *
  * More on the Batchable interface:
  * https://sfdc.co/batch_interface
@@ -33,7 +33,7 @@ public with sharing class BatchApexRecipes implements Database.Batchable<SObject
      * @param context dependency injected by the system
      * @return Database.QueryLocator QueryLocator object used for context
      * @example
-     * Database.enqueueBatch(new BatchApexRecipes());
+     * Database.executeBatch(new BatchApexRecipes());
      **/
     public Database.QueryLocator start(Database.BatchableContext context) {
         return Database.getQueryLocator(queryString);
@@ -47,7 +47,7 @@ public with sharing class BatchApexRecipes implements Database.Batchable<SObject
      * called scope (in this example) that make this easier.
      * @param scope a list of up to 200 SObject records to be processed
      * @example
-     * Database.enqueueBatch(new BatchApexRecipes());
+     * Database.executeBatch(new BatchApexRecipes());
      **/
     public void execute(
         Database.BatchableContext context,
@@ -98,7 +98,7 @@ public with sharing class BatchApexRecipes implements Database.Batchable<SObject
      * notify others of the job's completion here.
      * @param context dependency injected by the system
      * @example
-     * Database.enqueueBatch(new BatchApexRecipes());
+     * Database.executeBatch(new BatchApexRecipes());
      **/
     public void finish(Database.BatchableContext context) {
         BatchApexRecipes.result =
