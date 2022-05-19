@@ -83,8 +83,6 @@ jobs:
         permissions:
             pull-requests: write
             contents: write
-        env:
-            PR_URL: ${{github.event.pull_request.html_url}}
         steps:
             - name: 'Fetch Dependabot metadata'
               id: dependabot
@@ -107,6 +105,9 @@ jobs:
               run: |
                   gh pr review --approve "$PR_URL"
                   gh pr merge --auto --rebase "$PR_URL"
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  PR_URL: ${{ github.event.pull_request.html_url }}
 
     scratch-org-test:
         runs-on: ubuntu-latest
