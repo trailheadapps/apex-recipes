@@ -15,16 +15,16 @@ on:
 jobs:
     # Dummy job used to skip CI run on automated PRs
     skip-ci:
-        if: "github.actor == 'trailheadapps-bot'"
+        if: ${{ github.actor == 'trailheadapps-bot' }}
         runs-on: ubuntu-latest
         steps:
             - name: Noop
               run: |
                   echo "Skipping CI run for automated PRs."
 
-    # Formatting only runs on human-submitted PRs
+    # Formatting only runs on human-submitted and Dependabot PRs
     format-lint-lwc-tests:
-        if: "github.actor != 'trailheadapps-bot'"
+        if: ${{ github.actor != 'trailheadapps-bot' }}
         runs-on: ubuntu-latest
         steps:
             # Checkout the source code
@@ -71,6 +71,43 @@ jobs:
             # Lint LWC
             - name: 'Lint Lightning Web Components'
               run: npm run lint
+
+    # Auto merge Dependabot PRs for:
+    # - patch updates on prod dependencies
+    # - minor updates on dev dependencies
+    dependabot-auto-merge:
+        # Only run for Dependabot PRs
+        if: ${{ github.actor == 'dependabot[bot]' }}
+        runs-on: ubuntu-latest
+        needs: format-lint-lwc-tests
+        permissions:
+            pull-requests: write
+            contents: write
+        env:
+            PR_URL: ${{github.event.pull_request.html_url}}
+        steps:
+            - name: 'Fetch Dependabot metadata'
+              id: dependabot
+              uses: dependabot/fetch-metadata@v1.3.1
+
+            - name: 'Check auto merge conditions'
+              id: auto-merge
+              if: |
+                  (
+                    steps.dependabot.outputs.update-type == 'version-update:semver-patch' &&
+                    contains('direct:production,indirect:production', steps.dependabot.outputs.dependency-type)
+                  ) || (
+                    steps.dependabot.outputs.update-type == 'version-update:semver-minor' &&
+                    contains('direct:development,indirect:development', steps.dependabot.outputs.dependency-type)
+                  )
+              run: echo "::notice ::auto-merge conditions satisfied"
+
+            - name: 'Approve and merge PR'
+              if: ${{ steps.auto-merge.conclusion == 'success' }}
+              run: |
+                  gh pr review --approve "$PR_URL"
+                  gh pr merge --auto --rebase "$PR_URL"
+
     scratch-org-test:
         runs-on: ubuntu-latest
         needs: format-lint-lwc-tests
