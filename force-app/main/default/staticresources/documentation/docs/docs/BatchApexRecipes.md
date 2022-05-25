@@ -3,7 +3,7 @@ layout: default
 ---
 # BatchApexRecipes class
 
-Demonstrates the use of the Database.Batchable interface. The methods in this class are called by the system as the batch executes. To enqueue this batch use `Database.enqueueBatch(new BatchApexRecipes());` More on the Batchable interface: https://sfdc.co/batch_interface
+Demonstrates the use of the Database.Batchable interface. The methods in this class are called by the system as the batch executes. To execute this batch use `Database.executeBatch(new BatchApexRecipes());` More on the Batchable interface: https://sfdc.co/batch_interface
 
 ---
 ## Properties
@@ -33,7 +33,7 @@ This method is where the actual work occurs. It&apos;s run once per batch.
 
 #### Example
 ```java
-Database.enqueueBatch(new BatchApexRecipes());
+Database.executeBatch(new BatchApexRecipes());
 ```
 
 ### `finish(Database.BatchableContext context)` → `void`
@@ -48,7 +48,7 @@ This method is called by the system when all the individual batches have complet
 
 #### Example
 ```java
-Database.enqueueBatch(new BatchApexRecipes());
+Database.executeBatch(new BatchApexRecipes());
 ```
 
 ### `start(Database.BatchableContext context)` → `Database.QueryLocator`
@@ -73,7 +73,7 @@ Database.QueryLocator QueryLocator object used for context
 
 #### Example
 ```java
-Database.enqueueBatch(new BatchApexRecipes());
+Database.executeBatch(new BatchApexRecipes());
 ```
 
 ---

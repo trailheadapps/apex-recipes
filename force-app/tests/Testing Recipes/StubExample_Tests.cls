@@ -19,7 +19,11 @@ private class StubExample_Tests {
         Test.startTest();
         String results = example.getGreeting();
         Test.stopTest();
-        System.assertEquals('hello', results, 'expected to find hello');
+        System.assertEquals(
+            'hello',
+            results,
+            'Expected to get hello as the default greeting'
+        );
     }
 
     @isTest
@@ -29,7 +33,11 @@ private class StubExample_Tests {
         example.setGreeting('testing 123');
         String results = example.getGreeting();
         Test.stopTest();
-        System.assertEquals('testing 123', results, 'expected to find hello');
+        System.assertEquals(
+            'testing 123',
+            results,
+            'Expected to get testing 123 after calling setGreeting with String'
+        );
     }
 
     @isTest
@@ -39,6 +47,10 @@ private class StubExample_Tests {
         example.setGreeting(1);
         String results = example.getGreeting();
         Test.stopTest();
-        System.assertEquals('1', results, 'expected to find hello');
+        System.assertEquals(
+            '1',
+            results,
+            'Expected to get 1 after calling setGreeting with Integer'
+        );
     }
 }
