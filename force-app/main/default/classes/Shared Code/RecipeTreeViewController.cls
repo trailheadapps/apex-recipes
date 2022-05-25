@@ -117,6 +117,9 @@ public with sharing class RecipeTreeViewController {
         ApexClass[] classes = searchResults[0];
 
         for (ApexClass klass : classes) {
+            if (!klass.Body.contains('@group')) {
+                continue;
+            }
             String groupName = ApexClassUtilities.getGroupFromClassBody(klass);
             if (returnMap.keySet().contains(groupName)) {
                 returnMap.get(groupName).add(klass.Name);
