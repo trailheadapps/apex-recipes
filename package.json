@@ -50,7 +50,7 @@
         "eslint-plugin-import": "^2.25.4",
         "eslint-plugin-jest": "^26.2.2",
         "husky": "^7.0.4",
-        "jest-canvas-mock": "^2.3.1",
+        "jest-canvas-mock": "^2.4.0",
         "lint-staged": "^12.4.1",
         "prettier": "^2.6.2",
         "prettier-plugin-apex": "^1.10.0"
