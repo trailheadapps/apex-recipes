@@ -3,7 +3,7 @@ private inherited sharing class AtFutureRecipes_Tests {
     @isTest
     static void callBasicAtFutureMethodTestPositive() {
         /**
-         * Calling Test.startTest() and Test.stopTest() are critical for asynchronous apex tests
+         *q Calling Test.startTest() and Test.stopTest() are critical for asynchronous apex tests
          * when you call asynchronous code within Test.startTest() and Test.stopTest() the test
          * runner forces the asynchronous code to run synchronously.
          */
