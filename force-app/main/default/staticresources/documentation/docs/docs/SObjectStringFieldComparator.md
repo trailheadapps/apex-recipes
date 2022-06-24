@@ -3,7 +3,7 @@ layout: default
 ---
 # SObjectStringFieldComparator class
 
- Comparator that lets you sort a list of SObject alphabetically based on a String field. @example ListUtils.sort(accounts, new SObjectStringFieldComparator(&apos;ShippingCountry&apos;)); Tip: don&apos;t use this to sort by Name as SObjects are already sorted by Name by default when calling List&lt;SObject&gt;.sort()
+ Comparator that lets you sort a list of SObject alphabetically based on a String field.
 
 ## Related
 

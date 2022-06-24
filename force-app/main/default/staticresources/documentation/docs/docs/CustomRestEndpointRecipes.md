@@ -3,7 +3,7 @@ layout: default
 ---
 # CustomRestEndpointRecipes class
 
-An Apex class can be used to generate a custom REST endpoint that can be exposed to the Salesforce API. In order to achieve this, we can annotate the class with @RestResource and then provide a URL mapping. In this example we are using /IntegrationService/* to expose the class. It can then be accessed at by performing a callout to &lt;INSTANCEURL&gt;/services/apexrest/IntegrationService. Once the class has been designated as a REST resource, we can then annoate our apex methods with @HttpGet, @HttpDelete, @HttpPut, @HttpPost, and @HttpPatch to enable access via it&apos;s relative Http Method. Note: The examples in this class are not Apex code, but rather cURL commands. cURL is a command line utiltiy for Windows, Mac and Linux that allows you to interact with Rest Resources and URLs to exchange data. Please excute these examples in your terminal application of choice.  You might also consider a third party UI based tool like Postman to ease things like authentication. Note: There is a @suppressWarnings annotation on this class for Cyclomatic Complexity. You can read more about what Cyclomatic Complexity is here: https://en.wikipedia.org/wiki/Cyclomatic_complexity Classes with a high Cyclomatic Compelexity score are harder to test, and more prone to bugs because of the sheer number of branching logic paths available. This class is made up of a number of small methods, each of whom does CRUD/FLS Checks and therefor every method includes at least one branching path - but not much else. Other classes in this repository do not have such a high Cyclomatic Complexity because the ratio of logic to if/else statments is much lower. See CalloutRecipes for examples on how to call the custom REST endpoint.
+An Apex class can be used to generate a custom REST endpoint that can be exposed to the Salesforce API. In order to achieve this, we can
 
 ## Related
 
@@ -34,7 +34,7 @@ RestResponse A success message or the exception message
 
 #### Example
 ```java
-curl —X DELETE -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/IntegrationService"
+curl —X DELETE -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/integration-service"
 ```
 
 ### `getRecordsToReturn()` → `String`
@@ -53,7 +53,7 @@ RestResponse  A list of Accounts or the exception message
 
 #### Example
 ```java
-curl -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/IntegrationService"
+curl -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/integration-service"
 ```
 
 ### `parseAndCreateNewContacts()` → `String`
@@ -78,7 +78,7 @@ Create file with the following JSON, named newContact.json
       "lastName": "Recipes",
       "phone" : "919-867-5309",
     }
-curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
+curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
 ```
 
 ### `updateAccountRecords()` → `String`
@@ -104,9 +104,9 @@ Create file with the following JSON, named newContact.json
       "phone" : "919-867-5309",
       "ExternalSalesforceId__c": "
     }
-curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
+curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
 Then, Modify the first name of your newContact.json file so it says "Apex2" and run
-curl —X PATCH -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
+curl —X PATCH -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
 ```
 
 ### `upsertContactRecords()` → `String`
@@ -132,9 +132,9 @@ Create file with the following JSON, named newContact.json
       "phone" : "919-867-5309",
       "ExternalSalesforceId__c": "
     }
-curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
+curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
 Then, Modify the first name of your newContact.json file so it says "Apex2" and run
-curl —X PUT -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
+curl —X PUT -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
 ```
 
 ---
