@@ -18,12 +18,14 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
         Test.stopTest();
 
-        System.assert(
-            accountRecords.getSObjectType() == Account.SObjectType,
+        System.assertEquals(
+            Account.SObjectType,
+            accountRecords.getSObjectType(),
             'Account object was not returned'
         );
-        System.assert(
-            accountRecords.size() == 5,
+        System.assertEquals(
+            5,
+            accountRecords.size(),
             'The correct number of accounts was not returned, expected 5, got ' +
             accountRecords.size()
         );
@@ -32,8 +34,9 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
     @isTest
     static void httpCalloutGetRecordsToReturnNegativeStringReturn() {
         List<Account> allAccounts = [SELECT Id, Name FROM Account];
-        System.assert(
-            allAccounts.size() == 0,
+        System.assertEquals(
+            0,
+            allAccounts.size(),
             'Accounts size should be 0 before code execution'
         );
 
@@ -77,8 +80,9 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.debug(LoggingLevel.INFO, calloutResponse);
         Test.stopTest();
 
-        System.assert(
-            calloutResponse == 'Successful Delete',
+        System.assertEquals(
+            'Successful Delete',
+            calloutResponse,
             'Expected successful delete'
         );
     }
@@ -393,8 +397,9 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         }
         Test.stopTest();
 
-        System.assert(
-            response.statusCode == 500,
+        System.assertEquals(
+            500,
+            response.statusCode,
             'Expected to get a 500 permission error'
         );
         Boolean upsertFailed = calloutResponse.containsIgnoreCase(
@@ -516,8 +521,11 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
             LIMIT 1
         ];
         Account account = (accounts.size() == 1) ? accounts.get(0) : null;
-        System.assert(
-            account.Website == 'https://www.' + account.Id + '.com',
+        System.assertEquals(
+            'https://www.' +
+            account.Id +
+            '.com',
+            account.Website,
             'Expected account website to be https://www.[accountId].com.'
         );
         System.assertEquals(
