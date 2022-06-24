@@ -2,9 +2,9 @@
  * @description An Apex class can be used to generate a custom REST endpoint
  * that can be exposed to the Salesforce API. In order to achieve this, we can
  * annotate the class with @RestResource and then provide a URL mapping. In
- * this example we are using /IntegrationService/* to expose the class. It can
+ * this example we are using /integration-service/* to expose the class. It can
  * then be accessed at by performing a callout to
- * <INSTANCEURL>/services/apexrest/IntegrationService. Once the class has been
+ * <INSTANCEURL>/services/apexrest/integration-service. Once the class has been
  * designated as a REST resource, we can then annoate our apex methods with
  * @HttpGet, @HttpDelete, @HttpPut, @HttpPost, and @HttpPatch to enable access
  * via it's relative Http Method.
@@ -31,7 +31,7 @@
  * @see CanTheUser
  */
 @SuppressWarnings('PMD.CyclomaticComplexity')
-@RestResource(urlmapping='/IntegrationService/*')
+@RestResource(urlmapping='/integration-service/*')
 global inherited sharing class CustomRestEndpointRecipes {
     /**
      * @description private, test visible circiut breaker boolean.
@@ -58,7 +58,7 @@ global inherited sharing class CustomRestEndpointRecipes {
      * responseBody.
      * @return RestResponse  A list of Accounts or the exception message
      * @example
-     * curl -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/IntegrationService"
+     * curl -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/integration-service"
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @HttpGet
@@ -111,7 +111,7 @@ global inherited sharing class CustomRestEndpointRecipes {
      * to access. This is a form of inline CRUD/FLS Check.
      * @return RestResponse A success message or the exception message
      * @example
-     * curl —X DELETE -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/IntegrationService"
+     * curl —X DELETE -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/integration-service"
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @HttpDelete
@@ -196,7 +196,7 @@ global inherited sharing class CustomRestEndpointRecipes {
      *       "lastName": "Recipes",
      *       "phone" : "919-867-5309",
      *     }
-     * curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
+     * curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @HttpPost
@@ -273,9 +273,9 @@ global inherited sharing class CustomRestEndpointRecipes {
      *       "phone" : "919-867-5309",
      *       "ExternalSalesforceId__c": "
      *     }
-     * curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
+     * curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
      * Then, Modify the first name of your newContact.json file so it says "Apex2" and run
-     * curl —X PUT -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
+     * curl —X PUT -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @HttpPut
@@ -354,9 +354,9 @@ global inherited sharing class CustomRestEndpointRecipes {
      *       "phone" : "919-867-5309",
      *       "ExternalSalesforceId__c": "
      *     }
-     * curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
+     * curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
      * Then, Modify the first name of your newContact.json file so it says "Apex2" and run
-     * curl —X PATCH -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/IntegrationService"
+     * curl —X PATCH -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @HttpPatch

@@ -4,7 +4,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
     static void httpCalloutGetRecordsToReturnPositive() {
         TestFactory.createSObjectList(new Account(), 5, true);
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'GET';
         RestResponse response = new RestResponse();
         RestContext.request = request;
@@ -41,7 +41,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
             'testing'
         );
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'GET';
         RestResponse response = new RestResponse();
         RestContext.request = request;
@@ -66,7 +66,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         RestRequest request = new RestRequest();
         System.debug(LoggingLevel.INFO, contact.Id);
         request.requestUri =
-            '/services/apexrest/IntegrationService/' + contact.Id;
+            '/services/apexrest/integration-service/' + contact.Id;
         request.httpMethod = 'DELETE';
         RestResponse response = new RestResponse();
         RestContext.request = request;
@@ -95,7 +95,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
         System.debug(LoggingLevel.INFO, contact.Id);
         request.requestUri =
-            '/services/apexrest/IntegrationService/' + contact.Id;
+            '/services/apexrest/integration-service/' + contact.Id;
         request.httpMethod = 'DELETE';
         RestResponse response = new RestResponse();
         RestContext.request = request;
@@ -121,7 +121,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         CustomRestEndpointRecipes.circuitBreaker = new DmlException('testing');
         System.debug(LoggingLevel.INFO, contact.Id);
         request.requestUri =
-            '/services/apexrest/IntegrationService/' + contact.Id;
+            '/services/apexrest/integration-service/' + contact.Id;
         request.httpMethod = 'DELETE';
         RestResponse response = new RestResponse();
         RestContext.request = request;
@@ -143,7 +143,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         TestFactory.createSObject(new Contact(LastName = 'test'), true);
         RestRequest request = new RestRequest();
         // Do not supply the contactId in the urlPath to test how the system handels a null paramater
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'DELETE';
         RestResponse response = new RestResponse();
         RestContext.request = request;
@@ -169,7 +169,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
 
         RestRequest request = new RestRequest();
         // Do not supply the contactId in the urlPath to test how the system handels a null paramater
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'DELETE';
         RestResponse response = new RestResponse();
         RestContext.request = request;
@@ -205,7 +205,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
 
         RestRequest request = new RestRequest();
         // Do not supply the contactId in the urlPath to test how the system handels a null paramater
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'POST';
         request.requestBody = Blob.valueOf(JSON.serialize(contactList));
         RestResponse response = new RestResponse();
@@ -241,7 +241,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
 
         RestRequest request = new RestRequest();
         // Do not supply the contactId in the urlPath to test how the system handels a null paramater
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'POST';
         request.requestBody = Blob.valueOf(JSON.serialize(contactList));
         RestResponse response = new RestResponse();
@@ -274,7 +274,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
 
         RestRequest request = new RestRequest();
         // Do not supply the contactId in the urlPath to test how the system handels a null paramater
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'POST';
         request.requestBody = Blob.valueOf(JSON.serialize(contactList));
         RestResponse response = new RestResponse();
@@ -303,7 +303,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
             5
         );
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'POST';
         request.requestBody = Blob.valueOf(JSON.serialize(contactList));
         RestResponse response = new RestResponse();
@@ -324,7 +324,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
     @isTest
     static void httpPostParseAndCreateNewContactsNegative() {
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'POST';
         RestResponse response = new RestResponse();
         RestContext.request = request;
@@ -350,7 +350,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         }
         update contactsToUpdate;
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'PUT';
         request.requestBody = Blob.valueOf(JSON.serialize(contactsToUpdate));
         RestResponse response = new RestResponse();
@@ -379,7 +379,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         User testUser = TestFactory.createMinAccessUser(true);
 
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'PUT';
         request.requestBody = Blob.valueOf(JSON.serialize(contactList));
         RestResponse response = new RestResponse();
@@ -412,7 +412,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
             true
         );
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'PUT';
         String badJson = JSON.serialize(contactList).right(3);
         request.requestBody = Blob.valueOf(badJson);
@@ -438,7 +438,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
             true
         );
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'PUT';
         String badJson = JSON.serialize(contactList).right(3);
         request.requestBody = Blob.valueOf(badJson);
@@ -463,7 +463,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
             true
         );
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'PUT';
         String badJson = JSON.serialize(contactList).right(3);
         request.requestBody = Blob.valueOf(badJson);
@@ -497,7 +497,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         }
         update accountsToUpdate;
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'PATCH';
         request.requestBody = Blob.valueOf(JSON.serialize(accountsToUpdate));
         RestResponse response = new RestResponse();
@@ -541,7 +541,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         }
         update accountsToUpdate;
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'PATCH';
         request.requestBody = Blob.valueOf(JSON.serialize(accountsToUpdate));
         RestResponse response = new RestResponse();
@@ -574,7 +574,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         }
         update accountsToUpdate;
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'PATCH';
         request.requestBody = Blob.valueOf(JSON.serialize(accountsToUpdate));
         RestResponse response = new RestResponse();
@@ -613,7 +613,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         User testUser = TestFactory.createMinAccessUser(true);
         update accountsToUpdate;
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'PATCH';
         request.requestBody = Blob.valueOf(JSON.serialize(accountsToUpdate));
         RestResponse response = new RestResponse();
@@ -657,7 +657,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         update accountsToUpdate;
 
         RestRequest request = new RestRequest();
-        request.requestUri = '/services/apexrest/IntegrationService/';
+        request.requestUri = '/services/apexrest/integration-service/';
         request.httpMethod = 'PATCH';
         String badJson = JSON.serialize(accountsToUpdate).right(3);
         request.requestBody = Blob.valueOf(badJson);

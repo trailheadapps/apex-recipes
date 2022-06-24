@@ -59,7 +59,7 @@ public with sharing class CalloutRecipes extends RestClient {
      * request is used to retrieve data from a target endpoint, We will be using
      * the performRestCallout method to make the callout. In this example, we
      * will be requesting a list of Accounts from our second org. We will pass
-     * the endpoint our named credential, the url path to our IntegrationService
+     * the endpoint our named credential, the url path to our integration-service
      * custom REST endpoint, a null body and the GET method. We will then
      * deserialize the JSON into a known object, in this case, a list of
      * Accounts.
@@ -69,10 +69,10 @@ public with sharing class CalloutRecipes extends RestClient {
      */
     public List<Account> httpGetCalloutToSecondOrg() {
         // Perform a REST callout to our custom REST endpoint
-        // 'IntegrationService' using our named credential.
+        // 'integration-service' using our named credential.
         // this callout uses the default named credential that's set when this
         //class was instantiated.
-        HttpResponse response = get('services/apexrest/IntegrationService');
+        HttpResponse response = get('services/apexrest/integration-service');
         // Get the body from our HttpResponse
         String responseBody = response.getBody();
         try {
@@ -112,9 +112,9 @@ public with sharing class CalloutRecipes extends RestClient {
         // in the methods params.
         String query = '?contactId=' + contactId;
         // Perform a REST callout to our custom REST endpoint
-        // 'IntegrationService' using our named credential.
+        // 'integration-service' using our named credential.
         HttpResponse response = del(
-            'services/apexrest/IntegrationService/',
+            'services/apexrest/integration-service/',
             query
         );
         Integer statusCode = response.getStatusCode();
@@ -143,9 +143,9 @@ public with sharing class CalloutRecipes extends RestClient {
             // Attempt to serialize the request body to send in the POST Request
             String requestBody = JSON.serialize(contactRecords);
             // Perform a REST callout to our custom REST endpoint
-            // 'IntegrationService' using our named credential.
+            // 'integration-service' using our named credential.
             HttpResponse response = post(
-                'services/apexrest/IntegrationService/',
+                'services/apexrest/integration-service/',
                 requestBody
             );
             Integer statusCode = response.getStatusCode();
@@ -183,12 +183,12 @@ public with sharing class CalloutRecipes extends RestClient {
             // RestClient statically.
             // This form doesn't require instantiating a class that extends
             // RestClient but it is more verbose. Perform a REST callout to our
-            // custom REST endpoint 'IntegrationService' using our named
+            // custom REST endpoint 'integration-service' using our named
             // credential.
             HttpResponse response = RestClient.makeApiCall(
                 'Second_Org',
                 RestClient.HttpVerb.PUT,
-                'services/apexrest/IntegrationService/',
+                'services/apexrest/integration-service/',
                 '',
                 requestBody,
                 null
@@ -227,9 +227,9 @@ public with sharing class CalloutRecipes extends RestClient {
             // Request
             String requestBody = JSON.serialize(accountRecords);
             // Perform a REST callout to our custom REST endpoint
-            // 'IntegrationService' using our named credential.
+            // 'integration-service' using our named credential.
             HttpResponse response = patch(
-                'services/apexrest/IntegrationService/',
+                'services/apexrest/integration-service/',
                 '',
                 requestBody
             );
