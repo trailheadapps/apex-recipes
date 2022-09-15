@@ -14,7 +14,7 @@ on:
 # Jobs to be executed
 jobs:
     format-lint-lwc-tests:
-        runs-on: ubuntu-latest
+        runs-on: trailheadapps-Ubuntu
         steps:
             # Checkout the source code
             - name: 'Checkout source code'
@@ -61,7 +61,7 @@ jobs:
             - name: 'Lint Lightning Web Components'
               run: npm run lint
     scratch-org-test:
-        runs-on: ubuntu-latest
+        runs-on: trailheadapps-Ubuntu
         needs: format-lint-lwc-tests
         if: ${{ github.actor != 'dependabot[bot]' }}
         steps:
@@ -134,7 +134,7 @@ jobs:
               run: sfdx force:org:delete -p -u scratch-org
 
     publish-docs-to-wiki:
-        runs-on: ubuntu-latest
+        runs-on: trailheadapps-Ubuntu
         needs: scratch-org-test
         steps:
             # Checkout the code
@@ -154,7 +154,7 @@ jobs:
                   GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
 
     trigger-packaging:
-        runs-on: ubuntu-latest
+        runs-on: trailheadapps-Ubuntu
         needs: publish-docs-to-wiki
         steps:
             # Checkout the source code
