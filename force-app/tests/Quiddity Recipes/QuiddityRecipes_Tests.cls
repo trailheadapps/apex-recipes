@@ -5,7 +5,7 @@ private class QuiddityRecipes_Tests {
         Test.startTest();
         Quiddity result = QuiddityRecipes.demonstrateGetQuiddity();
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             QuiddityGuard.trustedQuiddities.contains(result),
             'Expected the quiddity of a test run to be in the QuiddityGuard.trustedQuiddities list'
         );
