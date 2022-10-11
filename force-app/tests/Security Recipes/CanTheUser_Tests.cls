@@ -5,7 +5,7 @@ private inherited sharing class CanTheUser_Tests {
 
     @isTest
     static void canCrudAccountCreatePositive() {
-        System.assert(
+        System.Assert.isTrue(
             CanTheUser.crud(new Account(), CanTheUser.CrudType.CREATE),
             'Unless scratch org defaults have been changed by the user, this test should pass - asserting that users can create accounts'
         );
@@ -13,7 +13,7 @@ private inherited sharing class CanTheUser_Tests {
 
     @isTest
     static void canCrudCreateAccountPositive() {
-        System.assert(
+        System.Assert.isTrue(
             CanTheUser.create(new Account()),
             'Unless scratch org defaults have been changed by the user, this test should pass - asserting that users can create accounts'
         );
@@ -21,7 +21,7 @@ private inherited sharing class CanTheUser_Tests {
 
     @isTest
     static void canCrudAccountReadPositive() {
-        System.assert(
+        System.Assert.isTrue(
             CanTheUser.crud(new Account(), CanTheUser.CrudType.READ),
             'Expected to be able to read accounts'
         );
@@ -29,7 +29,7 @@ private inherited sharing class CanTheUser_Tests {
 
     @isTest
     static void canCrudReadAccountPositive() {
-        System.assert(
+        System.Assert.isTrue(
             CanTheUser.read(new Account()),
             'Expected to be able to read accounts'
         );
@@ -37,7 +37,7 @@ private inherited sharing class CanTheUser_Tests {
 
     @isTest
     static void canCrudAccountUpdatePositive() {
-        System.assert(
+        System.Assert.isTrue(
             CanTheUser.crud(new Account(), CanTheUser.CrudType.EDIT),
             'Expected to be able to update accounts'
         );
@@ -45,7 +45,7 @@ private inherited sharing class CanTheUser_Tests {
 
     @isTest
     static void canCrudEditAccountPositive() {
-        System.assert(
+        System.Assert.isTrue(
             CanTheUser.edit(new Account()),
             'Expected to be able to update accounts'
         );
@@ -53,7 +53,7 @@ private inherited sharing class CanTheUser_Tests {
 
     @isTest
     static void canCrudAccountDeletePositive() {
-        System.assert(
+        System.Assert.isTrue(
             CanTheUser.crud(new Account(), CanTheUser.CrudType.DEL),
             'Expected to be able to delete accounts'
         );
@@ -61,7 +61,7 @@ private inherited sharing class CanTheUser_Tests {
 
     @isTest
     static void canCrudDestroyAccountPositive() {
-        System.assert(
+        System.Assert.isTrue(
             CanTheUser.destroy(new Account()),
             'Expected to be able to delete accounts'
         );
@@ -69,7 +69,7 @@ private inherited sharing class CanTheUser_Tests {
 
     @isTest
     static void getFLSofAccountNamePositive() {
-        System.assert(
+        System.Assert.isTrue(
             CanTheUser.flsAccessible('Account', 'Name'),
             'Expected the name field to be accesible on Account'
         );
@@ -77,7 +77,7 @@ private inherited sharing class CanTheUser_Tests {
 
     @isTest
     static void getFLSofAccountIDNegative() {
-        System.assert(
+        System.Assert.isTrue(
             CanTheUser.flsUpdatable('Account', 'id') == false,
             'Expected that the ID of an object cannot be updated.'
         );
@@ -91,7 +91,7 @@ private inherited sharing class CanTheUser_Tests {
             fields
         );
         for (String field : bulkCheck.keySet()) {
-            System.assert(
+            System.Assert.isTrue(
                 bulkCheck.get(field),
                 'Expected the field to be accesible on Account'
             );
@@ -106,12 +106,12 @@ private inherited sharing class CanTheUser_Tests {
             fields
         );
 
-        System.assert(
+        System.Assert.isTrue(
             bulkCheck.get('name'),
             'Expected the name ' + 'field to be accesible on Account'
         );
 
-        System.assert(
+        System.Assert.isTrue(
             !bulkCheck.get('nonExistingField__c'),
             'Expected the name ' + 'field to be accesible on Account'
         );
@@ -125,7 +125,7 @@ private inherited sharing class CanTheUser_Tests {
             fields
         );
         for (String field : bulkCheck.keySet()) {
-            System.assert(
+            System.Assert.isTrue(
                 bulkCheck.get(field),
                 'Expected the field to be accesible on Account'
             );
@@ -140,12 +140,12 @@ private inherited sharing class CanTheUser_Tests {
             fields
         );
 
-        System.assert(
+        System.Assert.isTrue(
             bulkCheck.get('name'),
             'Expected the name ' + 'field to be accesible on Account'
         );
 
-        System.assert(
+        System.Assert.isTrue(
             !bulkCheck.get('nonExistingField__c'),
             'Expected the name ' + 'field to be accesible on Account'
         );
@@ -157,7 +157,7 @@ private inherited sharing class CanTheUser_Tests {
         CanTheUser.memoizeFLSMDC('Account', CanTheUser.FLSType.UPDATABLE);
         Test.stopTest();
 
-        System.assertNotEquals(
+        System.Assert.areNotEqual(
             CanTheUser.accessibleFieldsByObject.get('Account'),
             CanTheUser.updatableFieldsByObject.get('Account'),
             'Expected that the two sets would be different'

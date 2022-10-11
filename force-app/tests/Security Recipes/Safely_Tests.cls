@@ -7,23 +7,19 @@ private class Safely_Tests {
         Safely instanceTwo = new Safely().throwIfRemovedFields();
         Test.stopTest();
 
-        System.assertEquals(
-            true,
+        System.Assert.isTrue(
             instanceOne.allOrNothing,
             'Expected Fluent constructor to have set this to true'
         );
-        System.assertEquals(
-            false,
+        System.Assert.isFalse(
             instanceOne.throwIfRemovedFields,
             'Expected this to remain false'
         );
-        System.assertEquals(
-            true,
+        System.Assert.isTrue(
             instanceTwo.throwIfRemovedFields,
             'Expected Fluent constructor to have set this to true'
         );
-        System.assertEquals(
-            false,
+        System.Assert.isFalse(
             instanceTwo.allOrNothing,
             'Expected this to remain false'
         );
@@ -35,12 +31,12 @@ private class Safely_Tests {
         Test.startTest();
         List<Database.SaveResult> results = new Safely().doInsert(account);
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             results.size(),
             'Expected one save result in the list'
         );
-        System.assert(results.get(0).success, 'This dml should succeed');
+        System.Assert.isTrue(results.get(0).success, 'This dml should succeed');
     }
 
     @IsTest
@@ -48,12 +44,12 @@ private class Safely_Tests {
         User minAccessUser = TestFactory.createMinAccessUser(true);
 
         System.runAs(minAccessUser) {
-            System.assert(!CanTheUser.create(new Account()));
+            System.Assert.isTrue(!CanTheUser.create(new Account()));
             Test.startTest();
             Account account = (Account) new Account(Name = 'TestAccount');
             List<Database.SaveResult> results = new Safely().doInsert(account);
             Test.stopTest();
-            System.assertEquals(
+            System.Assert.areEqual(
                 0,
                 results.size(),
                 'Expected zero delete result in the list'
@@ -83,7 +79,7 @@ private class Safely_Tests {
             }
         }
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to have caught a removedFieldsException'
         );
@@ -97,7 +93,7 @@ private class Safely_Tests {
         Test.startTest();
         List<Database.SaveResult> results = new Safely().doUpdate(account);
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             results.size(),
             'Expected one save result in the list'
@@ -129,17 +125,17 @@ private class Safely_Tests {
         );
         System.runAs(minAccessUser) {
             Account account = (Account) new Account(name = 'TestAccount');
-            System.assert(CanTheUser.create(account));
+            System.Assert.isTrue(CanTheUser.create(account));
             TriggerHandler.bypass('AccountTriggerHandler');
             insert account;
 
             Test.startTest();
             account.Name = 'UpdatedAccount';
-            System.assert(!(CanTheUser.edit(account)));
+            System.Assert.isTrue(!(CanTheUser.edit(account)));
             List<Database.SaveResult> results = new Safely().doUpdate(account);
             Test.stopTest();
 
-            System.assertEquals(
+            System.Assert.areEqual(
                 0,
                 results.size(),
                 'Expected zero update results in the list'
@@ -158,7 +154,7 @@ private class Safely_Tests {
 
             List<Database.DeleteResult> results = new Safely().doDelete(c);
             Test.stopTest();
-            System.assertEquals(
+            System.Assert.areEqual(
                 0,
                 results.size(),
                 'Expected zero delete result in the list'
@@ -187,7 +183,7 @@ private class Safely_Tests {
             }
         }
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to have caught a removedFieldsException'
         );
@@ -206,7 +202,7 @@ private class Safely_Tests {
         List<Database.UpsertResult> mixedResults = new Safely()
             .doUpsert(accounts);
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             insertResults.size(),
             'Expected one save result in the list'
@@ -216,15 +212,19 @@ private class Safely_Tests {
         Integer updated = 0;
         Integer inserted = 0;
         for (Database.upsertResult result : mixedResults) {
-            System.assert(result.success, 'This dml should succeed');
+            System.Assert.isTrue(result.success, 'This dml should succeed');
             if (result.created) {
                 inserted++;
             } else {
                 updated++;
             }
         }
-        System.assertEquals(1, updated, 'Expected one to have been updated');
-        System.assertEquals(1, inserted, 'Expected one to have been inserted');
+        System.assert.areEqual(1, updated, 'Expected one to have been updated');
+        System.assert.areEqual(
+            1,
+            inserted,
+            'Expected one to have been inserted'
+        );
     }
 
     @IsTest
@@ -263,12 +263,12 @@ private class Safely_Tests {
             List<Database.UpsertResult> mixedResults = new Safely()
                 .doUpsert(accounts);
             Test.stopTest();
-            System.assertEquals(
+            System.Assert.areEqual(
                 1,
                 insertResults.size(),
                 'Expected one save result in the list'
             );
-            System.assert(
+            System.Assert.isTrue(
                 insertResults.get(0).success,
                 'This dml should succeed but we got: ' +
                 insertResults.get(0).errors
@@ -298,7 +298,7 @@ private class Safely_Tests {
             }
         }
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to have caught a removedFieldsException'
         );
@@ -313,7 +313,10 @@ private class Safely_Tests {
             .throwIfRemovedFields()
             .doDelete(account);
         Test.stopTest();
-        System.assert(results.get(0).success, 'expected this dml to succeed');
+        System.Assert.isTrue(
+            results.get(0).success,
+            'expected this dml to succeed'
+        );
     }
 
     @IsTest
@@ -328,7 +331,7 @@ private class Safely_Tests {
         }
 
         Test.stopTest();
-        System.assert(results.isEmpty(), 'expected this dml to fail');
+        System.Assert.isTrue(results.isEmpty(), 'expected this dml to fail');
     }
 
     @IsTest
@@ -340,7 +343,11 @@ private class Safely_Tests {
             .throwIfRemovedFields()
             .doQuery('SELECT ID, Name FROM Account');
         Test.stopTest();
-        System.assertEquals(1, Accounts.size(), 'expected to find one record');
+        System.Assert.areEqual(
+            1,
+            Accounts.size(),
+            'expected to find one record'
+        );
     }
 
     @IsTest
@@ -382,8 +389,8 @@ private class Safely_Tests {
                 }
             }
             Test.stopTest();
-            System.assert(saf.throwIfRemovedFields);
-            System.assert(
+            System.Assert.isTrue(saf.throwIfRemovedFields);
+            System.Assert.isTrue(
                 didCatchTheRightException,
                 'Expected to have caught a removedFieldsException'
             );
@@ -403,9 +410,9 @@ private class Safely_Tests {
             .doDelete(new List<Account>());
         Test.stopTest();
 
-        System.assert(insertResults.isEmpty());
-        System.assert(updateResults.isEmpty());
-        System.assert(upsertResults.isEmpty());
-        System.assert(deleteResults.isEmpty());
+        System.Assert.isTrue(insertResults.isEmpty());
+        System.Assert.isTrue(updateResults.isEmpty());
+        System.Assert.isTrue(upsertResults.isEmpty());
+        System.Assert.isTrue(deleteResults.isEmpty());
     }
 }
