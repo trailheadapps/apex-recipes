@@ -20,8 +20,7 @@ private class MetadataTriggerHandler_Tests {
         mdtHandler.run();
         Test.stopTest();
 
-        System.assertEquals(
-            null,
+        System.Assert.isNull(
             mdtHandler.activeHandler,
             'Expected the activeHandler Property to be null, as no handlers were returned.'
         );
@@ -101,7 +100,7 @@ private class MetadataTriggerHandler_Tests {
         mdtHandler.run();
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             'SampleHandler',
             TestHelper.getUnkownObjectType(mdtHandler.activeHandler),
             'Expected the activeHandler Property to be \'SampleHandler\'.'

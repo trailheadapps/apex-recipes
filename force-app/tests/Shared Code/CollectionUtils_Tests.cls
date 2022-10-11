@@ -24,19 +24,19 @@ private class CollectionUtils_Tests {
         );
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             checkAccountMap.keySet().size(),
             5,
             'Expected to get 5 accounts back'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             checkContactMap.keySet().size(),
             5,
             'Expected to get 5 contacts back'
         );
 
         for (id accountId : checkAccountMap.keySet()) {
-            System.assertEquals(
+            System.Assert.areEqual(
                 checkAccountMap.get(accountId).getSObjectType(),
                 Account.getSObjectType(),
                 'We expected the map to have accounts'
@@ -44,7 +44,7 @@ private class CollectionUtils_Tests {
         }
 
         for (id contactId : checkContactMap.keySet()) {
-            System.assertEquals(
+            System.Assert.areEqual(
                 checkContactMap.get(contactId).getSObjectType(),
                 Contact.getSObjectType(),
                 'We expected the map to have Contact'
@@ -71,14 +71,14 @@ private class CollectionUtils_Tests {
 
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             checkAccountMap.keySet().size(),
             5,
             'Expected to get 5 accounts back'
         );
 
         for (id accountId : checkAccountMap.keySet()) {
-            System.assertEquals(
+            System.Assert.areEqual(
                 checkAccountMap.get(accountId).getSObjectType(),
                 Account.getSObjectType(),
                 'We expected the map to have accounts'
@@ -113,25 +113,25 @@ private class CollectionUtils_Tests {
         );
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             5,
             checkResults.keyset().size(),
             'Expected to find 5 accountIds'
         );
 
         for (Id accountId : checkResults.keySet()) {
-            System.assertEquals(
+            System.Assert.areEqual(
                 accountId.getSobjectType(),
                 Account.getSObjectType(),
                 'Expected keys to be accounts'
             );
-            System.assertEquals(
+            System.Assert.areEqual(
                 5,
                 checkResults.get(accountId).size(),
                 'Expected to find 5 entries in the list '
             );
             for (Contact contact : checkResults.get(accountId)) {
-                System.assertEquals(
+                System.Assert.areEqual(
                     contact.getSObjectType(),
                     Contact.getSObjectType(),
                     'Expected to find contacts'

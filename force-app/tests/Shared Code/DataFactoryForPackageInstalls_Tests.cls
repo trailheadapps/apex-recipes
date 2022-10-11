@@ -11,7 +11,7 @@ private class DataFactoryForPackageInstalls_Tests {
         Test.stopTest();
 
         Junction__c[] junctionObjs = [SELECT ID FROM Junction__c];
-        System.assertEquals(
+        System.Assert.areEqual(
             50,
             junctionObjs.size(),
             'Expected to find 50 junction objects'
