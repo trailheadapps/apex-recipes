@@ -12,7 +12,7 @@ private class StubbingRecipes_Tests {
             (StubExample) stub.generate()
         );
 
-        System.assert(
+        System.Assert.isTrue(
             consumer.getIsTrue(),
             'Calling getIsTrue on our consumer object with a stub should return true'
         );
@@ -40,13 +40,13 @@ private class StubbingRecipes_Tests {
             (StubExample) stub.generate()
         );
 
-        System.assertEquals(
+        System.Assert.areEqual(
             'Hola',
             consumer.getGreeting(),
             'Calling getGreeting on our consumer with a stubbed object should return the stubs value'
         );
 
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             secondMethodToTrack.hasBeenCalledXTimes,
             'Expected the getGreeting method to have been called exactly once.'
@@ -77,13 +77,13 @@ private class StubbingRecipes_Tests {
         consumer.setGreeting('greeting');
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             toTrack.hasBeenCalledXTimes,
             'expected setGreeting to have been called once'
         );
 
-        System.assertEquals(
+        System.Assert.areEqual(
             'greetings',
             consumer.getGreeting(),
             'Calling getGreeting on our consumer with a stubbed object should return the stubs value'
@@ -117,13 +117,13 @@ private class StubbingRecipes_Tests {
         consumer.setGreeting(3);
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             toTrack.hasBeenCalledXTimes,
             'expected setGreeting(string) to have been called once'
         );
 
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             secondTrackedMethod.hasBeenCalledXTimes,
             'expected setGreeting(int) to have been called once'
@@ -155,7 +155,7 @@ private class StubbingRecipes_Tests {
             }
         }
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'expected to have caught a TestDoubleException'
         );
