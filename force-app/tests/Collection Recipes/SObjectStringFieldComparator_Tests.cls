@@ -19,8 +19,8 @@ public class SObjectStringFieldComparator_Tests {
 
         List<Account> expected = new List<Account>{ a2, a1, a3, a4 };
         System.Assert.areEqual(
-            accounts,
             expected,
+            accounts,
             'Expected code sorted list to match manually sorted list'
         );
     }

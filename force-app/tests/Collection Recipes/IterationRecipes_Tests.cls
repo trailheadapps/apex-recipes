@@ -62,8 +62,8 @@ public class IterationRecipes_Tests {
             // The catch clause is voluntarily kept generic with Exception as other exceptions could be triggered.
             // We use the instanceof operator to check that baseException is an instance of IterableApiException.
             System.Assert.isInstanceOfType(
-                baseException,
                 IterableApiClient.IterableApiException.class,
+                baseException,
                 'Expected an instance of IterableApiException'
             );
         } finally {
