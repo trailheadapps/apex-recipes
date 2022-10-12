@@ -13,12 +13,12 @@ private inherited sharing class QueueableRecipes_Tests {
         Test.stopTest();
 
         List<Account> checkAccounts = [SELECT description FROM Account];
-        System.assert(
+        System.Assert.isTrue(
             checkAccounts.size() == 200,
             'Expected to find 200 accounts'
         );
         for (Account account : checkAccounts) {
-            System.assert(
+            System.Assert.isTrue(
                 account.Description.containsIgnoreCase(
                     'edited by queueable class'
                 ),

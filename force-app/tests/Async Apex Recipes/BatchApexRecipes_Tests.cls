@@ -18,17 +18,17 @@ private inherited sharing class BatchApexRecipes_Tests {
         Test.stopTest();
 
         List<Account> checkAccounts = [SELECT Name FROM Account];
-        System.assert(
+        System.Assert.isTrue(
             checkAccounts.size() == 200,
             'Expected to find 200 accounts'
         );
         for (Account acct : checkAccounts) {
-            System.assert(
+            System.Assert.isTrue(
                 acct.Name.containsIgnoreCase(' Edited by Batch class'),
                 'Accounts should have \'edited by batch class\' after batch job execution'
             );
         }
-        System.assert(
+        System.Assert.isTrue(
             BatchApexRecipes.result.equalsIgnoreCase(
                 'Successes: 200 Failures: 0'
             ),
@@ -48,7 +48,7 @@ private inherited sharing class BatchApexRecipes_Tests {
         batchJob.throwError = true;
         Database.executeBatch(batchJob);
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             BatchApexRecipes.result.equalsIgnoreCase(
                 'Successes: 0 Failures: 200'
             ),

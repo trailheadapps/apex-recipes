@@ -7,7 +7,7 @@ private inherited sharing class ScheduledApexDemo_Tests {
         demoObj.runAtMidnight();
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             demoObj.counter,
             1,
             'Expected the counter to show 1'

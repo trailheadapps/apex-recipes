@@ -10,7 +10,7 @@ private inherited sharing class AtFutureRecipes_Tests {
         Test.startTest();
         AtFutureRecipes.atFutureMethodWithoutCalloutPrivileges('Hello World');
         Test.stopTest();
-        system.assert(
+        system.Assert.isTrue(
             AtFutureRecipes.testCircuitBreaker,
             'Expected the code to have set the testCircuitBreaker to true.'
         );
@@ -82,7 +82,7 @@ private inherited sharing class AtFutureRecipes_Tests {
             'https://developer.salesforce.com'
         );
         Test.stopTest();
-        system.assert(
+        system.Assert.isTrue(
             AtFutureRecipes.testCircuitBreaker,
             'Expected to have triggered the testCircuitBreaker'
         );
