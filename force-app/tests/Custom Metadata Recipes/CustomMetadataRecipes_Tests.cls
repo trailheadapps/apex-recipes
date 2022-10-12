@@ -8,7 +8,7 @@ class CustomMetadataRecipes_Tests {
             FROM Bucketed_Picklist__mdt
         ];
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             picklists.size() >= 1,
             'We expect at least 1 picklist(s) to exist if you have properly setup this repo into an org'
         );
@@ -33,23 +33,23 @@ class CustomMetadataRecipes_Tests {
         );
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             bucketedPicklists.size(),
             'Expected to find one matching bucketed picklist field for contact'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             matchingBuckets.size(),
             'Expected to find one matching bucket'
         );
 
-        System.assertEquals(
+        System.Assert.areEqual(
             'Attended',
             matchingBuckets[0].DeveloperName,
             'Expected to get Attended'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             'Attendance',
             bucketedPicklists[0].DeveloperName,
             'Expected to find the Attendance Bucketed Picklist'
