@@ -9,7 +9,7 @@ private class MetadataTriggerService_Tests {
         List<Metadata_Driven_Trigger__mdt> triggers = mts.getMetadataTriggers();
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.AreEqual(
             triggers.size(),
             0,
             'Expected to find no metadata records'
@@ -33,7 +33,7 @@ private class MetadataTriggerService_Tests {
             }
         }
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             didCatchProperException,
             'executing this method in a unit test should result in an exception'
         );
