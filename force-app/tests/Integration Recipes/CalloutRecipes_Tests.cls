@@ -389,13 +389,13 @@ private inherited sharing class CalloutRecipes_Tests {
             WHERE AccountId = :account.Id
         ];
         System.Assert.areEqual(
-            account.Name,
             'Universal Containers',
+            account.Name,
             'Expected account name to be Universal Containers'
         );
         System.Assert.areEqual(
-            contacts.size(),
             2,
+            contacts.size(),
             'Expected two contacts returned'
         );
     }

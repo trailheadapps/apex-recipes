@@ -13,8 +13,8 @@ private inherited sharing class AuraEnabledRecipes_Tests {
 
         Account updatedAcct = [SELECT Name FROM Account WHERE Id = :acct.Id];
         System.Assert.areEqual(
-            updatedAcct.Name,
             'New Name',
+            updatedAcct.Name,
             'Expected the account name to be updated.'
         );
     }
