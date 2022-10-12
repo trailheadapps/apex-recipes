@@ -22,7 +22,7 @@ private inherited sharing class PlatformEventRecipesTriggerHandler_Tests {
             WHERE Id = :acct.Id
             LIMIT 1
         ];
-        System.assert.areEqual(
+        System.Assert.areEqual(
             'https://google.com',
             checkAccount.Website,
             'Expected the website to be set to google.com'
