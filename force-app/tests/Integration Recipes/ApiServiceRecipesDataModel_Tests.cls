@@ -49,8 +49,8 @@ public class ApiServiceRecipesDataModel_Tests {
         List<ApiServiceRecipesDataModel> obj = ApiServiceRecipesDataModel.parse(
             ApiServiceRecipesDataModel_Tests.testJSON
         );
-        System.assert(
-            obj != null,
+        System.Assert.isNotNull(
+            obj,
             'Expected the example data to properly parse'
         );
     }
