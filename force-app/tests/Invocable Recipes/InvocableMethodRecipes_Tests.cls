@@ -8,8 +8,8 @@ private class InvocableMethodRecipes_Tests {
         Test.stopTest();
 
         System.Assert.areEqual(
-            request.inputs.size(),
             1,
+            request.inputs.size(),
             'Expected to find one account'
         );
     }
