@@ -71,8 +71,8 @@ private class SOQLRecipes_Tests {
         List<Account> testAccounts = SOQLRecipes.getRecords();
         Test.stopTest();
         System.Assert.areEqual(
-            testAccounts.size(),
             1,
+            testAccounts.size(),
             'We found more or less than 1 account having created exactly 1 account'
         );
         System.Assert.isTrue(
@@ -156,8 +156,8 @@ private class SOQLRecipes_Tests {
         List<Account> testAccounts = SOQLRecipes.getRecordsByFieldValue();
         Test.stopTest();
         System.Assert.areEqual(
-            testAccounts.size(),
             0,
+            testAccounts.size(),
             'Expected to find no UK accounts'
         );
     }
@@ -196,8 +196,8 @@ private class SOQLRecipes_Tests {
         );
 
         System.Assert.areEqual(
-            testAccounts.size(),
             0,
+            testAccounts.size(),
             'we expected to find no UK accounts'
         );
     }
@@ -214,8 +214,8 @@ private class SOQLRecipes_Tests {
         List<Account> testAccounts = SOQLRecipes.getRecordsByFieldValue();
         Test.stopTest();
         System.Assert.areEqual(
-            testAccounts.size(),
             1,
+            testAccounts.size(),
             'Expected to find 1 UK accounts'
         );
     }
@@ -245,8 +245,8 @@ private class SOQLRecipes_Tests {
         List<Account> results = SOQLRecipes.getRecordsByMultipleFieldValues();
         Test.stopTest();
         System.Assert.areEqual(
-            results.size(),
             1,
+            results.size(),
             'Expected to find 1 filtered account'
         );
     }
@@ -336,13 +336,13 @@ private class SOQLRecipes_Tests {
         Test.stopTest();
 
         System.Assert.areEqual(
-            accts.size(),
             3,
+            accts.size(),
             'Expected to find 3 accounts in Tx'
         );
         System.Assert.areNotEqual(
-            acctsInWA.size(),
             3,
+            acctsInWA.size(),
             'Expected to find 0 accounts in Wa'
         );
     }
@@ -372,8 +372,8 @@ private class SOQLRecipes_Tests {
         );
 
         System.Assert.areNotEqual(
-            first10Accounts,
             accts,
+            first10Accounts,
             'Expected this to be two different lists'
         );
     }
