@@ -7,7 +7,7 @@ private class InvocableMethodRecipes_Tests {
         request.inputs = new List<Account>{ new Account(name = 'test') };
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             request.inputs.size(),
             1,
             'Expected to find one account'
@@ -35,8 +35,11 @@ private class InvocableMethodRecipes_Tests {
         );
         Test.stopTest();
 
-        System.assert(results.size() == 1, 'Expected to receive one contact');
-        System.assert(
+        System.Assert.isTrue(
+            results.size() == 1,
+            'Expected to receive one contact'
+        );
+        System.Assert.isTrue(
             results[0].output.Id == contact.Id,
             'Expected the returned contact to be the one we created'
         );
@@ -67,8 +70,11 @@ private class InvocableMethodRecipes_Tests {
         );
         Test.stopTest();
 
-        System.assert(results.size() == 1, 'Expected to receive one contact');
-        System.assert(
+        System.Assert.isTrue(
+            results.size() == 1,
+            'Expected to receive one contact'
+        );
+        System.Assert.isTrue(
             results[0].output.Id == contact.Id,
             'Expected the returned contact to be the one we created'
         );
