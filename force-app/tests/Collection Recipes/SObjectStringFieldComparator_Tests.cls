@@ -18,7 +18,7 @@ public class SObjectStringFieldComparator_Tests {
         );
 
         List<Account> expected = new List<Account>{ a2, a1, a3, a4 };
-        System.assertEquals(
+        System.Assert.areEqual(
             accounts,
             expected,
             'Expected code sorted list to match manually sorted list'
@@ -35,9 +35,9 @@ public class SObjectStringFieldComparator_Tests {
                 objects,
                 new SObjectStringFieldComparator('ShippingCountry')
             );
-            System.assert(false, 'Expected ListUtils.CompareException');
+            System.Assert.fail('Expected ListUtils.CompareException');
         } catch (ListUtils.CompareException e) {
-            System.assert(
+            System.Assert.isTrue(
                 true,
                 'Expected to catch a ListUtils.CompareException exception'
             );

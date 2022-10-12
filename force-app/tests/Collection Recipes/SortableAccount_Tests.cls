@@ -15,7 +15,7 @@ public class SortableAccount_Tests {
         SortableAccount.sort(accounts);
 
         List<Account> expected = new List<Account>{ a2, a1, a3, a4 };
-        System.assertEquals(expected, accounts);
+        System.Assert.areEqual(expected, accounts);
     }
 
     @isTest
@@ -25,9 +25,9 @@ public class SortableAccount_Tests {
 
         try {
             sa1.compareTo(i);
-            System.assert(false, 'Expected SortException');
+            System.Assert.fail('Expected SortException');
         } catch (SortableAccount.SortException e) {
-            System.assert(true);
+            System.Assert.isTrue(true);
         }
     }
 }
