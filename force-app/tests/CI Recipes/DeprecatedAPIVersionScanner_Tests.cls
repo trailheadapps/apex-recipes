@@ -23,7 +23,7 @@ private class DeprecatedAPIVersionScanner_Tests {
                     )
                 );
             }
-            System.assertEquals(
+            System.Assert.areEqual(
                 0,
                 apiVersionsInUse.size(),
                 'The following API versions are deprecated but still in use: ' +
@@ -31,7 +31,7 @@ private class DeprecatedAPIVersionScanner_Tests {
             );
         }
         // implicit else here is that we have no logFiles to check.
-        System.assertEquals(
+        System.Assert.areEqual(
             0,
             logFiles.size(),
             'This assertion must logically be true.'
