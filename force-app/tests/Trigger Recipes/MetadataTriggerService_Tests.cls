@@ -10,8 +10,8 @@ private class MetadataTriggerService_Tests {
         Test.stopTest();
 
         System.Assert.AreEqual(
-            triggers.size(),
             0,
+            triggers.size(),
             'Expected to find no metadata records'
         );
     }
