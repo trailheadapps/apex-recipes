@@ -77,13 +77,12 @@ private class InboundEmailHandlerRecipes_tests {
             .handleInboundEmail(email, envelope);
         Test.stopTest();
 
-        System.assertEquals(
-            false,
+        System.Assert.isFalse(
             result.success,
             'Expected to find the success property is false.'
         );
 
-        System.assert(
+        System.Assert.isTrue(
             result.message.containsIgnoreCase('Unable to create new contact'),
             'Expected to receive a InboundEmailHandlerRecipesException with the given message'
         );
@@ -101,13 +100,12 @@ private class InboundEmailHandlerRecipes_tests {
             .handleInboundEmail(email, envelope);
         Test.stopTest();
 
-        System.assertEquals(
-            true,
+        System.Assert.isTrue(
             result.success,
             'Expected to receive a true success property when a new contact is created.'
         );
 
-        System.assert(
+        System.Assert.isTrue(
             [SELECT id FROM Contact WHERE email = :FROM_EMAIL].size() == 1,
             'Expected to find a new contact has been created with the FROM_EMAIL address.'
         );
@@ -122,26 +120,26 @@ private class InboundEmailHandlerRecipes_tests {
         Messaging.InboundEmailResult result = new InboundEmailHandlerRecipes()
             .handleInboundEmail(email, envelope);
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             result.success,
             'Expected result to be positive ' + result.message
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             2,
             [SELECT COUNT() FROM ContentVersion],
             'Expected to find two attachments'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             [SELECT COUNT() FROM EmailMessage],
             'Expected to have found an email message'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             2,
             [SELECT COUNT() FROM EmailMessageRelation],
             'Expected to find two emailMessageRelation objects'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             2,
             [
                 SELECT COUNT()
