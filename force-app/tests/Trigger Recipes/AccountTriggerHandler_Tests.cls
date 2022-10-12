@@ -12,9 +12,9 @@ private inherited sharing class AccountTriggerHandler_Tests {
         Test.stopTest();
 
         Account check = [SELECT Id, Description FROM Account LIMIT 1];
-        System.Assert.AreEqual(
-            Integer.valueOf(check.Description),
+        System.Assert.areEqual(
             1,
+            Integer.valueOf(check.Description),
             'Expected to see that the before insert trigger has updated the description'
         );
     }
@@ -29,7 +29,7 @@ private inherited sharing class AccountTriggerHandler_Tests {
             SELECT Id, Description, ShippingStreet
             FROM Account
         ];
-        System.Assert.AreEqual(
+        System.Assert.areEqual(
             200,
             checkAccounts.size(),
             'updatedAccounts should have 5 accounts'
@@ -39,9 +39,9 @@ private inherited sharing class AccountTriggerHandler_Tests {
                 check.ShippingStreet.containsIgnoreCase('229b baker st'),
                 'Expected the after trigger to have set the shipping address'
             );
-            System.Assert.AreEqual(
-                Integer.valueOf(check.Description),
+            System.Assert.areEqual(
                 1,
+                Integer.valueOf(check.Description),
                 'Expected to see that the before insert trigger has updated the description'
             );
         }
@@ -67,7 +67,7 @@ private inherited sharing class AccountTriggerHandler_Tests {
             WHERE Id IN :testData
         ];
 
-        System.Assert.AreEqual(
+        System.Assert.areEqual(
             200,
             afterInsertResults.size(),
             'updatedAccounts should have 5 accounts'
@@ -100,7 +100,7 @@ private inherited sharing class AccountTriggerHandler_Tests {
             WHERE Id IN :testData
         ];
 
-        System.Assert.AreEqual(
+        System.Assert.areEqual(
             200,
             afterInsertResults.size(),
             'updatedAccounts should have 5 accounts'
@@ -166,7 +166,7 @@ private inherited sharing class AccountTriggerHandler_Tests {
                 whatId IN :testData
                 AND Subject LIKE 'account was updated, please verify'
         ];
-        System.Assert.AreEqual(
+        System.Assert.areEqual(
             400, // this is 400 because our trigger calls the AccountServiceLayer method in addition to this update.
             tasks.size(),
             'Expect 400 tasks to be created'
@@ -244,7 +244,7 @@ private inherited sharing class AccountTriggerHandler_Tests {
         );
 
         List<Account> acctCloneCheck = [SELECT Id FROM Account];
-        System.Assert.AreEqual(
+        System.Assert.areEqual(
             1,
             acctCloneCheck.size(),
             'Expected to find a single clone after delete'
@@ -268,7 +268,7 @@ private inherited sharing class AccountTriggerHandler_Tests {
             FROM Task
             WHERE Subject LIKE 'account was deleted, please verify'
         ];
-        System.Assert.AreEqual(
+        System.Assert.areEqual(
             200, // this is 400 because our trigger calls the AccountServiceLayer method in addition to this update.
             tasks.size(),
             'Expected 200 tasks to be created'
