@@ -52,7 +52,7 @@ private inherited sharing class FilesRecipes_Tests {
             WHERE RelatedRecordId = :acct.Id
             LIMIT 1
         ];
-        System.assert(
+        System.Assert.isTrue(
             String.isNotBlank(dist.ContentDownloadUrl),
             'Expected to find a download url'
         );
@@ -73,7 +73,7 @@ private inherited sharing class FilesRecipes_Tests {
             WHERE FirstPublishLocationId = :acct.Id AND title = 'AwesomeFile1'
         ];
 
-        System.assert(results.size() == 1, 'Expected to find one file');
+        System.Assert.isTrue(results.size() == 1, 'Expected to find one file');
     }
 
     @isTest
@@ -99,22 +99,22 @@ private inherited sharing class FilesRecipes_Tests {
         );
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             audioFiles.size(),
             'Expected to find 1 audio file'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             imageFiles.size(),
             'Expected to find 1 image file'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             docFiles.size(),
             'Expected to find 1 document file'
         );
 
-        System.assertEquals(3, all.size(), 'Expected to find 3 total files');
+        System.Assert.areEqual(3, all.size(), 'Expected to find 3 total files');
     }
 }
