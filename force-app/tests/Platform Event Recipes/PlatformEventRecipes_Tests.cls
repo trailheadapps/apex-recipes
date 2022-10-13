@@ -36,8 +36,8 @@ private inherited sharing class PlatformEventRecipes_Tests {
         );
         Test.stopTest();
 
-        System.Assert.isTrue(
-            !publishResult.isSuccess(),
+        System.Assert.isFalse(
+            publishResult.isSuccess(),
             'Expected the publish event to fail'
         );
     }
