@@ -18,7 +18,7 @@ private class PlatformCacheRecipes_Tests {
         );
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             PlatformCacheRecipes.getDefaultPartition(
                     PlatformCacheRecipes.PartitionType.SESSION
                 )
@@ -26,7 +26,7 @@ private class PlatformCacheRecipes_Tests {
                 .contains('Account'),
             'Expected to see Account as a key'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             'This is a test',
             PlatformCacheRecipes.getDefaultPartition(
                     PlatformCacheRecipes.PartitionType.SESSION
@@ -46,7 +46,7 @@ private class PlatformCacheRecipes_Tests {
         );
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             PlatformCacheRecipes.getDefaultPartition(
                     PlatformCacheRecipes.PartitionType.SESSION
                 )
@@ -54,7 +54,7 @@ private class PlatformCacheRecipes_Tests {
                 .contains('Account'),
             'Expected to see Account as a key'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             'This is a test',
             PlatformCacheRecipes.getDefaultPartition(
                     PlatformCacheRecipes.PartitionType.SESSION
@@ -75,7 +75,7 @@ private class PlatformCacheRecipes_Tests {
             'Account'
         );
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             'This is a test',
             results,
             'Expect retrieval of cache item to result in the cached string being returned'
@@ -89,7 +89,7 @@ private class PlatformCacheRecipes_Tests {
             'Account'
         );
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             'Cache Miss',
             results,
             'Expect retrieval of non-existant cache key to result in a \'Cache Miss\' result '
@@ -105,8 +105,8 @@ private class PlatformCacheRecipes_Tests {
         Test.startTest();
         PlatformCacheRecipes.removeKeyFromSessionCache('Account');
         Test.stopTest();
-        System.assert(
-            !PlatformCacheRecipes.getDefaultPartition(
+        System.Assert.isFalse(
+            PlatformCacheRecipes.getDefaultPartition(
                     PlatformCacheRecipes.PartitionType.SESSION
                 )
                 .getKeys()
@@ -127,7 +127,7 @@ private class PlatformCacheRecipes_Tests {
             }
         }
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             didCatchProperException,
             'Expected to have caught a cacheException'
         );
@@ -140,7 +140,7 @@ private class PlatformCacheRecipes_Tests {
         PlatformCacheRecipes.storeValueInOrgCache('Account', 'This is a test');
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             PlatformCacheRecipes.getDefaultPartition(
                     PlatformCacheRecipes.PartitionType.ORG
                 )
@@ -148,7 +148,7 @@ private class PlatformCacheRecipes_Tests {
                 .contains('Account'),
             'Expected to see Account as a key'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             'This is a test',
             PlatformCacheRecipes.getDefaultPartition(
                     PlatformCacheRecipes.PartitionType.ORG
@@ -168,7 +168,7 @@ private class PlatformCacheRecipes_Tests {
         );
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             PlatformCacheRecipes.getDefaultPartition(
                     PlatformCacheRecipes.PartitionType.ORG
                 )
@@ -176,7 +176,7 @@ private class PlatformCacheRecipes_Tests {
                 .contains('Account'),
             'Expected to see Account as a key'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             'This is a test',
             PlatformCacheRecipes.getDefaultPartition(
                     PlatformCacheRecipes.PartitionType.ORG
@@ -192,7 +192,7 @@ private class PlatformCacheRecipes_Tests {
         Test.startTest();
         String results = PlatformCacheRecipes.getValueFromOrgCache('Contact');
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             'This is a test',
             results,
             'Expect retrieval of cache item to result in the cached string being returned'
@@ -204,7 +204,7 @@ private class PlatformCacheRecipes_Tests {
         Test.startTest();
         String results = PlatformCacheRecipes.getValueFromOrgCache('Account');
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             'Cache Miss',
             results,
             'Expect retrieval of non-existant cache key to result in a \'Cache Miss\' result '
@@ -217,8 +217,8 @@ private class PlatformCacheRecipes_Tests {
         Test.startTest();
         PlatformCacheRecipes.removeKeyFromOrgCache('Account');
         Test.stopTest();
-        System.assert(
-            !PlatformCacheRecipes.getDefaultPartition(
+        System.Assert.isFalse(
+            PlatformCacheRecipes.getDefaultPartition(
                     PlatformCacheRecipes.PartitionType.ORG
                 )
                 .getKeys()
@@ -239,7 +239,7 @@ private class PlatformCacheRecipes_Tests {
             }
         }
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             didCatchProperException,
             'Expected to have caught a cacheException'
         );
