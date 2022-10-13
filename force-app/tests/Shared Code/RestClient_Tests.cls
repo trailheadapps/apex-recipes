@@ -21,7 +21,7 @@ private inherited sharing class RestClient_Tests {
         rc = new RestClient('dummyNamedCredential');
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             'dummyNamedCredential',
             rc.namedCredentialName,
             'Expected the name credential to match'
@@ -60,7 +60,7 @@ private inherited sharing class RestClient_Tests {
         );
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             200,
             response.getStatusCode(),
             'Expected the return status code to be 200'
@@ -86,7 +86,7 @@ private inherited sharing class RestClient_Tests {
         );
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             200,
             response.getStatusCode(),
             'Expected the return status code to be 200'
@@ -111,7 +111,7 @@ private inherited sharing class RestClient_Tests {
         );
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             200,
             response.getStatusCode(),
             'Expected the return status code to be 200'
@@ -143,7 +143,7 @@ private inherited sharing class RestClient_Tests {
         HttpResponse response = rc.get('/', '?test');
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             200,
             response.getStatusCode(),
             'Expected to get the 200 response code'
@@ -165,7 +165,7 @@ private inherited sharing class RestClient_Tests {
         HttpResponse response = rc.del('/');
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             200,
             response.getStatusCode(),
             'Expected to get the 200 response code'
@@ -191,7 +191,7 @@ private inherited sharing class RestClient_Tests {
         );
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             201,
             response.getStatusCode(),
             'Expected to get the 201 response code'
@@ -213,7 +213,7 @@ private inherited sharing class RestClient_Tests {
         HttpResponse response = rc.put('/', '{"Id": "003ae3fn12df25k309"}');
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             201,
             response.getStatusCode(),
             'Expected to get the 201 response code'
@@ -235,7 +235,7 @@ private inherited sharing class RestClient_Tests {
         HttpResponse response = rc.put('/', '', '{"Id": "003ae3fn12df25k309"}');
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             201,
             response.getStatusCode(),
             'Expected to get the 201 response code'
@@ -257,7 +257,7 @@ private inherited sharing class RestClient_Tests {
         HttpResponse response = rc.patch('/', '{"Id": "003ae3fn12df25k309"}');
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             201,
             response.getStatusCode(),
             'Expected to get the 201 response code'

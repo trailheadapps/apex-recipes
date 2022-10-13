@@ -14,24 +14,24 @@ private class Log_Tests {
             FROM LogEvent__c
             ORDER BY Severity__c
         ];
-        System.assertEquals(
+        System.Assert.areEqual(
             2,
             events.size(),
             'expected to find only a single event'
         );
 
         for (LogEvent__c logEvt : events) {
-            System.assertEquals(
+            System.Assert.areEqual(
                 currentRequestId,
                 logEvt.Request_Id__c,
-                'Expected the reuqest id to have been logged'
+                'Expected the request id to have been logged'
             );
-            System.assertEquals(
+            System.Assert.areEqual(
                 currentQuiddity.name(),
                 logEvt.Quiddity__c,
                 'Expected quiddity on log message to match apex test context'
             );
-            System.assert(
+            System.Assert.isTrue(
                 new Set<String>{
                         Quiddity.RUNTEST_ASYNC.name(),
                         Quiddity.RUNTEST_DEPLOY.name(),
@@ -67,20 +67,20 @@ private class Log_Tests {
             ORDER BY Severity__c
         ];
 
-        System.assertEquals(4, events.size(), 'Expected to find 3 records');
+        System.Assert.areEqual(4, events.size(), 'Expected to find 3 records');
 
         for (LogEvent__c logEvt : events) {
-            System.assertEquals(
+            System.Assert.areEqual(
                 currentRequestId,
                 logEvt.Request_Id__c,
-                'Expected the reuqest id to have been logged'
+                'Expected the request id to have been logged'
             );
-            System.assertEquals(
+            System.Assert.areEqual(
                 currentQuiddity.name(),
                 logEvt.Quiddity__c,
                 'Expected quiddity on log message to match apex test context'
             );
-            System.assert(
+            System.Assert.isTrue(
                 new Set<String>{
                         Quiddity.RUNTEST_ASYNC.name(),
                         Quiddity.RUNTEST_DEPLOY.name(),
@@ -94,7 +94,7 @@ private class Log_Tests {
             //debug info warn error - proposed
         }
 
-        System.assert(
+        System.Assert.isTrue(
             events[0].Log_Data__c.split('\n')[0]
                 .containsIgnoreCase('Exception: [System.DMLException] meh'),
             'Expected the log data to contain [System.DMLException] meh'

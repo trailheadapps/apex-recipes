@@ -20,31 +20,30 @@ private class FormattedRecipeDisplayController_Tests {
             FormattedRecipeDisplayController.ClassData result = FormattedRecipeDisplayController.getRecipeCode(
                 klass
             );
-            System.assertEquals(
+            System.Assert.areEqual(
                 klass,
                 result.name,
                 'Expected the name to equal the input'
             );
-            System.assert(
+            System.Assert.isTrue(
                 result.apiVersion >= 53.0,
                 'Expected the apiVersion to be no earlier than 53.0'
             );
-            System.assertNotEquals(
-                null,
+            System.Assert.isNotNull(
                 result.body,
                 'Expected the body to not be null'
             );
-            System.assert(
+            System.Assert.isTrue(
                 result.lengthWithoutComments > 0,
                 'Expected the length to be greater than 0'
             );
             if (klass.endsWith('_Tests')) {
-                System.assert(
+                System.Assert.isTrue(
                     result.groupName.equalsIgnoreCase('Tests'),
                     'Expected to have recieved the string Tests'
                 );
             } else {
-                System.assert(
+                System.Assert.isTrue(
                     result.groupName.equalsIgnoreCase('Shared Code'),
                     'Expected to have recieved the string Shared Code'
                 );
