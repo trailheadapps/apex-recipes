@@ -35,12 +35,14 @@ private class InvocableMethodRecipes_Tests {
         );
         Test.stopTest();
 
-        System.Assert.isTrue(
-            results.size() == 1,
+        System.Assert.areEqual(
+            1,
+            results.size(),
             'Expected to receive one contact'
         );
-        System.Assert.isTrue(
-            results[0].output.Id == contact.Id,
+        System.Assert.areEqual(
+            contact.Id,
+            results[0].output.Id,
             'Expected the returned contact to be the one we created'
         );
     }
@@ -70,12 +72,14 @@ private class InvocableMethodRecipes_Tests {
         );
         Test.stopTest();
 
-        System.Assert.isTrue(
-            results.size() == 1,
+        System.Assert.areEqual(
+            1,
+            results.size(),
             'Expected to receive one contact'
         );
-        System.Assert.isTrue(
-            results[0].output.Id == contact.Id,
+        System.Assert.areEqual(
+            contact.Id,
+            results[0].output.Id,
             'Expected the returned contact to be the one we created'
         );
     }
