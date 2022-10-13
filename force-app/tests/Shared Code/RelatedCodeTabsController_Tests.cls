@@ -47,8 +47,9 @@ private class RelatedCodeTabsController_Tests {
         );
 
         Test.stopTest();
-        System.Assert.isTrue(
-            relatedClasses.size() == 0,
+        System.Assert.areEqual(
+            0,
+            relatedClasses.size(),
             'Expected to catch a query exception'
         );
     }

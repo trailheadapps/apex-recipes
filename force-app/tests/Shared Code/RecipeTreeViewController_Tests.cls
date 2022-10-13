@@ -21,12 +21,14 @@ private class RecipeTreeViewController_Tests {
             tree.size(),
             'Expected to find two sub trees'
         );
-        System.Assert.isTrue(
-            tree[0].name == 'Recipes',
+        System.Assert.areEqual(
+            'Recipes',
+            tree[0].name,
             'Expected Recipes to be the first element'
         );
-        System.Assert.isTrue(
-            tree[1].name == 'Shared Code',
+        System.Assert.areEqual(
+            'Shared Code',
+            tree[1].name,
             'Expected the final element to be Shared code'
         );
         System.Assert.isTrue(

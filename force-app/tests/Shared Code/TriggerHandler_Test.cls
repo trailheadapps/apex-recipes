@@ -265,8 +265,7 @@ private class TriggerHandler_Test {
 
         lc.increment();
         System.Assert.areEqual(1, lc.getCount(), 'Count should be 1');
-        System.Assert.areEqual(
-            false,
+        System.Assert.isFalse(
             lc.exceeded(),
             'Should not be exceeded with count of 1'
         );

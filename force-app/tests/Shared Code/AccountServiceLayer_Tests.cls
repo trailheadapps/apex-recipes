@@ -65,8 +65,9 @@ private inherited sharing class AccountServiceLayer_Tests {
             'updatedAccounts should have 5 accounts'
         );
         for (Account ua : updatedAccounts) {
-            System.Assert.isTrue(
-                integer.valueOf(ua.Description) == 1,
+            System.Assert.areEqual(
+                1,
+                integer.valueOf(ua.Description),
                 'Expected the code to have incremented to 1'
             );
         }
@@ -90,8 +91,9 @@ private inherited sharing class AccountServiceLayer_Tests {
             'updatedAccounts should have 5 accounts'
         );
         for (Account ua : updatedAccounts) {
-            System.Assert.isTrue(
-                integer.valueOf(ua.Description) == 1,
+            System.Assert.areEqual(
+                1,
+                integer.valueOf(ua.Description),
                 'Expected the code to have incremented to 1'
             );
         }
