@@ -18,16 +18,17 @@ private inherited sharing class QueueableChainingRecipes_Tests {
         QueueableChainingRecipes.execute(null);
         Test.stopTest();
         List<Account> checkAccounts = [SELECT Description FROM Account];
-        System.assert(
-            checkAccounts.size() == 20,
+        System.Assert.areEqual(
+            20,
+            checkAccounts.size(),
             'Expected to find 20 accounts'
         );
         for (Account acct : checkAccounts) {
-            System.assert(
+            System.Assert.isTrue(
                 acct.Description.containsIgnoreCase('first chained Queuable'),
                 'Expected to see evidence of first Queeuable job in account description'
             );
-            System.assert(
+            System.Assert.isTrue(
                 acct.Description.containsIgnoreCase(
                     'Edited by Queueable class'
                 ),
