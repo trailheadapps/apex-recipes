@@ -18,12 +18,12 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             Account.SObjectType,
             accountRecords.getSObjectType(),
             'Account object was not returned'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             5,
             accountRecords.size(),
             'The correct number of accounts was not returned, expected 5, got ' +
@@ -34,7 +34,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
     @isTest
     static void httpCalloutGetRecordsToReturnNegativeStringReturn() {
         List<Account> allAccounts = [SELECT Id, Name FROM Account];
-        System.assertEquals(
+        System.Assert.areEqual(
             0,
             allAccounts.size(),
             'Accounts size should be 0 before code execution'
@@ -54,7 +54,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         String calloutResponse = CustomRestEndpointRecipes.getRecordsToReturn();
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             calloutResponse.containsIgnoreCase('testing'),
             'Expected to have caught a Query exception and returned the query exception string'
         );
@@ -80,7 +80,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.debug(LoggingLevel.INFO, calloutResponse);
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             'Successful Delete',
             calloutResponse,
             'Expected successful delete'
@@ -109,7 +109,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         String calloutResponse = CustomRestEndpointRecipes.deleteSingleContact();
         System.debug(LoggingLevel.INFO, calloutResponse);
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             calloutResponse.containsIgnoreCase('testing'),
             'expected to have caught and handled a query exception'
         );
@@ -135,7 +135,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         String calloutResponse = CustomRestEndpointRecipes.deleteSingleContact();
         System.debug(LoggingLevel.INFO, calloutResponse);
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             calloutResponse.containsIgnoreCase('testing'),
             'expected to have caught and handled a DML exception'
         );
@@ -161,7 +161,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         Boolean nullObject = calloutResponse.contains(
             'Attempt to de-reference a null object'
         );
-        System.assert(nullObject, 'Expected no contact to be found');
+        System.Assert.isTrue(nullObject, 'Expected no contact to be found');
     }
 
     @isTest
@@ -190,12 +190,12 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         Boolean expectedError = calloutResponse.contains(
             'User does not have permission to delete contacts'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             500,
             response.statusCode,
             'expected status code to be 500'
         );
-        System.assert(expectedError, 'Expected to get error string');
+        System.Assert.isTrue(expectedError, 'Expected to get error string');
     }
 
     @isTest
@@ -227,12 +227,12 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         Boolean expectedError = calloutResponse.contains(
             'User does not have permission to'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             500,
             response.statusCode,
             'expected status code to be 500'
         );
-        System.assert(expectedError, 'Expected to get error string');
+        System.Assert.isTrue(expectedError, 'Expected to get error string');
     }
 
     @isTest
@@ -260,12 +260,12 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         Test.stopTest();
 
         Boolean expectedError = calloutResponse.contains('test');
-        System.assertEquals(
+        System.Assert.areEqual(
             400,
             response.statusCode,
             'expected status code to be 400'
         );
-        System.assert(expectedError, 'Expected to get error string');
+        System.Assert.isTrue(expectedError, 'Expected to get error string');
     }
 
     @isTest
@@ -292,12 +292,12 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.debug(LoggingLevel.INFO, calloutResponse);
         Test.stopTest();
         Boolean expectedError = calloutResponse.contains('test');
-        System.assertEquals(
+        System.Assert.areEqual(
             400,
             response.statusCode,
             'expected status code to be 400'
         );
-        System.assert(expectedError, 'Expected to get error string');
+        System.Assert.isTrue(expectedError, 'Expected to get error string');
     }
 
     @isTest
@@ -318,7 +318,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         String calloutResponse = CustomRestEndpointRecipes.parseAndCreateNewContacts();
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             'Successful Insert',
             calloutResponse,
             'Expected response to be: "Successful Insert"'
@@ -341,7 +341,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         Boolean argumentNull = calloutResponse.contains(
             'Argument cannot be null.'
         );
-        System.assert(argumentNull, 'No contact records were provided');
+        System.Assert.isTrue(argumentNull, 'No contact records were provided');
     }
 
     @isTest
@@ -366,7 +366,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.debug(LoggingLevel.INFO, calloutResponse);
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             'Successful Upsert',
             calloutResponse,
             'Expected response to be: "Successful Upsert"'
@@ -397,7 +397,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         }
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             500,
             response.statusCode,
             'Expected to get a 500 permission error'
@@ -406,7 +406,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
             'user does not have create or edit'
         );
         // All upsert failures  are being caught by exception and ignored by the DML Exception
-        System.assert(upsertFailed, 'Expected a no permissions return');
+        System.Assert.isTrue(upsertFailed, 'Expected a no permissions return');
     }
 
     @isTest
@@ -432,7 +432,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
             'malformed JSON:'
         );
         // All upsert failures  are being caught by exception and ignored by the DML Exception
-        System.assert(upsertFailed, 'Malformed JSON error Expected.');
+        System.Assert.isTrue(upsertFailed, 'Malformed JSON error Expected.');
     }
 
     @isTest
@@ -457,7 +457,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
 
         Boolean upsertFailed = calloutResponse.containsIgnoreCase('test');
         // All upsert failures  are being caught by exception and ignored by the DML Exception
-        System.assert(upsertFailed, 'DMLException expected');
+        System.Assert.isTrue(upsertFailed, 'DMLException expected');
     }
 
     @isTest
@@ -484,7 +484,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
 
         Boolean upsertFailed = calloutResponse.containsIgnoreCase('test');
         // All upsert failures  are being caught by exception and ignored by the DML Exception
-        System.assert(upsertFailed, 'DMLException expected');
+        System.Assert.isTrue(upsertFailed, 'DMLException expected');
     }
 
     @isTest
@@ -521,14 +521,14 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
             LIMIT 1
         ];
         Account account = (accounts.size() == 1) ? accounts.get(0) : null;
-        System.assertEquals(
+        System.Assert.areEqual(
             'https://www.' +
             account.Id +
             '.com',
             account.Website,
             'Expected account website to be https://www.[accountId].com.'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             'Successful Update',
             calloutResponse,
             'Expected response to be: "Successful Update"'
@@ -565,7 +565,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
             'Id not specified in an update call:'
         );
         // All upsert failures  are being caught by exception and ignored by the DML Exception
-        System.assert(upsertFailed, 'No External Id was provided');
+        System.Assert.isTrue(upsertFailed, 'No External Id was provided');
     }
 
     @isTest
@@ -603,7 +603,10 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
         Boolean upsertFailed = calloutResponse.containsIgnoreCase('test');
         // All upsert failures  are being caught by exception and ignored by the DML Exception
-        System.assert(upsertFailed, 'Id not specified in an update call');
+        System.Assert.isTrue(
+            upsertFailed,
+            'Id not specified in an update call'
+        );
     }
 
     @isTest
@@ -635,7 +638,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         }
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             500,
             response.statusCode,
             'Expected to get a 500 status code'
@@ -644,7 +647,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
             'user has no edit access'
         );
         // All upsert failures  are being caught by exception and ignored by the DML Exception
-        System.assert(
+        System.Assert.isTrue(
             upsertFailed,
             'Expected to have handled a no access setup'
         );
@@ -681,6 +684,9 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
             'malformed JSON:'
         );
         // All upsert failures  are being caught by exception and ignored by the DML Exception
-        System.assert(upsertFailed, 'Expected to find a Malformed JSON error');
+        System.Assert.isTrue(
+            upsertFailed,
+            'Expected to find a Malformed JSON error'
+        );
     }
 }
