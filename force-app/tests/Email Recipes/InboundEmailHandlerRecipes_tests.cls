@@ -105,8 +105,9 @@ private class InboundEmailHandlerRecipes_tests {
             'Expected to receive a true success property when a new contact is created.'
         );
 
-        System.Assert.isTrue(
-            [SELECT id FROM Contact WHERE email = :FROM_EMAIL].size() == 1,
+        System.Assert.areEqual(
+            1,
+            [SELECT id FROM Contact WHERE email = :FROM_EMAIL].size(),
             'Expected to find a new contact has been created with the FROM_EMAIL address.'
         );
     }
