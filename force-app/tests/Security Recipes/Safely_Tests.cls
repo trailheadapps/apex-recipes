@@ -44,7 +44,7 @@ private class Safely_Tests {
         User minAccessUser = TestFactory.createMinAccessUser(true);
 
         System.runAs(minAccessUser) {
-            System.Assert.isTrue(!CanTheUser.create(new Account()));
+            System.Assert.isFalse(CanTheUser.create(new Account()));
             Test.startTest();
             Account account = (Account) new Account(Name = 'TestAccount');
             List<Database.SaveResult> results = new Safely().doInsert(account);
@@ -131,7 +131,7 @@ private class Safely_Tests {
 
             Test.startTest();
             account.Name = 'UpdatedAccount';
-            System.Assert.isTrue(!(CanTheUser.edit(account)));
+            System.Assert.isFalse(CanTheUser.edit(account));
             List<Database.SaveResult> results = new Safely().doUpdate(account);
             Test.stopTest();
 

@@ -77,8 +77,8 @@ private inherited sharing class CanTheUser_Tests {
 
     @isTest
     static void getFLSofAccountIDNegative() {
-        System.Assert.isTrue(
-            CanTheUser.flsUpdatable('Account', 'id') == false,
+        System.Assert.isFalse(
+            CanTheUser.flsUpdatable('Account', 'id'),
             'Expected that the ID of an object cannot be updated.'
         );
     }
@@ -111,8 +111,8 @@ private inherited sharing class CanTheUser_Tests {
             'Expected the name ' + 'field to be accesible on Account'
         );
 
-        System.Assert.isTrue(
-            !bulkCheck.get('nonExistingField__c'),
+        System.Assert.isFalse(
+            bulkCheck.get('nonExistingField__c'),
             'Expected the name ' + 'field to be accesible on Account'
         );
     }
@@ -145,8 +145,8 @@ private inherited sharing class CanTheUser_Tests {
             'Expected the name ' + 'field to be accesible on Account'
         );
 
-        System.Assert.isTrue(
-            !bulkCheck.get('nonExistingField__c'),
+        System.Assert.isFalse(
+            bulkCheck.get('nonExistingField__c'),
             'Expected the name ' + 'field to be accesible on Account'
         );
     }
