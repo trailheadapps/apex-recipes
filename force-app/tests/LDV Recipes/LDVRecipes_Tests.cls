@@ -27,7 +27,7 @@ private class LDVRecipes_Tests {
         System.enqueueJob(ldvr);
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             LDVRecipes.chunksExecuted,
             'Expected to find the queueable executed once.'
