@@ -73,7 +73,7 @@ private inherited sharing class FilesRecipes_Tests {
             WHERE FirstPublishLocationId = :acct.Id AND title = 'AwesomeFile1'
         ];
 
-        System.Assert.isTrue(results.size() == 1, 'Expected to find one file');
+        System.Assert.areEqual(1, results.size(), 'Expected to find one file');
     }
 
     @isTest
