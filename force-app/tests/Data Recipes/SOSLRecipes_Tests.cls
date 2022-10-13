@@ -25,7 +25,7 @@ private class SOSLRecipes_Tests {
         List<List<SObject>> results = SOSLRecipes.basicSOSLSearch();
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             results[0].size(),
             'Expected to get one account with KS'
@@ -44,7 +44,7 @@ private class SOSLRecipes_Tests {
         Test.startTest();
         List<List<SObject>> results = SOSLRecipes.NameFieldSearch();
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             results[1].size(),
             'Expected to get one contact with Alaska'
