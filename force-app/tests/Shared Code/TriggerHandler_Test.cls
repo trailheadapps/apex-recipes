@@ -103,10 +103,7 @@ private class TriggerHandler_Test {
     static void testNonTriggerContext() {
         try {
             handler.run();
-            System.Assert.isTrue(
-                false,
-                'The handler ran but should have thrown'
-            );
+            System.Assert.fail('The handler ran but should have thrown');
         } catch (TriggerHandler.TriggerHandlerException te) {
             System.Assert.areEqual(
                 TRIGGER_CONTEXT_ERROR,
@@ -114,8 +111,7 @@ private class TriggerHandler_Test {
                 'The exception message should match'
             );
         } catch (Exception e) {
-            System.Assert.isTrue(
-                false,
+            System.Assert.fail(
                 'The exception thrown was not expected: ' +
                 e.getTypeName() +
                 ': ' +
@@ -204,8 +200,7 @@ private class TriggerHandler_Test {
         try {
             // try running it. This should exceed the limit.
             handler.run();
-            System.Assert.isTrue(
-                false,
+            System.Assert.fail(
                 'The handler should throw on the 3rd run when maxloopcount is 3'
             );
         } catch (TriggerHandler.TriggerHandlerException te) {
@@ -238,13 +233,11 @@ private class TriggerHandler_Test {
                 'Last method should be beforeInsert'
             );
         } catch (TriggerHandler.TriggerHandlerException te) {
-            System.Assert.isTrue(
-                false,
+            System.Assert.fail(
                 'Running the handler after clearing the loop count should not throw'
             );
         } catch (Exception e) {
-            System.Assert.isTrue(
-                false,
+            System.Assert.fail(
                 'The exception thrown was not expected: ' +
                 e.getTypeName() +
                 ': ' +
