@@ -13,8 +13,9 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         List<Account> results = DynamicSOQLRecipes.simpleDynamicSOQLQuery();
         Test.stopTest();
 
-        System.Assert.isTrue(
-            results.size() == 1,
+        System.Assert.areEqual(
+            1,
+            results.size(),
             'Expected to find a single account'
         );
     }
@@ -28,8 +29,9 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
         Test.stopTest();
 
-        System.Assert.isTrue(
-            results.size() == 1,
+        System.Assert.areEqual(
+            1,
+            results.size(),
             'Expected to find a single account'
         );
     }
@@ -43,8 +45,9 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
         Test.stopTest();
 
-        System.Assert.isTrue(
-            results.size() == 0,
+        System.Assert.areEqual(
+            0,
+            results.size(),
             'Expected to fail to find an account'
         );
     }
@@ -58,8 +61,9 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
         Test.stopTest();
 
-        System.Assert.isTrue(
-            results.size() == 1,
+        System.Assert.areEqual(
+            1,
+            results.size(),
             'Expected to find an Account'
         );
     }
@@ -76,8 +80,9 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
         Test.stopTest();
 
-        System.Assert.isTrue(
-            results.size() == 1,
+        System.Assert.areEqual(
+            1,
+            results.size(),
             'Expected to find an Account'
         );
     }
@@ -94,8 +99,9 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
         Test.stopTest();
 
-        System.Assert.isTrue(
-            results.size() == 0,
+        System.Assert.areEqual(
+            0,
+            results.size(),
             'Expected to not find an Account'
         );
     }
@@ -120,8 +126,9 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
         Test.stopTest();
 
-        System.Assert.isTrue(
-            results.size() == 0,
+        System.Assert.areEqual(
+            0,
+            results.size(),
             'Expected to find an empty list'
         );
     }
@@ -145,8 +152,9 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
         Test.stopTest();
 
-        System.Assert.isTrue(
-            results.size() == 1,
+        System.Assert.areEqual(
+            1,
+            results.size(),
             'Expected to find a single account'
         );
     }

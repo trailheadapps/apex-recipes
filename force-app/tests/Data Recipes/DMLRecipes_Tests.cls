@@ -57,12 +57,14 @@ public class DMLRecipes_Tests {
             WHERE name = 'Texas'
         ];
 
-        System.Assert.isTrue(
-            acct.size() == 1,
+        System.Assert.areEqual(
+            1,
+            acct.size(),
             'Expected the list of accounts to have a single account'
         );
-        System.Assert.isTrue(
-            acct[0].name == 'Texas',
+        System.Assert.areEqual(
+            'Texas',
+            acct[0].name,
             'Expected the account name to be Texas'
         );
     }
@@ -357,8 +359,9 @@ public class DMLRecipes_Tests {
             FROM Account
             WHERE id = :acct.Id
         ];
-        System.Assert.isTrue(
-            checkAcct.size() == 1,
+        System.Assert.areEqual(
+            1,
+            checkAcct.size(),
             'Expected to find a single account'
         );
     }
@@ -396,8 +399,9 @@ public class DMLRecipes_Tests {
             FROM Account
             WHERE id = :acct.Id
         ];
-        System.Assert.isTrue(
-            checkAcct.size() == 1,
+        System.Assert.areEqual(
+            1,
+            checkAcct.size(),
             'Expected to find a single account'
         );
     }

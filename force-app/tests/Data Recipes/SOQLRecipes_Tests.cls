@@ -63,8 +63,8 @@ private class SOQLRecipes_Tests {
         TestDataHelpers.createAccount(false, '');
 
         System.Assert.areEqual(
-            [SELECT COUNT() FROM Account],
             1,
+            [SELECT COUNT() FROM Account],
             'Expected only one account'
         );
         Test.startTest();
@@ -96,14 +96,14 @@ private class SOQLRecipes_Tests {
         TestFactory.createSObjectList(new Account(), 3000, true);
 
         System.Assert.areEqual(
-            [SELECT COUNT() FROM Account],
             3000,
+            [SELECT COUNT() FROM Account],
             'expected to have created 3k records'
         );
         Test.startTest();
         Integer count = SOQLRecipes.getLargeNumberOfRecords();
         Test.stopTest(); // forces all asych work to complete
-        System.Assert.areEqual(count, 3000, 'Expected to find 3k records');
+        System.Assert.areEqual(3000, count, 'Expected to find 3k records');
     }
 
     @isTest
