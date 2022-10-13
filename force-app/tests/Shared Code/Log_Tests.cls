@@ -24,7 +24,7 @@ private class Log_Tests {
             System.Assert.areEqual(
                 currentRequestId,
                 logEvt.Request_Id__c,
-                'Expected the reuqest id to have been logged'
+                'Expected the request id to have been logged'
             );
             System.Assert.areEqual(
                 currentQuiddity.name(),
@@ -73,7 +73,7 @@ private class Log_Tests {
             System.Assert.areEqual(
                 currentRequestId,
                 logEvt.Request_Id__c,
-                'Expected the reuqest id to have been logged'
+                'Expected the request id to have been logged'
             );
             System.Assert.areEqual(
                 currentQuiddity.name(),
