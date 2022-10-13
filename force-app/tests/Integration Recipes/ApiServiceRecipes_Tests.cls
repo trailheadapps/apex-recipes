@@ -6,8 +6,9 @@ private class ApiServiceRecipes_Tests {
         ApiServiceRecipes api = new ApiServiceRecipes();
         Test.stopTest();
 
-        System.Assert.isTrue(
-            api.namedCredentialName == 'MockBin',
+        System.Assert.areEqual(
+            'MockBin',
+            api.namedCredentialName,
             'Expected constructor to create an instance that specifies the named credentialname'
         );
     }

@@ -90,8 +90,9 @@ private inherited sharing class CalloutRecipes_Tests {
         List<Account> calloutResponse = x.httpGetCalloutToSecondOrg();
         Test.stopTest();
 
-        System.Assert.isTrue(
-            calloutResponse.getSObjectType() == Account.SObjectType,
+        System.Assert.areEqual(
+            Account.SObjectType,
+            calloutResponse.getSObjectType(),
             'Expected the response to have the SObject Type'
         );
     }
@@ -139,7 +140,7 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpDeleteCalloutToSecondOrg(contact.Id);
         Test.stopTest();
 
-        System.Assert.isTrue(statusCode == 200, 'Expected a successful delete');
+        System.Assert.areEqual(200, statusCode, 'Expected a successful delete');
     }
 
     @isTest
@@ -162,8 +163,9 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpDeleteCalloutToSecondOrg(contact.Id);
         Test.stopTest();
 
-        System.Assert.isTrue(
-            statusCode == 404,
+        System.Assert.areEqual(
+            404,
+            statusCode,
             'Expected an unsuccessful delete'
         );
     }
@@ -188,8 +190,9 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpPostCalloutToSecondOrg(contactList);
         Test.stopTest();
 
-        System.Assert.isTrue(
-            statusCode == 200,
+        System.Assert.areEqual(
+            200,
+            statusCode,
             'Expected a successful response'
         );
     }
@@ -214,8 +217,9 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpPostCalloutToSecondOrg(contactList);
         Test.stopTest();
 
-        System.Assert.isTrue(
-            statusCode == 400,
+        System.Assert.areEqual(
+            400,
+            statusCode,
             'Expected an unsusccessful response'
         );
     }
@@ -240,8 +244,9 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpPutCalloutToSecondOrg(contactList);
         Test.stopTest();
 
-        System.Assert.isTrue(
-            statusCode == 200,
+        System.Assert.areEqual(
+            200,
+            statusCode,
             'Expected a successful response'
         );
     }
@@ -266,8 +271,9 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpPutCalloutToSecondOrg(contactList);
         Test.stopTest();
 
-        System.Assert.isTrue(
-            statusCode == 404,
+        System.Assert.areEqual(
+            404,
+            statusCode,
             'Expected an unsusccessful response'
         );
     }
@@ -292,8 +298,9 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpPatchCalloutToSecondOrg(accountList);
         Test.stopTest();
 
-        System.Assert.isTrue(
-            statusCode == 200,
+        System.Assert.areEqual(
+            200,
+            statusCode,
             'Expected a successful response'
         );
     }
@@ -318,8 +325,9 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpPatchCalloutToSecondOrg(accountList);
         Test.stopTest();
 
-        System.Assert.isTrue(
-            statusCode == 404,
+        System.Assert.areEqual(
+            404,
+            statusCode,
             'Expected a successful response'
         );
     }
@@ -357,12 +365,14 @@ private inherited sharing class CalloutRecipes_Tests {
         Map<String, Object> responseMap = callouts.httpCalloutWithUntypedResponse();
         Test.stopTest();
 
-        System.Assert.isTrue(
-            responseMap.get('Name') == 'Universal Containers',
+        System.Assert.areEqual(
+            'Universal Containers',
+            responseMap.get('Name'),
             'Expected to find Universal Containers as name in the response'
         );
-        System.Assert.isTrue(
-            ((List<Object>) responseMap.get('Contacts')).size() == 2,
+        System.Assert.areEqual(
+            2,
+            ((List<Object>) responseMap.get('Contacts')).size(),
             'Expected to find two contacts in the response'
         );
     }
