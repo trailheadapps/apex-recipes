@@ -8,8 +8,8 @@ private inherited sharing class ScheduledApexDemo_Tests {
         Test.stopTest();
 
         System.Assert.areEqual(
-            demoObj.counter,
             1,
+            demoObj.counter,
             'Expected the counter to show 1'
         );
     }

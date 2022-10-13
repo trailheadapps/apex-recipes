@@ -18,8 +18,9 @@ private inherited sharing class BatchApexRecipes_Tests {
         Test.stopTest();
 
         List<Account> checkAccounts = [SELECT Name FROM Account];
-        System.Assert.isTrue(
-            checkAccounts.size() == 200,
+        System.Assert.areEqual(
+            200,
+            checkAccounts.size(),
             'Expected to find 200 accounts'
         );
         for (Account acct : checkAccounts) {

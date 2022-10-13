@@ -21,7 +21,8 @@ private inherited sharing class QueueableWithCalloutRecipes_Tests {
 
         List<Account> checkAccounts = [SELECT Description FROM Account];
         System.Assert.isTrue(
-            checkAccounts.size() == 200,
+            200,
+            checkAccounts.size(),
             'Expected to find 200 accounts'
         );
         for (Account account : checkAccounts) {

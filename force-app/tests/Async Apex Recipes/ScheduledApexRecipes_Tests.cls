@@ -20,20 +20,20 @@ private inherited sharing class ScheduledApexRecipes_Tests {
             LIMIT 1
         ];
         System.Assert.areEqual(
-            checkCronTrigger.CronExpression,
             ScheduledApexRecipes.TEST_CRON_STATEMENT,
+            checkCronTrigger.CronExpression,
             'These two cron statements should be equal'
         );
 
         System.Assert.areEqual(
-            checkCronTrigger.timesTriggered,
             0,
+            checkCronTrigger.timesTriggered,
             'Expected this cron trigger to never have been fired'
         );
 
         System.Assert.areEqual(
-            String.valueOf(checkCronTrigger.nextFireTime),
             '2099-05-28 00:00:00',
+            String.valueOf(checkCronTrigger.nextFireTime),
             'Expected the next fire time to be set to 5/28/2099 at midnight'
         );
     }

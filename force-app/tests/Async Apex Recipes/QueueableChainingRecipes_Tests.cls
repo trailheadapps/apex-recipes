@@ -18,8 +18,9 @@ private inherited sharing class QueueableChainingRecipes_Tests {
         QueueableChainingRecipes.execute(null);
         Test.stopTest();
         List<Account> checkAccounts = [SELECT Description FROM Account];
-        System.Assert.isTrue(
-            checkAccounts.size() == 20,
+        System.Assert.areEqual(
+            20,
+            checkAccounts.size(),
             'Expected to find 20 accounts'
         );
         for (Account acct : checkAccounts) {
