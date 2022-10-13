@@ -105,8 +105,8 @@ private class PlatformCacheRecipes_Tests {
         Test.startTest();
         PlatformCacheRecipes.removeKeyFromSessionCache('Account');
         Test.stopTest();
-        System.Assert.isTrue(
-            !PlatformCacheRecipes.getDefaultPartition(
+        System.Assert.isFalse(
+            PlatformCacheRecipes.getDefaultPartition(
                     PlatformCacheRecipes.PartitionType.SESSION
                 )
                 .getKeys()
@@ -217,8 +217,8 @@ private class PlatformCacheRecipes_Tests {
         Test.startTest();
         PlatformCacheRecipes.removeKeyFromOrgCache('Account');
         Test.stopTest();
-        System.Assert.isTrue(
-            !PlatformCacheRecipes.getDefaultPartition(
+        System.Assert.isFalse(
+            PlatformCacheRecipes.getDefaultPartition(
                     PlatformCacheRecipes.PartitionType.ORG
                 )
                 .getKeys()
