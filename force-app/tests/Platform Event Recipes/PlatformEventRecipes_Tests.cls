@@ -17,7 +17,7 @@ private inherited sharing class PlatformEventRecipes_Tests {
         );
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             publishResult.isSuccess(),
             'Expected the publish event to succeed'
         );
@@ -36,8 +36,8 @@ private inherited sharing class PlatformEventRecipes_Tests {
         );
         Test.stopTest();
 
-        System.assert(
-            !publishResult.isSuccess(),
+        System.Assert.isFalse(
+            publishResult.isSuccess(),
             'Expected the publish event to fail'
         );
     }
@@ -68,7 +68,7 @@ private inherited sharing class PlatformEventRecipes_Tests {
         }
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchCorrectException,
             'Expected to have received a PlatformEventRecipesException when a min-access user tries to publish an event'
         );
