@@ -16,20 +16,26 @@ private class RecipeTreeViewController_Tests {
         List<RecipeTreeViewController.RecipeTreeData> tree = RecipeTreeViewController.generateTreeData();
         Test.stopTest();
 
-        System.assertEquals(2, tree.size(), 'Expected to find two sub trees');
-        System.assert(
-            tree[0].name == 'Recipes',
+        System.Assert.areEqual(
+            2,
+            tree.size(),
+            'Expected to find two sub trees'
+        );
+        System.Assert.areEqual(
+            'Recipes',
+            tree[0].name,
             'Expected Recipes to be the first element'
         );
-        System.assert(
-            tree[1].name == 'Shared Code',
+        System.Assert.areEqual(
+            'Shared Code',
+            tree[1].name,
             'Expected the final element to be Shared code'
         );
-        System.assert(
+        System.Assert.isTrue(
             tree[0].items.size() > 0,
             'expected for recipes to have sub-groups'
         );
-        System.assert(
+        System.Assert.isTrue(
             tree[1].items.size() > 0,
             'expected for shared code to have sub-groups'
         );

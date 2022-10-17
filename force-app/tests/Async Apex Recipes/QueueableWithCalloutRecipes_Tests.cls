@@ -20,12 +20,13 @@ private inherited sharing class QueueableWithCalloutRecipes_Tests {
         Test.stopTest();
 
         List<Account> checkAccounts = [SELECT Description FROM Account];
-        System.assert(
-            checkAccounts.size() == 200,
+        System.Assert.areEqual(
+            200,
+            checkAccounts.size(),
             'Expected to find 200 accounts'
         );
         for (Account account : checkAccounts) {
-            System.assert(
+            System.Assert.isTrue(
                 account.Description.containsIgnoreCase('200'),
                 'Expected to find all accounts\'s to have been edited to include edited by queueable class'
             );
@@ -49,7 +50,7 @@ private inherited sharing class QueueableWithCalloutRecipes_Tests {
         enqueuedJobId = System.enqueueJob(queueable);
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             QueueableWithCalloutRecipes.circuitBreakerThrown,
             'Expected the test code to have tripped the circuit breaker'
         );

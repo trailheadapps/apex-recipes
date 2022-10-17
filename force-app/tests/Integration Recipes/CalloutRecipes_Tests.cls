@@ -33,7 +33,7 @@ private inherited sharing class CalloutRecipes_Tests {
         String results = CalloutRecipes.rawCallout();
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             'OK',
             results,
             'Expected to recieve a valid response from the mock'
@@ -64,7 +64,7 @@ private inherited sharing class CalloutRecipes_Tests {
         }
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to catch a CalloutRecipesException'
         );
@@ -90,8 +90,9 @@ private inherited sharing class CalloutRecipes_Tests {
         List<Account> calloutResponse = x.httpGetCalloutToSecondOrg();
         Test.stopTest();
 
-        System.assert(
-            calloutResponse.getSObjectType() == Account.SObjectType,
+        System.Assert.areEqual(
+            Account.SObjectType,
+            calloutResponse.getSObjectType(),
             'Expected the response to have the SObject Type'
         );
     }
@@ -116,7 +117,7 @@ private inherited sharing class CalloutRecipes_Tests {
         List<Account> calloutResponse = callouts.httpGetCalloutToSecondOrg();
         Test.stopTest();
 
-        System.assert(calloutResponse == null, 'Expected a null response');
+        System.Assert.isNull(calloutResponse, 'Expected a null response');
     }
 
     @isTest
@@ -139,7 +140,7 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpDeleteCalloutToSecondOrg(contact.Id);
         Test.stopTest();
 
-        System.assert(statusCode == 200, 'Expected a successful delete');
+        System.Assert.areEqual(200, statusCode, 'Expected a successful delete');
     }
 
     @isTest
@@ -162,7 +163,11 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpDeleteCalloutToSecondOrg(contact.Id);
         Test.stopTest();
 
-        System.assert(statusCode == 404, 'Expected an unsuccessful delete');
+        System.Assert.areEqual(
+            404,
+            statusCode,
+            'Expected an unsuccessful delete'
+        );
     }
 
     @isTest
@@ -185,7 +190,11 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpPostCalloutToSecondOrg(contactList);
         Test.stopTest();
 
-        System.assert(statusCode == 200, 'Expected a successful response');
+        System.Assert.areEqual(
+            200,
+            statusCode,
+            'Expected a successful response'
+        );
     }
 
     @isTest
@@ -208,7 +217,11 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpPostCalloutToSecondOrg(contactList);
         Test.stopTest();
 
-        System.assert(statusCode == 400, 'Expected an unsusccessful response');
+        System.Assert.areEqual(
+            400,
+            statusCode,
+            'Expected an unsusccessful response'
+        );
     }
 
     @isTest
@@ -231,7 +244,11 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpPutCalloutToSecondOrg(contactList);
         Test.stopTest();
 
-        System.assert(statusCode == 200, 'Expected a successful response');
+        System.Assert.areEqual(
+            200,
+            statusCode,
+            'Expected a successful response'
+        );
     }
 
     @isTest
@@ -254,7 +271,11 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpPutCalloutToSecondOrg(contactList);
         Test.stopTest();
 
-        System.assert(statusCode == 404, 'Expected an unsusccessful response');
+        System.Assert.areEqual(
+            404,
+            statusCode,
+            'Expected an unsusccessful response'
+        );
     }
 
     @isTest
@@ -277,7 +298,11 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpPatchCalloutToSecondOrg(accountList);
         Test.stopTest();
 
-        System.assert(statusCode == 200, 'Expected a successful response');
+        System.Assert.areEqual(
+            200,
+            statusCode,
+            'Expected a successful response'
+        );
     }
 
     @isTest
@@ -300,7 +325,11 @@ private inherited sharing class CalloutRecipes_Tests {
         Integer statusCode = callouts.httpPatchCalloutToSecondOrg(accountList);
         Test.stopTest();
 
-        System.assert(statusCode == 404, 'Expected a successful response');
+        System.Assert.areEqual(
+            404,
+            statusCode,
+            'Expected a successful response'
+        );
     }
 
     @isTest
@@ -336,12 +365,14 @@ private inherited sharing class CalloutRecipes_Tests {
         Map<String, Object> responseMap = callouts.httpCalloutWithUntypedResponse();
         Test.stopTest();
 
-        System.assert(
-            responseMap.get('Name') == 'Universal Containers',
+        System.Assert.areEqual(
+            'Universal Containers',
+            responseMap.get('Name'),
             'Expected to find Universal Containers as name in the response'
         );
-        System.assert(
-            ((List<Object>) responseMap.get('Contacts')).size() == 2,
+        System.Assert.areEqual(
+            2,
+            ((List<Object>) responseMap.get('Contacts')).size(),
             'Expected to find two contacts in the response'
         );
     }
@@ -367,14 +398,14 @@ private inherited sharing class CalloutRecipes_Tests {
             FROM Contact
             WHERE AccountId = :account.Id
         ];
-        System.assertEquals(
-            account.Name,
+        System.Assert.areEqual(
             'Universal Containers',
+            account.Name,
             'Expected account name to be Universal Containers'
         );
-        System.assertEquals(
-            contacts.size(),
+        System.Assert.areEqual(
             2,
+            contacts.size(),
             'Expected two contacts returned'
         );
     }

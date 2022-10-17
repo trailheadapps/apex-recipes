@@ -17,7 +17,7 @@ private class PlatformCacheBuilderRecipes_Tests {
             'Account'
         );
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             accts.size(),
             results.size(),
             'Expected to pull the same accounts'

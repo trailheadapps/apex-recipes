@@ -13,7 +13,7 @@ public class IterationRecipes_Tests {
 
         Integer employeeCount = IterationRecipes.iterateOnAccountList(accounts);
 
-        System.assertEquals(5, employeeCount);
+        System.Assert.areEqual(5, employeeCount);
     }
 
     @isTest
@@ -40,7 +40,7 @@ public class IterationRecipes_Tests {
         List<String> records = IterationRecipes.iterableApiClientRecipe();
         Test.stopTest();
 
-        System.assertEquals(11, records.size());
+        System.Assert.areEqual(11, records.size());
     }
 
     @isTest
@@ -56,13 +56,14 @@ public class IterationRecipes_Tests {
         try {
             Test.startTest();
             IterationRecipes.iterableApiClientRecipe();
-            System.assert(false, 'Expected IterableApiException');
+            System.Assert.fail('Expected IterableApiException');
         } catch (Exception baseException) {
             // Ensure that we caught our custom IterableApiException exception.
             // The catch clause is voluntarily kept generic with Exception as other exceptions could be triggered.
             // We use the instanceof operator to check that baseException is an instance of IterableApiException.
-            System.assert(
-                baseException instanceof IterableApiClient.IterableApiException,
+            System.Assert.isInstanceOfType(
+                baseException,
+                IterableApiClient.IterableApiException.class,
                 'Expected an instance of IterableApiException'
             );
         } finally {

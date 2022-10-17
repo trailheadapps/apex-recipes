@@ -19,7 +19,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
 
         List<Account> acct = [SELECT ID FROM Account WHERE name = 'mumbledore'];
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             acct.size(),
             'We should have found the account we just created'
@@ -39,7 +39,7 @@ public class DMLRecipes_Tests {
         }
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Should have caught the exception'
         );
@@ -57,12 +57,14 @@ public class DMLRecipes_Tests {
             WHERE name = 'Texas'
         ];
 
-        System.assert(
-            acct.size() == 1,
+        System.Assert.areEqual(
+            1,
+            acct.size(),
             'Expected the list of accounts to have a single account'
         );
-        System.assert(
-            acct[0].name == 'Texas',
+        System.Assert.areEqual(
+            'Texas',
+            acct[0].name,
             'Expected the account name to be Texas'
         );
     }
@@ -80,7 +82,7 @@ public class DMLRecipes_Tests {
         }
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Should have caught the exception'
         );
@@ -99,7 +101,7 @@ public class DMLRecipes_Tests {
             FROM Account
             WHERE name = :acct.Name
         ];
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             resultingAccounts.size(),
             'We expect to find a single account with that name'
@@ -112,7 +114,7 @@ public class DMLRecipes_Tests {
         insert acct; // Gives us the ID property.
         List<Account> accounts = [SELECT Name FROM Account WHERE id = :acct.Id];
 
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             accounts.size(),
             'We expect to find one account'
@@ -125,7 +127,7 @@ public class DMLRecipes_Tests {
 
         List<Account> testAccounts = [SELECT Name FROM Account];
 
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             testAccounts.size(),
             'There should be only one account'
@@ -146,7 +148,7 @@ public class DMLRecipes_Tests {
                 didCatchTheRightException = true;
             }
         }
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to get an Invalid Cross Reference Id exception'
         );
@@ -166,7 +168,7 @@ public class DMLRecipes_Tests {
                 didCatchTheRightException = true;
             }
         }
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to get an Invalid Cross Reference Id exception'
         );
@@ -183,7 +185,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
 
         String checkAcct = [SELECT name FROM Account WHERE id = :acct.Id].Name;
-        System.assert(
+        System.Assert.isTrue(
             checkAcct.containsIgnoreCase('updated'),
             'Expected to find the keyword updated in the account name'
         );
@@ -206,7 +208,7 @@ public class DMLRecipes_Tests {
         }
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to receive a CustomDMLException with message Failed'
         );
@@ -223,7 +225,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
 
         String checkAcct = [SELECT name FROM Account WHERE id = :acct.Id].Name;
-        System.assert(
+        System.Assert.isTrue(
             checkAcct.containsIgnoreCase('updated'),
             'Expected to find the keyword updated in the account name'
         );
@@ -248,7 +250,7 @@ public class DMLRecipes_Tests {
         }
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to recieve a CustomDMLException with message Failed'
         );
@@ -270,7 +272,7 @@ public class DMLRecipes_Tests {
                 qe.getMessage()
                     .containsIgnoreCase('list has no rows for assignment')
             ) {
-                System.assert(
+                System.Assert.isTrue(
                     true,
                     'Expected to get query exception as record was deleted'
                 );
@@ -289,7 +291,7 @@ public class DMLRecipes_Tests {
             DMLRecipes.deleteAccountViaKeyword(new List<Account>{ acct });
         } catch (DMLRecipes.CustomDmlException cde) {
             if (cde.getMessage().containsIgnoreCase('failed')) {
-                System.assert(
+                System.Assert.isTrue(
                     true,
                     'Expected to get query exception as record was deleted'
                 );
@@ -314,7 +316,7 @@ public class DMLRecipes_Tests {
                 qe.getMessage()
                     .containsIgnoreCase('list has no rows for assignment')
             ) {
-                System.assert(
+                System.Assert.isTrue(
                     true,
                     'Expected to get query exception as record was deleted'
                 );
@@ -335,7 +337,7 @@ public class DMLRecipes_Tests {
             );
         } catch (DMLRecipes.CustomDmlException cde) {
             if (cde.getMessage().containsIgnoreCase('failed')) {
-                System.assert(
+                System.Assert.isTrue(
                     true,
                     'Expected to get query exception as record was deleted'
                 );
@@ -357,8 +359,9 @@ public class DMLRecipes_Tests {
             FROM Account
             WHERE id = :acct.Id
         ];
-        System.assert(
-            checkAcct.size() == 1,
+        System.Assert.areEqual(
+            1,
+            checkAcct.size(),
             'Expected to find a single account'
         );
     }
@@ -377,7 +380,7 @@ public class DMLRecipes_Tests {
             }
         }
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to find a single account'
         );
@@ -396,8 +399,9 @@ public class DMLRecipes_Tests {
             FROM Account
             WHERE id = :acct.Id
         ];
-        System.assert(
-            checkAcct.size() == 1,
+        System.Assert.areEqual(
+            1,
+            checkAcct.size(),
             'Expected to find a single account'
         );
     }
@@ -418,7 +422,7 @@ public class DMLRecipes_Tests {
             }
         }
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to find a single account'
         );

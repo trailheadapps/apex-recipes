@@ -9,77 +9,77 @@ class OrgShape_Tests {
 
     @isTest
     static void testOrgShapeProperties() {
-        System.assertEquals(
+        System.Assert.areEqual(
             orgCheck.isSandbox,
             orgShape.isSandbox,
             'Expected the OrgShape property to match the query'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             UserInfo.isMultiCurrencyOrganization(),
             orgShape.multiCurrencyEnabled,
             'Expected the OrgShape property to match the UserInfo property'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             orgCheck.OrganizationType,
             orgShape.orgType,
             'Expected the OrgShape property to match the query'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             orgCheck.isReadOnly,
             orgShape.isReadOnly,
             'Expected the OrgShape property to match the query'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             orgCheck.instanceName,
             orgShape.instanceName,
             'Expected the OrgShape property to match the query'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             orgCheck.instanceName,
             orgShape.podName,
             'Expected the OrgShape property to match the query'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             orgCheck.fiscalYearStartMonth,
             orgShape.getFiscalYearStartMonth,
             'Expected the OrgShape property to match the query'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             UserInfo.getUiThemeDisplayed().containsIgnoreCase('theme4'),
             orgShape.lightningEnabled,
             'Expected the OrgShape property to match the query'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             orgCheck.id,
             orgShape.id,
             'Expected the OrgShape property to match the query'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             orgCheck.languageLocaleKey,
             orgShape.locale,
             'Expected the OrgShape property to match the query'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             orgCheck.timeZoneSidKey,
             orgShape.timeZoneKey,
             'Expected the OrgShape property to match the query'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             orgCheck.name,
             orgShape.name,
             'Expected the OrgShape property to match the query'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             orgCheck.namespacePrefix,
             orgShape.namespacePrefix,
             'Expected the OrgShape property to match the query'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             String.isNotBlank(orgCheck.namespacePrefix),
             orgShape.hasNamespacePrefix,
             'Expected the OrgShape property to match the query'
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             orgCheck.id,
             orgShape.id,
             'expected these to be equal'
@@ -100,7 +100,7 @@ class OrgShape_Tests {
             .isAdvancedMultiCurrencyManagementEnabled();
         Test.stopTest();
 
-        system.assertEquals(
+        System.Assert.areEqual(
             datedConversionRateObjectExists,
             checkValue,
             'Expected the check value to equal the dated'
@@ -116,7 +116,7 @@ class OrgShape_Tests {
         Test.startTest();
         Boolean result = orgShape.isPlatformCacheEnabled();
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             result,
             'We expect this to be true. But it it might fail, if you\'ve not set a default cache partition'
         );
@@ -130,7 +130,7 @@ class OrgShape_Tests {
         Test.startTest();
         Boolean result = orgShape.isPlatformCacheEnabled();
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             result,
             'We expect this to be true. But it it might fail, if you\'ve not set a default cache partition'
         );
@@ -142,8 +142,7 @@ class OrgShape_Tests {
         Test.startTest();
         Boolean result = orgShape.isPlatformCacheEnabled();
         Test.stopTest();
-        System.assertEquals(
-            false,
+        System.Assert.isFalse(
             result,
             'Expected to see platform cache reported as disabled when see all data is true'
         );
@@ -152,7 +151,7 @@ class OrgShape_Tests {
     @isTest(SeeAllData=true)
     @SuppressWarnings('PMD.ApexUnitTestShouldNotUseSeeAllDataTrue')
     static void testSeeAllDataPositiveWhenEnabled() {
-        System.assert(
+        System.Assert.isTrue(
             orgShape.isSeeAllDataTrue(),
             'Expected see all data to be true in a test method annotated with seeAllData=true'
         );
@@ -160,7 +159,7 @@ class OrgShape_Tests {
 
     @isTest
     static void testSeeAllDataFalseWhenDisabled() {
-        System.assert(
+        System.Assert.isTrue(
             !orgShape.isSeeAllDataTrue(),
             'Expected see all data to be true in a test method annotated with seeAllData=true'
         );
@@ -187,12 +186,12 @@ class OrgShape_Tests {
         // this should use the cache.
         Boolean check = orgShape.isSandbox;
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             defaultPartition.getNumKeys(),
             'Expected to see 1 and only 1 cache key'
         );
-        System.assert(
+        System.Assert.isTrue(
             defaultPartition.getKeys()
                 .toString()
                 .containsIgnoreCase('cachedorgshape'),

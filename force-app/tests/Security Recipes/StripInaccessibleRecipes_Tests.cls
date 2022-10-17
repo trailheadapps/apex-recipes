@@ -31,20 +31,18 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         List<Campaign> results = StripInaccessibleRecipes.stripInaccessibleFromQuery();
         Test.stopTest();
 
-        System.assertNotEquals(
+        System.Assert.areNotEqual(
             0,
             results.size(),
             'Results should not have a size of 0'
         );
 
         for (Campaign cmp : results) {
-            System.assertNotEquals(
-                null,
+            System.Assert.isNotNull(
                 cmp.BudgetedCost,
                 'Expected the system profile to be able to see the budgeted cost'
             );
-            System.assertNotEquals(
-                null,
+            System.Assert.isNotNull(
                 cmp.ActualCost,
                 'Expected the system profile to be able to see the actual cost'
             );
@@ -70,7 +68,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
             Test.stopTest();
         }
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to recieve a no Access Exception'
         );
@@ -90,13 +88,13 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
             results = StripInaccessibleRecipes.stripInaccessibleFromQuery();
         }
         Test.stopTest();
-        System.assertNotEquals(
+        System.Assert.areNotEqual(
             0,
             results.size(),
             'Results should be greater than 0 in size'
         );
         for (Campaign cmp : results) {
-            System.assertEquals(
+            System.Assert.areEqual(
                 299,
                 cmp.ActualCost,
                 'Expected the user with the permset to be able to see the actual cost'
@@ -138,7 +136,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         }
 
         for (Boolean boolCheck : assertionChecks.values()) {
-            System.assert(
+            System.Assert.isTrue(
                 boolCheck,
                 'Expected every row to throw exception on budged cost'
             );
@@ -170,13 +168,13 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
                 assertionChecks.put(acct.id, true);
             }
         }
-        System.assertNotEquals(
+        System.Assert.areNotEqual(
             0,
             assertionChecks.values().size(),
             'assertionChecks should be greater than 0 in size'
         );
         for (Boolean boolCheck : assertionChecks.values()) {
-            System.assert(
+            System.Assert.isTrue(
                 boolCheck,
                 'Expected every row to throw exception on attempt to access Contacts'
             );
@@ -223,13 +221,13 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
                 System.debug(LoggingLevel.INFO, '###### ' + e.getMessage());
             }
         }
-        System.assertNotEquals(
+        System.Assert.areNotEqual(
             0,
             assertionChecks.values().size(),
             'assertionChecks should be greater than 0 in size'
         );
         for (Boolean boolCheck : assertionChecks.values()) {
-            System.assert(
+            System.Assert.isTrue(
                 boolCheck,
                 'Expected every row to throw exception on attempt to access Contacts'
             );
@@ -260,13 +258,13 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
             FROM Contact
             WHERE email = 'foo@bar.com'
         ];
-        System.assertEquals(
+        System.Assert.areEqual(
             150,
             checkContacts.size(),
             'Expected to find 150 contacts'
         );
         for (Contact cnt : checkContacts) {
-            System.assertNotEquals(
+            System.Assert.areNotEqual(
                 'Awesome',
                 cnt.title,
                 'Expected stripInaccessible to strip out the title field'
@@ -296,7 +294,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         }
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchRightException,
             'Expected to have caught a no access exception when run as the minimum access user'
         );
@@ -326,14 +324,14 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
             SELECT Name, ShippingStreet
             FROM Account
         ];
-        System.assertEquals(
+        System.Assert.areEqual(
             150,
             checkAccounts.size(),
             'Expected to find 150 accounts'
         );
 
         for (Account acct : checkAccounts) {
-            System.assert(
+            System.Assert.isTrue(
                 acct.ShippingStreet.containsIgnoreCase('123 main st.'),
                 'Expected that a user with this perm set assigned should be able to update the shipping street'
             );
@@ -366,7 +364,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
             }
         }
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             didCatchRightException,
             'Expected to have caught a NoAccessException'
         );

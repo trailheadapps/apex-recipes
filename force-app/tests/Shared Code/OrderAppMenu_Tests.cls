@@ -13,6 +13,6 @@ private inherited sharing class OrderAppMenu_Tests {
          * short of it not throwing an exception. However, all
          * test methods should have an assert call.
          */
-        System.assert(true, 'This assertion should never fail.');
+        System.Assert.isTrue(true, 'This assertion should never fail.');
     }
 }

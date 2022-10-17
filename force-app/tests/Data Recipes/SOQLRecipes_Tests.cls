@@ -23,7 +23,7 @@ private class SOQLRecipes_Tests {
             Test.startTest();
             List<Account> testAccounts = SOQLRecipes.getRecords();
             Test.stopTest();
-            System.assertEquals(
+            System.Assert.areEqual(
                 1,
                 testAccounts.size(),
                 'Expected to find one account'
@@ -52,7 +52,7 @@ private class SOQLRecipes_Tests {
             }
             Test.stopTest();
         }
-        System.assert(
+        System.Assert.isTrue(
             didCatchProperException,
             'Expected to have recieved a secure query exception'
         );
@@ -62,20 +62,20 @@ private class SOQLRecipes_Tests {
     static void testSimplegetRecordsPositive() {
         TestDataHelpers.createAccount(false, '');
 
-        System.assertEquals(
-            [SELECT COUNT() FROM Account],
+        System.Assert.areEqual(
             1,
+            [SELECT COUNT() FROM Account],
             'Expected only one account'
         );
         Test.startTest();
         List<Account> testAccounts = SOQLRecipes.getRecords();
         Test.stopTest();
-        System.assertEquals(
-            testAccounts.size(),
+        System.Assert.areEqual(
             1,
+            testAccounts.size(),
             'We found more or less than 1 account having created exactly 1 account'
         );
-        System.assert(
+        System.Assert.isTrue(
             testAccounts[0].Name.contains('Awesome'),
             'Expected account to have awesome in the name'
         );
@@ -95,15 +95,15 @@ private class SOQLRecipes_Tests {
         TriggerHandler.bypass('MetadataTriggerHandler');
         TestFactory.createSObjectList(new Account(), 3000, true);
 
-        System.assertEquals(
-            [SELECT COUNT() FROM Account],
+        System.Assert.areEqual(
             3000,
+            [SELECT COUNT() FROM Account],
             'expected to have created 3k records'
         );
         Test.startTest();
         Integer count = SOQLRecipes.getLargeNumberOfRecords();
         Test.stopTest(); // forces all asych work to complete
-        System.assertEquals(count, 3000, 'Expected to find 3k records');
+        System.Assert.areEqual(3000, count, 'Expected to find 3k records');
     }
 
     @isTest
@@ -125,7 +125,7 @@ private class SOQLRecipes_Tests {
         TriggerHandler.bypass('MetadataTriggerHandler');
         TestFactory.createSObjectList(new Account(), 3000, true);
 
-        System.assertEquals(
+        System.Assert.areEqual(
             [SELECT COUNT() FROM Account],
             3000,
             'expected to have created 3k records'
@@ -133,12 +133,12 @@ private class SOQLRecipes_Tests {
         Test.startTest();
         Integer[] counts = SOQLRecipes.getChunksOfLargeNumbersOfRecords();
         Test.stopTest(); // forces all asych work to complete
-        System.assertEquals(
+        System.Assert.areEqual(
             15,
             counts[0],
             'Expected the chunk count to be 15 - 3000 / 200'
         );
-        System.assertEquals(3000, counts[1], 'Expected to find 3k records');
+        System.Assert.areEqual(3000, counts[1], 'Expected to find 3k records');
     }
 
     /**
@@ -147,7 +147,7 @@ private class SOQLRecipes_Tests {
     @isTest
     static void testQueryWithFilterWithNoMatchingAcctsPositive() {
         TestDataHelpers.createAccount(false, '');
-        System.assertEquals(
+        System.Assert.areEqual(
             [SELECT COUNT() FROM Account],
             1,
             'Expected only one account'
@@ -155,9 +155,9 @@ private class SOQLRecipes_Tests {
         Test.startTest();
         List<Account> testAccounts = SOQLRecipes.getRecordsByFieldValue();
         Test.stopTest();
-        System.assertEquals(
-            testAccounts.size(),
+        System.Assert.areEqual(
             0,
+            testAccounts.size(),
             'Expected to find no UK accounts'
         );
     }
@@ -165,7 +165,7 @@ private class SOQLRecipes_Tests {
     @isTest
     static void testQueryWithFilterNegativeNoPermsToAccountNegative() {
         TestDataHelpers.createAccount(true, 'UK');
-        System.assertEquals(
+        System.Assert.areEqual(
             [SELECT COUNT() FROM ACCOUNT],
             1,
             'expected only one account'
@@ -190,14 +190,14 @@ private class SOQLRecipes_Tests {
         }
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchProperException,
             'Expected to catch security query exception'
         );
 
-        System.assertEquals(
-            testAccounts.size(),
+        System.Assert.areEqual(
             0,
+            testAccounts.size(),
             'we expected to find no UK accounts'
         );
     }
@@ -205,7 +205,7 @@ private class SOQLRecipes_Tests {
     @isTest
     static void testQueryWithFilterPositive() {
         TestDataHelpers.createAccount(true, 'UK');
-        System.assertEquals(
+        System.Assert.areEqual(
             [SELECT COUNT() FROM Account],
             1,
             'Expected only one account'
@@ -213,9 +213,9 @@ private class SOQLRecipes_Tests {
         Test.startTest();
         List<Account> testAccounts = SOQLRecipes.getRecordsByFieldValue();
         Test.stopTest();
-        System.assertEquals(
-            testAccounts.size(),
+        System.Assert.areEqual(
             1,
+            testAccounts.size(),
             'Expected to find 1 UK accounts'
         );
     }
@@ -244,9 +244,9 @@ private class SOQLRecipes_Tests {
         Test.startTest();
         List<Account> results = SOQLRecipes.getRecordsByMultipleFieldValues();
         Test.stopTest();
-        System.assertEquals(
-            results.size(),
+        System.Assert.areEqual(
             1,
+            results.size(),
             'Expected to find 1 filtered account'
         );
     }
@@ -257,7 +257,7 @@ private class SOQLRecipes_Tests {
         Test.startTest();
         List<Account> results = SOQLRecipes.getRecordsByMultipleFieldValues();
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             0,
             results.size(),
             'expected not to find any accounts as none match the criteria'
@@ -277,7 +277,7 @@ private class SOQLRecipes_Tests {
         Test.startTest();
         List<Account> accts = SOQLRecipes.getSpecificNumberOfRecords();
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             10,
             accts.size(),
             'We inserted 15 accounts, expected this method to give us back 10'
@@ -300,7 +300,7 @@ private class SOQLRecipes_Tests {
         Test.startTest();
         List<Account> accts = SOQLRecipes.getSpecificNumberOfRecords();
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             3,
             accts.size(),
             'We inserted 3 accounts, expected this method to give us back 3'
@@ -314,7 +314,7 @@ private class SOQLRecipes_Tests {
         Test.startTest();
         List<Account> accts = SOQLRecipes.getFirstXRecords(3);
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             3,
             accts.size(),
             'We inserted 3 accounts, expected this method to give us back 3'
@@ -335,14 +335,14 @@ private class SOQLRecipes_Tests {
         List<Account> acctsInWA = SOQLRecipes.getAccountRecordsInState('Wa');
         Test.stopTest();
 
-        System.assertEquals(
-            accts.size(),
+        System.Assert.areEqual(
             3,
+            accts.size(),
             'Expected to find 3 accounts in Tx'
         );
-        System.assertNotEquals(
-            acctsInWA.size(),
+        System.Assert.areNotEqual(
             3,
+            acctsInWA.size(),
             'Expected to find 0 accounts in Wa'
         );
     }
@@ -365,15 +365,15 @@ private class SOQLRecipes_Tests {
             LIMIT 10
         ];
 
-        System.assertEquals(
+        System.Assert.areEqual(
             10,
             accts.size(),
             'Expected to get a full 10 records back'
         );
 
-        System.assertNotEquals(
-            first10Accounts,
+        System.Assert.areNotEqual(
             accts,
+            first10Accounts,
             'Expected this to be two different lists'
         );
     }
@@ -388,7 +388,11 @@ private class SOQLRecipes_Tests {
         List<Account> accts = SOQLRecipes.getSecond10AccountRecords();
         Test.stopTest();
 
-        System.assertEquals(5, accts.size(), 'Expected to get 5 records back');
+        System.Assert.areEqual(
+            5,
+            accts.size(),
+            'Expected to get 5 records back'
+        );
     }
 
     @isTest
@@ -408,7 +412,7 @@ private class SOQLRecipes_Tests {
         Test.stopTest();
 
         // we get 5 accounts.
-        System.assertEquals(
+        System.Assert.areEqual(
             5,
             returnAccounts.size(),
             'expected a simple result of 5 accounts returned'
@@ -416,18 +420,17 @@ private class SOQLRecipes_Tests {
         Map<Id, Account> accountMap = new Map<Id, Account>(accts);
         for (Account acct : returnAccounts) {
             List<Contact> testContacts = acct.getSObjects('Contacts');
-            System.assertEquals(
+            System.Assert.areEqual(
                 5,
                 testContacts.size(),
                 'Expected to find 5 contacts'
             );
             for (Contact testContact : testContacts) {
-                System.assertNotEquals(
-                    null,
+                System.Assert.isNotNull(
                     testContact.Name,
                     'Expected the Name to not be null'
                 );
-                System.assert(
+                System.Assert.isTrue(
                     accountMap.keySet().contains(testContact.accountId),
                     'Expected that the accountIds are known to us'
                 );
@@ -451,13 +454,12 @@ private class SOQLRecipes_Tests {
         List<Contact> testContacts = SOQLRecipes.getParentRecordDetailsFromChildRecord();
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             testContacts.size(),
             'Expected to find a single contact'
         );
-        System.assertNotEquals(
-            null,
+        System.Assert.isNotNull(
             TestContacts[0].account.Name,
             'Expected our account name to be populated'
         );
@@ -482,13 +484,11 @@ private class SOQLRecipes_Tests {
         List<Junction__c> results = SOQLRecipes.getDetailsFromBothParentRecords();
         Test.stopTest();
 
-        System.assertNotEquals(
-            null,
+        System.Assert.isNotNull(
             results[0].parent1__r.Name,
             'Expected parent1\' name to not be mull'
         );
-        System.assertNotEquals(
-            null,
+        System.Assert.isNotNull(
             results[0].parent2__r.Name,
             'Expected parent2\'s name field to not be null'
         );
@@ -516,7 +516,7 @@ private class SOQLRecipes_Tests {
         Double results = SOQLRecipes.getSumOfOpportunityRecords(acct.Id);
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             5000.00,
             results,
             'Expected that 5 x 1000 = 5000, and that the sum method worked'

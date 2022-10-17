@@ -7,8 +7,8 @@ private class StubExample_Tests {
         Boolean results = example.getIsTrue();
         Test.stopTest();
 
-        System.assert(
-            results == false,
+        System.Assert.isFalse(
+            results,
             'Expected to get false back from unmodified newly constructed instance'
         );
     }
@@ -19,7 +19,7 @@ private class StubExample_Tests {
         Test.startTest();
         String results = example.getGreeting();
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             'hello',
             results,
             'Expected to get hello as the default greeting'
@@ -33,7 +33,7 @@ private class StubExample_Tests {
         example.setGreeting('testing 123');
         String results = example.getGreeting();
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             'testing 123',
             results,
             'Expected to get testing 123 after calling setGreeting with String'
@@ -47,7 +47,7 @@ private class StubExample_Tests {
         example.setGreeting(1);
         String results = example.getGreeting();
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             '1',
             results,
             'Expected to get 1 after calling setGreeting with Integer'

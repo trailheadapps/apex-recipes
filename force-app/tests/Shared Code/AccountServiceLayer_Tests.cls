@@ -6,7 +6,7 @@ private inherited sharing class AccountServiceLayer_Tests {
         AccountServiceLayer.justWriteALogStatement('Hello Stream Viewers');
         Test.stopTest();
 
-        System.assertEquals(
+        System.Assert.areEqual(
             'Hello Stream Viewers',
             AccountServiceLayer.didExecuteMethod,
             'Expected the log to match the input parameter.'
@@ -40,7 +40,7 @@ private inherited sharing class AccountServiceLayer_Tests {
 
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheProperException,
             'Expected to catch a CanTheUserException reporting no edit access'
         );
@@ -59,14 +59,15 @@ private inherited sharing class AccountServiceLayer_Tests {
             false
         );
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             5,
             updatedAccounts.size(),
             'updatedAccounts should have 5 accounts'
         );
         for (Account ua : updatedAccounts) {
-            System.assert(
-                integer.valueOf(ua.Description) == 1,
+            System.Assert.areEqual(
+                1,
+                integer.valueOf(ua.Description),
                 'Expected the code to have incremented to 1'
             );
         }
@@ -84,14 +85,15 @@ private inherited sharing class AccountServiceLayer_Tests {
             false
         );
         Test.stopTest();
-        System.assertEquals(
+        System.Assert.areEqual(
             5,
             updatedAccounts.size(),
             'updatedAccounts should have 5 accounts'
         );
         for (Account ua : updatedAccounts) {
-            System.assert(
-                integer.valueOf(ua.Description) == 1,
+            System.Assert.areEqual(
+                1,
+                integer.valueOf(ua.Description),
                 'Expected the code to have incremented to 1'
             );
         }
@@ -118,7 +120,7 @@ private inherited sharing class AccountServiceLayer_Tests {
         }
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to see the save fail'
         );
@@ -130,14 +132,14 @@ private inherited sharing class AccountServiceLayer_Tests {
             new Account(description = 'Hello'),
             5
         );
-        System.assertEquals(
+        System.Assert.areEqual(
             5,
             theAccounts.size(),
             'updatedAccounts should have 5 accounts'
         );
 
         for (Account checkAcct : theAccounts) {
-            System.assert(checkAcct.Id == null, 'Expected the ID to be null');
+            System.Assert.isNull(checkAcct.Id, 'Expected the ID to be null');
         }
 
         Boolean didCatchTheRightException = false;
@@ -150,7 +152,7 @@ private inherited sharing class AccountServiceLayer_Tests {
         }
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to have caught a DML exception'
         );
@@ -178,7 +180,7 @@ private inherited sharing class AccountServiceLayer_Tests {
 
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to have caught a No Access Exception exception'
         );

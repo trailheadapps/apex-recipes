@@ -39,12 +39,12 @@ private class PSGTestingRecipes {
 
         System.runAs(testUser) {
             // This uses the CanTheUser library from Apex Recipes
-            System.assert(
+            System.Assert.isTrue(
                 CanTheUser.read(new Account()),
                 'Expected to be able to read accounts'
             );
 
-            System.assert(
+            System.Assert.isTrue(
                 CanTheUser.flsAccessible('Account', 'ShippingStreet'),
                 'Expected a min-access profile with the Sales Persona PSG to have access to shippingStreet field'
             );

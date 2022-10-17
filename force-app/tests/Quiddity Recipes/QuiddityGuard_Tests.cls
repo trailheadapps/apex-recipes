@@ -3,7 +3,7 @@ private class QuiddityGuard_Tests {
     @isTest
     static void testQuiddityGuardFindsTestQuiddityPositive() {
         Test.startTest();
-        System.assert(
+        System.Assert.isTrue(
             QuiddityGuard.isAcceptableQuiddity(QuiddityGuard.trustedQuiddities),
             'Expected a testQuiddity to be in the Trusted Quiddities list'
         );
@@ -14,8 +14,7 @@ private class QuiddityGuard_Tests {
     static void testQuiddityOverrideReturnsFalsePositive() {
         QuiddityGuard.testQuiddityOverride = Quiddity.FUTURE;
         Test.startTest();
-        System.assertNotEquals(
-            true,
+        System.Assert.isFalse(
             QuiddityGuard.isAcceptableQuiddity(QuiddityGuard.trustedQuiddities),
             'Expected Future quiddity to not be in trusted quiddities list'
         );

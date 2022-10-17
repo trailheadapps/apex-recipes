@@ -11,11 +11,11 @@ private class ApexClassUtilities_Tests {
         String results = ApexClassUtilities.getRelatedClassesFromClassBody(acu);
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             results.containsIgnoreCase('RecipeTreeViewController'),
             'Expected to see RecipeTreeViewController'
         );
-        System.assert(
+        System.Assert.isTrue(
             results.containsIgnoreCase('FormattedRecipeDisplayController'),
             'Expected to see FormattedRecipeDisplayController'
         );
@@ -33,6 +33,6 @@ private class ApexClassUtilities_Tests {
             klass
         );
         Test.stopTest();
-        System.assertEquals('', results, 'Expected empty string');
+        System.Assert.areEqual('', results, 'Expected empty string');
     }
 }

@@ -12,9 +12,9 @@ private inherited sharing class AccountTriggerHandler_Tests {
         Test.stopTest();
 
         Account check = [SELECT Id, Description FROM Account LIMIT 1];
-        System.assertEquals(
-            Integer.valueOf(check.Description),
+        System.Assert.areEqual(
             1,
+            Integer.valueOf(check.Description),
             'Expected to see that the before insert trigger has updated the description'
         );
     }
@@ -29,19 +29,19 @@ private inherited sharing class AccountTriggerHandler_Tests {
             SELECT Id, Description, ShippingStreet
             FROM Account
         ];
-        System.assertEquals(
+        System.Assert.areEqual(
             200,
             checkAccounts.size(),
             'updatedAccounts should have 5 accounts'
         );
         for (Account check : checkAccounts) {
-            System.assert(
+            System.Assert.isTrue(
                 check.ShippingStreet.containsIgnoreCase('229b baker st'),
                 'Expected the after trigger to have set the shipping address'
             );
-            System.assertEquals(
-                Integer.valueOf(check.Description),
+            System.Assert.areEqual(
                 1,
+                Integer.valueOf(check.Description),
                 'Expected to see that the before insert trigger has updated the description'
             );
         }
@@ -67,13 +67,13 @@ private inherited sharing class AccountTriggerHandler_Tests {
             WHERE Id IN :testData
         ];
 
-        System.assertEquals(
+        System.Assert.areEqual(
             200,
             afterInsertResults.size(),
             'updatedAccounts should have 5 accounts'
         );
         for (Account acct : afterInsertResults) {
-            System.assert(
+            System.Assert.isTrue(
                 acct.ShippingStreet.containsIgnoreCase('229b Baker st.'),
                 'Expected to see the shipping address updated'
             );
@@ -100,13 +100,13 @@ private inherited sharing class AccountTriggerHandler_Tests {
             WHERE Id IN :testData
         ];
 
-        System.assertEquals(
+        System.Assert.areEqual(
             200,
             afterInsertResults.size(),
             'updatedAccounts should have 5 accounts'
         );
         for (Account acct : afterInsertResults) {
-            System.assert(
+            System.Assert.isTrue(
                 acct.ShippingStreet.containsIgnoreCase('before update trigger'),
                 'Expected to see the shipping address updated'
             );
@@ -138,7 +138,7 @@ private inherited sharing class AccountTriggerHandler_Tests {
         }
 
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             didCatchProperException,
             'Expected to have caught a DML exception thrown by addError'
         );
@@ -166,13 +166,13 @@ private inherited sharing class AccountTriggerHandler_Tests {
                 whatId IN :testData
                 AND Subject LIKE 'account was updated, please verify'
         ];
-        System.assertEquals(
+        System.Assert.areEqual(
             400, // this is 400 because our trigger calls the AccountServiceLayer method in addition to this update.
             tasks.size(),
             'Expect 400 tasks to be created'
         );
         for (Task tsk : tasks) {
-            System.assert(
+            System.Assert.isTrue(
                 tsk.Subject.containsIgnoreCase('Account was Updated'),
                 'Expected task subject to be: "Account was Updated"'
             );
@@ -210,7 +210,7 @@ private inherited sharing class AccountTriggerHandler_Tests {
         }
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchProperException,
             'Expected to have caught a DMLE esception and thrown an AccountTriggerHandlerException'
         );
@@ -238,10 +238,13 @@ private inherited sharing class AccountTriggerHandler_Tests {
             LIMIT 1
             ALL ROWS
         ];
-        System.assert(acctCheck.IsDeleted, 'expected to see the account');
+        System.Assert.isTrue(
+            acctCheck.IsDeleted,
+            'expected to see the account'
+        );
 
         List<Account> acctCloneCheck = [SELECT Id FROM Account];
-        System.assertEquals(
+        System.Assert.areEqual(
             1,
             acctCloneCheck.size(),
             'Expected to find a single clone after delete'
@@ -265,13 +268,13 @@ private inherited sharing class AccountTriggerHandler_Tests {
             FROM Task
             WHERE Subject LIKE 'account was deleted, please verify'
         ];
-        System.assertEquals(
+        System.Assert.areEqual(
             200, // this is 400 because our trigger calls the AccountServiceLayer method in addition to this update.
             tasks.size(),
             'Expected 200 tasks to be created'
         );
         for (Task tsk : tasks) {
-            System.assert(
+            System.Assert.isTrue(
                 tsk.Subject.containsIgnoreCase('Account was deleted'),
                 'Expected task Subject to be: "Account was deleted"'
             );

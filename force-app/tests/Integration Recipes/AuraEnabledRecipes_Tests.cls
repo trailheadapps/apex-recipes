@@ -12,9 +12,9 @@ private inherited sharing class AuraEnabledRecipes_Tests {
         Test.stopTest();
 
         Account updatedAcct = [SELECT Name FROM Account WHERE Id = :acct.Id];
-        System.assertEquals(
-            updatedAcct.Name,
+        System.Assert.areEqual(
             'New Name',
+            updatedAcct.Name,
             'Expected the account name to be updated.'
         );
     }
@@ -40,7 +40,7 @@ private inherited sharing class AuraEnabledRecipes_Tests {
         }
         Test.stopTest();
 
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected to have recieved an Aura Handled Exception'
         );
@@ -67,7 +67,7 @@ private inherited sharing class AuraEnabledRecipes_Tests {
                 }
             }
         }
-        System.assert(
+        System.Assert.isTrue(
             didCatchTheRightException,
             'Expected a user with min access profile to not be able to execute the DML update.'
         );
@@ -75,7 +75,7 @@ private inherited sharing class AuraEnabledRecipes_Tests {
 
     @isTest
     static void testGetFieldValue() {
-        System.assert(
+        System.Assert.isTrue(
             AuraEnabledRecipes.getFieldValue().equalsIgnoreCase('hello world'),
             'Expected to receive hello world'
         );

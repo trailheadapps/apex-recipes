@@ -8,11 +8,11 @@ private class RelatedCodeTabsController_Tests {
         );
         Test.stopTest();
         Set<String> rcSet = new Set<String>(relatedClasses);
-        System.assert(
+        System.Assert.isTrue(
             rcSet.contains('RestClient'),
             'Expected to see RestClient listed'
         );
-        System.assert(
+        System.Assert.isTrue(
             rcSet.contains('ApiServiceRecipesDataModel'),
             'Expected to see the DTO object listed'
         );
@@ -33,7 +33,7 @@ private class RelatedCodeTabsController_Tests {
         }
 
         Test.stopTest();
-        System.assert(
+        System.Assert.isTrue(
             didCatchProperException,
             'Expected to catch a query exception'
         );
@@ -47,8 +47,9 @@ private class RelatedCodeTabsController_Tests {
         );
 
         Test.stopTest();
-        System.assert(
-            relatedClasses.size() == 0,
+        System.Assert.areEqual(
+            0,
+            relatedClasses.size(),
             'Expected to catch a query exception'
         );
     }

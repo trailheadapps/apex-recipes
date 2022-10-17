@@ -26,7 +26,7 @@ private class TriggerHandler_Test {
     static void testBeforeInsert() {
         beforeInsertMode();
         handler.run();
-        System.assertEquals(
+        System.Assert.areEqual(
             'beforeInsert',
             lastMethodCalled,
             'Last method should be beforeInsert'
@@ -37,7 +37,7 @@ private class TriggerHandler_Test {
     static void testBeforeUpdate() {
         beforeUpdateMode();
         handler.run();
-        System.assertEquals(
+        System.Assert.areEqual(
             'beforeUpdate',
             lastMethodCalled,
             'Last method should be beforeUpdate'
@@ -48,7 +48,7 @@ private class TriggerHandler_Test {
     static void testBeforeDelete() {
         beforeDeleteMode();
         handler.run();
-        System.assertEquals(
+        System.Assert.areEqual(
             'beforeDelete',
             lastMethodCalled,
             'Last method should be beforeDelete'
@@ -59,7 +59,7 @@ private class TriggerHandler_Test {
     static void testAfterInsert() {
         afterInsertMode();
         handler.run();
-        System.assertEquals(
+        System.Assert.areEqual(
             'afterInsert',
             lastMethodCalled,
             'Last method should be afterInsert'
@@ -70,7 +70,7 @@ private class TriggerHandler_Test {
     static void testAfterUpdate() {
         afterUpdateMode();
         handler.run();
-        System.assertEquals(
+        System.Assert.areEqual(
             'afterUpdate',
             lastMethodCalled,
             'Last method should be afterUpdate'
@@ -81,7 +81,7 @@ private class TriggerHandler_Test {
     static void testAfterDelete() {
         afterDeleteMode();
         handler.run();
-        System.assertEquals(
+        System.Assert.areEqual(
             'afterDelete',
             lastMethodCalled,
             'Last method should be afterDelete'
@@ -92,7 +92,7 @@ private class TriggerHandler_Test {
     static void testAfterUndelete() {
         afterUndeleteMode();
         handler.run();
-        System.assertEquals(
+        System.Assert.areEqual(
             'afterUndelete',
             lastMethodCalled,
             'Last method should be afterUndelete'
@@ -103,16 +103,15 @@ private class TriggerHandler_Test {
     static void testNonTriggerContext() {
         try {
             handler.run();
-            System.assert(false, 'The handler ran but should have thrown');
+            System.Assert.fail('The handler ran but should have thrown');
         } catch (TriggerHandler.TriggerHandlerException te) {
-            System.assertEquals(
+            System.Assert.areEqual(
                 TRIGGER_CONTEXT_ERROR,
                 te.getMessage(),
                 'The exception message should match'
             );
         } catch (Exception e) {
-            System.assert(
-                false,
+            System.Assert.fail(
                 'The exception thrown was not expected: ' +
                 e.getTypeName() +
                 ': ' +
@@ -130,13 +129,11 @@ private class TriggerHandler_Test {
         // test a bypass and run handler
         TriggerHandler.bypass('TestHandler');
         handler.run();
-        System.assertEquals(
-            null,
+        System.Assert.isNull(
             lastMethodCalled,
             'Last method should be null when bypassed'
         );
-        System.assertEquals(
-            true,
+        System.Assert.isTrue(
             TriggerHandler.isBypassed('TestHandler'),
             'Test handler should be bypassed'
         );
@@ -145,13 +142,12 @@ private class TriggerHandler_Test {
         // clear that bypass and run handler
         TriggerHandler.clearBypass('TestHandler');
         handler.run();
-        System.assertEquals(
+        System.Assert.areEqual(
             'afterUpdate',
             lastMethodCalled,
             'Last method called should be afterUpdate'
         );
-        System.assertEquals(
-            false,
+        System.Assert.isFalse(
             TriggerHandler.isBypassed('TestHandler'),
             'Test handler should be bypassed'
         );
@@ -160,13 +156,11 @@ private class TriggerHandler_Test {
         // test a re-bypass and run handler
         TriggerHandler.bypass('TestHandler');
         handler.run();
-        System.assertEquals(
-            null,
+        System.Assert.isNull(
             lastMethodCalled,
             'Last method should be null when bypassed'
         );
-        System.assertEquals(
-            true,
+        System.Assert.isTrue(
             TriggerHandler.isBypassed('TestHandler'),
             'Test handler should be bypassed'
         );
@@ -175,13 +169,12 @@ private class TriggerHandler_Test {
         // clear all bypasses and run handler
         TriggerHandler.clearAllBypasses();
         handler.run();
-        System.assertEquals(
+        System.Assert.areEqual(
             'afterUpdate',
             lastMethodCalled,
             'Last method called should be afterUpdate'
         );
-        System.assertEquals(
-            false,
+        System.Assert.isFalse(
             TriggerHandler.isBypassed('TestHandler'),
             'Test handler should be bypassed'
         );
@@ -207,20 +200,17 @@ private class TriggerHandler_Test {
         try {
             // try running it. This should exceed the limit.
             handler.run();
-            System.assert(
-                false,
+            System.Assert.fail(
                 'The handler should throw on the 3rd run when maxloopcount is 3'
             );
         } catch (TriggerHandler.TriggerHandlerException te) {
             // we're expecting to get here
-            System.assertEquals(
-                null,
+            System.Assert.isNull(
                 lastMethodCalled,
                 'Last method should be null'
             );
         } catch (Exception e) {
-            System.assert(
-                false,
+            System.Assert.fail(
                 'The exception thrown was not expected: ' +
                 e.getTypeName() +
                 ': ' +
@@ -237,19 +227,17 @@ private class TriggerHandler_Test {
         try {
             // re-run the handler. We shouldn't throw now.
             handler.run();
-            System.assertEquals(
+            System.Assert.areEqual(
                 'beforeInsert',
                 lastMethodCalled,
                 'Last method should be beforeInsert'
             );
         } catch (TriggerHandler.TriggerHandlerException te) {
-            System.assert(
-                false,
+            System.Assert.fail(
                 'Running the handler after clearing the loop count should not throw'
             );
         } catch (Exception e) {
-            System.assert(
-                false,
+            System.Assert.fail(
                 'The exception thrown was not expected: ' +
                 e.getTypeName() +
                 ': ' +
@@ -261,13 +249,16 @@ private class TriggerHandler_Test {
     @isTest
     static void testLoopCountClass() {
         TriggerHandler.LoopCount lc = new TriggerHandler.LoopCount();
-        System.assertEquals(5, lc.getMax(), 'Max should be five on init');
-        System.assertEquals(0, lc.getCount(), 'Count should be zero on init');
+        System.Assert.areEqual(5, lc.getMax(), 'Max should be five on init');
+        System.Assert.areEqual(
+            0,
+            lc.getCount(),
+            'Count should be zero on init'
+        );
 
         lc.increment();
-        System.assertEquals(1, lc.getCount(), 'Count should be 1');
-        System.assertEquals(
-            false,
+        System.Assert.areEqual(1, lc.getCount(), 'Count should be 1');
+        System.Assert.isFalse(
             lc.exceeded(),
             'Should not be exceeded with count of 1'
         );
@@ -276,17 +267,15 @@ private class TriggerHandler_Test {
         lc.increment();
         lc.increment();
         lc.increment();
-        System.assertEquals(5, lc.getCount(), 'Count should be 5');
-        System.assertEquals(
-            false,
+        System.Assert.areEqual(5, lc.getCount(), 'Count should be 5');
+        System.Assert.isFalse(
             lc.exceeded(),
             'Should not be exceeded with count of 5'
         );
 
         lc.increment();
-        System.assertEquals(6, lc.getCount(), 'Count should be 6');
-        System.assertEquals(
-            true,
+        System.Assert.areEqual(6, lc.getCount(), 'Count should be 6');
+        System.Assert.isTrue(
             lc.exceeded(),
             'Should not be exceeded with count of 6'
         );
@@ -296,7 +285,7 @@ private class TriggerHandler_Test {
 
     @isTest
     static void testGetHandlerName() {
-        System.assertEquals(
+        System.Assert.areEqual(
             'TestHandler',
             handler.getHandlerName(),
             'Handler name should match class name'
@@ -315,7 +304,7 @@ private class TriggerHandler_Test {
         h.afterUpdate();
         h.afterDelete();
         h.afterUndelete();
-        System.assert(
+        System.Assert.isTrue(
             true,
             'Expected all of these methods to have executed without throwing an exception during tests.'
         );
