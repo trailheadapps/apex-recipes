@@ -18,16 +18,16 @@ jobs:
         steps:
             # Checkout the source code
             - name: 'Checkout source code'
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
 
             # Install Volta to enforce proper node and package manager versions
             - name: 'Install Volta'
-              uses: volta-cli/action@v1
+              uses: volta-cli/action@v4
 
             # Cache node_modules to speed up the process
             - name: 'Restore node_modules cache'
               id: cache-npm
-              uses: actions/cache@v1
+              uses: actions/cache@v3
               with:
                   path: node_modules
                   key: npm-${{ hashFiles('**/package-lock.json') }}
@@ -71,7 +71,7 @@ jobs:
 
             # Run PMD scan
             - name: 'Run PMD scan'
-              uses: pmd/pmd-github-action@v1.1.0
+              uses: pmd/pmd-github-action@v1
               id: pmd
               with:
                   sourcePath: 'force-app'
@@ -124,7 +124,7 @@ jobs:
 
             # Upload code coverage data
             - name: 'Upload code coverage for Apex to Codecov.io'
-              uses: codecov/codecov-action@v2.0.2
+              uses: codecov/codecov-action@v3
               with:
                   flags: Apex
 
@@ -176,7 +176,7 @@ jobs:
 
             # Trigger packaging workflow if needed
             - name: 'Trigger packaging workflow if needed'
-              uses: peter-evans/repository-dispatch@v1.1.0
+              uses: peter-evans/repository-dispatch@v2
               if: ${{ steps.checkForChanges.outputs.hasChanges == 'true' }}
               with:
                   token: ${{ secrets.BOT_ACCESS_TOKEN }}
