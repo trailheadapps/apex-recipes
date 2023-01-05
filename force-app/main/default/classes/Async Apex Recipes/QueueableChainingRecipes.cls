@@ -11,6 +11,7 @@
  * @group Async Apex Recipes
  * @see QueueableRecipes
  */
+  // Aysnc class
 public with sharing class QueueableChainingRecipes implements Queueable {
     /**
      * @description This recipe demonstrates how one queuable (this one) can

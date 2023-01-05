@@ -8,6 +8,7 @@
  *
  * @group Async Apex Recipes
  */
+  // Batch Apex Recipie 
 public with sharing class BatchApexRecipes implements Database.Batchable<SObject>, Database.Stateful {
     // These next two lists hold the ids of sucessful and failed updates.
     private List<Id> successes = new List<Id>();
