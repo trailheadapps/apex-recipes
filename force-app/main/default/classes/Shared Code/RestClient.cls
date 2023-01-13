@@ -124,10 +124,7 @@ public virtual class RestClient {
             apiRequest.setBody(body);
         }
         apiRequest.setEndpoint(
-            'callout:' +
-            this.namedCredentialName +
-            path +
-            encodedQuery
+            'callout:' + this.namedCredentialName + path + encodedQuery
         );
         Http http = new Http();
         HttpResponse toReturn = http.send(apiRequest);

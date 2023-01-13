@@ -19,9 +19,9 @@ public class SObjectStringFieldComparator implements ListUtils.Comparator {
         if (!(o1 instanceof SObject && o2 instanceof SObject)) {
             throw new ListUtils.CompareException(
                 'Objects must both be SObject in order to be compared: ' +
-                o1 +
-                ' AND ' +
-                o2
+                    o1 +
+                    ' AND ' +
+                    o2
             );
         }
         SObject so1 = (SObject) o1;

@@ -522,9 +522,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         ];
         Account account = (accounts.size() == 1) ? accounts.get(0) : null;
         System.Assert.areEqual(
-            'https://www.' +
-            account.Id +
-            '.com',
+            'https://www.' + account.Id + '.com',
             account.Website,
             'Expected account website to be https://www.[accountId].com.'
         );

@@ -244,9 +244,9 @@ public virtual class TriggerHandler {
                 Integer max = TriggerHandler.loopCountMap.get(handlerName).max;
                 throw new TriggerHandlerException(
                     'Maximum loop count of ' +
-                    String.valueOf(max) +
-                    ' reached in ' +
-                    handlerName
+                        String.valueOf(max) +
+                        ' reached in ' +
+                        handlerName
                 );
             }
         }

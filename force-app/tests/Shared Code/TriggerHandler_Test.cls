@@ -113,9 +113,9 @@ private class TriggerHandler_Test {
         } catch (Exception e) {
             System.Assert.fail(
                 'The exception thrown was not expected: ' +
-                e.getTypeName() +
-                ': ' +
-                e.getMessage()
+                    e.getTypeName() +
+                    ': ' +
+                    e.getMessage()
             );
         }
     }
@@ -212,9 +212,9 @@ private class TriggerHandler_Test {
         } catch (Exception e) {
             System.Assert.fail(
                 'The exception thrown was not expected: ' +
-                e.getTypeName() +
-                ': ' +
-                e.getMessage()
+                    e.getTypeName() +
+                    ': ' +
+                    e.getMessage()
             );
         }
 
@@ -239,9 +239,9 @@ private class TriggerHandler_Test {
         } catch (Exception e) {
             System.Assert.fail(
                 'The exception thrown was not expected: ' +
-                e.getTypeName() +
-                ': ' +
-                e.getMessage()
+                    e.getTypeName() +
+                    ': ' +
+                    e.getMessage()
             );
         }
     }
