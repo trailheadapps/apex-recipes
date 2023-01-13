@@ -48,9 +48,9 @@ export default class FormattedDocsViewer extends LightningElement {
         if (this.markdownDoc && this.markdownItInitialized) {
             let docsHtml = document.createElement('div');
             docsHtml.innerHTML = this.markdownIt.render(this.markdownDoc); // eslint-disable-line
-            this.template
-                .querySelector('div.markdownDoc')
-                .appendChild(docsHtml);
+            const elem = this.template.querySelector('div.markdownDoc');
+            elem.textContent = '';
+            elem.appendChild(docsHtml);
             this.applyStyling();
         }
     }
