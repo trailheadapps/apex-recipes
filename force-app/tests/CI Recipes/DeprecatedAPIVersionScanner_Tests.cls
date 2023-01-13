@@ -65,9 +65,7 @@ private class DeprecatedAPIVersionScanner_Tests {
         Integer index = rows[0].indexOf(label);
         if (index == -1) {
             throw new DeprecatedAPIVersionScanner_Tests.ColumnNotFoundException(
-                'Could not find ' +
-                label +
-                ' column'
+                'Could not find ' + label + ' column'
             );
         }
         return index;

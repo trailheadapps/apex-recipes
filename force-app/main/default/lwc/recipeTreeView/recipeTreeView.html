@@ -1,11 +1,11 @@
 <template>
     <template if:true={treeData}>
         <template if:true={treeData.data}>
-            <div class="slds-p-around_medium lgc-bg">
+            <div class="slds-var-p-around_medium">
                 <lightning-tree
                     items={treeData.data}
-                    header="Groups & Recipes"
-                    onselect={handleOnSelect}
+                    header="Groups &amp; Recipes"
+                    onselect={handleTreeItemSelect}
                 ></lightning-tree>
             </div>
         </template>

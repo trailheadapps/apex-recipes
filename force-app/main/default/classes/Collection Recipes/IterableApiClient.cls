@@ -32,10 +32,7 @@ public with sharing class IterableApiClient extends RestClient implements Iterab
      */
     private RecordPage getRecordPage(Integer pageIndex) {
         HttpResponse response = this.get(
-            '/records?page-size=' +
-            RESPONSE_PAGE_SIZE +
-            '&page=' +
-            pageIndex
+            '/records?page-size=' + RESPONSE_PAGE_SIZE + '&page=' + pageIndex
         );
         Integer statusCode = response.getStatusCode();
         if (statusCode == 200) {
@@ -46,11 +43,11 @@ public with sharing class IterableApiClient extends RestClient implements Iterab
         }
         throw new IterableApiException(
             'Failed to retrieve record page ' +
-            pageIndex +
-            ': HTTP ' +
-            statusCode +
-            ' ' +
-            response.getStatus()
+                pageIndex +
+                ': HTTP ' +
+                statusCode +
+                ' ' +
+                response.getStatus()
         );
     }
 

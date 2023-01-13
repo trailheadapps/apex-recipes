@@ -82,7 +82,7 @@ describe('c-recipe-tree-view', () => {
         const handler = jest.fn();
 
         // Add event listener to catch select event
-        element.addEventListener('select', handler);
+        element.addEventListener('recipeselect', handler);
 
         // Emit data from @wire, so that the tree is rendered
         generateTreeData.emit(mockGenerateTreeData);

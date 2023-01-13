@@ -46,8 +46,8 @@ describe('c-apex-recipes-container', () => {
         const recipeTreeViewEl =
             element.shadowRoot.querySelector('c-recipe-tree-view');
         recipeTreeViewEl.dispatchEvent(
-            new CustomEvent('select', {
-                detail: { name: 'SOQLRecipes' }
+            new CustomEvent('recipeselect', {
+                detail: 'SOQLRecipes'
             })
         );
 

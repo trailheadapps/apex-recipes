@@ -185,9 +185,7 @@ public class TestFactory {
             if (!nameIsAutoNumber) {
                 clonedSObj.put(
                     nameField,
-                    (String) clonedSObj.get(nameField) +
-                    ' ' +
-                    i
+                    (String) clonedSObj.get(nameField) + ' ' + i
                 );
             }
             sObjs.add(clonedSObj);

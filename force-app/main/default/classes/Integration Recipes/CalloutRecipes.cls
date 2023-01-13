@@ -48,9 +48,9 @@ public with sharing class CalloutRecipes extends RestClient {
 
         throw new CalloutRecipesException(
             'Did not get a success response from the callout. Details, Status Code: ' +
-            response.getStatusCode() +
-            ' status message: ' +
-            response.getStatus()
+                response.getStatusCode() +
+                ' status message: ' +
+                response.getStatus()
         );
     }
 

@@ -9,40 +9,40 @@ public with sharing class EncryptionRecipes {
     public static final Blob HMAC_KEY = Blob.valueOf('HMAC super secret key!');
     public static final Blob DIGITAL_SIGNATURE_PRIVATE_KEY = EncodingUtil.base64Decode(
         'MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCS7LXFvLFELXwy\n' +
-        '8DyWjb+7QneZZsrzKnIHg8M5MTSTF3Iawhk/9GSKNUbGW8y0XzgrkNUmfuwL+5pT\n' +
-        'HM/BQWToa8+QCIkCxPPJsw8N6gs/u7NYhD/Tv72HhBOoQNU5V45n/TSMmAMRjAnF\n' +
-        'VxPMMfBCmJadVj7rf5CLrfWRtpeCpot5iyeaqoLLcsgfuaDPtCCeFULwkVzPb1Zo\n' +
-        'KN7M790Aq9Tgez263dwyDw9wkmLinV6KBbnDBNEw0YZs/Zkzbo67MprJKjbCGRfs\n' +
-        'zoezW/qmipFChAUc7Pjq97wgM5WOh/M+HsR6uBiPxdyMKq4EfW56ne7PJdnKXfhm\n' +
-        'rYK77fyDAgMBAAECggEAOAkFjqPXq9v5KWhMg1MOk/nWqW/16WX/1XPgahilJ5Bi\n' +
-        'mWf7v1OTYM7O7mommYhTYPI9CRCRMETGZ/puFhO9y5MKt7E5qA+7tuqOzEy9+5G3\n' +
-        '5gOSYE0ZmOy7nokTiWomSuzcNN7pFLEnLNd4GoHVU2Dk2J8DIkgltdAj/233PQF0\n' +
-        'fYsYzjzXg/2keSzMCR7AK7qr+lg/wxjJj3H/4OcCHWvrB3Wqh9DGAXkIOQi+0aWs\n' +
-        'Ih6eO/bC38Ym3WaSX8X55Hm6FNU3I6T+s+uUCZiVsgLuRrFxI8VJ0swutvS19TEC\n' +
-        'vm3+FvXu9HFrNSRRvEUT5SQH7IkV3RCjybdIisoceQKBgQD+RK7uMqonDuMZF8Qj\n' +
-        'MtwIspODT2Gov/YIKLdETg8wWvmszJuQEV1yGRGbbU2Cf6lhBsUszzL2V/vQSDBP\n' +
-        'VNh4E7uGtTwr6oF3nUo0YU0okzsvEiRWkfvx1J97H8Dm8fsaM+AzGjbR4L62O1oc\n' +
-        'ibFsyOYMEHCQ10EyGDay20fCjwKBgQCT7N+Ew4nHR6BNQypbpAFoKVb11JQgJCg7\n' +
-        'rTZZlR/gvoB3vyT3Rus1yfjmCWzCs3iWChddGxkZp/Bir5ZiG98BS3w22AgEN4x1\n' +
-        'dXC4/ddl3LFtgAIxsKNbLHJwBYYPmC/5PIu55R5pFTghdyfSUOiphKdvs1Giz9Vo\n' +
-        '2Bs0We3QzQKBgAxmVRGQrvOQqkqC+jGtPUW/T6pLqLuOAPWM5sMR+3OkPCDNKZjw\n' +
-        '/9mcl1s5DVqb1yrAJcV1pUqWJ9WUb6auwI+6hp6fH/wUR5QJu6CqThT4eR5miBcg\n' +
-        'r2SvtcdPWRzqGBDDDt/vG1VI3IQOiOpzXI+tjGpyMssddDR5MdGvF+TJAoGAKWgv\n' +
-        '9TDrG05Qb/AyJi7VefvAbNXRlOGqJXJJ+W+F2dpZiauGxHUkmAzuUC4pNKMaSR2Q\n' +
-        'Bq70KrtYzbcK6HGWzfz8SznTnKKT/bkfEZl0tv286MLhWllwkK/zZKoXKbxXCXRK\n' +
-        'RIH/LjkTWkLJcdTWG8WXPOw8GNAGk++SReg6aq0CgYEAmIcjQgyOgr1SPPAPHBCD\n' +
-        'UVKIYJEI3j/7b4HUIOJ1IU1la1g2Vr5SKPn+GziMFhFcBjx6LlJxAkJQlOgBOnkO\n' +
-        'cHC3etOoAsrrRh4LPzZ6CXQeSRjilQnzaCdq2CIu+f8UqVWbwPtb3K/aQAX905Ck\n' +
-        'qC9DNbUBwQx01n161Nm6Wsg='
+            '8DyWjb+7QneZZsrzKnIHg8M5MTSTF3Iawhk/9GSKNUbGW8y0XzgrkNUmfuwL+5pT\n' +
+            'HM/BQWToa8+QCIkCxPPJsw8N6gs/u7NYhD/Tv72HhBOoQNU5V45n/TSMmAMRjAnF\n' +
+            'VxPMMfBCmJadVj7rf5CLrfWRtpeCpot5iyeaqoLLcsgfuaDPtCCeFULwkVzPb1Zo\n' +
+            'KN7M790Aq9Tgez263dwyDw9wkmLinV6KBbnDBNEw0YZs/Zkzbo67MprJKjbCGRfs\n' +
+            'zoezW/qmipFChAUc7Pjq97wgM5WOh/M+HsR6uBiPxdyMKq4EfW56ne7PJdnKXfhm\n' +
+            'rYK77fyDAgMBAAECggEAOAkFjqPXq9v5KWhMg1MOk/nWqW/16WX/1XPgahilJ5Bi\n' +
+            'mWf7v1OTYM7O7mommYhTYPI9CRCRMETGZ/puFhO9y5MKt7E5qA+7tuqOzEy9+5G3\n' +
+            '5gOSYE0ZmOy7nokTiWomSuzcNN7pFLEnLNd4GoHVU2Dk2J8DIkgltdAj/233PQF0\n' +
+            'fYsYzjzXg/2keSzMCR7AK7qr+lg/wxjJj3H/4OcCHWvrB3Wqh9DGAXkIOQi+0aWs\n' +
+            'Ih6eO/bC38Ym3WaSX8X55Hm6FNU3I6T+s+uUCZiVsgLuRrFxI8VJ0swutvS19TEC\n' +
+            'vm3+FvXu9HFrNSRRvEUT5SQH7IkV3RCjybdIisoceQKBgQD+RK7uMqonDuMZF8Qj\n' +
+            'MtwIspODT2Gov/YIKLdETg8wWvmszJuQEV1yGRGbbU2Cf6lhBsUszzL2V/vQSDBP\n' +
+            'VNh4E7uGtTwr6oF3nUo0YU0okzsvEiRWkfvx1J97H8Dm8fsaM+AzGjbR4L62O1oc\n' +
+            'ibFsyOYMEHCQ10EyGDay20fCjwKBgQCT7N+Ew4nHR6BNQypbpAFoKVb11JQgJCg7\n' +
+            'rTZZlR/gvoB3vyT3Rus1yfjmCWzCs3iWChddGxkZp/Bir5ZiG98BS3w22AgEN4x1\n' +
+            'dXC4/ddl3LFtgAIxsKNbLHJwBYYPmC/5PIu55R5pFTghdyfSUOiphKdvs1Giz9Vo\n' +
+            '2Bs0We3QzQKBgAxmVRGQrvOQqkqC+jGtPUW/T6pLqLuOAPWM5sMR+3OkPCDNKZjw\n' +
+            '/9mcl1s5DVqb1yrAJcV1pUqWJ9WUb6auwI+6hp6fH/wUR5QJu6CqThT4eR5miBcg\n' +
+            'r2SvtcdPWRzqGBDDDt/vG1VI3IQOiOpzXI+tjGpyMssddDR5MdGvF+TJAoGAKWgv\n' +
+            '9TDrG05Qb/AyJi7VefvAbNXRlOGqJXJJ+W+F2dpZiauGxHUkmAzuUC4pNKMaSR2Q\n' +
+            'Bq70KrtYzbcK6HGWzfz8SznTnKKT/bkfEZl0tv286MLhWllwkK/zZKoXKbxXCXRK\n' +
+            'RIH/LjkTWkLJcdTWG8WXPOw8GNAGk++SReg6aq0CgYEAmIcjQgyOgr1SPPAPHBCD\n' +
+            'UVKIYJEI3j/7b4HUIOJ1IU1la1g2Vr5SKPn+GziMFhFcBjx6LlJxAkJQlOgBOnkO\n' +
+            'cHC3etOoAsrrRh4LPzZ6CXQeSRjilQnzaCdq2CIu+f8UqVWbwPtb3K/aQAX905Ck\n' +
+            'qC9DNbUBwQx01n161Nm6Wsg='
     );
     public static final Blob DIGITAL_SIGNATURE_PUBLIC_KEY = EncodingUtil.base64Decode(
         'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkuy1xbyxRC18MvA8lo2/\n' +
-        'u0J3mWbK8ypyB4PDOTE0kxdyGsIZP/RkijVGxlvMtF84K5DVJn7sC/uaUxzPwUFk\n' +
-        '6GvPkAiJAsTzybMPDeoLP7uzWIQ/07+9h4QTqEDVOVeOZ/00jJgDEYwJxVcTzDHw\n' +
-        'QpiWnVY+63+Qi631kbaXgqaLeYsnmqqCy3LIH7mgz7QgnhVC8JFcz29WaCjezO/d\n' +
-        'AKvU4Hs9ut3cMg8PcJJi4p1eigW5wwTRMNGGbP2ZM26OuzKaySo2whkX7M6Hs1v6\n' +
-        'poqRQoQFHOz46ve8IDOVjofzPh7EergYj8XcjCquBH1uep3uzyXZyl34Zq2Cu+38\n' +
-        'gwIDAQAB'
+            'u0J3mWbK8ypyB4PDOTE0kxdyGsIZP/RkijVGxlvMtF84K5DVJn7sC/uaUxzPwUFk\n' +
+            '6GvPkAiJAsTzybMPDeoLP7uzWIQ/07+9h4QTqEDVOVeOZ/00jJgDEYwJxVcTzDHw\n' +
+            'QpiWnVY+63+Qi631kbaXgqaLeYsnmqqCy3LIH7mgz7QgnhVC8JFcz29WaCjezO/d\n' +
+            'AKvU4Hs9ut3cMg8PcJJi4p1eigW5wwTRMNGGbP2ZM26OuzKaySo2whkX7M6Hs1v6\n' +
+            'poqRQoQFHOz46ve8IDOVjofzPh7EergYj8XcjCquBH1uep3uzyXZyl34Zq2Cu+38\n' +
+            'gwIDAQAB'
     );
 
     public enum AESAlgorithm {

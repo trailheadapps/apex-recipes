@@ -1,27 +1,15 @@
 <template>
     <template if:true={recipeName}>
         <lightning-tabset>
-            <lightning-tab
-                label={recipeName}
-                key={recipeName}
-                icon-name="standard:apex"
-            >
+            <lightning-tab label={recipeName} icon-name="standard:apex">
                 <c-formatted-recipe-display recipe-name={recipeName}>
                 </c-formatted-recipe-display>
             </lightning-tab>
-            <lightning-tab
-                label="Test Class"
-                key={testClassName}
-                icon-name="standard:task2"
-            >
+            <lightning-tab label="Test Class" icon-name="standard:task2">
                 <c-formatted-recipe-display recipe-name={testClassName}>
                 </c-formatted-recipe-display>
             </lightning-tab>
-            <lightning-tab
-                label="Documentation"
-                key={recipeName}
-                icon-name="standard:education"
-            >
+            <lightning-tab label="Documentation" icon-name="standard:education">
                 <c-formatted-docs-viewer recipe-name={recipeName}>
                 </c-formatted-docs-viewer>
             </lightning-tab>
