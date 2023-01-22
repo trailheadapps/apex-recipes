@@ -40,14 +40,21 @@ public with sharing class DynamicSOQLRecipes {
      * System.debug(DynamicSoqlRecipes.simpleBindingSOQLQuery('hello'))
      **/
     public static List<Account> simpleBindingSOQLQuery(String name) {
+        Map<String, Object> nameBind = new Map<String, Object>{
+            'name' => name
+        };
         String queryString =
             'SELECT Id, Name ' +
             'FROM Account ' +
-            'WHERE name = :name WITH SECURITY_ENFORCED';
+            'WHERE name = :name';
         // Using String.escapeSingleQuotes prevents some aspects of SOQL
         //Injection!
         String safeQueryString = String.escapeSingleQuotes(queryString);
-        return Database.query(safeQueryString);
+        return Database.queryWithBinds(
+            safeQueryString,
+            nameBind,
+            AccessLevel.USER_MODE
+        );
     }
 
     /**
@@ -58,22 +65,26 @@ public with sharing class DynamicSOQLRecipes {
      * @return List<Account>
      * @example
      * Account acct = [SELECT name FROM Account WHERE name = 'hello' LIMIT 1];
-     * Account[] results = DynamicSOQLRecipes.resolvedDynamicFieldsSOQLQuery(acct);
+     * Account[] results = DynamicSOQLRecipes.dynamicFieldsBindingSOQLQuery(acct);
      * System.debug(results);
      **/
-    public static List<Account> resolvedDynamicFieldsSOQLQuery(Account acct) {
-        // Dynamic SOQL cannot resolve fields or properties of an object when
-        // bound. Resolve to a string before binding.
+    public static List<Account> dynamicFieldsBindingSOQLQuery(Account acct) {
+        Map<String, Object> accountNameBind = new Map<String, Object>{
+            'accountName' => acct.Name
+        };
         String accountName = acct.Name;
         String queryString =
             'SELECT Id, Name ' +
             'FROM Account ' +
-            'WHERE Name = :accountName ' +
-            'WITH SECURITY_ENFORCED';
+            'WHERE Name = :accountName';
         // Using String.escapeSingleQuotes prevents some aspects of SOQL
         // Injection!
         String safeQueryString = String.escapeSingleQuotes(queryString);
-        return Database.query(safeQueryString);
+        return Database.queryWithBinds(
+            safeQueryString,
+            accountNameBind,
+            AccessLevel.USER_MODE
+        );
     }
 
     /**

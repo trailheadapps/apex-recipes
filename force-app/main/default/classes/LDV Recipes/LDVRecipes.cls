@@ -74,6 +74,11 @@ public with sharing class LDVRecipes implements Queueable {
      * @return         `List<ContentDocumentLink>`
      */
     private List<ContentDocumentLink> getRecordsToProcess(Id offsetId) {
+        // Map to hold all the bind variables used in the query
+        Map<String, Object> queryBinds = new Map<String, Object>{
+            'offsetId' => offsetId,
+            'chunkSize' => this.chunkSize
+        };
         String queryString = '';
         queryString += 'SELECT ContentDocumentId,ContentDocument.Title, ContentDocument.CreatedDate,LinkedEntityId ';
         queryString += 'FROM ContentDocumentLink ';
@@ -81,10 +86,13 @@ public with sharing class LDVRecipes implements Queueable {
         if (offsetId != null) {
             queryString += 'AND ID > :offsetId ';
         }
-        queryString += 'WITH SECURITY_ENFORCED ';
         queryString += 'ORDER BY ID ASC ';
         queryString += 'LIMIT :chunkSize';
-        return Database.query(queryString);
+        return Database.queryWithBinds(
+            queryString,
+            queryBinds,
+            AccessLevel.USER_MODE
+        );
     }
 
     private Boolean safeToReenqueue() {

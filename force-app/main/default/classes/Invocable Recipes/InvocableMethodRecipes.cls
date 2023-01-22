@@ -71,6 +71,8 @@ public with sharing class InvocableMethodRecipes {
     public static List<ContactSearchResult> findRelatedContacts(
         List<ContactSearchRequest> inputParams
     ) {
+        // Map to hold all the bind variables used in the query
+        Map<String, Object> contactQueryBinds = new Map<String, Object>();
         // Grab the first ContactSearchRequest from the list of inputParams
         List<SObject> inputs = inputParams[0].inputs;
         String firstRecordId = inputs[0].Id;
@@ -83,12 +85,13 @@ public with sharing class InvocableMethodRecipes {
         // Switch on the SObject type to customize the query
         switch on sObjectType.toLowerCase() {
             when 'account' {
-                queryString = 'SELECT Id, Name FROM Contact WHERE accountId = :firstRecordId WITH SECURITY_ENFORCED LIMIT 1';
+                contactQueryBinds.put('firstRecordId', firstRecordId);
+                queryString = 'SELECT Id, Name FROM Contact WHERE accountId = :firstRecordId LIMIT 1';
             }
             when 'task' {
                 Task task = (Task) inputs[0];
-                String whoId = task.WhoId;
-                queryString = 'SELECT Id, Name FROM Contact WHERE Id = :whoId WITH SECURITY_ENFORCED LIMIT 1';
+                contactQueryBinds.put('whoId', task.WhoId);
+                queryString = 'SELECT Id, Name FROM Contact WHERE Id = :whoId LIMIT 1';
             }
             when else {
                 throw new InvocableMethodRecipesException(
@@ -98,7 +101,11 @@ public with sharing class InvocableMethodRecipes {
         }
         // Note, both queries artificially limit the results to 1, but that's
         // not a requirement
-        Contact contact = Database.query(queryString);
+        Contact contact = Database.queryWithBinds(
+            queryString,
+            contactQueryBinds,
+            AccessLevel.USER_MODE
+        );
         // Create a list of ContactSearchResults to hold eventual value(s)
         List<ContactSearchResult> results = new List<ContactSearchResult>();
         results.add(new ContactSearchResult(contact));
