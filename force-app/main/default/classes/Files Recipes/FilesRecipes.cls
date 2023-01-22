@@ -164,6 +164,9 @@ public with sharing class FilesRecipes {
         FilesRecipes.GenericFileType genericFileType,
         Id recordId
     ) {
+        Map<String, Object> recordBind = new Map<String, Object>{
+            'recordId' => recordId
+        };
         List<ContentDocumentLink> links = new List<ContentDocumentLink>();
         String queryString =
             'SELECT ContentDocumentId' +
@@ -185,9 +188,12 @@ public with sharing class FilesRecipes {
                 queryString += '';
             }
         }
-        queryString += ' WITH SECURITY_ENFORCED';
         String safeQueryString = String.valueOf(queryString);
-        links = Database.query(safeQueryString);
+        links = Database.queryWithBinds(
+            safeQueryString,
+            recordBind,
+            AccessLevel.USER_MODE
+        );
 
         Set<Id> fileIds = new Set<Id>();
         for (ContentDocumentLink cdl : links) {
