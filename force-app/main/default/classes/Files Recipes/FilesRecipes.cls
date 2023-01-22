@@ -147,7 +147,7 @@ public with sharing class FilesRecipes {
      * Filtering by a generic file type: image, audio, document etc.
      *
      * Note: This method has a false-positive PMD warning. Our Query
-     * includes the keyword 'WITH SECURITY_ENFORCED' which prevents this
+     * includes the keyword 'WITH USER_MODE' which prevents this
      * Query from accessing fields and objects that they don't have permission
      * to access. This is a form of inline CRUD/FLS Check.
      *
@@ -204,7 +204,7 @@ public with sharing class FilesRecipes {
                 SELECT Id, Title
                 FROM ContentVersion
                 WHERE ContentDocumentId IN :fileIds AND IsLatest = TRUE
-                WITH SECURITY_ENFORCED
+                WITH USER_MODE
                 ORDER BY CreatedDate
             ];
         } else {
