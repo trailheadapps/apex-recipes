@@ -71,7 +71,7 @@ List&lt;Account&gt;
 
 **Description**
 
-List&lt;Account&gt; with security enforced
+List&lt;Account&gt; with security enforced using USER_MODE
 
 #### Example
 ```java

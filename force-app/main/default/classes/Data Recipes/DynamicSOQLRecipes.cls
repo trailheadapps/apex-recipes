@@ -17,17 +17,14 @@ public with sharing class DynamicSOQLRecipes {
     /**
      * @description demonstrates a simple dynamic SOQL query where the query is
      * defined in Apex
-     * @return List<Account> with security enforced
+     * @return List<Account> with security enforced using USER_MODE
      * @example
      * System.debug(DynamicSOQLRecipes.simpleDynamicSOQLQuery());
      **/
     public static List<Account> simpleDynamicSOQLQuery() {
-        String queryString =
-            'SELECT Id ' +
-            'FROM Account ' +
-            'WITH SECURITY_ENFORCED LIMIT 1 ';
+        String queryString = 'SELECT Id ' + 'FROM Account LIMIT 1';
         String safeQueryString = String.escapeSingleQuotes(queryString);
-        return Database.query(safeQueryString);
+        return Database.query(safeQueryString, AccessLevel.USER_MODE);
     }
 
     /**
@@ -101,15 +98,14 @@ public with sharing class DynamicSOQLRecipes {
     ) {
         String queryString =
             'SELECT Id, Name FROM Account WHERE NumberOfEmployees > ' +
-            String.valueOf(Integer.valueOf(numberOfRecords)) +
-            ' WITH SECURITY_ENFORCED';
+            String.valueOf(Integer.valueOf(numberOfRecords));
         // Because this query has no bound or concatenated strings,
         // escapeSingleQuotes won't do anything.
         // To safeguard against SOQL injection ensure your method only accepts
         // parameters of the appropriate type. In this method it's an Integer.
         // When building your query string, typecast that to a string with the
         // String.valueOf() method.
-        return Database.query(queryString);
+        return Database.query(queryString, AccessLevel.USER_MODE);
     }
 
     /**
@@ -168,8 +164,7 @@ public with sharing class DynamicSOQLRecipes {
             'SELECT ' +
             fieldList +
             ' FROM Account WHERE ' +
-            String.valueOf(whereClause) +
-            ' WITH SECURITY_ENFORCED';
-        return Database.query(queryString);
+            String.valueOf(whereClause);
+        return Database.query(queryString, AccessLevel.USER_MODE);
     }
 }

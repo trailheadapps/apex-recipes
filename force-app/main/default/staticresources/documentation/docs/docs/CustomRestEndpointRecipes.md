@@ -20,7 +20,7 @@ private, test visible circiut breaker boolean.
 ## Methods
 ### `deleteSingleContact()` → `String`
 
-@HttpDelete exposes the method to a DELETE request when the custom REST endpoint is called. A DELETE request allows us to delete data in Salesforce. In this Example, we&apos;re going to take a record Id that was sent in the RestRequest and delete the record from Salesforce. We will take the RestRequest Parameters and get the ExternalSalesforceId__c param from the request. Note: This method has a false-positive PMD warning. Our Query includes the keyword &apos;WITH SECURITY_ENFORCED&apos; which prevents this Query from accessing fields and objects that they don&apos;t have permission to access. This is a form of inline CRUD/FLS Check.
+@HttpDelete exposes the method to a DELETE request when the custom REST endpoint is called. A DELETE request allows us to delete data in Salesforce. In this Example, we&apos;re going to take a record Id that was sent in the RestRequest and delete the record from Salesforce. We will take the RestRequest Parameters and get the ExternalSalesforceId__c param from the request. Note: This method has a false-positive PMD warning. Our Query includes the keyword &apos;WITH USER_MODE&apos; which prevents this Query from accessing fields and objects that they don&apos;t have permission to access. This is a form of inline CRUD/FLS Check.
 
 #### Return
 
@@ -39,7 +39,7 @@ curl —X DELETE -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/
 
 ### `getRecordsToReturn()` → `String`
 
-@HttpGet exposes a method to a GET request when the custom REST endpoint is called. A GET request allows us to return data from Salesforce. In this example, we&apos;re going to query a list of Accounts that were created and return them to the application that called the endpoint. When creating a response we can use the RestResponse class to specify certain fields of the payload that is sent. We are manually setting the statusCode as 200 for a successful get and 400 on error. In any other case, Salesforce will supply the error code. Note: This method has a false-positive PMD warning. Our Query includes the keyword &apos;WITH SECURITY_ENFORCED&apos; which prevents this Query from accessing fields and objects that they don&apos;t have permission to access. This is a form of inline CRUD/FLS Check. The return statement is atomically serialized and returned in the responseBody.
+@HttpGet exposes a method to a GET request when the custom REST endpoint is called. A GET request allows us to return data from Salesforce. In this example, we&apos;re going to query a list of Accounts that were created and return them to the application that called the endpoint. When creating a response we can use the RestResponse class to specify certain fields of the payload that is sent. We are manually setting the statusCode as 200 for a successful get and 400 on error. In any other case, Salesforce will supply the error code. Note: This method has a false-positive PMD warning. Our Query includes the keyword &apos;WITH USER_MODE&apos; which prevents this Query from accessing fields and objects that they don&apos;t have permission to access. This is a form of inline CRUD/FLS Check. The return statement is atomically serialized and returned in the responseBody.
 
 #### Return
 
