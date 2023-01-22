@@ -4,13 +4,13 @@
             "path": "force-app",
             "default": true,
             "package": "ApexRecipes",
-            "versionName": "Winter 23 release",
-            "versionNumber": "56.0.0.NEXT"
+            "versionName": "Spring 23 release",
+            "versionNumber": "57.0.0.NEXT"
         }
     ],
     "namespace": "",
     "sfdcLoginUrl": "https://login.salesforce.com",
-    "sourceApiVersion": "56.0",
+    "sourceApiVersion": "57.0",
     "packageAliases": {
         "ApexRecipes": "0Ho3g000000XZAHCA4",
         "ApexRecipes@54.0.0-3": "04t3g000000gWEKAA2",
