@@ -42,10 +42,7 @@ private class SOQLRecipes_Tests {
                 SOQLRecipes.getRecords();
             } catch (QueryException qe) {
                 if (
-                    qe.getMessage()
-                        .containsIgnoreCase(
-                            'secure query included inaccessible'
-                        )
+                    qe.getMessage().containsIgnoreCase('UserModeQueryException')
                 ) {
                     didCatchProperException = true;
                 }
