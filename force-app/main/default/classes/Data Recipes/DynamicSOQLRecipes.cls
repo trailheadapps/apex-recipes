@@ -17,10 +17,13 @@ public with sharing class DynamicSOQLRecipes {
     /**
      * @description demonstrates a simple dynamic SOQL query where the query is
      * defined in Apex
+     * Note: This method has a false-positive PMD warning. Our Query
+     * does not include any input parameters so SOQL Injection is not possible.
      * @return List<Account> with security enforced using USER_MODE
      * @example
      * System.debug(DynamicSOQLRecipes.simpleDynamicSOQLQuery());
      **/
+    @SuppressWarnings('PMD.ApexSOQLInjection')
     public static List<Account> simpleDynamicSOQLQuery() {
         String queryString = 'SELECT Id FROM Account LIMIT 1';
         return Database.query(queryString, AccessLevel.USER_MODE);
