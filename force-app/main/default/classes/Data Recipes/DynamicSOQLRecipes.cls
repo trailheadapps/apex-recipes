@@ -47,9 +47,6 @@ public with sharing class DynamicSOQLRecipes {
             'SELECT Id, Name ' +
             'FROM Account ' +
             'WHERE name = :name';
-        // Using String.escapeSingleQuotes prevents some aspects of SOQL
-        //Injection!
-        String safeQueryString = String.escapeSingleQuotes(queryString);
         return Database.queryWithBinds(
             safeQueryString,
             nameBind,

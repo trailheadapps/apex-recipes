@@ -188,7 +188,6 @@ public with sharing class FilesRecipes {
                 queryString += '';
             }
         }
-        String safeQueryString = String.valueOf(queryString);
         links = Database.queryWithBinds(
             safeQueryString,
             recordBind,
