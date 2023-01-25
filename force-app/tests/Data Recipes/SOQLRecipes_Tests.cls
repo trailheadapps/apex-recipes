@@ -44,7 +44,7 @@ private class SOQLRecipes_Tests {
                 if (
                     qe.getMessage()
                         .containsIgnoreCase(
-                            'secure query included inaccessible'
+                            'sObject type \'Account\' is not supported'
                         )
                 ) {
                     didCatchProperException = true;
@@ -181,7 +181,7 @@ private class SOQLRecipes_Tests {
                 if (
                     qe.getMessage()
                         .containsIgnoreCase(
-                            'secure query included inaccessible field'
+                            'sObject type \'Account\' is not supported'
                         )
                 ) {
                     didCatchProperException = true;
