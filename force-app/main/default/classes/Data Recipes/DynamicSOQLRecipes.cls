@@ -48,7 +48,7 @@ public with sharing class DynamicSOQLRecipes {
             'FROM Account ' +
             'WHERE name = :name';
         return Database.queryWithBinds(
-            safeQueryString,
+            queryString,
             nameBind,
             AccessLevel.USER_MODE
         );
@@ -74,11 +74,8 @@ public with sharing class DynamicSOQLRecipes {
             'SELECT Id, Name ' +
             'FROM Account ' +
             'WHERE Name = :accountName';
-        // Using String.escapeSingleQuotes prevents some aspects of SOQL
-        // Injection!
-        String safeQueryString = String.escapeSingleQuotes(queryString);
         return Database.queryWithBinds(
-            safeQueryString,
+            queryString,
             accountNameBind,
             AccessLevel.USER_MODE
         );

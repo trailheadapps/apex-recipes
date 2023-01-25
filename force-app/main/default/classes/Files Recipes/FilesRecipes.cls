@@ -189,7 +189,7 @@ public with sharing class FilesRecipes {
             }
         }
         links = Database.queryWithBinds(
-            safeQueryString,
+            queryString,
             recordBind,
             AccessLevel.USER_MODE
         );
