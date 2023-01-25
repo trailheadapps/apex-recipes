@@ -22,8 +22,7 @@ public with sharing class DynamicSOQLRecipes {
      * System.debug(DynamicSOQLRecipes.simpleDynamicSOQLQuery());
      **/
     public static List<Account> simpleDynamicSOQLQuery() {
-        String queryString = 'SELECT Id ' + 'FROM Account LIMIT 1';
-        String safeQueryString = String.escapeSingleQuotes(queryString);
+        String queryString = 'SELECT Id FROM Account LIMIT 1';
         return Database.query(safeQueryString, AccessLevel.USER_MODE);
     }
 
