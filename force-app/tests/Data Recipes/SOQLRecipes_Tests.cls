@@ -41,7 +41,6 @@ private class SOQLRecipes_Tests {
             try {
                 SOQLRecipes.getRecords();
             } catch (QueryException qe) {
-                system.debug('HERE..' + qe.getMessage());
                 if (
                     qe.getMessage()
                         .containsIgnoreCase(
