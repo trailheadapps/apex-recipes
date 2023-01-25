@@ -108,7 +108,7 @@ List&lt;Database.SaveResult&gt;
 
 ### `getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType genericFileType,Id recordId)` → `List<ContentVersion>`
 
-Searches for content version records linked to this record Filtering by a generic file type: image, audio, document etc. Note: This method has a false-positive PMD warning. Our Query includes the keyword &apos;WITH SECURITY_ENFORCED&apos; which prevents this Query from accessing fields and objects that they don&apos;t have permission to access. This is a form of inline CRUD/FLS Check.
+Searches for content version records linked to this record Filtering by a generic file type: image, audio, document etc. Note: This method has a false-positive PMD warning. Our Query includes the keyword &apos;WITH USER_MODE&apos; which prevents this Query from accessing fields and objects that they don&apos;t have permission to access. This is a form of inline CRUD/FLS Check.
 
 #### Parameters
 

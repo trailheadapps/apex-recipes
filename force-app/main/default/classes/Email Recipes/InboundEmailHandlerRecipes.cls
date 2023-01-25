@@ -110,7 +110,7 @@ public class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler
             SELECT AccountId, Email
             FROM Contact
             WHERE Email = :email.fromAddress
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
             ORDER BY CreatedDate DESC
             LIMIT 1
         ];
