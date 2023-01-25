@@ -41,8 +41,12 @@ private class SOQLRecipes_Tests {
             try {
                 SOQLRecipes.getRecords();
             } catch (QueryException qe) {
+                system.debug('HERE..' + qe.getMessage());
                 if (
-                    qe.getMessage().containsIgnoreCase('UserModeQueryException')
+                    qe.getMessage()
+                        .containsIgnoreCase(
+                            'sObject type \'Account\' is not supported'
+                        )
                 ) {
                     didCatchProperException = true;
                 }
@@ -176,7 +180,10 @@ private class SOQLRecipes_Tests {
                 testAccounts = SOQLRecipes.getRecordsByFieldValue();
             } catch (QueryException qe) {
                 if (
-                    qe.getMessage().containsIgnoreCase('UserModeQueryException')
+                    qe.getMessage()
+                        .containsIgnoreCase(
+                            'sObject type \'Account\' is not supported'
+                        )
                 ) {
                     didCatchProperException = true;
                 }
