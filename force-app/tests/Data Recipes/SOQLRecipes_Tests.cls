@@ -8,7 +8,7 @@ private class SOQLRecipes_Tests {
         Id permSetId = [
             SELECT Id
             FROM PermissionSet
-            WHERE name = 'Proving_With_Security_Enforced_works'
+            WHERE name = 'Proving_With_User_Mode_Works'
             LIMIT 1
         ]
         .Id;
@@ -44,7 +44,7 @@ private class SOQLRecipes_Tests {
                 if (
                     qe.getMessage()
                         .containsIgnoreCase(
-                            'secure query included inaccessible'
+                            'sObject type \'Account\' is not supported'
                         )
                 ) {
                     didCatchProperException = true;
@@ -181,7 +181,7 @@ private class SOQLRecipes_Tests {
                 if (
                     qe.getMessage()
                         .containsIgnoreCase(
-                            'secure query included inaccessible'
+                            'sObject type \'Account\' is not supported'
                         )
                 ) {
                     didCatchProperException = true;
@@ -360,7 +360,7 @@ private class SOQLRecipes_Tests {
         List<Account> first10Accounts = [
             SELECT id
             FROM Account
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
             ORDER BY Industry DESC
             LIMIT 10
         ];

@@ -61,7 +61,7 @@ System.debug(DynamicSoqlRecipes.simpleBindingSOQLQuery('hello'))
 
 ### `simpleDynamicSOQLQuery()` → `List<Account>`
 
-demonstrates a simple dynamic SOQL query where the query is defined in Apex
+demonstrates a simple dynamic SOQL query where the query is defined in Apex Note: This method has a false-positive PMD warning. Our Query does not include any input parameters so SOQL Injection is not possible.
 
 #### Return
 
@@ -71,7 +71,7 @@ List&lt;Account&gt;
 
 **Description**
 
-List&lt;Account&gt; with security enforced
+List&lt;Account&gt; with security enforced using USER_MODE
 
 #### Example
 ```java

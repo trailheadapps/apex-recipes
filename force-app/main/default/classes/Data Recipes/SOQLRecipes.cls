@@ -19,7 +19,7 @@ public with sharing class SOQLRecipes {
         accounts = [
             SELECT Name, ShippingStreet, ShippingCity
             FROM Account
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
         ];
         return accounts;
     }
@@ -40,7 +40,7 @@ public with sharing class SOQLRecipes {
          * Heap limits.
          */
 
-        for (Account acct : [SELECT Name FROM Account WITH SECURITY_ENFORCED]) {
+        for (Account acct : [SELECT Name FROM Account WITH USER_MODE]) {
             count++;
         }
         return count;
@@ -66,7 +66,7 @@ public with sharing class SOQLRecipes {
         for (List<Account> accounts : [
             SELECT Name
             FROM Account
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
         ]) {
             countOfChunks += 1;
             recordCount += accounts.size();
@@ -86,7 +86,7 @@ public with sharing class SOQLRecipes {
             SELECT Name
             FROM Account
             WHERE ShippingCountry = 'UK'
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
         ];
     }
 
@@ -106,7 +106,7 @@ public with sharing class SOQLRecipes {
                 AND ShippingState = 'IN'
                 AND (Industry = 'Fast Food - made whole'
                 OR Industry = 'Slow Food - Made quickly')
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
         ];
     }
 
@@ -121,7 +121,7 @@ public with sharing class SOQLRecipes {
         return [
             SELECT Name
             FROM Account
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
             ORDER BY Industry DESC
             LIMIT 10
         ];
@@ -139,7 +139,7 @@ public with sharing class SOQLRecipes {
         return [
             SELECT Name
             FROM Account
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
             ORDER BY Industry DESC
             LIMIT :wantedNumberOfRows
         ];
@@ -157,7 +157,7 @@ public with sharing class SOQLRecipes {
             SELECT Name
             FROM Account
             WHERE ShippingState = :state
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
         ];
     }
 
@@ -173,7 +173,7 @@ public with sharing class SOQLRecipes {
         return [
             SELECT Id
             FROM Account
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
             ORDER BY Industry DESC
             LIMIT 10
             OFFSET 10
@@ -192,7 +192,7 @@ public with sharing class SOQLRecipes {
         return [
             SELECT Name, (SELECT Name, AccountId FROM Contacts)
             FROM Account
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
         ];
     }
 
@@ -209,7 +209,7 @@ public with sharing class SOQLRecipes {
             SELECT Id, Name, Email, Account.Name, Account.ShippingState
             FROM Contact
             WHERE Account.ShippingState = 'KS'
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
         ];
     }
 
@@ -225,7 +225,7 @@ public with sharing class SOQLRecipes {
         return [
             SELECT Id, parent1__r.Name, Parent2__r.Name
             FROM Junction__c
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
         ];
     }
 
@@ -245,7 +245,7 @@ public with sharing class SOQLRecipes {
             SELECT SUM(Amount) total
             FROM Opportunity
             WHERE AccountId = :accountId
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
         ];
         return (Double) groupedResults[0].get('total');
     }

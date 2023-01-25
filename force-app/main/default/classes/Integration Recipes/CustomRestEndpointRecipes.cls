@@ -50,7 +50,7 @@ global inherited sharing class CustomRestEndpointRecipes {
      * case, Salesforce will supply the error code.
      *
      * Note: This method has a false-positive PMD warning. Our Query
-     * includes the keyword 'WITH SECURITY_ENFORCED' which prevents this
+     * includes the keyword 'WITH USER_MODE' which prevents this
      * Query from accessing fields and objects that they don't have permission
      * to access. This is a form of inline CRUD/FLS Check.
      *
@@ -69,7 +69,7 @@ global inherited sharing class CustomRestEndpointRecipes {
             List<Account> accounts = [
                 SELECT Id, Name, Phone, Website
                 FROM Account
-                WITH SECURITY_ENFORCED
+                WITH USER_MODE
             ];
             if (
                 Test.isRunningTest() &&
@@ -106,7 +106,7 @@ global inherited sharing class CustomRestEndpointRecipes {
      * take the RestRequest Parameters and get the ExternalSalesforceId__c param
      * from the request.
      * Note: This method has a false-positive PMD warning. Our Query
-     * includes the keyword 'WITH SECURITY_ENFORCED' which prevents this
+     * includes the keyword 'WITH USER_MODE' which prevents this
      * Query from accessing fields and objects that they don't have permission
      * to access. This is a form of inline CRUD/FLS Check.
      * @return RestResponse A success message or the exception message
@@ -141,7 +141,7 @@ global inherited sharing class CustomRestEndpointRecipes {
                 SELECT Id
                 FROM Contact
                 WHERE Id = :recordId
-                WITH SECURITY_ENFORCED
+                WITH USER_MODE
                 LIMIT 1
             ];
             Contact contact = (contacts.size() == 1) ? contacts.get(0) : null;

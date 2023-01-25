@@ -31,7 +31,7 @@ public with sharing class AuraEnabledRecipes {
                 SELECT Id
                 FROM Account
                 WHERE Id = :accountId
-                WITH SECURITY_ENFORCED
+                WITH USER_MODE
                 LIMIT 1
             ];
             acct.Name = newValue;

@@ -317,7 +317,7 @@ public with sharing class OrgShape {
          */
         public Organization doLoad(String requiredButNotUsed) {
             // Note: You should normally limit all your queries with
-            // WITH SECURITY_ENFORCED
+            // WITH USER_MODE
             // but you cannot do that for Organization.
             Organization org = [
                 SELECT FIELDS(STANDARD)
