@@ -176,10 +176,7 @@ private class SOQLRecipes_Tests {
                 testAccounts = SOQLRecipes.getRecordsByFieldValue();
             } catch (QueryException qe) {
                 if (
-                    qe.getMessage()
-                        .containsIgnoreCase(
-                            'secure query included inaccessible field'
-                        )
+                    qe.getMessage().containsIgnoreCase('UserModeQueryException')
                 ) {
                     didCatchProperException = true;
                 }
