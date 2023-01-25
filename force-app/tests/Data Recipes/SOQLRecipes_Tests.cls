@@ -41,10 +41,11 @@ private class SOQLRecipes_Tests {
             try {
                 SOQLRecipes.getRecords();
             } catch (QueryException qe) {
+                System.debug('TEST.....' + qe.getMessage());
                 if (
                     qe.getMessage()
                         .containsIgnoreCase(
-                            'sObject type \'Account\' is not supported'
+                            'secure query included inaccessible'
                         )
                 ) {
                     didCatchProperException = true;
@@ -181,7 +182,7 @@ private class SOQLRecipes_Tests {
                 if (
                     qe.getMessage()
                         .containsIgnoreCase(
-                            'sObject type \'Account\' is not supported'
+                            'secure query included inaccessible'
                         )
                 ) {
                     didCatchProperException = true;
