@@ -115,7 +115,6 @@ private inherited sharing class AccountTriggerHandler_Tests {
 
     @isTest
     static void testBeforeUpdateWithAddErrorNegative() {
-        Boolean didCatchProperException = false;
         Test.startTest();
         try {
             TestFactory.createSObjectList(
@@ -126,22 +125,16 @@ private inherited sharing class AccountTriggerHandler_Tests {
                 20,
                 true
             );
+            Assert.fail('Expected DML exception');
         } catch (DmlException dmle) {
-            if (
+            Assert.isTrue(
                 dmle.getMessage()
                     .containsIgnoreCase(
                         'shipping state length exceeds maximum allowed'
                     )
-            ) {
-                didCatchProperException = true;
-            }
+            );
         }
-
         Test.stopTest();
-        System.Assert.isTrue(
-            didCatchProperException,
-            'Expected to have caught a DML exception thrown by addError'
-        );
     }
 
     @isTest
@@ -186,7 +179,6 @@ private inherited sharing class AccountTriggerHandler_Tests {
             5,
             true
         );
-        Boolean didCatchProperException = false;
         for (Account acct : testData) {
             acct.ShippingStreet = '';
         }
@@ -194,6 +186,7 @@ private inherited sharing class AccountTriggerHandler_Tests {
         Test.startTest();
         try {
             update testData;
+            Assert.fail('Expected DML exception');
         } catch (DmlException dmle) {
             /**
              * This is a bit of a counter-intuitive test. Our code in the trigger
@@ -204,16 +197,11 @@ private inherited sharing class AccountTriggerHandler_Tests {
              * Therefore, our Catch block caches a DMLException, but we test for the
              * langauge used by the AccountTriggerHandlerException.
              */
-            if (dmle.getMessage().containsIgnoreCase('failed to insert')) {
-                didCatchProperException = true;
-            }
+            Assert.isTrue(
+                dmle.getMessage().containsIgnoreCase('failed to insert')
+            );
         }
         Test.stopTest();
-
-        System.Assert.isTrue(
-            didCatchProperException,
-            'Expected to have caught a DMLE esception and thrown an AccountTriggerHandlerException'
-        );
     }
 
     @isTest
