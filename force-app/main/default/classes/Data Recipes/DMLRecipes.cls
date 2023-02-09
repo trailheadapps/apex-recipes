@@ -16,7 +16,7 @@ public with sharing class DMLRecipes {
      * @description Demonstrates how to use the insert keyword to persist a
      * net-new record to the database in system mode
      * @param  name name passed through to the name of the created account
-     * @example DMLRecipes.    public static void insertAccountViaInsertKeywordInSystemMode('Hello');
+     * @example DMLRecipes.insertAccountViaInsertKeywordInSystemMode('Hello');
      */
     public static void insertAccountViaInsertKeywordInSystemMode(String name) {
         Account acct = new Account();

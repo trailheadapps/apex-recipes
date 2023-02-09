@@ -70,7 +70,7 @@ Demonstrates how to use the insert keyword to persist a net-new record to the da
 
 #### Example
 ```java
-DMLRecipes.    public static void insertAccountViaInsertKeywordInSystemMode('Hello');
+DMLRecipes.insertAccountViaInsertKeywordInSystemMode('Hello');
 ```
 
 ### `insertAccountViaInsertKeywordInUserMode(String name)` → `void`
