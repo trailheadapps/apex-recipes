@@ -54,7 +54,7 @@ public with sharing class DMLRecipes {
      * @param  allOrNothing allOrNothing determines whether or not all accounts
      * to be inserted must insert successfully
      * @example
-     * DMLRecipes.insertAccountsViaDatabaseMethod('Hello', false);
+     * DMLRecipes.insertAccountsViaDatabaseMethod('Hello', false, AccessLevel.USER_MODE);
      */
     public static void insertAccountsViaDatabaseMethod(
         String name,
@@ -120,7 +120,7 @@ public with sharing class DMLRecipes {
      * @return UpsertResult
      * @example
      * DMLRecipes.upsertAccountViaDatabaseMethod(
-     *            new Account(name='Hello World'), false);
+     *            new Account(name='Hello World'), false, AccessLevel.USER_MODE);
      **/
     public static Database.UpsertResult upsertAccountViaDatabaseMethod(
         Account acct,
@@ -190,7 +190,7 @@ public with sharing class DMLRecipes {
      * @example
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
-     * List<Account> results = DMLRecipes.updateAccountViaDatabaseMethod(accounts);
+     * List<Account> results = DMLRecipes.updateAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
      * System.debug(results);
      **/
     public static List<Account> updateAccountViaDatabaseMethod(
@@ -253,8 +253,8 @@ public with sharing class DMLRecipes {
      * @param accts List of Accounts to delete
      * @example
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
-     * insert accounts;
-     * DMLRecipes.deleteAccountViaDatabaseMethod(accounts);
+     * insert accounts in user mode;
+     * DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
      **/
     public static Void deleteAccountViaDatabaseMethod(List<Account> accts, System.AccessLevel accessLevel) {
         try {
@@ -318,7 +318,7 @@ public with sharing class DMLRecipes {
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
      * delete accounts;
-     * List<Account> results = DMLRecipes.undeleteAccountViaDatabaseMethod(accounts);
+     * List<Account> results = DMLRecipes.undeleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
      * System.debug(results);
      **/
     public static List<Account> undeleteAccountViaDatabaseMethod(

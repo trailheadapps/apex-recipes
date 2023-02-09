@@ -20,8 +20,8 @@ Deletes a list of accounts via the Database.delete method
 #### Example
 ```java
 List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
-insert accounts;
-DMLRecipes.deleteAccountViaDatabaseMethod(accounts);
+insert accounts in user mode;
+DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 ```
 
 ### `deleteAccountViaKeywordInSystemMode(List<Account> accts)` → `Void`
@@ -101,7 +101,7 @@ Demonstrates how to use the Database.insert() method to persist a net-new record
 
 #### Example
 ```java
-DMLRecipes.insertAccountsViaDatabaseMethod('Hello', false);
+DMLRecipes.insertAccountsViaDatabaseMethod('Hello', false, AccessLevel.USER_MODE);
 ```
 
 ### `undeleteAccountViaDatabaseMethod(List<Account> accts,System.AccessLevel accessLevel)` → `List<Account>`
@@ -129,7 +129,7 @@ List&lt;Account&gt;
 List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
 insert accounts;
 delete accounts;
-List<Account> results = DMLRecipes.undeleteAccountViaDatabaseMethod(accounts);
+List<Account> results = DMLRecipes.undeleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 System.debug(results);
 ```
 
@@ -269,7 +269,7 @@ List&lt;Account&gt;
 ```java
 List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
 insert accounts;
-List<Account> results = DMLRecipes.updateAccountViaDatabaseMethod(accounts);
+List<Account> results = DMLRecipes.updateAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 System.debug(results);
 ```
 
@@ -297,7 +297,7 @@ UpsertResult
 #### Example
 ```java
 DMLRecipes.upsertAccountViaDatabaseMethod(
-           new Account(name='Hello World'), false);
+           new Account(name='Hello World'), false, AccessLevel.USER_MODE);
 ```
 
 ### `upsertAccountViaUpsertKeywordInSystemMode(Account acct)` → `Account`
