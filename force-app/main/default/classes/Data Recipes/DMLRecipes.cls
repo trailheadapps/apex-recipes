@@ -2,23 +2,8 @@
  * @description Demonstrates various ways of making Data Manipulation Language
  * (DML) calls. Note that this class demonstrates both Database.* methods as
  * well as DML Keywords.
- *
- * Note: There is a @suppressWarnings annotation on this class for Cyclomatic
- * Complexity. You can read more about what Cyclomatic Complexity is here:
- * https://en.wikipedia.org/wiki/Cyclomatic_complexity Classes with a high
- * Cyclomatic Compelexity score are harder to test, and more prone to bugs
- * because of the sheer number of branching logic paths available. This class
- * is made up of a number of small methods, each of whom does CRUD/FLS Checks
- * and therefor every method includes at least one branching path - but not
- * much else. Because this class is designed to teach safe DML I've decided to
- * mute this warning. Other classes in this repository do not have such a high
- * Cyclomatic Complexity because the ratio of logic to if/else statments is much
- * lower.
- *
  * @group Data Recipes
- * @see CanTheUser
  */
-@SuppressWarnings('PMD.CyclomaticComplexity')
 public with sharing class DMLRecipes {
     /**
      * @description This exception is for throwing a custom exception to
@@ -29,22 +14,35 @@ public with sharing class DMLRecipes {
 
     /**
      * @description Demonstrates how to use the insert keyword to persist a
-     * net-new record to the database
+     * net-new record to the database in system mode
      * @param  name name passed through to the name of the created account
-     * @example DMLRecipes.insertAccountViaInsertKeyword('Hello');
+     * @example DMLRecipes.    public static void insertAccountViaInsertKeywordInSystemMode('Hello');
      */
-    public static void insertAccountViaInsertKeyword(String name) {
+    public static void insertAccountViaInsertKeywordInSystemMode(String name) {
         Account acct = new Account();
         acct.Name = name;
-
         try {
-            if (CanTheUser.create(acct)) {
-                insert acct; //NOPMD
-                //- Note: This will cause PMD to raise a violation for not
-                // checking CRUD/FLS. However, we're doing just that in the Line
-                // above - PMD just isn't aware of CanTheUser.*
-            }
-        } catch (DmlException DMLe) {
+            insert acct;
+        }
+        catch (DmlException ex) {
+            throw new CustomDMLException('Failed');
+        }
+    }
+
+    /**
+     * @description Demonstrates how to use the insert keyword to persist a
+     * net-new record to the database in user mode
+     * @param  name name passed through to the name of the created account
+     * @example 
+     * DMLRecipes.insertAccountViaInsertKeywordInUserMode('Hello');
+     */
+    public static void insertAccountViaInsertKeywordInUserMode(String name) {
+        Account acct = new Account();
+        acct.Name = name;
+        try {
+            insert as user acct;
+        }
+        catch (SecurityException ex) {
             throw new CustomDMLException('Failed');
         }
     }
@@ -60,40 +58,56 @@ public with sharing class DMLRecipes {
      */
     public static void insertAccountsViaDatabaseMethod(
         String name,
-        Boolean allOrNothing
+        Boolean allOrNothing,
+        System.AccessLevel accessLevel
     ) {
         Account acct = new Account(Name = name);
         Account acct2 = new Account();
-
         try {
-            if (CanTheUser.create(acct)) {
-                Database.insert(new List<Account>{ acct, acct2 }, allOrNothing);
-            }
-        } catch (DmlException DMLe) {
+            Database.insert(new List<Account>{ acct, acct2 }, allOrNothing, accessLevel);
+            // In user mode a security exception is thrown
+            // while in the system mode a DML Exception is thrown
+        } catch (SecurityException ex) {
+            throw new CustomDMLException('Failed');
+        } catch (DmlException ex) {
             throw new CustomDMLException('Failed');
         }
     }
 
     /**
      * @description Demonstrates the use of the upsert keyword to either insert
-     * or update a record
+     * or update a record in system mode
      * @param acct account to upsert
      * @return Account
      * @example
-     * DMLRecipes.upsertAccountViaUpsertKeyword(new Account(name='Hello World'));
+     * DMLRecipes.upsertAccountViaUpsertKeywordInSystemMode(new Account(name='Hello World'));
      **/
-    public static Account upsertAccountViaUpsertKeyword(Account acct) {
+    public static Account upsertAccountViaUpsertKeywordInSystemMode(Account acct) {
         //Upsert = (up)date or in(sert)
-        if (CanTheUser.create(acct) && CanTheUser.edit(acct)) {
-            try {
-                upsert acct; //NOPMD
-                //- Note: This will cause PMD to raise a violation for not
-                // checking CRUD/FLS. However, we're doing just that in the Line
-                // above - PMD just isn't aware of CanTheUser.*
-            } catch (DmlException dmle) {
-                System.debug(LoggingLevel.INFO, dmle.getMessage());
-                throw dmle;
-            }
+        try {
+            upsert acct;
+        } catch (DmlException ex) {
+            System.debug(LoggingLevel.INFO, ex.getMessage());
+            throw ex;
+        }
+        return acct;
+    }
+
+    /**
+     * @description Demonstrates the use of the upsert keyword to either insert
+     * or update a record in user mode
+     * @param acct account to upsert
+     * @return Account
+     * @example
+     * DMLRecipes.upsertAccountViaUpsertKeywordInUserMode(new Account(name='Hello World'));
+     **/
+    public static Account upsertAccountViaUpsertKeywordInUserMode(Account acct) {
+        //Upsert = (up)date or in(sert)
+        try {
+            upsert as user acct;
+        } catch (SecurityException ex) {
+            System.debug(LoggingLevel.INFO, ex.getMessage());
+            throw ex;
         }
         return acct;
     }
@@ -110,17 +124,40 @@ public with sharing class DMLRecipes {
      **/
     public static Database.UpsertResult upsertAccountViaDatabaseMethod(
         Account acct,
-        Boolean allOrNothing
+        Boolean allOrNothing,
+        System.AccessLevel accessLevel
     ) {
-        Database.UpsertResult results;
-        if (CanTheUser.create(acct) && CanTheUser.edit(acct)) {
-            results = Database.upsert(acct, allOrNothing);
-        } else {
-            throw new CustomDMLException(
-                'User has no access to create and edit accounts'
-            );
+        try{
+            Database.UpsertResult results;
+            results = Database.upsert(acct, allOrNothing, accessLevel);
+            return results;
+        } catch (SecurityException ex) {
+            throw new CustomDMLException('Failed');
+        } catch (DmlException ex) {
+            throw new CustomDMLException('Failed');
         }
-        return results;
+    }
+
+    /**
+     * @description Demonstrates how to Update a list of accounts via the Update
+     * DML keyword in System Mode
+     * @param accts List of accounts to update
+     * @return List<Account>
+     * @example
+     * Account acct = new Account(name='Hello World');
+     * insert acct;
+     * DMLRecipes.updateAcccountViaKeywordInSystemMode(acct);
+     **/
+    public static List<Account> updateAcccountViaKeywordInSystemMode(List<Account> accts) {
+        for (Account acct : accts) {
+            acct.Name += ' Updated via Keyword';
+        }
+        try {
+            update accts;
+        } catch (DmlException ex) {
+            throw new CustomDMLException('Failed');
+        }
+        return accts;
     }
 
     /**
@@ -133,15 +170,13 @@ public with sharing class DMLRecipes {
      * insert acct;
      * DMLRecipes.updateAcccountViaKeyword(acct);
      **/
-    public static List<Account> updateAcccountViaKeyword(List<Account> accts) {
+    public static List<Account> updateAcccountViaKeywordInUserMode(List<Account> accts) {
         for (Account acct : accts) {
             acct.Name += ' Updated via Keyword';
         }
         try {
-            if (CanTheUser.edit(accts[0])) {
-                update accts;
-            }
-        } catch (DmlException DMLe) {
+            update as user accts;
+        } catch (SecurityException ex) {
             throw new CustomDMLException('Failed');
         }
         return accts;
@@ -159,21 +194,21 @@ public with sharing class DMLRecipes {
      * System.debug(results);
      **/
     public static List<Account> updateAccountViaDatabaseMethod(
-        List<Account> accts
+        List<Account> accts,
+        System.AccessLevel accessLevel
     ) {
         for (Account acct : accts) {
             acct.Name += ' Updated via Keyword';
         }
         try {
-            if (CanTheUser.edit(accts[0])) {
-                try {
-                    Database.update(accts);
-                } catch (DmlException dmle) {
-                    System.debug(LoggingLevel.INFO, dmle.getMessage());
-                    throw dmle;
-                }
-            }
-        } catch (DmlException DMLe) {
+            Database.update(accts, accessLevel);
+             // In user mode a security exception is thrown
+            // while in the system mode a DML Exception is thrown
+        } catch (SecurityException ex) {
+            System.debug(LoggingLevel.INFO, ex.getMessage());
+            throw new CustomDMLException('Failed');
+        } catch (DmlException ex) {
+            System.debug(LoggingLevel.INFO, ex.getMessage());
             throw new CustomDMLException('Failed');
         }
         return accts;
@@ -181,22 +216,34 @@ public with sharing class DMLRecipes {
 
     /**
      * @description Deletes a list of accounts via the delete DML keyword
-     * @param accts list of accounts to delete
+     * @param accts list of accounts to delete in system mode
      * @example
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
-     * DMLRecipes.deleteAccountViaDatabaseMethod(accounts);
+     * DMLRecipes.deleteAccountViaKeywordInSystemMode(accounts);
      **/
-    public static Void deleteAccountViaKeyword(List<Account> accts) {
+    public static Void deleteAccountViaKeywordInSystemMode(List<Account> accts) {
         try {
-            if (CanTheUser.destroy(accts[0])) {
-                try {
-                    delete accts;
-                } catch (DmlException dmle) {
-                    System.debug(LoggingLevel.INFO, dmle.getMessage());
-                }
-            }
-        } catch (DmlException DMLe) {
+            delete accts;
+        } catch (DmlException ex) {
+            System.debug(LoggingLevel.INFO, ex.getMessage());
+            throw new CustomDMLException('Failed');
+        }
+    }
+
+    /**
+     * @description Deletes a list of accounts via the delete DML keyword
+     * @param accts list of accounts to delete in user mode
+     * @example
+     * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
+     * insert accounts;
+     * DMLRecipes.deleteAccountViaKeywordInUserMode(accounts);
+     **/
+    public static Void deleteAccountViaKeywordInUserMode(List<Account> accts) {
+        try {
+            delete as user accts;
+        } catch (SecurityException ex) {
+            System.debug(LoggingLevel.INFO, ex.getMessage());
             throw new CustomDMLException('Failed');
         }
     }
@@ -209,38 +256,55 @@ public with sharing class DMLRecipes {
      * insert accounts;
      * DMLRecipes.deleteAccountViaDatabaseMethod(accounts);
      **/
-    public static Void deleteAccountViaDatabaseMethod(List<Account> accts) {
+    public static Void deleteAccountViaDatabaseMethod(List<Account> accts, System.AccessLevel accessLevel) {
         try {
-            if (CanTheUser.destroy(accts[0])) {
-                Database.delete(accts);
-            }
-        } catch (DmlException DMLe) {
+            Database.delete(accts, accessLevel);
+            // In user mode a security exception is thrown
+            // while in the system mode a DML Exception is thrown
+        } catch (SecurityException ex) {
+            throw new CustomDMLException('Failed');
+        } catch (DmlException ex) {
             throw new CustomDMLException('Failed');
         }
     }
 
     /**
      * @description Undeletes a list of accounts via the undelete DML keyword
-     * @param accts List of accounts to undelete
+     * @param accts List of accounts to undelete in user mode
      * @return List<Account>
      * @example
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
      * delete accounts;
-     * List<Account> results = DMLRecipes.undeleteAccountViaKeyword(accounts);
+     * List<Account> results = DMLRecipes.undeleteAccountViaKeywordInSystemMode(accounts);
      * System.debug(results);
      **/
-    public static List<Account> undeleteAccountViaKeyword(List<Account> accts) {
+    public static List<Account> undeleteAccountViaKeywordInSystemMode(List<Account> accts) {
         try {
-            if (CanTheUser.read(accts[0])) {
-                try {
-                    undelete accts;
-                } catch (DmlException dmle) {
-                    System.debug(LoggingLevel.INFO, dmle.getMessage());
-                    throw dmle;
-                }
-            }
-        } catch (DmlException DMLe) {
+            undelete accts;
+        } catch (DmlException dmle) {
+            System.debug(LoggingLevel.INFO, dmle.getMessage());
+            throw new CustomDMLException('Failed');
+        }
+        return accts;
+    }
+
+    /**
+     * @description Undeletes a list of accounts via the undelete DML keyword
+     * @param accts List of accounts to undelete in user mode
+     * @return List<Account>
+     * @example
+     * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
+     * insert accounts;
+     * delete accounts;
+     * List<Account> results = DMLRecipes.undeleteAccountViaKeywordInUserMode(accounts);
+     * System.debug(results);
+     **/
+    public static List<Account> undeleteAccountViaKeywordInUserMode(List<Account> accts) {
+        try {
+            undelete as user accts;
+        } catch (SecurityException ex) {
+            System.debug(LoggingLevel.INFO, ex.getMessage());
             throw new CustomDMLException('Failed');
         }
         return accts;
@@ -258,13 +322,16 @@ public with sharing class DMLRecipes {
      * System.debug(results);
      **/
     public static List<Account> undeleteAccountViaDatabaseMethod(
-        List<Account> accts
+        List<Account> accts,
+        System.AccessLevel accessLevel
     ) {
         try {
-            if (CanTheUser.read(accts[0])) {
-                Database.undelete(accts);
-            }
-        } catch (DmlException DMLe) {
+            Database.undelete(accts, accessLevel);
+            // In user mode a security exception is thrown
+            // while in the system mode a DML Exception is thrown
+        } catch (SecurityException ex) {
+            throw new CustomDMLException('Failed');
+        } catch (DmlException ex) {
             throw new CustomDMLException('Failed');
         }
         return accts;
