@@ -25,25 +25,16 @@ private inherited sharing class AuraEnabledRecipes_Tests {
             new Account(name = 'Original'),
             true
         );
-
-        Boolean didCatchTheRightException = false; // this defaults to a null, but non true or false state;
-
         Test.startTest();
         try {
             AuraEnabledRecipes.updateAccountName(acct.Id, '');
+            System.Assert.fail('Expected AuraHandledException');
         } catch (System.AuraHandledException ahe) {
-            if (
+            System.Assert.isTrue(
                 ahe.getMessage().containsIgnoreCase('Script-thrown exception')
-            ) {
-                didCatchTheRightException = true;
-            }
+            );
         }
         Test.stopTest();
-
-        System.Assert.isTrue(
-            didCatchTheRightException,
-            'Expected to have recieved an Aura Handled Exception'
-        );
     }
 
     @isTest
@@ -52,32 +43,31 @@ private inherited sharing class AuraEnabledRecipes_Tests {
             new Account(name = 'Original Name'),
             true
         );
-        Boolean didCatchTheRightException = false;
-
         User u = TestFactory.createMinAccessUser(true);
+        Test.startTest();
         System.runAs(u) {
             try {
                 AuraEnabledRecipes.updateAccountName(acct.Id, 'newValue');
-            } catch (System.AuraHandledException ahe) {
-                if (
-                    ahe.getMessage()
-                        .containsIgnoreCase('Script-thrown exception')
-                ) {
-                    didCatchTheRightException = true;
-                }
+                System.Assert.fail('Expected AuraHandledException');
+            } catch (System.QueryException qe) {
+                System.Assert.isTrue(
+                    qe.getMessage()
+                        .containsIgnoreCase(
+                            'sObject type \'account\' is not supported'
+                        )
+                );
             }
         }
-        System.Assert.isTrue(
-            didCatchTheRightException,
-            'Expected a user with min access profile to not be able to execute the DML update.'
-        );
+        Test.stopTest();
     }
 
     @isTest
     static void testGetFieldValue() {
+        Test.startTest();
         System.Assert.isTrue(
             AuraEnabledRecipes.getFieldValue().equalsIgnoreCase('hello world'),
             'Expected to receive hello world'
         );
+        Test.stopTest();
     }
 }

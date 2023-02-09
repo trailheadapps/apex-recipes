@@ -5,10 +5,6 @@ layout: default
 
 Demonstrates how to make various types of SOQL calls including multi-object queries, and aggregate queries
 
-## Related
-
-[CanTheUser](https://github.com/trailheadapps/apex-recipes/wiki/CanTheUser.md)
-
 ---
 ## Methods
 ### `getAccountRecordsInState(String state)` → `List<Account>`

@@ -58,7 +58,7 @@ public with sharing class CustomMetadataUtilties {
     public List<Bucketed_Picklist__mdt> getBucketedPicklistsForObject(
         Id objId
     ) {
-        if (objId == null || !CanTheUser.read(new Bucketed_Picklist__mdt())) {
+        if (objId == null) {
             return new List<Bucketed_Picklist__mdt>();
         }
         String obj = String.valueof(objId.getSObjectType());
@@ -69,6 +69,7 @@ public with sharing class CustomMetadataUtilties {
                 field__r.qualifiedApiName
             FROM Bucketed_Picklist__mdt
             WHERE object__r.qualifiedApiName = :obj
+            WITH USER_MODE
         ];
     }
 
@@ -113,6 +114,7 @@ public with sharing class CustomMetadataUtilties {
                     FROM Bucketed_Picklist_value__mdt
                     WHERE label = :search
                 )
+            WITH USER_MODE
         ];
     }
 }

@@ -2,7 +2,7 @@
  * @description Demonstrates how to make an opinionated REST callout.
  * This class utilizes the custom RestClient from the Shared Code group.
  * @group Integration Recipes
- * @see RestClient, CanTheUser
+ * @see RestClient
  */
 public with sharing class CalloutRecipes extends RestClient {
     /**

@@ -86,11 +86,11 @@ public with sharing class FilesRecipes {
         fileToUpload.FirstPublishLocationId = attachedTo;
         Database.SaveResult saveResult;
         try {
-            saveResult = Database.insert(fileToUpload);
-        } catch (DmlException DMLE) {
+            saveResult = Database.insert(fileToUpload, AccessLevel.USER_MODE);
+        } catch (SecurityException se) {
             System.debug(
                 LoggingLevel.INFO,
-                'Failed to insert fileToUpload, error is: ' + DMLE.getMessage()
+                'Failed to insert fileToUpload, error is: ' + se.getMessage()
             );
         }
         return saveResult;
@@ -132,11 +132,11 @@ public with sharing class FilesRecipes {
 
         List<Database.SaveResult> saveResult = new List<Database.SaveResult>();
         try {
-            saveResult = Database.insert(filesToCreate);
-        } catch (DmlException DMLE) {
+            saveResult = Database.insert(filesToCreate, AccessLevel.USER_MODE);
+        } catch (SecurityException se) {
             System.debug(
                 LoggingLevel.INFO,
-                'Failed to insert filesToUpload, error is: ' + DMLE.getMessage()
+                'Failed to insert filesToUpload, error is: ' + se.getMessage()
             );
         }
         return saveResult;
@@ -198,19 +198,13 @@ public with sharing class FilesRecipes {
         for (ContentDocumentLink cdl : links) {
             fileIds.add(cdl.ContentDocumentId);
         }
-        if (CanTheUser.read(new ContentVersion())) {
-            return [
-                SELECT Id, Title
-                FROM ContentVersion
-                WHERE ContentDocumentId IN :fileIds AND IsLatest = TRUE
-                WITH USER_MODE
-                ORDER BY CreatedDate
-            ];
-        } else {
-            throw new FilesRecipes.FilesRecipesException(
-                'User has no Access to ContentVersion'
-            );
-        }
+        return [
+            SELECT Id, Title
+            FROM ContentVersion
+            WHERE ContentDocumentId IN :fileIds AND IsLatest = TRUE
+            WITH USER_MODE
+            ORDER BY CreatedDate
+        ];
     }
 
     /**
@@ -234,17 +228,11 @@ public with sharing class FilesRecipes {
         dist.RelatedRecordId = cdl.LinkedEntityId;
         dist.ContentVersionId = cdl.ContentDocument.LatestPublishedVersionId;
 
-        if (CanTheUser.create(new ContentDistribution())) {
-            try {
-                return Database.insert(dist);
-            } catch (DmlException dmle) {
-                System.debug(LoggingLevel.INFO, dmle.getMessage());
-                throw new FilesRecipesException(dmle.getMessage());
-            }
-        } else {
-            throw new FilesRecipesException(
-                'User has no privileges to create content distribution records'
-            );
+        try {
+            return Database.insert(dist, AccessLevel.USER_MODE);
+        } catch (SecurityException se) {
+            System.debug(LoggingLevel.INFO, se.getMessage());
+            throw new FilesRecipesException(se.getMessage());
         }
     }
 }
