@@ -2,7 +2,6 @@
  * @description Demonstrates how to expose a class method to Aura and LWC
  * components. Also demonstrates how to return an AuraHandledException.
  * @group Integration Recipes
- * @see CanTheUser
  */
 public with sharing class AuraEnabledRecipes {
     @SuppressWarnings('PMD.ApexCRUDViolation')
@@ -26,7 +25,6 @@ public with sharing class AuraEnabledRecipes {
      * System.debug(AuraEnabledRecipes.updateAccountName(accountId, 'New value set by AuraEnabled method'));
      **/
     public static Boolean updateAccountName(Id accountId, String newValue) {
-        if (CanTheUser.edit(new Account())) {
             Account acct = [
                 SELECT Id
                 FROM Account
@@ -50,17 +48,13 @@ public with sharing class AuraEnabledRecipes {
                     AccessType.UPDATABLE,
                     new List<Account>{ acct }
                 );
-                update securityDecision.getRecords();
-            } catch (DmlException dmle) {
+                update as user securityDecision.getRecords();
+            } catch (SecurityException se) {
                 throw new AuraHandledException(
-                    'DML Failed: ' + dmle.getMessage()
+                    'DML Failed: ' + se.getMessage()
                 );
             }
             return true;
-        }
-        throw new AuraHandledException(
-            'User does not have access to edit Accounts'
-        );
     }
 
     @AuraEnabled(cacheable=true)

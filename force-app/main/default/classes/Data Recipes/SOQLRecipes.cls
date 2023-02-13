@@ -2,7 +2,6 @@
  * @description Demonstrates how to make various types of SOQL calls
  * including multi-object queries, and aggregate queries
  * @group Data Recipes
- * @see CanTheUser
  */
 public with sharing class SOQLRecipes {
     /**

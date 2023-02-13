@@ -7,7 +7,7 @@ Demonstrates how to make an opinionated REST callout. This class utilizes the cu
 
 ## Related
 
-RestClient, CanTheUser
+[RestClient](https://github.com/trailheadapps/apex-recipes/wiki/RestClient.md)
 
 ---
 ## Constructors

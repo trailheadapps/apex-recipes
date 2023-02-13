@@ -5,10 +5,6 @@ layout: default
 
 Demonstrates how to expose a class method to Aura and LWC components. Also demonstrates how to return an AuraHandledException.
 
-## Related
-
-[CanTheUser](https://github.com/trailheadapps/apex-recipes/wiki/CanTheUser.md)
-
 ---
 ## Methods
 ### `getFieldValue()` → `String`
