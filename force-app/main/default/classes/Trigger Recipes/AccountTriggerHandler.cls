@@ -69,7 +69,10 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * insert accounts;
      **/
     public override void afterInsert() {
-        AccountServiceLayer.changeShippingStreet(this.triggerNew, System.AccessLevel.SYSTEM_MODE);
+        AccountServiceLayer.changeShippingStreet(
+            this.triggerNew,
+            System.AccessLevel.SYSTEM_MODE
+        );
     }
 
     // Update Contexts
@@ -121,32 +124,30 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public override void afterUpdate() {
         List<Task> newTasks = new List<Task>();
-            for (Account acct : this.triggerNew) {
-                Task tsk = new Task(
-                    WhatId = acct.Id,
-                    Subject = 'Account was updated, please verify'
-                );
-                newTasks.add(tsk);
-            }
+        for (Account acct : this.triggerNew) {
+            Task tsk = new Task(
+                WhatId = acct.Id,
+                Subject = 'Account was updated, please verify'
+            );
+            newTasks.add(tsk);
+        }
 
-            try {
-                if (
-                    Test.isRunningTest() &&
-                    AccountTriggerHandler.circuitBreaker != null
-                ) {
-                    throw AccountTriggerHandler.circuitBreaker;
-                }
-                insert newTasks;
-            } catch (DmlException dmle) {
-                System.debug(
-                    LoggingLevel.INFO,
-                    'Inserting Tasks for newly updated accounts failed with a DML exception. Details: ' +
-                    dmle.getMessage()
-                );
-                throw new AccountTriggerHandlerException(
-                    'Failed to insert tasks'
-                );
+        try {
+            if (
+                Test.isRunningTest() &&
+                AccountTriggerHandler.circuitBreaker != null
+            ) {
+                throw AccountTriggerHandler.circuitBreaker;
             }
+            insert newTasks;
+        } catch (DmlException dmle) {
+            System.debug(
+                LoggingLevel.INFO,
+                'Inserting Tasks for newly updated accounts failed with a DML exception. Details: ' +
+                dmle.getMessage()
+            );
+            throw new AccountTriggerHandlerException('Failed to insert tasks');
+        }
     }
 
     // Delete Contexts
