@@ -47,23 +47,14 @@ public with sharing class AccountServiceLayer {
      * System.debug([SELECT Name, ShippingStreet FROM Account WHERE id in : accounts]);
      **/
     @SuppressWarnings('PMD.ApexCRUDViolation')
-    public static void changeShippingStreet(List<Account> accounts) {
+    public static void changeShippingStreet(List<Account> accounts, System.AccessLevel accessLevel) {
         List<Account> updated = new List<Account>();
         for (Account account : accounts) {
             Account uAcct = account.clone(true);
             uAcct.ShippingStreet = '229b Baker st.';
             updated.add(uAcct);
         }
-        if (
-            CanTheUser.edit(updated[0]) &&
-            CanTheUser.flsUpdatable('Account', 'shippingStreet')
-        ) {
-            update updated;
-        } else {
-            throw new CanTheUser.CanTheUserException(
-                'User has no permission to edit accounts'
-            );
-        }
+        Database.update(updated, accessLevel);
     }
 
     /**
@@ -122,13 +113,15 @@ public with sharing class AccountServiceLayer {
                 AccessType.UPDATABLE,
                 accounts
             );
-            update decision.getRecords();
+            update as user decision.getRecords();
         } catch (DmlException dmle) {
             System.debug(
                 LoggingLevel.INFO,
                 'Hey, a DML error occurred while updating.'
             );
             throw new ASLException(dmle.getMessage());
+        } catch (System.SecurityException se) {
+            throw new ASLException(se.getMessage());
         } catch (System.NoAccessException nae) {
             throw new ASLException(nae.getMessage());
         }

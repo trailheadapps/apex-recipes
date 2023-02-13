@@ -1,9 +1,9 @@
 @isTest
-private inherited sharing class PlatformEventRecipesTriggerHandler_Tests {
+private class PlatformEventRecipesTriggerHandler_Tests {
     @isTest
     static void testPlatformEventRecipesTriggerHandlerPositive() {
         Account acct = (Account) TestFactory.createSObject(
-            new Account(name = 'testEvent'),
+            new Account(Name = 'testEvent'),
             true
         );
         Event_Recipes_Demo__e event = new Event_Recipes_Demo__e(
@@ -13,19 +13,16 @@ private inherited sharing class PlatformEventRecipesTriggerHandler_Tests {
         );
 
         Test.startTest();
-        EventBus.publish(event);
+        Database.SaveResult publishResult = EventBus.publish(event);
         Test.stopTest();
 
+        System.Assert.isTrue(publishResult.isSuccess());
         Account checkAccount = [
             SELECT Website
             FROM Account
             WHERE Id = :acct.Id
             LIMIT 1
         ];
-        System.Assert.areEqual(
-            'https://google.com',
-            checkAccount.Website,
-            'Expected the website to be set to google.com'
-        );
+        System.Assert.areEqual('https://google.com', checkAccount.Website);
     }
 }

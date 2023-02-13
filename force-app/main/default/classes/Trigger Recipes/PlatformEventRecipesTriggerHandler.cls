@@ -31,17 +31,17 @@ public with sharing class PlatformEventRecipesTriggerHandler extends TriggerHand
      * System.debug(result + [SELECT Name, Website FROM Account WHERE id = :acct.id]);
      */
     public override void afterInsert() {
-        List<Id> accountIds = new List<Id>();
+        Set<Id> accountIds = new Set<Id>();
         for (Event_Recipes_Demo__e evt : this.triggerNew) {
-            accountIds.add(evt.accountId__c);
+            accountIds.add(evt.AccountId__c);
         }
 
         Map<Id, Account> accounts = new Map<Id, Account>(
             [SELECT Name FROM Account WHERE Id IN :accountIds]
         );
 
-        for (Event_Recipes_Demo__e curEvent : this.triggerNew) {
-            accounts.get(curEvent.accountId__c).Website = curEvent.url__c;
+        for (Event_Recipes_Demo__e evt : this.triggerNew) {
+            accounts.get(evt.accountId__c).Website = evt.Url__c;
         }
 
         update accounts.values();

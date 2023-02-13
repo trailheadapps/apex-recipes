@@ -11,7 +11,7 @@ public with sharing class SchemaRecipes {
         Schema.DescribeFieldResult dfr = Schema.SObjectType.Account.fields.Name;
         Schema.SObjectField token2 = Junction__c.parent1__c;
 
-        system.assert(dfr.getSObjectField() == Account.Name);
+        System.assert(dfr.getSObjectField() == Account.Name);
 
         dfr = dfr.getSobjectField().getDescribe();
     }
