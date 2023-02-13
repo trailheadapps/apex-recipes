@@ -7,7 +7,7 @@ Demonstrates how to construct a SOQL query dynamically, and safely More on dynam
 
 ---
 ## Methods
-### `resolvedDynamicFieldsSOQLQuery(Account acct)` → `List<Account>`
+### `dynamicFieldsBindingSOQLQuery(Account acct)` → `List<Account>`
 
 Demonstrates how to use a field from a passed param in a bound dynamic SOQL queryString. DANGER: because this method accepts user input (name param), it must be sanitized against SOQL injections
 
@@ -30,7 +30,7 @@ List&lt;Account&gt;
 #### Example
 ```java
 Account acct = [SELECT name FROM Account WHERE name = 'hello' LIMIT 1];
-Account[] results = DynamicSOQLRecipes.resolvedDynamicFieldsSOQLQuery(acct);
+Account[] results = DynamicSOQLRecipes.dynamicFieldsBindingSOQLQuery(acct);
 System.debug(results);
 ```
 
@@ -61,7 +61,7 @@ System.debug(DynamicSoqlRecipes.simpleBindingSOQLQuery('hello'))
 
 ### `simpleDynamicSOQLQuery()` → `List<Account>`
 
-demonstrates a simple dynamic SOQL query where the query is defined in Apex
+demonstrates a simple dynamic SOQL query where the query is defined in Apex Note: This method has a false-positive PMD warning. Our Query does not include any input parameters so SOQL Injection is not possible.
 
 #### Return
 
@@ -71,7 +71,7 @@ List&lt;Account&gt;
 
 **Description**
 
-List&lt;Account&gt; with security enforced
+List&lt;Account&gt; with security enforced using USER_MODE
 
 #### Example
 ```java

@@ -22,28 +22,23 @@ private inherited sharing class AccountServiceLayer_Tests {
             true
         );
         User testUser = TestFactory.createMinAccessUser(true);
-        Boolean didCatchTheProperException = false;
 
         Test.startTest();
         System.runAs(testUser) {
             try {
-                AccountServiceLayer.changeShippingStreet(accounts);
-            } catch (CanTheUser.CanTheUserException ctue) {
-                if (
-                    ctue.getMessage()
-                        .containsIgnoreCase('no permission to edit')
-                ) {
-                    didCatchTheProperException = true;
-                }
+                AccountServiceLayer.changeShippingStreet(
+                    accounts,
+                    System.AccessLevel.USER_MODE
+                );
+                Assert.fail('Expected SecurityException');
+            } catch (SecurityException e) {
+                Assert.areEqual(
+                    'Access to entity \'Account\' denied',
+                    e.getMessage()
+                );
             }
         }
-
         Test.stopTest();
-
-        System.Assert.isTrue(
-            didCatchTheProperException,
-            'Expected to catch a CanTheUserException reporting no edit access'
-        );
     }
 
     @isTest
@@ -105,7 +100,6 @@ private inherited sharing class AccountServiceLayer_Tests {
             new Account(description = 'Hello'),
             5
         );
-        Boolean didCatchTheRightException = false;
 
         Test.startTest();
         try {
@@ -113,17 +107,13 @@ private inherited sharing class AccountServiceLayer_Tests {
                 theAccounts,
                 true
             );
+            Assert.fail('Expected ASLException');
         } catch (AccountServiceLayer.ASLException asle) {
-            if (asle.getMessage().containsIgnoreCase('id not specified')) {
-                didCatchTheRightException = true;
-            }
+            Assert.isTrue(
+                asle.getMessage().containsIgnoreCase('id not specified')
+            );
         }
         Test.stopTest();
-
-        System.Assert.isTrue(
-            didCatchTheRightException,
-            'Expected to see the save fail'
-        );
     }
 
     @isTest
@@ -142,20 +132,14 @@ private inherited sharing class AccountServiceLayer_Tests {
             System.Assert.isNull(checkAcct.Id, 'Expected the ID to be null');
         }
 
-        Boolean didCatchTheRightException = false;
         Test.startTest();
         try {
             AccountServiceLayer.safelySave(theAccounts);
-        } catch (AccountServiceLayer.ASLException asle) {
-            System.debug(LoggingLevel.INFO, asle.getMessage());
-            didCatchTheRightException = true;
+            Assert.fail('Expected ASLException');
+        } catch (Exception e) {
+            Assert.isInstanceOfType(e, AccountServiceLayer.ASLException.class);
         }
         Test.stopTest();
-
-        System.Assert.isTrue(
-            didCatchTheRightException,
-            'Expected to have caught a DML exception'
-        );
     }
 
     @isTest
@@ -166,23 +150,17 @@ private inherited sharing class AccountServiceLayer_Tests {
         );
         User testUser = TestFactory.createMinAccessUser(true);
 
-        Boolean didCatchTheRightException = false;
         Test.startTest();
         System.runAs(testUser) {
             try {
                 AccountServiceLayer.safelySave(theAccounts);
+                Assert.fail('Expected ASLException');
             } catch (AccountServiceLayer.ASLException asle) {
-                if (asle.getMessage().containsIgnoreCase('No Access')) {
-                    didCatchTheRightException = true;
-                }
+                Assert.isTrue(
+                    asle.getMessage().containsIgnoreCase('No Access')
+                );
             }
         }
-
         Test.stopTest();
-
-        System.Assert.isTrue(
-            didCatchTheRightException,
-            'Expected to have caught a No Access Exception exception'
-        );
     }
 }

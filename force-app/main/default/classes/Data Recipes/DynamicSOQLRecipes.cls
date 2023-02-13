@@ -17,17 +17,16 @@ public with sharing class DynamicSOQLRecipes {
     /**
      * @description demonstrates a simple dynamic SOQL query where the query is
      * defined in Apex
-     * @return List<Account> with security enforced
+     * Note: This method has a false-positive PMD warning. Our Query
+     * does not include any input parameters so SOQL Injection is not possible.
+     * @return List<Account> with security enforced using USER_MODE
      * @example
      * System.debug(DynamicSOQLRecipes.simpleDynamicSOQLQuery());
      **/
+    @SuppressWarnings('PMD.ApexSOQLInjection')
     public static List<Account> simpleDynamicSOQLQuery() {
-        String queryString =
-            'SELECT Id ' +
-            'FROM Account ' +
-            'WITH SECURITY_ENFORCED LIMIT 1 ';
-        String safeQueryString = String.escapeSingleQuotes(queryString);
-        return Database.query(safeQueryString);
+        String queryString = 'SELECT Id FROM Account LIMIT 1';
+        return Database.query(queryString, AccessLevel.USER_MODE);
     }
 
     /**
@@ -40,14 +39,18 @@ public with sharing class DynamicSOQLRecipes {
      * System.debug(DynamicSoqlRecipes.simpleBindingSOQLQuery('hello'))
      **/
     public static List<Account> simpleBindingSOQLQuery(String name) {
+        Map<String, Object> nameBind = new Map<String, Object>{
+            'name' => name
+        };
         String queryString =
             'SELECT Id, Name ' +
             'FROM Account ' +
-            'WHERE name = :name WITH SECURITY_ENFORCED';
-        // Using String.escapeSingleQuotes prevents some aspects of SOQL
-        //Injection!
-        String safeQueryString = String.escapeSingleQuotes(queryString);
-        return Database.query(safeQueryString);
+            'WHERE name = :name';
+        return Database.queryWithBinds(
+            queryString,
+            nameBind,
+            AccessLevel.USER_MODE
+        );
     }
 
     /**
@@ -58,22 +61,23 @@ public with sharing class DynamicSOQLRecipes {
      * @return List<Account>
      * @example
      * Account acct = [SELECT name FROM Account WHERE name = 'hello' LIMIT 1];
-     * Account[] results = DynamicSOQLRecipes.resolvedDynamicFieldsSOQLQuery(acct);
+     * Account[] results = DynamicSOQLRecipes.dynamicFieldsBindingSOQLQuery(acct);
      * System.debug(results);
      **/
-    public static List<Account> resolvedDynamicFieldsSOQLQuery(Account acct) {
-        // Dynamic SOQL cannot resolve fields or properties of an object when
-        // bound. Resolve to a string before binding.
+    public static List<Account> dynamicFieldsBindingSOQLQuery(Account acct) {
+        Map<String, Object> accountNameBind = new Map<String, Object>{
+            'accountName' => acct.Name
+        };
         String accountName = acct.Name;
         String queryString =
             'SELECT Id, Name ' +
             'FROM Account ' +
-            'WHERE Name = :accountName ' +
-            'WITH SECURITY_ENFORCED';
-        // Using String.escapeSingleQuotes prevents some aspects of SOQL
-        // Injection!
-        String safeQueryString = String.escapeSingleQuotes(queryString);
-        return Database.query(safeQueryString);
+            'WHERE Name = :accountName';
+        return Database.queryWithBinds(
+            queryString,
+            accountNameBind,
+            AccessLevel.USER_MODE
+        );
     }
 
     /**
@@ -101,15 +105,14 @@ public with sharing class DynamicSOQLRecipes {
     ) {
         String queryString =
             'SELECT Id, Name FROM Account WHERE NumberOfEmployees > ' +
-            String.valueOf(Integer.valueOf(numberOfRecords)) +
-            ' WITH SECURITY_ENFORCED';
+            String.valueOf(Integer.valueOf(numberOfRecords));
         // Because this query has no bound or concatenated strings,
         // escapeSingleQuotes won't do anything.
         // To safeguard against SOQL injection ensure your method only accepts
         // parameters of the appropriate type. In this method it's an Integer.
         // When building your query string, typecast that to a string with the
         // String.valueOf() method.
-        return Database.query(queryString);
+        return Database.query(queryString, AccessLevel.USER_MODE);
     }
 
     /**
@@ -168,8 +171,7 @@ public with sharing class DynamicSOQLRecipes {
             'SELECT ' +
             fieldList +
             ' FROM Account WHERE ' +
-            String.valueOf(whereClause) +
-            ' WITH SECURITY_ENFORCED';
-        return Database.query(queryString);
+            String.valueOf(whereClause);
+        return Database.query(queryString, AccessLevel.USER_MODE);
     }
 }

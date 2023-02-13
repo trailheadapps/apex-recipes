@@ -90,6 +90,6 @@ public with sharing class StripInaccessibleRecipes {
             accounts
         );
 
-        update securityDecision.getRecords();
+        update as user securityDecision.getRecords();
     }
 }

@@ -15,11 +15,7 @@ public with sharing class PlatformCacheBuilderRecipes implements Cache.CacheBuil
      * @example Account[] accounts = (Account[]) Cache.Session.get(PlatformCacheBuilderRecipes.class, 'myAccounts')
      */
     public Object doLoad(String key) {
-        Account[] accounts = [
-            SELECT Id, Name
-            FROM Account
-            WITH SECURITY_ENFORCED
-        ];
+        Account[] accounts = [SELECT Id, Name FROM Account WITH USER_MODE];
         return accounts;
     }
 }

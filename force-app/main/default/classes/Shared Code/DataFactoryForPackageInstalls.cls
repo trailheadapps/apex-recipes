@@ -27,11 +27,7 @@ public with sharing class DataFactoryForPackageInstalls {
         SObject[] toInsert = new List<SObject>{};
         toInsert.addAll(junction1);
         toInsert.addAll(junction2);
-        if (
-            CanTheUser.create(junction1[0]) && CanTheUser.create(junction2[0])
-        ) {
-            insert toInsert;
-        }
+        insert as user toInsert;
 
         for (Integer i = 0; i < 50; i++) {
             juctionObjs.add(
@@ -41,8 +37,6 @@ public with sharing class DataFactoryForPackageInstalls {
                 )
             );
         }
-        if (CanTheUser.create(juctionObjs[0])) {
-            insert juctionObjs;
-        }
+        insert as user juctionObjs;
     }
 }

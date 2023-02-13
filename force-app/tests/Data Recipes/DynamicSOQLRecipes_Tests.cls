@@ -53,10 +53,10 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
     }
 
     @isTest
-    static void resolvedDynamicFieldsSOQLQueryTestPositive() {
+    static void dynamicFieldsBindingSOQLQueryTestPositive() {
         Account acct = [SELECT Name FROM Account LIMIT 1];
         Test.startTest();
-        List<Account> results = DynamicSOQLRecipes.resolvedDynamicFieldsSOQLQuery(
+        List<Account> results = DynamicSOQLRecipes.dynamicFieldsBindingSOQLQuery(
             acct
         );
         Test.stopTest();

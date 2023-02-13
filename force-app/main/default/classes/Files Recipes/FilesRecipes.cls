@@ -86,11 +86,11 @@ public with sharing class FilesRecipes {
         fileToUpload.FirstPublishLocationId = attachedTo;
         Database.SaveResult saveResult;
         try {
-            saveResult = Database.insert(fileToUpload);
-        } catch (DmlException DMLE) {
+            saveResult = Database.insert(fileToUpload, AccessLevel.USER_MODE);
+        } catch (SecurityException se) {
             System.debug(
                 LoggingLevel.INFO,
-                'Failed to insert fileToUpload, error is: ' + DMLE.getMessage()
+                'Failed to insert fileToUpload, error is: ' + se.getMessage()
             );
         }
         return saveResult;
@@ -132,11 +132,11 @@ public with sharing class FilesRecipes {
 
         List<Database.SaveResult> saveResult = new List<Database.SaveResult>();
         try {
-            saveResult = Database.insert(filesToCreate);
-        } catch (DmlException DMLE) {
+            saveResult = Database.insert(filesToCreate, AccessLevel.USER_MODE);
+        } catch (SecurityException se) {
             System.debug(
                 LoggingLevel.INFO,
-                'Failed to insert filesToUpload, error is: ' + DMLE.getMessage()
+                'Failed to insert filesToUpload, error is: ' + se.getMessage()
             );
         }
         return saveResult;
@@ -147,7 +147,7 @@ public with sharing class FilesRecipes {
      * Filtering by a generic file type: image, audio, document etc.
      *
      * Note: This method has a false-positive PMD warning. Our Query
-     * includes the keyword 'WITH SECURITY_ENFORCED' which prevents this
+     * includes the keyword 'WITH USER_MODE' which prevents this
      * Query from accessing fields and objects that they don't have permission
      * to access. This is a form of inline CRUD/FLS Check.
      *
@@ -164,6 +164,9 @@ public with sharing class FilesRecipes {
         FilesRecipes.GenericFileType genericFileType,
         Id recordId
     ) {
+        Map<String, Object> recordBind = new Map<String, Object>{
+            'recordId' => recordId
+        };
         List<ContentDocumentLink> links = new List<ContentDocumentLink>();
         String queryString =
             'SELECT ContentDocumentId' +
@@ -185,27 +188,23 @@ public with sharing class FilesRecipes {
                 queryString += '';
             }
         }
-        queryString += ' WITH SECURITY_ENFORCED';
-        String safeQueryString = String.valueOf(queryString);
-        links = Database.query(safeQueryString);
+        links = Database.queryWithBinds(
+            queryString,
+            recordBind,
+            AccessLevel.USER_MODE
+        );
 
         Set<Id> fileIds = new Set<Id>();
         for (ContentDocumentLink cdl : links) {
             fileIds.add(cdl.ContentDocumentId);
         }
-        if (CanTheUser.read(new ContentVersion())) {
-            return [
-                SELECT Id, Title
-                FROM ContentVersion
-                WHERE ContentDocumentId IN :fileIds AND IsLatest = TRUE
-                WITH SECURITY_ENFORCED
-                ORDER BY CreatedDate
-            ];
-        } else {
-            throw new FilesRecipes.FilesRecipesException(
-                'User has no Access to ContentVersion'
-            );
-        }
+        return [
+            SELECT Id, Title
+            FROM ContentVersion
+            WHERE ContentDocumentId IN :fileIds AND IsLatest = TRUE
+            WITH USER_MODE
+            ORDER BY CreatedDate
+        ];
     }
 
     /**
@@ -229,17 +228,11 @@ public with sharing class FilesRecipes {
         dist.RelatedRecordId = cdl.LinkedEntityId;
         dist.ContentVersionId = cdl.ContentDocument.LatestPublishedVersionId;
 
-        if (CanTheUser.create(new ContentDistribution())) {
-            try {
-                return Database.insert(dist);
-            } catch (DmlException dmle) {
-                System.debug(LoggingLevel.INFO, dmle.getMessage());
-                throw new FilesRecipesException(dmle.getMessage());
-            }
-        } else {
-            throw new FilesRecipesException(
-                'User has no privileges to create content distribution records'
-            );
+        try {
+            return Database.insert(dist, AccessLevel.USER_MODE);
+        } catch (SecurityException se) {
+            System.debug(LoggingLevel.INFO, se.getMessage());
+            throw new FilesRecipesException(se.getMessage());
         }
     }
 }
