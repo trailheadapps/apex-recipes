@@ -67,7 +67,7 @@ private class Log_Tests {
             ORDER BY Severity__c
         ];
 
-        System.Assert.areEqual(4, events.size(), 'Expected to find 3 records');
+        System.Assert.areEqual(4, events.size(), 'Expected to find 4 records');
 
         for (LogEvent__c logEvt : events) {
             System.Assert.areEqual(
