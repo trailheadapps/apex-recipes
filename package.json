@@ -52,7 +52,7 @@
         "husky": "^8.0.3",
         "jest-canvas-mock": "^2.4.0",
         "lint-staged": "^13.1.1",
-        "prettier": "^2.8.4",
+        "prettier": "^2.8.7",
         "prettier-plugin-apex": "^1.12.0"
     },
     "dependencies": {},
