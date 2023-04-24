@@ -23,8 +23,7 @@ public with sharing class DMLRecipes {
         acct.Name = name;
         try {
             insert acct;
-        }
-        catch (DmlException ex) {
+        } catch (DmlException ex) {
             throw new CustomDMLException('Failed');
         }
     }
@@ -33,7 +32,7 @@ public with sharing class DMLRecipes {
      * @description Demonstrates how to use the insert keyword to persist a
      * net-new record to the database in user mode
      * @param  name name passed through to the name of the created account
-     * @example 
+     * @example
      * DMLRecipes.insertAccountViaInsertKeywordInUserMode('Hello');
      */
     public static void insertAccountViaInsertKeywordInUserMode(String name) {
@@ -41,8 +40,7 @@ public with sharing class DMLRecipes {
         acct.Name = name;
         try {
             insert as user acct;
-        }
-        catch (SecurityException ex) {
+        } catch (SecurityException ex) {
             throw new CustomDMLException('Failed');
         }
     }
@@ -64,7 +62,11 @@ public with sharing class DMLRecipes {
         Account acct = new Account(Name = name);
         Account acct2 = new Account();
         try {
-            Database.insert(new List<Account>{ acct, acct2 }, allOrNothing, accessLevel);
+            Database.insert(
+                new List<Account>{ acct, acct2 },
+                allOrNothing,
+                accessLevel
+            );
             // In user mode a security exception is thrown
             // while in the system mode a DML Exception is thrown
         } catch (SecurityException ex) {
@@ -82,7 +84,9 @@ public with sharing class DMLRecipes {
      * @example
      * DMLRecipes.upsertAccountViaUpsertKeywordInSystemMode(new Account(name='Hello World'));
      **/
-    public static Account upsertAccountViaUpsertKeywordInSystemMode(Account acct) {
+    public static Account upsertAccountViaUpsertKeywordInSystemMode(
+        Account acct
+    ) {
         //Upsert = (up)date or in(sert)
         try {
             upsert acct;
@@ -101,7 +105,9 @@ public with sharing class DMLRecipes {
      * @example
      * DMLRecipes.upsertAccountViaUpsertKeywordInUserMode(new Account(name='Hello World'));
      **/
-    public static Account upsertAccountViaUpsertKeywordInUserMode(Account acct) {
+    public static Account upsertAccountViaUpsertKeywordInUserMode(
+        Account acct
+    ) {
         //Upsert = (up)date or in(sert)
         try {
             upsert as user acct;
@@ -127,7 +133,7 @@ public with sharing class DMLRecipes {
         Boolean allOrNothing,
         System.AccessLevel accessLevel
     ) {
-        try{
+        try {
             Database.UpsertResult results;
             results = Database.upsert(acct, allOrNothing, accessLevel);
             return results;
@@ -148,7 +154,9 @@ public with sharing class DMLRecipes {
      * insert acct;
      * DMLRecipes.updateAcccountViaKeywordInSystemMode(acct);
      **/
-    public static List<Account> updateAcccountViaKeywordInSystemMode(List<Account> accts) {
+    public static List<Account> updateAcccountViaKeywordInSystemMode(
+        List<Account> accts
+    ) {
         for (Account acct : accts) {
             acct.Name += ' Updated via Keyword';
         }
@@ -170,7 +178,9 @@ public with sharing class DMLRecipes {
      * insert acct;
      * DMLRecipes.updateAcccountViaKeyword(acct);
      **/
-    public static List<Account> updateAcccountViaKeywordInUserMode(List<Account> accts) {
+    public static List<Account> updateAcccountViaKeywordInUserMode(
+        List<Account> accts
+    ) {
         for (Account acct : accts) {
             acct.Name += ' Updated via Keyword';
         }
@@ -202,7 +212,7 @@ public with sharing class DMLRecipes {
         }
         try {
             Database.update(accts, accessLevel);
-             // In user mode a security exception is thrown
+            // In user mode a security exception is thrown
             // while in the system mode a DML Exception is thrown
         } catch (SecurityException ex) {
             System.debug(LoggingLevel.INFO, ex.getMessage());
@@ -222,7 +232,9 @@ public with sharing class DMLRecipes {
      * insert accounts;
      * DMLRecipes.deleteAccountViaKeywordInSystemMode(accounts);
      **/
-    public static Void deleteAccountViaKeywordInSystemMode(List<Account> accts) {
+    public static Void deleteAccountViaKeywordInSystemMode(
+        List<Account> accts
+    ) {
         try {
             delete accts;
         } catch (DmlException ex) {
@@ -256,7 +268,10 @@ public with sharing class DMLRecipes {
      * insert accounts in user mode;
      * DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
      **/
-    public static Void deleteAccountViaDatabaseMethod(List<Account> accts, System.AccessLevel accessLevel) {
+    public static Void deleteAccountViaDatabaseMethod(
+        List<Account> accts,
+        System.AccessLevel accessLevel
+    ) {
         try {
             Database.delete(accts, accessLevel);
             // In user mode a security exception is thrown
@@ -279,7 +294,9 @@ public with sharing class DMLRecipes {
      * List<Account> results = DMLRecipes.undeleteAccountViaKeywordInSystemMode(accounts);
      * System.debug(results);
      **/
-    public static List<Account> undeleteAccountViaKeywordInSystemMode(List<Account> accts) {
+    public static List<Account> undeleteAccountViaKeywordInSystemMode(
+        List<Account> accts
+    ) {
         try {
             undelete accts;
         } catch (DmlException dmle) {
@@ -300,7 +317,9 @@ public with sharing class DMLRecipes {
      * List<Account> results = DMLRecipes.undeleteAccountViaKeywordInUserMode(accounts);
      * System.debug(results);
      **/
-    public static List<Account> undeleteAccountViaKeywordInUserMode(List<Account> accts) {
+    public static List<Account> undeleteAccountViaKeywordInUserMode(
+        List<Account> accts
+    ) {
         try {
             undelete as user accts;
         } catch (SecurityException ex) {

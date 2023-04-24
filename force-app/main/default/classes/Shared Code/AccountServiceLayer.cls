@@ -47,7 +47,10 @@ public with sharing class AccountServiceLayer {
      * System.debug([SELECT Name, ShippingStreet FROM Account WHERE id in : accounts]);
      **/
     @SuppressWarnings('PMD.ApexCRUDViolation')
-    public static void changeShippingStreet(List<Account> accounts, System.AccessLevel accessLevel) {
+    public static void changeShippingStreet(
+        List<Account> accounts,
+        System.AccessLevel accessLevel
+    ) {
         List<Account> updated = new List<Account>();
         for (Account account : accounts) {
             Account uAcct = account.clone(true);

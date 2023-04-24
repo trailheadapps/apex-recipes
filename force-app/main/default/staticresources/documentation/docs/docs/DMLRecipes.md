@@ -7,7 +7,7 @@ Demonstrates various ways of making Data Manipulation Language (DML) calls. Note
 
 ---
 ## Methods
-### `deleteAccountViaDatabaseMethod(List<Account> accts, System.AccessLevel accessLevel)` → `Void`
+### `deleteAccountViaDatabaseMethod(List<Account> accts,System.AccessLevel accessLevel)` → `Void`
 
 Deletes a list of accounts via the Database.delete method
 

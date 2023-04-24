@@ -25,36 +25,34 @@ public with sharing class AuraEnabledRecipes {
      * System.debug(AuraEnabledRecipes.updateAccountName(accountId, 'New value set by AuraEnabled method'));
      **/
     public static Boolean updateAccountName(Id accountId, String newValue) {
-            Account acct = [
-                SELECT Id
-                FROM Account
-                WHERE Id = :accountId
-                WITH USER_MODE
-                LIMIT 1
-            ];
-            acct.Name = newValue;
+        Account acct = [
+            SELECT Id
+            FROM Account
+            WHERE Id = :accountId
+            WITH USER_MODE
+            LIMIT 1
+        ];
+        acct.Name = newValue;
 
-            /**
-             * SecurityDecision is a realtively new object type.
-             * It is the result object created when you call
-             * Security.stripInaccessible() Its methods allow you
-             * to, among other things, access a sanitized list of records
-             *
-             * stripInaccessible() requires an AccessType enum, in this
-             * case UPDATABLE, and a list of objects to check.
-             */
-            try {
-                SObjectAccessDecision securityDecision = Security.stripInaccessible(
-                    AccessType.UPDATABLE,
-                    new List<Account>{ acct }
-                );
-                update as user securityDecision.getRecords();
-            } catch (SecurityException se) {
-                throw new AuraHandledException(
-                    'DML Failed: ' + se.getMessage()
-                );
-            }
-            return true;
+        /**
+         * SecurityDecision is a realtively new object type.
+         * It is the result object created when you call
+         * Security.stripInaccessible() Its methods allow you
+         * to, among other things, access a sanitized list of records
+         *
+         * stripInaccessible() requires an AccessType enum, in this
+         * case UPDATABLE, and a list of objects to check.
+         */
+        try {
+            SObjectAccessDecision securityDecision = Security.stripInaccessible(
+                AccessType.UPDATABLE,
+                new List<Account>{ acct }
+            );
+            update as user securityDecision.getRecords();
+        } catch (SecurityException se) {
+            throw new AuraHandledException('DML Failed: ' + se.getMessage());
+        }
+        return true;
     }
 
     @AuraEnabled(cacheable=true)
