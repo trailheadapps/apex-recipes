@@ -11,32 +11,32 @@ echo ""
 
 # Install script
 echo "Cleaning previous scratch org..."
-sfdx force:org:delete -p -u $ORG_ALIAS &> /dev/null
+sf org delete scratch -p -o $ORG_ALIAS &> /dev/null
 echo ""
 
 echo "Creating scratch org..." && \
-sfdx force:org:create -s -f config/project-scratch-def.json -d 30 -a $ORG_ALIAS && \
+sf org create scratch -f config/project-scratch-def.json -a $ORG_ALIAS -d -y 30 && \
 echo "" && \
 
 echo "Pushing source..." && \
-sfdx force:source:push && \
+sf project deploy start && \
 echo "" && \
 
 echo "Assigning permission sets..." && \
-sfdx force:user:permset:assign -n Apex_Recipes && \
+sf org assign permset -n Apex_Recipes && \
 echo "" && \
 
 echo "Importing sample data..." && \
-sfdx force:data:tree:import -p data/data-plan.json && \
-sfdx force:data:tree:import -p data/data-plan2.json && \
+sf data tree import -p data/data-plan.json && \
+sf data tree import -p data/data-plan2.json && \
 echo "" && \
 
 echo "Runing Apex setup script..." && \
-sfdx force:apex:execute --apexcodefile data/setup.apex && \
+sf apex run --file data/setup.apex && \
 echo "" && \
 
 echo "Opening org..." && \
-sfdx force:org:open -p lightning/n/Apex_Recipes && \
+sf org open -p lightning/n/Apex_Recipes && \
 echo ""
 
 EXIT_CODE="$?"

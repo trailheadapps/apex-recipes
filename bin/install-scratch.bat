@@ -10,33 +10,33 @@ echo Installing Apex Recipes scratch org (%ORG_ALIAS%)
 
 rem Install script
 echo Cleaning previous scratch org...
-cmd.exe /c sfdx force:org:delete -p -u %ORG_ALIAS% 2>NUL
+cmd.exe /c sf org delete scratch -p -o %ORG_ALIAS% 2>NUL
 @echo:
 
 echo Creating scratch org...
-cmd.exe /c sfdx force:org:create -s -f config/project-scratch-def.json -d 30 -a %ORG_ALIAS%
+cmd.exe /c sf org create scratch -f config/project-scratch-def.json -a %ORG_ALIAS% -d -y 30
 call :checkForError
 @echo:
 
 echo Pushing source...
-cmd.exe /c sfdx force:source:push
+cmd.exe /c sf project deploy start
 call :checkForError
 @echo:
 
 echo Assigning permission sets...
-cmd.exe /c sfdx force:user:permset:assign -n Apex_Recipes
+cmd.exe /c sf org assign permset -n Apex_Recipes
 call :checkForError
 @echo:
 
 echo Importing sample data...
-cmd.exe /c sfdx force:data:tree:import -p data/data-plan.json
+cmd.exe /c sf data tree import -p data/data-plan.json
 call :checkForError
-cmd.exe /c sfdx force:data:tree:import -p data/data-plan2.json
+cmd.exe /c sf data tree import -p data/data-plan2.json
 call :checkForError
 @echo:
 
 echo Runing Apex setup script...
-cmd.exe /c sfdx force:apex:execute --apexcodefile data/setup.apex
+cmd.exe /c sf apex run --file data/setup.apex
 call :checkForError
 @echo:
 
@@ -45,7 +45,7 @@ rem Report install success if no error
 if ["%errorlevel%"]==["0"] (
   echo Installation completed.
   @echo:
-  cmd.exe /c sfdx force:org:open -p lightning/n/Apex_Recipes
+  cmd.exe /c sf org open -p lightning/n/Apex_Recipes
 )
 
 :: ======== FN ======

@@ -34,7 +34,7 @@ for real world solutions and should relevant to developers of all skill levels. 
 1. If you haven't already done so, authorize with your hub org and provide it with an alias (**myhuborg** in the command below):
 
     ```
-    sfdx auth:web:login -d -a myhuborg
+    sf org login web -d -a myhuborg
     ```
 
 1. Clone the apex-recipes repository:
@@ -47,44 +47,44 @@ for real world solutions and should relevant to developers of all skill levels. 
 1. Create a scratch org and provide it with an alias (**apex-recipes** in the command below):
 
     ```
-    sfdx force:org:create -s -f config/project-scratch-def.json -a apex-recipes
+    sf org create scratch -d -f config/project-scratch-def.json -a apex-recipes
     ```
 
 1. Push the app to your scratch org:
 
     ```
-    sfdx force:source:push
+    sf project deploy start
     ```
 
 1. Assign the **Apex_Recipes** permission set to the default user:
 
     ```
-    sfdx force:user:permset:assign -n Apex_Recipes
+    sf org assign permset -n Apex_Recipes
     ```
 
 1. Assign the **Walkthroughs** permission set to the default user:
 
     ```
-    sfdx force:user:permset:assign -n Walkthroughs
+    sf org assign permset -n Walkthroughs
     ```
 
 1. Import Sample Data
 
     ```
-    sfdx force:data:tree:import -p ./data/data-plan.json
-    sfdx force:data:tree:import -p ./data/data-plan2.json
+    sf data tree import -p ./data/data-plan.json
+    sf data tree import -p ./data/data-plan2.json
     ```
 
 1. Execute the Anonymous Apex setup script
 
     ```
-    sfdx force:apex:execute --apexcodefile data/setup.apex
+    sf apex run --file data/setup.apex
     ```
 
 1. Open the scratch org:
 
     ```
-    sfdx force:org:open
+    sf org open
     ```
 
 1. In App Launcher, select the **Apex Recipes** app.
@@ -145,7 +145,7 @@ Make sure to start from a brand-new environment to avoid conflicts with previous
 1. Authorize with your Trailhead Playground or Developer Edition org and provide it with an alias (**mydevorg** in the command below):
 
     ```
-    sfdx auth:web:login -s -a mydevorg
+    sf org login web -s -a mydevorg
     ```
 
 1. If you are setting up a Developer Edition: go to **Setup**, under **Platform Cache**, and click the "Request Trial Capacity" button. [Request a Platform Cache Trial](https://help.salesforce.com/articleView?id=data_platform_cache_trial.htm&type=5)
@@ -153,32 +153,32 @@ Make sure to start from a brand-new environment to avoid conflicts with previous
 1. Run this command in a terminal to deploy the app.
 
     ```
-    sfdx force:source:deploy -p force-app
+    sf project deploy start -d force-app
     ```
 
 1. Assign the `Apex_Recipes` permission set to the default user.
 
     ```
-    sfdx force:user:permset:assign -n Apex_Recipes
+    sf org assign permset -n Apex_Recipes
     ```
 
 1. Import Sample Data
 
     ```
-    sfdx force:data:tree:import -p ./data/data-plan.json
-    sfdx force:data:tree:import -p ./data/data-plan2.json
+    sf data tree import -p ./data/data-plan.json
+    sf data tree import -p ./data/data-plan2.json
     ```
 
 1. Execute the Anonymous Apex setup script
 
     ```
-    sfdx force:apex:execute --apexcodefile data/setup.apex
+    sf apex run --file data/setup.apex
     ```
 
 1. If your org isn't already open, open it now:
 
     ```
-    sfdx force:org:open -u mydevorg
+    sf org open -o mydevorg
     ```
 
 1. In App Launcher, select the **Apex Recipes** app.
