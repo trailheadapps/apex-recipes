@@ -19,6 +19,11 @@ jobs:
                   echo "$nodeInstallPath/bin" >> $GITHUB_PATH
                   sf --version
 
+            # Install Salesforce CLI packaging plugin
+            - name: 'Install Salesforce CLI packaging plugin'
+              shell: bash
+              run: sf plugins install packaging
+
             # Checkout the source code
             - name: 'Checkout source code'
               uses: actions/checkout@v3

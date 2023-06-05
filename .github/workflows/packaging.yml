@@ -20,6 +20,11 @@ jobs:
                   echo "$nodeInstallPath/bin" >> $GITHUB_PATH
                   sf --version
 
+            # Install Salesforce CLI packaging plugin
+            - name: 'Install Salesforce CLI packaging plugin'
+              shell: bash
+              run: sf plugins install packaging
+
             # Checkout the source code
             - name: 'Checkout source code'
               uses: actions/checkout@v3
@@ -53,7 +58,7 @@ jobs:
                   json=$(sf package version create -p ApexRecipes -x -w 20 -f config/project-scratch-def.json --json)
                   echo $json
                   status=$(echo $json | jq '.status')
-                  if [ $status == "0" ]; then
+                  if [ "$status" == "0" ]; then
                       packageVersionId=$(echo $json | jq -r '.result.SubscriberPackageVersionId')
                       echo "packageVersionId=$packageVersionId" >> $GITHUB_OUTPUT
                   else
