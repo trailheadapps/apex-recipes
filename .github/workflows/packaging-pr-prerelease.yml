@@ -6,6 +6,10 @@ on:
     repository_dispatch:
         types: [start-packaging-pr-prerelease]
 
+defaults:
+    run:
+        shell: sh
+
 # Jobs to be executed
 jobs:
     packaging:
@@ -25,7 +29,6 @@ jobs:
 
             # Store secret for dev hub
             - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
-              shell: bash
               run: |
                   echo ${{ secrets.DEVHUB_SFDX_URL }} > ./DEVHUB_SFDX_URL.txt
                   secretFileSize=$(wc -c "./DEVHUB_SFDX_URL.txt" | awk '{print $1}')
@@ -48,7 +51,7 @@ jobs:
               run: |
                   sf plugins install packaging
                   set +e
-                  json=$(sf package version create -p ApexRecipes -x -w 20 -f config/project-scratch-def.json --json)
+                  json="$(sf package version create -p ApexRecipes -x -w 20 -f config/project-scratch-def.json --json)"
                   set -e
                   echo $json
                   cmdStatus=$(echo $json | jq '.status')
@@ -57,8 +60,8 @@ jobs:
                       echo "packageVersionId=$packageVersionId" >> $GITHUB_OUTPUT
                   else
                       echo "Failed to create package version"
+                      exit 1
                   fi
-                  exit $cmdStatus
 
             # Wait for package replication
             - name: 'Wait for package replication'
