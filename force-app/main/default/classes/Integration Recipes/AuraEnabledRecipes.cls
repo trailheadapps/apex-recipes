@@ -49,8 +49,8 @@ public with sharing class AuraEnabledRecipes {
                 new List<Account>{ acct }
             );
             update as user securityDecision.getRecords();
-        } catch (SecurityException se) {
-            throw new AuraHandledException('DML Failed: ' + se.getMessage());
+        } catch (DmlException dmle) {
+            throw new AuraHandledException('DML Failed: ' + dmle.getMessage());
         }
         return true;
     }

@@ -22,8 +22,8 @@ public with sharing class DMLRecipes {
         Account acct = new Account();
         acct.Name = name;
         try {
-            insert acct;
-        } catch (DmlException ex) {
+            insert as system acct;
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
     }
@@ -40,7 +40,7 @@ public with sharing class DMLRecipes {
         acct.Name = name;
         try {
             insert as user acct;
-        } catch (SecurityException ex) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
     }
@@ -67,11 +67,7 @@ public with sharing class DMLRecipes {
                 allOrNothing,
                 accessLevel
             );
-            // In user mode a security exception is thrown
-            // while in the system mode a DML Exception is thrown
-        } catch (SecurityException ex) {
-            throw new CustomDMLException('Failed');
-        } catch (DmlException ex) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
     }
@@ -89,10 +85,10 @@ public with sharing class DMLRecipes {
     ) {
         //Upsert = (up)date or in(sert)
         try {
-            upsert acct;
-        } catch (DmlException ex) {
-            System.debug(LoggingLevel.INFO, ex.getMessage());
-            throw ex;
+            upsert as system acct;
+        } catch (DmlException DMLe) {
+            System.debug(LoggingLevel.INFO, DMLe.getMessage());
+            throw DMLe;
         }
         return acct;
     }
@@ -111,9 +107,9 @@ public with sharing class DMLRecipes {
         //Upsert = (up)date or in(sert)
         try {
             upsert as user acct;
-        } catch (SecurityException ex) {
-            System.debug(LoggingLevel.INFO, ex.getMessage());
-            throw ex;
+        } catch (DmlException DMLe) {
+            System.debug(LoggingLevel.INFO, DMLe.getMessage());
+            throw DMLe;
         }
         return acct;
     }
@@ -137,9 +133,7 @@ public with sharing class DMLRecipes {
             Database.UpsertResult results;
             results = Database.upsert(acct, allOrNothing, accessLevel);
             return results;
-        } catch (SecurityException ex) {
-            throw new CustomDMLException('Failed');
-        } catch (DmlException ex) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
     }
@@ -161,8 +155,8 @@ public with sharing class DMLRecipes {
             acct.Name += ' Updated via Keyword';
         }
         try {
-            update accts;
-        } catch (DmlException ex) {
+            update as system accts;
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
         return accts;
@@ -186,7 +180,7 @@ public with sharing class DMLRecipes {
         }
         try {
             update as user accts;
-        } catch (SecurityException ex) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
         return accts;
@@ -212,13 +206,8 @@ public with sharing class DMLRecipes {
         }
         try {
             Database.update(accts, accessLevel);
-            // In user mode a security exception is thrown
-            // while in the system mode a DML Exception is thrown
-        } catch (SecurityException ex) {
-            System.debug(LoggingLevel.INFO, ex.getMessage());
-            throw new CustomDMLException('Failed');
-        } catch (DmlException ex) {
-            System.debug(LoggingLevel.INFO, ex.getMessage());
+        } catch (DmlException DMLe) {
+            System.debug(LoggingLevel.INFO, DMLe.getMessage());
             throw new CustomDMLException('Failed');
         }
         return accts;
@@ -236,9 +225,9 @@ public with sharing class DMLRecipes {
         List<Account> accts
     ) {
         try {
-            delete accts;
-        } catch (DmlException ex) {
-            System.debug(LoggingLevel.INFO, ex.getMessage());
+            delete as system accts;
+        } catch (DmlException DMLe) {
+            System.debug(LoggingLevel.INFO, DMLe.getMessage());
             throw new CustomDMLException('Failed');
         }
     }
@@ -254,8 +243,8 @@ public with sharing class DMLRecipes {
     public static Void deleteAccountViaKeywordInUserMode(List<Account> accts) {
         try {
             delete as user accts;
-        } catch (SecurityException ex) {
-            System.debug(LoggingLevel.INFO, ex.getMessage());
+        } catch (DmlException DMLe) {
+            System.debug(LoggingLevel.INFO, DMLe.getMessage());
             throw new CustomDMLException('Failed');
         }
     }
@@ -274,11 +263,7 @@ public with sharing class DMLRecipes {
     ) {
         try {
             Database.delete(accts, accessLevel);
-            // In user mode a security exception is thrown
-            // while in the system mode a DML Exception is thrown
-        } catch (SecurityException ex) {
-            throw new CustomDMLException('Failed');
-        } catch (DmlException ex) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
     }
@@ -298,9 +283,9 @@ public with sharing class DMLRecipes {
         List<Account> accts
     ) {
         try {
-            undelete accts;
-        } catch (DmlException dmle) {
-            System.debug(LoggingLevel.INFO, dmle.getMessage());
+            undelete as system accts;
+        } catch (DmlException DMLe) {
+            System.debug(LoggingLevel.INFO, DMLe.getMessage());
             throw new CustomDMLException('Failed');
         }
         return accts;
@@ -322,8 +307,8 @@ public with sharing class DMLRecipes {
     ) {
         try {
             undelete as user accts;
-        } catch (SecurityException ex) {
-            System.debug(LoggingLevel.INFO, ex.getMessage());
+        } catch (DmlException DMLe) {
+            System.debug(LoggingLevel.INFO, DMLe.getMessage());
             throw new CustomDMLException('Failed');
         }
         return accts;
@@ -346,11 +331,7 @@ public with sharing class DMLRecipes {
     ) {
         try {
             Database.undelete(accts, accessLevel);
-            // In user mode a security exception is thrown
-            // while in the system mode a DML Exception is thrown
-        } catch (SecurityException ex) {
-            throw new CustomDMLException('Failed');
-        } catch (DmlException ex) {
+        } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
         return accts;

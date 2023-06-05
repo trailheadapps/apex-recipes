@@ -26,8 +26,8 @@ private class FormattedRecipeDisplayController_Tests {
                 'Expected the name to equal the input'
             );
             System.Assert.isTrue(
-                result.apiVersion >= 57.0,
-                'Expected the apiVersion to be no earlier than 57.0'
+                result.apiVersion >= 58.0,
+                'Expected the apiVersion to be no earlier than 58.0'
             );
             System.Assert.isNotNull(
                 result.body,
