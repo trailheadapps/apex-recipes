@@ -50,13 +50,11 @@ jobs:
               id: createPackageVersion
               run: |
                   sf plugins install packaging
-                  set +e
                   json="$(sf package version create -p ApexRecipes -x -w 20 -f config/project-scratch-def.json --json)"
-                  set -e
                   echo $json
-                  cmdStatus=$(echo $json | jq '.status')
+                  cmdStatus=$(echo "$json" | jq '.status')
                   if [ $cmdStatus -eq 0 ]; then
-                      packageVersionId=$(echo $json | jq -r '.result.SubscriberPackageVersionId')
+                      packageVersionId=$(echo "$json" | jq -r '.result.SubscriberPackageVersionId')
                       echo "packageVersionId=$packageVersionId" >> $GITHUB_OUTPUT
                   else
                       echo "Failed to create package version"
