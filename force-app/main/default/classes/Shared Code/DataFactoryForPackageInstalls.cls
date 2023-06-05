@@ -1,6 +1,6 @@
 /**
  * @description Class generates data for installation cases where we cannot
- * create example data via a sfdx cli call
+ * create example data via a Salesforce CLI call
  *
  * @group Shared Code
  *
