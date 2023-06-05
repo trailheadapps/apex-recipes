@@ -259,10 +259,10 @@ public class DMLRecipes_Tests {
         Test.startTest();
         try {
             DMLRecipes.upsertAccountViaUpsertKeywordInUserMode(acct);
-            System.Assert.fail('Expected Security Exception');
-        } catch (SecurityException securityException) {
+            System.Assert.fail('Expected DML Exception');
+        } catch (DMLException DMLe) {
             System.Assert.isTrue(
-                securityException.getMessage()
+                DMLe.getMessage()
                     .containsIgnoreCase('invalid cross reference id')
             );
         }
