@@ -46,18 +46,21 @@ jobs:
             - name: 'Remove auth file'
               run: rm -f ./DEVHUB_SFDX_URL.txt
 
+            # Install CLI packaging plugin
+            - name: 'Install CLI packaging plugin'
+              run: sf plugins install packaging
+
             # Create package version and extract its id
             - name: 'Create package version'
               id: createPackageVersion
               run: |
-                  sf plugins install packaging
-                  json=$(sf package version create -p ApexRecipes -x -w 20 -f config/project-scratch-def.json --json)
+                  jsonCliOutput=$(sf package version create -p ApexRecipes -x -w 20 -f config/project-scratch-def.json --json)
                   echo 'Package version create command ran:'
-                  echo "$json"
-                  cmdStatus=$(echo "$json" | jq '.status')
+                  echo $jsonCliOutput
+                  cmdStatus=$(echo $jsonCliOutput | jq '.status')
                   echo $cmdStatus
                   if [ "$cmdStatus" = "0" ]; then
-                      packageVersionId=$(echo "$json" | jq -r '.result.SubscriberPackageVersionId')
+                      packageVersionId=$(echo $jsonCliOutput | jq -r '.result.SubscriberPackageVersionId')
                       echo "packageVersionId=$packageVersionId" >> $GITHUB_OUTPUT
                   else
                       echo "Failed to create package version"
