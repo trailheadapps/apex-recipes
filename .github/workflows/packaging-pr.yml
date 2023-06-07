@@ -54,18 +54,7 @@ jobs:
             - name: 'Create package version'
               id: createPackageVersion
               run: |
-                  jsonCliOutput=$(sf package version create -p ApexRecipes -x -w 20 -f config/project-scratch-def.json --json)
-                  echo 'Package version create command ran:'
-                  echo $jsonCliOutput
-                  cmdStatus=$(echo $jsonCliOutput | jq '.status')
-                  echo $cmdStatus
-                  if [ "$cmdStatus" = "0" ]; then
-                      packageVersionId=$(echo $jsonCliOutput | jq -r '.result.SubscriberPackageVersionId')
-                      echo "packageVersionId=$packageVersionId" >> $GITHUB_OUTPUT
-                  else
-                      echo "Failed to create package version"
-                      exit 1
-                  fi
+                  sf package version create -p ApexRecipes -x -w 20 -f config/project-scratch-def.json --json
 
             # Wait for package replication
             - name: 'Wait for package replication'
