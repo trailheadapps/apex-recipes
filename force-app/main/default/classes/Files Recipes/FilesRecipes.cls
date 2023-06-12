@@ -87,10 +87,10 @@ public with sharing class FilesRecipes {
         Database.SaveResult saveResult;
         try {
             saveResult = Database.insert(fileToUpload, AccessLevel.USER_MODE);
-        } catch (SecurityException se) {
+        } catch (DmlException DMLe) {
             System.debug(
                 LoggingLevel.INFO,
-                'Failed to insert fileToUpload, error is: ' + se.getMessage()
+                'Failed to insert fileToUpload, error is: ' + DMLe.getMessage()
             );
         }
         return saveResult;
@@ -133,10 +133,10 @@ public with sharing class FilesRecipes {
         List<Database.SaveResult> saveResult = new List<Database.SaveResult>();
         try {
             saveResult = Database.insert(filesToCreate, AccessLevel.USER_MODE);
-        } catch (SecurityException se) {
+        } catch (DmlException DMLe) {
             System.debug(
                 LoggingLevel.INFO,
-                'Failed to insert filesToUpload, error is: ' + se.getMessage()
+                'Failed to insert filesToUpload, error is: ' + DMLe.getMessage()
             );
         }
         return saveResult;
@@ -230,9 +230,9 @@ public with sharing class FilesRecipes {
 
         try {
             return Database.insert(dist, AccessLevel.USER_MODE);
-        } catch (SecurityException se) {
-            System.debug(LoggingLevel.INFO, se.getMessage());
-            throw new FilesRecipesException(se.getMessage());
+        } catch (DmlException DMLe) {
+            System.debug(LoggingLevel.INFO, DMLe.getMessage());
+            throw new FilesRecipesException(DMLe.getMessage());
         }
     }
 }
