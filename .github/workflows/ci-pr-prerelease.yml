@@ -114,6 +114,14 @@ jobs:
             - name: 'Push source to scratch org'
               run: sf project deploy start
 
+            # Assign permissionset
+            - name: 'Assign permissionset to default user'
+              run: sf org assign permset -n Apex_Recipes
+
+            # Import sample data
+            - name: 'Import sample data'
+              run: sf data tree import -p data/data-plan.json -p data/data-plan2.json
+
             # Run Apex tests in scratch org
             - name: 'Run Apex tests'
               run: sf apex test run -c -r human -d ./tests/apex -w 20
