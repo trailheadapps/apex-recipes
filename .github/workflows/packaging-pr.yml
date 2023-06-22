@@ -16,6 +16,10 @@ jobs:
     packaging:
         runs-on: trailheadapps-Ubuntu
         steps:
+            # Install Volta to enforce proper node and package manager versions
+            - name: 'Install Volta'
+              uses: volta-cli/action@v4
+
             # Install Salesforce CLI
             - name: 'Install Salesforce CLI'
               run: |
