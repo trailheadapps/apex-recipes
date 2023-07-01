@@ -38,7 +38,7 @@
     },
     "devDependencies": {
         "@cparra/apexdocs": "^1.14.0",
-        "@lwc/eslint-plugin-lwc": "^1.6.2",
+        "@lwc/eslint-plugin-lwc": "^1.6.3",
         "@prettier/plugin-xml": "^2.2.0",
         "@sa11y/jest": "^5.0.1",
         "@salesforce/eslint-config-lwc": "^3.5.0",
