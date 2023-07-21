@@ -60,11 +60,8 @@ jobs:
                   npx wait-on -t 30000 http://127.0.0.1:2117/api/ast/
                   echo 'Running Prettier'
                   npm run prettier:verify:apex:local
-
-            # Stop local Apex parser server for Prettier
-            - name: 'Stop local Apex parser server for Prettier'
-              if: always()
-              run: npm run apex:local:stop
+                  echo 'Stopping Apex language server'
+                  npm run apex:local:stop
 
             # Lint LWC
             - name: 'Lint Lightning Web Components'
