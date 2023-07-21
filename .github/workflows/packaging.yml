@@ -57,7 +57,7 @@ jobs:
               id: createPackageVersion
               run: |
                   sf plugins install packaging
-                  json=$(sf package version create -p ApexRecipes -x -w 20 -f config/project-scratch-def.json --json)
+                  json=$(sf package version create -p ApexRecipes -x --wait 20 -f config/project-scratch-def.json --json)
                   echo $json
                   status=$(echo $json | jq '.status')
                   if [ $status -eq 0 ]; then
