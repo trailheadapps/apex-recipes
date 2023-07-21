@@ -57,7 +57,7 @@ jobs:
                   echo 'Starting Apex language server'
                   nohup npm run apex:local:start >/dev/null 2>&1 &
                   echo 'Waiting on Apex language server'
-                  npx wait-on http://localhost:2117/api/ast/
+                  timeout 30 bash -c 'until printf "" 2>>/dev/null >>/dev/tcp/$0/$1; do sleep 1; done' 127.0.0.1 2117
                   echo 'Running Prettier'
                   npm run prettier:verify:apex:local
 
