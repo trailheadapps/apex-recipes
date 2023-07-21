@@ -54,12 +54,11 @@ jobs:
             # Prettier formatting
             - name: 'Code formatting verification with Prettier'
               run: |
-                  # Start the language server for improved parsing performance,
-                  # and put it in the background so that next commands can be run.
+                  echo 'Starting Apex language server'
                   nohup npm run apex:local:start >/dev/null 2>&1 &
-                  # Wait until the server is up before sending requests
+                  echo 'Waiting on Apex language server'
                   npx wait-on http://localhost:2117/api/ast/
-                  # Prettier formatting check
+                  echo 'Running Prettier'
                   npm run prettier:verify:apex:local
 
             # Stop local Apex parser server for Prettier
