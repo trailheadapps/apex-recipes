@@ -53,11 +53,11 @@ jobs:
 
             # Start local Apex parser server for Prettier
             - name: 'Start local Apex parser server for Prettier'
-              run: npm run apex:local:start &
-
-            # Wait for Apex parser server startup
-            - name: 'Wait for Apex parser server startup'
-              run: timeout 30 bash -c 'until printf "" 2>>/dev/null >>/dev/tcp/$0/$1; do sleep 1; done' 127.0.0.1 2117
+              run: |
+                  echo 'Starting Apex language server'
+                  nohup npm run apex:local:start >/dev/null 2>&1 &
+                  echo 'Waiting on Apex language server'
+                  npx wait-on -t 30000 http://127.0.0.1:2117/api/ast/
 
             # Prettier formatting
             - name: 'Code formatting verification with Prettier'
