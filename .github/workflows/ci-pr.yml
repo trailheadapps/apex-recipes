@@ -51,17 +51,16 @@ jobs:
               if: steps.cache-npm.outputs.cache-hit != 'true'
               run: HUSKY=0 npm ci
 
-            # Start local Apex parser server for Prettier
-            - name: 'Start local Apex parser server for Prettier'
-              run: npm run apex:local:start &
-
-            # Wait for Apex parser server startup
-            - name: 'Wait for Apex parser server startup'
-              run: timeout 30 bash -c 'until printf "" 2>>/dev/null >>/dev/tcp/$0/$1; do sleep 1; done' 127.0.0.1 2117
-
             # Prettier formatting
             - name: 'Code formatting verification with Prettier'
-              run: npm run prettier:verify:apex:local
+              run: |
+                  # Start the language server for improved parsing performance,
+                  # and put it in the background so that next commands can be run.
+                  nohup npm run apex:local:start >/dev/null 2>&1 &
+                  # Wait until the server is up before sending requests
+                  npx wait-on http://localhost:2117/api/ast/
+                  # Prettier formatting check
+                  npm run prettier:verify:apex:local
 
             # Stop local Apex parser server for Prettier
             - name: 'Stop local Apex parser server for Prettier'
