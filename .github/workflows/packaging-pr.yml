@@ -50,11 +50,12 @@ jobs:
             - name: 'Create package version'
               id: createPackageVersion
               run: |
-                  set +e
                   echo 'Creating package version'
-                  json=$(sf package version create -p ApexRecipes -x --wait 20 -f config/project-scratch-def.json --json)
+                  json2=$(sf package version create -p ApexRecipes -x --wait 20 -f config/project-scratch-def.json --json)
                   echo 'Done'
-                  echo "JSON: $json"
+                  echo "JSON: $json2 STOP"
+                  echo "$(<sfdx-project.json)"
+
                   #status=$(echo $json | jq '.status')
                   #if [ $status -eq 0 ]; then
                   #    packageVersionId=$(echo $json | jq -r '.result.SubscriberPackageVersionId')
