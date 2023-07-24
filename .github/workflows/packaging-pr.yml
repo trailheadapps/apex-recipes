@@ -51,9 +51,8 @@ jobs:
               id: createPackageVersion
               run: |
                   echo 'Creating package version'
-                  json=$(sf package version create -p ApexRecipes -x --wait=20 -f config/project-scratch-def.json --json)
+                  sf package version create -p ApexRecipes -x --wait=20 -f config/project-scratch-def.json --json
                   echo 'Done'
-                  echo "JSON: $json STOP"
                   echo "$(<sfdx-project.json)"
 
                   #status=$(echo $json | jq '.status')
