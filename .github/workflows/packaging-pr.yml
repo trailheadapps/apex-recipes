@@ -7,10 +7,6 @@ on:
     repository_dispatch:
         types: [start-packaging-pr]
 
-defaults:
-    run:
-        shell: sh
-
 # Jobs to be executed
 jobs:
     packaging:
@@ -56,8 +52,7 @@ jobs:
               run: |
                   sf plugins install packaging
                   echo 'Creating package version'
-                  sf package version create -p ApexRecipes -x -f config/project-scratch-def.json --json --wait 20 >> package-version-create.json
-                  json=`cat package-version-create.json`
+                  json=$(sf package version create -p ApexRecipes -x --wait 20 -f config/project-scratch-def.json --json)
                   echo 'Done'
                   echo "JSON: $json"
                   #status=$(echo $json | jq '.status')
