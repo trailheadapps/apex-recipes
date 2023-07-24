@@ -50,7 +50,7 @@ jobs:
             - name: 'Create package version'
               id: createPackageVersion
               run: |
-                  sf plugins install packaging
+                  set +e
                   echo 'Creating package version'
                   json=$(sf package version create -p ApexRecipes -x --wait 20 -f config/project-scratch-def.json --json)
                   echo 'Done'
