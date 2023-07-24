@@ -56,7 +56,8 @@ jobs:
               run: |
                   sf plugins install packaging
                   echo 'Creating package version'
-                  json=$(sf package version create -p ApexRecipes -x -f config/project-scratch-def.json --json --wait 20)
+                  sf package version create -p ApexRecipes -x -f config/project-scratch-def.json --json --wait 20 >> package-version-create.json
+                  json=`cat package-version-create.json`
                   echo 'Done'
                   echo "JSON: $json"
                   #status=$(echo $json | jq '.status')
@@ -67,7 +68,7 @@ jobs:
                   #    echo "Failed to create package version"
                   #fi
                   #exit $status
-                  exit 1
+                  exit 666
 
             # Wait for package replication
             - name: 'Wait for package replication'
