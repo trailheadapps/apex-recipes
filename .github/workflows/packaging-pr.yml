@@ -57,14 +57,15 @@ jobs:
                   sf plugins install packaging
                   json=$(sf package version create -p ApexRecipes -x --wait 20 -f config/project-scratch-def.json --json)
                   echo $json
-                  status=$(echo $json | jq '.status')
-                  if [ $status -eq 0 ]; then
-                      packageVersionId=$(echo $json | jq -r '.result.SubscriberPackageVersionId')
-                      echo "packageVersionId=$packageVersionId" >> $GITHUB_OUTPUT
-                  else
-                      echo "Failed to create package version"
-                  fi
-                  exit $status
+                  #status=$(echo $json | jq '.status')
+                  #if [ $status -eq 0 ]; then
+                  #    packageVersionId=$(echo $json | jq -r '.result.SubscriberPackageVersionId')
+                  #    echo "packageVersionId=$packageVersionId" >> $GITHUB_OUTPUT
+                  #else
+                  #    echo "Failed to create package version"
+                  #fi
+                  #exit $status
+                  exit 1
 
             # Wait for package replication
             - name: 'Wait for package replication'
