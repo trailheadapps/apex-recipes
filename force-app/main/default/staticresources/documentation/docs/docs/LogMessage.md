@@ -1,65 +1,74 @@
 ---
 layout: default
 ---
-# LogMessage class
+# LogMessage
 
-A class for automatically attaching metadata to log messages like Quiddity and RequestID
+A class for automatically attaching metadata to log messages
+like Quiddity and RequestID
 
----
+
+**Group** Shared Code
+
 ## Constructors
-### `LogMessage(String message)`
+### `public LogMessage(String message)`
 
 Constructor accepting a message to log. Severity is auto set to info
+
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`` | e |
+|Param|Description|
+|---|---|
+|`message`||
 
-### `LogMessage(Exception ex)`
+### `public LogMessage(Exception ex)`
 
 Constructor accepting an exception object.
+
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`` | x |
+|Param|Description|
+|---|---|
+|`ex`||
+
+---
+## Fields
+
+### `private EXCEPTION_STRING_FORMAT` → `String`
+
 
 ---
 ## Properties
 
-### `EXCEPTION_STRING_FORMAT` → `String`
+### `public message` → `String`
 
-### `message` → `String`
 
 Public message property.
 
-### `quiddity` → `Quiddity`
+### `public quiddity` → `Quiddity`
+
 
 Public read only property for quiddity. Privately set.
 
-### `requestId` → `String`
+### `public requestId` → `String`
+
 
 public read only property for the request ID. Privately set.
 
-### `severity` → `LogSeverity`
+### `public severity` → `LogSeverity`
+
 
 Public severity property.
 
 ---
 ## Methods
-### `toEvent()` → `Log__e`
+### `public toEvent()`
 
 converts this object to an event for publishing
 
-#### Return
+#### Returns
 
-**Type**
-
-Log__e
-
-**Description**
-
-`SObject`
+|Type|Description|
+|---|---|
+|Log__e|`SObject`|
 
 ---

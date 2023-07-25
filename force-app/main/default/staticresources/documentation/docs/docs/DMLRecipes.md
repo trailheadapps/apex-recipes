@@ -1,160 +1,278 @@
 ---
 layout: default
 ---
-# DMLRecipes class
+# DMLRecipes
 
-Demonstrates various ways of making Data Manipulation Language (DML) calls. Note that this class demonstrates both Database.* methods as well as DML Keywords.
+Demonstrates various ways of making Data Manipulation Language
+(DML) calls. Note that this class demonstrates both Database.* methods as
+well as DML Keywords.
 
----
+
+**Group** Data Recipes
+
 ## Methods
-### `deleteAccountViaDatabaseMethod(List<Account> accts,System.AccessLevel accessLevel)` → `Void`
-
-Deletes a list of accounts via the Database.delete method
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`accts` |  List of Accounts to delete |
-
-#### Example
-```java
-List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
-insert accounts in user mode;
-DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
-```
-
-### `deleteAccountViaKeywordInSystemMode(List<Account> accts)` → `Void`
-
-Deletes a list of accounts via the delete DML keyword
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`accts` |  list of accounts to delete in system mode |
-
-#### Example
-```java
-List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
-insert accounts;
-DMLRecipes.deleteAccountViaKeywordInSystemMode(accounts);
-```
-
-### `deleteAccountViaKeywordInUserMode(List<Account> accts)` → `Void`
-
-Deletes a list of accounts via the delete DML keyword
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`accts` |  list of accounts to delete in user mode |
-
-#### Example
-```java
-List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
-insert accounts;
-DMLRecipes.deleteAccountViaKeywordInUserMode(accounts);
-```
-
-### `insertAccountViaInsertKeywordInSystemMode(String name)` → `void`
+### `public static insertAccountViaInsertKeywordInSystemMode(String name)`
 
 Demonstrates how to use the insert keyword to persist a net-new record to the database in system mode
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`name` |  name passed through to the name of the created account |
+|Param|Description|
+|---|---|
+|`name`|name passed through to the name of the created account|
 
 #### Example
-```java
+```apex
 DMLRecipes.insertAccountViaInsertKeywordInSystemMode('Hello');
 ```
 
-### `insertAccountViaInsertKeywordInUserMode(String name)` → `void`
+
+### `public static insertAccountViaInsertKeywordInUserMode(String name)`
 
 Demonstrates how to use the insert keyword to persist a net-new record to the database in user mode
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`name` |  name passed through to the name of the created account |
+|Param|Description|
+|---|---|
+|`name`|name passed through to the name of the created account|
 
 #### Example
-```java
+```apex
 DMLRecipes.insertAccountViaInsertKeywordInUserMode('Hello');
 ```
 
-### `insertAccountsViaDatabaseMethod(String name,Boolean allOrNothing,System.AccessLevel accessLevel)` → `void`
+
+### `public static insertAccountsViaDatabaseMethod(String name, Boolean allOrNothing, System accessLevel)`
 
 Demonstrates how to use the Database.insert() method to persist a net-new record to the database.
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`name` |          name Passed through to the account created |
-|`allOrNothing` |  allOrNothing determines whether or not all accounts |
+|Param|Description|
+|---|---|
+|`name`|name Passed through to the account created|
+|`allOrNothing`|allOrNothing determines whether or not all accounts to be inserted must insert successfully|
 
 #### Example
-```java
+```apex
 DMLRecipes.insertAccountsViaDatabaseMethod('Hello', false, AccessLevel.USER_MODE);
 ```
 
-### `undeleteAccountViaDatabaseMethod(List<Account> accts,System.AccessLevel accessLevel)` → `List<Account>`
 
-undeletes a list of accounts via the Database.undelete method.
+### `public static upsertAccountViaUpsertKeywordInSystemMode(Account acct)`
+
+Demonstrates the use of the upsert keyword to either insert or update a record in system mode
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`accts` |  list of accounts to undelete |
+|Param|Description|
+|---|---|
+|`acct`|account to upsert|
 
-#### Return
+#### Returns
 
-**Type**
-
-List&lt;Account&gt;
-
-**Description**
-
-List&lt;Account&gt;
+|Type|Description|
+|---|---|
+|Account|Account|
 
 #### Example
-```java
+```apex
+DMLRecipes.upsertAccountViaUpsertKeywordInSystemMode(new Account(name='Hello World'));
+```
+
+
+### `public static upsertAccountViaUpsertKeywordInUserMode(Account acct)`
+
+Demonstrates the use of the upsert keyword to either insert or update a record in user mode
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`acct`|account to upsert|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|Account|Account|
+
+#### Example
+```apex
+DMLRecipes.upsertAccountViaUpsertKeywordInUserMode(new Account(name='Hello World'));
+```
+
+
+### `public static upsertAccountViaDatabaseMethod(Account acct, Boolean allOrNothing, System accessLevel)`
+
+Upserts an account with a potential of all or nothing, using the Database.upsert method
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`acct`|The account object to upsert|
+|`allOrNothing`|all or nothing flag|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|Database|UpsertResult|
+
+#### Example
+```apex
+DMLRecipes.upsertAccountViaDatabaseMethod(
+           new Account(name='Hello World'), false, AccessLevel.USER_MODE);
+```
+
+
+### `public static updateAcccountViaKeywordInSystemMode(List<Account> accts)`
+
+Demonstrates how to Update a list of accounts via the Update DML keyword in System Mode
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`accts`|List of accounts to update|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|List<Account>|List<Account>|
+
+#### Example
+```apex
+Account acct = new Account(name='Hello World');
+insert acct;
+DMLRecipes.updateAcccountViaKeywordInSystemMode(acct);
+```
+
+
+### `public static updateAcccountViaKeywordInUserMode(List<Account> accts)`
+
+Demonstrates how to Update a list of accounts via the Update DML keyword
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`accts`|List of accounts to update|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|List<Account>|List<Account>|
+
+#### Example
+```apex
+Account acct = new Account(name='Hello World');
+insert acct;
+DMLRecipes.updateAcccountViaKeyword(acct);
+```
+
+
+### `public static updateAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
+
+Demonstrates how to update a list of accounts via the Database.update() method
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`accts`|list of accounts to update|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|List<Account>|List<Account>|
+
+#### Example
+```apex
 List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
 insert accounts;
-delete accounts;
-List<Account> results = DMLRecipes.undeleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
+List<Account> results = DMLRecipes.updateAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 System.debug(results);
 ```
 
-### `undeleteAccountViaKeywordInSystemMode(List<Account> accts)` → `List<Account>`
+
+### `public static deleteAccountViaKeywordInSystemMode(List<Account> accts)`
+
+Deletes a list of accounts via the delete DML keyword
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`accts`|list of accounts to delete in system mode|
+
+#### Example
+```apex
+List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
+insert accounts;
+DMLRecipes.deleteAccountViaKeywordInSystemMode(accounts);
+```
+
+
+### `public static deleteAccountViaKeywordInUserMode(List<Account> accts)`
+
+Deletes a list of accounts via the delete DML keyword
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`accts`|list of accounts to delete in user mode|
+
+#### Example
+```apex
+List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
+insert accounts;
+DMLRecipes.deleteAccountViaKeywordInUserMode(accounts);
+```
+
+
+### `public static deleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
+
+Deletes a list of accounts via the Database.delete method
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`accts`|List of Accounts to delete|
+
+#### Example
+```apex
+List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
+insert accounts in user mode;
+DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
+```
+
+
+### `public static undeleteAccountViaKeywordInSystemMode(List<Account> accts)`
 
 Undeletes a list of accounts via the undelete DML keyword
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`accts` |  List of accounts to undelete in user mode |
+|Param|Description|
+|---|---|
+|`accts`|List of accounts to undelete in user mode|
 
-#### Return
+#### Returns
 
-**Type**
-
-List&lt;Account&gt;
-
-**Description**
-
-List&lt;Account&gt;
+|Type|Description|
+|---|---|
+|List<Account>|List<Account>|
 
 #### Example
-```java
+```apex
 List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
 insert accounts;
 delete accounts;
@@ -162,28 +280,25 @@ List<Account> results = DMLRecipes.undeleteAccountViaKeywordInSystemMode(account
 System.debug(results);
 ```
 
-### `undeleteAccountViaKeywordInUserMode(List<Account> accts)` → `List<Account>`
+
+### `public static undeleteAccountViaKeywordInUserMode(List<Account> accts)`
 
 Undeletes a list of accounts via the undelete DML keyword
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`accts` |  List of accounts to undelete in user mode |
+|Param|Description|
+|---|---|
+|`accts`|List of accounts to undelete in user mode|
 
-#### Return
+#### Returns
 
-**Type**
-
-List&lt;Account&gt;
-
-**Description**
-
-List&lt;Account&gt;
+|Type|Description|
+|---|---|
+|List<Account>|List<Account>|
 
 #### Example
-```java
+```apex
 List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
 insert accounts;
 delete accounts;
@@ -191,170 +306,44 @@ List<Account> results = DMLRecipes.undeleteAccountViaKeywordInUserMode(accounts)
 System.debug(results);
 ```
 
-### `updateAcccountViaKeywordInSystemMode(List<Account> accts)` → `List<Account>`
 
-Demonstrates how to Update a list of accounts via the Update DML keyword in System Mode
+### `public static undeleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
 
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`accts` |  List of accounts to update |
-
-#### Return
-
-**Type**
-
-List&lt;Account&gt;
-
-**Description**
-
-List&lt;Account&gt;
-
-#### Example
-```java
-Account acct = new Account(name='Hello World');
-insert acct;
-DMLRecipes.updateAcccountViaKeywordInSystemMode(acct);
-```
-
-### `updateAcccountViaKeywordInUserMode(List<Account> accts)` → `List<Account>`
-
-Demonstrates how to Update a list of accounts via the Update DML keyword
+undeletes a list of accounts via the Database.undelete method.
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`accts` |  List of accounts to update |
+|Param|Description|
+|---|---|
+|`accts`|list of accounts to undelete|
 
-#### Return
+#### Returns
 
-**Type**
-
-List&lt;Account&gt;
-
-**Description**
-
-List&lt;Account&gt;
+|Type|Description|
+|---|---|
+|List<Account>|List<Account>|
 
 #### Example
-```java
-Account acct = new Account(name='Hello World');
-insert acct;
-DMLRecipes.updateAcccountViaKeyword(acct);
-```
-
-### `updateAccountViaDatabaseMethod(List<Account> accts,System.AccessLevel accessLevel)` → `List<Account>`
-
-Demonstrates how to update a list of accounts via the Database.update() method
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`accts` |  list of accounts to update |
-
-#### Return
-
-**Type**
-
-List&lt;Account&gt;
-
-**Description**
-
-List&lt;Account&gt;
-
-#### Example
-```java
+```apex
 List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
 insert accounts;
-List<Account> results = DMLRecipes.updateAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
+delete accounts;
+List<Account> results = DMLRecipes.undeleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 System.debug(results);
 ```
 
-### `upsertAccountViaDatabaseMethod(Account acct,Boolean allOrNothing,System.AccessLevel accessLevel)` → `Database.UpsertResult`
-
-Upserts an account with a potential of all or nothing, using the Database.upsert method
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`acct` |  The account object to upsert |
-|`allOrNothing` |  all or nothing flag |
-
-#### Return
-
-**Type**
-
-Database.UpsertResult
-
-**Description**
-
-UpsertResult
-
-#### Example
-```java
-DMLRecipes.upsertAccountViaDatabaseMethod(
-           new Account(name='Hello World'), false, AccessLevel.USER_MODE);
-```
-
-### `upsertAccountViaUpsertKeywordInSystemMode(Account acct)` → `Account`
-
-Demonstrates the use of the upsert keyword to either insert or update a record in system mode
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`acct` |  account to upsert |
-
-#### Return
-
-**Type**
-
-Account
-
-**Description**
-
-Account
-
-#### Example
-```java
-DMLRecipes.upsertAccountViaUpsertKeywordInSystemMode(new Account(name='Hello World'));
-```
-
-### `upsertAccountViaUpsertKeywordInUserMode(Account acct)` → `Account`
-
-Demonstrates the use of the upsert keyword to either insert or update a record in user mode
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`acct` |  account to upsert |
-
-#### Return
-
-**Type**
-
-Account
-
-**Description**
-
-Account
-
-#### Example
-```java
-DMLRecipes.upsertAccountViaUpsertKeywordInUserMode(new Account(name='Hello World'));
-```
 
 ---
-## Inner Classes
+## Classes
+### CustomDMLException
 
-### DMLRecipes.CustomDMLException class
+This exception is for throwing a custom exception to
+highlight how negative tests operate.
 
-This exception is for throwing a custom exception to highlight how negative tests operate.
+
+**Inheritance**
+
+CustomDMLException
+
 
 ---

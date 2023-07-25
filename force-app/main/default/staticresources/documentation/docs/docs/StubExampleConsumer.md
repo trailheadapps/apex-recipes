@@ -1,15 +1,20 @@
 ---
 layout: default
 ---
-# StubExampleConsumer class
----
+# StubExampleConsumer
 ## Constructors
-### `StubExampleConsumer(StubExample stub)`
+### `public StubExampleConsumer(StubExample stub)`
+---
+## Fields
+
+### `private stub` → `StubExample`
+
+
 ---
 ## Methods
-### `getGreeting()` → `String`
-### `getIsTrue()` → `Boolean`
-### `setGreeting(String greeting)` → `void`
-### `setGreeting(Integer someInt)` → `void`
-### `setGreeting(Boolean someBoolean)` → `void`
+### `public getIsTrue()`
+### `public getGreeting()`
+### `public setGreeting(String greeting)`
+### `public setGreeting(Integer someInt)`
+### `public setGreeting(Boolean someBoolean)`
 ---

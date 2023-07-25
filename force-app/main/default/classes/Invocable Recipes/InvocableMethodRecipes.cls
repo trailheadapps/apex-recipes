@@ -14,7 +14,7 @@ public with sharing class InvocableMethodRecipes {
     }
 
     /**
-     *  @description inner class that represents an incoming search request
+     * @description inner class that represents an incoming search request
      */
     public class ContactSearchRequest {
         @InvocableVariable(
@@ -26,7 +26,7 @@ public with sharing class InvocableMethodRecipes {
     }
 
     /**
-     *  @description Represents the output from the invocable method
+     * @description Represents the output from the invocable method
      */
     public class ContactSearchResult {
         @InvocableVariable(

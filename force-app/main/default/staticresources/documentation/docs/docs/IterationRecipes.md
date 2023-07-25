@@ -1,48 +1,41 @@
 ---
 layout: default
 ---
-# IterationRecipes class
+# IterationRecipes
 
 Demonstrates how to iterate on lists and sets
 
-## Related
 
-[IterableApiClient](https://github.com/trailheadapps/apex-recipes/wiki/IterableApiClient.md)
+**Group** Collection Recipes
 
----
+
+**See** [IterableApiClient](../Miscellaneous/IterableApiClient.md)
+
 ## Methods
-### `iterableApiClientRecipe()` → `List<String>`
+### `public static iterateOnAccountList(List<Account> accounts)`
 
-Demonstrates how to use a REST API client that leverages the Iterator interface. This example iterates on a paginated record list. Records are represented as strings for simplicity. Remote records are retrieved on the fly by IterableApiClient when the Iterator is accessed.
-
-#### Return
-
-**Type**
-
-List&lt;String&gt;
-
-**Description**
-
-List&lt;String&gt; the &apos;records&apos; retrieved
-
-### `iterateOnAccountList(List<Account> accounts)` → `Integer`
-
-Demonstrates how to iterate on a list of SObject thanks to the Iterable and Iterator interfaces. This example iterates on Accounts to sum the &apos;number of employees&apos; field values (use the `SUM` SOQL function for a real-life application).
+Demonstrates how to iterate on a list of SObject thanks to the Iterable and Iterator interfaces. This example iterates on Accounts to sum the 'number of employees' field values (use the `SUM` SOQL function for a real-life application).
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`accounts` |  a list of accounts that will be iterated on |
+|Param|Description|
+|---|---|
+|`accounts`|a list of accounts that will be iterated on|
 
-#### Return
+#### Returns
 
-**Type**
+|Type|Description|
+|---|---|
+|Integer|Integer the total number of employees for the accounts|
 
-Integer
+### `public static iterableApiClientRecipe()`
 
-**Description**
+Demonstrates how to use a REST API client that leverages the Iterator interface. This example iterates on a paginated record list. Records are represented as strings for simplicity. Remote records are retrieved on the fly by IterableApiClient when the Iterator is accessed.
 
-Integer the total number of employees for the accounts
+#### Returns
+
+|Type|Description|
+|---|---|
+|List<String>|List<String> the 'records' retrieved|
 
 ---

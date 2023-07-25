@@ -1,64 +1,151 @@
 ---
 layout: default
 ---
-# AccountTriggerHandler class
+# AccountTriggerHandler
 
-Demonstrates how to construct a TriggerHandler using the trigger handler framework found in Shared Code/TriggerHandler.cls
+Demonstrates how to construct a TriggerHandler using the
+trigger handler framework found in Shared Code/TriggerHandler.cls
 
-## Related
 
-TriggerHandler, AccountServiceLayer
+**Inheritance**
 
----
+[TriggerHandler](../Shared-Code/TriggerHandler.md)
+ &gt; 
+AccountTriggerHandler
+
+
+**Group** Trigger Recipes
+
+
+**See** [TriggerHandler, AccountServiceLayer](TriggerHandler, AccountServiceLayer)
+
 ## Constructors
-### `AccountTriggerHandler()`
+### `public AccountTriggerHandler()`
 
 Constructor that sets class variables based on Trigger context vars
+
 ---
-## Properties
+## Fields
 
-### `circuitBreaker` → `Exception`
+### `private circuitBreaker` → `Exception`
 
-### `triggerMapNew` → `Map<Id, Account>`
+`TESTVISIBLE` 
 
-### `triggerMapOld` → `Map<Id, Account>`
+### `protected context` → `TriggerContext`
 
-### `triggerNew` → `List<Account>`
+*Inherited*
+`TESTVISIBLE` 
 
-### `triggerOld` → `List<Account>`
+### `private triggerMapNew` → `Map<Id,Account>`
+
+
+### `private triggerMapOld` → `Map<Id,Account>`
+
+
+### `private triggerNew` → `List<Account>`
+
+
+### `private triggerOld` → `List<Account>`
+
 
 ---
 ## Methods
-### `afterDelete()` → `void`
+### `public override beforeInsert()`
 
-after delete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn&apos;t make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
-
-#### Example
-```java
-Account[] accounts = new Account[]();
-accounts.add(new Account(name='example 1'));
-insert accounts;
-delete accounts;
-```
-
-### `afterInsert()` → `void`
-
-after insert context method. Called automatically by the trigger framework this class extends
+Before Insert context method. Called automatically by the trigger framework this class extends.
 
 #### Example
-```java
+```apex
 Account[] accounts = new Account[]();
 accounts.add(new Account(name='example 1'));
 accounts.add(new Account(name='example 2'));
 insert accounts;
 ```
 
-### `afterUndelete()` → `void`
 
-after undelete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn&apos;t make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+### `public override afterInsert()`
+
+after insert context method. Called automatically by the trigger framework this class extends
 
 #### Example
-```java
+```apex
+Account[] accounts = new Account[]();
+accounts.add(new Account(name='example 1'));
+accounts.add(new Account(name='example 2'));
+insert accounts;
+```
+
+
+### `public override beforeUpdate()`
+
+before update context method. Called automatically by the trigger framework this class extends
+
+#### Example
+```apex
+Account[] accounts = new Account[]();
+accounts.add(new Account(name='example 1'));
+accounts.add(new Account(name='example 2'));
+insert accounts;
+accounts[0].name += ' Updated';
+update accounts;
+```
+
+
+### `public override afterUpdate()`
+
+`SUPPRESSWARNINGS`
+
+after update context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn't make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+
+#### Example
+```apex
+Account[] accounts = new Account[]();
+accounts.add(new Account(name='example 1'));
+accounts.add(new Account(name='example 2'));
+insert accounts;
+accounts[0].name += ' Updated';
+update accounts;
+```
+
+
+### `public override beforeDelete()`
+
+`SUPPRESSWARNINGS`
+
+before delete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn't make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+
+#### Example
+```apex
+Account[] accounts = new Account[]();
+accounts.add(new Account(name='example 1'));
+insert accounts;
+delete accounts;
+```
+
+
+### `public override afterDelete()`
+
+`SUPPRESSWARNINGS`
+
+after delete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn't make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+
+#### Example
+```apex
+Account[] accounts = new Account[]();
+accounts.add(new Account(name='example 1'));
+insert accounts;
+delete accounts;
+```
+
+
+### `public override afterUndelete()`
+
+`SUPPRESSWARNINGS`
+
+after undelete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn't make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+
+#### Example
+```apex
 Account[] accounts = new Account[]();
 accounts.add(new Account(name='example 1'));
 insert accounts;
@@ -66,63 +153,176 @@ delete accounts;
 undelete accounts;
 ```
 
-### `afterUpdate()` → `void`
 
-after update context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn&apos;t make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+### `public run()`
 
-#### Example
-```java
-Account[] accounts = new Account[]();
-accounts.add(new Account(name='example 1'));
-accounts.add(new Account(name='example 2'));
-insert accounts;
-accounts[0].name += ' Updated';
-update accounts;
-```
+*Inherited*
 
-### `beforeDelete()` → `void`
 
-before delete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn&apos;t make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+This is main brokering method that is called by the trigger. It's responsible for determining the proper context, and calling the correct method
 
 #### Example
-```java
-Account[] accounts = new Account[]();
-accounts.add(new Account(name='example 1'));
-insert accounts;
-delete accounts;
+```apex
+AccountTriggerHandler.run();
 ```
 
-### `beforeInsert()` → `void`
 
-Before Insert context method. Called automatically by the trigger framework this class extends.
+### `public setMaxLoopCount(Integer max)`
+
+*Inherited*
+
+
+Allows developers to prevent trigger loops, or allow a limited number of them by setting the maximum number of times this trigger is called.
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`max`|A valid number (generally 1) of times you'd like to allow the trigger to run.|
 
 #### Example
-```java
-Account[] accounts = new Account[]();
-accounts.add(new Account(name='example 1'));
-accounts.add(new Account(name='example 2'));
-insert accounts;
+```apex
+In the context of a TriggerHandler class,
+this.setMaxLoopCount(5);
 ```
 
-### `beforeUpdate()` → `void`
 
-before update context method. Called automatically by the trigger framework this class extends
+### `public clearMaxLoopCount()`
+
+*Inherited*
+
+
+Allows developers to turn off the max loop count
 
 #### Example
-```java
-Account[] accounts = new Account[]();
-accounts.add(new Account(name='example 1'));
-accounts.add(new Account(name='example 2'));
-insert accounts;
-accounts[0].name += ' Updated';
-update accounts;
+```apex
+In the context of a TriggerHandler class,
+this.clearMaxLoopCount();
 ```
+
+
+### `public static bypass(String handlerName)`
+
+*Inherited*
+
+
+Allows developers to conditionally bypass (disable) other triggers that *also* implement this triggerHandler
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`handlerName`|Class name (String) of the trigger handler to bypass|
+
+#### Example
+```apex
+TriggerHandler.bypass('AccountTriggerHandler');
+```
+
+
+### `public static clearBypass(String handlerName)`
+
+*Inherited*
+
+
+Removes a given trigger handler class name from the list of bypassed trigger handlers.
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`handlerName`|Handler class name to remove from the bypass list|
+
+#### Example
+```apex
+TriggerHandler.clearBypass('AccountTriggerHandler');
+```
+
+
+### `public static isBypassed(String handlerName)`
+
+*Inherited*
+
+
+Allows developers to check whether a given trigger handler class is currently bypassed.
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`handlerName`|The name of the trigger handler class to check for|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|Boolean|`Boolean`|
+
+#### Example
+```apex
+TriggerHandler.isBypassed('AccountTriggerHandler');
+```
+
+
+### `public static clearAllBypasses()`
+
+*Inherited*
+
+
+removes all classes from the bypass list
+
+#### Example
+```apex
+Triggerhandler.clearAllBypasses();
+```
+
+
+### `protected addToLoopCount()`
+
+*Inherited*
+
+
+`TESTVISIBLE`
+
+increment the loop count
+
+#### Throws
+
+|Exception|Description|
+|---|---|
+|`Throws`|loop count exception if the max loop count is reached|
+
+### `protected validateRun()`
+
+*Inherited*
+
+
+`TESTVISIBLE`
+
+make sure this trigger should continue to run
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|Boolean|`Boolean`|
+
+#### Throws
+
+|Exception|Description|
+|---|---|
+|`TriggerHandlerException`|thrown when executing outside of a trigger|
 
 ---
-## Inner Classes
-
-### AccountTriggerHandler.AccountTriggerHandlerException class
+## Classes
+### AccountTriggerHandlerException
 
 Custom exception class
+
+
+**Inheritance**
+
+AccountTriggerHandlerException
+
 
 ---

@@ -1,23 +1,30 @@
 ---
 layout: default
 ---
-# SObjectStringFieldComparator class
+# SObjectStringFieldComparator
 
- Comparator that lets you sort a list of SObject alphabetically based on a String field. @example ListUtils.sort(accounts, new SObjectStringFieldComparator(&apos;ShippingCountry&apos;)); Tip: don&apos;t use this to sort by Name as SObjects are already sorted by Name by default when calling List&lt;SObject&gt;.sort()
+Comparator that lets you sort a list of SObject alphabetically based on a String field.
 
-## Related
 
-[ListUtils](https://github.com/trailheadapps/apex-recipes/wiki/ListUtils.md)
+**Implemented types**
 
----
+[ListUtils.Comparator](ListUtils.Comparator)
+
+
+**Group** Shared Code
+
+
+**See** [ListUtils](./ListUtils.md)
+
 ## Constructors
-### `SObjectStringFieldComparator(String fieldName)`
+### `public SObjectStringFieldComparator(String fieldName)`
 ---
-## Properties
+## Fields
 
-### `fieldName` → `String`
+### `private fieldName` → `String`
+
 
 ---
 ## Methods
-### `compare(Object o1, Object o2)` → `Integer`
+### `public compare(Object o1, Object o2)`
 ---

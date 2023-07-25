@@ -1,8 +1,10 @@
 ---
 layout: default
 ---
-# LogSeverity enum
+# LogSeverity
 
-A top-level severity enum for Log, and LogMessage to use. @group Shared Code
+A top-level severity enum for Log, and LogMessage to use.
 
----
+
+**Group** Shared Code
+

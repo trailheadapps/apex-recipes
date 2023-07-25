@@ -1,96 +1,107 @@
 ---
 layout: default
 ---
-# RecipeTreeViewController class
+# RecipeTreeViewController
 
-Provides the necessary data to populate a lightning-tree base component with recipe and group information
+Provides the necessary data to populate a lightning-tree base
+component with recipe and group information
 
-## Related
 
-[ApexClassUtilities](https://github.com/trailheadapps/apex-recipes/wiki/ApexClassUtilities.md)
+**Group** Shared Code
 
----
-## Properties
 
-### `APEXRECIPESIDENTIFICATIONTAG` → `String`
+**See** [ApexClassUtilities](./ApexClassUtilities.md)
+
+## Fields
+
+### `private APEXRECIPESIDENTIFICATIONTAG` → `String`
+
 
 The String here represents a relatively unique tag that Apex Recipe uses to help group related classes.
 
-### `groupToListOfNames` → `List<String>>`
+### `private groupToListOfNames` → `Map<String,List<String>>`
+
 
 ---
 ## Methods
-### `generateMapOfGroupToListOfNames()` → `List<String>>`
+### `public static generateTreeData()`
 
-Generates a map containing Group names as the Keys tied to a List of class names. Note: this method contains a false-positive PMD violation. Normally, we&apos;d want to check for FLS/CRUD here, but for ApexClass a system level object that Admins and users cannot really change we&apos;re ok.
-
-#### Return
-
-**Type**
-
-List&lt;String&gt;&gt;
-
-**Description**
-
-`Map&lt;String, List&lt;String&gt;&gt;`
-
-### `generateTreeData()` → `List<RecipeTreeData>`
+`AURAENABLED`
 
 Generates a recursive list of RecipeTreeData objects to feed to a Lightning-tree-view component. Importantly, the returning array has two RecipeTreeData objects - One for Recipes, the other for our supporting, shared code.
 
-#### Return
+#### Returns
 
-**Type**
-
-List&lt;RecipeTreeData&gt;
-
-**Description**
-
-`List&lt;RecipeTreeData&gt;`
+|Type|Description|
+|---|---|
+|List<RecipeTreeData>|`List<RecipeTreeData>`|
 
 #### Example
-```java
+```apex
 System.debug(RecipeTreeViewController.generateTreeData());
 ```
 
+
+### `private static generateMapOfGroupToListOfNames()`
+
+`SUPPRESSWARNINGS`
+
+Generates a map containing Group names as the Keys tied to a List of class names. Note: this method contains a false-positive PMD violation. Normally, we'd want to check for FLS/CRUD here, but for ApexClass a system level object that Admins and users cannot really change we're ok.
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|Map<String,List<String>>|`Map<String, List<String>>`|
+
 ---
-## Inner Classes
+## Classes
+### RecipeTreeData
 
-### RecipeTreeViewController.RecipeTreeData class
+Used to marshall data between Apex and the LWC component
+that uses this data
 
-Used to marshall data between Apex and the LWC component that uses this data
 
----
-#### Properties
+**Implemented types**
 
-##### `expanded` → `Boolean`
+[Comparable](Comparable)
 
-##### `items` → `RecipeTreeData[]`
+#### Fields
 
-##### `label` → `String`
+##### `public expanded` → `Boolean`
 
-##### `name` → `String`
+`AURAENABLED` 
+
+##### `public items` → `RecipeTreeData`
+
+`AURAENABLED` 
+
+##### `public label` → `String`
+
+`AURAENABLED` 
+
+##### `public name` → `String`
+
+`AURAENABLED` 
 
 ---
 #### Methods
-##### `compareTo(Object compareTo)` → `Integer`
+##### `public compareTo(Object compareTo)`
 
 Required by the Comparable interface, this method, once implemented allows us to sort of this object type.
 
 ###### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`compareTo` |  A RecipeTreeData object to compare this instance against. |
+|Param|Description|
+|---|---|
+|`compareTo`|A RecipeTreeData object to compare this instance against.|
 
-###### Return
+###### Returns
 
-**Type**
+|Type|Description|
+|---|---|
+|Integer|`Integer`|
 
-Integer
-
-**Description**
-
-`Integer`
+---
 
 ---

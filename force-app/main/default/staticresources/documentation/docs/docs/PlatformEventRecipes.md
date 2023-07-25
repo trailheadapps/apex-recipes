@@ -1,38 +1,35 @@
 ---
 layout: default
 ---
-# PlatformEventRecipes class
+# PlatformEventRecipes
 
 Demonstrates how to publish events on the event bus
 
-## Related
 
-PlatformEventTriggerHandler, TriggerHandler
+**Group** Platform Event Recipes
 
----
+
+**See** [PlatformEventTriggerHandler, TriggerHandler](PlatformEventTriggerHandler, TriggerHandler)
+
 ## Methods
-### `publishEvent(Event_Recipes_Demo__e event)` → `Database.SaveResult`
+### `public static publishEvent(Event_Recipes_Demo__e event)`
 
 publishes a platform event
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`event` |  an Event_Recipes_Demo__e object |
+|Param|Description|
+|---|---|
+|`event`|an Event_Recipes_Demo__e object|
 
-#### Return
+#### Returns
 
-**Type**
-
-Database.SaveResult
-
-**Description**
-
-Database.SaveResult
+|Type|Description|
+|---|---|
+|Database|Database.SaveResult|
 
 #### Example
-```java
+```apex
 Account acct = new Account(name = 'Awesome Events Ltd.');
 insert acct;
 Event_Recipes_Demo__e evt = new Event_Recipes_Demo__e(accountId__c = acct.id, title__c='Updated website', url__c = 'https://developer.salesforce.com');
@@ -40,11 +37,17 @@ Database.saveResults result = PlatformEventsRecipes.publishEvent(evt);
 System.debug(result);
 ```
 
----
-## Inner Classes
 
-### PlatformEventRecipes.PlatformEventRecipesException class
+---
+## Classes
+### PlatformEventRecipesException
 
 Internal custom exception class
+
+
+**Inheritance**
+
+PlatformEventRecipesException
+
 
 ---

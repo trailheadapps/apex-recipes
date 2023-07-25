@@ -1,133 +1,185 @@
 ---
 layout: default
 ---
-# TestDouble class
+# TestDouble
 
-Implements an easy and re-usable StubProvider Utilizes a fluent interface for ease of use. This is merly an example of how you could build a reusable stub provider class. There are definitely edge cases or features not handled by this class. The general mechanism for use looks like this: ```apex TestDouble stub = new TestDouble(SomeClass.class); TestDouble.Method methodToTrack = new TestDouble.Method(&apos;methodName&apos;) .returning(someObject); stub.track(methodToTrack); ConsumingClass consumer = new ConsumingClass( (someClass) stub.generate() ); ```
+`ISTEST`
 
----
+Implements an easy and re-usable StubProvider
+Utilizes a fluent interface for ease of use.
+This is merly an example of how you could build a reusable stub provider
+class. There are definitely edge cases or features not handled by this class.
+The general mechanism for use looks like this:
+```apex
+ TestDouble stub = new TestDouble(SomeClass.class);
+ TestDouble.Method methodToTrack = new TestDouble.Method('methodName')
+     .returning(someObject);
+ stub.track(methodToTrack);
+ ConsumingClass consumer = new ConsumingClass(
+    (someClass) stub.generate()
+ );
+```
+
+
+**Implemented types**
+
+[System.StubProvider](System.StubProvider)
+
 ## Constructors
-### `TestDouble(Type objectType)`
+### `public TestDouble(Type objectType)`
 
 Constructor requiring the Type parameter to ensure we always set the Type property.
+
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`objectType` |  Type name. ie: TestDouble.class |
+|Param|Description|
+|---|---|
+|`objectType`|Type name. ie: TestDouble.class|
+
+---
+## Fields
+
+### `private methods` → `List<Method>`
+
+
+Property holds a list of objects specifying method calls that the developer has actively specified a TestDouble or stub for.
+
+### `private objectType` → `Type`
+
+
+This is a required property! it specifies the Apex Type that is being actively stubbed. Note, you cannot stub system provided classes, sObjects and static methods. see: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_testing_stub_api.htm for details on the limitations of the StubProvider interface
 
 ---
 ## Methods
-### `generate()` → `Object`
-
-Generates the actual stub object for use in tests.
-
-#### Return
-
-**Type**
-
-Object
-
-**Description**
-
-`Object` This object has to be casted back to the
-
-### `handleCall()` → `Object`
-### `handleMethodCall(Object stubbedObject,String stubbedMethodName,Type returnType,List<System.Type> listOfParamTypes,List<String> listOfParamNames,List<Object> listOfArgs)` → `Object`
-
-Required method for the StubProvider interface This extensive parameter list is used to help disambiguate overloaded method names where needed. This method is used to delegate response to appropriate Method object - matched by name and params.
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`stubbedObject` |       - This is the object being stubbed |
-|`stubbedMethodName` |   - This is the name of the Method being stubbed |
-|`returnType` |          - Return type |
-|`listOfParamTypes` |    - List of parameter types |
-|`listOfParamNames` |    - List of parameter names |
-|`listOfArgs` |          - List of parameter values |
-
-#### Return
-
-**Type**
-
-Object
-
-**Description**
-
-`Object` Object to be returned by the Method
-
-### `returning(Object returnValue)` → `Method`
-### `throwing(String exceptionMessage)` → `Method`
-### `track(Method toTrack)` → `TestDouble`
+### `public track(Method toTrack)`
 
 This adds a given method object to the list of Methods that are actively overridden and stubbed by this TestDouble instance.
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`toTrack` |  A TestDouble.Method object |
+|Param|Description|
+|---|---|
+|`toTrack`|A TestDouble.Method object|
 
-#### Return
+#### Returns
 
-**Type**
+|Type|Description|
+|---|---|
+|TestDouble|`TestDouble`|
 
-TestDouble
+### `public generate()`
 
-**Description**
+Generates the actual stub object for use in tests.
 
-`TestDouble`
+#### Returns
 
-### `withArgs(List<Object> args)` → `Method`
-### `withParamNames(List<String> paramNames)` → `Method`
-### `withParamTypes(List<Type> paramTypes)` → `Method`
+|Type|Description|
+|---|---|
+|Object|`Object` This object has to be casted back to the class being stubbed at the point of calling. See StubbingRecipes_Tests for an example of when, and how to cast this.|
 
-Adds a matching ParamTypes list to this method definition. If added,
+### `public handleMethodCall(Object stubbedObject, String stubbedMethodName, Type returnType, List<System.Type> listOfParamTypes, List<String> listOfParamNames, List<Object> listOfArgs)`
+
+`SUPPRESSWARNINGS`
+
+Required method for the StubProvider interface This extensive parameter list is used to help disambiguate overloaded method names where needed. This method is used to delegate response to appropriate Method object - matched by name and params.
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`` | s |
+|Param|Description|
+|---|---|
+|`stubbedObject`|- This is the object being stubbed|
+|`stubbedMethodName`|- This is the name of the Method being stubbed|
+|`returnType`|- Return type|
+|`listOfParamTypes`|- List of parameter types|
+|`listOfParamNames`|- List of parameter names|
+|`listOfArgs`|- List of parameter values|
 
-#### Return
+#### Returns
 
-**Type**
-
-Method
-
-**Description**
-
-`Method`
-
----
-## Inner Classes
-
-### TestDouble.Method class
-
- I&apos;m not normally a fan of such complex if statements, but doing it this way allows us to disambiguate overloaded methods. /** This inner class describes a Method that is to be stubbed. Multiple Method objects will likely be created in the course of your unit tests, and these Method objects are added to the `methods` property of your TestDouble instance.
+|Type|Description|
+|---|---|
+|Object|`Object` Object to be returned by the Method object this method delegates to.|
 
 ---
+## Classes
+### Method
+
+This inner class describes a Method that is to be stubbed.
+Multiple Method objects will likely be created in the course of your unit
+tests, and these Method objects are added to the `methods` property of
+your TestDouble instance.
+
 #### Constructors
-##### `Method(String methodName)`
+##### `public Method(String methodName)`
 
 Minimalist constructor for this class.
+
 ###### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`methodName` |  the name of the method to be stubbed. |
+|Param|Description|
+|---|---|
+|`methodName`|the name of the method to be stubbed.|
 
 ---
-#### Properties
+#### Fields
 
-##### `hasBeenCalledXTimes` → `Integer`
+##### `private exceptionMessage` → `String`
+
+
+##### `public hasBeenCalledXTimes` → `Integer`
+
+
+##### `private listOfArgs` → `List&lt;Object&gt;`
+
+
+##### `private listOfParamNames` → `List&lt;String&gt;`
+
+
+##### `private listOfParamTypes` → `List&lt;Type&gt;`
+
+
+##### `private name` → `String`
+
+
+##### `private returnValue` → `Object`
+
+
+##### `private throwsException` → `Boolean`
+
 
 ---
-### TestDouble.TestDoubleException class
+#### Methods
+##### `public withParamTypes(List&lt;Type&gt; paramTypes)`
 
- Internal exception class.
+Adds a matching ParamTypes list to this method definition. If added,
+
+###### Parameters
+
+|Param|Description|
+|---|---|
+|`paramTypes`||
+
+###### Returns
+
+|Type|Description|
+|---|---|
+|Method|`Method`|
+
+##### `public withParamNames(List&lt;String&gt; paramNames)`
+##### `public withArgs(List&lt;Object&gt; args)`
+##### `public returning(Object returnValue)`
+##### `public throwing(String exceptionMessage)`
+##### `public handleCall()`
+---
+
+### TestDoubleException
+
+Internal exception class.
+
+
+**Inheritance**
+
+TestDoubleException
+
 
 ---

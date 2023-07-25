@@ -1,55 +1,68 @@
 ---
 layout: default
 ---
-# SortableAccount class
+# SortableAccount
 
-Wrapper class around Account that provides an implementation of Comparable based on the ShippingCountry field and an &apos;in place&apos; sort method.
+Wrapper class around Account that provides an implementation of
+Comparable based on the ShippingCountry field and an 'in place' sort method.
 
----
+
+**Implemented types**
+
+[Comparable](Comparable)
+
 ## Constructors
-### `SortableAccount(Account account)`
+### `public SortableAccount(Account account)`
 ---
-## Properties
+## Fields
 
-### `account` → `Account`
+### `private account` → `Account`
+
 
 ---
 ## Methods
-### `compareTo(Object otherObject)` → `Integer`
+### `public compareTo(Object otherObject)`
 
 compares accounts based on ShippingCountry
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`otherObject` |  object used for comparision with this instance |
+|Param|Description|
+|---|---|
+|`otherObject`|object used for comparision with this instance|
 
-#### Return
+#### Returns
 
-**Type**
+|Type|Description|
+|---|---|
+|Integer|s 0 if objects are equal, 1 this object is "greater" than `otherObject` or 2 otherwise.|
 
-Integer
+#### Throws
 
-**Description**
+|Exception|Description|
+|---|---|
+|`Throws`|SortException if an error occurs while sorting the list. For example, when comparing with an incompatible object type.|
 
-s 0 if objects are equal, 1 this object is &quot;greater&quot; than `otherObject` or 2 otherwise.
-
-### `sort(List<Account> accounts)` → `void`
+### `public static sort(List<Account> accounts)`
 
 sorts a list of Account records using SortableAccount.compareTo
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`accounts` |  list of account to sort |
+|Param|Description|
+|---|---|
+|`accounts`|list of account to sort|
 
 ---
-## Inner Classes
-
-### SortableAccount.SortException class
+## Classes
+### SortException
 
 Exception thrown when SortableAccount.compareTo fails
+
+
+**Inheritance**
+
+SortException
+
 
 ---

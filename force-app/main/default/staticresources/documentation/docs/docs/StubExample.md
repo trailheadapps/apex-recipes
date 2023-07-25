@@ -1,20 +1,22 @@
 ---
 layout: default
 ---
-# StubExample class
----
-## Properties
+# StubExample
+## Fields
 
-### `greeting` → `String`
+### `public greeting` → `String`
 
-### `isTrue` → `Boolean`
 
-### `notMocked` → `Boolean`
+### `public isTrue` → `Boolean`
+
+
+### `public notMocked` → `Boolean`
+
 
 ---
 ## Methods
-### `getGreeting()` → `String`
-### `getIsTrue()` → `Boolean`
-### `setGreeting(String greeting)` → `void`
-### `setGreeting(Integer greeting)` → `void`
+### `public getIsTrue()`
+### `public getGreeting()`
+### `public setGreeting(String greeting)`
+### `public setGreeting(Integer greeting)`
 ---

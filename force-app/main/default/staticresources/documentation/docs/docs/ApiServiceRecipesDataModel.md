@@ -1,72 +1,81 @@
 ---
 layout: default
 ---
-# ApiServiceRecipesDataModel class
+# ApiServiceRecipesDataModel
 
-This class contains the &apos;data transfer object&apos; details. Data transfer objects are used to serialize Apex objects to JSON and web service response JSON to Apex objects.
+This class contains the 'data transfer object' details.
+Data transfer objects are used to serialize Apex objects to JSON and
+web service response JSON to Apex objects.
 
-## Related
 
-[ApiServiceRecipes](https://github.com/trailheadapps/apex-recipes/wiki/ApiServiceRecipes.md)
+**Group** Integration Recipes
 
----
-## Properties
 
-### `exampleArray` → `List<Integer>`
+**See** [ApiServiceRecipes](./ApiServiceRecipes.md)
 
- These properties represent the JSON keys that we need to send or recieve.
+## Fields
 
-### `exampleBoolean` → `Boolean`
+### `public exampleArray` → `List<Integer>`
 
-### `exampleColor` → `String`
 
-### `exampleCouldBeNull` → `String`
+These properties represent the JSON keys that we need to send or recieve.
 
-### `exampleNumber` → `Integer`
+### `public exampleBoolean` → `Boolean`
 
-### `exampleObject` → `ExampleObject`
 
-### `exampleString` → `String`
+### `public exampleColor` → `String`
+
+
+### `public exampleCouldBeNull` → `String`
+
+
+### `public exampleNumber` → `Integer`
+
+
+### `public exampleObject` → `ExampleObject`
+
+
+### `public exampleString` → `String`
+
 
 ---
 ## Methods
-### `parse(String json)` → `List<ApiServiceRecipesDataModel>`
+### `public static parse(String json)`
 
 Parses the provided JSON string into a list of ApiServiceRecipesDataModel objects
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`json` |   Incoming JSON string. Often from an api call&apos;s results. |
+|Param|Description|
+|---|---|
+|`json`|Incoming JSON string. Often from an api call's results.|
 
-#### Return
+#### Returns
 
-**Type**
-
-List&lt;ApiServiceRecipesDataModel&gt;
-
-**Description**
-
-`List&lt;ApiServiceRecipesDataModel&gt;`
+|Type|Description|
+|---|---|
+|List<ApiServiceRecipesDataModel>|`List<ApiServiceRecipesDataModel>`|
 
 #### Example
-```java
+```apex
 System.debug(ApiServiceRecipesDataModel.parse(ApiServiceRecipesDataModel_Tests.testJSON));
 ```
 
----
-## Inner Classes
 
-### ApiServiceRecipesDataModel.ExampleObject class
+---
+## Classes
+### ExampleObject
 
 example of how to model a nested json object
 
+#### Fields
+
+##### `public a` → `String`
+
+
+##### `public c` → `String`
+
+
 ---
-#### Properties
-
-##### `a` → `String`
-
-##### `c` → `publi`
 
 ---

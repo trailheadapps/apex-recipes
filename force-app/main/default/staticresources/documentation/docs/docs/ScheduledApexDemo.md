@@ -1,28 +1,32 @@
 ---
 layout: default
 ---
-# ScheduledApexDemo class
+# ScheduledApexDemo
 
 A demo class to be scheduled by ScheduledApexRecipes
 
-## Related
 
-[ScheduledApexRecipes](https://github.com/trailheadapps/apex-recipes/wiki/ScheduledApexRecipes.md)
+**Group** Async Apex Recipes
 
----
-## Properties
 
-### `counter` → `Integer`
+**See** [ScheduledApexRecipes](./ScheduledApexRecipes.md)
+
+## Fields
+
+### `private counter` → `Integer`
+
+`TESTVISIBLE` 
 
 ---
 ## Methods
-### `runAtMidnight()` → `void`
+### `public runAtMidnight()`
 
 A method demosrating the best practice of separating your logic from the schedulable interface code that executes it.
 
 #### Example
-```java
+```apex
 ScheduledApexDemo.runAtMidnight();
 ```
+
 
 ---

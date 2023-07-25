@@ -1,272 +1,235 @@
 ---
 layout: default
 ---
-# SOQLRecipes class
+# SOQLRecipes
 
-Demonstrates how to make various types of SOQL calls including multi-object queries, and aggregate queries
+Demonstrates how to make various types of SOQL calls
+including multi-object queries, and aggregate queries
 
----
+
+**Group** Data Recipes
+
 ## Methods
-### `getAccountRecordsInState(String state)` → `List<Account>`
+### `public static getRecords()`
 
-Demonstrates how to use a bound variable in a WHERE clause
+Demonstrates the proper way to query accounts with SOQL   keeping FLS and CRUD in account.
 
-#### Parameters
+#### Returns
 
-| Param | Description |
-| ----- | ----------- |
-|`state` |  String representing a US State code (AK, KS, etc.) |
-
-#### Return
-
-**Type**
-
-List&lt;Account&gt;
-
-**Description**
-
-List&lt;Account&gt;
+|Type|Description|
+|---|---|
+|List<Account>|list<Account>|
 
 #### Example
-```java
-System.debug(SOQLRecipes.getAccountRecordsInState('ks'));
+```apex
+List<Account> results = SOQLRecipes.querySingleObject();
+System.debug(results);
 ```
 
-### `getChunksOfLargeNumbersOfRecords()` → `Integer[]`
 
-One of the little known features of SOQL for loops is that you can iterate not only over each record returned by the query, but also over each *chunk of records*. As the code below demonstrates, specifying the iteration variable as a list/array will return 200 record chunks from the query, rather than individual records. Note: Normally, if you&apos;re only dealing with counts of records, you&apos;d utilize the Count() soql method, but in this case we&apos;re demonstrating that this form of a soql for loop gives you access both to a list of records, and to the records themselves.
+### `public static getLargeNumberOfRecords()`
 
-#### Return
+Demonstrates how to loop over a SOQL query
 
-**Type**
+#### Returns
 
-Integer[]
-
-**Description**
-
-`Integer`
-
-### `getDetailsFromBothParentRecords()` → `List<Junction__c>`
-
-Demonstrates how to write a query that pulls information from two parent objects through a junction object
-
-#### Return
-
-**Type**
-
-List&lt;Junction__c&gt;
-
-**Description**
-
-List&lt;Junction__c&gt;
+|Type|Description|
+|---|---|
+|Integer|integer|
 
 #### Example
-```java
-System.debug(SOQLRecipes.getDetailsFromBothParentRecords());
+```apex
+System.debug(SOQLRecipes.getLargeNumberOfRecords());
 ```
 
-### `getFirstXRecords(Integer wantedNumberOfRows)` → `List<Account>`
+
+### `public static getChunksOfLargeNumbersOfRecords()`
+
+One of the little known features of SOQL for loops is that you can iterate not only over each record returned by the query, but also over each *chunk of records*. As the code below demonstrates, specifying the iteration variable as a list/array will return 200 record chunks from the query, rather than individual records. Note: Normally, if you're only dealing with counts of records, you'd utilize the Count() soql method, but in this case we're demonstrating that this form of a soql for loop gives you access both to a list of records, and to the records themselves.
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|Integer|`Integer`|
+
+### `public static getRecordsByFieldValue()`
+
+Demonstrates how to use a WHERE clause in a SOQL query
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|List<Account>|List<Account>|
+
+#### Example
+```apex
+System.debug(SOQLRecipes.getRecordsByFieldValue());
+```
+
+
+### `public static getRecordsByMultipleFieldValues()`
+
+Demonstrates how to use a complex WHERE clause in a SOQL query
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|List<Account>|List<Account>|
+
+#### Example
+```apex
+System.debug(SOQLRecipes.getRecordsByMultipleFieldValues());
+```
+
+
+### `public static getSpecificNumberOfRecords()`
+
+Demonstrates how to use the LIMIT clause in a SOQL statement
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|List<Account>|List<Account>|
+
+#### Example
+```apex
+System.debug(SOQLRecipes.getSpecificNumberOfRecords());
+```
+
+
+### `public static getFirstXRecords(Integer wantedNumberOfRows)`
 
 Demonstrates how to use a bound variable to define the LIMIT
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`wantedNumberOfRows` |  the number of rows desired |
+|Param|Description|
+|---|---|
+|`wantedNumberOfRows`|the number of rows desired|
 
-#### Return
+#### Returns
 
-**Type**
-
-List&lt;Account&gt;
-
-**Description**
-
-List&lt;Account&gt;
+|Type|Description|
+|---|---|
+|List<Account>|List<Account>|
 
 #### Example
-```java
+```apex
 System.debug(SOQLRecipes.getFirstXRecords(5));
 ```
 
-### `getLargeNumberOfRecords()` → `Integer`
 
-Demonstrates how to loop over a SOQL query
+### `public static getAccountRecordsInState(String state)`
 
-#### Return
+Demonstrates how to use a bound variable in a WHERE clause
 
-**Type**
+#### Parameters
 
-Integer
+|Param|Description|
+|---|---|
+|`state`|String representing a US State code (AK, KS, etc.)|
 
-**Description**
+#### Returns
 
-integer
-
-#### Example
-```java
-System.debug(SOQLRecipes.getLargeNumberOfRecords());
-```
-
-### `getParentRecordDetailsFromChildRecord()` → `List<Contact>`
-
-Demonstrates how to query fields from a parent object through the relationship field
-
-#### Return
-
-**Type**
-
-List&lt;Contact&gt;
-
-**Description**
-
-List&lt;Contact&gt;
+|Type|Description|
+|---|---|
+|List<Account>|List<Account>|
 
 #### Example
-```java
-System.debug(SOQLRecipes.getParentRecordDetailsFromChildRecord());
+```apex
+System.debug(SOQLRecipes.getAccountRecordsInState('ks'));
 ```
 
-### `getRecords()` → `List<Account>`
 
-Demonstrates the proper way to query accounts with SOQL keeping FLS and CRUD in account.
-
-#### Return
-
-**Type**
-
-List&lt;Account&gt;
-
-**Description**
-
-list&lt;Account&gt;
-
-#### Example
-```java
-List<Account> results = SOQLRecipes.querySingleObject();
-System.debug(results);
-```
-
-### `getRecordsByFieldValue()` → `List<Account>`
-
-Demonstrates how to use a WHERE clause in a SOQL query
-
-#### Return
-
-**Type**
-
-List&lt;Account&gt;
-
-**Description**
-
-List&lt;Account&gt;
-
-#### Example
-```java
-System.debug(SOQLRecipes.getRecordsByFieldValue());
-```
-
-### `getRecordsByMultipleFieldValues()` → `List<Account>`
-
-Demonstrates how to use a complex WHERE clause in a SOQL query
-
-#### Return
-
-**Type**
-
-List&lt;Account&gt;
-
-**Description**
-
-List&lt;Account&gt;
-
-#### Example
-```java
-System.debug(SOQLRecipes.getRecordsByMultipleFieldValues());
-```
-
-### `getRecordsWithRelatedRecords()` → `List<Account>`
-
-Demonstrates how to query an object, as well as it&apos;s related child objects
-
-#### Return
-
-**Type**
-
-List&lt;Account&gt;
-
-**Description**
-
-List&lt;Account&gt;
-
-#### Example
-```java
-System.debug(SOQLRecipes.getRecordsWithRelatedRecords());
-```
-
-### `getSecond10AccountRecords()` → `List<Account>`
+### `public static getSecond10AccountRecords()`
 
 Demonstrates how to get a limited number of results with a given offset; Ie: get the second set of 10 records.
 
-#### Return
+#### Returns
 
-**Type**
-
-List&lt;Account&gt;
-
-**Description**
-
-List&lt;Account&gt;
+|Type|Description|
+|---|---|
+|List<Account>|List<Account>|
 
 #### Example
-```java
+```apex
 System.debug('SOQLRecipes.getSecond10AccountRecords()');
 ```
 
-### `getSpecificNumberOfRecords()` → `List<Account>`
 
-Demonstrates how to use the LIMIT clause in a SOQL statement
+### `public static getRecordsWithRelatedRecords()`
 
-#### Return
+Demonstrates how to query an object, as well as it's related child objects
 
-**Type**
+#### Returns
 
-List&lt;Account&gt;
-
-**Description**
-
-List&lt;Account&gt;
+|Type|Description|
+|---|---|
+|List<Account>|List<Account>|
 
 #### Example
-```java
-System.debug(SOQLRecipes.getSpecificNumberOfRecords());
+```apex
+System.debug(SOQLRecipes.getRecordsWithRelatedRecords());
 ```
 
-### `getSumOfOpportunityRecords(Id accountId)` → `Double`
+
+### `public static getParentRecordDetailsFromChildRecord()`
+
+Demonstrates how to query fields from a parent object through the relationship field
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|List<Contact>|List<Contact>|
+
+#### Example
+```apex
+System.debug(SOQLRecipes.getParentRecordDetailsFromChildRecord());
+```
+
+
+### `public static getDetailsFromBothParentRecords()`
+
+Demonstrates how to write a query that pulls information from two parent objects through a junction object
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|List<Junction__c>|List<Junction__c>|
+
+#### Example
+```apex
+System.debug(SOQLRecipes.getDetailsFromBothParentRecords());
+```
+
+
+### `public static getSumOfOpportunityRecords(Id accountId)`
 
 demonstrates how to use aggregate methods, like Sum() or Count() in a SOQL query. This example generates the sum of opportunities associated with a specified Account
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`accountId` |  an AccountId |
+|Param|Description|
+|---|---|
+|`accountId`|an AccountId|
 
-#### Return
+#### Returns
 
-**Type**
-
-Double
-
-**Description**
-
-Double
+|Type|Description|
+|---|---|
+|Double|Double|
 
 #### Example
-```java
+```apex
 Id accountId = [SELECT id FROM Account LIMIT 1].Id;
 System.debug(SOQLRecipes.getSumOfOpportunityRecords(accountId));
 ```
+
 
 ---
