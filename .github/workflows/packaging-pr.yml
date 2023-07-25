@@ -7,9 +7,10 @@ on:
     repository_dispatch:
         types: [start-packaging-pr]
 
-defaults:
-    run:
-        shell: sh
+# Workflow environment variables
+env:
+    # Is the PR base branch a prerelease branch
+    IS_PRERELEASE: ${{ github.event.client_payload.isPrelease }}
 
 # Jobs to be executed
 jobs:
@@ -68,12 +69,16 @@ jobs:
 
             # Wait for package replication
             - name: 'Wait for package replication'
-              uses: maddox/actions/sleep@master
-              with:
-                  args: 360
+              run: sleep 360s
+
+            # Create prerelease scratch org
+            - name: 'Create prerelease scratch org'
+              if: env.IS_PRERELEASE
+              run: sf org create scratch -f config/project-scratch-def.json -a scratch-org -d -y 1 --release=preview
 
             # Create scratch org
             - name: 'Create scratch org'
+              if: !env.IS_PRERELEASE
               run: sf org create scratch -f config/project-scratch-def.json -a scratch-org -d -y 1
 
             # Install new package in scratch org
