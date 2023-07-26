@@ -53,12 +53,11 @@ private inherited sharing class AtFutureRecipes_Tests {
          * we can't do that. So this is officially the one use case I can think of for using a 'silent assertion'
          *
          * Note the test below, as I do think we should test throwing the exception.
-         *
          */
     }
 
     /**
-     * @description Exercises the @future method with a circuit breaker set
+     * @description Exercises the &commat;future method with a circuit breaker set
      * to ensure a failure state. Tests that we get the proper failure state,
      * and get full coverage.
      */

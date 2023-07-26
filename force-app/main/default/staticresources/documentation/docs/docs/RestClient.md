@@ -1,267 +1,383 @@
 ---
 layout: default
 ---
-# RestClient class
+# RestClient
 
-This class provides an exmaple of an intelligent abstraction for making REST callouts to external endpoints. It utilizes NamedCredentials for security. This class is designated as Virtual so that API Service classes can extend it, and make use of it&apos;s methods easily. See the CovidTrackerAPI class for an example of how an API service class can extend RestClient. This class also provides static methods - so that the abstractions provided can be used in a one-off or ad-hoc manner for situations where a full API Service class isn&apos;t needed. More on Named Credentials: https://sfdc.co/named-credentials
+This class provides an exmaple of an intelligent abstraction for
+making REST callouts to external endpoints. It utilizes NamedCredentials
+for security. This class is designated as Virtual so that
+API Service classes can extend it, and make use of it's methods easily.
+See the CovidTrackerAPI class for an example of how an API service class
+can extend RestClient.
+This class also provides static methods - so that the abstractions
+provided can be used in a one-off or ad-hoc manner for situations
+where a full API Service class isn't needed.
+More on Named Credentials:
+https://sfdc.co/named-credentials
 
-## Related
 
-AtFutureRecipes, QueueableWithCalloutRecipes, ApiServiceRecipes, CalloutRecipes
+**Group** Shared Code
 
----
+
+**See** [AtFutureRecipes, QueueableWithCalloutRecipes, ApiServiceRecipes, CalloutRecipes](AtFutureRecipes, QueueableWithCalloutRecipes, ApiServiceRecipes, CalloutRecipes)
+
 ## Constructors
-### `RestClient(String namedCredential)`
+### `public RestClient(String namedCredential)`
 
 Constructor that sets Named Credential
+
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`namedCredential` |  name of the Named Credential to use |
+|Param|Description|
+|---|---|
+|`namedCredential`|name of the Named Credential to use|
 
-### `RestClient()`
+### `protected RestClient()`
 
-This constructor isn&apos;t intended for use, which is why it&apos;s access modifier is &apos;Protected&apos;. However, any child class extending this class will either have to implement constructors matching the one above, or this constructor must exist. In order to make this abstraction as useful as possible, we&apos;ve elected to leave this constructor here, but unavailable to anything but inner classes and classes that extend this one.
+`SUPPRESSWARNINGS`
+
+This constructor isn't intended for use, which is why it's access modifier is 'Protected'. However, any child class extending this class will either have to implement constructors matching the one above, or this constructor must exist. In order to make this abstraction as useful as possible, we've elected to leave this constructor here, but unavailable to anything but inner classes and classes that extend this one.
+
 ---
-## Enums
-### HttpVerb
+## Fields
 
+### `private defaultHeaders` → `Map<String,String>`
 
-This ENUM lists possible HTTP Verbs. Note: &apos;Delete&apos; is an Apex Keyword (DML) and as a result, the ENUM value &apos;DEL&apos; is used for delete.
+`TESTVISIBLE` 
+
+These two properties are not public - which means that in order to manipulate them during a Unit test, we have to mark them
 
 ---
 ## Properties
 
-### `defaultHeaders` → `Map<String, String>`
+### `protected namedCredentialName` → `String`
 
-The default headers to use, when none are specified
-
-### `namedCredentialName` → `String`
+`TESTVISIBLE` 
 
 The name of the Named Credential to use
 
 ---
 ## Methods
-### `del(String path)` → `HttpResponse`
+### `protected makeApiCall(HttpVerb method, String path, String query, String body, Map<String,String> headers)`
 
-convenience method for deleteing a resource based only on path
+`TESTVISIBLE`
 
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
-
-#### Return
-
-**Type**
-
-HttpResponse
-
-**Description**
-
-`HTTPResponse`
-
-### `del(String path, String query)` → `HttpResponse`
-
-convenience method for a Delete Call that only requires a path and query
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
-|`query` |   Query component of the URL ie: after `?foo=bar` |
-
-#### Return
-
-**Type**
-
-HttpResponse
-
-**Description**
-
-`HTTPResponse`
-
-### `ensureStringEndsInSlash(String resource)` → `String`
-
-Ensures that the inputted string ends in a `/` makes callouts more robust.
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`resource` |  string to ensure ends in `/` |
-
-#### Return
-
-**Type**
-
-String
-
-**Description**
-
-inputted string with `/` if it didn&apos;t already end in one.
-
-### `get(String path)` → `HttpResponse`
-
-convenience method for a GET Call that only requires a path
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
-
-#### Return
-
-**Type**
-
-HttpResponse
-
-**Description**
-
-`HTTPResponse`
-
-### `get(String path, String query)` → `HttpResponse`
-
-convenience method for a GET Call that only requires a path and query
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
-|`query` |   Query component of the URL ie: after `?foo=bar` |
-
-#### Return
-
-**Type**
-
-HttpResponse
-
-**Description**
-
-`HTTPResponse`
-
-### `makeApiCall(HttpVerb method,String path,String query,String body,Map<String, String> headers)` → `HttpResponse`
+`SUPPRESSWARNINGS`
 
 Omnibus callout method. This is the primary method for making a REST callout. Most of the other methods in this class serve as convient, syntactic sugar on this method.
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`method` |  Enum HTTP verb to use. i.e. GET |
-|`path` |  patch component of the callout url i.e. `/services/data/v39.0/SObjects` |
-|`query` |  Query portion of the URL i.e. `?q=SELECT Id FROM Account` |
-|`body` |  JSON string representing the body of the callout in post/patch situations |
-|`headers` |  A map&lt;String,String&gt; of headers to use while making this callout |
+|Param|Description|
+|---|---|
+|`method`|Enum HTTP verb to use. i.e. GET|
+|`path`|patch component of the callout url i.e. `/services/data/v39.0/SObjects`|
+|`query`|Query portion of the URL i.e. `?q=SELECT Id FROM Account`|
+|`body`|JSON string representing the body of the callout in post/patch situations|
+|`headers`|A map<String,String> of headers to use while making this callout|
 
-#### Return
+#### Returns
 
-**Type**
+|Type|Description|
+|---|---|
+|HttpResponse|HttpResponse  HttpResponse Obj|
 
-HttpResponse
+### `protected makeApiCall(HttpVerb method, String path, String query, String body)`
 
-**Description**
+`TESTVISIBLE`
 
-HttpResponse  HttpResponse Obj
-
-### `makeApiCall(HttpVerb method,String path,String query,String body)` → `HttpResponse`
+`SUPPRESSWARNINGS`
 
 Makes an HTTP Callout to an api resource. Convienence method that assumes the Default Headers.
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`method` |  HTTPVerb to use. See the enum above. |
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
-|`query` |   Query component of the URL ie: after `?foo=bar` |
-|`body` |    Body to send with this call. |
+|Param|Description|
+|---|---|
+|`method`|HTTPVerb to use. See the enum above.|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+|`query`|Query component of the URL ie: after `?foo=bar`|
+|`body`|Body to send with this call.|
 
-#### Return
+#### Returns
 
-**Type**
+|Type|Description|
+|---|---|
+|HttpResponse|`HttpResponse`|
 
-HttpResponse
+### `protected makeApiCall(HttpVerb method, String path, String query)`
 
-**Description**
-
-`HttpResponse`
-
-### `makeApiCall(HttpVerb method,String path,String query)` → `HttpResponse`
+`TESTVISIBLE`
 
 convenience version of makeApiCall without body param. Invokes omnibus version above, with blank body param and default headers.
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`method` |  HTTPVerb to use. See the enum above. |
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
-|`query` |   Query component of the URL ie: after `?foo=bar` |
+|Param|Description|
+|---|---|
+|`method`|HTTPVerb to use. See the enum above.|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+|`query`|Query component of the URL ie: after `?foo=bar`|
 
-#### Return
+#### Returns
 
-**Type**
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
 
-HttpResponse
+### `protected makeApiCall(HttpVerb method, String path)`
 
-**Description**
-
-`HTTPResponse`
-
-### `makeApiCall(HttpVerb method, String path)` → `HttpResponse`
+`TESTVISIBLE`
 
 convenience version of makeApiCall without body or query params. Invokes omnibus version above, with blank body and query params
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`method` |  HTTPVerb to use. See the enum above. |
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
+|Param|Description|
+|---|---|
+|`method`|HTTPVerb to use. See the enum above.|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
 
-#### Return
+#### Returns
 
-**Type**
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
 
-HttpResponse
+### `protected get(String path)`
 
-**Description**
+`TESTVISIBLE`
 
-`HTTPResponse`
+convenience method for a GET Call that only requires a path
 
-### `makeApiCall(String namedCredential,HttpVerb method,String path,String query,String body,Map<String, String> headers)` → `HttpResponse`
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
+
+### `protected get(String path, String query)`
+
+`TESTVISIBLE`
+
+convenience method for a GET Call that only requires a path and query
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+|`query`|Query component of the URL ie: after `?foo=bar`|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
+
+### `protected del(String path)`
+
+`TESTVISIBLE`
+
+convenience method for deleteing a resource based only on path
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
+
+### `protected del(String path, String query)`
+
+`TESTVISIBLE`
+
+convenience method for a Delete Call that only requires a path and query
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+|`query`|Query component of the URL ie: after `?foo=bar`|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
+
+### `protected post(String path, String body)`
+
+`TESTVISIBLE`
+
+convenience method for a POST Call that only requires a path and body
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+|`body`|JSON string to post|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
+
+### `protected post(String path, String query, String body)`
+
+`TESTVISIBLE`
+
+convenience method for a POST Call that only requires a path, query and body
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+|`query`|Query component of the URL ie: after `?foo=bar`|
+|`body`|JSON string to post|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
+
+### `protected put(String path, String body)`
+
+`TESTVISIBLE`
+
+convenience method for a PUT Call that only requires a path and body
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+|`body`|JSON string to post|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
+
+### `protected put(String path, String query, String body)`
+
+`TESTVISIBLE`
+
+convenience method for a PUT Call that only requires a path, query and body
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+|`query`|Query component of the URL ie: after `?foo=bar`|
+|`body`|JSON string to post|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
+
+### `protected patch(String path, String body)`
+
+`TESTVISIBLE`
+
+convenience method for a PATCH Call that only requires a path, query and body
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+|`body`|JSON string to post|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
+
+### `protected patch(String path, String query, String body)`
+
+`TESTVISIBLE`
+
+convenience method for a PATCH Call that only requires a path, query and body
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+|`query`|Query component of the URL ie: after `?foo=bar`|
+|`body`|JSON string to post|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
+
+### `protected ensureStringEndsInSlash(String resource)`
+
+`TESTVISIBLE`
+
+Ensures that the inputted string ends in a `/` makes callouts more robust.
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`resource`|string to ensure ends in `/`|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|String|inputted string with `/` if it didn't already end in one.|
+
+### `public static makeApiCall(String namedCredential, HttpVerb method, String path, String query, String body, Map<String,String> headers)`
+
+`SUPPRESSWARNINGS`
 
 A static wrapper for the main makeApiCall method
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`namedCredential` |  The named credential to use |
-|`method` |           HTTPVerb enum value. See Enum above |
-|`path` |            Http path component of the URL. ie: `/path/to/resource` |
-|`query` |            Query component of the URL ie: after `?foo=bar` |
-|`body` |             JSON string to post |
-|`headers` |          Map&lt;String,String&gt; representing outgoing Request |
+|Param|Description|
+|---|---|
+|`namedCredential`|The named credential to use|
+|`method`|HTTPVerb enum value. See Enum above|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+|`query`|Query component of the URL ie: after `?foo=bar`|
+|`body`|JSON string to post|
+|`headers`|Map<String,String> representing outgoing Request headers|
 
-#### Return
+#### Returns
 
-**Type**
-
-HttpResponse
-
-**Description**
-
-`HTTPResponse`
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
 
 #### Example
-```java
+```apex
 System.Debug(RestClient.makeApiCall('MockBin',
                                      RestClient.HttpVerb.GET,
                                      '4cb453a6-a23b-42ea-a6ba-9be1c1f17050',
@@ -270,193 +386,69 @@ System.Debug(RestClient.makeApiCall('MockBin',
                                      new Map<String,String>()));
 ```
 
-### `makeApiCall(String namedCredential,HttpVerb method,String path,String query)` → `HttpResponse`
+
+### `public static makeApiCall(String namedCredential, HttpVerb method, String path, String query)`
+
+`SUPPRESSWARNINGS`
 
 A static wrapper for the main makeApiCall method that assumes default headers.
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`namedCredential` |  The named credential to use |
-|`method` |           HTTPVerb enum value. See Enum above |
-|`path` |            Http path component of the URL. ie: `/path/to/resource` |
-|`query` |            Query component of the URL ie: after `?foo=bar` |
+|Param|Description|
+|---|---|
+|`namedCredential`|The named credential to use|
+|`method`|HTTPVerb enum value. See Enum above|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
+|`query`|Query component of the URL ie: after `?foo=bar`|
 
-#### Return
+#### Returns
 
-**Type**
-
-HttpResponse
-
-**Description**
-
-`HTTPResponse`
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
 
 #### Example
-```java
+```apex
 System.Debug(RestClient.makeApiCall('MockBin',
                                      RestClient.HttpVerb.GET,
                                      '4cb453a6-a23b-42ea-a6ba-9be1c1f17050',
                                      ''));
 ```
 
-### `makeApiCall(String namedCredential,HttpVerb method,String path)` → `HttpResponse`
+
+### `public static makeApiCall(String namedCredential, HttpVerb method, String path)`
 
 A static wrapper for the main makeApiCall method where you only need the path
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`namedCredential` |  The named credential to use |
-|`method` |           HTTPVerb enum value. See Enum above |
-|`path` |            Http path component of the URL. ie: `/path/to/resource` |
+|Param|Description|
+|---|---|
+|`namedCredential`|The named credential to use|
+|`method`|HTTPVerb enum value. See Enum above|
+|`path`|Http path component of the URL. ie: `/path/to/resource`|
 
-#### Return
+#### Returns
 
-**Type**
-
-HttpResponse
-
-**Description**
-
-`HTTPResponse`
+|Type|Description|
+|---|---|
+|HttpResponse|`HTTPResponse`|
 
 #### Example
-```java
+```apex
 System.Debug(RestClient.makeApiCall('MockBin',
                                      RestClient.HttpVerb.GET,
                                      '4cb453a6-a23b-42ea-a6ba-9be1c1f17050'));
 ```
 
-### `patch(String path, String body)` → `HttpResponse`
 
-convenience method for a PATCH Call that only requires a path, query and body
+---
+## Enums
+### HttpVerb
 
-#### Parameters
+This ENUM lists possible HTTP Verbs. Note: 'Delete' is an Apex Keyword (DML)
+and as a result, the ENUM value 'DEL' is used for delete.
 
-| Param | Description |
-| ----- | ----------- |
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
-|`body` |    JSON string to post |
-
-#### Return
-
-**Type**
-
-HttpResponse
-
-**Description**
-
-`HTTPResponse`
-
-### `patch(String path, String query, String body)` → `HttpResponse`
-
-convenience method for a PATCH Call that only requires a path, query and body
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
-|`query` |   Query component of the URL ie: after `?foo=bar` |
-|`body` |    JSON string to post |
-
-#### Return
-
-**Type**
-
-HttpResponse
-
-**Description**
-
-`HTTPResponse`
-
-### `post(String path, String body)` → `HttpResponse`
-
-convenience method for a POST Call that only requires a path and body
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
-|`body` |    JSON string to post |
-
-#### Return
-
-**Type**
-
-HttpResponse
-
-**Description**
-
-`HTTPResponse`
-
-### `post(String path, String query, String body)` → `HttpResponse`
-
-convenience method for a POST Call that only requires a path, query and body
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
-|`query` |   Query component of the URL ie: after `?foo=bar` |
-|`body` |    JSON string to post |
-
-#### Return
-
-**Type**
-
-HttpResponse
-
-**Description**
-
-`HTTPResponse`
-
-### `put(String path, String body)` → `HttpResponse`
-
-convenience method for a PUT Call that only requires a path and body
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
-|`body` |    JSON string to post |
-
-#### Return
-
-**Type**
-
-HttpResponse
-
-**Description**
-
-`HTTPResponse`
-
-### `put(String path, String query, String body)` → `HttpResponse`
-
-convenience method for a PUT Call that only requires a path, query and body
-
-#### Parameters
-
-| Param | Description |
-| ----- | ----------- |
-|`path` |    Http path component of the URL. ie: `/path/to/resource` |
-|`query` |   Query component of the URL ie: after `?foo=bar` |
-|`body` |    JSON string to post |
-
-#### Return
-
-**Type**
-
-HttpResponse
-
-**Description**
-
-`HTTPResponse`
 
 ---

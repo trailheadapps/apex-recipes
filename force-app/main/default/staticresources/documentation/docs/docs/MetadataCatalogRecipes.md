@@ -1,74 +1,75 @@
 ---
 layout: default
 ---
-# MetadataCatalogRecipes class
+# MetadataCatalogRecipes
 
-Demonstrates how to query the Metadata Catalog. This is sometimes faster that Schema Describe calls especially for large complex orgs
+Demonstrates how to query the Metadata Catalog. This is
+sometimes faster that Schema Describe calls especially for large complex orgs
 
----
+
+**Group** Data Recipes
+
 ## Methods
-### `findAllContactFieldsThatLookupToAccount()` → `List<MetadataCatalogRecipes.LookupRelationshipDefinition>`
+### `public static findAllFormulaFields()`
 
-Demonstrates how to query the metadata catalog to find all fields on the Contact object that establish a relationship to the Account Object. Note: This method has a false-positive PMD warning. PMD isn&apos;t aware of the purpose or functionality of CanTheUser.* so it doesn&apos;t undersatnd that we are, in fact, checking for CRUD / FLS permissions prior to querying.
+`SUPPRESSWARNINGS`
 
-#### Return
+Demonstrates how to query the EntityDefinition Object to find all formula fields in your Org. This method returns a Map of Object's Qualified API name -&gt; Map of Field Names -&gt; Types Note: This method has a false-positive PMD warning. PMD isn't aware of the purpose or functionality of CanTheUser.* so it doesn't undersatnd that we are, in fact, checking for CRUD / FLS permissions prior to querying.
 
-**Type**
+#### Returns
 
-List&lt;MetadataCatalogRecipes.LookupRelationshipDefinition&gt;
-
-**Description**
-
-List&lt;MetadataCatalogRecipes.LookupRelationshipDefinition&gt;
+|Type|Description|
+|---|---|
+|Map<String,Map<String,String>>|Map<String, Map<String, String>>|
 
 #### Example
-```java
-List<MetadataCatalogRecipes.LookupRelationshipDefinition> results =
-     MetadataCatalogRecipes.findAllContactFieldsThatLookupToAccount();
-System.debug(results);
-```
-
-### `findAllFormulaFields()` → `Map<String, String>>`
-
-Demonstrates how to query the EntityDefinition Object to find all formula fields in your Org. This method returns a Map of Object&apos;s Qualified API name -&gt; Map of Field Names -&gt; Types Note: This method has a false-positive PMD warning. PMD isn&apos;t aware of the purpose or functionality of CanTheUser.* so it doesn&apos;t undersatnd that we are, in fact, checking for CRUD / FLS permissions prior to querying.
-
-#### Return
-
-**Type**
-
-Map&lt;String, String&gt;&gt;
-
-**Description**
-
-Map&lt;String, Map&lt;String, String&gt;&gt;
-
-#### Example
-```java
+```apex
 Map<String, Map<String, String>> results =
      MetadataCatalogRecipes.findAllFormulaFields();
 System.debug(results);
 ```
 
+
+### `public static findAllContactFieldsThatLookupToAccount()`
+
+`SUPPRESSWARNINGS`
+
+Demonstrates how to query the metadata catalog to find all fields on the Contact object that establish a relationship to the Account Object. Note: This method has a false-positive PMD warning. PMD isn't aware of the purpose or functionality of CanTheUser.* so it doesn't undersatnd that we are, in fact, checking for CRUD / FLS permissions prior to querying.
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|List<MetadataCatalogRecipes.LookupRelationshipDefinition>|List<MetadataCatalogRecipes.LookupRelationshipDefinition>|
+
+#### Example
+```apex
+List<MetadataCatalogRecipes.LookupRelationshipDefinition> results =
+     MetadataCatalogRecipes.findAllContactFieldsThatLookupToAccount();
+System.debug(results);
+```
+
+
 ---
-## Inner Classes
+## Classes
+### LookupRelationshipDefinition
 
-### MetadataCatalogRecipes.LookupRelationshipDefinition class
+internal data object for information about a Lookup
+Relationship
 
-internal data object for information about a Lookup Relationship
-
----
 #### Constructors
-##### `LookupRelationshipDefinition(FieldDefinition fd)`
+##### `public LookupRelationshipDefinition(FieldDefinition fd)`
 
-Constructor that transforms a Field Definition object into a LookupRelationshipDefinition Object.
+Constructor that transforms a Field Definition object   into a LookupRelationshipDefinition Object.
+
 ###### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`fd` |  a FieldDefinition Object |
+|Param|Description|
+|---|---|
+|`fd`|a FieldDefinition Object|
 
 ###### Example
-```java
+```apex
 FieldDefinition fd = [SELECT Id, DeveloperName, RelationshipNme,
                          DataType
                       FROM FieldDefinition LIMIT 1];
@@ -77,23 +78,30 @@ MetadataCatalogRecipes.LookupRelationshipDefinition lrd = new
 System.debug(lrd);
 ```
 
+
 ---
 #### Properties
 
-##### `dataType` → `String`
+##### `public dataType` → `String`
+
 
 Specifies the Data Type Of this Object
 
-##### `developerName` → `String`
+##### `public developerName` → `String`
+
 
 Specifies the name of the Object
 
-##### `looksUpTo` → `String`
+##### `public looksUpTo` → `String`
+
 
 Specifies what object this one looks up to
 
-##### `relationshipName` → `String`
+##### `public relationshipName` → `String`
+
 
 Specifies the Relationship field name
+
+---
 
 ---

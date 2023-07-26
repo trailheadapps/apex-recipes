@@ -6,11 +6,8 @@ import generateTreeData from '@salesforce/apex/RecipeTreeViewController.generate
 jest.mock(
     '@salesforce/apex/RecipeTreeViewController.generateTreeData',
     () => {
-        const {
-            createApexTestWireAdapter
-        } = require('@salesforce/sfdx-lwc-jest');
         return {
-            default: createApexTestWireAdapter(jest.fn())
+            default: jest.fn()
         };
     },
     { virtual: true }
@@ -19,7 +16,11 @@ jest.mock(
 // Realistic data with a list of records
 const mockGenerateTreeData = require('./data/generateTreeData.json');
 
-// Register as Apex wire adapter. Some tests verify that provisioned values trigger desired behavior.
+// Helper function to wait until the microtask queue is empty. This is needed for promise
+// timing when the platformResourceLoader promises.
+async function flushPromises() {
+    return Promise.resolve();
+}
 
 describe('c-recipe-tree-view', () => {
     afterEach(() => {
@@ -31,47 +32,45 @@ describe('c-recipe-tree-view', () => {
         jest.clearAllMocks();
     });
 
-    it('shows tree data when @wire returns data', () => {
+    it('shows tree data when generateTreeData returns data', async () => {
+        generateTreeData.mockResolvedValue(mockGenerateTreeData);
+
         // Create initial element
         const element = createElement('c-recipe-tree-view', {
             is: RecipeTreeView
         });
         document.body.appendChild(element);
 
-        // Emit data from @wire
-        generateTreeData.emit(mockGenerateTreeData);
+        // Wait for any asynchronous DOM updates
+        await flushPromises();
+        await flushPromises();
 
-        // Return a promise to wait for any asynchronous DOM updates. Jest
-        // will automatically wait for the Promise chain to complete before
-        // ending the test and fail the test if the promise rejects.
-        return Promise.resolve().then(() => {
-            // Select elements for validation
-            const treeEl = element.shadowRoot.querySelector('lightning-tree');
-            expect(treeEl.items).toStrictEqual(mockGenerateTreeData);
-        });
+        // Select elements for validation
+        const treeEl = element.shadowRoot.querySelector('lightning-tree');
+        expect(treeEl.items).toStrictEqual(mockGenerateTreeData);
     });
 
-    it('shows error panel when @wire returns error', () => {
+    it('shows error panel when generateTreeData returns error', async () => {
+        generateTreeData.mockRejectedValue('mockError');
+
         // Create initial element
         const element = createElement('c-recipe-tree-view', {
             is: RecipeTreeView
         });
         document.body.appendChild(element);
 
-        // Emit error from @wire
-        generateTreeData.error();
+        // Wait for any asynchronous DOM updates
+        await flushPromises();
+        await flushPromises();
 
-        // Return a promise to wait for any asynchronous DOM updates. Jest
-        // will automatically wait for the Promise chain to complete before
-        // ending the test and fail the test if the promise rejects.
-        return Promise.resolve().then(() => {
-            const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
-            expect(errorPanelEl).not.toBeNull();
-        });
+        // Check for error panel
+        const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
+        expect(errorPanelEl).not.toBeNull();
     });
 
-    it('fires select event when recipe selected', () => {
+    it('fires select event when recipe selected', async () => {
+        generateTreeData.mockResolvedValue(mockGenerateTreeData);
+
         // Create initial element
         const element = createElement('c-recipe-tree-view', {
             is: RecipeTreeView
@@ -84,47 +83,51 @@ describe('c-recipe-tree-view', () => {
         // Add event listener to catch select event
         element.addEventListener('recipeselect', handler);
 
-        // Emit data from @wire, so that the tree is rendered
-        generateTreeData.emit(mockGenerateTreeData);
+        // Wait for any asynchronous DOM updates
+        await flushPromises();
+        await flushPromises();
 
-        // Return a promise to wait for any asynchronous DOM updates. Jest
-        // will automatically wait for the Promise chain to complete before
-        // ending the test and fail the test if the promise rejects.
-        return Promise.resolve().then(() => {
-            // Emulate a recipe is selected
-            const treeEl = element.shadowRoot.querySelector('lightning-tree');
-            treeEl.dispatchEvent(
-                new CustomEvent('select', { detail: { name: 'SOQLRecipes' } })
-            );
+        // Emulate a recipe is selected
+        const treeEl = element.shadowRoot.querySelector('lightning-tree');
+        treeEl.dispatchEvent(
+            new CustomEvent('select', { detail: { name: 'SOQLRecipes' } })
+        );
 
-            // Validate select event has been fired
-            expect(handler.mock.calls.length).toBe(1);
-        });
+        // Validate select event has been fired
+        expect(handler).toHaveBeenCalled();
     });
 
-    it('is accessible when recipe shown', () => {
+    it('is accessible when recipe shown', async () => {
+        generateTreeData.mockResolvedValue(mockGenerateTreeData);
+
         // Create initial element
         const element = createElement('c-recipe-tree-view', {
             is: RecipeTreeView
         });
         document.body.appendChild(element);
 
-        // Emit data from @wire
-        generateTreeData.emit(mockGenerateTreeData);
+        // Wait for any asynchronous DOM updates
+        await flushPromises();
+        await flushPromises();
 
-        return Promise.resolve().then(() => expect(element).toBeAccessible());
+        // Check accessibility
+        await expect(element).toBeAccessible();
     });
 
-    it('is accessible when error panel shown', () => {
+    it('is accessible when error panel shown', async () => {
+        generateTreeData.mockRejectedValue('mockError');
+
         // Create initial element
         const element = createElement('c-recipe-tree-view', {
             is: RecipeTreeView
         });
         document.body.appendChild(element);
 
-        // Emit error from @wire
-        generateTreeData.error();
+        // Wait for any asynchronous DOM updates
+        await flushPromises();
+        await flushPromises();
 
-        return Promise.resolve().then(() => expect(element).toBeAccessible());
+        // Check accessibility
+        await expect(element).toBeAccessible();
     });
 });

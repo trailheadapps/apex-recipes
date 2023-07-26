@@ -1,66 +1,63 @@
 ---
 layout: default
 ---
-# ApexClassUtilities class
+# ApexClassUtilities
 
-Contains reusable code dealing with ApexClass objects. This is primarily used by the LWC components for displaying code in an org.
+Contains reusable code dealing with ApexClass objects.
+This is primarily used by the LWC components for displaying code
+in an org.
 
-## Related
 
-RecipeTreeViewController, FormattedRecipeDisplayController
+**Group** Shared Code
 
----
+
+**See** [RecipeTreeViewController, FormattedRecipeDisplayController](RecipeTreeViewController, FormattedRecipeDisplayController)
+
 ## Methods
-### `getGroupFromClassBody(ApexClass klass)` → `String`
+### `public static getGroupFromClassBody(ApexClass klass)`
 
-Extracts the @group annotation from a class&apos; body. Also demonstrates the use of Regex matchers in Apex.
+Extracts the &commat;group annotation from a class' body. Also demonstrates the use of Regex matchers in Apex.
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`klass` |  an ApexClass object |
+|Param|Description|
+|---|---|
+|`klass`|an ApexClass object|
 
-#### Return
+#### Returns
 
-**Type**
-
-String
-
-**Description**
-
-`String` This is the text following &apos;@group&apos; through
+|Type|Description|
+|---|---|
+|String|`String` This is the text following '&commat;group' through the end of the line.|
 
 #### Example
-```java
+```apex
 ApexClass klass = [SELECT Name, Body FROM ApexClass LIMIT 1];
 System.debug(ApexClassUtilities.getGroupBodyFromClassBody(klass));
 ```
 
-### `getRelatedClassesFromClassBody(ApexClass klass)` → `String`
 
-Extracts the @see annotation from a class&apos; body. Also demonstrates the use of Regex matchers in Apex.
+### `public static getRelatedClassesFromClassBody(ApexClass klass)`
+
+Extracts the &commat;see annotation from a class' body. Also demonstrates the use of Regex matchers in Apex.
 
 #### Parameters
 
-| Param | Description |
-| ----- | ----------- |
-|`klass` |  an ApexClass object |
+|Param|Description|
+|---|---|
+|`klass`|an ApexClass object|
 
-#### Return
+#### Returns
 
-**Type**
-
-String
-
-**Description**
-
-`String` This is the text following &apos;@see&apos; through
+|Type|Description|
+|---|---|
+|String|`String` This is the text following '&commat;see' through the end of the line.|
 
 #### Example
-```java
+```apex
 ApexClass klass = [SELECT Name, Body FROM ApexClass LIMIT 1];
 System.debug(ApexClassUtilities.getRelatedClassesFromClassBody(klass));
 ```
+
 
 ---

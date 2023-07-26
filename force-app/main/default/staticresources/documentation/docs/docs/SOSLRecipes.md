@@ -1,48 +1,47 @@
 ---
 layout: default
 ---
-# SOSLRecipes class
+# SOSLRecipes
 
-Demonstrates how to use SOSL. SOSL is used for full text, and fuzzier text searching. More on the difference between SOQL and SOSL: https://sfdc.co/soql-sosl
+Demonstrates how to use SOSL.
+SOSL is used for full text, and fuzzier text searching.
+More on the difference between SOQL and SOSL:
+https://sfdc.co/soql-sosl
 
----
+
+**Group** Data Recipes
+
 ## Methods
-### `basicSOSLSearch()` → `List<List<SObject>>`
+### `public static basicSOSLSearch()`
 
-Demonstrates the syntax for a SOSL search. Note: SOSL Cannot be unit tested directly - you must use Test.setFixedSearchResults() See SOSLRecipes_Tests.cls for more information
+Demonstrates the syntax for a SOSL search.  Note: SOSL Cannot be unit tested directly - you must use Test.setFixedSearchResults()  See SOSLRecipes_Tests.cls for more information
 
-#### Return
+#### Returns
 
-**Type**
-
-List&lt;List&lt;SObject&gt;&gt;
-
-**Description**
-
-List&lt;List&lt;SObject&gt;&gt;
+|Type|Description|
+|---|---|
+|List<List<SObject>>|List<List<SObject>>|
 
 #### Example
-```java
+```apex
 System.debug(SOSLRecipes.basicSOSLSearch());
 ```
 
-### `nameFieldSearch()` → `List<List<SObject>>`
+
+### `public static nameFieldSearch()`
 
 Demonstrates how to write a SOSL query that searches only name fields
 
-#### Return
+#### Returns
 
-**Type**
-
-List&lt;List&lt;SObject&gt;&gt;
-
-**Description**
-
-List&lt;List&lt;SObject&gt;&gt;
+|Type|Description|
+|---|---|
+|List<List<SObject>>|List<List<SObject>>|
 
 #### Example
-```java
+```apex
 System.debug(SOSLRecipes.nameFieldSearch());
 ```
+
 
 ---

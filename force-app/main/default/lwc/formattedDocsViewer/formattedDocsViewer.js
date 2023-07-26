@@ -1,3 +1,4 @@
+/* global Prism */
 import { LightningElement, api } from 'lwc';
 import { loadScript, loadStyle } from 'lightning/platformResourceLoader';
 import markdownIt from '@salesforce/resourceUrl/markdownIt';
@@ -31,26 +32,31 @@ export default class FormattedDocsViewer extends LightningElement {
             this.markdownItInitialized = true;
             this.error = undefined;
             try {
-                this.prism = Prism; // eslint-disable-line no-undef
+                this.prism = Prism;
                 this.markdownIt = window.markdownit();
             } catch (e) {
                 this.error = 'Unable to load Prism or MarkdownIt';
             }
-            this.formatMarkdown();
+            this.loadDocumentation();
         } catch (error) {
             this.error = error;
         }
     }
 
     async loadDocumentation() {
+        this.clearMarkdown();
+        // Don't load docs if libraries are not loaded or no recipe is selected
+        if (!this.markdownItInitialized || !this._recipeName) {
+            return;
+        }
         try {
-            this.clearMarkdown();
             const response = await fetch(
                 docs + '/docs/docs/' + this.recipeName + '.md'
             );
             const text = await response.text();
+            // Remove 3 first lines with layout header
             const textArray = text.split('\n');
-            textArray.splice(0, 2);
+            textArray.splice(0, 3);
             this.markdownDoc = textArray.join('\n');
             this.formatMarkdown();
         } catch (error) {
@@ -61,12 +67,12 @@ export default class FormattedDocsViewer extends LightningElement {
     clearMarkdown() {
         this.template
             .querySelector('div.markdownDoc')
-            .childNodes.forEach((node) => node.remove());
+            ?.childNodes.forEach((node) => node.remove());
     }
 
     formatMarkdown() {
         if (this.markdownDoc && this.markdownItInitialized) {
-            let docsHtml = document.createElement('div');
+            const docsHtml = document.createElement('div');
             docsHtml.innerHTML = this.markdownIt.render(this.markdownDoc); // eslint-disable-line
             this.template
                 .querySelector('div.markdownDoc')
@@ -82,7 +88,7 @@ export default class FormattedDocsViewer extends LightningElement {
 
     applyStyling() {
         this.applyStyleTo('h1', 'slds-text-heading_large');
-        this.applyStyleTo('h2', 'slds-text-heading_medium');
+        this.applyStyleTo('h2', 'slds-text-heading_medium slds-m-top_large');
         this.applyStyleTo(
             'h3',
             'slds-text-heading_small slds-m-top_large slds-m-bottom_x-small'
@@ -91,10 +97,12 @@ export default class FormattedDocsViewer extends LightningElement {
         this.applyStyleTo('p', 'slds-text-body_regular');
     }
 
-    applyStyleTo(selector, attr) {
-        const templateElements = this.template.querySelectorAll(selector);
-        templateElements.forEach((element) => {
-            element.setAttribute('class', attr);
+    applyStyleTo(selector, cssClasses) {
+        const elements = this.template.querySelectorAll(selector);
+        elements.forEach((element) => {
+            cssClasses.split(' ').forEach((cssClass) => {
+                element.classList.add(cssClass);
+            });
         });
     }
 }

@@ -1,16 +1,13 @@
 <template>
-    <template if:true={treeData}>
-        <template if:true={treeData.data}>
-            <div class="slds-var-p-around_medium">
-                <lightning-tree
-                    items={treeData.data}
-                    header="Groups &amp; Recipes"
-                    onselect={handleTreeItemSelect}
-                ></lightning-tree>
-            </div>
-        </template>
-        <template if:true={treeData.error}>
-            <c-error-panel errors={treeData.error}></c-error-panel>
-        </template>
+    <template lwc:if={treeData}>
+        <div class="slds-var-p-around_medium">
+            <lightning-tree
+                items={treeData}
+                header="Groups &amp; Recipes"
+                onselect={handleTreeItemSelect}
+                selected-item={selectedItem}
+            ></lightning-tree>
+        </div>
     </template>
+    <c-error-panel lwc:if={error} errors={error}></c-error-panel>
 </template>

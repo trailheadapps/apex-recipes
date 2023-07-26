@@ -1,47 +1,46 @@
 ---
 layout: default
 ---
-# MetadataTriggerService class
----
+# MetadataTriggerService
 ## Constructors
-### `MetadataTriggerService(String objectTypeName)`
+### `public MetadataTriggerService(String objectTypeName)`
 ---
-## Properties
+## Fields
 
-### `objType` → `String`
+### `private objType` → `String`
+
 
 ---
 ## Methods
-### `getMetadataTriggers()` → `List<Metadata_Driven_Trigger__mdt>`
+### `public getMetadataTriggers()`
 
-This query finds an ordered list trigger handler classes to execute. It ignores any classes that are marked as disabled. Note: It will exclude any triggerHandler metadata records for which the user&apos;s email address is found in a related disabled_for__mdt record. Admin&apos;s and Developers can selectively disable trigger handlers for all or selected individuals *without* deploying.
+`SUPPRESSWARNINGS`
 
-#### Return
+This query finds an ordered list trigger handler classes to execute. It ignores any classes that are marked as disabled. Note: It will exclude any triggerHandler metadata records for which the user's email address is found in a related disabled_for__mdt record. Admin's and Developers can selectively disable trigger handlers for all or selected individuals *without* deploying.
 
-**Type**
+#### Returns
 
-List&lt;Metadata_Driven_Trigger__mdt&gt;
+|Type|Description|
+|---|---|
+|List<Metadata_Driven_Trigger__mdt>|`List<Metadata_Driven_Trigger__mdt>`|
 
-**Description**
-
-`List&lt;Metadata_Driven_Trigger__mdt&gt;`
-
-### `getSObjectType()` → `String`
+### `public static getSObjectType()`
 
 This determines the active sObject type by describing the first record in the trigger New / Old list
 
-#### Return
+#### Returns
 
-**Type**
-
-String
-
-**Description**
-
-`String`
+|Type|Description|
+|---|---|
+|String|`String`|
 
 ---
-## Inner Classes
+## Classes
+### MetadataTriggerServiceException
 
-### MetadataTriggerService.MetadataTriggerServiceException class
+**Inheritance**
+
+MetadataTriggerServiceException
+
+
 ---
