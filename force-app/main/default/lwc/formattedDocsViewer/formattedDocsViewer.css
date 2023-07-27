@@ -1,0 +1,30 @@
+h3 code {
+    color: #be2f7e;
+}
+
+table,
+pre {
+    margin: 0.5rem 0 0.5rem 1rem;
+    width: calc(100% - 1rem);
+}
+
+pre {
+    padding: 1em;
+    overflow: auto;
+    border: 1px solid #dddddd;
+    background: #f8f8f8;
+}
+
+code {
+    padding: 0.2em;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background: #f8f8f8;
+    border: 1px solid #dddddd;
+}
+
+pre > code {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}

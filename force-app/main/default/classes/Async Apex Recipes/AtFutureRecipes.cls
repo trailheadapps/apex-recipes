@@ -1,12 +1,12 @@
 /**
- * @description Demonstrates the &commat;future syntax and usage
+ * @description Demonstrates the `@future` syntax and usage
  * @group Async Apex Recipes
  */
 public with sharing class AtFutureRecipes {
     /**
      * This class features a 'circuit breaker' variable. While this is not a
      * pattern I routinely turn to, it is a valuable pattern for testing code
-     * that is otherwise hard to test. For instance, &commat;future methods must be
+     * that is otherwise hard to test. For instance, `@future` methods must be
      * static void methods. This makes it hard to assert against return values.
      * The idea behind this pattern is set a private static class variable to
      * true, only when irreversible conditions or actions have occurred. The
@@ -17,8 +17,8 @@ public with sharing class AtFutureRecipes {
     @testVisible
     private static Boolean testCircuitBreaker = false;
     /**
-     * @description Method demonstrates the &commat;future annotation without the
-     * (callout=true) adendum. This method will be run in a different Apex
+     * @description Method demonstrates the `@future` annotation without the
+     * `(callout=true)` adendum. This method will be run in a different Apex
      * transaction than the calling code.
      * @param data String to be logged
      * @example
@@ -33,7 +33,7 @@ public with sharing class AtFutureRecipes {
     }
 
     /**
-     * @description Method demonstrates how an &commat;future anotated method can make
+     * @description Method demonstrates how an `@future` anotated method can make
      * an HTTP Callout. This method also demonstrates the necessary steps to
      * make an HTTP callout without the RestClient abstraction layer.
      *

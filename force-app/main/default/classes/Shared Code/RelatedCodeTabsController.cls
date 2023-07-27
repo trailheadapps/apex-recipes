@@ -6,7 +6,7 @@
  */
 public with sharing class RelatedCodeTabsController {
     /**
-     * @description Inspects the ApexClass body definition for a &commat;see
+     * @description Inspects the ApexClass body definition for a `@see`
      * tag in the opening class level doc block. It then parses the
      * comma separated list and returns it as a list of strings
      *

@@ -16,7 +16,7 @@ in an org.
 ## Methods
 ### `public static getGroupFromClassBody(ApexClass klass)`
 
-Extracts the &commat;group annotation from a class' body. Also demonstrates the use of Regex matchers in Apex.
+Extracts the `@group` annotation from a class' body. Also demonstrates the use of Regex matchers in Apex.
 
 #### Parameters
 
@@ -28,7 +28,7 @@ Extracts the &commat;group annotation from a class' body. Also demonstrates the 
 
 |Type|Description|
 |---|---|
-|String|`String` This is the text following '&commat;group' through the end of the line.|
+|String|`String` This is the text following `@group` through the end of the line.|
 
 #### Example
 ```apex
@@ -39,7 +39,7 @@ System.debug(ApexClassUtilities.getGroupBodyFromClassBody(klass));
 
 ### `public static getRelatedClassesFromClassBody(ApexClass klass)`
 
-Extracts the &commat;see annotation from a class' body. Also demonstrates the use of Regex matchers in Apex.
+Extracts the `@see` annotation from a class' body. Also demonstrates the use of Regex matchers in Apex.
 
 #### Parameters
 
@@ -51,7 +51,7 @@ Extracts the &commat;see annotation from a class' body. Also demonstrates the us
 
 |Type|Description|
 |---|---|
-|String|`String` This is the text following '&commat;see' through the end of the line.|
+|String|`String` This is the text following `@see` through the end of the line.|
 
 #### Example
 ```apex

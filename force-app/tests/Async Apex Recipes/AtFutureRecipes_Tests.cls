@@ -57,7 +57,7 @@ private inherited sharing class AtFutureRecipes_Tests {
     }
 
     /**
-     * @description Exercises the &commat;future method with a circuit breaker set
+     * @description Exercises the `@future` method with a circuit breaker set
      * to ensure a failure state. Tests that we get the proper failure state,
      * and get full coverage.
      */

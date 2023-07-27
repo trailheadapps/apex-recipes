@@ -67,7 +67,7 @@ System.debug([SELECT Id, lastName FROM Contact WHERE lastName like 'example last
 
 ### `public static stripInaccessibleFromUntrustedData(String jsonText)`
 
-Demonstrates how to use stripInaccessible to sanitize untrusted data prior to DML. In this case, the code demonstrates how to deserialize a JSON string, and strip fields / objects that the user has no access to. This pattern is especially useful for &commat;auraenabled methods!
+Demonstrates how to use stripInaccessible to sanitize untrusted data prior to DML. In this case, the code demonstrates how to deserialize a JSON string, and strip fields / objects that the user has no access to. This pattern is especially useful for `@auraenabled` methods!
 
 #### Parameters
 
