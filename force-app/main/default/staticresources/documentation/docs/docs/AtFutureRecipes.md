@@ -20,7 +20,7 @@ Demonstrates the `@future` syntax and usage
 
 `FUTURE`
 
-Method demonstrates the `@future` annotation without the (callout=true) adendum. This method will be run in a different Apex transaction than the calling code.
+Method demonstrates the `@future` annotation without the `(callout=true)` adendum. This method will be run in a different Apex transaction than the calling code.
 
 #### Parameters
 
