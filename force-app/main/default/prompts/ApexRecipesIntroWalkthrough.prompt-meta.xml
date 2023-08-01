@@ -12,10 +12,10 @@
         <masterLabel>Apex Recipes Intro Walkthrough Step 1</masterLabel>
         <publishedDate>2020-10-07</publishedDate>
         <shouldDisplayActionButton>false</shouldDisplayActionButton>
-        <shouldIgnoreGlobalDelay>false</shouldIgnoreGlobalDelay>
+        <shouldIgnoreGlobalDelay>true</shouldIgnoreGlobalDelay>
         <startDate>2020-10-07</startDate>
         <stepNumber>1</stepNumber>
-        <targetAppDeveloperName>Apex_Recipes</targetAppDeveloperName>
+        <customApplication>Apex_Recipes</customApplication>
         <targetPageKey1>Apex_Recipes</targetPageKey1>
         <targetPageType>standard__navItemPage</targetPageType>
         <timesToDisplay>1</timesToDisplay>
@@ -33,9 +33,9 @@
         <isPublished>false</isPublished>
         <masterLabel>Apex Recipes Intro Walkthrough Step 2</masterLabel>
         <shouldDisplayActionButton>false</shouldDisplayActionButton>
-        <shouldIgnoreGlobalDelay>false</shouldIgnoreGlobalDelay>
+        <shouldIgnoreGlobalDelay>true</shouldIgnoreGlobalDelay>
         <stepNumber>2</stepNumber>
-        <targetAppDeveloperName>Apex_Recipes</targetAppDeveloperName>
+        <customApplication>Apex_Recipes</customApplication>
         <targetPageKey1>Apex_Recipes</targetPageKey1>
         <targetPageType>standard__navItemPage</targetPageType>
         <title>Recipe View</title>
@@ -52,9 +52,9 @@
         <isPublished>false</isPublished>
         <masterLabel>Apex Recipes Intro Walkthrough Step 3</masterLabel>
         <shouldDisplayActionButton>false</shouldDisplayActionButton>
-        <shouldIgnoreGlobalDelay>false</shouldIgnoreGlobalDelay>
+        <shouldIgnoreGlobalDelay>true</shouldIgnoreGlobalDelay>
         <stepNumber>3</stepNumber>
-        <targetAppDeveloperName>Apex_Recipes</targetAppDeveloperName>
+        <customApplication>Apex_Recipes</customApplication>
         <targetPageKey1>Apex_Recipes</targetPageKey1>
         <targetPageType>standard__navItemPage</targetPageType>
         <title>Executable Examples</title>
@@ -71,9 +71,9 @@
         <isPublished>false</isPublished>
         <masterLabel>Apex Recipes Intro Walkthrough Step 4</masterLabel>
         <shouldDisplayActionButton>false</shouldDisplayActionButton>
-        <shouldIgnoreGlobalDelay>false</shouldIgnoreGlobalDelay>
+        <shouldIgnoreGlobalDelay>true</shouldIgnoreGlobalDelay>
         <stepNumber>4</stepNumber>
-        <targetAppDeveloperName>Apex_Recipes</targetAppDeveloperName>
+        <customApplication>Apex_Recipes</customApplication>
         <targetPageKey1>Apex_Recipes</targetPageKey1>
         <targetPageType>standard__navItemPage</targetPageType>
         <title>Contributing</title>
