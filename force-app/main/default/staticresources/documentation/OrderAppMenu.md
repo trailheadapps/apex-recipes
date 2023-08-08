@@ -1,6 +1,3 @@
----
-layout: default
----
 # OrderAppMenu
 
 A queueable class to prioritize this sample app in the org wide

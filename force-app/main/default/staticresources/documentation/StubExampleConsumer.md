@@ -1,6 +1,3 @@
----
-layout: default
----
 # StubExampleConsumer
 ## Constructors
 ### `public StubExampleConsumer(StubExample stub)`

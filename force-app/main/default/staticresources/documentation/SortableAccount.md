@@ -1,6 +1,3 @@
----
-layout: default
----
 # SortableAccount
 
 Wrapper class around Account that provides an implementation of

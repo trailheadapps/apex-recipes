@@ -1,6 +1,3 @@
----
-layout: default
----
 # MetadataTriggerService
 ## Constructors
 ### `public MetadataTriggerService(String objectTypeName)`

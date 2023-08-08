@@ -1,6 +1,3 @@
----
-layout: default
----
 # QuiddityRecipes
 
 Demonstrates the use and functionaly of Quiddity

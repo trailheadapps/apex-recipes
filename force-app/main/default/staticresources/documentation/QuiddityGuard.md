@@ -1,6 +1,3 @@
----
-layout: default
----
 # QuiddityGuard
 
 contains methods and static lists for rapid acceptence of a

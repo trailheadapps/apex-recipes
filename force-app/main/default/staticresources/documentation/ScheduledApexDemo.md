@@ -1,6 +1,3 @@
----
-layout: default
----
 # ScheduledApexDemo
 
 A demo class to be scheduled by ScheduledApexRecipes

@@ -1,6 +1,3 @@
----
-layout: default
----
 # MetadataCatalogRecipes
 
 Demonstrates how to query the Metadata Catalog. This is

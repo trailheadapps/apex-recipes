@@ -1,6 +1,3 @@
----
-layout: default
----
 # DMLRecipes
 
 Demonstrates various ways of making Data Manipulation Language

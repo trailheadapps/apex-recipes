@@ -1,6 +1,3 @@
----
-layout: default
----
 # AccountTriggerHandler
 
 Demonstrates how to construct a TriggerHandler using the

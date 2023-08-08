@@ -1,6 +1,3 @@
----
-layout: default
----
 # IterableApiClient
 
 Demonstrates an interable REST API client that loads paginated records (strings) thanks to an iterator

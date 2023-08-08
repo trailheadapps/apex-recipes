@@ -1,6 +1,3 @@
----
-layout: default
----
 # SOQLRecipes
 
 Demonstrates how to make various types of SOQL calls

@@ -1,6 +1,3 @@
----
-layout: default
----
 # SObjectStringFieldComparator
 
 Comparator that lets you sort a list of SObject alphabetically based on a String field.

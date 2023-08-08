@@ -1,6 +1,3 @@
----
-layout: default
----
 # LDVRecipes
 
 A demonstration recipe for how to process a large amount of

@@ -1,6 +1,3 @@
----
-layout: default
----
 # AccountServiceLayer
 
 Demonstrates what a Service Layer object might look like

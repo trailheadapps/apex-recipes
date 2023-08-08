@@ -1,6 +1,3 @@
----
-layout: default
----
 # PlatformCacheRecipes
 
 Illustrates how to programatically use the Platform Cache

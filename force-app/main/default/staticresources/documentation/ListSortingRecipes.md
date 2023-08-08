@@ -1,6 +1,3 @@
----
-layout: default
----
 # ListSortingRecipes
 
 Demonstrates how to sort lists with custom ordering logic

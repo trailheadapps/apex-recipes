@@ -1,6 +1,3 @@
----
-layout: default
----
 # InvocableMethodRecipes
 
 Demonstrates how to create Apex classes and methods that

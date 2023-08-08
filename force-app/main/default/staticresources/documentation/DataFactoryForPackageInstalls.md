@@ -1,6 +1,3 @@
----
-layout: default
----
 # DataFactoryForPackageInstalls
 
 Class generates data for installation cases where we cannot

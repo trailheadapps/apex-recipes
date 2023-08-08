@@ -1,6 +1,3 @@
----
-layout: default
----
 # CollectionUtils
 
 Library of generic, type safe collection methods.

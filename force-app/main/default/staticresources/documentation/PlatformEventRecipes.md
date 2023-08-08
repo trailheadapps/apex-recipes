@@ -1,6 +1,3 @@
----
-layout: default
----
 # PlatformEventRecipes
 
 Demonstrates how to publish events on the event bus

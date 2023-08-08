@@ -1,6 +1,3 @@
----
-layout: default
----
 # ApiServiceRecipes
 
 This recipe extends the custom RestClient class and

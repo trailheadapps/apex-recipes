@@ -1,6 +1,3 @@
----
-layout: default
----
 # AtFutureRecipes
 
 Demonstrates the `@future` syntax and usage

@@ -1,6 +1,3 @@
----
-layout: default
----
 # CanTheUser
 
 A reusable, intuitive library for determining wether or not the

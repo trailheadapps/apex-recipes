@@ -1,6 +1,3 @@
----
-layout: default
----
 # LogTriggerHandler
 
 Trigger handler for persisting Platform Event based

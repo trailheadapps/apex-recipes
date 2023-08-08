@@ -1,6 +1,3 @@
----
-layout: default
----
 # Log
 
 Generic logging framework that persists across DML reversions

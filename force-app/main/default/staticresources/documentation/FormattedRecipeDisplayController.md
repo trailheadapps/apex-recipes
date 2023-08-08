@@ -1,6 +1,3 @@
----
-layout: default
----
 # FormattedRecipeDisplayController
 
 this is the server side controller for the Formatted Recipe

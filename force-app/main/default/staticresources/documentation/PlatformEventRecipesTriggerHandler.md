@@ -1,6 +1,3 @@
----
-layout: default
----
 # PlatformEventRecipesTriggerHandler
 
 Demonstrates how to construct a trigger handler for

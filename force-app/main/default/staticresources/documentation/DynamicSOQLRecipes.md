@@ -1,6 +1,3 @@
----
-layout: default
----
 # DynamicSOQLRecipes
 
 Demonstrates how to construct a SOQL query dynamically, and

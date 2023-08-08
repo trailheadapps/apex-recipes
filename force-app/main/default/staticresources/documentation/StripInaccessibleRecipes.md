@@ -1,6 +1,3 @@
----
-layout: default
----
 # StripInaccessibleRecipes
 
 Demonstrates the use of Security.stripInaccessible()

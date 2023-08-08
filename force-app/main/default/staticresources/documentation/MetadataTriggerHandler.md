@@ -1,6 +1,3 @@
----
-layout: default
----
 # MetadataTriggerHandler
 
 This class exists as a unified, trigger handler class. It

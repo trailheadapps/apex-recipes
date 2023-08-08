@@ -1,6 +1,3 @@
----
-layout: default
----
 # TriggerHandler
 
 An opinionated trigger handler framework.

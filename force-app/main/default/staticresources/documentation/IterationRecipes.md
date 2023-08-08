@@ -1,6 +1,3 @@
----
-layout: default
----
 # IterationRecipes
 
 Demonstrates how to iterate on lists and sets

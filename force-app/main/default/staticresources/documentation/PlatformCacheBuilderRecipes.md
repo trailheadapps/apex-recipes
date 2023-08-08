@@ -1,6 +1,3 @@
----
-layout: default
----
 # PlatformCacheBuilderRecipes
 
 demonstrates how to use the Cache.CacheBuilder Interface

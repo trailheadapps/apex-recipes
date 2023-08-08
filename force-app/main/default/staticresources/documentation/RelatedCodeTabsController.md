@@ -1,6 +1,3 @@
----
-layout: default
----
 # RelatedCodeTabsController
 
 Apex server side controller for discovering other classes

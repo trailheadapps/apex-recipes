@@ -1,6 +1,3 @@
----
-layout: default
----
 # CustomMetadataUtilties
 
 This class utilizes Custom Metadata objects and the example

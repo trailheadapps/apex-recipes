@@ -1,6 +1,3 @@
----
-layout: default
----
 # ApiServiceRecipesDataModel
 
 This class contains the 'data transfer object' details.

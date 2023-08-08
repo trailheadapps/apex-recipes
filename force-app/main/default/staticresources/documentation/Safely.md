@@ -1,6 +1,3 @@
----
-layout: default
----
 # Safely
 
 Class wraps DML Calls in FLS / Crud checks. Library is baseed on

@@ -1,6 +1,3 @@
----
-layout: default
----
 # CalloutRecipes
 
 Demonstrates how to make an opinionated REST callout.

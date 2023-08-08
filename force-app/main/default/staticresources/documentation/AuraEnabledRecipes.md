@@ -1,6 +1,3 @@
----
-layout: default
----
 # AuraEnabledRecipes
 
 Demonstrates how to expose a class method to Aura and LWC

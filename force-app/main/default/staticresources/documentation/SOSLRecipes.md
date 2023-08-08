@@ -1,6 +1,3 @@
----
-layout: default
----
 # SOSLRecipes
 
 Demonstrates how to use SOSL.

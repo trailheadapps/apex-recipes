@@ -1,6 +1,3 @@
----
-layout: default
----
 # SchemaRecipes
 
 Responsible for showing how to use schema and schema tokens

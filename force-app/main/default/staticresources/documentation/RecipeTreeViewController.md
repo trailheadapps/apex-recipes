@@ -1,6 +1,3 @@
----
-layout: default
----
 # RecipeTreeViewController
 
 Provides the necessary data to populate a lightning-tree base

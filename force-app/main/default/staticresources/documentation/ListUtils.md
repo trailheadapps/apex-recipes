@@ -1,6 +1,3 @@
----
-layout: default
----
 # ListUtils
 
 This is a utility class for List operations.

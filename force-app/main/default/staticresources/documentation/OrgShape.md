@@ -1,6 +1,3 @@
----
-layout: default
----
 # OrgShape
 
 Class contains static methods for determining if specific

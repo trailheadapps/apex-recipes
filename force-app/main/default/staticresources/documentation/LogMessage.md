@@ -1,6 +1,3 @@
----
-layout: default
----
 # LogMessage
 
 A class for automatically attaching metadata to log messages

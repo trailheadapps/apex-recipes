@@ -1,6 +1,3 @@
----
-layout: default
----
 # EncryptionRecipes
 
 Demonstrates how to use different encryption and signing algorithms in Apex

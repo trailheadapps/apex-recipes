@@ -1,6 +1,3 @@
----
-layout: default
----
 # QueueableRecipes
 
 This class demonstrates how to construct a Queueable class.

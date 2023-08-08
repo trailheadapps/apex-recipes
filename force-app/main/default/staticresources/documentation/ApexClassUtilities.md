@@ -1,6 +1,3 @@
----
-layout: default
----
 # ApexClassUtilities
 
 Contains reusable code dealing with ApexClass objects.

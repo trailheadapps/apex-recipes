@@ -1,6 +1,3 @@
----
-layout: default
----
 # BatchApexRecipes
 
 Demonstrates the use of the Database.Batchable interface. The

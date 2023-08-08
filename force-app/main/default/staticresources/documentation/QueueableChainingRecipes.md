@@ -1,6 +1,3 @@
----
-layout: default
----
 # QueueableChainingRecipes
 
 Demonstrates how to use the Queueable interface

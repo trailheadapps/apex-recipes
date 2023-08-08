@@ -1,6 +1,3 @@
----
-layout: default
----
 # RestClient
 
 This class provides an exmaple of an intelligent abstraction for

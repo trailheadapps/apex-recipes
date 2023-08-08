@@ -1,6 +1,3 @@
----
-layout: default
----
 # MDTAccountTriggerHandler
 
 This is a simple trigger handler class for Account that is used

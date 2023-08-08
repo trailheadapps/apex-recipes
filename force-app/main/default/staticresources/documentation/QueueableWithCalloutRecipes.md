@@ -1,6 +1,3 @@
----
-layout: default
----
 # QueueableWithCalloutRecipes
 
 Demmonstrates the use of the Queueable interface to make

@@ -1,6 +1,3 @@
----
-layout: default
----
 # FilesRecipes
 
 Demonstrates how to create, link and share Files

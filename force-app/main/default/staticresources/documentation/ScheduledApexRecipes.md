@@ -1,6 +1,3 @@
----
-layout: default
----
 # ScheduledApexRecipes
 
 Demonstrates how to implement the Schedulable interface. The
