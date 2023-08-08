@@ -53,11 +53,7 @@ export default class FormattedDocsViewer extends LightningElement {
             const response = await fetch(
                 `${DOCS_BASE_URL}/${this.recipeName}.md`
             );
-            const text = await response.text();
-            // Remove 3 first lines with layout header
-            const textArray = text.split('\n');
-            textArray.splice(0, 3);
-            this.markdownDoc = textArray.join('\n');
+            this.markdownDoc = await response.text();
             this.formatMarkdown();
         } catch (error) {
             this.error = error;

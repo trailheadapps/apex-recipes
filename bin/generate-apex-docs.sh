@@ -22,5 +22,8 @@ find docs/* -type d -empty -delete && \
 find docs/ -type f -name "*.md" -print0 | xargs -0 sed -i "" -E "s@]\(\.\/(.*)\.md@](https://github.com/trailheadapps/apex-recipes/wiki/\1@g" && \
 find docs/ -type f -name "*.md" -print0 | xargs -0 sed -i "" -E "s@\]\(\.\.\/.*\/(.*)\.md@](https://github.com/trailheadapps/apex-recipes/wiki/\1@g" && \
 
+# Remove first three line with layout header
+find force-app/main/default/staticresources/documentation -type f -name "*.md" -print0 | xargs -0 sed -i "" '1,3d'
+
 # Move docs
 mv docs force-app/main/default/staticresources/documentation
