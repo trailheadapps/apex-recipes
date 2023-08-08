@@ -8,15 +8,17 @@ private class ApexClassUtilities_Tests {
             WHERE name LIKE 'ApexClassUtilities'
         ];
         Test.startTest();
-        String results = ApexClassUtilities.getRelatedClassesFromClassBody(acu);
+        List<String> relatedClasses = ApexClassUtilities.getRelatedClassesFromClassBody(
+            acu
+        );
         Test.stopTest();
 
         System.Assert.isTrue(
-            results.containsIgnoreCase('RecipeTreeViewController'),
+            relatedClasses.contains('RecipeTreeViewController'),
             'Expected to see RecipeTreeViewController'
         );
         System.Assert.isTrue(
-            results.containsIgnoreCase('FormattedRecipeDisplayController'),
+            relatedClasses.contains('FormattedRecipeDisplayController'),
             'Expected to see FormattedRecipeDisplayController'
         );
     }
@@ -29,10 +31,10 @@ private class ApexClassUtilities_Tests {
             WHERE name LIKE 'DynamicSOQLRecipes_Tests'
         ];
         Test.startTest();
-        String results = ApexClassUtilities.getRelatedClassesFromClassBody(
+        List<String> relatedClasses = ApexClassUtilities.getRelatedClassesFromClassBody(
             klass
         );
         Test.stopTest();
-        System.Assert.areEqual('', results, 'Expected empty string');
+        System.Assert.areEqual(0, relatedClasses.size(), 'Expected empty list');
     }
 }

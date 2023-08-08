@@ -37,31 +37,30 @@ public with sharing class ApexClassUtilities {
     }
 
     /**
-     * @description Extracts the `@see` annotation from a class' body.
+     * @description Extracts the `@see` annotations from a class' body.
      * Also demonstrates the use of Regex matchers in Apex.
      * @param klass an ApexClass object
-     * @return     `String` This is the text following `@see` through
-     * the end of the line.
+     * @return     `List<String>` These are the values following `@see` annotations
      * @example
      * ApexClass klass = [SELECT Name, Body FROM ApexClass LIMIT 1];
      * System.debug(ApexClassUtilities.getRelatedClassesFromClassBody(klass));
      */
-    public static String getRelatedClassesFromClassBody(ApexClass klass) {
+    public static List<String> getRelatedClassesFromClassBody(ApexClass klass) {
         Pattern patternForFindingSeeTagInHeader = Pattern.compile(
-            '.*@see.(.*)'
+            '@see\\s+(.*)'
         );
         Matcher matcher = patternForFindingSeeTagInHeader.matcher(klass.Body);
-        matcher.find();
-        String relatedClasses = '';
+        List<String> relatedClasses = new List<String>();
         try {
-            relatedClasses = matcher.group(1);
-            return relatedClasses;
+            while (matcher.find()) {
+                relatedClasses.add(matcher.group(1)?.trim());
+            }
         } catch (StringException matcherException) {
             System.debug(
                 LoggingLevel.INFO,
                 'Failed to extract related names. Class name: ' + klass.Name
             );
         }
-        return '';
+        return relatedClasses;
     }
 }

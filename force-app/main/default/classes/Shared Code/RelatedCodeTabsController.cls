@@ -30,18 +30,8 @@ public with sharing class RelatedCodeTabsController {
                 FROM ApexClass
                 WHERE Name LIKE :mainClassName
             ];
-            if (klass.Body.contains('@see')) {
-                String[] untrimmed = ApexClassUtilities.getRelatedClassesFromClassBody(
-                        klass
-                    )
-                    .split(',');
-                for (String toTrim : untrimmed) {
-                    relatedClasses.add(toTrim.trim());
-                }
-                return relatedClasses;
-            }
+            return ApexClassUtilities.getRelatedClassesFromClassBody(klass);
         }
-
         return relatedClasses;
     }
 }
