@@ -15,24 +15,23 @@ public with sharing class ApexClassUtilities {
      * the end of the line.
      * @example
      * ApexClass klass = [SELECT Name, Body FROM ApexClass LIMIT 1];
-     * System.debug(ApexClassUtilities.getGroupBodyFromClassBody(klass));
+     * System.debug(ApexClassUtilities.getGroupFromClassBody(klass));
      */
     public static String getGroupFromClassBody(ApexClass klass) {
         Pattern patternForFindingGroupTagInHeader = Pattern.compile(
-            '.*@group.(.*)'
+            '\\s*\\*\\s+@group\\s+(.*)'
         );
         Matcher matcher = patternForFindingGroupTagInHeader.matcher(klass.Body);
         matcher.find();
         String groupName = '';
         try {
-            groupName = matcher.group(1);
+            groupName = matcher.group(1)?.trim();
         } catch (StringException matcherException) {
             System.debug(
                 LoggingLevel.INFO,
                 'Failed to extract group name. Class name: ' + klass.Name
             );
         }
-
         return groupName;
     }
 
@@ -47,7 +46,7 @@ public with sharing class ApexClassUtilities {
      */
     public static List<String> getRelatedClassesFromClassBody(ApexClass klass) {
         Pattern patternForFindingSeeTagInHeader = Pattern.compile(
-            '@see\\s+(.*)'
+            '\\s*\\*\\s+@see\\s+(.*)'
         );
         Matcher matcher = patternForFindingSeeTagInHeader.matcher(klass.Body);
         List<String> relatedClasses = new List<String>();

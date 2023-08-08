@@ -33,7 +33,7 @@ Extracts the `@group` annotation from a class' body. Also demonstrates the use o
 #### Example
 ```apex
 ApexClass klass = [SELECT Name, Body FROM ApexClass LIMIT 1];
-System.debug(ApexClassUtilities.getGroupBodyFromClassBody(klass));
+System.debug(ApexClassUtilities.getGroupFromClassBody(klass));
 ```
 
 
