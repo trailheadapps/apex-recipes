@@ -3,7 +3,7 @@ import { LightningElement, api } from 'lwc';
 import { loadScript, loadStyle } from 'lightning/platformResourceLoader';
 import markdownIt from '@salesforce/resourceUrl/markdownIt';
 import highlight from '@salesforce/resourceUrl/highlight';
-import docs from '@salesforce/resourceUrl/documentation';
+import DOCS_BASE_URL from '@salesforce/resourceUrl/documentation';
 
 export default class FormattedDocsViewer extends LightningElement {
     _recipeName;
@@ -51,7 +51,7 @@ export default class FormattedDocsViewer extends LightningElement {
         }
         try {
             const response = await fetch(
-                docs + '/docs/docs/' + this.recipeName + '.md'
+                `${DOCS_BASE_URL}/${this.recipeName}.md`
             );
             const text = await response.text();
             // Remove 3 first lines with layout header

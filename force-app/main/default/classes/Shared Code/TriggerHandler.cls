@@ -2,7 +2,8 @@
  * @description An opinionated trigger handler framework.
  * Originally by Kevin O'Hara github.com/kevinohara80/sfdc-trigger-framework
  * @group Shared Code
- * @see AccountTriggerHandler, PlatformEventRecipesTriggerHandler
+ * @see AccountTriggerHandler
+ * @see PlatformEventRecipesTriggerHandler
  */
 public virtual class TriggerHandler {
     // static map of handlername, times run() was invoked

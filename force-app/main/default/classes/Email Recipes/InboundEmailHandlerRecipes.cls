@@ -12,7 +12,8 @@
  * ApexSharingViolation warning.
  *
  * @group Email Recipes
- * @see Safely, FilesRecipes
+ * @see Safely
+ * @see FilesRecipes
  */
 @SuppressWarnings('PMD.ApexSharingViolations')
 public class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler {

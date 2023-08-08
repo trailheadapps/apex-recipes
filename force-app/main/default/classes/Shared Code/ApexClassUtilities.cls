@@ -3,7 +3,8 @@
  * This is primarily used by the LWC components for displaying code
  * in an org.
  * @group Shared Code
- * @see RecipeTreeViewController, FormattedRecipeDisplayController
+ * @see RecipeTreeViewController
+ * @see FormattedRecipeDisplayController
  */
 public with sharing class ApexClassUtilities {
     /**

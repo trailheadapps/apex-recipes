@@ -2,7 +2,9 @@
  * @description Demonstrates how to sort lists with custom ordering logic
  *
  * @group Collection Recipes
- * @see ListUtils, SortableAccount, SObjectStringFieldComparator
+ * @see ListUtils
+ * @see SortableAccount
+ * @see SObjectStringFieldComparator
  */
 public with sharing class ListSortingRecipes {
     /**

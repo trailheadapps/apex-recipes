@@ -2,7 +2,8 @@
  * @description Demonstrates how to construct a TriggerHandler using the
  * trigger handler framework found in Shared Code/TriggerHandler.cls
  * @group Trigger Recipes
- * @see TriggerHandler, AccountServiceLayer
+ * @see TriggerHandler
+ * @see AccountServiceLayer
  */
 public with sharing class AccountTriggerHandler extends TriggerHandler {
     private List<Account> triggerNew;

@@ -6,7 +6,8 @@
  * https://sfdc.co/scheduled-apex
  *
  * @group Async Apex Recipes
- * @see ScheduledApexDemo, BatchApexRecipes
+ * @see ScheduledApexDemo
+ * @see BatchApexRecipes
  */
 public with sharing class ScheduledApexRecipes implements Schedulable {
     @testVisible // Sets to run at midnight 5/28/2099

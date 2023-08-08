@@ -62,8 +62,6 @@ describe('c-formatted-docs-viewer', () => {
         await flushPromises();
 
         expect(fetch).toHaveBeenCalledTimes(1);
-        expect(fetch.mock.calls[0][0]).toBe(
-            'documentation/docs/docs/mockRecipe.md'
-        );
+        expect(fetch.mock.calls[0][0]).toBe('documentation/mockRecipe.md');
     });
 });

@@ -9,7 +9,8 @@
  * More on MockBin here: http://mockbin.org/
  *
  * @group Integration Recipes
- * @see RestClient, ApiServiceRecipesDataModel
+ * @see RestClient
+ * @see ApiServiceRecipesDataModel
  */
 public with sharing class ApiServiceRecipes extends RestClient {
     @testVisible

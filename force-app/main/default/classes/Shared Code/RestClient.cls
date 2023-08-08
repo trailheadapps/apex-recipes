@@ -15,7 +15,10 @@
  *
  *
  * @group Shared Code
- * @see AtFutureRecipes, QueueableWithCalloutRecipes, ApiServiceRecipes, CalloutRecipes
+ * @see AtFutureRecipes
+ * @see QueueableWithCalloutRecipes
+ * @see ApiServiceRecipes
+ * @see CalloutRecipes
  */
 public virtual class RestClient {
     /**

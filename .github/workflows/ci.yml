@@ -153,7 +153,7 @@ jobs:
             - name: 'Upload documentation to wiki'
               uses: SwiftDocOrg/github-wiki-publish-action@v1
               with:
-                  path: 'force-app/main/default/staticresources/documentation/docs/docs'
+                  path: 'force-app/main/default/staticresources/documentation'
               env:
                   GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
 

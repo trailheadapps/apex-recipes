@@ -1,7 +1,8 @@
 /**
  * @description Demonstrates how to publish events on the event bus
  * @group Platform Event Recipes
- * @see PlatformEventTriggerHandler, TriggerHandler
+ * @see PlatformEventTriggerHandler
+ * @see TriggerHandler
  */
 public with sharing class PlatformEventRecipes {
     /**

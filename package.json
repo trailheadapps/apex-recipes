@@ -9,7 +9,7 @@
         "prettier:verify": "prettier --check \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prettier:apex:local": "prettier --plugin=@prettier/plugin-xml --plugin=prettier-plugin-apex --apex-standalone-parser built-in --apex-standalone-host 127.0.0.1 --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prettier:verify:apex:local": "prettier --plugin=@prettier/plugin-xml --plugin=prettier-plugin-apex --apex-standalone-parser built-in --apex-standalone-host 127.0.0.1 --check \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
-        "apexdocs": "rm -fr docs/* && apexdocs-generate -p global public private protected namespaceaccessible -s force-app/main/default/classes && rm docs/index.md && find docs/* -mindepth 1 -type f -exec mv -i '{}' docs ';' && find docs/* -type d -empty -delete",
+        "apexdocs": "sh bin/generate-apex-docs.sh",
         "apex:local:start": "start-apex-server --host 127.0.0.1",
         "apex:local:stop": "stop-apex-server --host 127.0.0.1",
         "test:unit": "sfdx-lwc-jest --skipApiVersionCheck",
@@ -17,7 +17,7 @@
         "test:unit:debug": "sfdx-lwc-jest --debug --skipApiVersionCheck",
         "test:unit:coverage": "sfdx-lwc-jest --coverage --skipApiVersionCheck",
         "postinstall": "husky install",
-        "precommit": "npm run apexdocs && git add docs && lint-staged"
+        "precommit": "npm run apexdocs && git add force-app/main/default/staticresources/documentation && lint-staged"
     },
     "lint-staged": {
         "**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}": [
