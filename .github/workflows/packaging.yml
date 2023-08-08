@@ -7,19 +7,11 @@ on:
     repository_dispatch:
         types: [start-packaging]
 
-defaults:
-    run:
-        shell: sh
-
 # Jobs to be executed
 jobs:
     release-package-version:
         runs-on: trailheadapps-Ubuntu
         steps:
-            # Install Volta to enforce proper node and package manager versions
-            - name: 'Install Volta'
-              uses: volta-cli/action@v4
-
             # Install Salesforce CLI
             - name: 'Install Salesforce CLI'
               run: |
@@ -36,6 +28,7 @@ jobs:
 
             # Store secret for dev hub
             - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
+              shell: bash
               run: |
                   echo ${{ secrets.DEVHUB_SFDX_URL }} > ./DEVHUB_SFDX_URL.txt
                   secretFileSize=$(wc -c "./DEVHUB_SFDX_URL.txt" | awk '{print $1}')
@@ -56,7 +49,7 @@ jobs:
             - name: 'Create package version'
               id: createPackageVersion
               run: |
-                  sf plugins install packaging
+                  set +e
                   json=$(sf package version create -p ApexRecipes -x -w 20 -f config/project-scratch-def.json --json)
                   echo $json
                   status=$(echo $json | jq '.status')
