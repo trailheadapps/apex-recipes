@@ -2,7 +2,7 @@
 private class PSGTestingRecipes {
     @isTest
     static void testRecalculatePSG() {
-        // get the PSG by name (may have been modified in deployment)
+        // get the PSG by name
         PermissionSetGroup psg = [
             SELECT Id, Status
             FROM PermissionSetGroup
