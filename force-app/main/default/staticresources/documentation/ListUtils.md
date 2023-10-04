@@ -11,7 +11,7 @@ See SObjectStringFieldComparator for tests.
 **See** [SObjectStringFieldComparator](https://github.com/trailheadapps/apex-recipes/wiki/SObjectStringFieldComparator)
 
 ## Methods
-### `public static sort(List<Object> objects, Comparator comparator)`
+### `public static void sort(List<Object> objects, Comparator comparator)`
 
 sorts a list of objects using bubble sort algorithm and a comparator
 
@@ -41,7 +41,7 @@ CompareException
 interface that specifies how two objects should be compared for ordering
 
 #### Methods
-##### `public compare(Object o1, Object o2)`
+##### `public Integer compare(Object o1, Object o2)`
 
 compares two objects
 

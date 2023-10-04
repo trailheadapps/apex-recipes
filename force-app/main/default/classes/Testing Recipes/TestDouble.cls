@@ -124,7 +124,7 @@ public class TestDouble implements System.StubProvider {
     }
 
     /**
-     * This inner class describes a Method that is to be stubbed.
+     * @description This inner class describes a Method that is to be stubbed.
      * Multiple Method objects will likely be created in the course of your unit
      * tests, and these Method objects are added to the `methods` property of
      * your TestDouble instance.

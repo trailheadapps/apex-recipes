@@ -52,7 +52,7 @@ Constructor accepting an ID to use as an offset. Use this version to *continue* 
 
 ---
 ## Methods
-### `public execute(System queueableContext)`
+### `public void execute(System queueableContext)`
 
 This method contains the 'what' happens to each chunk of records. Note, that this example doesn't actually do any processing. In a real-life use case you'd iterate over the records stored in this.objectsToProcess.
 
@@ -62,7 +62,7 @@ This method contains the 'what' happens to each chunk of records. Note, that thi
 |---|---|
 |`queueableContext`||
 
-### `private getRecordsToProcess(Id offsetId)`
+### `private List getRecordsToProcess(Id offsetId)`
 
 Returns a 'cursor' - a set of records of size X from a given offset. Note: We originally intended to use OFFSET - the SOQL keyword, but discovered the max OFFSET size is 2000. This obviously won't work for large data volumes greater than 2000 so we switched to using the ID of the record. Since ID is an indexed field, this should also allow us to prevent full table scans even on the largest tables.
 
@@ -78,5 +78,5 @@ Returns a 'cursor' - a set of records of size X from a given offset. Note: We or
 |---|---|
 |List<ContentDocumentLink>|`List<ContentDocumentLink>`|
 
-### `private safeToReenqueue()`
+### `private Boolean safeToReenqueue()`
 ---

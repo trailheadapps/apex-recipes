@@ -58,7 +58,7 @@ Public severity property.
 
 ---
 ## Methods
-### `public toEvent()`
+### `public Log__e toEvent()`
 
 converts this object to an event for publishing
 

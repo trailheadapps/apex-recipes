@@ -10,7 +10,7 @@ related to the one being viewed
 **See** [ApexClassUtilities](https://github.com/trailheadapps/apex-recipes/wiki/ApexClassUtilities)
 
 ## Methods
-### `public static getRelatedClasses(String mainClassName)`
+### `public static List getRelatedClasses(String mainClassName)`
 
 `SUPPRESSWARNINGS`
 

@@ -23,5 +23,5 @@ Comparator that lets you sort a list of SObject alphabetically based on a String
 
 ---
 ## Methods
-### `public compare(Object o1, Object o2)`
+### `public Integer compare(Object o1, Object o2)`
 ---

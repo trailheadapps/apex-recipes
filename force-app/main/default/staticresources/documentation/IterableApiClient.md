@@ -43,11 +43,11 @@ The name of the Named Credential to use
 
 ---
 ## Methods
-### `public iterator()`
+### `public Iterator<RecordPage> iterator()`
 
 Returns an iterator on RecordPage (as required by the Iterable interface)
 
-### `private getRecordPage(Integer pageIndex)`
+### `private RecordPage getRecordPage(Integer pageIndex)`
 
 Internal method that issues a REST request to read a record page
 
@@ -57,7 +57,7 @@ Internal method that issues a REST request to read a record page
 |---|---|
 |RecordPage|RecordPage a page with a list of records|
 
-### `protected makeApiCall(HttpVerb method, String path, String query, String body, Map<String,String> headers)`
+### `protected HttpResponse makeApiCall(HttpVerb method, String path, String query, String body, Map<String,String> headers)`
 
 *Inherited*
 
@@ -84,7 +84,7 @@ Omnibus callout method. This is the primary method for making a REST callout. Mo
 |---|---|
 |HttpResponse|HttpResponse  HttpResponse Obj|
 
-### `protected makeApiCall(HttpVerb method, String path, String query, String body)`
+### `protected HttpResponse makeApiCall(HttpVerb method, String path, String query, String body)`
 
 *Inherited*
 
@@ -110,7 +110,7 @@ Makes an HTTP Callout to an api resource. Convienence method that assumes the De
 |---|---|
 |HttpResponse|`HttpResponse`|
 
-### `protected makeApiCall(HttpVerb method, String path, String query)`
+### `protected HttpResponse makeApiCall(HttpVerb method, String path, String query)`
 
 *Inherited*
 
@@ -133,7 +133,7 @@ convenience version of makeApiCall without body param. Invokes omnibus version a
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected makeApiCall(HttpVerb method, String path)`
+### `protected HttpResponse makeApiCall(HttpVerb method, String path)`
 
 *Inherited*
 
@@ -155,7 +155,7 @@ convenience version of makeApiCall without body or query params. Invokes omnibus
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected get(String path)`
+### `protected HttpResponse get(String path)`
 
 *Inherited*
 
@@ -176,7 +176,7 @@ convenience method for a GET Call that only requires a path
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected get(String path, String query)`
+### `protected HttpResponse get(String path, String query)`
 
 *Inherited*
 
@@ -198,7 +198,7 @@ convenience method for a GET Call that only requires a path and query
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected del(String path)`
+### `protected HttpResponse del(String path)`
 
 *Inherited*
 
@@ -219,7 +219,7 @@ convenience method for deleteing a resource based only on path
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected del(String path, String query)`
+### `protected HttpResponse del(String path, String query)`
 
 *Inherited*
 
@@ -241,7 +241,7 @@ convenience method for a Delete Call that only requires a path and query
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected post(String path, String body)`
+### `protected HttpResponse post(String path, String body)`
 
 *Inherited*
 
@@ -263,7 +263,7 @@ convenience method for a POST Call that only requires a path and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected post(String path, String query, String body)`
+### `protected HttpResponse post(String path, String query, String body)`
 
 *Inherited*
 
@@ -286,7 +286,7 @@ convenience method for a POST Call that only requires a path, query and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected put(String path, String body)`
+### `protected HttpResponse put(String path, String body)`
 
 *Inherited*
 
@@ -308,7 +308,7 @@ convenience method for a PUT Call that only requires a path and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected put(String path, String query, String body)`
+### `protected HttpResponse put(String path, String query, String body)`
 
 *Inherited*
 
@@ -331,7 +331,7 @@ convenience method for a PUT Call that only requires a path, query and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected patch(String path, String body)`
+### `protected HttpResponse patch(String path, String body)`
 
 *Inherited*
 
@@ -353,7 +353,7 @@ convenience method for a PATCH Call that only requires a path, query and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected patch(String path, String query, String body)`
+### `protected HttpResponse patch(String path, String query, String body)`
 
 *Inherited*
 
@@ -376,7 +376,7 @@ convenience method for a PATCH Call that only requires a path, query and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected ensureStringEndsInSlash(String resource)`
+### `protected String ensureStringEndsInSlash(String resource)`
 
 *Inherited*
 
@@ -397,7 +397,7 @@ Ensures that the inputted string ends in a `/` makes callouts more robust.
 |---|---|
 |String|inputted string with `/` if it didn't already end in one.|
 
-### `public static makeApiCall(String namedCredential, HttpVerb method, String path, String query, String body, Map<String,String> headers)`
+### `public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path, String query, String body, Map<String,String> headers)`
 
 *Inherited*
 
@@ -434,7 +434,7 @@ System.Debug(RestClient.makeApiCall('MockBin',
 ```
 
 
-### `public static makeApiCall(String namedCredential, HttpVerb method, String path, String query)`
+### `public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path, String query)`
 
 *Inherited*
 
@@ -467,7 +467,7 @@ System.Debug(RestClient.makeApiCall('MockBin',
 ```
 
 
-### `public static makeApiCall(String namedCredential, HttpVerb method, String path)`
+### `public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path)`
 
 *Inherited*
 
@@ -522,7 +522,7 @@ Public class used for JSON deserialization of record page response
 
 ---
 #### Methods
-##### `public getRecords()`
+##### `public List getRecords()`
 ---
 
 ### RecordPageIterator
@@ -552,8 +552,8 @@ It uses IterableApiClient to perform REST requests to load the record pages.
 
 ---
 #### Methods
-##### `public hasNext()`
-##### `public next()`
+##### `public Boolean hasNext()`
+##### `public RecordPage next()`
 ---
 
 ---

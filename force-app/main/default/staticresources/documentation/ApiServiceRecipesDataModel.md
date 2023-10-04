@@ -37,7 +37,7 @@ These properties represent the JSON keys that we need to send or recieve.
 
 ---
 ## Methods
-### `public static parse(String json)`
+### `public static List parse(String json)`
 
 Parses the provided JSON string into a list of ApiServiceRecipesDataModel objects
 

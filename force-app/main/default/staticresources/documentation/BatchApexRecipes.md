@@ -37,7 +37,7 @@ https://sfdc.co/batch_interface
 
 ---
 ## Methods
-### `public start(Database context)`
+### `public Database start(Database context)`
 
 This method is required by the Batchable interface. It's responsible for identifying the records that will be affected Your start method can either return a QueryLocator or an Iterable (List) The records identified here will be made available to the execute method below, in batches of up to 200 records at a time.
 
@@ -59,7 +59,7 @@ Database.executeBatch(new BatchApexRecipes());
 ```
 
 
-### `public execute(Database context, List<Account> scope)`
+### `public void execute(Database context, List<Account> scope)`
 
 This method is where the actual work occurs. It's run once per batch.
 
@@ -76,7 +76,7 @@ Database.executeBatch(new BatchApexRecipes());
 ```
 
 
-### `public finish(Database context)`
+### `public void finish(Database context)`
 
 This method is called by the system when all the individual batches have completed. Intrepid developers may send emails, or otherwise notify others of the job's completion here.
 

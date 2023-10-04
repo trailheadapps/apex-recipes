@@ -21,7 +21,7 @@ Demonstrates how to use different encryption and signing algorithms in Apex
 
 ---
 ## Methods
-### `public static encryptAES256WithManagedIVRecipe(Blob dataToEncrypt)`
+### `public static Blob encryptAES256WithManagedIVRecipe(Blob dataToEncrypt)`
 
 `AURAENABLED`
 
@@ -47,7 +47,7 @@ System.debug(EncodingUtil.base64Encode(encryptedData));
 ```
 
 
-### `public static decryptAES256WithManagedIVRecipe(Blob dataToDecrypt)`
+### `public static Blob decryptAES256WithManagedIVRecipe(Blob dataToDecrypt)`
 
 `AURAENABLED`
 
@@ -72,7 +72,7 @@ System.debug(decryptedData.toString());
 ```
 
 
-### `public static encryptAES256Recipe(Blob dataToEncrypt, Blob initializationVector)`
+### `public static Blob encryptAES256Recipe(Blob dataToEncrypt, Blob initializationVector)`
 
 `AURAENABLED`
 
@@ -99,7 +99,7 @@ System.debug(EncodingUtil.base64Encode(encryptedData));
 ```
 
 
-### `public static decryptAES256Recipe(Blob dataToDecrypt)`
+### `public static Blob decryptAES256Recipe(Blob dataToDecrypt)`
 
 `AURAENABLED`
 
@@ -124,7 +124,7 @@ System.debug(decryptedData.toString());
 ```
 
 
-### `public static generateInitializationVector()`
+### `public static Blob generateInitializationVector()`
 
 Aux method to generate a random initialization vector.
 
@@ -134,7 +134,7 @@ Aux method to generate a random initialization vector.
 |---|---|
 |Blob|Blob|
 
-### `public static generateSHA512HashRecipe(Blob dataToHash)`
+### `public static Blob generateSHA512HashRecipe(Blob dataToHash)`
 
 `AURAENABLED`
 
@@ -160,7 +160,7 @@ System.debug(EncodingUtil.base64Encode(hash));
 ```
 
 
-### `public static checkSHA512HashRecipe(Blob hash, Blob dataToCheck)`
+### `public static void checkSHA512HashRecipe(Blob hash, Blob dataToCheck)`
 
 `AURAENABLED`
 
@@ -190,7 +190,7 @@ try {
 ```
 
 
-### `public static generateHMACSHA512Recipe(Blob dataToHmac)`
+### `public static Blob generateHMACSHA512Recipe(Blob dataToHmac)`
 
 `AURAENABLED`
 
@@ -216,7 +216,7 @@ System.debug(EncodingUtil.base64Encode(hmac));
 ```
 
 
-### `public static checkHMACSHA512Recipe(Blob hmac, Blob dataToCheck)`
+### `public static void checkHMACSHA512Recipe(Blob hmac, Blob dataToCheck)`
 
 `AURAENABLED`
 
@@ -246,7 +246,7 @@ try {
 ```
 
 
-### `public static generateRSASHA512DigitalSignatureRecipe(Blob dataToSign)`
+### `public static Blob generateRSASHA512DigitalSignatureRecipe(Blob dataToSign)`
 
 `AURAENABLED`
 
@@ -272,7 +272,7 @@ System.debug(EncodingUtil.base64Encode(signature));
 ```
 
 
-### `public static checkRSASHA512DigitalSignatureRecipe(Blob signature, Blob dataToCheck)`
+### `public static void checkRSASHA512DigitalSignatureRecipe(Blob signature, Blob dataToCheck)`
 
 `AURAENABLED`
 
@@ -302,7 +302,7 @@ try {
 ```
 
 
-### `public static encryptAES256AndGenerateRSASHA512DigitalSignRecipe(Blob dataToEncryptAndSign)`
+### `public static EncryptedAndSignedData encryptAES256AndGenerateRSASHA512DigitalSignRecipe(Blob dataToEncryptAndSign)`
 
 `AURAENABLED`
 
@@ -329,7 +329,7 @@ System.debug(EncodingUtil.base64Encode(wrapper.signature));
 ```
 
 
-### `public static decryptAES256AndCheckRSASHA512DigitalSignRecipe(Blob signature, Blob dataToDecryptAndCheck)`
+### `public static Blob decryptAES256AndCheckRSASHA512DigitalSignRecipe(Blob signature, Blob dataToDecryptAndCheck)`
 
 `AURAENABLED`
 
@@ -359,7 +359,7 @@ try {
 ```
 
 
-### `public static areEqualConstantTime(String first, String second)`
+### `public static boolean areEqualConstantTime(String first, String second)`
 
 Comparisons which involve cryptography need to be performed in constant time using specialized functions to avoid timing attack effects. https://en.wikipedia.org/wiki/Timing_attack
 

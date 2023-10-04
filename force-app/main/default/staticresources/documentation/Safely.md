@@ -23,19 +23,19 @@ Notable chainable methods include:
 
 ---
 ## Methods
-### `public allOrNothing()`
-### `public throwIfRemovedFields()`
-### `public doInsert(List<SObject> records)`
-### `public doInsert(SObject record)`
-### `public doUpdate(List<SObject> records)`
-### `public doUpdate(SObject record)`
-### `public doUpsert(List<SObject> records)`
-### `public doUpsert(Sobject record)`
-### `public doDelete(List<SObject> records)`
-### `public doDelete(SObject record)`
-### `public doQuery(String query)`
-### `private doDML(System accessType, List<SObject> records)`
-### `private guardAgainstRemovedFields(System accessType, List<SObject> records)`
+### `public Safely allOrNothing()`
+### `public Safely throwIfRemovedFields()`
+### `public List doInsert(List<SObject> records)`
+### `public List doInsert(SObject record)`
+### `public List doUpdate(List<SObject> records)`
+### `public List doUpdate(SObject record)`
+### `public List doUpsert(List<SObject> records)`
+### `public List doUpsert(Sobject record)`
+### `public List doDelete(List<SObject> records)`
+### `public List doDelete(SObject record)`
+### `public List doQuery(String query)`
+### `private List doDML(System accessType, List<SObject> records)`
+### `private SObjectAccessDecision guardAgainstRemovedFields(System accessType, List<SObject> records)`
 ---
 ## Classes
 ### RemovedFieldsException

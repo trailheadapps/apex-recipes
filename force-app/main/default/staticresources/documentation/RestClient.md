@@ -64,7 +64,7 @@ The name of the Named Credential to use
 
 ---
 ## Methods
-### `protected makeApiCall(HttpVerb method, String path, String query, String body, Map<String,String> headers)`
+### `protected HttpResponse makeApiCall(HttpVerb method, String path, String query, String body, Map<String,String> headers)`
 
 `TESTVISIBLE`
 
@@ -88,7 +88,7 @@ Omnibus callout method. This is the primary method for making a REST callout. Mo
 |---|---|
 |HttpResponse|HttpResponse  HttpResponse Obj|
 
-### `protected makeApiCall(HttpVerb method, String path, String query, String body)`
+### `protected HttpResponse makeApiCall(HttpVerb method, String path, String query, String body)`
 
 `TESTVISIBLE`
 
@@ -111,7 +111,7 @@ Makes an HTTP Callout to an api resource. Convienence method that assumes the De
 |---|---|
 |HttpResponse|`HttpResponse`|
 
-### `protected makeApiCall(HttpVerb method, String path, String query)`
+### `protected HttpResponse makeApiCall(HttpVerb method, String path, String query)`
 
 `TESTVISIBLE`
 
@@ -131,7 +131,7 @@ convenience version of makeApiCall without body param. Invokes omnibus version a
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected makeApiCall(HttpVerb method, String path)`
+### `protected HttpResponse makeApiCall(HttpVerb method, String path)`
 
 `TESTVISIBLE`
 
@@ -150,7 +150,7 @@ convenience version of makeApiCall without body or query params. Invokes omnibus
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected get(String path)`
+### `protected HttpResponse get(String path)`
 
 `TESTVISIBLE`
 
@@ -168,7 +168,7 @@ convenience method for a GET Call that only requires a path
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected get(String path, String query)`
+### `protected HttpResponse get(String path, String query)`
 
 `TESTVISIBLE`
 
@@ -187,7 +187,7 @@ convenience method for a GET Call that only requires a path and query
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected del(String path)`
+### `protected HttpResponse del(String path)`
 
 `TESTVISIBLE`
 
@@ -205,7 +205,7 @@ convenience method for deleteing a resource based only on path
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected del(String path, String query)`
+### `protected HttpResponse del(String path, String query)`
 
 `TESTVISIBLE`
 
@@ -224,7 +224,7 @@ convenience method for a Delete Call that only requires a path and query
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected post(String path, String body)`
+### `protected HttpResponse post(String path, String body)`
 
 `TESTVISIBLE`
 
@@ -243,7 +243,7 @@ convenience method for a POST Call that only requires a path and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected post(String path, String query, String body)`
+### `protected HttpResponse post(String path, String query, String body)`
 
 `TESTVISIBLE`
 
@@ -263,7 +263,7 @@ convenience method for a POST Call that only requires a path, query and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected put(String path, String body)`
+### `protected HttpResponse put(String path, String body)`
 
 `TESTVISIBLE`
 
@@ -282,7 +282,7 @@ convenience method for a PUT Call that only requires a path and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected put(String path, String query, String body)`
+### `protected HttpResponse put(String path, String query, String body)`
 
 `TESTVISIBLE`
 
@@ -302,7 +302,7 @@ convenience method for a PUT Call that only requires a path, query and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected patch(String path, String body)`
+### `protected HttpResponse patch(String path, String body)`
 
 `TESTVISIBLE`
 
@@ -321,7 +321,7 @@ convenience method for a PATCH Call that only requires a path, query and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected patch(String path, String query, String body)`
+### `protected HttpResponse patch(String path, String query, String body)`
 
 `TESTVISIBLE`
 
@@ -341,7 +341,7 @@ convenience method for a PATCH Call that only requires a path, query and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected ensureStringEndsInSlash(String resource)`
+### `protected String ensureStringEndsInSlash(String resource)`
 
 `TESTVISIBLE`
 
@@ -359,7 +359,7 @@ Ensures that the inputted string ends in a `/` makes callouts more robust.
 |---|---|
 |String|inputted string with `/` if it didn't already end in one.|
 
-### `public static makeApiCall(String namedCredential, HttpVerb method, String path, String query, String body, Map<String,String> headers)`
+### `public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path, String query, String body, Map<String,String> headers)`
 
 `SUPPRESSWARNINGS`
 
@@ -393,7 +393,7 @@ System.Debug(RestClient.makeApiCall('MockBin',
 ```
 
 
-### `public static makeApiCall(String namedCredential, HttpVerb method, String path, String query)`
+### `public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path, String query)`
 
 `SUPPRESSWARNINGS`
 
@@ -423,7 +423,7 @@ System.Debug(RestClient.makeApiCall('MockBin',
 ```
 
 
-### `public static makeApiCall(String namedCredential, HttpVerb method, String path)`
+### `public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path)`
 
 A static wrapper for the main makeApiCall method where you only need the path
 

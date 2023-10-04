@@ -8,7 +8,7 @@ well as DML Keywords.
 **Group** Data Recipes
 
 ## Methods
-### `public static insertAccountViaInsertKeywordInSystemMode(String name)`
+### `public static void insertAccountViaInsertKeywordInSystemMode(String name)`
 
 Demonstrates how to use the insert keyword to persist a net-new record to the database in system mode
 
@@ -24,7 +24,7 @@ DMLRecipes.insertAccountViaInsertKeywordInSystemMode('Hello');
 ```
 
 
-### `public static insertAccountViaInsertKeywordInUserMode(String name)`
+### `public static void insertAccountViaInsertKeywordInUserMode(String name)`
 
 Demonstrates how to use the insert keyword to persist a net-new record to the database in user mode
 
@@ -40,7 +40,7 @@ DMLRecipes.insertAccountViaInsertKeywordInUserMode('Hello');
 ```
 
 
-### `public static insertAccountsViaDatabaseMethod(String name, Boolean allOrNothing, System accessLevel)`
+### `public static void insertAccountsViaDatabaseMethod(String name, Boolean allOrNothing, System accessLevel)`
 
 Demonstrates how to use the Database.insert() method to persist a net-new record to the database.
 
@@ -57,7 +57,7 @@ DMLRecipes.insertAccountsViaDatabaseMethod('Hello', false, AccessLevel.USER_MODE
 ```
 
 
-### `public static upsertAccountViaUpsertKeywordInSystemMode(Account acct)`
+### `public static Account upsertAccountViaUpsertKeywordInSystemMode(Account acct)`
 
 Demonstrates the use of the upsert keyword to either insert or update a record in system mode
 
@@ -79,7 +79,7 @@ DMLRecipes.upsertAccountViaUpsertKeywordInSystemMode(new Account(name='Hello Wor
 ```
 
 
-### `public static upsertAccountViaUpsertKeywordInUserMode(Account acct)`
+### `public static Account upsertAccountViaUpsertKeywordInUserMode(Account acct)`
 
 Demonstrates the use of the upsert keyword to either insert or update a record in user mode
 
@@ -101,7 +101,7 @@ DMLRecipes.upsertAccountViaUpsertKeywordInUserMode(new Account(name='Hello World
 ```
 
 
-### `public static upsertAccountViaDatabaseMethod(Account acct, Boolean allOrNothing, System accessLevel)`
+### `public static Database upsertAccountViaDatabaseMethod(Account acct, Boolean allOrNothing, System accessLevel)`
 
 Upserts an account with a potential of all or nothing, using the Database.upsert method
 
@@ -125,7 +125,7 @@ DMLRecipes.upsertAccountViaDatabaseMethod(
 ```
 
 
-### `public static updateAcccountViaKeywordInSystemMode(List<Account> accts)`
+### `public static List updateAcccountViaKeywordInSystemMode(List<Account> accts)`
 
 Demonstrates how to Update a list of accounts via the Update DML keyword in System Mode
 
@@ -149,7 +149,7 @@ DMLRecipes.updateAcccountViaKeywordInSystemMode(acct);
 ```
 
 
-### `public static updateAcccountViaKeywordInUserMode(List<Account> accts)`
+### `public static List updateAcccountViaKeywordInUserMode(List<Account> accts)`
 
 Demonstrates how to Update a list of accounts via the Update DML keyword
 
@@ -173,7 +173,7 @@ DMLRecipes.updateAcccountViaKeyword(acct);
 ```
 
 
-### `public static updateAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
+### `public static List updateAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
 
 Demonstrates how to update a list of accounts via the Database.update() method
 
@@ -198,7 +198,7 @@ System.debug(results);
 ```
 
 
-### `public static deleteAccountViaKeywordInSystemMode(List<Account> accts)`
+### `public static Void deleteAccountViaKeywordInSystemMode(List<Account> accts)`
 
 Deletes a list of accounts via the delete DML keyword
 
@@ -216,7 +216,7 @@ DMLRecipes.deleteAccountViaKeywordInSystemMode(accounts);
 ```
 
 
-### `public static deleteAccountViaKeywordInUserMode(List<Account> accts)`
+### `public static Void deleteAccountViaKeywordInUserMode(List<Account> accts)`
 
 Deletes a list of accounts via the delete DML keyword
 
@@ -234,7 +234,7 @@ DMLRecipes.deleteAccountViaKeywordInUserMode(accounts);
 ```
 
 
-### `public static deleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
+### `public static Void deleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
 
 Deletes a list of accounts via the Database.delete method
 
@@ -252,7 +252,7 @@ DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 ```
 
 
-### `public static undeleteAccountViaKeywordInSystemMode(List<Account> accts)`
+### `public static List undeleteAccountViaKeywordInSystemMode(List<Account> accts)`
 
 Undeletes a list of accounts via the undelete DML keyword
 
@@ -278,7 +278,7 @@ System.debug(results);
 ```
 
 
-### `public static undeleteAccountViaKeywordInUserMode(List<Account> accts)`
+### `public static List undeleteAccountViaKeywordInUserMode(List<Account> accts)`
 
 Undeletes a list of accounts via the undelete DML keyword
 
@@ -304,7 +304,7 @@ System.debug(results);
 ```
 
 
-### `public static undeleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
+### `public static List undeleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
 
 undeletes a list of accounts via the Database.undelete method.
 

@@ -34,7 +34,7 @@ Constructor responsible for transfering Trigger.new into a class variable
 
 ---
 ## Methods
-### `public override afterInsert()`
+### `public override void afterInsert()`
 
 This is an admittedly contrived example. The key to Platform Event's utility is their interoperabilty. This recipe demonstrate what happens when a Platform Event is committed. Platform Event Triggers fire regardless of how the event was created:  - You can create these events either through Apex, low code tools  - and external system integrations
 
@@ -48,7 +48,7 @@ System.debug(result + [SELECT Name, Website FROM Account WHERE id = :acct.id]);
 ```
 
 
-### `public run()`
+### `public void run()`
 
 *Inherited*
 
@@ -61,7 +61,7 @@ AccountTriggerHandler.run();
 ```
 
 
-### `public setMaxLoopCount(Integer max)`
+### `public void setMaxLoopCount(Integer max)`
 
 *Inherited*
 
@@ -81,7 +81,7 @@ this.setMaxLoopCount(5);
 ```
 
 
-### `public clearMaxLoopCount()`
+### `public void clearMaxLoopCount()`
 
 *Inherited*
 
@@ -95,7 +95,7 @@ this.clearMaxLoopCount();
 ```
 
 
-### `public static bypass(String handlerName)`
+### `public static void bypass(String handlerName)`
 
 *Inherited*
 
@@ -114,7 +114,7 @@ TriggerHandler.bypass('AccountTriggerHandler');
 ```
 
 
-### `public static clearBypass(String handlerName)`
+### `public static void clearBypass(String handlerName)`
 
 *Inherited*
 
@@ -133,7 +133,7 @@ TriggerHandler.clearBypass('AccountTriggerHandler');
 ```
 
 
-### `public static isBypassed(String handlerName)`
+### `public static Boolean isBypassed(String handlerName)`
 
 *Inherited*
 
@@ -158,7 +158,7 @@ TriggerHandler.isBypassed('AccountTriggerHandler');
 ```
 
 
-### `public static clearAllBypasses()`
+### `public static void clearAllBypasses()`
 
 *Inherited*
 
@@ -171,7 +171,7 @@ Triggerhandler.clearAllBypasses();
 ```
 
 
-### `protected addToLoopCount()`
+### `protected void addToLoopCount()`
 
 *Inherited*
 
@@ -186,7 +186,7 @@ increment the loop count
 |---|---|
 |`Throws`|loop count exception if the max loop count is reached|
 
-### `protected validateRun()`
+### `protected Boolean validateRun()`
 
 *Inherited*
 
@@ -207,7 +207,7 @@ make sure this trigger should continue to run
 |---|---|
 |`TriggerHandlerException`|thrown when executing outside of a trigger|
 
-### `protected beforeInsert()`
+### `protected void beforeInsert()`
 
 *Inherited*
 
@@ -218,7 +218,7 @@ make sure this trigger should continue to run
 
 context methods
 
-### `protected beforeUpdate()`
+### `protected void beforeUpdate()`
 
 *Inherited*
 
@@ -229,7 +229,7 @@ context methods
 
 Virtual method for the implementing class to override
 
-### `protected beforeDelete()`
+### `protected void beforeDelete()`
 
 *Inherited*
 
@@ -240,7 +240,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected afterUpdate()`
+### `protected void afterUpdate()`
 
 *Inherited*
 
@@ -251,7 +251,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected afterDelete()`
+### `protected void afterDelete()`
 
 *Inherited*
 
@@ -262,7 +262,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected afterUndelete()`
+### `protected void afterUndelete()`
 
 *Inherited*
 

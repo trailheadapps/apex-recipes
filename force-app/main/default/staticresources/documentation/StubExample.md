@@ -12,8 +12,8 @@
 
 ---
 ## Methods
-### `public getIsTrue()`
-### `public getGreeting()`
-### `public setGreeting(String greeting)`
-### `public setGreeting(Integer greeting)`
+### `public Boolean getIsTrue()`
+### `public String getGreeting()`
+### `public void setGreeting(String greeting)`
+### `public void setGreeting(Integer greeting)`
 ---

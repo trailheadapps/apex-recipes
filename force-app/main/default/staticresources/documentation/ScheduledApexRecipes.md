@@ -27,7 +27,7 @@ https://sfdc.co/scheduled-apex
 
 ---
 ## Methods
-### `public execute(SchedulableContext context)`
+### `public void execute(SchedulableContext context)`
 
 This is the one method required by the Schedulable interface. Key requirements are that it be public, and void. Best practice is to keep your logic in a different class. In this case, we're calling code in the ScheduledApexDemo class. Note: You can use the schedulable interface to schedule Batch Classes but it's generally easier to use System.ScheduleBatch instead. See BatchApexRecipes for more information.
 

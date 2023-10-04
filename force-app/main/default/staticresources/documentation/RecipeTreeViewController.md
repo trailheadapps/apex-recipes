@@ -21,7 +21,7 @@ The String here represents a relatively unique tag that Apex Recipe uses to help
 
 ---
 ## Methods
-### `public static generateTreeData()`
+### `public static List generateTreeData()`
 
 `AURAENABLED`
 
@@ -39,7 +39,7 @@ System.debug(RecipeTreeViewController.generateTreeData());
 ```
 
 
-### `private static generateMapOfGroupToListOfNames()`
+### `private static Map generateMapOfGroupToListOfNames()`
 
 `SUPPRESSWARNINGS`
 
@@ -83,7 +83,7 @@ that uses this data
 
 ---
 #### Methods
-##### `public compareTo(Object compareTo)`
+##### `public Integer compareTo(Object compareTo)`
 
 Required by the Comparable interface, this method, once implemented allows us to sort of this object type.
 

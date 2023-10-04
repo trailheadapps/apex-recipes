@@ -31,7 +31,7 @@ A list of quiddities that may include user-defined data and therefore should not
 
 ---
 ## Methods
-### `public static isAcceptableQuiddity(List<Quiddity> acceptableQuiddites)`
+### `public static Boolean isAcceptableQuiddity(List<Quiddity> acceptableQuiddites)`
 
 A method to determine if the current Quiddity context is within a caller-supplied list of acceptable quiddity values.
 
@@ -47,5 +47,5 @@ A method to determine if the current Quiddity context is within a caller-supplie
 |---|---|
 |Boolean|`boolean`|
 
-### `public static isNotAcceptableQuiddity(List<Quiddity> acceptableQuiddites)`
+### `public static Boolean isNotAcceptableQuiddity(List<Quiddity> acceptableQuiddites)`
 ---

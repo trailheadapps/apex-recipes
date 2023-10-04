@@ -92,7 +92,7 @@ reports the timeZoneSidKey
 
 ---
 ## Methods
-### `public isPlatformCacheEnabled()`
+### `public Boolean isPlatformCacheEnabled()`
 
 Method determines if platform cache is enabled for this org Note: fail-safes to false. Note: Allows override by setting OrgShape.disablePlatformCache equal to true. Use this in test contexts where cache is not available like when you have to use seeAllData=true
 
@@ -102,7 +102,7 @@ Method determines if platform cache is enabled for this org Note: fail-safes to 
 |---|---|
 |Boolean|`Boolean`|
 
-### `public isSeeAllDataTrue()`
+### `public Boolean isSeeAllDataTrue()`
 
 Certain features of the platform are incompatible with data-siloed tests. These features require testing with the annotation
 
@@ -115,7 +115,7 @@ Certain features of the platform are incompatible with data-siloed tests. These 
 
 **Test** (seeAllData=true). Other platform features are incompatible with seeAllData=true. When used in a test context, this method determines if the currently running test is executing with, or without seeAllData=true. This method is therefore used to automatically disable platform features that require are incompatible with seeAllData=true. For example: platform cache is incompatible with seeAllData=true. However, our security library, CanTheUser utilizes platform cache to accelerate Crud and FLS checks. CanTheUser uses this method, in part, to determine, transparently if it should utilize platformCache during test execution Note: It is not a good idea, and against best practices to use seeAllData=true when not absolutely necessary.
 
-### `private getAvailableOrgCachePartition()`
+### `private Cache getAvailableOrgCachePartition()`
 
 `SUPPRESSWARNINGS`
 
@@ -127,7 +127,7 @@ This method is responsible for discovering a cache partition that can be used fo
 |---|---|
 |Cache|`String`|
 
-### `public isAdvancedMultiCurrencyManagementEnabled()`
+### `public Boolean isAdvancedMultiCurrencyManagementEnabled()`
 
 Uses a dynamic soql query to determine if Advanced MultiCurrency Management is enabled. Note, this must be a dynamic soql query because referencing DatedConversionRate will not compile in orgs without Advanced MultiCurrency Management enabled. Note: This was originally written by the NPSP team and can be found here: https://github.com/SalesforceFoundation/NPSP/blob/aad20ffb747ecda9a037c4bce9cd19617b6a727b/src/classes/UTIL_Currency.cls#L79
 
@@ -137,7 +137,7 @@ Uses a dynamic soql query to determine if Advanced MultiCurrency Management is e
 |---|---|
 |Boolean|`Boolean`|
 
-### `private getOrgShape()`
+### `private Organization getOrgShape()`
 
 `SUPPRESSWARNINGS`
 
@@ -149,7 +149,7 @@ Private method that memoizes the query result Suppressing the PMD warning to val
 |---|---|
 |Organization|`Organization`|
 
-### `private getOrgRecord()`
+### `private Organization getOrgRecord()`
 
 `SUPPRESSWARNINGS`
 
@@ -164,7 +164,7 @@ Private method for pulling the Organization record Note: We're suppressing PMD w
 [Cache.CacheBuilder](Cache.CacheBuilder)
 
 #### Methods
-##### `public doLoad(String requiredButNotUsed)`
+##### `public Organization doLoad(String requiredButNotUsed)`
 
 `SUPPRESSWARNINGS`
 

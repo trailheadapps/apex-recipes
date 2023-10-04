@@ -19,7 +19,7 @@ by the AccountTriggerHandler
 
 ---
 ## Methods
-### `public static justWriteALogStatement(String toLog)`
+### `public static void justWriteALogStatement(String toLog)`
 
 Method exists to demonstrate what it might look like to  call a service layer method from a trigger handler.
 
@@ -35,7 +35,7 @@ AccountServiceLayer.justWriteALogStatement('Hello World');
 ```
 
 
-### `public static changeShippingStreet(List<Account> accounts, System accessLevel)`
+### `public static void changeShippingStreet(List<Account> accounts, System accessLevel)`
 
 `SUPPRESSWARNINGS`
 
@@ -55,7 +55,7 @@ System.debug([SELECT Name, ShippingStreet FROM Account WHERE id in : accounts]);
 ```
 
 
-### `public static incrementCounterInDescription(List<Account> incomingAccounts, Boolean save)`
+### `public static List incrementCounterInDescription(List<Account> incomingAccounts, Boolean save)`
 
 Increments a counter stored in the Description field.  Demonstration method of the kind of work a service layer may do.
 
@@ -80,7 +80,7 @@ System.debug([SELECT Name, Description FROM Account WHERE id in : accounts]);
 ```
 
 
-### `private static safelySave(List<Account> accounts)`
+### `private static void safelySave(List<Account> accounts)`
 
 `TESTVISIBLE`
 

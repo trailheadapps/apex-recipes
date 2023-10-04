@@ -20,7 +20,7 @@ https://sfdc.co/queueable-apex
 **See** [QueueableRecipes](https://github.com/trailheadapps/apex-recipes/wiki/QueueableRecipes)
 
 ## Methods
-### `public static execute(QueueableContext context)`
+### `public static void execute(QueueableContext context)`
 
 This recipe demonstrates how one queuable (this one) can enqueue a second Queueable class. If the second queueable class utilizes a constructor, information can be passed through to the next Queueable.
 

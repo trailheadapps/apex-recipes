@@ -50,7 +50,7 @@ Constructor that sets class variables based on Trigger context vars
 
 ---
 ## Methods
-### `public override beforeInsert()`
+### `public override void beforeInsert()`
 
 Before Insert context method. Called automatically by the trigger framework this class extends.
 
@@ -63,7 +63,7 @@ insert accounts;
 ```
 
 
-### `public override afterInsert()`
+### `public override void afterInsert()`
 
 after insert context method. Called automatically by the trigger framework this class extends
 
@@ -76,7 +76,7 @@ insert accounts;
 ```
 
 
-### `public override beforeUpdate()`
+### `public override void beforeUpdate()`
 
 before update context method. Called automatically by the trigger framework this class extends
 
@@ -91,7 +91,7 @@ update accounts;
 ```
 
 
-### `public override afterUpdate()`
+### `public override void afterUpdate()`
 
 `SUPPRESSWARNINGS`
 
@@ -108,7 +108,7 @@ update accounts;
 ```
 
 
-### `public override beforeDelete()`
+### `public override void beforeDelete()`
 
 `SUPPRESSWARNINGS`
 
@@ -123,7 +123,7 @@ delete accounts;
 ```
 
 
-### `public override afterDelete()`
+### `public override void afterDelete()`
 
 `SUPPRESSWARNINGS`
 
@@ -138,7 +138,7 @@ delete accounts;
 ```
 
 
-### `public override afterUndelete()`
+### `public override void afterUndelete()`
 
 `SUPPRESSWARNINGS`
 
@@ -154,7 +154,7 @@ undelete accounts;
 ```
 
 
-### `public run()`
+### `public void run()`
 
 *Inherited*
 
@@ -167,7 +167,7 @@ AccountTriggerHandler.run();
 ```
 
 
-### `public setMaxLoopCount(Integer max)`
+### `public void setMaxLoopCount(Integer max)`
 
 *Inherited*
 
@@ -187,7 +187,7 @@ this.setMaxLoopCount(5);
 ```
 
 
-### `public clearMaxLoopCount()`
+### `public void clearMaxLoopCount()`
 
 *Inherited*
 
@@ -201,7 +201,7 @@ this.clearMaxLoopCount();
 ```
 
 
-### `public static bypass(String handlerName)`
+### `public static void bypass(String handlerName)`
 
 *Inherited*
 
@@ -220,7 +220,7 @@ TriggerHandler.bypass('AccountTriggerHandler');
 ```
 
 
-### `public static clearBypass(String handlerName)`
+### `public static void clearBypass(String handlerName)`
 
 *Inherited*
 
@@ -239,7 +239,7 @@ TriggerHandler.clearBypass('AccountTriggerHandler');
 ```
 
 
-### `public static isBypassed(String handlerName)`
+### `public static Boolean isBypassed(String handlerName)`
 
 *Inherited*
 
@@ -264,7 +264,7 @@ TriggerHandler.isBypassed('AccountTriggerHandler');
 ```
 
 
-### `public static clearAllBypasses()`
+### `public static void clearAllBypasses()`
 
 *Inherited*
 
@@ -277,7 +277,7 @@ Triggerhandler.clearAllBypasses();
 ```
 
 
-### `protected addToLoopCount()`
+### `protected void addToLoopCount()`
 
 *Inherited*
 
@@ -292,7 +292,7 @@ increment the loop count
 |---|---|
 |`Throws`|loop count exception if the max loop count is reached|
 
-### `protected validateRun()`
+### `protected Boolean validateRun()`
 
 *Inherited*
 

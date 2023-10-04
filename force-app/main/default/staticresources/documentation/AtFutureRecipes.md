@@ -13,7 +13,7 @@ Demonstrates the `@future` syntax and usage
 
 ---
 ## Methods
-### `public static atFutureMethodWithoutCalloutPrivileges(String data)`
+### `public static void atFutureMethodWithoutCalloutPrivileges(String data)`
 
 `FUTURE`
 
@@ -31,7 +31,7 @@ AtFutureRecipes.atFutureMethodWithoutCalloutPrivileges('Some Data');
 ```
 
 
-### `public static atFutureMethodWithCalloutPrivileges(String url)`
+### `public static void atFutureMethodWithCalloutPrivileges(String url)`
 
 `FUTURE`
 

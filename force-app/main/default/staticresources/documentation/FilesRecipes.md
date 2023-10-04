@@ -6,7 +6,7 @@ Demonstrates how to create, link and share Files
 **Group** Files Recipes
 
 ## Methods
-### `public static createFileFromStringAttachedToRecord(String text, Id firstLocation)`
+### `public static void createFileFromStringAttachedToRecord(String text, Id firstLocation)`
 
 creates a file attachment containing the given string and links it to the object specified in firstLocation
 
@@ -25,7 +25,7 @@ System.debug('Look for files assoicated with account: ' + acct.id);
 ```
 
 
-### `public static createFileAttachedToRecord(Blob fileContents, Id attachedTo, String fileName)`
+### `public static Database createFileAttachedToRecord(Blob fileContents, Id attachedTo, String fileName)`
 
 Creates a file and links it to a given record
 
@@ -56,7 +56,7 @@ System.debug('Look for files assoicated with account: ' + acct.id);
 ```
 
 
-### `public static createFileAttachedToRecord(FilesRecipes toCreate)`
+### `public static Database createFileAttachedToRecord(FilesRecipes toCreate)`
 
 Convenience method for creating a file and linking it to a given record
 
@@ -72,7 +72,7 @@ Convenience method for creating a file and linking it to a given record
 |---|---|
 |Database|`Database.SaveResult`|
 
-### `public static createFilesAttachedToRecords(List<FilesRecipes.FileAndLinkObject> toCreate)`
+### `public static List createFilesAttachedToRecords(List<FilesRecipes.FileAndLinkObject> toCreate)`
 
 Bulk method for inserting multiple files and link them to records
 
@@ -88,7 +88,7 @@ Bulk method for inserting multiple files and link them to records
 |---|---|
 |List<Database.SaveResult>|`List<Database.SaveResult>`|
 
-### `public static getFilteredAttachmentsForRecord(FilesRecipes genericFileType, Id recordId)`
+### `public static List getFilteredAttachmentsForRecord(FilesRecipes genericFileType, Id recordId)`
 
 `SUPPRESSWARNINGS`
 
@@ -115,7 +115,7 @@ System.debug('Found the following ContentVersion Ids: ' + FilesRecipes.getFilter
 ```
 
 
-### `public static publishContent(ContentDocumentLink cdl)`
+### `public static Database publishContent(ContentDocumentLink cdl)`
 
 Given a content document link, publish the content version
 

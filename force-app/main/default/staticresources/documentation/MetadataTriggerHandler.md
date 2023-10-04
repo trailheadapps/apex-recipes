@@ -71,13 +71,13 @@ Constructor used by live triggers.
 
 ---
 ## Methods
-### `public override run()`
+### `public override void run()`
 
 `SUPPRESSWARNINGS`
 
 Overrides the standard Run() method, which allows this metadata based trigger handler can be an incremental update / sit beside other trigger handlers classes that are directly invoked by a trigger
 
-### `public setMaxLoopCount(Integer max)`
+### `public void setMaxLoopCount(Integer max)`
 
 *Inherited*
 
@@ -97,7 +97,7 @@ this.setMaxLoopCount(5);
 ```
 
 
-### `public clearMaxLoopCount()`
+### `public void clearMaxLoopCount()`
 
 *Inherited*
 
@@ -111,7 +111,7 @@ this.clearMaxLoopCount();
 ```
 
 
-### `public static bypass(String handlerName)`
+### `public static void bypass(String handlerName)`
 
 *Inherited*
 
@@ -130,7 +130,7 @@ TriggerHandler.bypass('AccountTriggerHandler');
 ```
 
 
-### `public static clearBypass(String handlerName)`
+### `public static void clearBypass(String handlerName)`
 
 *Inherited*
 
@@ -149,7 +149,7 @@ TriggerHandler.clearBypass('AccountTriggerHandler');
 ```
 
 
-### `public static isBypassed(String handlerName)`
+### `public static Boolean isBypassed(String handlerName)`
 
 *Inherited*
 
@@ -174,7 +174,7 @@ TriggerHandler.isBypassed('AccountTriggerHandler');
 ```
 
 
-### `public static clearAllBypasses()`
+### `public static void clearAllBypasses()`
 
 *Inherited*
 
@@ -187,7 +187,7 @@ Triggerhandler.clearAllBypasses();
 ```
 
 
-### `protected addToLoopCount()`
+### `protected void addToLoopCount()`
 
 *Inherited*
 
@@ -202,7 +202,7 @@ increment the loop count
 |---|---|
 |`Throws`|loop count exception if the max loop count is reached|
 
-### `protected validateRun()`
+### `protected Boolean validateRun()`
 
 *Inherited*
 
@@ -223,7 +223,7 @@ make sure this trigger should continue to run
 |---|---|
 |`TriggerHandlerException`|thrown when executing outside of a trigger|
 
-### `protected beforeInsert()`
+### `protected void beforeInsert()`
 
 *Inherited*
 
@@ -234,7 +234,7 @@ make sure this trigger should continue to run
 
 context methods
 
-### `protected beforeUpdate()`
+### `protected void beforeUpdate()`
 
 *Inherited*
 
@@ -245,7 +245,7 @@ context methods
 
 Virtual method for the implementing class to override
 
-### `protected beforeDelete()`
+### `protected void beforeDelete()`
 
 *Inherited*
 
@@ -256,7 +256,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected afterInsert()`
+### `protected void afterInsert()`
 
 *Inherited*
 
@@ -267,7 +267,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected afterUpdate()`
+### `protected void afterUpdate()`
 
 *Inherited*
 
@@ -278,7 +278,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected afterDelete()`
+### `protected void afterDelete()`
 
 *Inherited*
 
@@ -289,7 +289,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected afterUndelete()`
+### `protected void afterUndelete()`
 
 *Inherited*
 

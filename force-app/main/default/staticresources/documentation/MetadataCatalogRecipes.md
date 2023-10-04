@@ -7,7 +7,7 @@ sometimes faster that Schema Describe calls especially for large complex orgs
 **Group** Data Recipes
 
 ## Methods
-### `public static findAllFormulaFields()`
+### `public static Map findAllFormulaFields()`
 
 `SUPPRESSWARNINGS`
 
@@ -27,7 +27,7 @@ System.debug(results);
 ```
 
 
-### `public static findAllContactFieldsThatLookupToAccount()`
+### `public static List findAllContactFieldsThatLookupToAccount()`
 
 `SUPPRESSWARNINGS`
 

@@ -7,7 +7,7 @@ including multi-object queries, and aggregate queries
 **Group** Data Recipes
 
 ## Methods
-### `public static getRecords()`
+### `public static List getRecords()`
 
 Demonstrates the proper way to query accounts with SOQL   keeping FLS and CRUD in account.
 
@@ -24,7 +24,7 @@ System.debug(results);
 ```
 
 
-### `public static getLargeNumberOfRecords()`
+### `public static Integer getLargeNumberOfRecords()`
 
 Demonstrates how to loop over a SOQL query
 
@@ -40,7 +40,7 @@ System.debug(SOQLRecipes.getLargeNumberOfRecords());
 ```
 
 
-### `public static getChunksOfLargeNumbersOfRecords()`
+### `public static List getChunksOfLargeNumbersOfRecords()`
 
 One of the little known features of SOQL for loops is that you can iterate not only over each record returned by the query, but also over each *chunk of records*. As the code below demonstrates, specifying the iteration variable as a list/array will return 200 record chunks from the query, rather than individual records. Note: Normally, if you're only dealing with counts of records, you'd utilize the Count() soql method, but in this case we're demonstrating that this form of a soql for loop gives you access both to a list of records, and to the records themselves.
 
@@ -50,7 +50,7 @@ One of the little known features of SOQL for loops is that you can iterate not o
 |---|---|
 |Integer|`Integer`|
 
-### `public static getRecordsByFieldValue()`
+### `public static List getRecordsByFieldValue()`
 
 Demonstrates how to use a WHERE clause in a SOQL query
 
@@ -66,7 +66,7 @@ System.debug(SOQLRecipes.getRecordsByFieldValue());
 ```
 
 
-### `public static getRecordsByMultipleFieldValues()`
+### `public static List getRecordsByMultipleFieldValues()`
 
 Demonstrates how to use a complex WHERE clause in a SOQL query
 
@@ -82,7 +82,7 @@ System.debug(SOQLRecipes.getRecordsByMultipleFieldValues());
 ```
 
 
-### `public static getSpecificNumberOfRecords()`
+### `public static List getSpecificNumberOfRecords()`
 
 Demonstrates how to use the LIMIT clause in a SOQL statement
 
@@ -98,7 +98,7 @@ System.debug(SOQLRecipes.getSpecificNumberOfRecords());
 ```
 
 
-### `public static getFirstXRecords(Integer wantedNumberOfRows)`
+### `public static List getFirstXRecords(Integer wantedNumberOfRows)`
 
 Demonstrates how to use a bound variable to define the LIMIT
 
@@ -120,7 +120,7 @@ System.debug(SOQLRecipes.getFirstXRecords(5));
 ```
 
 
-### `public static getAccountRecordsInState(String state)`
+### `public static List getAccountRecordsInState(String state)`
 
 Demonstrates how to use a bound variable in a WHERE clause
 
@@ -142,7 +142,7 @@ System.debug(SOQLRecipes.getAccountRecordsInState('ks'));
 ```
 
 
-### `public static getSecond10AccountRecords()`
+### `public static List getSecond10AccountRecords()`
 
 Demonstrates how to get a limited number of results with a given offset; Ie: get the second set of 10 records.
 
@@ -158,7 +158,7 @@ System.debug('SOQLRecipes.getSecond10AccountRecords()');
 ```
 
 
-### `public static getRecordsWithRelatedRecords()`
+### `public static List getRecordsWithRelatedRecords()`
 
 Demonstrates how to query an object, as well as it's related child objects
 
@@ -174,7 +174,7 @@ System.debug(SOQLRecipes.getRecordsWithRelatedRecords());
 ```
 
 
-### `public static getParentRecordDetailsFromChildRecord()`
+### `public static List getParentRecordDetailsFromChildRecord()`
 
 Demonstrates how to query fields from a parent object through the relationship field
 
@@ -190,7 +190,7 @@ System.debug(SOQLRecipes.getParentRecordDetailsFromChildRecord());
 ```
 
 
-### `public static getDetailsFromBothParentRecords()`
+### `public static List getDetailsFromBothParentRecords()`
 
 Demonstrates how to write a query that pulls information from two parent objects through a junction object
 
@@ -206,7 +206,7 @@ System.debug(SOQLRecipes.getDetailsFromBothParentRecords());
 ```
 
 
-### `public static getSumOfOpportunityRecords(Id accountId)`
+### `public static Double getSumOfOpportunityRecords(Id accountId)`
 
 demonstrates how to use aggregate methods, like Sum() or Count() in a SOQL query. This example generates the sum of opportunities associated with a specified Account
 

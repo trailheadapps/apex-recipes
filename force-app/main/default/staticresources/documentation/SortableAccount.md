@@ -18,7 +18,7 @@ Comparable based on the ShippingCountry field and an 'in place' sort method.
 
 ---
 ## Methods
-### `public compareTo(Object otherObject)`
+### `public Integer compareTo(Object otherObject)`
 
 compares accounts based on ShippingCountry
 
@@ -40,7 +40,7 @@ compares accounts based on ShippingCountry
 |---|---|
 |`Throws`|SortException if an error occurs while sorting the list. For example, when comparing with an incompatible object type.|
 
-### `public static sort(List<Account> accounts)`
+### `public static void sort(List<Account> accounts)`
 
 sorts a list of Account records using SortableAccount.compareTo
 

@@ -7,7 +7,7 @@ components. Also demonstrates how to return an AuraHandledException.
 **Group** Integration Recipes
 
 ## Methods
-### `public static updateAccountName(Id accountId, String newValue)`
+### `public static Boolean updateAccountName(Id accountId, String newValue)`
 
 `SUPPRESSWARNINGS`
 
@@ -35,7 +35,7 @@ System.debug(AuraEnabledRecipes.updateAccountName(accountId, 'New value set by A
 ```
 
 
-### `public static getFieldValue()`
+### `public static String getFieldValue()`
 
 `AURAENABLED`
 

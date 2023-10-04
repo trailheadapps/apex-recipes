@@ -14,7 +14,7 @@ in an org.
 **See** [FormattedRecipeDisplayController](https://github.com/trailheadapps/apex-recipes/wiki/FormattedRecipeDisplayController)
 
 ## Methods
-### `public static getGroupFromClassBody(ApexClass klass)`
+### `public static String getGroupFromClassBody(ApexClass klass)`
 
 Extracts the `@group` annotation from a class' body. Also demonstrates the use of Regex matchers in Apex.
 
@@ -37,7 +37,7 @@ System.debug(ApexClassUtilities.getGroupFromClassBody(klass));
 ```
 
 
-### `public static getRelatedClassesFromClassBody(ApexClass klass)`
+### `public static List getRelatedClassesFromClassBody(ApexClass klass)`
 
 Extracts the `@see` annotations from a class' body. Also demonstrates the use of Regex matchers in Apex.
 

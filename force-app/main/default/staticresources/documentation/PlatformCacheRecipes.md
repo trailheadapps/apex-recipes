@@ -17,11 +17,11 @@ Defines the default cache partition for use in this class.
 
 ---
 ## Methods
-### `public static storeValueInSessionCache(String key, String toStore)`
+### `public static void storeValueInSessionCache(String key, String toStore)`
 
 These methods are for the Session Cache Max TTL for Session partion is 8 hours.
 
-### `public static storeValueInSessionCache(String key, String toStore, Integer ttl)`
+### `public static void storeValueInSessionCache(String key, String toStore, Integer ttl)`
 
 Stores a value in the Session cache with a custom timeout.
 
@@ -33,7 +33,7 @@ Stores a value in the Session cache with a custom timeout.
 |`toStore`|String to store in the cache|
 |`ttl`|Integer Time To Live (ttl) is the number of seconds this item will remain in cache.|
 
-### `public static getValueFromSessionCache(String key)`
+### `public static String getValueFromSessionCache(String key)`
 
 Retrieves a value from the cache identified by key
 
@@ -49,7 +49,7 @@ Retrieves a value from the cache identified by key
 |---|---|
 |String|`String`|
 
-### `public static removeKeyFromSessionCache(String key)`
+### `public static void removeKeyFromSessionCache(String key)`
 
 removes a key/value from the cache manually
 
@@ -65,11 +65,11 @@ removes a key/value from the cache manually
 |---|---|
 |`CacheException`|custom exception when key not found.|
 
-### `public static storeValueInOrgCache(String key, String toStore)`
+### `public static void storeValueInOrgCache(String key, String toStore)`
 
 These methods relate to the ORG cache Max TTL for Org Cache is 48 hours.
 
-### `public static storeValueInOrgCache(String key, String toStore, Integer ttl)`
+### `public static void storeValueInOrgCache(String key, String toStore, Integer ttl)`
 
 Stores a value in the Org cache with a custom timeout.
 
@@ -81,7 +81,7 @@ Stores a value in the Org cache with a custom timeout.
 |`toStore`|String to store in the cache|
 |`ttl`|Integer Time To Live (ttl) is the number of seconds this item will remain in cache.|
 
-### `public static getValuefromOrgCache(String key)`
+### `public static String getValuefromOrgCache(String key)`
 
 Retrieves a value from the cache identified by key
 
@@ -97,7 +97,7 @@ Retrieves a value from the cache identified by key
 |---|---|
 |String|`String`|
 
-### `public static removeKeyFromOrgCache(String key)`
+### `public static void removeKeyFromOrgCache(String key)`
 
 removes a key/value from the cache manually
 
@@ -113,7 +113,7 @@ removes a key/value from the cache manually
 |---|---|
 |`CacheException`|custom exception when key not found.|
 
-### `public static getDefaultPartition(PartitionType type)`
+### `public static Cache getDefaultPartition(PartitionType type)`
 
 returns a Cache.Partition for a given name, and type
 
