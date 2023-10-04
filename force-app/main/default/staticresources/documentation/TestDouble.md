@@ -48,7 +48,7 @@ This is a required property! it specifies the Apex Type that is being actively s
 
 ---
 ## Methods
-### `public track(Method toTrack)`
+### `public TestDouble track(Method toTrack)`
 
 This adds a given method object to the list of Methods that are actively overridden and stubbed by this TestDouble instance.
 
@@ -64,7 +64,7 @@ This adds a given method object to the list of Methods that are actively overrid
 |---|---|
 |TestDouble|`TestDouble`|
 
-### `public generate()`
+### `public Object generate()`
 
 Generates the actual stub object for use in tests.
 
@@ -74,7 +74,7 @@ Generates the actual stub object for use in tests.
 |---|---|
 |Object|`Object` This object has to be casted back to the class being stubbed at the point of calling. See StubbingRecipes_Tests for an example of when, and how to cast this.|
 
-### `public handleMethodCall(Object stubbedObject, String stubbedMethodName, Type returnType, List<System.Type> listOfParamTypes, List<String> listOfParamNames, List<Object> listOfArgs)`
+### `public Object handleMethodCall(Object stubbedObject, String stubbedMethodName, Type returnType, List<System.Type> listOfParamTypes, List<String> listOfParamNames, List<Object> listOfArgs)`
 
 `SUPPRESSWARNINGS`
 
@@ -101,6 +101,10 @@ Required method for the StubProvider interface This extensive parameter list is 
 ## Classes
 ### Method
 
+This inner class describes a Method that is to be stubbed.
+Multiple Method objects will likely be created in the course of your unit
+tests, and these Method objects are added to the `methods` property of
+your TestDouble instance.
 
 #### Constructors
 ##### `public Method(String methodName)`
@@ -142,7 +146,7 @@ Minimalist constructor for this class.
 
 ---
 #### Methods
-##### `public withParamTypes(List&lt;Type&gt; paramTypes)`
+##### `public Method withParamTypes(List&lt;Type&gt; paramTypes)`
 
 Adds a matching ParamTypes list to this method definition. If added,
 
@@ -158,11 +162,11 @@ Adds a matching ParamTypes list to this method definition. If added,
 |---|---|
 |Method|`Method`|
 
-##### `public withParamNames(List&lt;String&gt; paramNames)`
-##### `public withArgs(List&lt;Object&gt; args)`
-##### `public returning(Object returnValue)`
-##### `public throwing(String exceptionMessage)`
-##### `public handleCall()`
+##### `public Method withParamNames(List&lt;String&gt; paramNames)`
+##### `public Method withArgs(List&lt;Object&gt; args)`
+##### `public Method returning(Object returnValue)`
+##### `public Method throwing(String exceptionMessage)`
+##### `public Object handleCall()`
 ---
 
 ### TestDoubleException

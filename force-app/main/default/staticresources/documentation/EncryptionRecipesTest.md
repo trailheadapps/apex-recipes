@@ -2,34 +2,34 @@
 
 `ISTEST`
 ## Methods
-### `private static encryptAndDecryptWithManagedIVRecipesTest()`
+### `private static void encryptAndDecryptWithManagedIVRecipesTest()`
 
 `ISTEST`
-### `private static encryptAndDecryptRecipesTest()`
+### `private static void encryptAndDecryptRecipesTest()`
 
 `ISTEST`
-### `private static hashRecipesWhenSuccessTest()`
+### `private static void hashRecipesWhenSuccessTest()`
 
 `ISTEST`
-### `private static hashRecipesWhenErrorTest()`
+### `private static void hashRecipesWhenErrorTest()`
 
 `ISTEST`
-### `private static hmacRecipesWhenSuccessTest()`
+### `private static void hmacRecipesWhenSuccessTest()`
 
 `ISTEST`
-### `private static hmacRecipesWhenErrorTest()`
+### `private static void hmacRecipesWhenErrorTest()`
 
 `ISTEST`
-### `private static digitalSignatureRecipesWhenSuccessTest()`
+### `private static void digitalSignatureRecipesWhenSuccessTest()`
 
 `ISTEST`
-### `private static digitalSignatureRecipesWhenErrorTest()`
+### `private static void digitalSignatureRecipesWhenErrorTest()`
 
 `ISTEST`
-### `private static encryptionAndDigitalSignatureRecipesWhenSuccessTest()`
+### `private static void encryptionAndDigitalSignatureRecipesWhenSuccessTest()`
 
 `ISTEST`
-### `private static encryptionAndDigitalSignatureRecipesWhenErrorTest()`
+### `private static void encryptionAndDigitalSignatureRecipesWhenErrorTest()`
 
 `ISTEST`
 ---

@@ -26,7 +26,7 @@ private instance of this log class that backs the singleton get() method.
 
 ---
 ## Methods
-### `public static get()`
+### `public static Log get()`
 
 Singleton pattern `get` method.
 
@@ -36,7 +36,7 @@ Singleton pattern `get` method.
 |---|---|
 |Log|`Log`|
 
-### `public add(String messageToLog)`
+### `public void add(String messageToLog)`
 
 Add a message to the buffer without publishing it. Assumes a null severity
 
@@ -46,7 +46,7 @@ Add a message to the buffer without publishing it. Assumes a null severity
 |---|---|
 |`messageToLog`|The string message to add to the buffer.|
 
-### `public add(String messageToLog, LogSeverity severity)`
+### `public void add(String messageToLog, LogSeverity severity)`
 
 Add a message to the buffer without publishing it.
 
@@ -57,7 +57,7 @@ Add a message to the buffer without publishing it.
 |`messageToLog`|The string message to add to the buffer.|
 |`severity`|LogSeverity enum|
 
-### `public add(Exception exceptionToLog)`
+### `public void add(Exception exceptionToLog)`
 
 Add an formated exception message to the buffer without publishing it. Assumes a null Severity
 
@@ -67,7 +67,7 @@ Add an formated exception message to the buffer without publishing it. Assumes a
 |---|---|
 |`exceptionToLog`|Exception to format and log|
 
-### `public add(Exception exceptionToLog, LogSeverity severity)`
+### `public void add(Exception exceptionToLog, LogSeverity severity)`
 
 Add an formated exception message to the buffer without publishing it.
 
@@ -78,11 +78,11 @@ Add an formated exception message to the buffer without publishing it.
 |`exceptionToLog`|Exception to format and log|
 |`severity`|LogSeverity enum|
 
-### `public publish()`
+### `public void publish()`
 
 Publish any messages currently in the buffer, without adding any new ones.
 
-### `public publish(Exception exceptionToLog)`
+### `public void publish(Exception exceptionToLog)`
 
 Auto-format exception details, add it to the log buffer, and then publish the current buffer. Use the equivelent add method if you intend to add multiple messages rapidly to minimize DML usage.
 
@@ -92,7 +92,7 @@ Auto-format exception details, add it to the log buffer, and then publish the cu
 |---|---|
 |`exceptionToLog`|exception to format and log|
 
-### `public publish(String messageToLog)`
+### `public void publish(String messageToLog)`
 
 Auto-format a custom log message string, add it to the log buffer, and then publish the current buffer. Use the equivelent add method if you intend to add multiple messages rapidly to minimize DML usage.
 

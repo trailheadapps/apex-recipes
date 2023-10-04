@@ -23,14 +23,33 @@ code easy and intuitive.
 
 ---
 ## Methods
-### `public static crud(SObject obj, CrudType permission)`
-### `private static crud(List<SObject> objs, CrudType permission)`
+### `public static Boolean crud(SObject obj, CrudType permission)`
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`obj`|the object type to check|
+|`permission`|create, read, update or delete|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|Boolean|Boolean|
+
+#### Example
+```apex
+System.debug(CanTheUser.crud(new Account(), CanTheUser.CrudType.READ));
+```
+
+
+### `private static Boolean crud(List<SObject> objs, CrudType permission)`
 
 `TESTVISIBLE`
-### `private static crud(String objectName, CrudType permission)`
+### `private static Boolean crud(String objectName, CrudType permission)`
 
 `TESTVISIBLE`
-### `public static create(SObject obj)`
+### `public static Boolean create(SObject obj)`
 
 convenience api for determining if the running user can create the specified object
 
@@ -52,7 +71,7 @@ System.debug(CanTheUser.create(new Account()));
 ```
 
 
-### `public static create(List<SObject> objs)`
+### `public static Boolean create(List<SObject> objs)`
 
 convenience api for determining if the running user can create the specified object
 
@@ -68,7 +87,7 @@ convenience api for determining if the running user can create the specified obj
 |---|---|
 |Boolean|Boolean|
 
-### `public static create(String objName)`
+### `public static Boolean create(String objName)`
 
 convenience api for determining if the running user can create the specified object
 
@@ -90,7 +109,7 @@ System.debug(CanTheUser.create('Account'));
 ```
 
 
-### `public static read(SObject obj)`
+### `public static Boolean read(SObject obj)`
 
 convenience api for determining if the running user can read / access the specified object
 
@@ -112,7 +131,7 @@ System.debug(CanTheUser.read(new Account()));
 ```
 
 
-### `public static read(List<SObject> objs)`
+### `public static Boolean read(List<SObject> objs)`
 
 convenience api for determining if the running user can read / access the specified objects
 
@@ -133,7 +152,7 @@ convenience api for determining if the running user can read / access the specif
 ```
 
 
-### `public static read(String objName)`
+### `public static Boolean read(String objName)`
 
 convenience api for determining if the running user can read the specified object
 
@@ -155,7 +174,7 @@ System.debug(CanTheUser.read('Account'));
 ```
 
 
-### `public static edit(SObject obj)`
+### `public static Boolean edit(SObject obj)`
 
 convenience api for determining if the running user can edit / update the specified object
 
@@ -177,7 +196,7 @@ System.debug(CanTheUser.edit(new Account()));
 ```
 
 
-### `public static edit(List<SObject> objs)`
+### `public static Boolean edit(List<SObject> objs)`
 
 convenience api for determining if the running user can edit / update the specified objects
 
@@ -198,7 +217,7 @@ convenience api for determining if the running user can edit / update the specif
 ```
 
 
-### `public static edit(String objName)`
+### `public static Boolean edit(String objName)`
 
 convenience api for determining if the running user can edit the specified object
 
@@ -220,7 +239,7 @@ System.debug(CanTheUser.edit('Account'));
 ```
 
 
-### `public static ups(SObject obj)`
+### `public static Boolean ups(SObject obj)`
 
 convenience api for determining if the running user can upsert (insert and update) the specified objects
 
@@ -242,7 +261,7 @@ System.debug(CanTheUser.ups(new Account()));
 ```
 
 
-### `public static ups(List<SObject> objs)`
+### `public static Boolean ups(List<SObject> objs)`
 
 convenience api for determining if the running user can edit / update the specified objects
 
@@ -263,7 +282,7 @@ convenience api for determining if the running user can edit / update the specif
 ```
 
 
-### `public static ups(String objName)`
+### `public static Boolean ups(String objName)`
 
 convenience api for determining if the running user can upsert the specified object
 
@@ -285,7 +304,7 @@ System.debug(CanTheUser.ups('Account'));
 ```
 
 
-### `public static destroy(SObject obj)`
+### `public static Boolean destroy(SObject obj)`
 
 convenience api for determining if the running user can delete/destroy the specified object
 
@@ -307,7 +326,7 @@ System.debug(CanTheUser.destroy(new Account()));
 ```
 
 
-### `public static destroy(List<SObject> objs)`
+### `public static Boolean destroy(List<SObject> objs)`
 
 convenience api for determining if the running user can delete the specified object
 
@@ -323,7 +342,7 @@ convenience api for determining if the running user can delete the specified obj
 |---|---|
 |Boolean|Boolean|
 
-### `public static destroy(String objName)`
+### `public static Boolean destroy(String objName)`
 
 convenience api for determining if the running user can delete the specified object
 
@@ -345,7 +364,7 @@ System.debug(CanTheUser.destroy('Account'));
 ```
 
 
-### `public static flsAccessible(String obj, String field)`
+### `public static Boolean flsAccessible(String obj, String field)`
 
 public method to determine if a given field on a given object is Accessible (readable)
 
@@ -368,7 +387,7 @@ System.debug(CanTheUser.flsAccessible('Account', 'Name'));
 ```
 
 
-### `public static bulkFLSAccessible(String obj, Set<String> fields)`
+### `public static Map bulkFLSAccessible(String obj, Set<String> fields)`
 
 bulk form of flsAccessible
 
@@ -392,7 +411,7 @@ System.debug(CanTheUser.bulkFLSAccessible('Account', fields));
 ```
 
 
-### `public static flsUpdatable(String obj, String field)`
+### `public static Boolean flsUpdatable(String obj, String field)`
 
 public method to determine if a given field on a given object is Updatable.
 
@@ -415,7 +434,7 @@ System.debug(CanTheUser.flsUpdatable('Account', 'Name'));
 ```
 
 
-### `public static bulkFLSUpdatable(String obj, Set<String> fields)`
+### `public static Map bulkFLSUpdatable(String obj, Set<String> fields)`
 
 bulk form of flsUpdatable call
 
@@ -439,7 +458,7 @@ System.debug(CanTheUser.bulkFLSUpdatable('Account', fields));
 ```
 
 
-### `private static memoizeFLSMDC(String objType, FLSType action)`
+### `private static Set memoizeFLSMDC(String objType, FLSType action)`
 
 `SUPPRESSWARNINGS`
 
@@ -460,7 +479,7 @@ Utilizes the Metadata catalog to determine FLS Note: this method contains a fals
 |---|---|
 |Set<String>|`set<String>`|
 
-### `private static getFLSForFieldOnObject(String obj, String field, FLSType checkType)`
+### `private static Boolean getFLSForFieldOnObject(String obj, String field, FLSType checkType)`
 
 Abstracted method for retrieving or calculating (memoization) of the FLS for a given field on a given object.
 
@@ -509,7 +528,7 @@ Schema.Describe* calls
 [Cache.CacheBuilder](Cache.CacheBuilder)
 
 #### Methods
-##### `public doLoad(String objType)`
+##### `public Object doLoad(String objType)`
 
 Required method for the CacheBuilder interface. Used here to either calculate an objects per-user FLS, OR to return it from Cache. The return datastructure for this is Map&lt;String, Map&lt;FLSType,Boolean&gt;&gt; and represents: FieldName -&gt; FLStype -&gt; True/False
 
@@ -525,7 +544,7 @@ Required method for the CacheBuilder interface. Used here to either calculate an
 |---|---|
 |Object|`Object`|
 
-##### `public calculateFLS(string objType)`
+##### `public Map calculateFLS(string objType)`
 
 Calculates the FLS for a given object type
 

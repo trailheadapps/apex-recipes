@@ -14,7 +14,7 @@ for instance accounts.
 **Group** Shared Code
 
 ## Methods
-### `public execute(QueueableContext qc)`
+### `public void execute(QueueableContext qc)`
 
 `SUPPRESSWARNINGS`
 

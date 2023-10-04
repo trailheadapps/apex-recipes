@@ -12,7 +12,7 @@ and syntax highlighting
 **See** [ApexClassUtilities](https://github.com/trailheadapps/apex-recipes/wiki/ApexClassUtilities)
 
 ## Methods
-### `public static getRecipeCode(String recipeName)`
+### `public static ClassData getRecipeCode(String recipeName)`
 
 `SUPPRESSWARNINGS`
 

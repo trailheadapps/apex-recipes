@@ -10,7 +10,7 @@ for identifying the name of an object's class expressed as a string.
 **Group** Testing Recipes
 
 ## Methods
-### `public static getUnkownObjectType(Object obj)`
+### `public static String getUnkownObjectType(Object obj)`
 
 It can be useful to know what the type of an object is at runtime. This is especially useful when you're dynamically instantiating objects in code from the name of a class. I'm not generally a fan of relying on an exception to make logic decisions, but in this case I'll make an exception as this is the cleanest method I've yet found for efficently determining an objects class name that covers edge cases where the object is of an inner class' type. This method parses a TypeException for the true name of a class. It generates the exception by forcing a cast from the Object parameter to DateTime. If no typeException occurs, we know it's a dateTime object.
 

@@ -7,7 +7,7 @@ create example data via a Salesforce CLI call
 **Group** Shared Code
 
 ## Methods
-### `public static generateData()`
+### `public static void generateData()`
 
 `SUPPRESSWARNINGS`
 

@@ -28,7 +28,7 @@ ApexSharingViolation warning.
 **See** [FilesRecipes](https://github.com/trailheadapps/apex-recipes/wiki/FilesRecipes)
 
 ## Methods
-### `public handleInboundEmail(Messaging email, Messaging envelope)`
+### `public Messaging handleInboundEmail(Messaging email, Messaging envelope)`
 
 Messaging.InboundEmailHandler interface has one required method - handleInboundEmail. This method must return an Messaging.InboundEmailResult object, and you should take care to set that object's success property. This method is where you will write business logic to ... do whatever it is you want to do with the incoming email. Here you can attach the email to the contact record who sent it, a case or ... The sky's the limit.
 
@@ -48,7 +48,7 @@ Messaging.InboundEmailHandler interface has one required method - handleInboundE
 
 **See** [FilesRecipes](https://github.com/trailheadapps/apex-recipes/wiki/FilesRecipes)
 
-### `private createFilesByEmailAttachments(List<Messaging.inboundEmail.BinaryAttachment> inboundAttachments, Id contactId)`
+### `private void createFilesByEmailAttachments(List<Messaging.inboundEmail.BinaryAttachment> inboundAttachments, Id contactId)`
 
 This helper method bulk saves attachments from the incoming email. It relies on FilesRecipes.cls to do the actual creation of the Files attachments as well as publishing the file to the specified record.
 
@@ -59,7 +59,7 @@ This helper method bulk saves attachments from the incoming email. It relies on 
 |`inboundAttachments`||
 |`contactId`||
 
-### `private getContactBySender(Messaging email)`
+### `private Contact getContactBySender(Messaging email)`
 
 Determines if we have an existing contact record with an email address that matches the sender of this email. If we do not have a contact that matches, return a new contact object with the email address set.
 
@@ -75,7 +75,7 @@ Determines if we have an existing contact record with an email address that matc
 |---|---|
 |Contact|`Contact`|
 
-### `private createEmailRecord(Contact sender, Messaging email)`
+### `private void createEmailRecord(Contact sender, Messaging email)`
 
 Creates a Salesforce Email record and relates that email to the sender's contact record. This surfaces the Email record on the contact object.
 

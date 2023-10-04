@@ -12,7 +12,7 @@ Demonstrates how to publish events on the event bus
 **See** [TriggerHandler](https://github.com/trailheadapps/apex-recipes/wiki/TriggerHandler)
 
 ## Methods
-### `public static publishEvent(Event_Recipes_Demo__e event)`
+### `public static Database publishEvent(Event_Recipes_Demo__e event)`
 
 publishes a platform event
 

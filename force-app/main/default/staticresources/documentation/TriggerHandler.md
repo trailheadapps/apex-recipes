@@ -36,7 +36,7 @@ Constructs a trigger handler object and ensures the context is set
 
 ---
 ## Methods
-### `public run()`
+### `public void run()`
 
 This is main brokering method that is called by the trigger. It's responsible for determining the proper context, and calling the correct method
 
@@ -46,7 +46,7 @@ AccountTriggerHandler.run();
 ```
 
 
-### `public setMaxLoopCount(Integer max)`
+### `public void setMaxLoopCount(Integer max)`
 
 Allows developers to prevent trigger loops, or allow a limited number of them by setting the maximum number of times this trigger is called.
 
@@ -63,7 +63,7 @@ this.setMaxLoopCount(5);
 ```
 
 
-### `public clearMaxLoopCount()`
+### `public void clearMaxLoopCount()`
 
 Allows developers to turn off the max loop count
 
@@ -74,7 +74,7 @@ this.clearMaxLoopCount();
 ```
 
 
-### `public static bypass(String handlerName)`
+### `public static void bypass(String handlerName)`
 
 Allows developers to conditionally bypass (disable) other triggers that *also* implement this triggerHandler
 
@@ -90,7 +90,7 @@ TriggerHandler.bypass('AccountTriggerHandler');
 ```
 
 
-### `public static clearBypass(String handlerName)`
+### `public static void clearBypass(String handlerName)`
 
 Removes a given trigger handler class name from the list of bypassed trigger handlers.
 
@@ -106,7 +106,7 @@ TriggerHandler.clearBypass('AccountTriggerHandler');
 ```
 
 
-### `public static isBypassed(String handlerName)`
+### `public static Boolean isBypassed(String handlerName)`
 
 Allows developers to check whether a given trigger handler class is currently bypassed.
 
@@ -128,7 +128,7 @@ TriggerHandler.isBypassed('AccountTriggerHandler');
 ```
 
 
-### `public static clearAllBypasses()`
+### `public static void clearAllBypasses()`
 
 removes all classes from the bypass list
 
@@ -138,13 +138,13 @@ Triggerhandler.clearAllBypasses();
 ```
 
 
-### `private setTriggerContext()`
+### `private void setTriggerContext()`
 
 `TESTVISIBLE`
 
 private instancemethods
 
-### `private setTriggerContext(String ctx, Boolean testMode)`
+### `private void setTriggerContext(String ctx, Boolean testMode)`
 
 `TESTVISIBLE`
 
@@ -157,7 +157,7 @@ Internal method for manually setting the trigger context
 |`ctx`|The current trigger Context|
 |`testMode`|Is the trigger running in a test context?|
 
-### `protected addToLoopCount()`
+### `protected void addToLoopCount()`
 
 `TESTVISIBLE`
 
@@ -169,7 +169,7 @@ increment the loop count
 |---|---|
 |`Throws`|loop count exception if the max loop count is reached|
 
-### `protected validateRun()`
+### `protected Boolean validateRun()`
 
 `TESTVISIBLE`
 
@@ -187,7 +187,7 @@ make sure this trigger should continue to run
 |---|---|
 |`TriggerHandlerException`|thrown when executing outside of a trigger|
 
-### `private getHandlerName()`
+### `private String getHandlerName()`
 
 `TESTVISIBLE`
 
@@ -199,7 +199,7 @@ Returns the string version of the handler class being invoked
 |---|---|
 |String|`String` Name of the Handler|
 
-### `protected beforeInsert()`
+### `protected void beforeInsert()`
 
 `TESTVISIBLE`
 
@@ -207,7 +207,7 @@ Returns the string version of the handler class being invoked
 
 context methods
 
-### `protected beforeUpdate()`
+### `protected void beforeUpdate()`
 
 `TESTVISIBLE`
 
@@ -215,7 +215,7 @@ context methods
 
 Virtual method for the implementing class to override
 
-### `protected beforeDelete()`
+### `protected void beforeDelete()`
 
 `TESTVISIBLE`
 
@@ -223,7 +223,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected afterInsert()`
+### `protected void afterInsert()`
 
 `TESTVISIBLE`
 
@@ -231,7 +231,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected afterUpdate()`
+### `protected void afterUpdate()`
 
 `TESTVISIBLE`
 
@@ -239,7 +239,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected afterDelete()`
+### `protected void afterDelete()`
 
 `TESTVISIBLE`
 
@@ -247,7 +247,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected afterUndelete()`
+### `protected void afterUndelete()`
 
 `TESTVISIBLE`
 
@@ -298,7 +298,7 @@ Sets loop count based on the param.
 
 ---
 #### Methods
-##### `public increment()`
+##### `public Boolean increment()`
 
 Increment the internal counter returning the results of this.exceeded().
 
@@ -308,7 +308,7 @@ Increment the internal counter returning the results of this.exceeded().
 |---|---|
 |Boolean|`Boolean` true if count will exceed max count or is less than 0.|
 
-##### `public exceeded()`
+##### `public Boolean exceeded()`
 
 Determines if this we're about to exceed the loop count.
 
@@ -318,7 +318,7 @@ Determines if this we're about to exceed the loop count.
 |---|---|
 |Boolean|`Boolean` true if less than 0 or more than max.|
 
-##### `public getMax()`
+##### `public Integer getMax()`
 
 Returns the max loop count.
 
@@ -328,7 +328,7 @@ Returns the max loop count.
 |---|---|
 |Integer|`Integer` max loop count.|
 
-##### `public getCount()`
+##### `public Integer getCount()`
 
 Returns the current loop count.
 
@@ -338,7 +338,7 @@ Returns the current loop count.
 |---|---|
 |Integer|`Integer` current loop count.|
 
-##### `public setMax(Integer max)`
+##### `public void setMax(Integer max)`
 
 Sets the max loop size
 

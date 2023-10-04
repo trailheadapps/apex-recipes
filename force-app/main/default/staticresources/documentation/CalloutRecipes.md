@@ -39,7 +39,7 @@ The name of the Named Credential to use
 
 ---
 ## Methods
-### `public static rawCallout()`
+### `public static String rawCallout()`
 
 Demonstrates how to make a raw HTTP request. This method demonstrates how to use the Http, HttpRequest and HttpResponse objects to construct a single get reuqest. The other methods in this class demonstrate the use of an intelligent abstraction layer - RestClient.cls - to make sending Http Requests easier, easier to test, and less error prone.
 
@@ -55,7 +55,7 @@ System.debug(CalloutRecipes.rawCallout());
 ```
 
 
-### `public httpGetCalloutToSecondOrg()`
+### `public List httpGetCalloutToSecondOrg()`
 
 Demonstrates a GET request to a second Salesforce org. A Get request is used to retrieve data from a target endpoint, We will be using the performRestCallout method to make the callout. In this example, we will be requesting a list of Accounts from our second org. We will pass the endpoint our named credential, the url path to our integration-service custom REST endpoint, a null body and the GET method. We will then deserialize the JSON into a known object, in this case, a list of Accounts.
 
@@ -71,7 +71,7 @@ System.debug(CalloutRecipes.httpGetCalloutToSecondOrg());
 ```
 
 
-### `public httpDeleteCalloutToSecondOrg(Id contactId)`
+### `public Integer httpDeleteCalloutToSecondOrg(Id contactId)`
 
 Demonstrates a DELETE request to a second Salesforce org - A DELETE request is used to delete data from the target endpoint. In this example, we will be deleting a contact from another Salesforce org. We will store the parameters in the urlPath which can then be accessed through the .getParams() method in the org receiving the delete request.
 
@@ -94,7 +94,7 @@ System.debug(CalloutRecipes.httpDeleteCalloutToSecondOrg(contactId));
 ```
 
 
-### `public httpPostCalloutToSecondOrg(List<Contact> contactRecords)`
+### `public Integer httpPostCalloutToSecondOrg(List<Contact> contactRecords)`
 
 Demonstrates a POST request to a second Salesforce org a POST request is used to send data to a target endpoint and insert it. In this example, we will be sending a list of contact records to a second Salesforce org. We will serilaize the list and POST it in body of the callout.
 
@@ -117,7 +117,7 @@ System.debug(CalloutRecipes.httpPostCalloutToSecondOrg(contacts));
 ```
 
 
-### `public httpPutCalloutToSecondOrg(List<Contact> contactRecords)`
+### `public Integer httpPutCalloutToSecondOrg(List<Contact> contactRecords)`
 
 Demonstrates a PUT request to a second Salesforce org a PUT request is used to send data to a target endpoint and upsert it. In this example, we will be sending a list of contact records to a second org.
 
@@ -140,7 +140,7 @@ System.debug(CalloutRecipes.httpPutCalloutToSecondOrg(contacts));
 ```
 
 
-### `public httpPatchCalloutToSecondOrg(List<Account> accountRecords)`
+### `public Integer httpPatchCalloutToSecondOrg(List<Account> accountRecords)`
 
 Demonstrates a PATCH request to a second Salesforce org a PATCH request is used to send data to a target endpoint and update already existing data. In this example, we will be sending a list of Account records to a second salesforce org for updating.
 
@@ -163,7 +163,7 @@ System.debug(CalloutRecipes.httpPatchCalloutToSecondOrg(contacts));
 ```
 
 
-### `public httpCalloutWithUntypedResponse()`
+### `public Map httpCalloutWithUntypedResponse()`
 
 Now that we have demonstrated how to callout to an endpoint, lets take a look at what else we can do with the response. When calling out to an external endpoint, the data may not always be in a format that can be directly deserialised into a Salesforce Object. If your callout returns untyped JSON, you can deserialize this into a Map&lt;String, Object&gt; by using a deserializeUntyped method to convert the string.
 
@@ -179,7 +179,7 @@ System.debug(CalloutRecipes.httpCalloutWithUntypedResponse());
 ```
 
 
-### `public insertAccountAndContactsFromUntypedResponse(String untypedResponse)`
+### `public void insertAccountAndContactsFromUntypedResponse(String untypedResponse)`
 
 As seen in the httpCalloutWithUntypedResponse method, we don't always get a perfect datastructure back from our callout. In this case, we have received and account and it's contacts that need to be inserted into Salesforce. Check out the Test class for an example of an untyped data structure.
 
@@ -195,7 +195,7 @@ CalloutRecipes.insertAccountAndContactsFromUntypedResponse(CalloutRecipes_Tests.
 ```
 
 
-### `protected makeApiCall(HttpVerb method, String path, String query, String body, Map<String,String> headers)`
+### `protected HttpResponse makeApiCall(HttpVerb method, String path, String query, String body, Map<String,String> headers)`
 
 *Inherited*
 
@@ -222,7 +222,7 @@ Omnibus callout method. This is the primary method for making a REST callout. Mo
 |---|---|
 |HttpResponse|HttpResponse  HttpResponse Obj|
 
-### `protected makeApiCall(HttpVerb method, String path, String query, String body)`
+### `protected HttpResponse makeApiCall(HttpVerb method, String path, String query, String body)`
 
 *Inherited*
 
@@ -248,7 +248,7 @@ Makes an HTTP Callout to an api resource. Convienence method that assumes the De
 |---|---|
 |HttpResponse|`HttpResponse`|
 
-### `protected makeApiCall(HttpVerb method, String path, String query)`
+### `protected HttpResponse makeApiCall(HttpVerb method, String path, String query)`
 
 *Inherited*
 
@@ -271,7 +271,7 @@ convenience version of makeApiCall without body param. Invokes omnibus version a
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected makeApiCall(HttpVerb method, String path)`
+### `protected HttpResponse makeApiCall(HttpVerb method, String path)`
 
 *Inherited*
 
@@ -293,7 +293,7 @@ convenience version of makeApiCall without body or query params. Invokes omnibus
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected get(String path)`
+### `protected HttpResponse get(String path)`
 
 *Inherited*
 
@@ -314,7 +314,7 @@ convenience method for a GET Call that only requires a path
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected get(String path, String query)`
+### `protected HttpResponse get(String path, String query)`
 
 *Inherited*
 
@@ -336,7 +336,7 @@ convenience method for a GET Call that only requires a path and query
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected del(String path)`
+### `protected HttpResponse del(String path)`
 
 *Inherited*
 
@@ -357,7 +357,7 @@ convenience method for deleteing a resource based only on path
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected del(String path, String query)`
+### `protected HttpResponse del(String path, String query)`
 
 *Inherited*
 
@@ -379,7 +379,7 @@ convenience method for a Delete Call that only requires a path and query
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected post(String path, String body)`
+### `protected HttpResponse post(String path, String body)`
 
 *Inherited*
 
@@ -401,7 +401,7 @@ convenience method for a POST Call that only requires a path and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected post(String path, String query, String body)`
+### `protected HttpResponse post(String path, String query, String body)`
 
 *Inherited*
 
@@ -424,7 +424,7 @@ convenience method for a POST Call that only requires a path, query and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected put(String path, String body)`
+### `protected HttpResponse put(String path, String body)`
 
 *Inherited*
 
@@ -446,7 +446,7 @@ convenience method for a PUT Call that only requires a path and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected put(String path, String query, String body)`
+### `protected HttpResponse put(String path, String query, String body)`
 
 *Inherited*
 
@@ -469,7 +469,7 @@ convenience method for a PUT Call that only requires a path, query and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected patch(String path, String body)`
+### `protected HttpResponse patch(String path, String body)`
 
 *Inherited*
 
@@ -491,7 +491,7 @@ convenience method for a PATCH Call that only requires a path, query and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected patch(String path, String query, String body)`
+### `protected HttpResponse patch(String path, String query, String body)`
 
 *Inherited*
 
@@ -514,7 +514,7 @@ convenience method for a PATCH Call that only requires a path, query and body
 |---|---|
 |HttpResponse|`HTTPResponse`|
 
-### `protected ensureStringEndsInSlash(String resource)`
+### `protected String ensureStringEndsInSlash(String resource)`
 
 *Inherited*
 
@@ -535,7 +535,7 @@ Ensures that the inputted string ends in a `/` makes callouts more robust.
 |---|---|
 |String|inputted string with `/` if it didn't already end in one.|
 
-### `public static makeApiCall(String namedCredential, HttpVerb method, String path, String query, String body, Map<String,String> headers)`
+### `public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path, String query, String body, Map<String,String> headers)`
 
 *Inherited*
 
@@ -572,7 +572,7 @@ System.Debug(RestClient.makeApiCall('MockBin',
 ```
 
 
-### `public static makeApiCall(String namedCredential, HttpVerb method, String path, String query)`
+### `public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path, String query)`
 
 *Inherited*
 
@@ -605,7 +605,7 @@ System.Debug(RestClient.makeApiCall('MockBin',
 ```
 
 
-### `public static makeApiCall(String namedCredential, HttpVerb method, String path)`
+### `public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path)`
 
 *Inherited*
 

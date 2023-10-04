@@ -31,7 +31,7 @@ https://sfdc.co/queueable-apex
 
 ---
 ## Methods
-### `public static execute(QueueableContext qc)`
+### `public static void execute(QueueableContext qc)`
 
 This is the only required method to implement Queueable. Queueable classes that also implement Database.allowsCallouts can make HTTP requests to external services. In this recipe we make a GET request to developer.salesforce.com
 

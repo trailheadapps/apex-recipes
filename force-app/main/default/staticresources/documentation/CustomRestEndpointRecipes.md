@@ -46,7 +46,7 @@ private, test visible circiut breaker boolean.
 
 ---
 ## Methods
-### `global static getRecordsToReturn()`
+### `global static String getRecordsToReturn()`
 
 `SUPPRESSWARNINGS`
 
@@ -66,7 +66,7 @@ curl -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/ape
 ```
 
 
-### `global static deleteSingleContact()`
+### `global static String deleteSingleContact()`
 
 `SUPPRESSWARNINGS`
 
@@ -86,7 +86,7 @@ curl —X DELETE -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/
 ```
 
 
-### `global static parseAndCreateNewContacts()`
+### `global static String parseAndCreateNewContacts()`
 
 `SUPPRESSWARNINGS`
 
@@ -115,7 +115,7 @@ curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" 
 ```
 
 
-### `global static upsertContactRecords()`
+### `global static String upsertContactRecords()`
 
 `SUPPRESSWARNINGS`
 
@@ -148,7 +148,7 @@ curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" 
 ```
 
 
-### `global static updateAccountRecords()`
+### `global static String updateAccountRecords()`
 
 `SUPPRESSWARNINGS`
 

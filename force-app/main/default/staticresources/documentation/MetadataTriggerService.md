@@ -9,7 +9,7 @@
 
 ---
 ## Methods
-### `public getMetadataTriggers()`
+### `public List getMetadataTriggers()`
 
 `SUPPRESSWARNINGS`
 
@@ -21,7 +21,7 @@ This query finds an ordered list trigger handler classes to execute. It ignores 
 |---|---|
 |List<Metadata_Driven_Trigger__mdt>|`List<Metadata_Driven_Trigger__mdt>`|
 
-### `public static getSObjectType()`
+### `public static String getSObjectType()`
 
 This determines the active sObject type by describing the first record in the trigger New / Old list
 
