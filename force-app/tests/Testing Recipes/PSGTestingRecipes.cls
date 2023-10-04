@@ -6,7 +6,7 @@ private class PSGTestingRecipes {
         PermissionSetGroup psg = [
             SELECT Id, Status
             FROM PermissionSetGroup
-            WHERE DeveloperName = 'SalesPersona'
+            WHERE DeveloperName = 'Permission_Set_Group_for_testing'
         ];
 
         // Get a second Permission Set and add it to the Permission Set Group
