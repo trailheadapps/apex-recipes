@@ -2,6 +2,8 @@
  * @description Demonstrates how to sort lists using Comparator Interface
  *
  * @group Collection Recipes
+ * @see AccountShippingCountryComparator
+ * @see AccountNumberOfEmployeesComparator
  */
 public with sharing class ListSortingRecipes {
     /**

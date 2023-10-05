@@ -5,6 +5,12 @@ Demonstrates how to sort lists using Comparator Interface
 
 **Group** Collection Recipes
 
+
+**See** [AccountShippingCountryComparator](https://github.com/trailheadapps/apex-recipes/wiki/AccountShippingCountryComparator)
+
+
+**See** [AccountNumberOfEmployeesComparator](https://github.com/trailheadapps/apex-recipes/wiki/AccountNumberOfEmployeesComparator)
+
 ## Methods
 ### `public static void sortAccountsByShippingCountry(List<Account> accounts)`
 
