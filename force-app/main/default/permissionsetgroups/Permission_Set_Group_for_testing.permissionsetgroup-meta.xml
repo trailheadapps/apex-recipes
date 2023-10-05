@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+    >This permission set group is used in the apex test class named PSGTestingRecipes. This class shows how to test Permission Set Groups.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Permission Set Group For Testing</label>
+    <status>Updated</status>
+</PermissionSetGroup>
