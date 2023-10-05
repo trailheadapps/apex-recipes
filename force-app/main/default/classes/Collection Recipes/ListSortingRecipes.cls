@@ -1,35 +1,28 @@
 /**
- * @description Demonstrates how to sort lists with custom ordering logic
+ * @description Demonstrates how to sort lists using Comparator Interface
  *
  * @group Collection Recipes
- * @see ListUtils
- * @see SortableAccount
- * @see SObjectStringFieldComparator
  */
 public with sharing class ListSortingRecipes {
     /**
-     * @description Demonstrates how to sort a list of SObject in place
-     * (without the need for a return statement).
-     * This example shows how to sort Accounts based on the ShippingCountry field.
-     * We use a SortableAccount wrapper class in order to implement the
-     * Comparable interface so that we can use List.sort() with SObject.
+     * @description Demonstrates how to sort a list of Account using Comparator Interface
+     * In this example we pass in the implementation class `AccountShippingCountryComparator`
+     * as a parameter to the sort method of a list. This method sorts Accounts
+     * by shipping address in alphabetical order
      * @param accounts a list of accounts that will be sorted in place
      **/
-    public static void sortAccountsWithSortableWrapper(List<Account> accounts) {
-        SortableAccount.sort(accounts);
+    public static void sortAccountsByShippingCountry(List<Account> accounts) {
+        accounts.sort(new AccountShippingCountryComparator());
     }
 
     /**
-     * @description Demonstrates how to sort a list of SObject in place with reusable comparators.
-     * This example shows how to sort Accounts based on the ShippingCountry field.
-     * We use a generic ListUtils utility class with a SObjectStringFieldComparator class
-     * that implements the ListUtils.Comparator interface.
+     * @description Demonstrates how to sort a list of Account using Comparator Interface
+     * In this example we pass in the implementation class `AccountNumberOfEmployeesComparator`
+     * as a parameter to the sort method of a list.This method sorts Accounts
+     * by employee number in the ascending order
      * @param accounts a list of accounts that will be sorted in place
      **/
-    public static void sortAccountsWithComparator(List<Account> accounts) {
-        ListUtils.sort(
-            accounts,
-            new SObjectStringFieldComparator('ShippingCountry')
-        );
+    public static void sortAccountsByNumberOfEmployees(List<Account> accounts) {
+        accounts.sort(new AccountNumberOfEmployeesComparator());
     }
 }
