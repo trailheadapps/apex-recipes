@@ -125,7 +125,7 @@ DMLRecipes.upsertAccountViaDatabaseMethod(
 ```
 
 
-### `public static List updateAcccountViaKeywordInSystemMode(List<Account> accts)`
+### `public static List<Account> updateAcccountViaKeywordInSystemMode(List<Account> accts)`
 
 Demonstrates how to Update a list of accounts via the Update DML keyword in System Mode
 
@@ -149,7 +149,7 @@ DMLRecipes.updateAcccountViaKeywordInSystemMode(acct);
 ```
 
 
-### `public static List updateAcccountViaKeywordInUserMode(List<Account> accts)`
+### `public static List<Account> updateAcccountViaKeywordInUserMode(List<Account> accts)`
 
 Demonstrates how to Update a list of accounts via the Update DML keyword
 
@@ -173,7 +173,7 @@ DMLRecipes.updateAcccountViaKeyword(acct);
 ```
 
 
-### `public static List updateAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
+### `public static List<Account> updateAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
 
 Demonstrates how to update a list of accounts via the Database.update() method
 
@@ -252,7 +252,7 @@ DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 ```
 
 
-### `public static List undeleteAccountViaKeywordInSystemMode(List<Account> accts)`
+### `public static List<Account> undeleteAccountViaKeywordInSystemMode(List<Account> accts)`
 
 Undeletes a list of accounts via the undelete DML keyword
 
@@ -278,7 +278,7 @@ System.debug(results);
 ```
 
 
-### `public static List undeleteAccountViaKeywordInUserMode(List<Account> accts)`
+### `public static List<Account> undeleteAccountViaKeywordInUserMode(List<Account> accts)`
 
 Undeletes a list of accounts via the undelete DML keyword
 
@@ -304,7 +304,7 @@ System.debug(results);
 ```
 
 
-### `public static List undeleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
+### `public static List<Account> undeleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
 
 undeletes a list of accounts via the Database.undelete method.
 

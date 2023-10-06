@@ -62,7 +62,7 @@ This method contains the 'what' happens to each chunk of records. Note, that thi
 |---|---|
 |`queueableContext`||
 
-### `private List getRecordsToProcess(Id offsetId)`
+### `private List<ContentDocumentLink> getRecordsToProcess(Id offsetId)`
 
 Returns a 'cursor' - a set of records of size X from a given offset. Note: We originally intended to use OFFSET - the SOQL keyword, but discovered the max OFFSET size is 2000. This obviously won't work for large data volumes greater than 2000 so we switched to using the ID of the record. Since ID is an indexed field, this should also allow us to prevent full table scans even on the largest tables.
 
