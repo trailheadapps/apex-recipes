@@ -1,22 +1,28 @@
 # DMLRecipes
 
 Demonstrates various ways of making Data Manipulation Language
-(DML) calls. Note that this class demonstrates both Database.* methods as
+(DML) calls. Note that this class demonstrates both Database methods as
 well as DML Keywords.
 
 
 **Group** Data Recipes
 
 ## Methods
-### `public static void insertAccountViaInsertKeywordInSystemMode(String name)`
+### `public static Account insertAccountViaInsertKeywordInSystemMode(String name)`
 
-Demonstrates how to use the insert keyword to persist a net-new record to the database in system mode
+Demonstrates how to use the `insert` keyword to persist a net-new record to the database in system mode
 
 #### Parameters
 
 |Param|Description|
 |---|---|
-|`name`|name passed through to the name of the created account|
+|`name`|name of the created account|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|Account|the inserted Account|
 
 #### Example
 ```apex
@@ -24,15 +30,21 @@ DMLRecipes.insertAccountViaInsertKeywordInSystemMode('Hello');
 ```
 
 
-### `public static void insertAccountViaInsertKeywordInUserMode(String name)`
+### `public static Account insertAccountViaInsertKeywordInUserMode(String name)`
 
-Demonstrates how to use the insert keyword to persist a net-new record to the database in user mode
+Demonstrates how to use the `insert` keyword to persist a net-new record to the database in user mode
 
 #### Parameters
 
 |Param|Description|
 |---|---|
-|`name`|name passed through to the name of the created account|
+|`name`|name of the created account|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|Account|the inserted Account|
 
 #### Example
 ```apex
@@ -40,16 +52,22 @@ DMLRecipes.insertAccountViaInsertKeywordInUserMode('Hello');
 ```
 
 
-### `public static void insertAccountsViaDatabaseMethod(String name, Boolean allOrNothing, System accessLevel)`
+### `public static List<Account> insertAccountsViaDatabaseMethod(List<String> names, Boolean allOrNothing, System accessLevel)`
 
-Demonstrates how to use the Database.insert() method to persist a net-new record to the database.
+Demonstrates how to use the `Database.insert()` method to persist a net-new record to the database.
 
 #### Parameters
 
 |Param|Description|
 |---|---|
-|`name`|name Passed through to the account created|
-|`allOrNothing`|allOrNothing determines whether or not all accounts to be inserted must insert successfully|
+|`names`|names used for account creation|
+|`allOrNothing`|determines whether or not all accounts to be inserted must insert successfully|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|List<Account>|list of inserted accounts|
 
 #### Example
 ```apex
@@ -59,7 +77,7 @@ DMLRecipes.insertAccountsViaDatabaseMethod('Hello', false, AccessLevel.USER_MODE
 
 ### `public static Account upsertAccountViaUpsertKeywordInSystemMode(Account acct)`
 
-Demonstrates the use of the upsert keyword to either insert or update a record in system mode
+Demonstrates the use of the `upsert` keyword to either insert or update a record in system mode
 
 #### Parameters
 
@@ -71,7 +89,7 @@ Demonstrates the use of the upsert keyword to either insert or update a record i
 
 |Type|Description|
 |---|---|
-|Account|Account|
+|Account|Upserted Account record|
 
 #### Example
 ```apex
@@ -81,7 +99,7 @@ DMLRecipes.upsertAccountViaUpsertKeywordInSystemMode(new Account(name='Hello Wor
 
 ### `public static Account upsertAccountViaUpsertKeywordInUserMode(Account acct)`
 
-Demonstrates the use of the upsert keyword to either insert or update a record in user mode
+Demonstrates the use of the `upsert` keyword to either insert or update a record in user mode
 
 #### Parameters
 
@@ -93,7 +111,7 @@ Demonstrates the use of the upsert keyword to either insert or update a record i
 
 |Type|Description|
 |---|---|
-|Account|Account|
+|Account|Upserted Account record|
 
 #### Example
 ```apex
@@ -103,7 +121,7 @@ DMLRecipes.upsertAccountViaUpsertKeywordInUserMode(new Account(name='Hello World
 
 ### `public static Database upsertAccountViaDatabaseMethod(Account acct, Boolean allOrNothing, System accessLevel)`
 
-Upserts an account with a potential of all or nothing, using the Database.upsert method
+Upserts an account with a potential of all or nothing, using the `Database.upsert` method
 
 #### Parameters
 
@@ -116,18 +134,18 @@ Upserts an account with a potential of all or nothing, using the Database.upsert
 
 |Type|Description|
 |---|---|
-|Database|UpsertResult|
+|Database|Upsert operation result|
 
 #### Example
 ```apex
 DMLRecipes.upsertAccountViaDatabaseMethod(
-           new Account(name='Hello World'), false, AccessLevel.USER_MODE);
+           new Account(Name='Hello World'), false, AccessLevel.USER_MODE);
 ```
 
 
 ### `public static List<Account> updateAcccountViaKeywordInSystemMode(List<Account> accts)`
 
-Demonstrates how to Update a list of accounts via the Update DML keyword in System Mode
+Demonstrates how to Update a list of accounts via the `update` DML keyword in System Mode
 
 #### Parameters
 
@@ -139,7 +157,7 @@ Demonstrates how to Update a list of accounts via the Update DML keyword in Syst
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|List<Account>|List of updated records|
 
 #### Example
 ```apex

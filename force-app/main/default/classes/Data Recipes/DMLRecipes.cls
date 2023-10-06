@@ -1,6 +1,6 @@
 /**
  * @description Demonstrates various ways of making Data Manipulation Language
- * (DML) calls. Note that this class demonstrates both Database.* methods as
+ * (DML) calls. Note that this class demonstrates both Database methods as
  * well as DML Keywords.
  * @group Data Recipes
  */
@@ -13,12 +13,15 @@ public with sharing class DMLRecipes {
     }
 
     /**
-     * @description Demonstrates how to use the insert keyword to persist a
+     * @description Demonstrates how to use the `insert` keyword to persist a
      * net-new record to the database in system mode
-     * @param  name name passed through to the name of the created account
+     * @param  name name of the created account
+     * @return the inserted Account
      * @example DMLRecipes.insertAccountViaInsertKeywordInSystemMode('Hello');
      */
-    public static void insertAccountViaInsertKeywordInSystemMode(String name) {
+    public static Account insertAccountViaInsertKeywordInSystemMode(
+        String name
+    ) {
         Account acct = new Account();
         acct.Name = name;
         try {
@@ -26,16 +29,18 @@ public with sharing class DMLRecipes {
         } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
+        return acct;
     }
 
     /**
-     * @description Demonstrates how to use the insert keyword to persist a
+     * @description Demonstrates how to use the `insert` keyword to persist a
      * net-new record to the database in user mode
-     * @param  name name passed through to the name of the created account
+     * @param  name name of the created account
+     * @return the inserted Account
      * @example
      * DMLRecipes.insertAccountViaInsertKeywordInUserMode('Hello');
      */
-    public static void insertAccountViaInsertKeywordInUserMode(String name) {
+    public static Account insertAccountViaInsertKeywordInUserMode(String name) {
         Account acct = new Account();
         acct.Name = name;
         try {
@@ -43,40 +48,41 @@ public with sharing class DMLRecipes {
         } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
+        return acct;
     }
 
     /**
-     * @description Demonstrates how to use the Database.insert() method to
+     * @description Demonstrates how to use the `Database.insert()` method to
      * persist a net-new record to the database.
-     * @param  name         name Passed through to the account created
-     * @param  allOrNothing allOrNothing determines whether or not all accounts
+     * @param  names        names used for account creation
+     * @param  allOrNothing determines whether or not all accounts
      * to be inserted must insert successfully
+     * @return list of inserted accounts
      * @example
      * DMLRecipes.insertAccountsViaDatabaseMethod('Hello', false, AccessLevel.USER_MODE);
      */
-    public static void insertAccountsViaDatabaseMethod(
-        String name,
+    public static List<Account> insertAccountsViaDatabaseMethod(
+        List<String> names,
         Boolean allOrNothing,
         System.AccessLevel accessLevel
     ) {
-        Account acct = new Account(Name = name);
-        Account acct2 = new Account();
+        List<Account> accounts = new List<Account>();
+        for (String name : names) {
+            accounts.add(new Account(Name = name));
+        }
         try {
-            Database.insert(
-                new List<Account>{ acct, acct2 },
-                allOrNothing,
-                accessLevel
-            );
+            Database.insert(accounts, allOrNothing, accessLevel);
         } catch (DmlException DMLe) {
             throw new CustomDMLException('Failed');
         }
+        return accounts;
     }
 
     /**
-     * @description Demonstrates the use of the upsert keyword to either insert
+     * @description Demonstrates the use of the `upsert` keyword to either insert
      * or update a record in system mode
      * @param acct account to upsert
-     * @return Account
+     * @return Upserted Account record
      * @example
      * DMLRecipes.upsertAccountViaUpsertKeywordInSystemMode(new Account(name='Hello World'));
      **/
@@ -94,10 +100,10 @@ public with sharing class DMLRecipes {
     }
 
     /**
-     * @description Demonstrates the use of the upsert keyword to either insert
+     * @description Demonstrates the use of the `upsert` keyword to either insert
      * or update a record in user mode
      * @param acct account to upsert
-     * @return Account
+     * @return Upserted Account record
      * @example
      * DMLRecipes.upsertAccountViaUpsertKeywordInUserMode(new Account(name='Hello World'));
      **/
@@ -116,13 +122,13 @@ public with sharing class DMLRecipes {
 
     /**
      * @description Upserts an account with a potential of all or nothing, using
-     * the Database.upsert method
+     * the `Database.upsert` method
      * @param acct The account object to upsert
      * @param allOrNothing all or nothing flag
-     * @return UpsertResult
+     * @return Upsert operation result
      * @example
      * DMLRecipes.upsertAccountViaDatabaseMethod(
-     *            new Account(name='Hello World'), false, AccessLevel.USER_MODE);
+     *            new Account(Name='Hello World'), false, AccessLevel.USER_MODE);
      **/
     public static Database.UpsertResult upsertAccountViaDatabaseMethod(
         Account acct,
@@ -139,10 +145,10 @@ public with sharing class DMLRecipes {
     }
 
     /**
-     * @description Demonstrates how to Update a list of accounts via the Update
+     * @description Demonstrates how to Update a list of accounts via the `update`
      * DML keyword in System Mode
      * @param accts List of accounts to update
-     * @return List<Account>
+     * @return List of updated records
      * @example
      * Account acct = new Account(name='Hello World');
      * insert acct;
