@@ -14,9 +14,9 @@ public with sharing class AccountNumberOfEmployeesComparator implements Comparat
             result = -1;
         } else if (a2?.NumberOfEmployees == null) {
             result = 1;
-        } else if (a1?.NumberOfEmployees < a2?.NumberOfEmployees) {
+        } else if (a1.NumberOfEmployees < a2.NumberOfEmployees) {
             result = -1;
-        } else if (a1?.NumberOfEmployees > a2?.NumberOfEmployees) {
+        } else if (a1.NumberOfEmployees > a2.NumberOfEmployees) {
             result = 1;
         } else {
             result = 0;
