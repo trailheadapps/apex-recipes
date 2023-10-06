@@ -1,3 +1,11 @@
+h1 + p {
+    padding-bottom: 1em;
+}
+
+p {
+    max-width: 50rem;
+}
+
 h3 code {
     color: #be2f7e;
 }
@@ -6,6 +14,14 @@ table,
 pre {
     margin: 0.5rem 0 0.5rem 1rem;
     width: calc(100% - 1rem);
+}
+
+th,
+td {
+    padding: 0 0 0.25rem 0;
+}
+th:first-child {
+    width: 12rem;
 }
 
 pre {

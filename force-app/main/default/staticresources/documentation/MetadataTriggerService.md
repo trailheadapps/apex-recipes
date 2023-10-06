@@ -9,7 +9,7 @@
 
 ---
 ## Methods
-### `public List getMetadataTriggers()`
+### `public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers()`
 
 `SUPPRESSWARNINGS`
 
