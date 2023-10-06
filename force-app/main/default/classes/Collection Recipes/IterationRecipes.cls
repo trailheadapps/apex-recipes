@@ -14,11 +14,11 @@ public with sharing class IterationRecipes {
      **/
     public static Integer iterateOnAccountList(List<Account> accounts) {
         Integer employeeCount = 0;
-        Iterator<Account> it = accounts.iterator();
+        // Lists and Sets implement the Iterable interface in Apex
+        Iterable<Account> accountIterator = accounts;
         // While the iterator is in use, the account list is locked in read-only mode
         // any attempt to modify the collection will cause a System.FinalException
-        while (it.hasNext()) {
-            Account acct = it.next();
+        for (Account acct : accountIterator) {
             // Do something with the account
             if (acct.NumberOfEmployees != null) {
                 employeeCount += acct.NumberOfEmployees;
@@ -36,10 +36,7 @@ public with sharing class IterationRecipes {
     public static List<String> iterableApiClientRecipe() {
         List<String> records = new List<String>();
         IterableApiClient client = new IterableApiClient('myNamedCredential');
-        Iterator<IterableApiClient.RecordPage> responseIt = client.iterator();
-        while (responseIt.hasNext()) {
-            // Calling the Iterator.next() method retrieves a record page with IterableApiClient
-            IterableApiClient.RecordPage page = responseIt.next();
+        for (IterableApiClient.RecordPage page : client) {
             records.addAll(page.getRecords());
         }
         return records;
