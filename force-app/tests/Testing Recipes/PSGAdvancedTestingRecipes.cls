@@ -77,7 +77,7 @@ private class PSGAdvancedTestingRecipes {
 
     private static void assignPermissionSetGroup(
         PermissionSetGroup permissionSetGroup,
-        id userId
+        Id userId
     ) {
         // delete any existing permission set assignments
         delete [
@@ -86,7 +86,7 @@ private class PSGAdvancedTestingRecipes {
             WHERE
                 assigneeId = :userId
                 AND permissionSetId IN (
-                    SELECT ID
+                    SELECT Id
                     FROM PermissionSet
                     WHERE IsOwnedByProfile = FALSE
                 )
@@ -101,6 +101,6 @@ private class PSGAdvancedTestingRecipes {
     }
 
     private static List<PermissionSetGroup> getPermissionSetGroups() {
-        return [SELECT ID, DeveloperName, Status FROM PermissionSetGroup];
+        return [SELECT Id, DeveloperName, Status FROM PermissionSetGroup];
     }
 }

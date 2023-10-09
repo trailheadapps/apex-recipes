@@ -291,10 +291,10 @@ public class TestFactory {
      * @param permSetName String name of the permission set.
      */
     public static void assignPermSetToUser(User usr, String permSetName) {
-        id permSetId = [
+        Id permSetId = [
             SELECT Id
             FROM PermissionSet
-            WHERE name LIKE :permSetName
+            WHERE Name LIKE :permSetName
             LIMIT 1
         ]
         .Id;

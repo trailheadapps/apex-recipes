@@ -5,7 +5,7 @@ private class ApexClassUtilities_Tests {
         ApexClass klass = [
             SELECT name, body
             FROM ApexClass
-            WHERE name LIKE 'ApexClassUtilities'
+            WHERE Name LIKE 'ApexClassUtilities'
         ];
         Test.startTest();
         String groupName = ApexClassUtilities.getGroupFromClassBody(klass);
@@ -19,7 +19,7 @@ private class ApexClassUtilities_Tests {
         ApexClass klass = [
             SELECT name, body
             FROM ApexClass
-            WHERE name LIKE 'ApexClassUtilities'
+            WHERE Name LIKE 'ApexClassUtilities'
         ];
         Test.startTest();
         List<String> relatedClasses = ApexClassUtilities.getRelatedClassesFromClassBody(
@@ -40,7 +40,7 @@ private class ApexClassUtilities_Tests {
         ApexClass klass = [
             SELECT name, body
             FROM ApexClass
-            WHERE name LIKE 'DynamicSOQLRecipes_Tests'
+            WHERE Name LIKE 'DynamicSOQLRecipes_Tests'
         ];
         Test.startTest();
         List<String> relatedClasses = ApexClassUtilities.getRelatedClassesFromClassBody(

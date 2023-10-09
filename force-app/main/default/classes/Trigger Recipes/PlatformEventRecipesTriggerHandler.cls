@@ -28,7 +28,7 @@ public with sharing class PlatformEventRecipesTriggerHandler extends TriggerHand
      * insert acct;
      * Event_Recipes_Demo__e evt = new Event_Recipes_Demo__e(accountId__c = acct.id, title__c='Updated website', url__c = 'https://developer.salesforce.com');
      * Database.saveResults result = PlatformEventsRecipes.publishEvent(evt);
-     * System.debug(result + [SELECT Name, Website FROM Account WHERE id = :acct.id]);
+     * System.debug(result + [SELECT Name, Website FROM Account WHERE Id = :acct.id]);
      */
     public override void afterInsert() {
         Set<Id> accountIds = new Set<Id>();

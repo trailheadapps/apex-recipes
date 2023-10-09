@@ -236,7 +236,7 @@ public with sharing class SOQLRecipes {
      * @param accountId an AccountId
      * @return Double
      * @example
-     * Id accountId = [SELECT id FROM Account LIMIT 1].Id;
+     * Id accountId = [SELECT Id FROM Account LIMIT 1].Id;
      * System.debug(SOQLRecipes.getSumOfOpportunityRecords(accountId));
      **/
     public static Double getSumOfOpportunityRecords(Id accountId) {

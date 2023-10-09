@@ -51,8 +51,8 @@ public with sharing class LDVRecipes implements Queueable {
         // Used to demonstrate the method was executed.
         LDVRecipes.chunksExecuted += 1;
         // If you're processing the group of records there's likely a better way
-        // to determine the last objects' id, but this will do for demonstrating
-        // the idea. We need the last id from objectsToProcess in order to
+        // to determine the last objects' ID, but this will do for demonstrating
+        // the idea. We need the last ID from objectsToProcess in order to
         // construct the next queueable with an offset.
         Id lastRecordId = objectsToProcess[objectsToProcess.size() - 1].id;
 
@@ -69,7 +69,7 @@ public with sharing class LDVRecipes implements Queueable {
      * work for large data volumes greater than 2000 so we switched to using the
      * ID of the record. Since ID is an indexed field, this should also allow
      * us to prevent full table scans even on the largest tables.
-     * @param offsetId The offset id is used to demarcate already processed
+     * @param offsetId The offset ID is used to demarcate already processed
      * records.
      * @return         `List<ContentDocumentLink>`
      */
@@ -84,9 +84,9 @@ public with sharing class LDVRecipes implements Queueable {
         queryString += 'FROM ContentDocumentLink ';
         queryString += 'WHERE LinkedEntityId in (SELECT Id FROM Account) ';
         if (offsetId != null) {
-            queryString += 'AND ID > :offsetId ';
+            queryString += 'AND Id > :offsetId ';
         }
-        queryString += 'ORDER BY ID ASC ';
+        queryString += 'ORDER BY Id ASC ';
         queryString += 'LIMIT :chunkSize';
         return Database.queryWithBinds(
             queryString,

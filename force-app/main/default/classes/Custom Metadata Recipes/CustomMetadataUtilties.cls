@@ -49,7 +49,7 @@ public with sharing class CustomMetadataUtilties {
      */
 
     /**
-     * @description Identifies Bucketed Picklists the given object id has
+     * @description Identifies Bucketed Picklists the given object ID has
      * associated with it.
      * @param objId
      * @return      `List<Bucketed_Picklist__mdt>`
