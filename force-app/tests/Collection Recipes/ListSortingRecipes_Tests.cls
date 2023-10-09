@@ -47,6 +47,53 @@ public class ListSortingRecipes_Tests {
     }
 
     @isTest
+    private static void testSortAccountsByShippingCountryInDescending() {
+        List<Account> accounts = new List<Account>{
+            A4,
+            A2,
+            A2NULL,
+            A3,
+            A1NULL,
+            A1
+        };
+        Test.startTest();
+        ListSortingRecipes.sortAccountsByShippingCountryInDescending(accounts);
+        Test.stopTest();
+        List<Account> expected = new List<Account>{
+            A4,
+            A3,
+            A2,
+            A1,
+            A1NULL,
+            A2NULL
+        };
+        System.Assert.areEqual(expected, accounts);
+    }
+
+    @isTest
+    private static void testASCComparatorException() {
+        List<Account> accounts = new List<Account>{
+            A4,
+            A2,
+            A2NULL,
+            A3,
+            A1NULL,
+            A1
+        };
+        Test.startTest();
+        try {
+            accounts.sort(new AccountShippingCountryComparator('asc'));
+        } catch (exception e) {
+            Assert.isInstanceOfType(
+                e,
+                AccountShippingCountryComparator.ASCComparatorException.class,
+                'Expected an instance of ASCComparatorException'
+            );
+        }
+        Test.stopTest();
+    }
+
+    @isTest
     private static void testSortAccountsByNumberOfEmployees() {
         List<Account> accounts = new List<Account>{
             A1,
@@ -60,8 +107,8 @@ public class ListSortingRecipes_Tests {
         ListSortingRecipes.sortAccountsByNumberOfEmployees(accounts);
         Test.stopTest();
         List<Account> expected = new List<Account>{
-            A2NULL,
             A1NULL,
+            A2NULL,
             A3,
             A2,
             A4,
