@@ -89,7 +89,7 @@ Demonstrates a DELETE request to a second Salesforce org - A DELETE request is u
 
 #### Example
 ```apex
-Id contactId = [SELECT id FROM Contact LIMIT 1].id;
+Id contactId = [SELECT Id FROM Contact LIMIT 1].id;
 System.debug(CalloutRecipes.httpDeleteCalloutToSecondOrg(contactId));
 ```
 

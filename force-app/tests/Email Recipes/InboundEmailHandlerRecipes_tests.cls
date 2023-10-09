@@ -71,7 +71,7 @@ private class InboundEmailHandlerRecipes_tests {
         Messaging.InboundEmail email = new Messaging.InboundEmail();
         email.fromAddress = FROM_EMAIL;
 
-        delete [SELECT id FROM Contact];
+        delete [SELECT Id FROM Contact];
         Test.startTest();
         Messaging.InboundEmailResult result = new InboundEmailHandlerRecipes()
             .handleInboundEmail(email, envelope);
@@ -93,7 +93,7 @@ private class InboundEmailHandlerRecipes_tests {
         Messaging.InboundEnvelope envelope = createEnvelope();
         Messaging.InboundEmail email = createEmail();
 
-        delete [SELECT id FROM Contact];
+        delete [SELECT Id FROM Contact];
 
         Test.startTest();
         Messaging.InboundEmailResult result = new InboundEmailHandlerRecipes()

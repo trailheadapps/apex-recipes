@@ -18,7 +18,7 @@ private class SOSLRecipes_Tests {
     @isTest
     static void basicSOSLSearch() {
         Map<Id, Account> fakeResults = new Map<Id, Account>(
-            [SELECT Id FROM Account WHERE name = 'KS']
+            [SELECT Id FROM Account WHERE Name = 'KS']
         );
         Test.setFixedSearchResults(new List<Id>(fakeResults.keyset()));
         Test.startTest();

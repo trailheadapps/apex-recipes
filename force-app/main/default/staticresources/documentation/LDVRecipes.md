@@ -70,7 +70,7 @@ Returns a 'cursor' - a set of records of size X from a given offset. Note: We or
 
 |Param|Description|
 |---|---|
-|`offsetId`|The offset id is used to demarcate already processed records.|
+|`offsetId`|The offset ID is used to demarcate already processed records.|
 
 #### Returns
 

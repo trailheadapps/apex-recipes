@@ -224,7 +224,7 @@ demonstrates how to use aggregate methods, like Sum() or Count() in a SOQL query
 
 #### Example
 ```apex
-Id accountId = [SELECT id FROM Account LIMIT 1].Id;
+Id accountId = [SELECT Id FROM Account LIMIT 1].Id;
 System.debug(SOQLRecipes.getSumOfOpportunityRecords(accountId));
 ```
 

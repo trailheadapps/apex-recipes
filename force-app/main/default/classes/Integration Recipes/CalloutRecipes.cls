@@ -104,7 +104,7 @@ public with sharing class CalloutRecipes extends RestClient {
      * the second org.
      * @return String
      * @example
-     * Id contactId = [SELECT id FROM Contact LIMIT 1].id;
+     * Id contactId = [SELECT Id FROM Contact LIMIT 1].id;
      * System.debug(CalloutRecipes.httpDeleteCalloutToSecondOrg(contactId));
      */
     public Integer httpDeleteCalloutToSecondOrg(Id contactId) {

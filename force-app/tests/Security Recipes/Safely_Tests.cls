@@ -341,7 +341,7 @@ private class Safely_Tests {
         Test.startTest();
         List<Account> accounts = (List<Account>) new Safely()
             .throwIfRemovedFields()
-            .doQuery('SELECT ID, Name FROM Account');
+            .doQuery('SELECT Id, Name FROM Account');
         Test.stopTest();
         System.Assert.areEqual(
             1,
@@ -382,7 +382,7 @@ private class Safely_Tests {
             try {
                 List<Account> accounts = (List<Account>) saf
                     .throwIfRemovedFields()
-                    .doQuery('SELECT ID, Name, TradeStyle FROM Account');
+                    .doQuery('SELECT Id, Name, TradeStyle FROM Account');
             } catch (Safely.RemovedFieldsException rfe) {
                 if (rfe.getMessage().containsIgnoreCase('TradeStyle')) {
                     didCatchTheRightException = true;

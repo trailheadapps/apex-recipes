@@ -7,8 +7,8 @@ private class RecipeTreeViewController_Tests {
                 SELECT Name, Body
                 FROM ApexClass
                 WHERE
-                    name LIKE 'RecipeTreeViewController'
-                    OR name LIKE 'SOQLRecipes'
+                    Name LIKE 'RecipeTreeViewController'
+                    OR Name LIKE 'SOQLRecipes'
             ]
         );
         Test.setFixedSearchResults(new List<Id>(fakeResults.keyset()));

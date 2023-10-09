@@ -67,7 +67,7 @@ Demonstrates how to use a field from a passed param in a bound dynamic SOQL quer
 
 #### Example
 ```apex
-Account acct = [SELECT name FROM Account WHERE name = 'hello' LIMIT 1];
+Account acct = [SELECT Name FROM Account WHERE Name = 'hello' LIMIT 1];
 Account[] results = DynamicSOQLRecipes.dynamicFieldsBindingSOQLQuery(acct);
 System.debug(results);
 ```

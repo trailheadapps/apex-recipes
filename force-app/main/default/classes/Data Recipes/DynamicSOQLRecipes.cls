@@ -45,7 +45,7 @@ public with sharing class DynamicSOQLRecipes {
         String queryString =
             'SELECT Id, Name ' +
             'FROM Account ' +
-            'WHERE name = :name';
+            'WHERE Name = :name';
         return Database.queryWithBinds(
             queryString,
             nameBind,
@@ -60,7 +60,7 @@ public with sharing class DynamicSOQLRecipes {
      * @param acct Account to base the search off of
      * @return List<Account>
      * @example
-     * Account acct = [SELECT name FROM Account WHERE name = 'hello' LIMIT 1];
+     * Account acct = [SELECT Name FROM Account WHERE Name = 'hello' LIMIT 1];
      * Account[] results = DynamicSOQLRecipes.dynamicFieldsBindingSOQLQuery(acct);
      * System.debug(results);
      **/

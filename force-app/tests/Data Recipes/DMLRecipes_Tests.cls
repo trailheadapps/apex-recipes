@@ -3,13 +3,19 @@ public class DMLRecipes_Tests {
     @isTest
     static void testInsertInSystemModePositive() {
         Test.startTest();
-        DMLRecipes.insertAccountViaInsertKeywordInSystemMode('mumbledore');
+        Account insertedAccount = DMLRecipes.insertAccountViaInsertKeywordInSystemMode(
+            'testAccount'
+        );
         Test.stopTest();
 
-        List<Account> acct = [SELECT ID FROM Account WHERE name = 'mumbledore'];
+        Account acct = [
+            SELECT Name
+            FROM Account
+            WHERE Id = :insertedAccount.Id
+        ];
         System.Assert.areEqual(
-            1,
-            acct.size(),
+            'testAccount',
+            acct.Name,
             'We should have found the account we just created'
         );
     }
@@ -17,13 +23,19 @@ public class DMLRecipes_Tests {
     @isTest
     static void testInsertInUserModePositive() {
         Test.startTest();
-        DMLRecipes.insertAccountViaInsertKeywordInUserMode('mumbledore');
+        Account insertedAccount = DMLRecipes.insertAccountViaInsertKeywordInUserMode(
+            'testAccount'
+        );
         Test.stopTest();
 
-        List<Account> acct = [SELECT ID FROM Account WHERE name = 'mumbledore'];
+        Account acct = [
+            SELECT Name
+            FROM Account
+            WHERE Id = :insertedAccount.Id
+        ];
         System.Assert.areEqual(
-            1,
-            acct.size(),
+            'testAccount',
+            acct.Name,
             'We should have found the account we just created'
         );
     }
@@ -32,7 +44,8 @@ public class DMLRecipes_Tests {
     static void testInsertInSystemModeNegative() {
         Test.startTest();
         try {
-            DMLRecipes.insertAccountViaInsertKeywordInSystemMode('');
+            // Inserting a record with a null name should fail
+            DMLRecipes.insertAccountViaInsertKeywordInSystemMode(null);
             System.Assert.fail('Expected CustomDmlException');
         } catch (DMLRecipes.CustomDmlException theException) {
             System.Assert.isTrue(
@@ -46,7 +59,8 @@ public class DMLRecipes_Tests {
     static void testInsertInUserModeNegative() {
         Test.startTest();
         try {
-            DMLRecipes.insertAccountViaInsertKeywordInUserMode('');
+            // Inserting a record with a null name should fail
+            DMLRecipes.insertAccountViaInsertKeywordInUserMode(null);
             System.Assert.fail('Expected CustomDmlException');
         } catch (DMLRecipes.CustomDmlException theException) {
             Assert.isTrue(
@@ -60,26 +74,24 @@ public class DMLRecipes_Tests {
     static void testDatabaseMethodInsertInSystemModePositive() {
         Test.startTest();
         DMLRecipes.insertAccountsViaDatabaseMethod(
-            'Texas',
+            new List<String>{ 'Texas' },
             false,
             AccessLevel.SYSTEM_MODE
         );
         Test.stopTest();
 
-        List<Account> acct = [
-            SELECT ID, Name
+        List<Account> accts = [
+            SELECT Id, Name
             FROM Account
-            WHERE name = 'Texas'
         ];
-
         System.Assert.areEqual(
             1,
-            acct.size(),
+            accts.size(),
             'Expected the list of accounts to have a single account'
         );
         System.Assert.areEqual(
             'Texas',
-            acct[0].name,
+            accts[0].name,
             'Expected the account name to be Texas'
         );
     }
@@ -88,26 +100,24 @@ public class DMLRecipes_Tests {
     static void testDatabaseMethodInsertInUserModePositive() {
         Test.startTest();
         DMLRecipes.insertAccountsViaDatabaseMethod(
-            'Texas',
+            new List<String>{ 'Texas' },
             false,
             AccessLevel.USER_MODE
         );
         Test.stopTest();
 
-        List<Account> acct = [
-            SELECT ID, Name
+        List<Account> accts = [
+            SELECT Id, Name
             FROM Account
-            WHERE name = 'Texas'
         ];
-
         System.Assert.areEqual(
             1,
-            acct.size(),
+            accts.size(),
             'Expected the list of accounts to have a single account'
         );
         System.Assert.areEqual(
             'Texas',
-            acct[0].name,
+            accts[0].name,
             'Expected the account name to be Texas'
         );
     }
@@ -117,7 +127,7 @@ public class DMLRecipes_Tests {
         Test.startTest();
         try {
             DMLRecipes.insertAccountsViaDatabaseMethod(
-                'Texas',
+                new List<String>{ 'Texas', null },
                 true,
                 AccessLevel.SYSTEM_MODE
             );
@@ -125,6 +135,15 @@ public class DMLRecipes_Tests {
         } catch (DMLRecipes.CustomDmlException theException) {
             System.Assert.isTrue(
                 theException.getMessage().containsIgnoreCase('failed')
+            );
+            List<Account> accts = [
+                SELECT Id, Name
+                FROM Account
+            ];
+            System.Assert.areEqual(
+                0,
+                accts.size(),
+                'Expected the no account record to be inserted'
             );
         }
         Test.stopTest();
@@ -135,13 +154,22 @@ public class DMLRecipes_Tests {
         Test.startTest();
         try {
             DMLRecipes.insertAccountsViaDatabaseMethod(
-                'Texas',
+                new List<String>{ 'Texas' },
                 true,
                 AccessLevel.USER_MODE
             );
         } catch (DMLRecipes.CustomDmlException theException) {
             System.Assert.isTrue(
                 theException.getMessage().containsIgnoreCase('failed')
+            );
+            List<Account> accts = [
+                SELECT Id, Name
+                FROM Account
+            ];
+            System.Assert.areEqual(
+                0,
+                accts.size(),
+                'Expected the no account record to be inserted'
             );
         }
         Test.stopTest();
@@ -158,7 +186,7 @@ public class DMLRecipes_Tests {
         List<Account> resultingAccounts = [
             SELECT Name
             FROM Account
-            WHERE name = :acct.Name
+            WHERE Name = :acct.Name
         ];
         System.Assert.areEqual(
             1,
@@ -178,7 +206,7 @@ public class DMLRecipes_Tests {
         List<Account> resultingAccounts = [
             SELECT Name
             FROM Account
-            WHERE name = :acct.Name
+            WHERE Name = :acct.Name
         ];
         System.Assert.areEqual(
             1,
@@ -219,7 +247,7 @@ public class DMLRecipes_Tests {
         List<Account> resultingAccounts = [
             SELECT Name
             FROM Account
-            WHERE name = :acct.Name
+            WHERE Name = :acct.Name
         ];
         System.Assert.areEqual(
             1,
@@ -242,7 +270,7 @@ public class DMLRecipes_Tests {
         List<Account> resultingAccounts = [
             SELECT Name
             FROM Account
-            WHERE name = :acct.Name
+            WHERE Name = :acct.Name
         ];
         System.Assert.areEqual(
             1,
@@ -321,7 +349,7 @@ public class DMLRecipes_Tests {
         );
         Test.stopTest();
 
-        String checkAcct = [SELECT name FROM Account WHERE id = :acct.Id].Name;
+        String checkAcct = [SELECT Name FROM Account WHERE Id = :acct.Id].Name;
         System.Assert.isTrue(
             checkAcct.containsIgnoreCase('updated'),
             'Expected to find the keyword updated in the account name'
@@ -340,7 +368,7 @@ public class DMLRecipes_Tests {
         );
         Test.stopTest();
 
-        String checkAcct = [SELECT name FROM Account WHERE id = :acct.Id].Name;
+        String checkAcct = [SELECT Name FROM Account WHERE Id = :acct.Id].Name;
         System.Assert.isTrue(
             checkAcct.containsIgnoreCase('updated'),
             'Expected to find the keyword updated in the account name'
@@ -353,7 +381,7 @@ public class DMLRecipes_Tests {
         insert acct;
         Test.startTest();
         try {
-            // Note: this is an intentionally invalid id used for triggering an error state
+            // Note: this is an intentionally invalid ID used for triggering an error state
             acct.Id = '0019A000008GTAYQA4'; //NOPMD
             DMLRecipes.updateAcccountViaKeywordInSystemMode(
                 new List<Account>{ acct }
@@ -373,7 +401,7 @@ public class DMLRecipes_Tests {
         insert acct;
         Test.startTest();
         try {
-            // Note: this is an intentionally invalid id used for triggering an error state
+            // Note: this is an intentionally invalid ID used for triggering an error state
             acct.Id = '0019A000008GTAYQA4'; //NOPMD
             DMLRecipes.updateAcccountViaKeywordInUserMode(
                 new List<Account>{ acct }
@@ -400,7 +428,7 @@ public class DMLRecipes_Tests {
         );
         Test.stopTest();
 
-        String checkAcct = [SELECT name FROM Account WHERE id = :acct.Id].Name;
+        String checkAcct = [SELECT Name FROM Account WHERE Id = :acct.Id].Name;
         System.Assert.isTrue(
             checkAcct.containsIgnoreCase('updated'),
             'Expected to find the keyword updated in the account name'
@@ -419,7 +447,7 @@ public class DMLRecipes_Tests {
             AccessLevel.USER_MODE
         );
         Test.stopTest();
-        String checkAcct = [SELECT name FROM Account WHERE id = :acct.Id].Name;
+        String checkAcct = [SELECT Name FROM Account WHERE Id = :acct.Id].Name;
         System.Assert.isTrue(
             checkAcct.containsIgnoreCase('updated'),
             'Expected to find the keyword updated in the account name'
@@ -479,7 +507,7 @@ public class DMLRecipes_Tests {
         );
         Test.stopTest();
         try {
-            String checkAcct = [SELECT name FROM Account WHERE id = :acct.Id]
+            String checkAcct = [SELECT Name FROM Account WHERE Id = :acct.Id]
             .Name; //NOPMD
             System.Assert.fail('expected QueryException');
         } catch (QueryException qe) {
@@ -499,7 +527,7 @@ public class DMLRecipes_Tests {
         DMLRecipes.deleteAccountViaKeywordInUserMode(new List<Account>{ acct });
         Test.stopTest();
         try {
-            String checkAcct = [SELECT name FROM Account WHERE id = :acct.Id]
+            String checkAcct = [SELECT Name FROM Account WHERE Id = :acct.Id]
             .Name; //NOPMD
             System.Assert.fail('expected QueryException');
         } catch (QueryException qe) {
@@ -558,7 +586,7 @@ public class DMLRecipes_Tests {
         );
         Test.stopTest();
         try {
-            String checkAcct = [SELECT name FROM Account WHERE id = :acct.Id]
+            String checkAcct = [SELECT Name FROM Account WHERE Id = :acct.Id]
             .Name; //NOPMD
             System.Assert.fail('expected QueryException');
         } catch (QueryException qe) {
@@ -581,7 +609,7 @@ public class DMLRecipes_Tests {
         );
         Test.stopTest();
         try {
-            String checkAcct = [SELECT name FROM Account WHERE id = :acct.Id]
+            String checkAcct = [SELECT Name FROM Account WHERE Id = :acct.Id]
             .Name; //NOPMD
             System.Assert.fail('expected QueryException');
         } catch (QueryException qe) {
@@ -643,7 +671,7 @@ public class DMLRecipes_Tests {
         List<Account> checkAcct = [
             SELECT name
             FROM Account
-            WHERE id = :acct.Id
+            WHERE Id = :acct.Id
         ];
         System.Assert.areEqual(
             1,
@@ -665,7 +693,7 @@ public class DMLRecipes_Tests {
         List<Account> checkAcct = [
             SELECT name
             FROM Account
-            WHERE id = :acct.Id
+            WHERE Id = :acct.Id
         ];
         System.Assert.areEqual(
             1,
@@ -724,7 +752,7 @@ public class DMLRecipes_Tests {
         List<Account> checkAcct = [
             SELECT name
             FROM Account
-            WHERE id = :acct.Id
+            WHERE Id = :acct.Id
         ];
         System.Assert.areEqual(
             1,
@@ -747,7 +775,7 @@ public class DMLRecipes_Tests {
         List<Account> checkAcct = [
             SELECT name
             FROM Account
-            WHERE id = :acct.Id
+            WHERE Id = :acct.Id
         ];
         System.Assert.areEqual(
             1,
