@@ -7,7 +7,7 @@ sometimes faster that Schema Describe calls especially for large complex orgs
 **Group** Data Recipes
 
 ## Methods
-### `public static Map findAllFormulaFields()`
+### `public static Map<String,Map<String,String>> findAllFormulaFields()`
 
 `SUPPRESSWARNINGS`
 
@@ -27,7 +27,7 @@ System.debug(results);
 ```
 
 
-### `public static List findAllContactFieldsThatLookupToAccount()`
+### `public static List<MetadataCatalogRecipes.LookupRelationshipDefinition> findAllContactFieldsThatLookupToAccount()`
 
 `SUPPRESSWARNINGS`
 

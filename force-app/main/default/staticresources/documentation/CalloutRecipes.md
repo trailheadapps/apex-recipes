@@ -55,7 +55,7 @@ System.debug(CalloutRecipes.rawCallout());
 ```
 
 
-### `public List httpGetCalloutToSecondOrg()`
+### `public List<Account> httpGetCalloutToSecondOrg()`
 
 Demonstrates a GET request to a second Salesforce org. A Get request is used to retrieve data from a target endpoint, We will be using the performRestCallout method to make the callout. In this example, we will be requesting a list of Accounts from our second org. We will pass the endpoint our named credential, the url path to our integration-service custom REST endpoint, a null body and the GET method. We will then deserialize the JSON into a known object, in this case, a list of Accounts.
 
@@ -163,7 +163,7 @@ System.debug(CalloutRecipes.httpPatchCalloutToSecondOrg(contacts));
 ```
 
 
-### `public Map httpCalloutWithUntypedResponse()`
+### `public Map<String,Object> httpCalloutWithUntypedResponse()`
 
 Now that we have demonstrated how to callout to an endpoint, lets take a look at what else we can do with the response. When calling out to an external endpoint, the data may not always be in a format that can be directly deserialised into a Salesforce Object. If your callout returns untyped JSON, you can deserialize this into a Map&lt;String, Object&gt; by using a deserializeUntyped method to convert the string.
 
