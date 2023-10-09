@@ -169,10 +169,10 @@ public with sharing class DMLRecipes {
     }
 
     /**
-     * @description Demonstrates how to Update a list of accounts via the Update
+     * @description Demonstrates how to Update a list of accounts via the `update`
      * DML keyword
      * @param accts List of accounts to update
-     * @return List<Account>
+     * @return List of updated records
      * @example
      * Account acct = new Account(name='Hello World');
      * insert acct;
@@ -194,9 +194,9 @@ public with sharing class DMLRecipes {
 
     /**
      * @description Demonstrates how to update a list of accounts via the
-     * Database.update() method
+     * `Database.update()` method
      * @param accts list of accounts to update
-     * @return List<Account>
+     * @return List of updated records
      * @example
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
@@ -220,7 +220,7 @@ public with sharing class DMLRecipes {
     }
 
     /**
-     * @description Deletes a list of accounts via the delete DML keyword
+     * @description Deletes a list of accounts via the `delete` DML keyword
      * @param accts list of accounts to delete in system mode
      * @example
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
@@ -239,7 +239,7 @@ public with sharing class DMLRecipes {
     }
 
     /**
-     * @description Deletes a list of accounts via the delete DML keyword
+     * @description Deletes a list of accounts via the `delete` DML keyword
      * @param accts list of accounts to delete in user mode
      * @example
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
@@ -256,7 +256,7 @@ public with sharing class DMLRecipes {
     }
 
     /**
-     * @description Deletes a list of accounts via the Database.delete method
+     * @description Deletes a list of accounts via the `Database.delete` method
      * @param accts List of Accounts to delete
      * @example
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
@@ -275,7 +275,7 @@ public with sharing class DMLRecipes {
     }
 
     /**
-     * @description Undeletes a list of accounts via the undelete DML keyword
+     * @description Undeletes a list of accounts via the `undelete` DML keyword
      * @param accts List of accounts to undelete in user mode
      * @return List<Account>
      * @example
@@ -298,7 +298,7 @@ public with sharing class DMLRecipes {
     }
 
     /**
-     * @description Undeletes a list of accounts via the undelete DML keyword
+     * @description Undeletes a list of accounts via the `undelete` DML keyword
      * @param accts List of accounts to undelete in user mode
      * @return List<Account>
      * @example
@@ -321,7 +321,7 @@ public with sharing class DMLRecipes {
     }
 
     /**
-     * @description undeletes a list of accounts via the Database.undelete method.
+     * @description undeletes a list of accounts via the `Database.undelete` method.
      * @param accts list of accounts to undelete
      * @return List<Account>
      * @example

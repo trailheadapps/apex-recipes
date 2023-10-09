@@ -169,7 +169,7 @@ DMLRecipes.updateAcccountViaKeywordInSystemMode(acct);
 
 ### `public static List<Account> updateAcccountViaKeywordInUserMode(List<Account> accts)`
 
-Demonstrates how to Update a list of accounts via the Update DML keyword
+Demonstrates how to Update a list of accounts via the `update` DML keyword
 
 #### Parameters
 
@@ -181,7 +181,7 @@ Demonstrates how to Update a list of accounts via the Update DML keyword
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|List<Account>|List of updated records|
 
 #### Example
 ```apex
@@ -193,7 +193,7 @@ DMLRecipes.updateAcccountViaKeyword(acct);
 
 ### `public static List<Account> updateAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
 
-Demonstrates how to update a list of accounts via the Database.update() method
+Demonstrates how to update a list of accounts via the `Database.update()` method
 
 #### Parameters
 
@@ -205,7 +205,7 @@ Demonstrates how to update a list of accounts via the Database.update() method
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|List<Account>|List of updated records|
 
 #### Example
 ```apex
@@ -218,7 +218,7 @@ System.debug(results);
 
 ### `public static Void deleteAccountViaKeywordInSystemMode(List<Account> accts)`
 
-Deletes a list of accounts via the delete DML keyword
+Deletes a list of accounts via the `delete` DML keyword
 
 #### Parameters
 
@@ -236,7 +236,7 @@ DMLRecipes.deleteAccountViaKeywordInSystemMode(accounts);
 
 ### `public static Void deleteAccountViaKeywordInUserMode(List<Account> accts)`
 
-Deletes a list of accounts via the delete DML keyword
+Deletes a list of accounts via the `delete` DML keyword
 
 #### Parameters
 
@@ -254,7 +254,7 @@ DMLRecipes.deleteAccountViaKeywordInUserMode(accounts);
 
 ### `public static Void deleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
 
-Deletes a list of accounts via the Database.delete method
+Deletes a list of accounts via the `Database.delete` method
 
 #### Parameters
 
@@ -272,7 +272,7 @@ DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 
 ### `public static List<Account> undeleteAccountViaKeywordInSystemMode(List<Account> accts)`
 
-Undeletes a list of accounts via the undelete DML keyword
+Undeletes a list of accounts via the `undelete` DML keyword
 
 #### Parameters
 
@@ -298,7 +298,7 @@ System.debug(results);
 
 ### `public static List<Account> undeleteAccountViaKeywordInUserMode(List<Account> accts)`
 
-Undeletes a list of accounts via the undelete DML keyword
+Undeletes a list of accounts via the `undelete` DML keyword
 
 #### Parameters
 
@@ -324,7 +324,7 @@ System.debug(results);
 
 ### `public static List<Account> undeleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
 
-undeletes a list of accounts via the Database.undelete method.
+undeletes a list of accounts via the `Database.undelete` method.
 
 #### Parameters
 
