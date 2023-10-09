@@ -4,7 +4,7 @@ public class DMLRecipes_Tests {
     static void testInsertInSystemModePositive() {
         Test.startTest();
         Account insertedAccount = DMLRecipes.insertAccountViaInsertKeywordInSystemMode(
-            'mumbledore'
+            'testAccount'
         );
         Test.stopTest();
 
@@ -14,7 +14,7 @@ public class DMLRecipes_Tests {
             WHERE Id = :insertedAccount.Id
         ];
         System.Assert.areEqual(
-            'mumbledore',
+            'testAccount',
             acct.Name,
             'We should have found the account we just created'
         );
@@ -24,7 +24,7 @@ public class DMLRecipes_Tests {
     static void testInsertInUserModePositive() {
         Test.startTest();
         Account insertedAccount = DMLRecipes.insertAccountViaInsertKeywordInUserMode(
-            'mumbledore'
+            'testAccount'
         );
         Test.stopTest();
 
@@ -34,7 +34,7 @@ public class DMLRecipes_Tests {
             WHERE Id = :insertedAccount.Id
         ];
         System.Assert.areEqual(
-            'mumbledore',
+            'testAccount',
             acct.Name,
             'We should have found the account we just created'
         );
