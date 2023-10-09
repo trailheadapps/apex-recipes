@@ -16,7 +16,7 @@ Demonstrates how to use the insert keyword to persist a net-new record to the da
 
 |Param|Description|
 |---|---|
-|`name`|name passed through to the name of the created account|
+|`name`|name passed through to the name of the created account in salesforce|
 
 #### Example
 ```apex
