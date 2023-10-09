@@ -136,6 +136,15 @@ public class DMLRecipes_Tests {
             System.Assert.isTrue(
                 theException.getMessage().containsIgnoreCase('failed')
             );
+            List<Account> accts = [
+                SELECT Id, Name
+                FROM Account
+            ];
+            System.Assert.areEqual(
+                0,
+                accts.size(),
+                'Expected the no account record to be inserted'
+            );
         }
         Test.stopTest();
     }
@@ -152,6 +161,15 @@ public class DMLRecipes_Tests {
         } catch (DMLRecipes.CustomDmlException theException) {
             System.Assert.isTrue(
                 theException.getMessage().containsIgnoreCase('failed')
+            );
+            List<Account> accts = [
+                SELECT Id, Name
+                FROM Account
+            ];
+            System.Assert.areEqual(
+                0,
+                accts.size(),
+                'Expected the no account record to be inserted'
             );
         }
         Test.stopTest();

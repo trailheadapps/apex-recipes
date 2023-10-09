@@ -284,7 +284,7 @@ Undeletes a list of accounts via the `undelete` DML keyword
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|List<Account>|list of undeleted accounts|
 
 #### Example
 ```apex
@@ -310,7 +310,7 @@ Undeletes a list of accounts via the `undelete` DML keyword
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|List<Account>|list of undeleted accounts|
 
 #### Example
 ```apex
@@ -336,7 +336,7 @@ undeletes a list of accounts via the `Database.undelete` method.
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|List<Account>|list of undeleted accounts|
 
 #### Example
 ```apex

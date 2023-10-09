@@ -277,7 +277,7 @@ public with sharing class DMLRecipes {
     /**
      * @description Undeletes a list of accounts via the `undelete` DML keyword
      * @param accts List of accounts to undelete in user mode
-     * @return List<Account>
+     * @return list of undeleted accounts
      * @example
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
@@ -300,7 +300,7 @@ public with sharing class DMLRecipes {
     /**
      * @description Undeletes a list of accounts via the `undelete` DML keyword
      * @param accts List of accounts to undelete in user mode
-     * @return List<Account>
+     * @return list of undeleted accounts
      * @example
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
@@ -323,7 +323,7 @@ public with sharing class DMLRecipes {
     /**
      * @description undeletes a list of accounts via the `Database.undelete` method.
      * @param accts list of accounts to undelete
-     * @return List<Account>
+     * @return list of undeleted accounts
      * @example
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
