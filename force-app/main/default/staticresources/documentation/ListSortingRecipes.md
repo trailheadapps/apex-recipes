@@ -1,23 +1,20 @@
 # ListSortingRecipes
 
-Demonstrates how to sort lists with custom ordering logic
+Demonstrates how to sort lists using Comparator Interface
 
 
 **Group** Collection Recipes
 
 
-**See** [ListUtils](https://github.com/trailheadapps/apex-recipes/wiki/ListUtils)
+**See** [AccountShippingCountryComparator](https://github.com/trailheadapps/apex-recipes/wiki/AccountShippingCountryComparator)
 
 
-**See** [SortableAccount](https://github.com/trailheadapps/apex-recipes/wiki/SortableAccount)
-
-
-**See** [SObjectStringFieldComparator](https://github.com/trailheadapps/apex-recipes/wiki/SObjectStringFieldComparator)
+**See** [AccountNumberOfEmployeesComparator](https://github.com/trailheadapps/apex-recipes/wiki/AccountNumberOfEmployeesComparator)
 
 ## Methods
-### `public static void sortAccountsWithSortableWrapper(List<Account> accounts)`
+### `public static void sortAccountsByShippingCountry(List<Account> accounts)`
 
-Demonstrates how to sort a list of SObject in place (without the need for a return statement). This example shows how to sort Accounts based on the ShippingCountry field. We use a SortableAccount wrapper class in order to implement the Comparable interface so that we can use List.sort() with SObject.
+Demonstrates how to sort a list of Account using Comparator Interface In this example we pass in the implementation class `AccountShippingCountryComparator` as a parameter to the sort method of a list. This method sorts Accounts by shipping address in ascending alphabetical order
 
 #### Parameters
 
@@ -25,9 +22,19 @@ Demonstrates how to sort a list of SObject in place (without the need for a retu
 |---|---|
 |`accounts`|a list of accounts that will be sorted in place|
 
-### `public static void sortAccountsWithComparator(List<Account> accounts)`
+### `public static void sortAccountsByShippingCountryInDescending(List<Account> accounts)`
 
-Demonstrates how to sort a list of SObject in place with reusable comparators. This example shows how to sort Accounts based on the ShippingCountry field. We use a generic ListUtils utility class with a SObjectStringFieldComparator class that implements the ListUtils.Comparator interface.
+Demonstrates how to sort a list of Account using Comparator Interface In this example we pass in the implementation class `AccountShippingCountryComparator` as a parameter to the sort method of a list. This method sorts Accounts by shipping address in descending alphabetical order
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`accounts`|a list of accounts that will be sorted in place|
+
+### `public static void sortAccountsByNumberOfEmployees(List<Account> accounts)`
+
+Demonstrates how to sort a list of Account using Comparator Interface In this example we pass in the implementation class `AccountNumberOfEmployeesComparator` as a parameter to the sort method of a list.This method sorts Accounts by employee number in the ascending order
 
 #### Parameters
 
