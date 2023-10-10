@@ -23,9 +23,9 @@ Demonstrates how to iterate on a list of SObject thanks to the Iterable and Iter
 
 |Type|Description|
 |---|---|
-|Integer|Integer the total number of employees for the accounts|
+|`Integer`|Integer the total number of employees for the accounts|
 
-### `public static List iterableApiClientRecipe()`
+### `public static List<String> iterableApiClientRecipe()`
 
 Demonstrates how to use a REST API client that leverages the Iterator interface. This example iterates on a paginated record list. Records are represented as strings for simplicity. Remote records are retrieved on the fly by IterableApiClient when the Iterator is accessed.
 
@@ -33,6 +33,6 @@ Demonstrates how to use a REST API client that leverages the Iterator interface.
 
 |Type|Description|
 |---|---|
-|List<String>|List<String> the 'records' retrieved|
+|`List<String>`|List<String> the 'records' retrieved|
 
 ---

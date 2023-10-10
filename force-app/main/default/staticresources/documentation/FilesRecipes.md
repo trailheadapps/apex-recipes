@@ -41,7 +41,7 @@ Creates a file and links it to a given record
 
 |Type|Description|
 |---|---|
-|Database|`Database.SaveResult`|
+|`Database`|`Database.SaveResult`|
 
 #### Example
 ```apex
@@ -70,9 +70,9 @@ Convenience method for creating a file and linking it to a given record
 
 |Type|Description|
 |---|---|
-|Database|`Database.SaveResult`|
+|`Database`|`Database.SaveResult`|
 
-### `public static List createFilesAttachedToRecords(List<FilesRecipes.FileAndLinkObject> toCreate)`
+### `public static List<Database.SaveResult> createFilesAttachedToRecords(List<FilesRecipes.FileAndLinkObject> toCreate)`
 
 Bulk method for inserting multiple files and link them to records
 
@@ -86,9 +86,9 @@ Bulk method for inserting multiple files and link them to records
 
 |Type|Description|
 |---|---|
-|List<Database.SaveResult>|`List<Database.SaveResult>`|
+|`List<Database.SaveResult>`|`List<Database.SaveResult>`|
 
-### `public static List getFilteredAttachmentsForRecord(FilesRecipes genericFileType, Id recordId)`
+### `public static List<ContentVersion> getFilteredAttachmentsForRecord(FilesRecipes genericFileType, Id recordId)`
 
 `SUPPRESSWARNINGS`
 
@@ -105,7 +105,7 @@ Searches for content version records linked to this record Filtering by a generi
 
 |Type|Description|
 |---|---|
-|List<ContentVersion>|`List<ContentVersion>`|
+|`List<ContentVersion>`|`List<ContentVersion>`|
 
 #### Example
 ```apex
@@ -129,7 +129,7 @@ Given a content document link, publish the content version
 
 |Type|Description|
 |---|---|
-|Database|`Database.SaveResult`|
+|`Database`|`Database.SaveResult`|
 
 #### Throws
 

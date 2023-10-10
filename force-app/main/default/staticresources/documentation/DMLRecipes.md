@@ -22,7 +22,7 @@ Demonstrates how to use the `insert` keyword to persist a net-new record to the 
 
 |Type|Description|
 |---|---|
-|Account|the inserted Account|
+|`Account`|the inserted Account|
 
 #### Example
 ```apex
@@ -44,7 +44,7 @@ Demonstrates how to use the `insert` keyword to persist a net-new record to the 
 
 |Type|Description|
 |---|---|
-|Account|the inserted Account|
+|`Account`|the inserted Account|
 
 #### Example
 ```apex
@@ -52,7 +52,7 @@ DMLRecipes.insertAccountViaInsertKeywordInUserMode('Hello');
 ```
 
 
-### `public static List insertAccountsViaDatabaseMethod(List<String> names, Boolean allOrNothing, System accessLevel)`
+### `public static List<Account> insertAccountsViaDatabaseMethod(List<String> names, Boolean allOrNothing, System accessLevel)`
 
 Demonstrates how to use the `Database.insert()` method to persist a net-new record to the database.
 
@@ -67,7 +67,7 @@ Demonstrates how to use the `Database.insert()` method to persist a net-new reco
 
 |Type|Description|
 |---|---|
-|List<Account>|list of inserted accounts|
+|`List<Account>`|list of inserted accounts|
 
 #### Example
 ```apex
@@ -89,7 +89,7 @@ Demonstrates the use of the `upsert` keyword to either insert or update a record
 
 |Type|Description|
 |---|---|
-|Account|Upserted Account record|
+|`Account`|Upserted Account record|
 
 #### Example
 ```apex
@@ -111,7 +111,7 @@ Demonstrates the use of the `upsert` keyword to either insert or update a record
 
 |Type|Description|
 |---|---|
-|Account|Upserted Account record|
+|`Account`|Upserted Account record|
 
 #### Example
 ```apex
@@ -134,7 +134,7 @@ Upserts an account with a potential of all or nothing, using the `Database.upser
 
 |Type|Description|
 |---|---|
-|Database|Upsert operation result|
+|`Database`|Upsert operation result|
 
 #### Example
 ```apex
@@ -143,7 +143,7 @@ DMLRecipes.upsertAccountViaDatabaseMethod(
 ```
 
 
-### `public static List updateAcccountViaKeywordInSystemMode(List<Account> accts)`
+### `public static List<Account> updateAcccountViaKeywordInSystemMode(List<Account> accts)`
 
 Demonstrates how to Update a list of accounts via the `update` DML keyword in System Mode
 
@@ -157,7 +157,7 @@ Demonstrates how to Update a list of accounts via the `update` DML keyword in Sy
 
 |Type|Description|
 |---|---|
-|List<Account>|List of updated records|
+|`List<Account>`|List of updated records|
 
 #### Example
 ```apex
@@ -167,7 +167,7 @@ DMLRecipes.updateAcccountViaKeywordInSystemMode(acct);
 ```
 
 
-### `public static List updateAcccountViaKeywordInUserMode(List<Account> accts)`
+### `public static List<Account> updateAcccountViaKeywordInUserMode(List<Account> accts)`
 
 Demonstrates how to Update a list of accounts via the `update` DML keyword
 
@@ -181,7 +181,7 @@ Demonstrates how to Update a list of accounts via the `update` DML keyword
 
 |Type|Description|
 |---|---|
-|List<Account>|List of updated records|
+|`List<Account>`|List of updated records|
 
 #### Example
 ```apex
@@ -191,7 +191,7 @@ DMLRecipes.updateAcccountViaKeyword(acct);
 ```
 
 
-### `public static List updateAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
+### `public static List<Account> updateAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
 
 Demonstrates how to update a list of accounts via the `Database.update()` method
 
@@ -205,7 +205,7 @@ Demonstrates how to update a list of accounts via the `Database.update()` method
 
 |Type|Description|
 |---|---|
-|List<Account>|List of updated records|
+|`List<Account>`|List of updated records|
 
 #### Example
 ```apex
@@ -270,7 +270,7 @@ DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 ```
 
 
-### `public static List undeleteAccountViaKeywordInSystemMode(List<Account> accts)`
+### `public static List<Account> undeleteAccountViaKeywordInSystemMode(List<Account> accts)`
 
 Undeletes a list of accounts via the `undelete` DML keyword
 
@@ -284,7 +284,7 @@ Undeletes a list of accounts via the `undelete` DML keyword
 
 |Type|Description|
 |---|---|
-|List<Account>|list of undeleted accounts|
+|`List<Account>`|list of undeleted accounts|
 
 #### Example
 ```apex
@@ -296,7 +296,7 @@ System.debug(results);
 ```
 
 
-### `public static List undeleteAccountViaKeywordInUserMode(List<Account> accts)`
+### `public static List<Account> undeleteAccountViaKeywordInUserMode(List<Account> accts)`
 
 Undeletes a list of accounts via the `undelete` DML keyword
 
@@ -310,7 +310,7 @@ Undeletes a list of accounts via the `undelete` DML keyword
 
 |Type|Description|
 |---|---|
-|List<Account>|list of undeleted accounts|
+|`List<Account>`|list of undeleted accounts|
 
 #### Example
 ```apex
@@ -322,7 +322,7 @@ System.debug(results);
 ```
 
 
-### `public static List undeleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
+### `public static List<Account> undeleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
 
 undeletes a list of accounts via the `Database.undelete` method.
 
@@ -336,7 +336,7 @@ undeletes a list of accounts via the `Database.undelete` method.
 
 |Type|Description|
 |---|---|
-|List<Account>|list of undeleted accounts|
+|`List<Account>`|list of undeleted accounts|
 
 #### Example
 ```apex

@@ -10,7 +10,7 @@ returns data to the flow
 **Group** Invocable Recipes
 
 ## Methods
-### `public static List findRelatedContacts(List<ContactSearchRequest> inputParams)`
+### `public static List<ContactSearchResult> findRelatedContacts(List<ContactSearchRequest> inputParams)`
 
 `INVOCABLEMETHOD`
 
@@ -26,7 +26,7 @@ Invocable method accepts a list of incoming ContactSearchRequest objects. The fi
 
 |Type|Description|
 |---|---|
-|List<ContactSearchResult>|List<ContactSearchResult>|
+|`List<ContactSearchResult>`|List<ContactSearchResult>|
 
 #### Example
 ```apex

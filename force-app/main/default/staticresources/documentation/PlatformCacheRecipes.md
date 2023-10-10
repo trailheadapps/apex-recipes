@@ -47,7 +47,7 @@ Retrieves a value from the cache identified by key
 
 |Type|Description|
 |---|---|
-|String|`String`|
+|`String`|`String`|
 
 ### `public static void removeKeyFromSessionCache(String key)`
 
@@ -95,7 +95,7 @@ Retrieves a value from the cache identified by key
 
 |Type|Description|
 |---|---|
-|String|`String`|
+|`String`|`String`|
 
 ### `public static void removeKeyFromOrgCache(String key)`
 
@@ -127,7 +127,7 @@ returns a Cache.Partition for a given name, and type
 
 |Type|Description|
 |---|---|
-|Cache|`Cache.Partition`|
+|`Cache`|`Cache.Partition`|
 
 ---
 ## Enums

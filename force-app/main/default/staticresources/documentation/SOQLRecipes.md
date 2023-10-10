@@ -7,7 +7,7 @@ including multi-object queries, and aggregate queries
 **Group** Data Recipes
 
 ## Methods
-### `public static List getRecords()`
+### `public static List<Account> getRecords()`
 
 Demonstrates the proper way to query accounts with SOQL   keeping FLS and CRUD in account.
 
@@ -15,7 +15,7 @@ Demonstrates the proper way to query accounts with SOQL   keeping FLS and CRUD i
 
 |Type|Description|
 |---|---|
-|List<Account>|list<Account>|
+|`List<Account>`|list<Account>|
 
 #### Example
 ```apex
@@ -32,7 +32,7 @@ Demonstrates how to loop over a SOQL query
 
 |Type|Description|
 |---|---|
-|Integer|integer|
+|`Integer`|integer|
 
 #### Example
 ```apex
@@ -40,7 +40,7 @@ System.debug(SOQLRecipes.getLargeNumberOfRecords());
 ```
 
 
-### `public static List getChunksOfLargeNumbersOfRecords()`
+### `public static Integer getChunksOfLargeNumbersOfRecords()`
 
 One of the little known features of SOQL for loops is that you can iterate not only over each record returned by the query, but also over each *chunk of records*. As the code below demonstrates, specifying the iteration variable as a list/array will return 200 record chunks from the query, rather than individual records. Note: Normally, if you're only dealing with counts of records, you'd utilize the Count() soql method, but in this case we're demonstrating that this form of a soql for loop gives you access both to a list of records, and to the records themselves.
 
@@ -48,9 +48,9 @@ One of the little known features of SOQL for loops is that you can iterate not o
 
 |Type|Description|
 |---|---|
-|Integer|`Integer`|
+|`Integer`|`Integer`|
 
-### `public static List getRecordsByFieldValue()`
+### `public static List<Account> getRecordsByFieldValue()`
 
 Demonstrates how to use a WHERE clause in a SOQL query
 
@@ -58,7 +58,7 @@ Demonstrates how to use a WHERE clause in a SOQL query
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -66,7 +66,7 @@ System.debug(SOQLRecipes.getRecordsByFieldValue());
 ```
 
 
-### `public static List getRecordsByMultipleFieldValues()`
+### `public static List<Account> getRecordsByMultipleFieldValues()`
 
 Demonstrates how to use a complex WHERE clause in a SOQL query
 
@@ -74,7 +74,7 @@ Demonstrates how to use a complex WHERE clause in a SOQL query
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -82,7 +82,7 @@ System.debug(SOQLRecipes.getRecordsByMultipleFieldValues());
 ```
 
 
-### `public static List getSpecificNumberOfRecords()`
+### `public static List<Account> getSpecificNumberOfRecords()`
 
 Demonstrates how to use the LIMIT clause in a SOQL statement
 
@@ -90,7 +90,7 @@ Demonstrates how to use the LIMIT clause in a SOQL statement
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -98,7 +98,7 @@ System.debug(SOQLRecipes.getSpecificNumberOfRecords());
 ```
 
 
-### `public static List getFirstXRecords(Integer wantedNumberOfRows)`
+### `public static List<Account> getFirstXRecords(Integer wantedNumberOfRows)`
 
 Demonstrates how to use a bound variable to define the LIMIT
 
@@ -112,7 +112,7 @@ Demonstrates how to use a bound variable to define the LIMIT
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -120,7 +120,7 @@ System.debug(SOQLRecipes.getFirstXRecords(5));
 ```
 
 
-### `public static List getAccountRecordsInState(String state)`
+### `public static List<Account> getAccountRecordsInState(String state)`
 
 Demonstrates how to use a bound variable in a WHERE clause
 
@@ -134,7 +134,7 @@ Demonstrates how to use a bound variable in a WHERE clause
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -142,7 +142,7 @@ System.debug(SOQLRecipes.getAccountRecordsInState('ks'));
 ```
 
 
-### `public static List getSecond10AccountRecords()`
+### `public static List<Account> getSecond10AccountRecords()`
 
 Demonstrates how to get a limited number of results with a given offset; Ie: get the second set of 10 records.
 
@@ -150,7 +150,7 @@ Demonstrates how to get a limited number of results with a given offset; Ie: get
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -158,7 +158,7 @@ System.debug('SOQLRecipes.getSecond10AccountRecords()');
 ```
 
 
-### `public static List getRecordsWithRelatedRecords()`
+### `public static List<Account> getRecordsWithRelatedRecords()`
 
 Demonstrates how to query an object, as well as it's related child objects
 
@@ -166,7 +166,7 @@ Demonstrates how to query an object, as well as it's related child objects
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -174,7 +174,7 @@ System.debug(SOQLRecipes.getRecordsWithRelatedRecords());
 ```
 
 
-### `public static List getParentRecordDetailsFromChildRecord()`
+### `public static List<Contact> getParentRecordDetailsFromChildRecord()`
 
 Demonstrates how to query fields from a parent object through the relationship field
 
@@ -182,7 +182,7 @@ Demonstrates how to query fields from a parent object through the relationship f
 
 |Type|Description|
 |---|---|
-|List<Contact>|List<Contact>|
+|`List<Contact>`|List<Contact>|
 
 #### Example
 ```apex
@@ -190,7 +190,7 @@ System.debug(SOQLRecipes.getParentRecordDetailsFromChildRecord());
 ```
 
 
-### `public static List getDetailsFromBothParentRecords()`
+### `public static List<Junction__c> getDetailsFromBothParentRecords()`
 
 Demonstrates how to write a query that pulls information from two parent objects through a junction object
 
@@ -198,7 +198,7 @@ Demonstrates how to write a query that pulls information from two parent objects
 
 |Type|Description|
 |---|---|
-|List<Junction__c>|List<Junction__c>|
+|`List<Junction__c>`|List<Junction__c>|
 
 #### Example
 ```apex
@@ -220,7 +220,7 @@ demonstrates how to use aggregate methods, like Sum() or Count() in a SOQL query
 
 |Type|Description|
 |---|---|
-|Double|Double|
+|`Double`|Double|
 
 #### Example
 ```apex

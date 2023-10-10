@@ -7,7 +7,7 @@ sometimes faster that Schema Describe calls especially for large complex orgs
 **Group** Data Recipes
 
 ## Methods
-### `public static Map findAllFormulaFields()`
+### `public static Map<String,Map<String,String>> findAllFormulaFields()`
 
 `SUPPRESSWARNINGS`
 
@@ -17,7 +17,7 @@ Demonstrates how to query the EntityDefinition Object to find all formula fields
 
 |Type|Description|
 |---|---|
-|Map<String,Map<String,String>>|Map<String, Map<String, String>>|
+|`Map<String,Map<String,String>>`|Map<String, Map<String, String>>|
 
 #### Example
 ```apex
@@ -27,7 +27,7 @@ System.debug(results);
 ```
 
 
-### `public static List findAllContactFieldsThatLookupToAccount()`
+### `public static List<MetadataCatalogRecipes.LookupRelationshipDefinition> findAllContactFieldsThatLookupToAccount()`
 
 `SUPPRESSWARNINGS`
 
@@ -37,7 +37,7 @@ Demonstrates how to query the metadata catalog to find all fields on the Contact
 
 |Type|Description|
 |---|---|
-|List<MetadataCatalogRecipes.LookupRelationshipDefinition>|List<MetadataCatalogRecipes.LookupRelationshipDefinition>|
+|`List<MetadataCatalogRecipes.LookupRelationshipDefinition>`|List<MetadataCatalogRecipes.LookupRelationshipDefinition>|
 
 #### Example
 ```apex

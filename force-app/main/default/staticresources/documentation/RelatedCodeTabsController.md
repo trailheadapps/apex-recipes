@@ -10,7 +10,7 @@ related to the one being viewed
 **See** [ApexClassUtilities](https://github.com/trailheadapps/apex-recipes/wiki/ApexClassUtilities)
 
 ## Methods
-### `public static List getRelatedClasses(String mainClassName)`
+### `public static List<String> getRelatedClasses(String mainClassName)`
 
 `SUPPRESSWARNINGS`
 
@@ -28,7 +28,7 @@ Inspects the ApexClass body definition for a `@see` tag in the opening class lev
 
 |Type|Description|
 |---|---|
-|List<String>|`List<String>`|
+|`List<String>`|`List<String>`|
 
 #### Example
 ```apex

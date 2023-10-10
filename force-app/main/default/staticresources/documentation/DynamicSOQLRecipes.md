@@ -9,7 +9,7 @@ https://sfdc.co/soql-injection
 **Group** Data Recipes
 
 ## Methods
-### `public static List simpleDynamicSOQLQuery()`
+### `public static List<Account> simpleDynamicSOQLQuery()`
 
 `SUPPRESSWARNINGS`
 
@@ -19,7 +19,7 @@ demonstrates a simple dynamic SOQL query where the query is defined in Apex Note
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account> with security enforced using USER_MODE|
+|`List<Account>`|List<Account> with security enforced using USER_MODE|
 
 #### Example
 ```apex
@@ -27,7 +27,7 @@ System.debug(DynamicSOQLRecipes.simpleDynamicSOQLQuery());
 ```
 
 
-### `public static List simpleBindingSOQLQuery(String name)`
+### `public static List<Account> simpleBindingSOQLQuery(String name)`
 
 Demonstrates the use of a bound variable in a dynamic SOQL query. DANGER Because this method accepts user input (name param), it must be sanitized against SOQL injections
 
@@ -41,7 +41,7 @@ Demonstrates the use of a bound variable in a dynamic SOQL query. DANGER Because
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -49,7 +49,7 @@ System.debug(DynamicSoqlRecipes.simpleBindingSOQLQuery('hello'))
 ```
 
 
-### `public static List dynamicFieldsBindingSOQLQuery(Account acct)`
+### `public static List<Account> dynamicFieldsBindingSOQLQuery(Account acct)`
 
 Demonstrates how to use a field from a passed param in a bound dynamic SOQL queryString. DANGER: because this method accepts user input (name param), it must be sanitized against SOQL injections
 
@@ -63,7 +63,7 @@ Demonstrates how to use a field from a passed param in a bound dynamic SOQL quer
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -73,7 +73,7 @@ System.debug(results);
 ```
 
 
-### `public static List typecastDataIntelligently(String numberOfRecords)`
+### `public static List<Account> typecastDataIntelligently(String numberOfRecords)`
 
 `SUPPRESSWARNINGS`
 
@@ -89,7 +89,7 @@ Demonstrates intelligent typecasting to enforce sanitized dynamic queries DANGER
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -97,7 +97,7 @@ System.debug(DynamicSOQLRecipes.typecastDataIntelligently(2).size());
 ```
 
 
-### `public static List simpleQueryBuilder(List<String> fields, String whereClause)`
+### `public static List<Account> simpleQueryBuilder(List<String> fields, String whereClause)`
 
 `SUPPRESSWARNINGS`
 
@@ -114,7 +114,7 @@ Demonstrates the power of Dynamic SOQL to create a SOQL query on the fly Note: T
 
 |Type|Description|
 |---|---|
-|List<Account>|`List<Account>`|
+|`List<Account>`|`List<Account>`|
 
 #### Example
 ```apex

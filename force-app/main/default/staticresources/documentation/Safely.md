@@ -25,16 +25,16 @@ Notable chainable methods include:
 ## Methods
 ### `public Safely allOrNothing()`
 ### `public Safely throwIfRemovedFields()`
-### `public List doInsert(List<SObject> records)`
-### `public List doInsert(SObject record)`
-### `public List doUpdate(List<SObject> records)`
-### `public List doUpdate(SObject record)`
-### `public List doUpsert(List<SObject> records)`
-### `public List doUpsert(Sobject record)`
-### `public List doDelete(List<SObject> records)`
-### `public List doDelete(SObject record)`
-### `public List doQuery(String query)`
-### `private List doDML(System accessType, List<SObject> records)`
+### `public List<Database.SaveResult> doInsert(List<SObject> records)`
+### `public List<Database.SaveResult> doInsert(SObject record)`
+### `public List<Database.SaveResult> doUpdate(List<SObject> records)`
+### `public List<Database.SaveResult> doUpdate(SObject record)`
+### `public List<Database.UpsertResult> doUpsert(List<SObject> records)`
+### `public List<Database.UpsertResult> doUpsert(Sobject record)`
+### `public List<Database.DeleteResult> doDelete(List<SObject> records)`
+### `public List<Database.DeleteResult> doDelete(SObject record)`
+### `public List<SObject> doQuery(String query)`
+### `private List<Database.SaveResult> doDML(System accessType, List<SObject> records)`
 ### `private SObjectAccessDecision guardAgainstRemovedFields(System accessType, List<SObject> records)`
 ---
 ## Classes

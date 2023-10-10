@@ -9,7 +9,7 @@ https://sfdc.co/soql-sosl
 **Group** Data Recipes
 
 ## Methods
-### `public static List basicSOSLSearch()`
+### `public static List<List<SObject>> basicSOSLSearch()`
 
 Demonstrates the syntax for a SOSL search.  Note: SOSL Cannot be unit tested directly - you must use Test.setFixedSearchResults()  See SOSLRecipes_Tests.cls for more information
 
@@ -17,7 +17,7 @@ Demonstrates the syntax for a SOSL search.  Note: SOSL Cannot be unit tested dir
 
 |Type|Description|
 |---|---|
-|List<List<SObject>>|List<List<SObject>>|
+|`List<List<SObject>>`|List<List<SObject>>|
 
 #### Example
 ```apex
@@ -25,7 +25,7 @@ System.debug(SOSLRecipes.basicSOSLSearch());
 ```
 
 
-### `public static List nameFieldSearch()`
+### `public static List<List<SObject>> nameFieldSearch()`
 
 Demonstrates how to write a SOSL query that searches only name fields
 
@@ -33,7 +33,7 @@ Demonstrates how to write a SOSL query that searches only name fields
 
 |Type|Description|
 |---|---|
-|List<List<SObject>>|List<List<SObject>>|
+|`List<List<SObject>>`|List<List<SObject>>|
 
 #### Example
 ```apex

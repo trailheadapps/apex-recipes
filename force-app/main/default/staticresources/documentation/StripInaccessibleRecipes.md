@@ -9,7 +9,7 @@ they cannot access.
 **Group** Security Recipes
 
 ## Methods
-### `public static List stripInaccessibleFromQuery()`
+### `public static List<Campaign> stripInaccessibleFromQuery()`
 
 Demonstrates how to use stripInaccessible to remove fields and objects from a queries results.
 
@@ -17,7 +17,7 @@ Demonstrates how to use stripInaccessible to remove fields and objects from a qu
 
 |Type|Description|
 |---|---|
-|List<Campaign>|List<Campaign>|
+|`List<Campaign>`|List<Campaign>|
 
 #### Example
 ```apex
@@ -25,7 +25,7 @@ System.debug(StripInaccessibleRecipes.stripInaccessibleFromQuery());
 ```
 
 
-### `public static List stripInaccessibleFromSubquery()`
+### `public static List<Account> stripInaccessibleFromSubquery()`
 
 Demonstrates how to use stripInaccessible to remove fields and objects not only from the primary object in this case account but also from related child objects that are queried in this case contacts.
 
@@ -33,7 +33,7 @@ Demonstrates how to use stripInaccessible to remove fields and objects not only 
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex

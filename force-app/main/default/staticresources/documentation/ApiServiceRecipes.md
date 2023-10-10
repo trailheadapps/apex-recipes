@@ -51,7 +51,7 @@ The name of the Named Credential to use
 
 ---
 ## Methods
-### `public List getCurrentData()`
+### `public List<ApiServiceRecipesDataModel> getCurrentData()`
 
 Encapsulates a specific callout to the Named Credential URL that returns JSON into an method that transforms the raw JSON into an Apex Object.
 
@@ -59,7 +59,7 @@ Encapsulates a specific callout to the Named Credential URL that returns JSON in
 
 |Type|Description|
 |---|---|
-|List<ApiServiceRecipesDataModel>|`List<ApiServiceRecipesDataModel>`|
+|`List<ApiServiceRecipesDataModel>`|`List<ApiServiceRecipesDataModel>`|
 
 #### Example
 ```apex
@@ -93,7 +93,7 @@ Omnibus callout method. This is the primary method for making a REST callout. Mo
 
 |Type|Description|
 |---|---|
-|HttpResponse|HttpResponse  HttpResponse Obj|
+|`HttpResponse`|HttpResponse  HttpResponse Obj|
 
 ### `protected HttpResponse makeApiCall(HttpVerb method, String path, String query, String body)`
 
@@ -119,7 +119,7 @@ Makes an HTTP Callout to an api resource. Convienence method that assumes the De
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HttpResponse`|
+|`HttpResponse`|`HttpResponse`|
 
 ### `protected HttpResponse makeApiCall(HttpVerb method, String path, String query)`
 
@@ -142,7 +142,7 @@ convenience version of makeApiCall without body param. Invokes omnibus version a
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 ### `protected HttpResponse makeApiCall(HttpVerb method, String path)`
 
@@ -164,7 +164,7 @@ convenience version of makeApiCall without body or query params. Invokes omnibus
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 ### `protected HttpResponse get(String path)`
 
@@ -185,7 +185,7 @@ convenience method for a GET Call that only requires a path
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 ### `protected HttpResponse get(String path, String query)`
 
@@ -207,7 +207,7 @@ convenience method for a GET Call that only requires a path and query
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 ### `protected HttpResponse del(String path)`
 
@@ -228,7 +228,7 @@ convenience method for deleteing a resource based only on path
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 ### `protected HttpResponse del(String path, String query)`
 
@@ -250,7 +250,7 @@ convenience method for a Delete Call that only requires a path and query
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 ### `protected HttpResponse post(String path, String body)`
 
@@ -272,7 +272,7 @@ convenience method for a POST Call that only requires a path and body
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 ### `protected HttpResponse post(String path, String query, String body)`
 
@@ -295,7 +295,7 @@ convenience method for a POST Call that only requires a path, query and body
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 ### `protected HttpResponse put(String path, String body)`
 
@@ -317,7 +317,7 @@ convenience method for a PUT Call that only requires a path and body
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 ### `protected HttpResponse put(String path, String query, String body)`
 
@@ -340,7 +340,7 @@ convenience method for a PUT Call that only requires a path, query and body
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 ### `protected HttpResponse patch(String path, String body)`
 
@@ -362,7 +362,7 @@ convenience method for a PATCH Call that only requires a path, query and body
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 ### `protected HttpResponse patch(String path, String query, String body)`
 
@@ -385,7 +385,7 @@ convenience method for a PATCH Call that only requires a path, query and body
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 ### `protected String ensureStringEndsInSlash(String resource)`
 
@@ -406,7 +406,7 @@ Ensures that the inputted string ends in a `/` makes callouts more robust.
 
 |Type|Description|
 |---|---|
-|String|inputted string with `/` if it didn't already end in one.|
+|`String`|inputted string with `/` if it didn't already end in one.|
 
 ### `public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path, String query, String body, Map<String,String> headers)`
 
@@ -432,7 +432,7 @@ A static wrapper for the main makeApiCall method
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 #### Example
 ```apex
@@ -467,7 +467,7 @@ A static wrapper for the main makeApiCall method that assumes default headers.
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 #### Example
 ```apex
@@ -497,7 +497,7 @@ A static wrapper for the main makeApiCall method where you only need the path
 
 |Type|Description|
 |---|---|
-|HttpResponse|`HTTPResponse`|
+|`HttpResponse`|`HTTPResponse`|
 
 #### Example
 ```apex

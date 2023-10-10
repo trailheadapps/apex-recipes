@@ -21,7 +21,7 @@ The String here represents a relatively unique tag that Apex Recipe uses to help
 
 ---
 ## Methods
-### `public static List generateTreeData()`
+### `public static List<RecipeTreeData> generateTreeData()`
 
 `AURAENABLED`
 
@@ -31,7 +31,7 @@ Generates a recursive list of RecipeTreeData objects to feed to a Lightning-tree
 
 |Type|Description|
 |---|---|
-|List<RecipeTreeData>|`List<RecipeTreeData>`|
+|`List<RecipeTreeData>`|`List<RecipeTreeData>`|
 
 #### Example
 ```apex
@@ -39,7 +39,7 @@ System.debug(RecipeTreeViewController.generateTreeData());
 ```
 
 
-### `private static Map generateMapOfGroupToListOfNames()`
+### `private static Map<String,List<String>> generateMapOfGroupToListOfNames()`
 
 `SUPPRESSWARNINGS`
 
@@ -49,7 +49,7 @@ Generates a map containing Group names as the Keys tied to a List of class names
 
 |Type|Description|
 |---|---|
-|Map<String,List<String>>|`Map<String, List<String>>`|
+|`Map<String,List<String>>`|`Map<String, List<String>>`|
 
 ---
 ## Classes
@@ -97,7 +97,7 @@ Required by the Comparable interface, this method, once implemented allows us to
 
 |Type|Description|
 |---|---|
-|Integer|`Integer`|
+|`Integer`|`Integer`|
 
 ---
 
