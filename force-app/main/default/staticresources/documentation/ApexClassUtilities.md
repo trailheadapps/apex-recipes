@@ -37,7 +37,7 @@ System.debug(ApexClassUtilities.getGroupFromClassBody(klass));
 ```
 
 
-### `public static List<String> getRelatedClassesFromClassBody(ApexClass klass)`
+### `public static List getRelatedClassesFromClassBody(ApexClass klass)`
 
 Extracts the `@see` annotations from a class' body. Also demonstrates the use of Regex matchers in Apex.
 

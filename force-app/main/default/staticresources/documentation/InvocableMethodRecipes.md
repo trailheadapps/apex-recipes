@@ -10,7 +10,7 @@ returns data to the flow
 **Group** Invocable Recipes
 
 ## Methods
-### `public static List<ContactSearchResult> findRelatedContacts(List<ContactSearchRequest> inputParams)`
+### `public static List findRelatedContacts(List<ContactSearchRequest> inputParams)`
 
 `INVOCABLEMETHOD`
 

@@ -21,7 +21,7 @@ The String here represents a relatively unique tag that Apex Recipe uses to help
 
 ---
 ## Methods
-### `public static List<RecipeTreeData> generateTreeData()`
+### `public static List generateTreeData()`
 
 `AURAENABLED`
 
@@ -39,7 +39,7 @@ System.debug(RecipeTreeViewController.generateTreeData());
 ```
 
 
-### `private static Map<String,List<String>> generateMapOfGroupToListOfNames()`
+### `private static Map generateMapOfGroupToListOfNames()`
 
 `SUPPRESSWARNINGS`
 

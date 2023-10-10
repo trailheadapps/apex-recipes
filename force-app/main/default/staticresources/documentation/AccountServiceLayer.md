@@ -55,7 +55,7 @@ System.debug([SELECT Name, ShippingStreet FROM Account WHERE Id in : accounts]);
 ```
 
 
-### `public static List<Account> incrementCounterInDescription(List<Account> incomingAccounts, Boolean save)`
+### `public static List incrementCounterInDescription(List<Account> incomingAccounts, Boolean save)`
 
 Increments a counter stored in the Description field.  Demonstration method of the kind of work a service layer may do.
 

@@ -72,7 +72,7 @@ Convenience method for creating a file and linking it to a given record
 |---|---|
 |Database|`Database.SaveResult`|
 
-### `public static List<Database.SaveResult> createFilesAttachedToRecords(List<FilesRecipes.FileAndLinkObject> toCreate)`
+### `public static List createFilesAttachedToRecords(List<FilesRecipes.FileAndLinkObject> toCreate)`
 
 Bulk method for inserting multiple files and link them to records
 
@@ -88,7 +88,7 @@ Bulk method for inserting multiple files and link them to records
 |---|---|
 |List<Database.SaveResult>|`List<Database.SaveResult>`|
 
-### `public static List<ContentVersion> getFilteredAttachmentsForRecord(FilesRecipes genericFileType, Id recordId)`
+### `public static List getFilteredAttachmentsForRecord(FilesRecipes genericFileType, Id recordId)`
 
 `SUPPRESSWARNINGS`
 

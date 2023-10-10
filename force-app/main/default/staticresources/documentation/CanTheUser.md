@@ -387,7 +387,7 @@ System.debug(CanTheUser.flsAccessible('Account', 'Name'));
 ```
 
 
-### `public static Map<String,Boolean> bulkFLSAccessible(String obj, Set<String> fields)`
+### `public static Map bulkFLSAccessible(String obj, Set<String> fields)`
 
 bulk form of flsAccessible
 
@@ -434,7 +434,7 @@ System.debug(CanTheUser.flsUpdatable('Account', 'Name'));
 ```
 
 
-### `public static Map<String,Boolean> bulkFLSUpdatable(String obj, Set<String> fields)`
+### `public static Map bulkFLSUpdatable(String obj, Set<String> fields)`
 
 bulk form of flsUpdatable call
 
@@ -458,7 +458,7 @@ System.debug(CanTheUser.bulkFLSUpdatable('Account', fields));
 ```
 
 
-### `private static Set<String> memoizeFLSMDC(String objType, FLSType action)`
+### `private static Set memoizeFLSMDC(String objType, FLSType action)`
 
 `SUPPRESSWARNINGS`
 
@@ -544,7 +544,7 @@ Required method for the CacheBuilder interface. Used here to either calculate an
 |---|---|
 |Object|`Object`|
 
-##### `public Map&lt;String,Map&lt;FLSType,Boolean&gt;&gt; calculateFLS(string objType)`
+##### `public Map calculateFLS(string objType)`
 
 Calculates the FLS for a given object type
 

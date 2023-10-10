@@ -522,7 +522,7 @@ Public class used for JSON deserialization of record page response
 
 ---
 #### Methods
-##### `public List&lt;String&gt; getRecords()`
+##### `public List getRecords()`
 ---
 
 ### RecordPageIterator
