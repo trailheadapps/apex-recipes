@@ -76,7 +76,7 @@ Returns a 'cursor' - a set of records of size X from a given offset. Note: We or
 
 |Type|Description|
 |---|---|
-|List<ContentDocumentLink>|`List<ContentDocumentLink>`|
+|`List<ContentDocumentLink>`|`List<ContentDocumentLink>`|
 
 ### `private Boolean safeToReenqueue()`
 ---

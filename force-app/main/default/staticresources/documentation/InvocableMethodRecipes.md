@@ -26,7 +26,7 @@ Invocable method accepts a list of incoming ContactSearchRequest objects. The fi
 
 |Type|Description|
 |---|---|
-|List<ContactSearchResult>|List<ContactSearchResult>|
+|`List<ContactSearchResult>`|List<ContactSearchResult>|
 
 #### Example
 ```apex

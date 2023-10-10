@@ -30,7 +30,7 @@ Convenience method accepts a list and send the first entry in the list to it's t
 
 |Type|Description|
 |---|---|
-|List<Bucketed_Picklist__mdt>|`List<Bucketed_Picklist__mdt>`|
+|`List<Bucketed_Picklist__mdt>`|`List<Bucketed_Picklist__mdt>`|
 
 ### `public List<Picklist_Bucket__mdt> getPicklistBucketWithValues(List<Bucketed_Picklist__mdt> bPL, String search)`
 
@@ -49,6 +49,6 @@ Returns a list of bucket names that match the given search term, and list of pos
 
 |Type|Description|
 |---|---|
-|List<Picklist_Bucket__mdt>|`List<Picklist_Bucket__mdt>`|
+|`List<Picklist_Bucket__mdt>`|`List<Picklist_Bucket__mdt>`|
 
 ---

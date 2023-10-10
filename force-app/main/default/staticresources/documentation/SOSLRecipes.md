@@ -17,7 +17,7 @@ Demonstrates the syntax for a SOSL search.  Note: SOSL Cannot be unit tested dir
 
 |Type|Description|
 |---|---|
-|List<List<SObject>>|List<List<SObject>>|
+|`List<List<SObject>>`|List<List<SObject>>|
 
 #### Example
 ```apex
@@ -33,7 +33,7 @@ Demonstrates how to write a SOSL query that searches only name fields
 
 |Type|Description|
 |---|---|
-|List<List<SObject>>|List<List<SObject>>|
+|`List<List<SObject>>`|List<List<SObject>>|
 
 #### Example
 ```apex

@@ -23,7 +23,7 @@ Demonstrates how to iterate on a list of SObject thanks to the Iterable and Iter
 
 |Type|Description|
 |---|---|
-|Integer|Integer the total number of employees for the accounts|
+|`Integer`|Integer the total number of employees for the accounts|
 
 ### `public static List<String> iterableApiClientRecipe()`
 
@@ -33,6 +33,6 @@ Demonstrates how to use a REST API client that leverages the Iterator interface.
 
 |Type|Description|
 |---|---|
-|List<String>|List<String> the 'records' retrieved|
+|`List<String>`|List<String> the 'records' retrieved|
 
 ---

@@ -22,7 +22,7 @@ The doLoad method is required by the CacheBuilder interface This method needs to
 
 |Type|Description|
 |---|---|
-|Object|`Object` This object should be casted at the call location|
+|`Object`|`Object` This object should be casted at the call location|
 
 
 **Group** Platform Cache Recipes

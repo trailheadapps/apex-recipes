@@ -37,7 +37,7 @@ Encrypts data using AES algorithm, which needs a symmetric key to be shared with
 
 |Type|Description|
 |---|---|
-|Blob|Blob|
+|`Blob`|Blob|
 
 #### Example
 ```apex
@@ -63,7 +63,7 @@ Encrypts data using AES algorithm, which needs a symmetric key to be shared with
 
 |Type|Description|
 |---|---|
-|Blob|Blob|
+|`Blob`|Blob|
 
 #### Example
 ```apex
@@ -88,7 +88,7 @@ Encrypts data using AES algorithm, which needs a symmetric key to be shared with
 
 |Type|Description|
 |---|---|
-|Blob|Blob|
+|`Blob`|Blob|
 
 #### Example
 ```apex
@@ -115,7 +115,7 @@ Encrypts data using AES algorithm, which needs a symmetric key to be shared with
 
 |Type|Description|
 |---|---|
-|Blob|Blob|
+|`Blob`|Blob|
 
 #### Example
 ```apex
@@ -132,7 +132,7 @@ Aux method to generate a random initialization vector.
 
 |Type|Description|
 |---|---|
-|Blob|Blob|
+|`Blob`|Blob|
 
 ### `public static Blob generateSHA512HashRecipe(Blob dataToHash)`
 
@@ -150,7 +150,7 @@ Generates one-way hash digest that can be checked in destination to ensure integ
 
 |Type|Description|
 |---|---|
-|Blob|Blob|
+|`Blob`|Blob|
 
 #### Example
 ```apex
@@ -177,7 +177,7 @@ Recomputes hash digest for and compares it with the received one, throwing an ex
 
 |Type|Description|
 |---|---|
-|void|void|
+|`void`|void|
 
 #### Example
 ```apex
@@ -206,7 +206,7 @@ Generates one-way HMAC (using a symmetric key) that can be checked in destinatio
 
 |Type|Description|
 |---|---|
-|Blob|Blob|
+|`Blob`|Blob|
 
 #### Example
 ```apex
@@ -233,7 +233,7 @@ Recomputes HMAC using the symmetric key and compares it with the received one, t
 
 |Type|Description|
 |---|---|
-|void|void|
+|`void`|void|
 
 #### Example
 ```apex
@@ -262,7 +262,7 @@ Generates one-way Digital Signature (encrypted with an asymmetric key) that can 
 
 |Type|Description|
 |---|---|
-|Blob|Blob|
+|`Blob`|Blob|
 
 #### Example
 ```apex
@@ -289,7 +289,7 @@ Recomputes Digital Signature for and compares it with the received one, throwing
 
 |Type|Description|
 |---|---|
-|void|void|
+|`void`|void|
 
 #### Example
 ```apex
@@ -318,7 +318,7 @@ Encrypts the message with AES and then generates Digital Signature (encrypted wi
 
 |Type|Description|
 |---|---|
-|EncryptedAndSignedData|Blob|
+|`EncryptedAndSignedData`|Blob|
 
 #### Example
 ```apex
@@ -346,7 +346,7 @@ Decrypts the message and verifies its Digital Signature.
 
 |Type|Description|
 |---|---|
-|Blob|Blob decrypted data|
+|`Blob`|Blob decrypted data|
 
 #### Example
 ```apex
@@ -374,7 +374,7 @@ Comparisons which involve cryptography need to be performed in constant time usi
 
 |Type|Description|
 |---|---|
-|boolean|Boolean strings are equal|
+|`boolean`|Boolean strings are equal|
 
 ---
 ## Enums

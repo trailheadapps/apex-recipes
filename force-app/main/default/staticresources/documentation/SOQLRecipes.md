@@ -15,7 +15,7 @@ Demonstrates the proper way to query accounts with SOQL   keeping FLS and CRUD i
 
 |Type|Description|
 |---|---|
-|List<Account>|list<Account>|
+|`List<Account>`|list<Account>|
 
 #### Example
 ```apex
@@ -32,7 +32,7 @@ Demonstrates how to loop over a SOQL query
 
 |Type|Description|
 |---|---|
-|Integer|integer|
+|`Integer`|integer|
 
 #### Example
 ```apex
@@ -48,7 +48,7 @@ One of the little known features of SOQL for loops is that you can iterate not o
 
 |Type|Description|
 |---|---|
-|Integer|`Integer`|
+|`Integer`|`Integer`|
 
 ### `public static List<Account> getRecordsByFieldValue()`
 
@@ -58,7 +58,7 @@ Demonstrates how to use a WHERE clause in a SOQL query
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -74,7 +74,7 @@ Demonstrates how to use a complex WHERE clause in a SOQL query
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -90,7 +90,7 @@ Demonstrates how to use the LIMIT clause in a SOQL statement
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -112,7 +112,7 @@ Demonstrates how to use a bound variable to define the LIMIT
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -134,7 +134,7 @@ Demonstrates how to use a bound variable in a WHERE clause
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -150,7 +150,7 @@ Demonstrates how to get a limited number of results with a given offset; Ie: get
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -166,7 +166,7 @@ Demonstrates how to query an object, as well as it's related child objects
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex
@@ -182,7 +182,7 @@ Demonstrates how to query fields from a parent object through the relationship f
 
 |Type|Description|
 |---|---|
-|List<Contact>|List<Contact>|
+|`List<Contact>`|List<Contact>|
 
 #### Example
 ```apex
@@ -198,7 +198,7 @@ Demonstrates how to write a query that pulls information from two parent objects
 
 |Type|Description|
 |---|---|
-|List<Junction__c>|List<Junction__c>|
+|`List<Junction__c>`|List<Junction__c>|
 
 #### Example
 ```apex
@@ -220,7 +220,7 @@ demonstrates how to use aggregate methods, like Sum() or Count() in a SOQL query
 
 |Type|Description|
 |---|---|
-|Double|Double|
+|`Double`|Double|
 
 #### Example
 ```apex
