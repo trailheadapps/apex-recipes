@@ -19,7 +19,7 @@ private class TransformSobjectsInDataWeave_Tests {
     @isTest
     static void testConvertJsonToContacts() {
         // JSON data for Contacts
-        string inputJson = '[{"id":1,"first_name":"Codey","last_name":"The Bear","email":"codey@salesforce.com"}]';
+        String inputJson = '[{"id":1,"first_name":"Codey","last_name":"The Bear","email":"codey@salesforce.com"}]';
         Test.startTest();
         List<Contact> results = TransformSobjectsInDataWeave.convertJsonToContacts(
             inputJson

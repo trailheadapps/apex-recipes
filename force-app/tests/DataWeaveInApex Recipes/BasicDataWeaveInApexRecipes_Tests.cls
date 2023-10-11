@@ -26,7 +26,7 @@ public class BasicDataWeaveInApexRecipes_Tests {
                 'error'
             );
             Assert.fail('Exception expected');
-        } catch (exception ex) {
+        } catch (Exception ex) {
             Assert.isInstanceOfType(
                 ex,
                 DataWeaveScriptException.class,
