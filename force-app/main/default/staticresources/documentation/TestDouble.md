@@ -62,7 +62,7 @@ This adds a given method object to the list of Methods that are actively overrid
 
 |Type|Description|
 |---|---|
-|`TestDouble`|`TestDouble`|
+|TestDouble|`TestDouble`|
 
 ### `public Object generate()`
 
@@ -72,7 +72,7 @@ Generates the actual stub object for use in tests.
 
 |Type|Description|
 |---|---|
-|`Object`|`Object` This object has to be casted back to the class being stubbed at the point of calling. See StubbingRecipes_Tests for an example of when, and how to cast this.|
+|Object|`Object` This object has to be casted back to the class being stubbed at the point of calling. See StubbingRecipes_Tests for an example of when, and how to cast this.|
 
 ### `public Object handleMethodCall(Object stubbedObject, String stubbedMethodName, Type returnType, List<System.Type> listOfParamTypes, List<String> listOfParamNames, List<Object> listOfArgs)`
 
@@ -95,7 +95,7 @@ Required method for the StubProvider interface This extensive parameter list is 
 
 |Type|Description|
 |---|---|
-|`Object`|`Object` Object to be returned by the Method object this method delegates to.|
+|Object|`Object` Object to be returned by the Method object this method delegates to.|
 
 ---
 ## Classes
@@ -160,7 +160,7 @@ Adds a matching ParamTypes list to this method definition. If added,
 
 |Type|Description|
 |---|---|
-|`Method`|`Method`|
+|Method|`Method`|
 
 ##### `public Method withParamNames(List&lt;String&gt; paramNames)`
 ##### `public Method withArgs(List&lt;Object&gt; args)`

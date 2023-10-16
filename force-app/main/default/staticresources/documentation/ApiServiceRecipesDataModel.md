@@ -51,7 +51,7 @@ Parses the provided JSON string into a list of ApiServiceRecipesDataModel object
 
 |Type|Description|
 |---|---|
-|`List<ApiServiceRecipesDataModel>`|`List<ApiServiceRecipesDataModel>`|
+|List<ApiServiceRecipesDataModel>|`List<ApiServiceRecipesDataModel>`|
 
 #### Example
 ```apex

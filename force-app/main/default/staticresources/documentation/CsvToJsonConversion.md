@@ -22,6 +22,6 @@ Demonstrates how to use DataWeave in Apex to convert a CSV to a JSON. The class 
 
 |Type|Description|
 |---|---|
-|`String`|JSON string|
+|String|JSON string|
 
 ---

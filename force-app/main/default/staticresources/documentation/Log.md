@@ -34,7 +34,7 @@ Singleton pattern `get` method.
 
 |Type|Description|
 |---|---|
-|`Log`|`Log`|
+|Log|`Log`|
 
 ### `public void add(String messageToLog)`
 

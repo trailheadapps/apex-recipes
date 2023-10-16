@@ -26,7 +26,7 @@ Updates a given account's name. Demonstrates how to receive information from an 
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -45,7 +45,7 @@ Demonstrates how to make a method available to Aura or LWC for read-only operati
 
 |Type|Description|
 |---|---|
-|`String`|return description|
+|String|return description|
 
 #### Example
 ```apex

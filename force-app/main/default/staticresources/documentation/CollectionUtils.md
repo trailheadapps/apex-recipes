@@ -21,7 +21,7 @@ This is a generic, reusable but still typesafe method for generating a Map&lt;Id
 
 |Type|Description|
 |---|---|
-|`Map<Id,SObject>`|`Map<Id, sObject>`|
+|Map<Id,SObject>|`Map<Id, sObject>`|
 
 #### Example
 ```apex
@@ -45,7 +45,7 @@ Method functions as the above methods do, but returns a map whose keys are strin
 
 |Type|Description|
 |---|---|
-|`Map<String,SObject>`|`Map<String, sObject>`|
+|Map<String,SObject>|`Map<String, sObject>`|
 
 #### Example
 ```apex
@@ -69,7 +69,7 @@ This method accepts an incoming List of sObjects and generates a Map&lt;id,List&
 
 |Type|Description|
 |---|---|
-|`Map<Id,List<SObject>>`|`Map<Id, List<sObject>>`|
+|Map<Id,List<SObject>>|`Map<Id, List<sObject>>`|
 
 #### Example
 ```apex

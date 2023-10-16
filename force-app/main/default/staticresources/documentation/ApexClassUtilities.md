@@ -28,7 +28,7 @@ Extracts the `@group` annotation from a class' body. Also demonstrates the use o
 
 |Type|Description|
 |---|---|
-|`String`|`String` This is the text following `@group` through the end of the line.|
+|String|`String` This is the text following `@group` through the end of the line.|
 
 #### Example
 ```apex
@@ -51,7 +51,7 @@ Extracts the `@see` annotations from a class' body. Also demonstrates the use of
 
 |Type|Description|
 |---|---|
-|`List<String>`|`List<String>` These are the values following `@see` annotations|
+|List<String>|`List<String>` These are the values following `@see` annotations|
 
 #### Example
 ```apex

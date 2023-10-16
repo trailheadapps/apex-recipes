@@ -26,7 +26,7 @@ publishes a platform event
 
 |Type|Description|
 |---|---|
-|`Database`|Database.SaveResult|
+|Database|Database.SaveResult|
 
 #### Example
 ```apex

@@ -14,6 +14,6 @@ demonstrates the code needed to get the current requests Quiddity value.
 
 |Type|Description|
 |---|---|
-|`Quiddity`|System.Quiddity|
+|Quiddity|System.Quiddity|
 
 ---

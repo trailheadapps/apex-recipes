@@ -19,7 +19,7 @@ This query finds an ordered list trigger handler classes to execute. It ignores 
 
 |Type|Description|
 |---|---|
-|`List<Metadata_Driven_Trigger__mdt>`|`List<Metadata_Driven_Trigger__mdt>`|
+|List<Metadata_Driven_Trigger__mdt>|`List<Metadata_Driven_Trigger__mdt>`|
 
 ### `public static String getSObjectType()`
 
@@ -29,7 +29,7 @@ This determines the active sObject type by describing the first record in the tr
 
 |Type|Description|
 |---|---|
-|`String`|`String`|
+|String|`String`|
 
 ---
 ## Classes

@@ -17,7 +17,7 @@ Demonstrates how to query the EntityDefinition Object to find all formula fields
 
 |Type|Description|
 |---|---|
-|`Map<String,Map<String,String>>`|Map<String, Map<String, String>>|
+|Map<String,Map<String,String>>|Map<String, Map<String, String>>|
 
 #### Example
 ```apex
@@ -37,7 +37,7 @@ Demonstrates how to query the metadata catalog to find all fields on the Contact
 
 |Type|Description|
 |---|---|
-|`List<MetadataCatalogRecipes.LookupRelationshipDefinition>`|List<MetadataCatalogRecipes.LookupRelationshipDefinition>|
+|List<MetadataCatalogRecipes.LookupRelationshipDefinition>|List<MetadataCatalogRecipes.LookupRelationshipDefinition>|
 
 #### Example
 ```apex

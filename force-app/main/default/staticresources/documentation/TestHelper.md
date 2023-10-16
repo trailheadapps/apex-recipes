@@ -24,6 +24,6 @@ It can be useful to know what the type of an object is at runtime. This is espec
 
 |Type|Description|
 |---|---|
-|`String`|`String`|
+|String|`String`|
 
 ---

@@ -22,7 +22,7 @@ Demonstrates how to transform data in CSV format to the Salesforce contact recor
 
 |Type|Description|
 |---|---|
-|`List<Contact>`|List of contact records|
+|List<Contact>|List of contact records|
 
 ### `public static List<Contact> convertJsonToContacts(String inputJson)`
 
@@ -38,6 +38,6 @@ Demonstrates how to transform data in JSON format to Salesforce contact records 
 
 |Type|Description|
 |---|---|
-|`List<Contact>`|List of contact records|
+|List<Contact>|List of contact records|
 
 ---

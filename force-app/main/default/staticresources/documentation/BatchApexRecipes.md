@@ -51,7 +51,7 @@ This method is required by the Batchable interface. It's responsible for identif
 
 |Type|Description|
 |---|---|
-|`Database`|Database.QueryLocator QueryLocator object used for context|
+|Database|Database.QueryLocator QueryLocator object used for context|
 
 #### Example
 ```apex

@@ -31,7 +31,7 @@ Generates a recursive list of RecipeTreeData objects to feed to a Lightning-tree
 
 |Type|Description|
 |---|---|
-|`List<RecipeTreeData>`|`List<RecipeTreeData>`|
+|List<RecipeTreeData>|`List<RecipeTreeData>`|
 
 #### Example
 ```apex
@@ -49,7 +49,7 @@ Generates a map containing Group names as the Keys tied to a List of class names
 
 |Type|Description|
 |---|---|
-|`Map<String,List<String>>`|`Map<String, List<String>>`|
+|Map<String,List<String>>|`Map<String, List<String>>`|
 
 ---
 ## Classes
@@ -97,7 +97,7 @@ Required by the Comparable interface, this method, once implemented allows us to
 
 |Type|Description|
 |---|---|
-|`Integer`|`Integer`|
+|Integer|`Integer`|
 
 ---
 

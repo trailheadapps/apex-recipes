@@ -4,7 +4,7 @@
  */
 public with sharing class AtFutureRecipes {
     /**
-     * This class features a 'circuit breaker' variable. While this is not a
+     * @description This class features a 'circuit breaker' variable. While this is not a
      * pattern I routinely turn to, it is a valuable pattern for testing code
      * that is otherwise hard to test. For instance, `@future` methods must be
      * static void methods. This makes it hard to assert against return values.

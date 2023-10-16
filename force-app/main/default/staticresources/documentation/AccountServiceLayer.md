@@ -70,7 +70,7 @@ Increments a counter stored in the Description field.  Demonstration method of t
 
 |Type|Description|
 |---|---|
-|`List<Account>`|List<Account>|
+|List<Account>|List<Account>|
 
 #### Example
 ```apex

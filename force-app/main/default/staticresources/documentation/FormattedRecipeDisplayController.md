@@ -30,7 +30,7 @@ AuraEnabled, and cached read-only method for grabbing the body of a given Apex C
 
 |Type|Description|
 |---|---|
-|`ClassData`|`ClassData`|
+|ClassData|`ClassData`|
 
 #### Example
 ```apex

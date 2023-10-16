@@ -35,7 +35,7 @@ code easy and intuitive.
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -63,7 +63,7 @@ convenience api for determining if the running user can create the specified obj
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -85,7 +85,7 @@ convenience api for determining if the running user can create the specified obj
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 ### `public static Boolean create(String objName)`
 
@@ -101,7 +101,7 @@ convenience api for determining if the running user can create the specified obj
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -123,7 +123,7 @@ convenience api for determining if the running user can read / access the specif
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -145,7 +145,7 @@ convenience api for determining if the running user can read / access the specif
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -166,7 +166,7 @@ convenience api for determining if the running user can read the specified objec
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -188,7 +188,7 @@ convenience api for determining if the running user can edit / update the specif
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -210,7 +210,7 @@ convenience api for determining if the running user can edit / update the specif
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -231,7 +231,7 @@ convenience api for determining if the running user can edit the specified objec
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -253,7 +253,7 @@ convenience api for determining if the running user can upsert (insert and updat
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -275,7 +275,7 @@ convenience api for determining if the running user can edit / update the specif
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -296,7 +296,7 @@ convenience api for determining if the running user can upsert the specified obj
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -318,7 +318,7 @@ convenience api for determining if the running user can delete/destroy the speci
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -340,7 +340,7 @@ convenience api for determining if the running user can delete the specified obj
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 ### `public static Boolean destroy(String objName)`
 
@@ -356,7 +356,7 @@ convenience api for determining if the running user can delete the specified obj
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -379,7 +379,7 @@ public method to determine if a given field on a given object is Accessible (rea
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -402,7 +402,7 @@ bulk form of flsAccessible
 
 |Type|Description|
 |---|---|
-|`Map<String,Boolean>`|`Map<String, Boolean>`|
+|Map<String,Boolean>|`Map<String, Boolean>`|
 
 #### Example
 ```apex
@@ -426,7 +426,7 @@ public method to determine if a given field on a given object is Updatable.
 
 |Type|Description|
 |---|---|
-|`Boolean`|Boolean|
+|Boolean|Boolean|
 
 #### Example
 ```apex
@@ -449,7 +449,7 @@ bulk form of flsUpdatable call
 
 |Type|Description|
 |---|---|
-|`Map<String,Boolean>`|`Map<String, Boolean>`|
+|Map<String,Boolean>|`Map<String, Boolean>`|
 
 #### Example
 ```apex
@@ -477,7 +477,7 @@ Utilizes the Metadata catalog to determine FLS Note: this method contains a fals
 
 |Type|Description|
 |---|---|
-|`Set<String>`|`set<String>`|
+|Set<String>|`set<String>`|
 
 ### `private static Boolean getFLSForFieldOnObject(String obj, String field, FLSType checkType)`
 
@@ -495,7 +495,7 @@ Abstracted method for retrieving or calculating (memoization) of the FLS for a g
 
 |Type|Description|
 |---|---|
-|`Boolean`|`Boolean`|
+|Boolean|`Boolean`|
 
 ---
 ## Enums
@@ -542,7 +542,7 @@ Required method for the CacheBuilder interface. Used here to either calculate an
 
 |Type|Description|
 |---|---|
-|`Object`|`Object`|
+|Object|`Object`|
 
 ##### `public Map&lt;String,Map&lt;FLSType,Boolean&gt;&gt; calculateFLS(string objType)`
 
@@ -558,7 +558,7 @@ Calculates the FLS for a given object type
 
 |Type|Description|
 |---|---|
-|`Map&lt;String,Map&lt;FLSType,Boolean&gt;&gt;`|`Map&lt;String, Map&lt;FLSType, Boolean&gt;&gt;`|
+|Map&lt;String,Map&lt;FLSType,Boolean&gt;&gt;|`Map&lt;String, Map&lt;FLSType, Boolean&gt;&gt;`|
 
 ---
 

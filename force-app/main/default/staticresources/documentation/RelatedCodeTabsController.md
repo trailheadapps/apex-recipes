@@ -28,7 +28,7 @@ Inspects the ApexClass body definition for a `@see` tag in the opening class lev
 
 |Type|Description|
 |---|---|
-|`List<String>`|`List<String>`|
+|List<String>|`List<String>`|
 
 #### Example
 ```apex

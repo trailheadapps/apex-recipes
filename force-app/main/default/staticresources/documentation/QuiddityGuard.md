@@ -45,7 +45,7 @@ A method to determine if the current Quiddity context is within a caller-supplie
 
 |Type|Description|
 |---|---|
-|`Boolean`|`boolean`|
+|Boolean|`boolean`|
 
 ### `public static Boolean isNotAcceptableQuiddity(List<Quiddity> acceptableQuiddites)`
 ---

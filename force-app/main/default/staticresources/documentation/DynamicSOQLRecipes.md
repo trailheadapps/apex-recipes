@@ -19,7 +19,7 @@ demonstrates a simple dynamic SOQL query where the query is defined in Apex Note
 
 |Type|Description|
 |---|---|
-|`List<Account>`|List<Account> with security enforced using USER_MODE|
+|List<Account>|List<Account> with security enforced using USER_MODE|
 
 #### Example
 ```apex
@@ -41,7 +41,7 @@ Demonstrates the use of a bound variable in a dynamic SOQL query. DANGER Because
 
 |Type|Description|
 |---|---|
-|`List<Account>`|List<Account>|
+|List<Account>|List<Account>|
 
 #### Example
 ```apex
@@ -63,7 +63,7 @@ Demonstrates how to use a field from a passed param in a bound dynamic SOQL quer
 
 |Type|Description|
 |---|---|
-|`List<Account>`|List<Account>|
+|List<Account>|List<Account>|
 
 #### Example
 ```apex
@@ -89,7 +89,7 @@ Demonstrates intelligent typecasting to enforce sanitized dynamic queries DANGER
 
 |Type|Description|
 |---|---|
-|`List<Account>`|List<Account>|
+|List<Account>|List<Account>|
 
 #### Example
 ```apex
@@ -114,7 +114,7 @@ Demonstrates the power of Dynamic SOQL to create a SOQL query on the fly Note: T
 
 |Type|Description|
 |---|---|
-|`List<Account>`|`List<Account>`|
+|List<Account>|`List<Account>`|
 
 #### Example
 ```apex
