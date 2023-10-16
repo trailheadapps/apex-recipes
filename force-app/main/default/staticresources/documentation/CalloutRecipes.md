@@ -41,13 +41,13 @@ The name of the Named Credential to use
 ## Methods
 ### `public static String rawCallout()`
 
-Demonstrates how to make a raw HTTP request. This method demonstrates how to use the Http, HttpRequest and HttpResponse objects to construct a single get reuqest. The other methods in this class demonstrate the use of an intelligent abstraction layer - RestClient.cls - to make sending Http Requests easier, easier to test, and less error prone.
+Demonstrates how to make a raw HTTP request. This method demonstrates how to use the Http, HttpRequest and HttpResponse objects to construct a single get request. The other methods in this class demonstrate the use of an intelligent abstraction layer - `RestClient.cls` - to make sending Http Requests easier, easier to test, and less error prone.
 
 #### Returns
 
 |Type|Description|
 |---|---|
-|`String`|String|
+|String|Response body as a string|
 
 #### Example
 ```apex
@@ -57,7 +57,7 @@ System.debug(CalloutRecipes.rawCallout());
 
 ### `public List<Account> httpGetCalloutToSecondOrg()`
 
-Demonstrates a GET request to a second Salesforce org. A Get request is used to retrieve data from a target endpoint, We will be using the performRestCallout method to make the callout. In this example, we will be requesting a list of Accounts from our second org. We will pass the endpoint our named credential, the url path to our integration-service custom REST endpoint, a null body and the GET method. We will then deserialize the JSON into a known object, in this case, a list of Accounts.
+Demonstrates a GET request to a second Salesforce org. A Get request is used to retrieve data from a target endpoint, We will be using the `performRestCallout` method to make the callout. In this example, we will be requesting a list of Accounts from our second org. We will pass the endpoint our named credential, the url path to our integration-service custom REST endpoint, a null body and the GET method. We will then deserialize the JSON into a known object, in this case, a list of Accounts.
 
 #### Returns
 
