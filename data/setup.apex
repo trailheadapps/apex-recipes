@@ -6,7 +6,7 @@
  */
 
 // Attach 3 files to the first 5 accounts.
-Account[] accts = [SELECT id FROM Account LIMIT 5];
+Account[] accts = [SELECT Id FROM Account LIMIT 5];
 
 StaticResource[] testData = [
     SELECT Id, Body, Name

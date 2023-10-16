@@ -51,11 +51,11 @@ Changes the account's Shipping Street field to a hardcoded value. You should do 
 ```apex
 Account[] accounts = [SELECT Name FROM Account LIMIT 50];
 AccountServiceLayer.changeShippingStreet(accounts);
-System.debug([SELECT Name, ShippingStreet FROM Account WHERE id in : accounts]);
+System.debug([SELECT Name, ShippingStreet FROM Account WHERE Id in : accounts]);
 ```
 
 
-### `public static List incrementCounterInDescription(List<Account> incomingAccounts, Boolean save)`
+### `public static List<Account> incrementCounterInDescription(List<Account> incomingAccounts, Boolean save)`
 
 Increments a counter stored in the Description field.  Demonstration method of the kind of work a service layer may do.
 
@@ -76,7 +76,7 @@ Increments a counter stored in the Description field.  Demonstration method of t
 ```apex
 Account[] accounts = [SELECT Description FROM Account LIMIT 50];
 AccountServiceLayer.incrementCounterInDescription(accounts, true);
-System.debug([SELECT Name, Description FROM Account WHERE id in : accounts]);
+System.debug([SELECT Name, Description FROM Account WHERE Id in : accounts]);
 ```
 
 
@@ -99,7 +99,7 @@ for(Account acct: accounts){
      acct.description = 'safely save example';
 }
 AccountServiceLayer.safelySave(accounts);
-System.debug([SELECT Name, Description FROM Account WHERE id in : accounts]);
+System.debug([SELECT Name, Description FROM Account WHERE Id in : accounts]);
 ```
 
 

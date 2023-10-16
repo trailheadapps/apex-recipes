@@ -19,7 +19,7 @@ creates a file attachment containing the given string and links it to the object
 
 #### Example
 ```apex
-Account acct = [SELECT id FROM Account LIMIT 1];
+Account acct = [SELECT Id FROM Account LIMIT 1];
 FilesRecipes.createFileFromStringAttachedToRecord('Hello World', acct.Id);
 System.debug('Look for files assoicated with account: ' + acct.id);
 ```
@@ -46,7 +46,7 @@ Creates a file and links it to a given record
 #### Example
 ```apex
 Blob fileContents = Blob.valueOf('Hello World 2');
-Account acct = [SELECT id FROM Account LIMIT 1];
+Account acct = [SELECT Id FROM Account LIMIT 1];
  FilesRecipes.createFileAttachedToRecord(
      fileContents,
      firstLocation,
@@ -72,7 +72,7 @@ Convenience method for creating a file and linking it to a given record
 |---|---|
 |Database|`Database.SaveResult`|
 
-### `public static List createFilesAttachedToRecords(List<FilesRecipes.FileAndLinkObject> toCreate)`
+### `public static List<Database.SaveResult> createFilesAttachedToRecords(List<FilesRecipes.FileAndLinkObject> toCreate)`
 
 Bulk method for inserting multiple files and link them to records
 
@@ -88,7 +88,7 @@ Bulk method for inserting multiple files and link them to records
 |---|---|
 |List<Database.SaveResult>|`List<Database.SaveResult>`|
 
-### `public static List getFilteredAttachmentsForRecord(FilesRecipes genericFileType, Id recordId)`
+### `public static List<ContentVersion> getFilteredAttachmentsForRecord(FilesRecipes genericFileType, Id recordId)`
 
 `SUPPRESSWARNINGS`
 
@@ -99,7 +99,7 @@ Searches for content version records linked to this record Filtering by a generi
 |Param|Description|
 |---|---|
 |`genericFileType`|Enum of image, audio, document|
-|`recordId`|Record id to limit searching to|
+|`recordId`|Record ID to limit searching to|
 
 #### Returns
 
@@ -109,7 +109,7 @@ Searches for content version records linked to this record Filtering by a generi
 
 #### Example
 ```apex
-Account acct = [SELECT id FROM Account LIMIT 1];
+Account acct = [SELECT Id FROM Account LIMIT 1];
 FilesRecipes.createFileFromStringAttachedToRecord('Hello World', acct.Id);
 System.debug('Found the following ContentVersion Ids: ' + FilesRecipes.getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType.ALL, acct.id));
 ```
@@ -139,7 +139,7 @@ Given a content document link, publish the content version
 
 #### Example
 ```apex
-Account acct = [SELECT id FROM Account LIMIT 1];
+Account acct = [SELECT Id FROM Account LIMIT 1];
 FilesRecipes.createFileFromStringAttachedToRecord('Hello World', acct.Id);
 ContentDocumentLink cdl = [SELECT LinkedEntityId, ContentDocument.LatestPublishedVersionId FROM ContentDocumentLink WHERE LinkedEntityId = :acct.id LIMIT 1];
 System.debug('Found the following ContentVersion Ids: ' + FilesRecipes.getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType.ALL, acct.id));

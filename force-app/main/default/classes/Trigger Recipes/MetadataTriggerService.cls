@@ -43,7 +43,7 @@ public with sharing class MetadataTriggerService {
                      * the data. You could use a UserID, but that's not portable
                      * across environments/orgs and it's less likely, in my
                      * estimation, that you'd typo an email address you can read
-                     * rather than an id that is seemingly random
+                     * rather than an ID that is seemingly random
                      *
                      */
                     WHERE User_Email__c = :UserInfo.getUsername()

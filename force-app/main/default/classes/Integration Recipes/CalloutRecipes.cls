@@ -22,32 +22,33 @@ public with sharing class CalloutRecipes extends RestClient {
     /**
      * @description Demonstrates how to make a raw HTTP request. This method
      * demonstrates how to use the Http, HttpRequest and HttpResponse objects to
-     * construct a single get reuqest. The other methods in this class
-     * demonstrate the use of an intelligent abstraction layer - RestClient.cls
+     * construct a single get request. The other methods in this class
+     * demonstrate the use of an intelligent abstraction layer - `RestClient.cls`
      * - to make sending Http Requests easier, easier to test, and less error
      * prone.
-     * @return String
+     * @return Response body as a string
      * @example
      * System.debug(CalloutRecipes.rawCallout());
      **/
     public static String rawCallout() {
-        // the HTTP instance is used to actually make the request.
-        Http http = new Http();
-
+        // Configure request
         HttpRequest request = new HttpRequest();
         request.setEndpoint(
             'https://mockbin.org/bin/24d66572-81e6-46bd-986b-610f1b5c4e00/view'
         );
         request.setMethod('GET');
 
+        // Send request
+        Http http = new Http();
         HttpResponse response = http.send(request);
 
+        // Check for a success HTTP response code
         if (response.getStatusCode() >= 200 && response.getStatusCode() < 300) {
             return response.getBody();
         }
-
+        // Assume that the we received an HTTP error code
         throw new CalloutRecipesException(
-            'Did not get a success response from the callout. Details, Status Code: ' +
+            'Did not get a success response from the callout. Status Code: ' +
                 response.getStatusCode() +
                 ' status message: ' +
                 response.getStatus()
@@ -57,7 +58,7 @@ public with sharing class CalloutRecipes extends RestClient {
     /**
      * @description Demonstrates a GET request to a second Salesforce org. A Get
      * request is used to retrieve data from a target endpoint, We will be using
-     * the performRestCallout method to make the callout. In this example, we
+     * the `performRestCallout` method to make the callout. In this example, we
      * will be requesting a list of Accounts from our second org. We will pass
      * the endpoint our named credential, the url path to our integration-service
      * custom REST endpoint, a null body and the GET method. We will then
@@ -69,9 +70,9 @@ public with sharing class CalloutRecipes extends RestClient {
      */
     public List<Account> httpGetCalloutToSecondOrg() {
         // Perform a REST callout to our custom REST endpoint
-        // 'integration-service' using our named credential.
+        // `integration-service` using our named credential.
         // this callout uses the default named credential that's set when this
-        //class was instantiated.
+        // class was instantiated.
         HttpResponse response = get('services/apexrest/integration-service');
         // Get the body from our HttpResponse
         String responseBody = response.getBody();
@@ -104,7 +105,7 @@ public with sharing class CalloutRecipes extends RestClient {
      * the second org.
      * @return String
      * @example
-     * Id contactId = [SELECT id FROM Contact LIMIT 1].id;
+     * Id contactId = [SELECT Id FROM Contact LIMIT 1].id;
      * System.debug(CalloutRecipes.httpDeleteCalloutToSecondOrg(contactId));
      */
     public Integer httpDeleteCalloutToSecondOrg(Id contactId) {

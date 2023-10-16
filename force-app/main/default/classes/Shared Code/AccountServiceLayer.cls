@@ -27,7 +27,7 @@ public with sharing class AccountServiceLayer {
         AccountServiceLayer.didExecuteMethod = toLog;
         System.debug(
             LoggingLevel.INFO,
-            'Account id = and log statement = ' + toLog
+            'Account Id = and log statement = ' + toLog
         );
     }
 
@@ -44,7 +44,7 @@ public with sharing class AccountServiceLayer {
      * @example
      * Account[] accounts = [SELECT Name FROM Account LIMIT 50];
      * AccountServiceLayer.changeShippingStreet(accounts);
-     * System.debug([SELECT Name, ShippingStreet FROM Account WHERE id in : accounts]);
+     * System.debug([SELECT Name, ShippingStreet FROM Account WHERE Id in : accounts]);
      **/
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public static void changeShippingStreet(
@@ -69,7 +69,7 @@ public with sharing class AccountServiceLayer {
      * @example
      * Account[] accounts = [SELECT Description FROM Account LIMIT 50];
      * AccountServiceLayer.incrementCounterInDescription(accounts, true);
-     * System.debug([SELECT Name, Description FROM Account WHERE id in : accounts]);
+     * System.debug([SELECT Name, Description FROM Account WHERE Id in : accounts]);
      **/
     public static List<Account> incrementCounterInDescription(
         List<Account> incomingAccounts,
@@ -107,7 +107,7 @@ public with sharing class AccountServiceLayer {
      *      acct.description = 'safely save example';
      * }
      * AccountServiceLayer.safelySave(accounts);
-     * System.debug([SELECT Name, Description FROM Account WHERE id in : accounts]);
+     * System.debug([SELECT Name, Description FROM Account WHERE Id in : accounts]);
      **/
     @testVisible
     private static void safelySave(List<Account> accounts) {

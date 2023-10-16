@@ -9,7 +9,7 @@ https://sfdc.co/soql-injection
 **Group** Data Recipes
 
 ## Methods
-### `public static List simpleDynamicSOQLQuery()`
+### `public static List<Account> simpleDynamicSOQLQuery()`
 
 `SUPPRESSWARNINGS`
 
@@ -27,7 +27,7 @@ System.debug(DynamicSOQLRecipes.simpleDynamicSOQLQuery());
 ```
 
 
-### `public static List simpleBindingSOQLQuery(String name)`
+### `public static List<Account> simpleBindingSOQLQuery(String name)`
 
 Demonstrates the use of a bound variable in a dynamic SOQL query. DANGER Because this method accepts user input (name param), it must be sanitized against SOQL injections
 
@@ -49,7 +49,7 @@ System.debug(DynamicSoqlRecipes.simpleBindingSOQLQuery('hello'))
 ```
 
 
-### `public static List dynamicFieldsBindingSOQLQuery(Account acct)`
+### `public static List<Account> dynamicFieldsBindingSOQLQuery(Account acct)`
 
 Demonstrates how to use a field from a passed param in a bound dynamic SOQL queryString. DANGER: because this method accepts user input (name param), it must be sanitized against SOQL injections
 
@@ -67,13 +67,13 @@ Demonstrates how to use a field from a passed param in a bound dynamic SOQL quer
 
 #### Example
 ```apex
-Account acct = [SELECT name FROM Account WHERE name = 'hello' LIMIT 1];
+Account acct = [SELECT Name FROM Account WHERE Name = 'hello' LIMIT 1];
 Account[] results = DynamicSOQLRecipes.dynamicFieldsBindingSOQLQuery(acct);
 System.debug(results);
 ```
 
 
-### `public static List typecastDataIntelligently(String numberOfRecords)`
+### `public static List<Account> typecastDataIntelligently(String numberOfRecords)`
 
 `SUPPRESSWARNINGS`
 
@@ -97,7 +97,7 @@ System.debug(DynamicSOQLRecipes.typecastDataIntelligently(2).size());
 ```
 
 
-### `public static List simpleQueryBuilder(List<String> fields, String whereClause)`
+### `public static List<Account> simpleQueryBuilder(List<String> fields, String whereClause)`
 
 `SUPPRESSWARNINGS`
 

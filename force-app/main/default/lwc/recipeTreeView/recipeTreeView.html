@@ -1,13 +1,10 @@
 <template>
-    <template lwc:if={treeData}>
-        <div class="slds-var-p-around_medium">
-            <lightning-tree
-                items={treeData}
-                header="Groups &amp; Recipes"
-                onselect={handleTreeItemSelect}
-                selected-item={selectedItem}
-            ></lightning-tree>
-        </div>
-    </template>
+    <lightning-tree
+        lwc:if={treeData}
+        items={treeData}
+        header="Groups &amp; Recipes"
+        onselect={handleTreeItemSelect}
+        selected-item={selectedItem}
+    ></lightning-tree>
     <c-error-panel lwc:if={error} errors={error}></c-error-panel>
 </template>

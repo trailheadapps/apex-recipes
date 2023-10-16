@@ -38,7 +38,7 @@ public with sharing class FilesRecipes {
      * @param  text          String to write to the file
      * @param  firstLocation object to immediately link this file to
      * @example
-     * Account acct = [SELECT id FROM Account LIMIT 1];
+     * Account acct = [SELECT Id FROM Account LIMIT 1];
      * FilesRecipes.createFileFromStringAttachedToRecord('Hello World', acct.Id);
      * System.debug('Look for files assoicated with account: ' + acct.id);
      */
@@ -63,7 +63,7 @@ public with sharing class FilesRecipes {
      * @return            `Database.SaveResult`
      * @example
      * Blob fileContents = Blob.valueOf('Hello World 2');
-     * Account acct = [SELECT id FROM Account LIMIT 1];
+     * Account acct = [SELECT Id FROM Account LIMIT 1];
      *  FilesRecipes.createFileAttachedToRecord(
      *      fileContents,
      *      firstLocation,
@@ -152,10 +152,10 @@ public with sharing class FilesRecipes {
      * to access. This is a form of inline CRUD/FLS Check.
      *
      * @param genericFileType Enum of image, audio, document
-     * @param recordId        Record id to limit searching to
+     * @param recordId        Record ID to limit searching to
      * @return               `List<ContentVersion>`
      * @example
-     * Account acct = [SELECT id FROM Account LIMIT 1];
+     * Account acct = [SELECT Id FROM Account LIMIT 1];
      * FilesRecipes.createFileFromStringAttachedToRecord('Hello World', acct.Id);
      * System.debug('Found the following ContentVersion Ids: ' + FilesRecipes.getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType.ALL, acct.id));
      */
@@ -213,7 +213,7 @@ public with sharing class FilesRecipes {
      * @return     `Database.SaveResult`
      * @exception   FilesRecipesException
      * @example
-     * Account acct = [SELECT id FROM Account LIMIT 1];
+     * Account acct = [SELECT Id FROM Account LIMIT 1];
      * FilesRecipes.createFileFromStringAttachedToRecord('Hello World', acct.Id);
      * ContentDocumentLink cdl = [SELECT LinkedEntityId, ContentDocument.LatestPublishedVersionId FROM ContentDocumentLink WHERE LinkedEntityId = :acct.id LIMIT 1];
      * System.debug('Found the following ContentVersion Ids: ' + FilesRecipes.getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType.ALL, acct.id));

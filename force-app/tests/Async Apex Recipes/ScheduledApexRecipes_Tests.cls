@@ -16,7 +16,7 @@ private inherited sharing class ScheduledApexRecipes_Tests {
         CronTrigger checkCronTrigger = [
             SELECT CronExpression, timesTriggered, nextFireTime
             FROM CronTrigger
-            WHERE id = :scheduledJobId
+            WHERE Id = :scheduledJobId
             LIMIT 1
         ];
         System.Assert.areEqual(

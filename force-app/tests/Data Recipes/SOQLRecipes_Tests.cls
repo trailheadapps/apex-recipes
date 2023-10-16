@@ -8,7 +8,7 @@ private class SOQLRecipes_Tests {
         Id permSetId = [
             SELECT Id
             FROM PermissionSet
-            WHERE name = 'Proving_With_User_Mode_Works'
+            WHERE Name = 'Proving_With_User_Mode_Works'
             LIMIT 1
         ]
         .Id;
