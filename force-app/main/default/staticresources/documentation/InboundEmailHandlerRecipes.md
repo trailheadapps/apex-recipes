@@ -43,7 +43,7 @@ Messaging.InboundEmailHandler interface has one required method - handleInboundE
 
 |Type|Description|
 |---|---|
-|Messaging|`Messaging.InboundEmailResult`|
+|`Messaging`|`Messaging.InboundEmailResult`|
 
 
 **See** [FilesRecipes](https://github.com/trailheadapps/apex-recipes/wiki/FilesRecipes)
@@ -73,7 +73,7 @@ Determines if we have an existing contact record with an email address that matc
 
 |Type|Description|
 |---|---|
-|Contact|`Contact`|
+|`Contact`|`Contact`|
 
 ### `private void createEmailRecord(Contact sender, Messaging email)`
 

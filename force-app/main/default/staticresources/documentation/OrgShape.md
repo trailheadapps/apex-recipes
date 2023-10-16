@@ -100,7 +100,7 @@ Method determines if platform cache is enabled for this org Note: fail-safes to 
 
 |Type|Description|
 |---|---|
-|Boolean|`Boolean`|
+|`Boolean`|`Boolean`|
 
 ### `public Boolean isSeeAllDataTrue()`
 
@@ -110,7 +110,7 @@ Certain features of the platform are incompatible with data-siloed tests. These 
 
 |Type|Description|
 |---|---|
-|Boolean|`Boolean`|
+|`Boolean`|`Boolean`|
 
 
 **Test** (seeAllData=true). Other platform features are incompatible with seeAllData=true. When used in a test context, this method determines if the currently running test is executing with, or without seeAllData=true. This method is therefore used to automatically disable platform features that require are incompatible with seeAllData=true. For example: platform cache is incompatible with seeAllData=true. However, our security library, CanTheUser utilizes platform cache to accelerate Crud and FLS checks. CanTheUser uses this method, in part, to determine, transparently if it should utilize platformCache during test execution Note: It is not a good idea, and against best practices to use seeAllData=true when not absolutely necessary.
@@ -125,7 +125,7 @@ This method is responsible for discovering a cache partition that can be used fo
 
 |Type|Description|
 |---|---|
-|Cache|`String`|
+|`Cache`|`String`|
 
 ### `public Boolean isAdvancedMultiCurrencyManagementEnabled()`
 
@@ -135,7 +135,7 @@ Uses a dynamic soql query to determine if Advanced MultiCurrency Management is e
 
 |Type|Description|
 |---|---|
-|Boolean|`Boolean`|
+|`Boolean`|`Boolean`|
 
 ### `private Organization getOrgShape()`
 
@@ -147,7 +147,7 @@ Private method that memoizes the query result Suppressing the PMD warning to val
 
 |Type|Description|
 |---|---|
-|Organization|`Organization`|
+|`Organization`|`Organization`|
 
 ### `private Organization getOrgRecord()`
 

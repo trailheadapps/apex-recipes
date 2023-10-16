@@ -17,7 +17,7 @@ Demonstrates how to invoke a DataWeave script in Apex using static invocation. T
 
 |Type|Description|
 |---|---|
-|String|the result of output from DataWeave script in the string format|
+|`String`|the result of output from DataWeave script in the string format|
 
 ### `public static String dynamicInvocation(String scriptName)`
 
@@ -33,6 +33,6 @@ Demonstrates how to invoke a DataWeave script in Apex using dynamic invocation. 
 
 |Type|Description|
 |---|---|
-|String|the result of output from DataWeave script in the string format|
+|`String`|the result of output from DataWeave script in the string format|
 
 ---

@@ -58,7 +58,7 @@ private, test visible circiut breaker boolean.
 
 |Type|Description|
 |---|---|
-|String|RestResponse  A list of Accounts or the exception message|
+|`String`|RestResponse  A list of Accounts or the exception message|
 
 #### Example
 ```apex
@@ -78,7 +78,7 @@ curl -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/ape
 
 |Type|Description|
 |---|---|
-|String|RestResponse A success message or the exception message|
+|`String`|RestResponse A success message or the exception message|
 
 #### Example
 ```apex
@@ -98,7 +98,7 @@ curl —X DELETE -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/
 
 |Type|Description|
 |---|---|
-|String|RestResponse A success message or the exception message|
+|`String`|RestResponse A success message or the exception message|
 
 
 **NewContact** .json "https://&lt;Org Base URL&gt;/services/apexrest/integration-service"
@@ -127,7 +127,7 @@ curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" 
 
 |Type|Description|
 |---|---|
-|String|RestResponse A success message or the exception message|
+|`String`|RestResponse A success message or the exception message|
 
 
 **NewContact** .json "https://&lt;Org Base URL&gt;/services/apexrest/integration-service" Then, Modify the first name of your newContact.json file so it says "Apex2" and run curl —X PUT -H "Authorization: Bearer &lt;SessionID&gt;" -H "Content-Type: application/json" -d
@@ -160,7 +160,7 @@ curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" 
 
 |Type|Description|
 |---|---|
-|String|RestResponse A success message or the exception message|
+|`String`|RestResponse A success message or the exception message|
 
 
 **NewContact** .json "https://&lt;Org Base URL&gt;/services/apexrest/integration-service" Then, Modify the first name of your newContact.json file so it says "Apex2" and run curl —X PATCH -H "Authorization: Bearer &lt;SessionID&gt;" -H "Content-Type: application/json" -d

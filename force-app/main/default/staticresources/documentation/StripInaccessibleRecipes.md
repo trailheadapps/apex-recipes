@@ -17,7 +17,7 @@ Demonstrates how to use stripInaccessible to remove fields and objects from a qu
 
 |Type|Description|
 |---|---|
-|List<Campaign>|List<Campaign>|
+|`List<Campaign>`|List<Campaign>|
 
 #### Example
 ```apex
@@ -33,7 +33,7 @@ Demonstrates how to use stripInaccessible to remove fields and objects not only 
 
 |Type|Description|
 |---|---|
-|List<Account>|List<Account>|
+|`List<Account>`|List<Account>|
 
 #### Example
 ```apex

@@ -22,7 +22,7 @@ Demonstrates how to use the `insert` keyword to persist a net-new record to the 
 
 |Type|Description|
 |---|---|
-|Account|the inserted Account|
+|`Account`|the inserted Account|
 
 #### Example
 ```apex
@@ -44,7 +44,7 @@ Demonstrates how to use the `insert` keyword to persist a net-new record to the 
 
 |Type|Description|
 |---|---|
-|Account|the inserted Account|
+|`Account`|the inserted Account|
 
 #### Example
 ```apex
@@ -67,7 +67,7 @@ Demonstrates how to use the `Database.insert()` method to persist a net-new reco
 
 |Type|Description|
 |---|---|
-|List<Account>|list of inserted accounts|
+|`List<Account>`|list of inserted accounts|
 
 #### Example
 ```apex
@@ -89,7 +89,7 @@ Demonstrates the use of the `upsert` keyword to either insert or update a record
 
 |Type|Description|
 |---|---|
-|Account|Upserted Account record|
+|`Account`|Upserted Account record|
 
 #### Example
 ```apex
@@ -111,7 +111,7 @@ Demonstrates the use of the `upsert` keyword to either insert or update a record
 
 |Type|Description|
 |---|---|
-|Account|Upserted Account record|
+|`Account`|Upserted Account record|
 
 #### Example
 ```apex
@@ -134,7 +134,7 @@ Upserts an account with a potential of all or nothing, using the `Database.upser
 
 |Type|Description|
 |---|---|
-|Database|Upsert operation result|
+|`Database`|Upsert operation result|
 
 #### Example
 ```apex
@@ -157,7 +157,7 @@ Demonstrates how to Update a list of accounts via the `update` DML keyword in Sy
 
 |Type|Description|
 |---|---|
-|List<Account>|List of updated records|
+|`List<Account>`|List of updated records|
 
 #### Example
 ```apex
@@ -181,7 +181,7 @@ Demonstrates how to Update a list of accounts via the `update` DML keyword
 
 |Type|Description|
 |---|---|
-|List<Account>|List of updated records|
+|`List<Account>`|List of updated records|
 
 #### Example
 ```apex
@@ -205,7 +205,7 @@ Demonstrates how to update a list of accounts via the `Database.update()` method
 
 |Type|Description|
 |---|---|
-|List<Account>|List of updated records|
+|`List<Account>`|List of updated records|
 
 #### Example
 ```apex
@@ -284,7 +284,7 @@ Undeletes a list of accounts via the `undelete` DML keyword
 
 |Type|Description|
 |---|---|
-|List<Account>|list of undeleted accounts|
+|`List<Account>`|list of undeleted accounts|
 
 #### Example
 ```apex
@@ -310,7 +310,7 @@ Undeletes a list of accounts via the `undelete` DML keyword
 
 |Type|Description|
 |---|---|
-|List<Account>|list of undeleted accounts|
+|`List<Account>`|list of undeleted accounts|
 
 #### Example
 ```apex
@@ -336,7 +336,7 @@ undeletes a list of accounts via the `Database.undelete` method.
 
 |Type|Description|
 |---|---|
-|List<Account>|list of undeleted accounts|
+|`List<Account>`|list of undeleted accounts|
 
 #### Example
 ```apex

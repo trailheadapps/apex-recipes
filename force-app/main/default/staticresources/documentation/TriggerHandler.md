@@ -120,7 +120,7 @@ Allows developers to check whether a given trigger handler class is currently by
 
 |Type|Description|
 |---|---|
-|Boolean|`Boolean`|
+|`Boolean`|`Boolean`|
 
 #### Example
 ```apex
@@ -179,7 +179,7 @@ make sure this trigger should continue to run
 
 |Type|Description|
 |---|---|
-|Boolean|`Boolean`|
+|`Boolean`|`Boolean`|
 
 #### Throws
 
@@ -197,7 +197,7 @@ Returns the string version of the handler class being invoked
 
 |Type|Description|
 |---|---|
-|String|`String` Name of the Handler|
+|`String`|`String` Name of the Handler|
 
 ### `protected void beforeInsert()`
 
@@ -306,7 +306,7 @@ Increment the internal counter returning the results of this.exceeded().
 
 |Type|Description|
 |---|---|
-|Boolean|`Boolean` true if count will exceed max count or is less than 0.|
+|`Boolean`|`Boolean` true if count will exceed max count or is less than 0.|
 
 ##### `public Boolean exceeded()`
 
@@ -316,7 +316,7 @@ Determines if this we're about to exceed the loop count.
 
 |Type|Description|
 |---|---|
-|Boolean|`Boolean` true if less than 0 or more than max.|
+|`Boolean`|`Boolean` true if less than 0 or more than max.|
 
 ##### `public Integer getMax()`
 
@@ -326,7 +326,7 @@ Returns the max loop count.
 
 |Type|Description|
 |---|---|
-|Integer|`Integer` max loop count.|
+|`Integer`|`Integer` max loop count.|
 
 ##### `public Integer getCount()`
 
@@ -336,7 +336,7 @@ Returns the current loop count.
 
 |Type|Description|
 |---|---|
-|Integer|`Integer` current loop count.|
+|`Integer`|`Integer` current loop count.|
 
 ##### `public void setMax(Integer max)`
 

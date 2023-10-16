@@ -150,7 +150,7 @@ Allows developers to check whether a given trigger handler class is currently by
 
 |Type|Description|
 |---|---|
-|Boolean|`Boolean`|
+|`Boolean`|`Boolean`|
 
 #### Example
 ```apex
@@ -199,7 +199,7 @@ make sure this trigger should continue to run
 
 |Type|Description|
 |---|---|
-|Boolean|`Boolean`|
+|`Boolean`|`Boolean`|
 
 #### Throws
 
