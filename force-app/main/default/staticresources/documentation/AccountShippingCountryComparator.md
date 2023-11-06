@@ -1,6 +1,6 @@
 # AccountShippingCountryComparator
 
-An example implementation of Comparator Interface
+An example implementation of the Comparator Interface
 In this example we show how to sort all the accounts by their country names in alphabetical order
 
 
@@ -26,7 +26,7 @@ Constructor accepting sort order as ascending/descending. Use this constructor t
 ---
 ## Fields
 
-### `private VALIDSORTORDER` → `Set<String>`
+### `private VALID_SORT_ORDER` → `Set<String>`
 
 
 ### `private sortOrder` → `String`
@@ -39,7 +39,7 @@ Constructor accepting sort order as ascending/descending. Use this constructor t
 ## Classes
 ### ASCComparatorException
 
-This exception is for throwing a custom exception to
+This exception class is for throwing a custom exception
 
 
 **Inheritance**

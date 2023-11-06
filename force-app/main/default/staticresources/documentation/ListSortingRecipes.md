@@ -1,6 +1,6 @@
 # ListSortingRecipes
 
-Demonstrates how to sort lists using Comparator Interface
+Demonstrates how to sort lists using the Comparator Interface
 
 
 **Group** Collection Recipes

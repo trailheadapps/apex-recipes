@@ -1,5 +1,5 @@
 /**
- * @description An example implementation of Comparator Interface
+ * @description An example implementation of the Comparator Interface
  * In this example we show how to sort all the accounts by their employee numbers in ascending order
  **/
 

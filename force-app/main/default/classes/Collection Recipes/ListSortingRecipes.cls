@@ -1,5 +1,5 @@
 /**
- * @description Demonstrates how to sort lists using Comparator Interface
+ * @description Demonstrates how to sort lists using the Comparator Interface
  *
  * @group Collection Recipes
  * @see AccountShippingCountryComparator
