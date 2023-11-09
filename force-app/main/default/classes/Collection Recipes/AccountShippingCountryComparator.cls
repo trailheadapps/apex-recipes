@@ -1,18 +1,18 @@
 /**
- * @description An example implementation of Comparator Interface
+ * @description An example implementation of the Comparator Interface
  * In this example we show how to sort all the accounts by their country names in alphabetical order
  **/
 
 public with sharing class AccountShippingCountryComparator implements Comparator<Account> {
     /**
-     * @description This exception is for throwing a custom exception to
+     * @description This exception class is for throwing a custom exception
      */
     public class ASCComparatorException extends Exception {
     }
 
     private String sortOrder;
 
-    private static final Set<String> VALIDSORTORDER = new Set<String>{
+    private static final Set<String> VALID_SORT_ORDER = new Set<String>{
         'ascending',
         'descending'
     };
@@ -25,12 +25,12 @@ public with sharing class AccountShippingCountryComparator implements Comparator
     }
 
     /**
-     * @description    Constructor accepting sort order as ascending/descending. Use
+     * @description Constructor accepting sort order as ascending/descending. Use
      * this constructor to *control* the sort order.
      * @param sortOrder
      */
     public AccountShippingCountryComparator(String sortOrder) {
-        if (!VALIDSORTORDER.contains(sortOrder)) {
+        if (!VALID_SORT_ORDER.contains(sortOrder)) {
             throw new ASCComparatorException('Invalid sort order provided');
         }
         this.sortOrder = sortOrder;
