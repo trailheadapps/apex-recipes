@@ -5,22 +5,32 @@
 
 public with sharing class AccountNumberOfEmployeesComparator implements Comparator<Account> {
     public Integer compare(Account a1, Account a2) {
-        // Guard against null operands for ‘<’ or ‘>’ operators because
-        // they will always return false and produce inconsistent sorting
-        Integer result;
-        if (a1?.NumberOfEmployees == null && a2?.NumberOfEmployees == null) {
-            result = 0;
-        } else if (a1?.NumberOfEmployees == null) {
-            result = -1;
-        } else if (a2?.NumberOfEmployees == null) {
-            result = 1;
-        } else if (a1.NumberOfEmployees < a2.NumberOfEmployees) {
-            result = -1;
-        } else if (a1.NumberOfEmployees > a2.NumberOfEmployees) {
-            result = 1;
+        Integer compareResult;
+        // Handle null objects before null field values
+        if (a1 == null && a2 == null) {
+            compareResult = 0;
+        } else if (a1 == null) {
+            compareResult = -1;
+        } else if (a2 == null) {
+            compareResult = 1;
         } else {
-            result = 0;
+            Integer a1NumberOfEmployees = a1?.NumberOfEmployees;
+            Integer a2NumberOfEmployees = a2?.NumberOfEmployees;
+            // Handle null field values then actual value compares
+            if (a1NumberOfEmployees == null && a2NumberOfEmployees == null) {
+                compareResult = 0;
+            } else if (a1NumberOfEmployees == null) {
+                compareResult = -1;
+            } else if (a2NumberOfEmployees == null) {
+                compareResult = 1;
+            } else if (a1NumberOfEmployees < a2NumberOfEmployees) {
+                compareResult = -1;
+            } else if (a1NumberOfEmployees > a2NumberOfEmployees) {
+                compareResult = 1;
+            } else {
+                compareResult = 0;
+            }
         }
-        return result;
+        return compareResult;
     }
 }

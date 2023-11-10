@@ -19,14 +19,27 @@ public class ListSortingRecipes_Tests {
         ShippingCountry = 'C',
         NumberOfEmployees = 60
     );
-    private final static Account A1NULL = new Account();
-    private final static Account A2NULL = new Account();
+    private final static Account A5 = new Account(
+        ShippingCountry = null,
+        NumberOfEmployees = null
+    );
+    private final static Account A6 = new Account(
+        ShippingCountry = 'C',
+        NumberOfEmployees = 60
+    );
+    private final static Account A1NULL = null;
+    private final static Account A2NULL = null;
+    private final static Account A3NULL = new Account();
+    private final static Account A4NULL = new Account();
 
     @isTest
     private static void testSortAccountsByShippingCountry() {
         List<Account> accounts = new List<Account>{
             A4,
             A2,
+            A3NULL,
+            A4NULL,
+            A5,
             A2NULL,
             A3,
             A1NULL,
@@ -38,6 +51,9 @@ public class ListSortingRecipes_Tests {
         List<Account> expected = new List<Account>{
             A2NULL,
             A1NULL,
+            A4NULL,
+            A3NULL,
+            A5,
             A2,
             A1,
             A3,
@@ -49,8 +65,11 @@ public class ListSortingRecipes_Tests {
     @isTest
     private static void testSortAccountsByShippingCountryInDescending() {
         List<Account> accounts = new List<Account>{
+            A5,
             A4,
             A2,
+            A4NULL,
+            A3NULL,
             A2NULL,
             A3,
             A1NULL,
@@ -64,6 +83,9 @@ public class ListSortingRecipes_Tests {
             A3,
             A2,
             A1,
+            A5,
+            A4NULL,
+            A3NULL,
             A1NULL,
             A2NULL
         };
@@ -82,12 +104,12 @@ public class ListSortingRecipes_Tests {
         };
         Test.startTest();
         try {
-            accounts.sort(new AccountShippingCountryComparator('asc'));
+            accounts.sort(new AccountShippingCountryComparator(null));
         } catch (exception e) {
             Assert.isInstanceOfType(
                 e,
                 AccountShippingCountryComparator.ASCComparatorException.class,
-                'Expected an instance of ASCComparatorException'
+                'Sort order cannot be null'
             );
         }
         Test.stopTest();
@@ -98,8 +120,12 @@ public class ListSortingRecipes_Tests {
         List<Account> accounts = new List<Account>{
             A1,
             A2,
+            A5,
+            A6,
+            A3NULL,
             A2NULL,
             A3,
+            A4NULL,
             A1NULL,
             A4
         };
@@ -109,8 +135,12 @@ public class ListSortingRecipes_Tests {
         List<Account> expected = new List<Account>{
             A1NULL,
             A2NULL,
+            A5,
+            A3NULL,
+            A4NULL,
             A3,
             A2,
+            A6,
             A4,
             A1
         };

@@ -13,7 +13,7 @@ In this example we show how to sort all the accounts by their country names in a
 
 No param constructor. Assigns sort order as ascending by default
 
-### `public AccountShippingCountryComparator(String sortOrder)`
+### `public AccountShippingCountryComparator(AccountShippingCountryComparator order)`
 
 Constructor accepting sort order as ascending/descending. Use this constructor to *control* the sort order.
 
@@ -24,17 +24,18 @@ Constructor accepting sort order as ascending/descending. Use this constructor t
 |`sortOrder`||
 
 ---
-## Fields
+## Properties
 
-### `private VALID_SORT_ORDER` → `Set<String>`
-
-
-### `private sortOrder` → `String`
+### `public order` → `SortOrder`
 
 
 ---
 ## Methods
 ### `public Integer compare(Account a1, Account a2)`
+---
+## Enums
+### SortOrder
+
 ---
 ## Classes
 ### ASCComparatorException
