@@ -10,18 +10,24 @@ public with sharing class AccountShippingCountryComparator implements Comparator
     public class ASCComparatorException extends Exception {
     }
 
-    private String sortOrder;
+    public SortOrder order {
+        get;
+        set {
+            order = value;
+        }
+    }
 
-    private static final Set<String> VALID_SORT_ORDER = new Set<String>{
-        'ascending',
-        'descending'
-    };
+    // Asc and Desc are reserved keywords in Apex!
+    public enum SortOrder {
+        ASCENDING,
+        DESCENDING
+    }
 
     /**
      * @description No param constructor. Assigns sort order as ascending by default
      */
     public AccountShippingCountryComparator() {
-        this.sortOrder = 'ascending'; // use ascending by default
+        order = SortOrder.ASCENDING; // use ascending by default
     }
 
     /**
@@ -29,23 +35,43 @@ public with sharing class AccountShippingCountryComparator implements Comparator
      * this constructor to *control* the sort order.
      * @param sortOrder
      */
-    public AccountShippingCountryComparator(String sortOrder) {
-        if (!VALID_SORT_ORDER.contains(sortOrder)) {
-            throw new ASCComparatorException('Invalid sort order provided');
+    public AccountShippingCountryComparator(
+        AccountShippingCountryComparator.SortOrder order
+    ) {
+        if (order == null) {
+            throw new ASCComparatorException('Sort order cannot be null');
         }
-        this.sortOrder = sortOrder;
+        this.order = order;
     }
 
     public Integer compare(Account a1, Account a2) {
-        if (a1?.ShippingCountry == null && a2?.ShippingCountry == null) {
-            return 0;
-        } else if (a1?.ShippingCountry == null) {
-            return this.sortOrder == 'descending' ? 1 : -1;
-        } else if (a2?.ShippingCountry == null) {
-            return this.sortOrder == 'descending' ? -1 : 1;
+        Integer compareResult;
+        // Handle null objects before null field values
+        if (a1 == null && a2 == null) {
+            compareResult = 0;
+        } else if (a1 == null) {
+            compareResult = -1;
+        } else if (a2 == null) {
+            compareResult = 1;
+        } else {
+            String a1ShippingCountry = a1?.ShippingCountry;
+            String a2ShippingCountry = a2?.ShippingCountry;
+            // Handle null field values then actual value compares
+            if (a1ShippingCountry == null && a2ShippingCountry == null) {
+                compareResult = 0;
+            } else if (a1ShippingCountry == null) {
+                compareResult = -1;
+            } else if (a2ShippingCountry == null) {
+                compareResult = 1;
+            } else {
+                compareResult = a1.ShippingCountry.compareTo(
+                    a2.ShippingCountry
+                );
+            }
         }
-        return this.sortOrder == 'descending'
-            ? a2.ShippingCountry.compareTo(a1.ShippingCountry)
-            : a1.ShippingCountry.compareTo(a2.ShippingCountry);
+        if (order == SortOrder.DESCENDING) {
+            return compareResult * -1; // Inverse the sorting if the sorting order is descending
+        }
+        return compareResult;
     }
 }

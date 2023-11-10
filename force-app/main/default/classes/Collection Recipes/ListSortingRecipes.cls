@@ -27,7 +27,11 @@ public with sharing class ListSortingRecipes {
     public static void sortAccountsByShippingCountryInDescending(
         List<Account> accounts
     ) {
-        accounts.sort(new AccountShippingCountryComparator('descending'));
+        accounts.sort(
+            new AccountShippingCountryComparator(
+                AccountShippingCountryComparator.SortOrder.DESCENDING
+            )
+        );
     }
 
     /**
