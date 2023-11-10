@@ -53,7 +53,7 @@ jobs:
                   json=$(sf package version create -p ApexRecipes -x -w 20 -f config/project-scratch-def.json --json)
                   echo $json
                   status=$(echo $json | jq '.status')
-                  if [ $status == 0 ]; then
+                  if [ $status -eq 0 ]; then
                       packageVersionId=$(echo $json | jq -r '.result.SubscriberPackageVersionId')
                       echo "packageVersionId=$packageVersionId" >> $GITHUB_OUTPUT
                   else
