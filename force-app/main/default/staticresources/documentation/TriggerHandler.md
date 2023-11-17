@@ -1,4 +1,4 @@
-# TriggerHandler
+# virtual TriggerHandler
 
 An opinionated trigger handler framework.
 Originally by Kevin O'Hara github.com/kevinohara80/sfdc-trigger-framework
@@ -36,7 +36,7 @@ Constructs a trigger handler object and ensures the context is set
 
 ---
 ## Methods
-### `public void run()`
+### `public virtual void run()`
 
 This is main brokering method that is called by the trigger. It's responsible for determining the proper context, and calling the correct method
 
@@ -199,7 +199,7 @@ Returns the string version of the handler class being invoked
 |---|---|
 |`String`|`String` Name of the Handler|
 
-### `protected void beforeInsert()`
+### `protected virtual void beforeInsert()`
 
 `TESTVISIBLE`
 
@@ -207,7 +207,7 @@ Returns the string version of the handler class being invoked
 
 context methods
 
-### `protected void beforeUpdate()`
+### `protected virtual void beforeUpdate()`
 
 `TESTVISIBLE`
 
@@ -215,7 +215,7 @@ context methods
 
 Virtual method for the implementing class to override
 
-### `protected void beforeDelete()`
+### `protected virtual void beforeDelete()`
 
 `TESTVISIBLE`
 
@@ -223,7 +223,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected void afterInsert()`
+### `protected virtual void afterInsert()`
 
 `TESTVISIBLE`
 
@@ -231,7 +231,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected void afterUpdate()`
+### `protected virtual void afterUpdate()`
 
 `TESTVISIBLE`
 
@@ -239,7 +239,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected void afterDelete()`
+### `protected virtual void afterDelete()`
 
 `TESTVISIBLE`
 
@@ -247,7 +247,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected void afterUndelete()`
+### `protected virtual void afterUndelete()`
 
 `TESTVISIBLE`
 

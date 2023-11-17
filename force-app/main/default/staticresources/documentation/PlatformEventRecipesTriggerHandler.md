@@ -48,7 +48,7 @@ System.debug(result + [SELECT Name, Website FROM Account WHERE Id = :acct.id]);
 ```
 
 
-### `public void run()`
+### `public virtual void run()`
 
 *Inherited*
 
@@ -207,7 +207,7 @@ make sure this trigger should continue to run
 |---|---|
 |`TriggerHandlerException`|thrown when executing outside of a trigger|
 
-### `protected void beforeInsert()`
+### `protected virtual void beforeInsert()`
 
 *Inherited*
 
@@ -218,7 +218,7 @@ make sure this trigger should continue to run
 
 context methods
 
-### `protected void beforeUpdate()`
+### `protected virtual void beforeUpdate()`
 
 *Inherited*
 
@@ -229,7 +229,7 @@ context methods
 
 Virtual method for the implementing class to override
 
-### `protected void beforeDelete()`
+### `protected virtual void beforeDelete()`
 
 *Inherited*
 
@@ -240,7 +240,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected void afterUpdate()`
+### `protected virtual void afterUpdate()`
 
 *Inherited*
 
@@ -251,7 +251,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected void afterDelete()`
+### `protected virtual void afterDelete()`
 
 *Inherited*
 
@@ -262,7 +262,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected void afterUndelete()`
+### `protected virtual void afterUndelete()`
 
 *Inherited*
 

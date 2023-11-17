@@ -154,7 +154,7 @@ undelete accounts;
 ```
 
 
-### `public void run()`
+### `public virtual void run()`
 
 *Inherited*
 

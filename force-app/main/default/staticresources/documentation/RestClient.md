@@ -1,4 +1,4 @@
-# RestClient
+# virtual RestClient
 
 This class provides an exmaple of an intelligent abstraction for
 making REST callouts to external endpoints. It utilizes NamedCredentials

@@ -33,7 +33,7 @@ SampleHandler
 ### `public override void beforeDelete()`
 ### `public override void afterDelete()`
 ### `public override void afterUndelete()`
-### `public void run()`
+### `public virtual void run()`
 
 *Inherited*
 
@@ -192,7 +192,7 @@ make sure this trigger should continue to run
 |---|---|
 |`TriggerHandlerException`|thrown when executing outside of a trigger|
 
-### `protected void afterUpdate()`
+### `protected virtual void afterUpdate()`
 
 *Inherited*
 
