@@ -1,6 +1,6 @@
 @isTest
 private inherited sharing class CalloutRecipes_Tests {
-    public static String goodUntypedJSON =
+    private static final String UNTYPED_JSON =
         '{\n' +
         ' "Id": "123456", \n' +
         ' "Name": "Universal Containers",\n' +
@@ -379,7 +379,7 @@ private inherited sharing class CalloutRecipes_Tests {
 
     @isTest
     static void insertAccountAndContactsFromUntypedResponsePositive() {
-        String response = CalloutRecipes_Tests.goodUntypedJSON;
+        String response = CalloutRecipes_Tests.UNTYPED_JSON;
 
         Test.startTest();
         CalloutRecipes callouts = new CalloutRecipes('Second_Org');

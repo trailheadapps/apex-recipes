@@ -15,7 +15,7 @@ web service response JSON to Apex objects.
 ### `public exampleArray` → `List<Integer>`
 
 
-These properties represent the JSON keys that we need to send or recieve.
+These properties represent the JSON keys that we need to send or receive.
 
 ### `public exampleBoolean` → `Boolean`
 
@@ -63,7 +63,7 @@ System.debug(ApiServiceRecipesDataModel.parse(ApiServiceRecipesDataModel_Tests.t
 ## Classes
 ### ExampleObject
 
-example of how to model a nested json object
+example of how to model a nested JSON object
 
 #### Fields
 

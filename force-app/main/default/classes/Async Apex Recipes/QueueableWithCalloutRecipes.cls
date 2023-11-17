@@ -33,9 +33,9 @@ public with sharing class QueueableWithCalloutRecipes implements Queueable, Data
      **/
     public static void execute(QueueableContext qc) {
         HttpResponse response = RestClient.makeApiCall(
-            'mockBin',
+            'GoogleBooksAPI',
             RestClient.HttpVerb.GET,
-            '/'
+            'volumes?q=salesforce'
         );
         List<Account> accounts = [
             SELECT Id

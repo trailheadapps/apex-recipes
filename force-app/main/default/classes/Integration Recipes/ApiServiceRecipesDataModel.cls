@@ -8,7 +8,7 @@
 public with sharing class ApiServiceRecipesDataModel {
     /**
      * These properties represent the JSON keys that we need
-     * to send or recieve.
+     * to send or receive.
      */
     public List<Integer> exampleArray;
     public Boolean exampleBoolean;
@@ -19,7 +19,7 @@ public with sharing class ApiServiceRecipesDataModel {
     public String exampleString;
 
     /**
-     * @description example of how to model a nested json object
+     * @description example of how to model a nested JSON object
      */
     public class ExampleObject {
         public String a;

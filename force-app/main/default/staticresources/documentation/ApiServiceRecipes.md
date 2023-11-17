@@ -1,12 +1,12 @@
 # ApiServiceRecipes
 
 This recipe extends the custom RestClient class and
-represents a specific API service we need to interact with - in
-this case a MockBin REST service. This APIService class is responsible
+represents a specific REST API service we need to interact with - in
+this case the Google Books API. This class is responsible
 for serializing and deserializing the Data Transfer Objects (Model Objects)
 necessary for input and output from this org to the third party system and
 back.
-More on MockBin here: http://mockbin.org/
+More on the Google Books API here: https://developers.google.com/books/docs/v1/reference/volumes
 
 
 **Inheritance**
@@ -32,12 +32,9 @@ default constructor. Sets the inherited named credential to the DEFAULTNAMEDCRED
 ---
 ## Fields
 
-### `private DEFAULTNAMEDCREDENTIAL` → `String`
+### `private DEFAULT_NAMED_CREDENTIAL` → `String`
 
 `TESTVISIBLE` 
-
-### `private GETBINPATH` → `String`
-
 
 ---
 ## Properties
@@ -436,10 +433,10 @@ A static wrapper for the main makeApiCall method
 
 #### Example
 ```apex
-System.Debug(RestClient.makeApiCall('MockBin',
+System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
                                      RestClient.HttpVerb.GET,
-                                     '4cb453a6-a23b-42ea-a6ba-9be1c1f17050',
-                                     '',
+                                     'volumes',
+                                     'q=salesforce',
                                      '',
                                      new Map<String,String>()));
 ```
@@ -471,10 +468,10 @@ A static wrapper for the main makeApiCall method that assumes default headers.
 
 #### Example
 ```apex
-System.Debug(RestClient.makeApiCall('MockBin',
+System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
                                      RestClient.HttpVerb.GET,
-                                     '4cb453a6-a23b-42ea-a6ba-9be1c1f17050',
-                                     ''));
+                                     'volumes',
+                                     'q=salesforce'));
 ```
 
 
@@ -501,9 +498,9 @@ A static wrapper for the main makeApiCall method where you only need the path
 
 #### Example
 ```apex
-System.Debug(RestClient.makeApiCall('MockBin',
+System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
                                      RestClient.HttpVerb.GET,
-                                     '4cb453a6-a23b-42ea-a6ba-9be1c1f17050'));
+                                     'volumes'));
 ```
 
 

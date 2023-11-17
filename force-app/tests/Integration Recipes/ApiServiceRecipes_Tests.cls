@@ -7,7 +7,7 @@ private class ApiServiceRecipes_Tests {
         Test.stopTest();
 
         System.Assert.areEqual(
-            'MockBin',
+            'GoogleBooksAPI',
             api.namedCredentialName,
             'Expected constructor to create an instance that specifies the named credentialname'
         );
