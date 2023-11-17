@@ -40,12 +40,12 @@ private class FormattedRecipeDisplayController_Tests {
             if (klass.endsWith('_Tests')) {
                 System.Assert.isTrue(
                     result.groupName.equalsIgnoreCase('Tests'),
-                    'Expected to have recieved the string Tests'
+                    'Expected to have received the string Tests'
                 );
             } else {
                 System.Assert.isTrue(
                     result.groupName.equalsIgnoreCase('Shared Code'),
-                    'Expected to have recieved the string Shared Code'
+                    'Expected to have received the string Shared Code'
                 );
             }
         }

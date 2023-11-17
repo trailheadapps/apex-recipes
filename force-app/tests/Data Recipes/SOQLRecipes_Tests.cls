@@ -54,7 +54,7 @@ private class SOQLRecipes_Tests {
         }
         System.Assert.isTrue(
             didCatchProperException,
-            'Expected to have recieved a secure query exception'
+            'Expected to have received a secure query exception'
         );
     }
 

@@ -31,7 +31,8 @@ public with sharing class CalloutRecipes extends RestClient {
      * System.debug(CalloutRecipes.rawCallout());
      **/
     public static String rawCallout() {
-        // Configure request
+        // Configure request. Calling a third party domain requires that
+        // you specify a Remote Site or a Named Credential first.
         HttpRequest request = new HttpRequest();
         request.setEndpoint(
             'https://www.googleapis.com/books/v1/volumes?q=salesforce'

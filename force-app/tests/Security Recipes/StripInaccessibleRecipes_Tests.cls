@@ -70,7 +70,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
 
         System.Assert.isTrue(
             didCatchTheRightException,
-            'Expected to recieve a no Access Exception'
+            'Expected to receive a no Access Exception'
         );
     }
 

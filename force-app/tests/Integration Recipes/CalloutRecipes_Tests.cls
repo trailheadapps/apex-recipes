@@ -23,20 +23,20 @@ private inherited sharing class CalloutRecipes_Tests {
     static void testRawCalloutPositive() {
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
             200,
-            'OK',
-            'OK',
+            'Success',
+            'It works!',
             new Map<String, String>()
         );
         Test.setMock(HttpCalloutMock.class, mock);
 
         Test.startTest();
-        String results = CalloutRecipes.rawCallout();
+        String responseBody = CalloutRecipes.rawCallout();
         Test.stopTest();
 
         System.Assert.areEqual(
-            'OK',
-            results,
-            'Expected to recieve a valid response from the mock'
+            'It works!',
+            responseBody,
+            'Expected to receive a valid response from the mock'
         );
     }
 
@@ -45,7 +45,7 @@ private inherited sharing class CalloutRecipes_Tests {
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
             500,
             'Server Error',
-            'Server Error',
+            'It failed!',
             new Map<String, String>()
         );
         Boolean didCatchTheRightException = false;

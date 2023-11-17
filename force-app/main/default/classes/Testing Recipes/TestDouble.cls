@@ -143,7 +143,7 @@ public class TestDouble implements System.StubProvider {
         Boolean throwsException = false;
         // The exception string you want returned.
         String exceptionMessage = '';
-        // List of types of the parameters this method must recieve in order to
+        // List of types of the parameters this method must receive in order to
         // return the stub instance's returnValue. Used for disambiguation.
         List<Type> listOfParamTypes = new List<Type>();
         // List of parameter names that this method must receive in order to
