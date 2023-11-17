@@ -1,12 +1,12 @@
 /**
  * @description This recipe extends the custom RestClient class and
- * represents a specific API service we need to interact with - in
- * this case a MockBin REST service. This APIService class is responsible
+ * represents a specific REST API service we need to interact with - in
+ * this case the Google Books API. This class is responsible
  * for serializing and deserializing the Data Transfer Objects (Model Objects)
  * necessary for input and output from this org to the third party system and
  * back.
  *
- * More on MockBin here: http://mockbin.org/
+ * More on the Google Books API here: https://developers.google.com/books/docs/v1/reference/volumes
  *
  * @group Integration Recipes
  * @see RestClient
@@ -14,8 +14,7 @@
  */
 public with sharing class ApiServiceRecipes extends RestClient {
     @testVisible
-    private static final String DEFAULTNAMEDCREDENTIAL = 'MockBin';
-    private static final String GETBINPATH = '4cb453a6-a23b-42ea-a6ba-9be1c1f17050';
+    private static final String DEFAULT_NAMED_CREDENTIAL = 'GoogleBooksAPI';
 
     /**
      * @description Internal custom exception used by this class for errors
@@ -30,7 +29,7 @@ public with sharing class ApiServiceRecipes extends RestClient {
      * to the specific namedCredential URL and auth.
      */
     public ApiServiceRecipes() {
-        namedCredentialName = DEFAULTNAMEDCREDENTIAL;
+        namedCredentialName = DEFAULT_NAMED_CREDENTIAL;
     }
 
     /**
@@ -52,7 +51,7 @@ public with sharing class ApiServiceRecipes extends RestClient {
          * endpoints and data, rather than the mechanics of making
          * an http callout with the proper headers etc.
          */
-        HttpResponse response = get(GETBINPATH);
+        HttpResponse response = get('volumes?q=salesforce');
 
         // Since we're doing a GET request, we don't need to handle for
         // 201, other 'created' responses.

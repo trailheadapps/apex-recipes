@@ -34,7 +34,7 @@ public with sharing class CalloutRecipes extends RestClient {
         // Configure request
         HttpRequest request = new HttpRequest();
         request.setEndpoint(
-            'https://mockbin.org/bin/24d66572-81e6-46bd-986b-610f1b5c4e00/view'
+            'https://www.googleapis.com/books/v1/volumes?q=salesforce'
         );
         request.setMethod('GET');
 

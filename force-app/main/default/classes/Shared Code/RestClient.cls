@@ -348,10 +348,10 @@ public virtual class RestClient {
      * headers
      * @return               `HTTPResponse`
      * @example
-     * System.Debug(RestClient.makeApiCall('MockBin',
+     * System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
      *                                      RestClient.HttpVerb.GET,
-     *                                      '4cb453a6-a23b-42ea-a6ba-9be1c1f17050',
-     *                                      '',
+     *                                      'volumes',
+     *                                      'q=salesforce',
      *                                      '',
      *                                      new Map<String,String>()));
      */
@@ -377,10 +377,10 @@ public virtual class RestClient {
      * @param query           Query component of the URL ie: after `?foo=bar`
      * @return               `HTTPResponse`
      * @example
-     * System.Debug(RestClient.makeApiCall('MockBin',
+     * System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
      *                                      RestClient.HttpVerb.GET,
-     *                                      '4cb453a6-a23b-42ea-a6ba-9be1c1f17050',
-     *                                      ''));
+     *                                      'volumes',
+     *                                      'q=salesforce'));
      */
     @SuppressWarnings('PMD.ExcessiveParameterList')
     public static HttpResponse makeApiCall(
@@ -401,9 +401,9 @@ public virtual class RestClient {
      * @param path           Http path component of the URL. ie: `/path/to/resource`
      * @return               `HTTPResponse`
      * @example
-     * System.Debug(RestClient.makeApiCall('MockBin',
+     * System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
      *                                      RestClient.HttpVerb.GET,
-     *                                      '4cb453a6-a23b-42ea-a6ba-9be1c1f17050'));
+     *                                      'volumes'));
      */
     public static HttpResponse makeApiCall(
         String namedCredential,
