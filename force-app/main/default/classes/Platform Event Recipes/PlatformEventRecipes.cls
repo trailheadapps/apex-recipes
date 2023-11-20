@@ -1,7 +1,6 @@
 /**
  * @description Demonstrates how to publish events on the event bus
  * @group Platform Event Recipes
- * @see PlatformEventTriggerHandler
  * @see TriggerHandler
  */
 public with sharing class PlatformEventRecipes {
@@ -10,6 +9,7 @@ public with sharing class PlatformEventRecipes {
      */
     public class PlatformEventRecipesException extends Exception {
     }
+
     /**
      * @description publishes a platform event
      * @param event an Event_Recipes_Demo__e object

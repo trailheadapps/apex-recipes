@@ -1,6 +1,6 @@
 # virtual RestClient
 
-This class provides an exmaple of an intelligent abstraction for
+This class provides an example of an intelligent abstraction for
 making REST callouts to external endpoints. It utilizes NamedCredentials
 for security. This class is designated as Virtual so that
 API Service classes can extend it, and make use of it's methods easily.

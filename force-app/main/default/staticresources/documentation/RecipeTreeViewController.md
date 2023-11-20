@@ -11,7 +11,7 @@ component with recipe and group information
 
 ## Fields
 
-### `private APEXRECIPESIDENTIFICATIONTAG` → `String`
+### `private GROUP_TAG` → `String`
 
 
 The String here represents a relatively unique tag that Apex Recipe uses to help group related classes.
@@ -31,7 +31,7 @@ Generates a recursive list of RecipeTreeData objects to feed to a Lightning-tree
 
 |Type|Description|
 |---|---|
-|`List<RecipeTreeData>`|`List<RecipeTreeData>`|
+|`List<RecipeTreeData>`|list of RecipeTreeData objects|
 
 #### Example
 ```apex
@@ -49,7 +49,7 @@ Generates a map containing Group names as the Keys tied to a List of class names
 
 |Type|Description|
 |---|---|
-|`Map<String,List<String>>`|`Map<String, List<String>>`|
+|`Map<String,List<String>>`|map containing Group names as the Keys tied to a List of class names.|
 
 ---
 ## Classes
@@ -97,7 +97,7 @@ Required by the Comparable interface, this method, once implemented allows us to
 
 |Type|Description|
 |---|---|
-|`Integer`|`Integer`|
+|`Integer`|sort index|
 
 ---
 

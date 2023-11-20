@@ -72,7 +72,7 @@ export default class FormattedRecipeDisplay extends LightningElement {
                     .replace('*/', '')
                     .replace(/\*/g, '')
                     .replace(/@group.*/, '')
-                    .replace(/@see.*/, '')
+                    .replace(/@see.*/g, '')
                     .replace(/ {2,}/, '')
                     .replace('\n', '');
             }

@@ -6,9 +6,6 @@ Demonstrates how to publish events on the event bus
 **Group** Platform Event Recipes
 
 
-**See** [PlatformEventTriggerHandler](PlatformEventTriggerHandler)
-
-
 **See** [TriggerHandler](https://github.com/trailheadapps/apex-recipes/wiki/TriggerHandler)
 
 ## Methods

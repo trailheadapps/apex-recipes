@@ -11,7 +11,7 @@ public with sharing class RecipeTreeViewController {
      * @description The String here represents a relatively unique tag that
      * Apex Recipe uses to help group related classes.
      */
-    private static final String APEXRECIPESIDENTIFICATIONTAG = '* @group';
+    private static final String GROUP_TAG = '* @group';
 
     /**
      * @description Used to marshall data between Apex and the LWC component
@@ -31,14 +31,14 @@ public with sharing class RecipeTreeViewController {
          * @description Required by the Comparable interface, this method,
          * once implemented allows us to sort of this object type.
          * @param compareTo A RecipeTreeData object to compare this instance against.
-         * @return         `Integer`
+         * @return sort index
          */
         public Integer compareTo(Object compareTo) {
             RecipeTreeData compare = (RecipeTreeData) compareTo;
-            if (name == compare.name) {
+            if (name == compare?.name) {
                 return 0;
             }
-            if (name > compare.name) {
+            if (name > compare?.name) {
                 return 1;
             }
             return -1;
@@ -50,7 +50,7 @@ public with sharing class RecipeTreeViewController {
      * to feed to a Lightning-tree-view component. Importantly, the returning
      * array has two RecipeTreeData objects - One for Recipes, the other
      * for our supporting, shared code.
-     * @return     `List<RecipeTreeData>`
+     * @return list of RecipeTreeData objects
      * @example
      * System.debug(RecipeTreeViewController.generateTreeData());
      */
@@ -104,13 +104,13 @@ public with sharing class RecipeTreeViewController {
      * a system level object that Admins and users cannot really change
      * we're ok.
      *
-     * @return     `Map<String, List<String>>`
+     * @return map containing Group names as the Keys tied to a List of class names.
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     private static Map<String, List<String>> generateMapOfGroupToListOfNames() {
         Map<String, List<String>> returnMap = new Map<String, List<String>>();
         List<List<SObject>> searchResults = [
-            FIND :APEXRECIPESIDENTIFICATIONTAG
+            FIND :GROUP_TAG
             IN ALL FIELDS
             RETURNING ApexClass(Name, Body)
         ];
