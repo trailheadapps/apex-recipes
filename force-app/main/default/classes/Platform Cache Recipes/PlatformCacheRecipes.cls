@@ -10,7 +10,7 @@ public with sharing class PlatformCacheRecipes {
     /**
      * @description Defines the default cache partition for use in this class.
      */
-    private static final String DEFAULTPARTITION = 'local.default';
+    private static final String DEFAULT_PARTITION = 'local.default';
 
     /**
      * @description internal custom exception class.
@@ -34,32 +34,32 @@ public with sharing class PlatformCacheRecipes {
     /**
      * @description   Stores a value in the Session cache with a default
      * timeout of 3600 seconds (1hr)
-     * @param key     String name of key used to store the value in the cache.
-     * @param toStore String value to store in the cache.
+     * @param key   key under which the value is saved.
+     * @param value value to store in the cache.
      */
-    public static void storeValueInSessionCache(String key, String toStore) {
-        PlatformCacheRecipes.storeValueInSessionCache(key, toStore, 3600);
+    public static void storeValueInSessionCache(String key, String value) {
+        PlatformCacheRecipes.storeValueInSessionCache(key, value, 3600);
     }
 
     /**
      * @description   Stores a value in the Session cache with a custom timeout.
-     * @param key     String Name to the store the value under.
-     * @param toStore String to store in the cache
-     * @param ttl     Integer Time To Live (ttl) is the number of seconds this
+     * @param key     key under which the value is saved.
+     * @param value   value to store in the cache
+     * @param ttl     Time To Live (ttl) is the number of seconds this
      * item will remain in cache.
      */
     public static void storeValueInSessionCache(
         String key,
-        String toStore,
+        String value,
         Integer ttl
     ) {
-        getDefaultPartition(PartitionType.SESSION).put(key, toStore, ttl);
+        getDefaultPartition(PartitionType.SESSION).put(key, value, ttl);
     }
 
     /**
      * @description Retrieves a value from the cache identified by key
-     * @param key   String key of which value to retrieve.
-     * @return     `String`
+     * @param key   key of which value to retrieve.
+     * @return      the value
      */
     public static String getValueFromSessionCache(String key) {
         Cache.Partition defPartition = getDefaultPartition(
@@ -73,7 +73,7 @@ public with sharing class PlatformCacheRecipes {
 
     /**
      * @description removes a key/value from the cache manually
-     * @param key   String key to remove
+     * @param key   key to remove
      * @exception   CacheException custom exception when key not found.
      */
     public static void removeKeyFromSessionCache(String key) {
@@ -95,31 +95,31 @@ public with sharing class PlatformCacheRecipes {
     /**
      * @description   Stores a value in the Org cache with a default
      * timeout of 3600 seconds (1hr)
-     * @param key     String name of key used to store the value in the cache.
-     * @param toStore String value to store in the cache.
+     * @param key     key under which the value is saved.
+     * @param value   value to store in the cache.
      */
-    public static void storeValueInOrgCache(String key, String toStore) {
-        storeValueInOrgCache(key, toStore, 3600);
+    public static void storeValueInOrgCache(String key, String value) {
+        storeValueInOrgCache(key, value, 3600);
     }
     /**
      * @description   Stores a value in the Org cache with a custom timeout.
-     * @param key     String Name to the store the value under.
-     * @param toStore String to store in the cache
-     * @param ttl     Integer Time To Live (ttl) is the number of seconds this
+     * @param key   key under which the value is saved.
+     * @param value value to store in the cache.
+     * @param ttl   Time To Live (ttl) is the number of seconds this
      * item will remain in cache.
      */
     public static void storeValueInOrgCache(
         String key,
-        String toStore,
+        String value,
         Integer ttl
     ) {
-        getDefaultPartition(PartitionType.ORG).put(key, toStore, ttl);
+        getDefaultPartition(PartitionType.ORG).put(key, value, ttl);
     }
 
     /**
      * @description Retrieves a value from the cache identified by key
-     * @param key   String key of which value to retrieve.
-     * @return     `String`
+     * @param key key of which value to retrieve.
+     * @return the value associated with the supplied key
      */
     public static String getValuefromOrgCache(String key) {
         Cache.Partition defPartition = getDefaultPartition(PartitionType.ORG);
@@ -131,7 +131,7 @@ public with sharing class PlatformCacheRecipes {
 
     /**
      * @description removes a key/value from the cache manually
-     * @param key   String key to remove
+     * @param key   key to remove
      * @exception   CacheException custom exception when key not found.
      */
     public static void removeKeyFromOrgCache(String key) {
@@ -144,18 +144,18 @@ public with sharing class PlatformCacheRecipes {
     }
 
     /**
-     * @description returns a Cache.Partition for a given name, and type
-     * @param type  Enum of .SESSION or .ORG
-     * @return     `Cache.Partition`
+     * @description returns a partition for a given name, and type
+     * @param type the partition type
+     * @return the partition
      */
     public static Cache.Partition getDefaultPartition(PartitionType type) {
         switch on type {
             when SESSION {
-                return (Cache.Partition) Cache.Session.getPartition(
-                    DEFAULTPARTITION
-                );
+                return Cache.Session.getPartition(DEFAULT_PARTITION);
+            }
+            when else {
+                return Cache.Org.getPartition(DEFAULT_PARTITION);
             }
         }
-        return (Cache.Partition) Cache.Org.getPartition(DEFAULTPARTITION);
     }
 }

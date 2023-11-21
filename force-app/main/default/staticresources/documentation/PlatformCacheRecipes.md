@@ -10,18 +10,18 @@ way of repeatedly demonstrating Platform Cache functionality
 
 ## Fields
 
-### `private DEFAULTPARTITION` → `String`
+### `private DEFAULT_PARTITION` → `String`
 
 
 Defines the default cache partition for use in this class.
 
 ---
 ## Methods
-### `public static void storeValueInSessionCache(String key, String toStore)`
+### `public static void storeValueInSessionCache(String key, String value)`
 
 These methods are for the Session Cache Max TTL for Session partion is 8 hours.
 
-### `public static void storeValueInSessionCache(String key, String toStore, Integer ttl)`
+### `public static void storeValueInSessionCache(String key, String value, Integer ttl)`
 
 Stores a value in the Session cache with a custom timeout.
 
@@ -29,9 +29,9 @@ Stores a value in the Session cache with a custom timeout.
 
 |Param|Description|
 |---|---|
-|`key`|String Name to the store the value under.|
-|`toStore`|String to store in the cache|
-|`ttl`|Integer Time To Live (ttl) is the number of seconds this item will remain in cache.|
+|`key`|key under which the value is saved.|
+|`value`|value to store in the cache|
+|`ttl`|Time To Live (ttl) is the number of seconds this item will remain in cache.|
 
 ### `public static String getValueFromSessionCache(String key)`
 
@@ -41,13 +41,13 @@ Retrieves a value from the cache identified by key
 
 |Param|Description|
 |---|---|
-|`key`|String key of which value to retrieve.|
+|`key`|key of which value to retrieve.|
 
 #### Returns
 
 |Type|Description|
 |---|---|
-|`String`|`String`|
+|`String`|the value|
 
 ### `public static void removeKeyFromSessionCache(String key)`
 
@@ -57,7 +57,7 @@ removes a key/value from the cache manually
 
 |Param|Description|
 |---|---|
-|`key`|String key to remove|
+|`key`|key to remove|
 
 #### Throws
 
@@ -65,11 +65,11 @@ removes a key/value from the cache manually
 |---|---|
 |`CacheException`|custom exception when key not found.|
 
-### `public static void storeValueInOrgCache(String key, String toStore)`
+### `public static void storeValueInOrgCache(String key, String value)`
 
 These methods relate to the ORG cache Max TTL for Org Cache is 48 hours.
 
-### `public static void storeValueInOrgCache(String key, String toStore, Integer ttl)`
+### `public static void storeValueInOrgCache(String key, String value, Integer ttl)`
 
 Stores a value in the Org cache with a custom timeout.
 
@@ -77,9 +77,9 @@ Stores a value in the Org cache with a custom timeout.
 
 |Param|Description|
 |---|---|
-|`key`|String Name to the store the value under.|
-|`toStore`|String to store in the cache|
-|`ttl`|Integer Time To Live (ttl) is the number of seconds this item will remain in cache.|
+|`key`|key under which the value is saved.|
+|`value`|value to store in the cache.|
+|`ttl`|Time To Live (ttl) is the number of seconds this item will remain in cache.|
 
 ### `public static String getValuefromOrgCache(String key)`
 
@@ -89,13 +89,13 @@ Retrieves a value from the cache identified by key
 
 |Param|Description|
 |---|---|
-|`key`|String key of which value to retrieve.|
+|`key`|key of which value to retrieve.|
 
 #### Returns
 
 |Type|Description|
 |---|---|
-|`String`|`String`|
+|`String`|the value associated with the supplied key|
 
 ### `public static void removeKeyFromOrgCache(String key)`
 
@@ -105,7 +105,7 @@ removes a key/value from the cache manually
 
 |Param|Description|
 |---|---|
-|`key`|String key to remove|
+|`key`|key to remove|
 
 #### Throws
 
@@ -115,19 +115,19 @@ removes a key/value from the cache manually
 
 ### `public static Cache getDefaultPartition(PartitionType type)`
 
-returns a Cache.Partition for a given name, and type
+returns a partition for a given name, and type
 
 #### Parameters
 
 |Param|Description|
 |---|---|
-|`type`|Enum of .SESSION or .ORG|
+|`type`|the partition type|
 
 #### Returns
 
 |Type|Description|
 |---|---|
-|`Cache`|`Cache.Partition`|
+|`Cache`|the partition|
 
 ---
 ## Enums
