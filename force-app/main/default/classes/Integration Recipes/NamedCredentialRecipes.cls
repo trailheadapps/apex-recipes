@@ -98,7 +98,14 @@ public with sharing class NamedCredentialRecipes {
         return externalCredential;
     }
 
-    // Need to enable Named Credential manually on the setup menu first
+    /**
+     * @description Demonstrates how tu use the programmatically created named credential
+     * @return void
+     * @example
+     * After having executed NamedCredentialRecipes.createNamedCredential(); and
+     * having enable the created Named Credential manually on the setup menu, execute:
+     * System.debug(NamedCredentialRecipes.makeCalloutWithNamedCredential());
+     **/
     public static void makeCalloutWithNamedCredential() {
         HttpResponse response = RestClient.makeApiCall(
             NAMED_CREDENTIAL_DEVELOPER_NAME,

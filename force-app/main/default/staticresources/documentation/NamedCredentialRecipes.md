@@ -57,4 +57,21 @@ System.debug(NamedCredentialRecipes.createExternalCredential());
 
 
 ### `public static void makeCalloutWithNamedCredential()`
+
+Demonstrates how tu use the programmatically created named credential
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|`void`|void|
+
+#### Example
+```apex
+After having executed NamedCredentialRecipes.createNamedCredential(); and
+having enable the created Named Credential manually on the setup menu, execute:
+System.debug(NamedCredentialRecipes.makeCalloutWithNamedCredential());
+```
+
+
 ---
