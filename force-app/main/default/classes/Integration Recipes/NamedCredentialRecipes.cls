@@ -3,7 +3,6 @@
  * @group Integration Recipes
  */
 public with sharing class NamedCredentialRecipes {
-
     public static String NAMED_CREDENTIAL_LABEL = 'GoogleBooksAPI (created with Apex)';
     public static String NAMED_CREDENTIAL_DEVELOPER_NAME = 'googleBooksAPIApex';
     public static String EXTERNAL_CREDENTIAL_LABEL = 'GoogleBooksAPI (created with Apex)';
@@ -17,7 +16,7 @@ public with sharing class NamedCredentialRecipes {
      * System.debug(NamedCredentialRecipes.createNamedCredential());
      **/
     public static ConnectApi.NamedCredential createNamedCredential() {
-        // Create an external credential (you could use an existing one) 
+        // Create an external credential (you could use an existing one)
         ConnectApi.ExternalCredential externalCredential = NamedCredentialRecipes.createExternalCredential();
 
         // Create a list of external credential inputs and add the external credential name
@@ -34,7 +33,7 @@ public with sharing class NamedCredentialRecipes {
         namedCredentialInput.calloutUrl = NAMED_CREDENTIAL_CALLOUT_URL;
         namedCredentialInput.externalCredentials = externalCredentials;
 
-        // Configure the named credential callout options 
+        // Configure the named credential callout options
         ConnectApi.NamedCredentialCalloutOptionsInput calloutOptions = new ConnectApi.NamedCredentialCalloutOptionsInput();
         calloutOptions.allowMergeFieldsInBody = false;
         calloutOptions.allowMergeFieldsInHeader = false;
@@ -42,13 +41,15 @@ public with sharing class NamedCredentialRecipes {
         namedCredentialInput.calloutOptions = calloutOptions;
 
         // Create the named credential!
-        return ConnectApi.NamedCredentials.createNamedCredential(namedCredentialInput);
+        return ConnectApi.NamedCredentials.createNamedCredential(
+            namedCredentialInput
+        );
     }
 
     /**
      * @description This example shows how to create an external credential in Apex.
      * An external credential contains the authentication and authorization information for the callout,
-     * and needs to be linked to a named credential in order to be used. 
+     * and needs to be linked to a named credential in order to be used.
      * @return ConnectApi.ExternalCredential The created external credential
      * @example
      * System.debug(NamedCredentialRecipes.createExternalCredential());
@@ -66,19 +67,32 @@ public with sharing class NamedCredentialRecipes {
         principalInput.sequenceNumber = 1;
         principalInput.parameters = new List<ConnectApi.ExternalCredentialParameterInput>();
 
-        externalCredentialInput.principals = new List<ConnectApi.ExternalCredentialPrincipalInput>{principalInput};
+        externalCredentialInput.principals = new List<ConnectApi.ExternalCredentialPrincipalInput>{
+            principalInput
+        };
 
         // Create external credential
-        ConnectApi.ExternalCredential externalCredential = ConnectApi.NamedCredentials.createExternalCredential(externalCredentialInput);
+        ConnectApi.ExternalCredential externalCredential = ConnectApi.NamedCredentials.createExternalCredential(
+            externalCredentialInput
+        );
 
         // Give access to named principal on permission set
         // Reload principal to get its id
-        ConnectApi.ExternalCredentialPrincipal principal = ConnectApi.NamedCredentials.getExternalCredential(EXTERNAL_CREDENTIAL_DEVELOPER_NAME).principals[0];
+        ConnectApi.ExternalCredentialPrincipal principal = ConnectApi.NamedCredentials.getExternalCredential(
+                EXTERNAL_CREDENTIAL_DEVELOPER_NAME
+            )
+            .principals[0];
         // We assume you have the Apex_Recipes permission set assigned
-        Id permissionSetId = [SELECT Id FROM PermissionSet WHERE Name = 'Apex_Recipes' LIMIT 1].Id;
+        Id permissionSetId = [
+            SELECT Id
+            FROM PermissionSet
+            WHERE Name = 'Apex_Recipes'
+            LIMIT 1
+        ]
+        .Id;
         insert new SetupEntityAccess(
-                ParentId = permissionSetId,
-                SetupEntityId = principal.Id
+            ParentId = permissionSetId,
+            SetupEntityId = principal.Id
         );
 
         return externalCredential;
