@@ -3,6 +3,9 @@ public class ConnectApiWrapperMock implements System.StubProvider {
     public static ConnectApi.NamedCredential namedCredential = new ConnectApi.NamedCredential();
     public static ConnectApi.ExternalCredential externalCredential = new ConnectApi.ExternalCredential();
 
+    @SuppressWarnings(
+        'PMD.AvoidHardcodingId,PMD.ExcessiveParameterList'
+    ) // This is just a mock!
     public Object handleMethodCall(
         Object stubbedObject,
         String stubbedMethodName,

@@ -110,12 +110,13 @@ public with sharing class NamedCredentialRecipes {
             SELECT Id
             FROM PermissionSet
             WHERE Name = :permissionSetName
+            WITH USER_MODE
             LIMIT 1
         ];
 
         if (principals != null && permissionSet != null) {
             // Give access to named principal on permission set
-            insert new SetupEntityAccess(
+            insert as user new SetupEntityAccess(
                 ParentId = permissionSet.Id,
                 SetupEntityId = principals[0].Id
             );
