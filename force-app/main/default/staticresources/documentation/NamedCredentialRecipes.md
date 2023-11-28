@@ -7,10 +7,19 @@ Demonstrates how to manage named credentials from Apex
 
 ## Fields
 
+### `public EXTERNAL_CREDENTIAL_AUTHENTICATION_PROTOCOL` → `ConnectApi`
+
+
 ### `public EXTERNAL_CREDENTIAL_DEVELOPER_NAME` → `String`
 
 
-### `public EXTERNAL_CREDENTIAL_LABEL` → `String`
+### `public EXTERNAL_CREDENTIAL_MASTER_LABEL` → `String`
+
+
+### `public NAMED_CREDENTIAL_ALLOW_MERGE_FIELDS_IN_BODY` → `Boolean`
+
+
+### `public NAMED_CREDENTIAL_ALLOW_MERGE_FIELDS_IN_HEADER` → `Boolean`
 
 
 ### `public NAMED_CREDENTIAL_CALLOUT_URL` → `String`
@@ -19,14 +28,36 @@ Demonstrates how to manage named credentials from Apex
 ### `public NAMED_CREDENTIAL_DEVELOPER_NAME` → `String`
 
 
-### `public NAMED_CREDENTIAL_LABEL` → `String`
+### `public NAMED_CREDENTIAL_GENERATE_AUTH_HEADER` → `Boolean`
+
+
+### `public NAMED_CREDENTIAL_MASTER_LABEL` → `String`
+
+
+### `public NAMED_CREDENTIAL_TYPE` → `ConnectApi`
+
+
+### `public PRINCIPAL_NAME` → `String`
+
+
+### `public PRINCIPAL_SEQUENCE_NUMBER` → `Integer`
+
+
+### `public PRINCIPAL_TYPE` → `ConnectApi`
 
 
 ---
 ## Methods
-### `public static ConnectApi createNamedCredential()`
+### `public static ConnectApi createNamedCredential(ConnectApiWrapper connectApiWrapper, String permissionSetName)`
 
 Demonstrates how create a named credential from Apex.
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`connectApiWrapper`|instance of ConnectApiWrapper, created to allow mocking|
+|`permissionSetName`|name of the permission set that will have access to the external credential|
 
 #### Returns
 
@@ -36,13 +67,26 @@ Demonstrates how create a named credential from Apex.
 
 #### Example
 ```apex
-System.debug(NamedCredentialRecipes.createNamedCredential());
+System.debug(NamedCredentialRecipes.createNamedCredential(new ConnectApiWrapper()));
+HttpResponse response = RestClient.makeApiCall(
+    NAMED_CREDENTIAL_DEVELOPER_NAME,
+    RestClient.HttpVerb.GET,
+    '/volumes?q=salesforce'
+);
+System.debug(response.getBody());
 ```
 
 
-### `private static ConnectApi createExternalCredential()`
+### `private static ConnectApi createExternalCredential(ConnectApiWrapper connectApiWrapper, String permissionSetName)`
 
 This example shows how to create an external credential in Apex. An external credential contains the authentication and authorization information for the callout, and needs to be linked to a named credential in order to be used.
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`connectApiWrapper`|instance of ConnectApiWrapper, created to allow mocking|
+|`permissionSetName`|name of the permission set that will have access to the external credential|
 
 #### Returns
 
@@ -52,25 +96,7 @@ This example shows how to create an external credential in Apex. An external cre
 
 #### Example
 ```apex
-System.debug(NamedCredentialRecipes.createExternalCredential());
-```
-
-
-### `public static void makeCalloutWithNamedCredential()`
-
-Demonstrates how tu use the programmatically created named credential
-
-#### Returns
-
-|Type|Description|
-|---|---|
-|`void`|void|
-
-#### Example
-```apex
-After having executed NamedCredentialRecipes.createNamedCredential(); and
-having enable the created Named Credential manually on the setup menu, execute:
-System.debug(NamedCredentialRecipes.makeCalloutWithNamedCredential());
+System.debug(NamedCredentialRecipes.createExternalCredential(new ConnectApiWrapper(), 'Apex_Recipes'));
 ```
 
 
