@@ -100,26 +100,29 @@ public with sharing class NamedCredentialRecipes {
             externalCredentialInput
         );
 
-        // Reload principal to get its id
-        List<ConnectApi.ExternalCredentialPrincipal> principals = connectApiWrapper.getExternalCredential(
-                EXTERNAL_CREDENTIAL_DEVELOPER_NAME
-            )
-            .principals;
+        if (!Test.isRunningTest()) {
+            // Tests should skip giving permission set access, as principal doesn't really exist
+            // Reload principal to get its id
+            List<ConnectApi.ExternalCredentialPrincipal> principals = connectApiWrapper.getExternalCredential(
+                    EXTERNAL_CREDENTIAL_DEVELOPER_NAME
+                )
+                .principals;
 
-        PermissionSet permissionSet = [
-            SELECT Id
-            FROM PermissionSet
-            WHERE Name = :permissionSetName
-            WITH USER_MODE
-            LIMIT 1
-        ];
+            PermissionSet permissionSet = [
+                SELECT Id
+                FROM PermissionSet
+                WHERE Name = :permissionSetName
+                WITH USER_MODE
+                LIMIT 1
+            ];
 
-        if (principals != null && permissionSet != null) {
-            // Give access to named principal on permission set
-            insert as user new SetupEntityAccess(
-                ParentId = permissionSet.Id,
-                SetupEntityId = principals[0].Id
-            );
+            if (permissionSet != null) {
+                // Give access to named principal on permission set
+                insert as user new SetupEntityAccess(
+                    ParentId = permissionSet.Id,
+                    SetupEntityId = principals[0].Id
+                );
+            }
         }
 
         return externalCredential;

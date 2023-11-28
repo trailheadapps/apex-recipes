@@ -3,9 +3,7 @@ public class ConnectApiWrapperMock implements System.StubProvider {
     public static ConnectApi.NamedCredential namedCredential = new ConnectApi.NamedCredential();
     public static ConnectApi.ExternalCredential externalCredential = new ConnectApi.ExternalCredential();
 
-    @SuppressWarnings(
-        'PMD.AvoidHardcodingId,PMD.ExcessiveParameterList'
-    ) // This is just a mock!
+    @SuppressWarnings('PMD.ExcessiveParameterList') // This is just a mock!
     public Object handleMethodCall(
         Object stubbedObject,
         String stubbedMethodName,
@@ -25,7 +23,6 @@ public class ConnectApiWrapperMock implements System.StubProvider {
                     ConnectApi.ExternalCredentialPrincipalInput principalInput : externalCredentialInput.principals
                 ) {
                     ConnectApi.ExternalCredentialPrincipal principal = new ConnectApi.ExternalCredentialPrincipal();
-                    principal.id = '02u8N000000hiUHQAY';
                     principal.principalName = principalInput.principalName;
                     principal.principalType = principalInput.principalType;
                     principal.sequenceNumber = principalInput.sequenceNumber;
