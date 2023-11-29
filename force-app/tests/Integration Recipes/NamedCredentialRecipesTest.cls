@@ -9,10 +9,12 @@ private with sharing class NamedCredentialRecipesTest {
         );
 
         // WHEN
+        Test.startTest();
         ConnectApi.NamedCredential namedCredential = NamedCredentialRecipes.createNamedCredential(
             connectApiWrapper,
             'Apex_Recipes'
         );
+        Test.stopTest();
 
         // THEN
         // Check named credential
