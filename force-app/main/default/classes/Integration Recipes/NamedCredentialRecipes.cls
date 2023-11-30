@@ -23,7 +23,7 @@ public with sharing class NamedCredentialRecipes {
      * @param permissionSetName name of the permission set that will have access to the external credential
      * @return ConnectApi.NamedCredential The created named credential
      * @example
-     * System.debug(NamedCredentialRecipes.createNamedCredential(new ConnectApiWrapper()));
+     * System.debug(NamedCredentialRecipes.createNamedCredential(new ConnectApiWrapper(), 'Apex_Recipes'));
      * HttpResponse response = RestClient.makeApiCall(
      *     NAMED_CREDENTIAL_DEVELOPER_NAME,
      *     RestClient.HttpVerb.GET,

@@ -67,7 +67,7 @@ Demonstrates how create a named credential from Apex.
 
 #### Example
 ```apex
-System.debug(NamedCredentialRecipes.createNamedCredential(new ConnectApiWrapper()));
+System.debug(NamedCredentialRecipes.createNamedCredential(new ConnectApiWrapper(), 'Apex_Recipes'));
 HttpResponse response = RestClient.makeApiCall(
     NAMED_CREDENTIAL_DEVELOPER_NAME,
     RestClient.HttpVerb.GET,
