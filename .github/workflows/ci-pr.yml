@@ -181,7 +181,11 @@ jobs:
 
             # Import sample data
             - name: 'Import sample data'
-              run: sf data tree import -p data/data-plan.json -p data/data-plan2.json
+              run: sf data tree import -p data/data-plan.json
+
+            # Import sample data 2
+            - name: 'Import sample data 2'
+              run: sf data tree import -p data/data-plan2.json
 
             # Run Apex tests in scratch org
             - name: 'Run Apex tests'
