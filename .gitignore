@@ -42,3 +42,4 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
+.history/
