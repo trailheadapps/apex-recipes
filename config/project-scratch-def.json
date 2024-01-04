@@ -1,8 +1,9 @@
 {
     "orgName": "Apex Recipes",
     "edition": "Developer",
-    "country": "US",
+    "country": "IT",
     "language": "en_US",
+    "hasSampleData": true,
     "features": ["Walkthroughs", "PlatformCache", "EnableSetPasswordInApi"],
     "settings": {
         "lightningExperienceSettings": {
@@ -13,6 +14,13 @@
         },
         "userEngagementSettings": {
             "enableOrchestrationInSandbox": true
+        },
+        "securitySettings": {
+            "sessionSettings": {
+                "sessionTimeout": "TwentyFourHours",
+                "forceRelogin": false
+            },
+            "enableAdminLoginAsAnyUser": true
         }
     }
 }
