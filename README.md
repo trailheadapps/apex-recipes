@@ -9,7 +9,7 @@ for real world solutions and should relevant to developers of all skill levels. 
 
 <div>
    <img src="https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/projects/quick-start-explore-the-apex-recipes-sample-app/185b61248727a9711d31e2f54b62e230_badge.png" align="left" alt="Trailhead Badge" height="40px" width="40px"/>
-   <p>Learn more about this app by completing the <a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-explore-the-apex-recipes-sample-app">Quick Start: Explore the Apex Recipes Sample App</a> Trailhead project.</p>
+   <p>Learn more about this app by completing the <a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-explore-the-apex-recipes-sample-app">Quick Start: Explore the Apex Recipes Sample App</a> Trailhead project or by watching this <a href="https://www.youtube.com/watch?v=Fd0m1Cyaq4Q&list=PLgIMQe2PKPSJcuCwM61dEc4jFG_jHqV2t&index=5">short presentation video</a>.</p>
 </div>
 
 ## Table of contents
