@@ -166,7 +166,7 @@ public with sharing class SOQLRecipes {
      *
      * @return List<Account>
      * @example
-     * System.debug('SOQLRecipes.getSecond10AccountRecords()');
+     * System.debug(SOQLRecipes.getSecond10AccountRecords());
      **/
     public static List<Account> getSecond10AccountRecords() {
         return [

@@ -154,7 +154,7 @@ Demonstrates how to get a limited number of results with a given offset; Ie: get
 
 #### Example
 ```apex
-System.debug('SOQLRecipes.getSecond10AccountRecords()');
+System.debug(SOQLRecipes.getSecond10AccountRecords());
 ```
 
 
