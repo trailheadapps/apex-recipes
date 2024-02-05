@@ -40,7 +40,7 @@ private inherited sharing class CalloutRecipes_Tests {
         );
     }
 
-    @IsTest
+    @isTest
     static void testRawCalloutNegative() {
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
             500,
