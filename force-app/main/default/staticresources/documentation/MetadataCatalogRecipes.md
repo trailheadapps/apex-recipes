@@ -79,25 +79,25 @@ System.debug(lrd);
 ---
 #### Properties
 
-##### `public dataType` → `String`
+##### `public looksUpTo` → `String`
 
 
-Specifies the Data Type Of this Object
+Specifies what object this one looks up to
 
 ##### `public developerName` → `String`
 
 
 Specifies the name of the Object
 
-##### `public looksUpTo` → `String`
-
-
-Specifies what object this one looks up to
-
 ##### `public relationshipName` → `String`
 
 
 Specifies the Relationship field name
+
+##### `public dataType` → `String`
+
+
+Specifies the Data Type Of this Object
 
 ---
 

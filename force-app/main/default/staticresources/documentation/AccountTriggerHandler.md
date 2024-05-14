@@ -27,6 +27,18 @@ Constructor that sets class variables based on Trigger context vars
 ---
 ## Fields
 
+### `private triggerNew` → `List<Account>`
+
+
+### `private triggerOld` → `List<Account>`
+
+
+### `private triggerMapNew` → `Map<Id,Account>`
+
+
+### `private triggerMapOld` → `Map<Id,Account>`
+
+
 ### `private circuitBreaker` → `Exception`
 
 `TESTVISIBLE` 
@@ -35,18 +47,6 @@ Constructor that sets class variables based on Trigger context vars
 
 *Inherited*
 `TESTVISIBLE` 
-
-### `private triggerMapNew` → `Map<Id,Account>`
-
-
-### `private triggerMapOld` → `Map<Id,Account>`
-
-
-### `private triggerNew` → `List<Account>`
-
-
-### `private triggerOld` → `List<Account>`
-
 
 ---
 ## Methods

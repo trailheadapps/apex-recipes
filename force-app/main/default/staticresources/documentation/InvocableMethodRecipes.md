@@ -44,6 +44,16 @@ System.debug(results.output);
 
 ---
 ## Classes
+### InvocableMethodRecipesException
+
+Internal custom exception class
+
+
+**Inheritance**
+
+InvocableMethodRecipesException
+
+
 ### ContactSearchRequest
 
 inner class that represents an incoming search request
@@ -79,15 +89,5 @@ Constructor building output object from SObject
 `INVOCABLEVARIABLE` 
 
 ---
-
-### InvocableMethodRecipesException
-
-Internal custom exception class
-
-
-**Inheritance**
-
-InvocableMethodRecipesException
-
 
 ---

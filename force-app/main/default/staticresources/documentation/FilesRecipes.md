@@ -166,10 +166,10 @@ Useful for bulk-creating files and linking them.
 
 #### Properties
 
-##### `public attachedTo` → `Id`
-
-
 ##### `public fileContents` → `Blob`
+
+
+##### `public attachedTo` → `Id`
 
 
 ##### `public fileName` → `String`

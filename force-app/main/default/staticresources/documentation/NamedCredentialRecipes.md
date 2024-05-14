@@ -7,13 +7,16 @@ Demonstrates how to manage named credentials from Apex
 
 ## Fields
 
-### `public EXTERNAL_CREDENTIAL_AUTHENTICATION_PROTOCOL` → `ConnectApi`
+### `public NAMED_CREDENTIAL_MASTER_LABEL` → `String`
 
 
-### `public EXTERNAL_CREDENTIAL_DEVELOPER_NAME` → `String`
+### `public NAMED_CREDENTIAL_DEVELOPER_NAME` → `String`
 
 
-### `public EXTERNAL_CREDENTIAL_MASTER_LABEL` → `String`
+### `public NAMED_CREDENTIAL_TYPE` → `ConnectApi`
+
+
+### `public NAMED_CREDENTIAL_CALLOUT_URL` → `String`
 
 
 ### `public NAMED_CREDENTIAL_ALLOW_MERGE_FIELDS_IN_BODY` → `Boolean`
@@ -22,28 +25,25 @@ Demonstrates how to manage named credentials from Apex
 ### `public NAMED_CREDENTIAL_ALLOW_MERGE_FIELDS_IN_HEADER` → `Boolean`
 
 
-### `public NAMED_CREDENTIAL_CALLOUT_URL` → `String`
-
-
-### `public NAMED_CREDENTIAL_DEVELOPER_NAME` → `String`
-
-
 ### `public NAMED_CREDENTIAL_GENERATE_AUTH_HEADER` → `Boolean`
 
 
-### `public NAMED_CREDENTIAL_MASTER_LABEL` → `String`
+### `public EXTERNAL_CREDENTIAL_MASTER_LABEL` → `String`
 
 
-### `public NAMED_CREDENTIAL_TYPE` → `ConnectApi`
+### `public EXTERNAL_CREDENTIAL_DEVELOPER_NAME` → `String`
+
+
+### `public EXTERNAL_CREDENTIAL_AUTHENTICATION_PROTOCOL` → `ConnectApi`
 
 
 ### `public PRINCIPAL_NAME` → `String`
 
 
-### `public PRINCIPAL_SEQUENCE_NUMBER` → `Integer`
-
-
 ### `public PRINCIPAL_TYPE` → `ConnectApi`
+
+
+### `public PRINCIPAL_SEQUENCE_NUMBER` → `Integer`
 
 
 ---
