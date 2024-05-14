@@ -99,6 +99,16 @@ Required method for the StubProvider interface This extensive parameter list is 
 
 ---
 ## Classes
+### TestDoubleException
+
+Internal exception class.
+
+
+**Inheritance**
+
+TestDoubleException
+
+
 ### Method
 
 This inner class describes a Method that is to be stubbed.
@@ -120,28 +130,28 @@ Minimalist constructor for this class.
 ---
 #### Fields
 
-##### `private exceptionMessage` → `String`
-
-
-##### `public hasBeenCalledXTimes` → `Integer`
-
-
-##### `private listOfArgs` → `List&lt;Object&gt;`
-
-
-##### `private listOfParamNames` → `List&lt;String&gt;`
-
-
-##### `private listOfParamTypes` → `List&lt;Type&gt;`
-
-
 ##### `private name` → `String`
 
 
 ##### `private returnValue` → `Object`
 
 
+##### `public hasBeenCalledXTimes` → `Integer`
+
+
 ##### `private throwsException` → `Boolean`
+
+
+##### `private exceptionMessage` → `String`
+
+
+##### `private listOfParamTypes` → `List&lt;Type&gt;`
+
+
+##### `private listOfParamNames` → `List&lt;String&gt;`
+
+
+##### `private listOfArgs` → `List&lt;Object&gt;`
 
 
 ---
@@ -168,15 +178,5 @@ Adds a matching ParamTypes list to this method definition. If added,
 ##### `public Method throwing(String exceptionMessage)`
 ##### `public Object handleCall()`
 ---
-
-### TestDoubleException
-
-Internal exception class.
-
-
-**Inheritance**
-
-TestDoubleException
-
 
 ---

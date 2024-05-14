@@ -1,10 +1,10 @@
 # StubExample
 ## Fields
 
-### `public greeting` → `String`
-
-
 ### `public isTrue` → `Boolean`
+
+
+### `public greeting` → `String`
 
 
 ### `public notMocked` → `Boolean`

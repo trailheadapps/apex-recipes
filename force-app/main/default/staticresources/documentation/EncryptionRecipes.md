@@ -10,13 +10,13 @@ Demonstrates how to use different encryption and signing algorithms in Apex
 ### `public AES_KEY` → `Blob`
 
 
+### `public HMAC_KEY` → `Blob`
+
+
 ### `public DIGITAL_SIGNATURE_PRIVATE_KEY` → `Blob`
 
 
 ### `public DIGITAL_SIGNATURE_PUBLIC_KEY` → `Blob`
-
-
-### `public HMAC_KEY` → `Blob`
 
 
 ---
@@ -380,11 +380,11 @@ Comparisons which involve cryptography need to be performed in constant time usi
 ## Enums
 ### AESAlgorithm
 
-### DigitalSignatureAlgorithm
+### HashAlgorithm
 
 ### HMACAlgorithm
 
-### HashAlgorithm
+### DigitalSignatureAlgorithm
 
 ---
 ## Classes

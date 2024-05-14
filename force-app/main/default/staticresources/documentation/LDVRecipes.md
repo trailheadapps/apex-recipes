@@ -40,15 +40,15 @@ Constructor accepting an ID to use as an offset. Use this version to *continue* 
 ### `private chunkSize` → `Integer`
 
 
-### `private chunksExecuted` → `Integer`
+### `private offsetId` → `Id`
 
-`TESTVISIBLE` 
 
 ### `private objectsToProcess` → `List<ContentDocumentLink>`
 
 
-### `private offsetId` → `Id`
+### `private chunksExecuted` → `Integer`
 
+`TESTVISIBLE` 
 
 ---
 ## Methods

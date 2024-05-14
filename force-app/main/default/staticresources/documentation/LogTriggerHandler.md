@@ -24,13 +24,13 @@ constructor accepting a list of log__e records
 ---
 ## Fields
 
+### `private incomingRecords` → `List<Log__e>`
+
+
 ### `protected context` → `TriggerContext`
 
 *Inherited*
 `TESTVISIBLE` 
-
-### `private incomingRecords` → `List<Log__e>`
-
 
 ---
 ## Methods

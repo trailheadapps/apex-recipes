@@ -508,23 +508,6 @@ Public custom exception class
 IterableApiException
 
 
-### RecordPage
-
-Public class used for JSON deserialization of record page response
-
-#### Fields
-
-##### `private records` → `List&lt;String&gt;`
-
-
-##### `private totalRecordCount` → `Integer`
-
-
----
-#### Methods
-##### `public List&lt;String&gt; getRecords()`
----
-
 ### RecordPageIterator
 
 Custom Iterator used to navigate IterableApiClient responses as RecordPage.
@@ -554,6 +537,23 @@ It uses IterableApiClient to perform REST requests to load the record pages.
 #### Methods
 ##### `public Boolean hasNext()`
 ##### `public RecordPage next()`
+---
+
+### RecordPage
+
+Public class used for JSON deserialization of record page response
+
+#### Fields
+
+##### `private records` → `List&lt;String&gt;`
+
+
+##### `private totalRecordCount` → `Integer`
+
+
+---
+#### Methods
+##### `public List&lt;String&gt; getRecords()`
 ---
 
 ---
