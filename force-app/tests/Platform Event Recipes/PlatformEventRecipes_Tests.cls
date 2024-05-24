@@ -11,6 +11,7 @@ private inherited sharing class PlatformEventRecipes_Tests {
             Title__c = 'demo.jpg',
             AccountId__c = acct.Id
         );
+
         Test.startTest();
         Database.SaveResult publishResult = PlatformEventRecipes.publishEvent(
             event

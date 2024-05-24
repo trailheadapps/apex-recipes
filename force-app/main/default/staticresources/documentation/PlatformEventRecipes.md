@@ -8,6 +8,9 @@ Demonstrates how to publish events on the event bus
 
 **See** [TriggerHandler](https://github.com/trailheadapps/apex-recipes/wiki/TriggerHandler)
 
+
+**See** [PlatformEventPublishCallbackRecipes](PlatformEventPublishCallbackRecipes)
+
 ## Methods
 ### `public static Database publishEvent(Event_Recipes_Demo__e event)`
 
@@ -17,7 +20,7 @@ publishes a platform event
 
 |Param|Description|
 |---|---|
-|`event`|an Event_Recipes_Demo__e object|
+|`event`|an `Event_Recipes_Demo__e` object|
 
 #### Returns
 
@@ -34,6 +37,22 @@ Database.saveResults result = PlatformEventsRecipes.publishEvent(evt);
 System.debug(result);
 ```
 
+
+### `public static Database publishEventWithCallbacks(Event_Recipes_Demo__e event)`
+
+publishes a platform event and handles success/failure with callbacks
+
+#### Parameters
+
+|Param|Description|
+|---|---|
+|`event`|an `Event_Recipes_Demo__e` object|
+
+#### Returns
+
+|Type|Description|
+|---|---|
+|`Database`|Database.SaveResult|
 
 ---
 ## Classes
