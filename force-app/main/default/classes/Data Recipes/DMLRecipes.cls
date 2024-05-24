@@ -24,6 +24,7 @@ public with sharing class DMLRecipes {
     ) {
         Account acct = new Account();
         acct.Name = name;
+        System.debug('Entering test');
         try {
             insert as system acct;
         } catch (DmlException DMLe) {
