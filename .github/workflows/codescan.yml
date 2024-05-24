@@ -21,6 +21,7 @@ jobs:
         if: github.event_name == 'push'
         uses: codescan-io/codescan-scanner-action@1.4
         with:
+          codeScanUrl: https://test.codescan.io/
           organization: s3-may-23
           projectKey: papex-git-recp
           login: ${{ secrets.codescan_token }}
@@ -30,6 +31,7 @@ jobs:
         if: github.event_name == 'pull_request'
         uses: codescan-io/codescan-scanner-action@1.4
         with:
+          codeScanUrl: https://test.codescan.io/
           organization: s3-may-23
           projectKey: papex-git-recp
           login: ${{ secrets.codescan_token }}
