@@ -4,17 +4,15 @@
       "path": "force-app",
       "default": true,
       "package": "ApexRecipes",
-      "versionName": "Spring 24 release",
-      "versionNumber": "60.0.0.NEXT"
+      "versionName": "Summer 24 release",
+      "versionNumber": "61.0.0.NEXT"
     }
   ],
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "60.0",
+  "sourceApiVersion": "61.0",
   "packageAliases": {
     "ApexRecipes": "0Ho3g000000XZAHCA4",
-    "ApexRecipes@59.0.0-15": "04tKf000000PhrfIAC",
-    "ApexRecipes@60.0.0-1": "04tKf000000PhrzIAC",
     "ApexRecipes@60.0.0-3": "04tKf000000D7s3IAC"
   }
 }
