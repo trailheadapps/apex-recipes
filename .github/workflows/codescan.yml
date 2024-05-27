@@ -21,9 +21,9 @@ jobs:
         if: github.event_name == 'push'
         uses: codescan-io/codescan-scanner-action@1.4
         with:
-          codeScanUrl: https://7a4a-106-222-219-186.ngrok-free.app/
-          organization: test
-          projectKey: apex-recipes-bb
+          codeScanUrl: https://staging.codescan.io/
+          organization: salil-may-24
+          projectKey: apex-recipes-gitwf
           login: ${{ secrets.codescan_token }}
           generateSarifFile: true
           failOnRedQualityGate: false
@@ -31,9 +31,9 @@ jobs:
         if: github.event_name == 'pull_request'
         uses: codescan-io/codescan-scanner-action@1.4
         with:
-          codeScanUrl: https://7a4a-106-222-219-186.ngrok-free.app/
-          organization: test
-          projectKey: apex-recipes-bb
+          codeScanUrl: https://staging.codescan.io/
+          organization: salil-may-24
+          projectKey: apex-recipes-gitwf
           login: ${{ secrets.codescan_token }}
           generateSarifFile: true
           failOnRedQualityGate: false
