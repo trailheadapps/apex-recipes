@@ -49,6 +49,17 @@ public class ConnectApiWrapperMock implements System.StubProvider {
             when 'getExternalCredential' {
                 return externalCredential;
             }
+            when 'generateMessagesForPromptTemplate' {
+                ConnectApi.EinsteinLLMGenerationItemOutput generation = new ConnectApi.EinsteinLLMGenerationItemOutput();
+                generation.text =
+                    'Fake LLM generated response for template ' + listOfArgs[0];
+
+                ConnectApi.EinsteinPromptTemplateGenerationsRepresentation output = new ConnectApi.EinsteinPromptTemplateGenerationsRepresentation();
+                output.generations = new List<ConnectApi.EinsteinLLMGenerationItemOutput>{
+                    generation
+                };
+                return output;
+            }
         }
         return null;
     }

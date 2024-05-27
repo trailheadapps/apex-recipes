@@ -36,20 +36,20 @@ Constructor accepting an exception object.
 ---
 ## Properties
 
-### `public requestId` → `String`
+### `public message` → `String`
 
 
-public read only property for the request ID. Privately set.
+Public message property.
 
 ### `public quiddity` → `Quiddity`
 
 
 Public read only property for quiddity. Privately set.
 
-### `public message` → `String`
+### `public requestId` → `String`
 
 
-Public message property.
+public read only property for the request ID. Privately set.
 
 ### `public severity` → `LogSeverity`
 

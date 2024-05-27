@@ -14,15 +14,15 @@ establishes the buffer, if one doesn't yet exist private, to ensure we can't dir
 ---
 ## Fields
 
-### `private currentInstance` → `Log`
-
-
-private instance of this log class that backs the singleton get() method.
-
 ### `private buffer` → `List<LogMessage>`
 
 
 private list of LogMessage objects to be published in the future
+
+### `private currentInstance` → `Log`
+
+
+private instance of this log class that backs the singleton get() method.
 
 ---
 ## Methods

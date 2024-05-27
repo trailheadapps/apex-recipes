@@ -18,9 +18,6 @@ https://sfdc.co/batch_interface
 
 ## Fields
 
-### `private successes` → `List<Id>`
-
-
 ### `private failures` → `List<Id>`
 
 
@@ -30,6 +27,9 @@ https://sfdc.co/batch_interface
 ### `private result` → `String`
 
 `TESTVISIBLE` 
+
+### `private successes` → `List<Id>`
+
 
 ### `private throwError` → `Boolean`
 

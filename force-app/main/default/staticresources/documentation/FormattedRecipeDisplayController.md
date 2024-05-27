@@ -59,10 +59,6 @@ constructor for ClassData that accepts an ApexClass object
 ---
 #### Fields
 
-##### `public name` → `String`
-
-`AURAENABLED` 
-
 ##### `public apiVersion` → `Decimal`
 
 `AURAENABLED` 
@@ -71,11 +67,15 @@ constructor for ClassData that accepts an ApexClass object
 
 `AURAENABLED` 
 
+##### `public groupName` → `String`
+
+`AURAENABLED` 
+
 ##### `public lengthWithoutComments` → `Integer`
 
 `AURAENABLED` 
 
-##### `public groupName` → `String`
+##### `public name` → `String`
 
 `AURAENABLED` 
 

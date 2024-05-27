@@ -24,13 +24,13 @@ Constructor responsible for transfering Trigger.new into a class variable
 ---
 ## Fields
 
-### `private triggerNew` → `List<Event_Recipes_Demo__e>`
-
-
 ### `protected context` → `TriggerContext`
 
 *Inherited*
 `TESTVISIBLE` 
+
+### `private triggerNew` → `List<Event_Recipes_Demo__e>`
+
 
 ---
 ## Methods

@@ -52,14 +52,6 @@ Constructor used by live triggers.
 ---
 ## Fields
 
-### `private mts` → `MetadataTriggerService`
-
-`TESTVISIBLE` 
-
-### `private tryggers` → `List<Metadata_Driven_Trigger__mdt>`
-
-`TESTVISIBLE` 
-
 ### `private activeHandler` → `TriggerHandler`
 
 `TESTVISIBLE` 
@@ -67,6 +59,14 @@ Constructor used by live triggers.
 ### `protected context` → `TriggerContext`
 
 *Inherited*
+`TESTVISIBLE` 
+
+### `private mts` → `MetadataTriggerService`
+
+`TESTVISIBLE` 
+
+### `private tryggers` → `List<Metadata_Driven_Trigger__mdt>`
+
 `TESTVISIBLE` 
 
 ---

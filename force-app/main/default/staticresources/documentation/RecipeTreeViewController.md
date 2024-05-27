@@ -11,13 +11,13 @@ component with recipe and group information
 
 ## Fields
 
-### `private groupToListOfNames` → `Map<String,List<String>>`
-
-
 ### `private GROUP_TAG` → `String`
 
 
 The String here represents a relatively unique tag that Apex Recipe uses to help group related classes.
+
+### `private groupToListOfNames` → `Map<String,List<String>>`
+
 
 ---
 ## Methods
@@ -65,19 +65,19 @@ that uses this data
 
 #### Fields
 
-##### `public label` → `String`
-
-`AURAENABLED` 
-
-##### `public name` → `String`
-
-`AURAENABLED` 
-
 ##### `public expanded` → `Boolean`
 
 `AURAENABLED` 
 
 ##### `public items` → `RecipeTreeData`
+
+`AURAENABLED` 
+
+##### `public label` → `String`
+
+`AURAENABLED` 
+
+##### `public name` → `String`
 
 `AURAENABLED` 
 

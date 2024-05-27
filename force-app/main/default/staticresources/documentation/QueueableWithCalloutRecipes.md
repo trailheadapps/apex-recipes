@@ -21,11 +21,11 @@ https://sfdc.co/queueable-apex
 
 ## Fields
 
-### `private throwError` → `Boolean`
+### `private circuitBreakerThrown` → `Boolean`
 
 `TESTVISIBLE` 
 
-### `private circuitBreakerThrown` → `Boolean`
+### `private throwError` → `Boolean`
 
 `TESTVISIBLE` 
 

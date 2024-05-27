@@ -9,31 +9,66 @@ enabled. You could also write similar methods for experiences.
 
 ## Fields
 
-### `private safeDefaultCachePartition` → `Cache`
+### `private orgShape` → `Organization`
 
 `TESTVISIBLE` 
 
-### `private orgShape` → `Organization`
+### `private safeDefaultCachePartition` → `Cache`
 
 `TESTVISIBLE` 
 
 ---
 ## Properties
 
+### `public getFiscalYearStartMonth` → `Integer`
+
+
+returns this org's fiscal year starting month
+
+### `public hasNamespacePrefix` → `Boolean`
+
+
+reports whether this transaction took place in an org with a namespace prefix
+
+### `public id` → `Id`
+
+
+reports the org's ID. in practice, this is a constant
+
+### `public instanceName` → `String`
+
+
+returns the instance name. In practice not null.
+
+### `public isReadOnly` → `Boolean`
+
+
+reports the read-only status. this is a proxy for 'is this org active'
+
 ### `public isSandbox` → `Boolean`
 
 
 property reports whether this transaction took place in a sandbox.
+
+### `public lightningEnabled` → `Boolean`
+
+
+reports the users' displayed theme.
+
+### `public locale` → `String`
+
+
+reports the org's locale
 
 ### `public multiCurrencyEnabled` → `Boolean`
 
 
 reports whether or not this transaction took place in an org with multiCurrency enabled. Note: I have no idea why the underlying method is on UserInfo.
 
-### `public hasNamespacePrefix` → `Boolean`
+### `public name` → `String`
 
 
-reports whether this transaction took place in an org with a namespace prefix
+reports the org's name
 
 ### `public namespacePrefix` → `String`
 
@@ -45,45 +80,10 @@ reports the namespace prefix of this org. May return null;
 
 reports this org's type. ie: 'Developer Edition'
 
-### `public isReadOnly` → `Boolean`
-
-
-reports the read-only status. this is a proxy for 'is this org active'
-
-### `public instanceName` → `String`
-
-
-returns the instance name. In practice not null.
-
 ### `public podName` → `String`
 
 
 convenience method. Alias for instanceName
-
-### `public getFiscalYearStartMonth` → `Integer`
-
-
-returns this org's fiscal year starting month
-
-### `public lightningEnabled` → `Boolean`
-
-
-reports the users' displayed theme.
-
-### `public id` → `Id`
-
-
-reports the org's ID. in practice, this is a constant
-
-### `public locale` → `String`
-
-
-reports the org's locale
-
-### `public name` → `String`
-
-
-reports the org's name
 
 ### `public timeZoneKey` → `String`
 

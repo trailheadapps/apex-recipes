@@ -20,9 +20,6 @@ Constructs a trigger handler object and ensures the context is set
 ---
 ## Fields
 
-### `private loopCountMap` → `Map<String,LoopCount>`
-
-
 ### `private bypassedHandlers` → `Set<String>`
 
 
@@ -33,6 +30,9 @@ Constructs a trigger handler object and ensures the context is set
 ### `private isTriggerExecuting` → `Boolean`
 
 `TESTVISIBLE` 
+
+### `private loopCountMap` → `Map<String,LoopCount>`
+
 
 ---
 ## Methods
@@ -266,16 +266,6 @@ possible trigger contexts
 
 ---
 ## Classes
-### TriggerHandlerException
-
-Internal TriggerHandler custom exception class
-
-
-**Inheritance**
-
-TriggerHandlerException
-
-
 ### LoopCount
 
 `TESTVISIBLE`
@@ -300,10 +290,10 @@ Sets loop count based on the param.
 ---
 #### Fields
 
-##### `private max` → `Integer`
-
-
 ##### `private count` → `Integer`
+
+
+##### `private max` → `Integer`
 
 
 ---
@@ -359,5 +349,15 @@ Sets the max loop size
 |`max`|The integer to set max to.|
 
 ---
+
+### TriggerHandlerException
+
+Internal TriggerHandler custom exception class
+
+
+**Inheritance**
+
+TriggerHandlerException
+
 
 ---

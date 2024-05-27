@@ -29,4 +29,14 @@ public with sharing class ConnectApiWrapper {
     ) {
         return ConnectApi.NamedCredentials.getExternalCredential(developerName);
     }
+
+    public ConnectApi.EinsteinPromptTemplateGenerationsRepresentation generateMessagesForPromptTemplate(
+        String templateApiName,
+        ConnectApi.EinsteinPromptTemplateGenerationsInput input
+    ) {
+        return ConnectApi.EinsteinLlm.generateMessagesForPromptTemplate(
+            templateApiName,
+            input
+        );
+    }
 }

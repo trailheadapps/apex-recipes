@@ -16,4 +16,5 @@ allowing its methods to be mocked in test classes.
 ### `public ConnectApi createExternalCredential(ConnectApi externalCredentialInput)`
 ### `public ConnectApi createNamedCredential(ConnectApi namedCredentialInput)`
 ### `public ConnectApi getExternalCredential(String developerName)`
+### `public ConnectApi generateMessagesForPromptTemplate(String templateApiName, ConnectApi input)`
 ---
