@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
       - name: Cache files
-        uses: actions/cache@v3
+        uses: actions/cache@v2
         with:
             path: |
                 ~/.sonar
@@ -42,6 +42,6 @@ jobs:
             sonar.pullrequest.base=${{github.base_ref}}
             sonar.pullrequest.key=${{github.event.number}}
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: codescan.sarif
