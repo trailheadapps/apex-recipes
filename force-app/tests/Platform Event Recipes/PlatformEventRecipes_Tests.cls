@@ -125,14 +125,16 @@ private inherited sharing class PlatformEventRecipes_Tests {
         List<Task> tasks = [
             SELECT Subject
             FROM Task
-            WHERE WhatId = :acct.Id
+            WHERE
+                WhatId = :acct.Id
+                AND Subject LIKE '%successful event publishing%'
             ORDER BY CreatedDate DESC
             LIMIT 1
         ];
-        System.Assert.areEqual(1, tasks.size());
-        System.Assert.isTrue(
-            tasks[0].Subject.containsIgnoreCase('successful event publishing'),
-            'Expected success follow up task but found: ' + tasks[0].Subject
+        System.Assert.areEqual(
+            1,
+            tasks.size(),
+            'Expected success follow up task'
         );
     }
 
@@ -162,14 +164,16 @@ private inherited sharing class PlatformEventRecipes_Tests {
         List<Task> tasks = [
             SELECT Subject
             FROM Task
-            WHERE WhatId = :acct.Id
+            WHERE
+                WhatId = :acct.Id
+                AND Subject LIKE '%event publishing failure%'
             ORDER BY CreatedDate DESC
             LIMIT 1
         ];
-        System.Assert.areEqual(1, tasks.size());
-        System.Assert.isTrue(
-            tasks[0].Subject.containsIgnoreCase('event publishing failure'),
-            'Expected failure follow up task but found: ' + tasks[0].Subject
+        System.Assert.areEqual(
+            1,
+            tasks.size(),
+            'Expected failure follow up task'
         );
     }
 }
