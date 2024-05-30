@@ -81,6 +81,6 @@ public with sharing class PlatformEventPublishCallback implements EventBus.Event
             t.OwnerId = relatedAccounts.get(originalEvent.AccountId__c).OwnerId;
             tasks.add(t);
         }
-        insert tasks;
+        insert as system tasks;
     }
 }
