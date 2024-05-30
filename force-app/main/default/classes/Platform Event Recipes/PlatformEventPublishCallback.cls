@@ -18,6 +18,7 @@ public with sharing class PlatformEventPublishCallback implements EventBus.Event
 
     /**
      * Callback for events that failed to publish
+     * Note: this method is always called by the automation user
      */
     public void onFailure(EventBus.FailureResult result) {
         // Get event UUIDs from the result
@@ -29,6 +30,7 @@ public with sharing class PlatformEventPublishCallback implements EventBus.Event
 
     /**
      * Callback for events that were successfully published
+     * Note: this method is always called by the automation user
      */
     public void onSuccess(EventBus.SuccessResult result) {
         // Get event UUIDs from the result
@@ -46,7 +48,12 @@ public with sharing class PlatformEventPublishCallback implements EventBus.Event
             relatedAccountIds.add(originalEvent.AccountId__c);
         }
         Map<Id, Account> relatedAccounts = new Map<Id, Account>(
-            [SELECT OwnerId FROM Account WHERE Id = :relatedAccountIds]
+            [
+                SELECT OwnerId
+                FROM Account
+                WHERE Id = :relatedAccountIds
+                WITH SYSTEM_MODE
+            ]
         );
 
         // Prepare and insert tasks
