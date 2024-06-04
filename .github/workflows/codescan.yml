@@ -45,7 +45,6 @@ jobs:
             sonar.pullrequest.branch=${{github.head_ref}}
             sonar.pullrequest.base=${{github.base_ref}}
             sonar.pullrequest.key=${{github.event.number}}
-            sonar.inclusions=${{steps.changed-files.outputs.all_changed_and_modified_files}}
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         with:
