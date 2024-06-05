@@ -19,7 +19,7 @@ jobs:
             restore-keys: ${{ runner.os }}-sonar
       - name: Run Codescan On Push
         if: github.event_name == 'push'
-        uses: salil-sharma-ar/codescan-scanner-action@test-salil-5
+        uses: salil-sharma-ar/codescan-scanner-action@test-salil-6
         with:
           codeScanUrl: https://preview.codescan.io/
           organization: salil-june-24
@@ -29,7 +29,7 @@ jobs:
           failOnRedQualityGate: false
       - name: Run Codescan On PR
         if: github.event_name == 'pull_request'
-        uses: salil-sharma-ar/codescan-scanner-action@test-salil-5
+        uses: salil-sharma-ar/codescan-scanner-action@test-salil-6
         with:
           codeScanUrl: https://preview.codescan.io/
           organization: salil-june-24
