@@ -37,7 +37,7 @@ jobs:
           login: ${{ secrets.codescan_token }}
           generateSarifFile: true
           failOnRedQualityGate: false
-          scanChangedFilesOnly: false
+          scanChangedFilesOnly: true
           args: |
             sonar.pullrequest.branch=${{github.head_ref}}
             sonar.pullrequest.base=${{github.base_ref}}
