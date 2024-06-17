@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 >
     <content xsi:nil="true" />
-    <apiVersion>60.0</apiVersion>
+    <apiVersion>61.0</apiVersion>
     <isGlobal>false</isGlobal>
     <isProtected>false</isProtected>
 </DataWeaveResource>
