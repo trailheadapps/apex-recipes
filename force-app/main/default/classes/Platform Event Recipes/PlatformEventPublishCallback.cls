@@ -69,10 +69,7 @@ public with sharing class PlatformEventPublishCallback implements EventBus.Event
             if (isSuccess == true) {
                 t.Subject = 'Follow up on successful event publishing.';
                 t.Description =
-                    'Events published successfully. Event UUID: ' +
-                    eventUuid +
-                    ' User: ' +
-                    UserInfo.getName();
+                    'Events published successfully. Event UUID: ' + eventUuid;
             } else {
                 t.Subject = 'Follow up on event publishing failure.';
                 t.Description =
