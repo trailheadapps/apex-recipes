@@ -65,7 +65,7 @@ public with sharing class AtFutureRecipes {
          * receive because this recipe is intended only to demonstrate making a
          * callout from an @future annotated method, we'll stop here.
          * However, we do want to demonstrate throwing an exception if the
-         * callout fails
+         * callout
          */
 
         if (response.getStatusCode() != 200) {
