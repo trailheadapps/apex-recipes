@@ -57,8 +57,12 @@ public with sharing class PlatformEventRecipes {
             );
         }
         if (CanTheUser.create(event)) {
+            PlatformEventPublishCallback.EventInfo eventInfo = new PlatformEventPublishCallback.EventInfo(
+                event.EventUuid,
+                event.AccountId__c
+            );
             PlatformEventPublishCallback callback = new PlatformEventPublishCallback(
-                new List<Event_Recipes_Demo__e>{ event }
+                new List<PlatformEventPublishCallback.EventInfo>{ eventInfo }
             );
             return EventBus.publish(event, callback);
         } else {
