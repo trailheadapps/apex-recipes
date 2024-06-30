@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>CallHighlightAction</actionName>
@@ -229,38 +229,22 @@
     <enableHistory>false</enableHistory>
     <externalSharingModel>Private</externalSharingModel>
     <searchLayouts>
-        <customTabListAdditionalFields
-        >ACCOUNT.NAME</customTabListAdditionalFields>
-        <customTabListAdditionalFields
-        >ACCOUNT.ADDRESS1_CITY</customTabListAdditionalFields>
-        <customTabListAdditionalFields
-        >ACCOUNT.PHONE1</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields
-        >ACCOUNT.NAME</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields
-        >ACCOUNT.SITE</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields
-        >CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields
-        >ACCOUNT.TYPE</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields
-        >ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields
-        >ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields
-        >CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields
-        >ACCOUNT.TYPE</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields
-        >ACCOUNT.PHONE1</lookupPhoneDialogsAdditionalFields>
-        <searchResultsAdditionalFields
-        >ACCOUNT.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields
-        >ACCOUNT.SITE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields
-        >ACCOUNT.PHONE1</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields
-        >CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.ADDRESS1_CITY</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.PHONE1</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.SITE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.TYPE</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.TYPE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.PHONE1</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.SITE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.PHONE1</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
