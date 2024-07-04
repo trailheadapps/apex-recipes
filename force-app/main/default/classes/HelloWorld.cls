@@ -1,9 +1,7 @@
 global class HelloWorld{
 public String hello() {
 System.debug('hello');
-
-/*update changes done again */
+/*update  */
  return 'Hello World!';
-
     }
     }
