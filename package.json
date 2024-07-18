@@ -12,11 +12,11 @@
         "apexdocs": "sh bin/generate-apex-docs.sh",
         "apex:local:start": "start-apex-server --host 127.0.0.1",
         "apex:local:stop": "stop-apex-server --host 127.0.0.1",
-        "test:unit": "sfdx-lwc-jest --skipApiVersionCheck",
-        "test:unit:watch": "sfdx-lwc-jest --watch --skipApiVersionCheck",
-        "test:unit:debug": "sfdx-lwc-jest --debug --skipApiVersionCheck",
-        "test:unit:coverage": "sfdx-lwc-jest --coverage --skipApiVersionCheck",
-        "postinstall": "husky install",
+        "test:unit": "sfdx-lwc-jest",
+        "test:unit:watch": "sfdx-lwc-jest --watch ",
+        "test:unit:debug": "sfdx-lwc-jest --debug ",
+        "test:unit:coverage": "sfdx-lwc-jest --coverage ",
+        "prepare": "husky || true",
         "precommit": "npm run apexdocs && git add force-app/main/default/staticresources/documentation && lint-staged"
     },
     "lint-staged": {
@@ -27,7 +27,7 @@
             "eslint"
         ],
         "**/lwc/**": [
-            "sfdx-lwc-jest --skipApiVersionCheck -- --bail --findRelatedTests --passWithNoTests"
+            "sfdx-lwc-jest -- --bail --findRelatedTests --passWithNoTests"
         ]
     },
     "author": "salesforce.com",
@@ -41,19 +41,19 @@
         "@lwc/eslint-plugin-lwc": "^1.8.2",
         "@prettier/plugin-xml": "^3.4.1",
         "@sa11y/jest": "^6.9.5",
-        "@salesforce/eslint-config-lwc": "^3.5.3",
+        "@salesforce/eslint-config-lwc": "^3.6.0",
         "@salesforce/eslint-plugin-aura": "^2.1.0",
         "@salesforce/eslint-plugin-lightning": "^1.0.0",
-        "@salesforce/sfdx-lwc-jest": "^5.0.0",
+        "@salesforce/sfdx-lwc-jest": "^5.1.0",
         "eslint": "^8.57.0",
         "eslint-plugin-import": "^2.29.1",
         "eslint-plugin-jest": "^28.6.0",
-        "husky": "^9.0.11",
+        "husky": "^9.1.0",
         "lint-staged": "^15.2.7",
-        "prettier": "^3.3.2",
+        "prettier": "^3.3.3",
         "prettier-plugin-apex": "^2.1.4"
     },
     "volta": {
-        "node": "20.13.1"
+        "node": "20.15.0"
     }
 }
