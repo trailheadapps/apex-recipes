@@ -16,6 +16,8 @@ public with sharing class AtFutureRecipes {
      */
     @testVisible
     private static Boolean testCircuitBreaker = false;
+    private static Boolean testCircuitBreaker = false;
+    private static Boolean testCase1 = false;
     /**
      * @description Method demonstrates the `@future` annotation without the
      * `(callout=true)` adendum. This method will be run in a different Apex
