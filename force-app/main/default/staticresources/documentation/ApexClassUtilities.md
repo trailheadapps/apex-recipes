@@ -16,7 +16,8 @@ in an org.
 ## Methods
 ### `public static String getGroupFromClassBody(ApexClass klass)`
 
-Extracts the `@group` annotation from a class' body. Also demonstrates the use of Regex matchers in Apex.
+Extracts the `@group` annotation from a class' body.
+Also demonstrates the use of Regex matchers in Apex.
 
 #### Parameters
 
@@ -39,7 +40,8 @@ System.debug(ApexClassUtilities.getGroupFromClassBody(klass));
 
 ### `public static List<String> getRelatedClassesFromClassBody(ApexClass klass)`
 
-Extracts the `@see` annotations from a class' body. Also demonstrates the use of Regex matchers in Apex.
+Extracts the `@see` annotations from a class' body.
+Also demonstrates the use of Regex matchers in Apex.
 
 #### Parameters
 

@@ -6,6 +6,7 @@ this case the Google Books API. This class is responsible
 for serializing and deserializing the Data Transfer Objects (Model Objects)
 necessary for input and output from this org to the third party system and
 back.
+
 More on the Google Books API here: https://developers.google.com/books/docs/v1/reference/volumes
 
 
@@ -27,7 +28,10 @@ ApiServiceRecipes
 ## Constructors
 ### `public ApiServiceRecipes()`
 
-default constructor. Sets the inherited named credential to the DEFAULTNAMEDCREDENTIAL constant above. Setting the namedCredentialName binds all the methods in this class to the specific namedCredential URL and auth.
+default constructor. Sets the inherited named credential
+to the DEFAULTNAMEDCREDENTIAL constant above.
+Setting the namedCredentialName binds all the methods in this class
+to the specific namedCredential URL and auth.
 
 ---
 ## Fields
@@ -50,7 +54,9 @@ The name of the Named Credential to use
 ## Methods
 ### `public List<ApiServiceRecipesDataModel> getCurrentData()`
 
-Encapsulates a specific callout to the Named Credential URL that returns JSON into an method that transforms the raw JSON into an Apex Object.
+Encapsulates a specific callout to the Named Credential
+URL that returns JSON into an method that transforms the raw JSON
+into an Apex Object.
 
 #### Returns
 
@@ -74,7 +80,9 @@ System.debug(asr.getCurrentData());
 
 `SUPPRESSWARNINGS`
 
-Omnibus callout method. This is the primary method for making a REST callout. Most of the other methods in this class serve as convient, syntactic sugar on this method.
+Omnibus callout method. This is the primary method for
+making a REST callout. Most of the other methods in this class serve
+as convient, syntactic sugar on this method.
 
 #### Parameters
 
@@ -101,7 +109,8 @@ Omnibus callout method. This is the primary method for making a REST callout. Mo
 
 `SUPPRESSWARNINGS`
 
-Makes an HTTP Callout to an api resource. Convienence method that assumes the Default Headers.
+Makes an HTTP Callout to an api resource.
+Convienence method that assumes the Default Headers.
 
 #### Parameters
 
@@ -125,7 +134,8 @@ Makes an HTTP Callout to an api resource. Convienence method that assumes the De
 
 `TESTVISIBLE`
 
-convenience version of makeApiCall without body param. Invokes omnibus version above, with blank body param and default headers.
+convenience version of makeApiCall without body param.
+Invokes omnibus version above, with blank body param and default headers.
 
 #### Parameters
 
@@ -148,7 +158,9 @@ convenience version of makeApiCall without body param. Invokes omnibus version a
 
 `TESTVISIBLE`
 
-convenience version of makeApiCall without body or query params. Invokes omnibus version above, with blank body and query params
+convenience version of makeApiCall without body or query
+params.
+Invokes omnibus version above, with blank body and query params
 
 #### Parameters
 
@@ -191,7 +203,8 @@ convenience method for a GET Call that only requires a path
 
 `TESTVISIBLE`
 
-convenience method for a GET Call that only requires a path and query
+convenience method for a GET Call that only requires a path
+and query
 
 #### Parameters
 
@@ -213,7 +226,8 @@ convenience method for a GET Call that only requires a path and query
 
 `TESTVISIBLE`
 
-convenience method for deleteing a resource based only on path
+convenience method for deleteing a resource based only on
+path
 
 #### Parameters
 
@@ -234,7 +248,8 @@ convenience method for deleteing a resource based only on path
 
 `TESTVISIBLE`
 
-convenience method for a Delete Call that only requires a path and query
+convenience method for a Delete Call that only requires a
+path and query
 
 #### Parameters
 
@@ -256,7 +271,8 @@ convenience method for a Delete Call that only requires a path and query
 
 `TESTVISIBLE`
 
-convenience method for a POST Call that only requires a path and body
+convenience method for a POST Call that only requires a path
+and body
 
 #### Parameters
 
@@ -278,7 +294,8 @@ convenience method for a POST Call that only requires a path and body
 
 `TESTVISIBLE`
 
-convenience method for a POST Call that only requires a path, query and body
+convenience method for a POST Call that only requires a
+path, query and body
 
 #### Parameters
 
@@ -301,7 +318,8 @@ convenience method for a POST Call that only requires a path, query and body
 
 `TESTVISIBLE`
 
-convenience method for a PUT Call that only requires a path and body
+convenience method for a PUT Call that only requires a path
+and body
 
 #### Parameters
 
@@ -323,7 +341,8 @@ convenience method for a PUT Call that only requires a path and body
 
 `TESTVISIBLE`
 
-convenience method for a PUT Call that only requires a path, query and body
+convenience method for a PUT Call that only requires a path,
+query and body
 
 #### Parameters
 
@@ -346,7 +365,8 @@ convenience method for a PUT Call that only requires a path, query and body
 
 `TESTVISIBLE`
 
-convenience method for a PATCH Call that only requires a path, query and body
+convenience method for a PATCH Call that only requires a
+path, query and body
 
 #### Parameters
 
@@ -368,7 +388,8 @@ convenience method for a PATCH Call that only requires a path, query and body
 
 `TESTVISIBLE`
 
-convenience method for a PATCH Call that only requires a path, query and body
+convenience method for a PATCH Call that only requires a
+path, query and body
 
 #### Parameters
 
@@ -391,7 +412,8 @@ convenience method for a PATCH Call that only requires a path, query and body
 
 `TESTVISIBLE`
 
-Ensures that the inputted string ends in a `/` makes callouts more robust.
+Ensures that the inputted string ends in a `/`
+makes callouts more robust.
 
 #### Parameters
 
@@ -449,7 +471,8 @@ System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
 
 `SUPPRESSWARNINGS`
 
-A static wrapper for the main makeApiCall method that assumes default headers.
+A static wrapper for the main makeApiCall method
+that assumes default headers.
 
 #### Parameters
 
@@ -480,7 +503,8 @@ System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
 *Inherited*
 
 
-A static wrapper for the main makeApiCall method where you only need the path
+A static wrapper for the main makeApiCall method
+where you only need the path
 
 #### Parameters
 

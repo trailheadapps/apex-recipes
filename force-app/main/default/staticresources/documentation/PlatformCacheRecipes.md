@@ -19,7 +19,8 @@ Defines the default cache partition for use in this class.
 ## Methods
 ### `public static void storeValueInSessionCache(String key, String value)`
 
-These methods are for the Session Cache Max TTL for Session partion is 8 hours.
+These methods are for the Session Cache
+Max TTL for Session partion is 8 hours.
 
 ### `public static void storeValueInSessionCache(String key, String value, Integer ttl)`
 
@@ -67,7 +68,8 @@ removes a key/value from the cache manually
 
 ### `public static void storeValueInOrgCache(String key, String value)`
 
-These methods relate to the ORG cache Max TTL for Org Cache is 48 hours.
+These methods relate to the ORG cache
+Max TTL for Org Cache is 48 hours.
 
 ### `public static void storeValueInOrgCache(String key, String value, Integer ttl)`
 
@@ -81,7 +83,7 @@ Stores a value in the Org cache with a custom timeout.
 |`value`|value to store in the cache.|
 |`ttl`|Time To Live (ttl) is the number of seconds this item will remain in cache.|
 
-### `public static String getValuefromOrgCache(String key)`
+### `public static String getValueFromOrgCache(String key)`
 
 Retrieves a value from the cache identified by key
 
@@ -113,7 +115,7 @@ removes a key/value from the cache manually
 |---|---|
 |`CacheException`|custom exception when key not found.|
 
-### `public static Cache getDefaultPartition(PartitionType type)`
+### `public static Cache.Partition getDefaultPartition(PartitionType type)`
 
 returns a partition for a given name, and type
 
@@ -127,7 +129,7 @@ returns a partition for a given name, and type
 
 |Type|Description|
 |---|---|
-|`Cache`|the partition|
+|`Cache.Partition`|the partition|
 
 ---
 ## Enums

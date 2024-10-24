@@ -13,7 +13,7 @@ allowing its methods to be mocked in test classes.
 **See** [NamedCredentialRecipesTest](NamedCredentialRecipesTest)
 
 ## Methods
-### `public ConnectApi createExternalCredential(ConnectApi externalCredentialInput)`
-### `public ConnectApi createNamedCredential(ConnectApi namedCredentialInput)`
-### `public ConnectApi getExternalCredential(String developerName)`
+### `public ConnectApi.ExternalCredential createExternalCredential(ConnectApi.ExternalCredentialInput externalCredentialInput)`
+### `public ConnectApi.NamedCredential createNamedCredential(ConnectApi.NamedCredentialInput namedCredentialInput)`
+### `public ConnectApi.ExternalCredential getExternalCredential(String developerName)`
 ---

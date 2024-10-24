@@ -9,7 +9,8 @@ in Apex to convert CSV to JSON.
 ## Methods
 ### `public static String convertCsvToJson(String csvPayload)`
 
-Converts CSV to JSON. Uses the `dw/csvToJsonBasic.dwl` DataWeave script.
+Converts CSV to JSON.
+Uses the `dw/csvToJsonBasic.dwl` DataWeave script.
 
 #### Parameters
 
@@ -25,7 +26,8 @@ Converts CSV to JSON. Uses the `dw/csvToJsonBasic.dwl` DataWeave script.
 
 ### `public static String convertCsvToJsonWithFieldRenaming(String csvPayload)`
 
-Converts CSV to JSON while renaming object fields. Uses the `dw/csvToJsonWithFieldRenaming.dwl` DataWeave script.
+Converts CSV to JSON while renaming object fields.
+Uses the `dw/csvToJsonWithFieldRenaming.dwl` DataWeave script.
 
 #### Parameters
 
@@ -41,7 +43,9 @@ Converts CSV to JSON while renaming object fields. Uses the `dw/csvToJsonWithFie
 
 ### `public static String convertCsvWithCustomSeparatorToJson(String csvPayload)`
 
-Converts CSV to JSON with a custom `;` CSV separator. Uses the `dw/csvSeparatorToJson.dwl` DataWeave script. Notice that the script input MIME type specifies `separator=';'`.
+Converts CSV to JSON with a custom `;` CSV separator.
+Uses the `dw/csvSeparatorToJson.dwl` DataWeave script.
+Notice that the script input MIME type specifies `separator=';'`.
 
 #### Parameters
 

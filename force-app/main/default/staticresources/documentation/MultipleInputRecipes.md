@@ -8,7 +8,8 @@ Demonstrates how use multiple input parameters in a DataWeave script in Apex.
 ## Methods
 ### `public static String runScriptWithMultipleInputs(String products, String attributes, String exchangeRates)`
 
-Converts the information of a shopping basket into another currency. Uses the `/dw/multipleInputs.dwl` DataWeave script.
+Converts the information of a shopping basket into another currency.
+Uses the `/dw/multipleInputs.dwl` DataWeave script.
 
 #### Parameters
 

@@ -51,7 +51,8 @@ System.debug(CanTheUser.crud(new Account(), CanTheUser.CrudType.READ));
 `TESTVISIBLE`
 ### `public static Boolean create(SObject obj)`
 
-convenience api for determining if the running user can create the specified object
+convenience api for determining if the running user can
+create the specified object
 
 #### Parameters
 
@@ -73,7 +74,8 @@ System.debug(CanTheUser.create(new Account()));
 
 ### `public static Boolean create(List<SObject> objs)`
 
-convenience api for determining if the running user can create the specified object
+convenience api for determining if the running user can
+create the specified object
 
 #### Parameters
 
@@ -89,7 +91,8 @@ convenience api for determining if the running user can create the specified obj
 
 ### `public static Boolean create(String objName)`
 
-convenience api for determining if the running user can create the specified object
+convenience api for determining if the running user can
+create the specified object
 
 #### Parameters
 
@@ -111,7 +114,8 @@ System.debug(CanTheUser.create('Account'));
 
 ### `public static Boolean read(SObject obj)`
 
-convenience api for determining if the running user can read / access the specified object
+convenience api for determining if the running user can
+read / access the specified object
 
 #### Parameters
 
@@ -133,7 +137,8 @@ System.debug(CanTheUser.read(new Account()));
 
 ### `public static Boolean read(List<SObject> objs)`
 
-convenience api for determining if the running user can read / access the specified objects
+convenience api for determining if the running user can
+read / access the specified objects
 
 #### Parameters
 
@@ -154,7 +159,8 @@ convenience api for determining if the running user can read / access the specif
 
 ### `public static Boolean read(String objName)`
 
-convenience api for determining if the running user can read the specified object
+convenience api for determining if the running user can
+read the specified object
 
 #### Parameters
 
@@ -176,7 +182,8 @@ System.debug(CanTheUser.read('Account'));
 
 ### `public static Boolean edit(SObject obj)`
 
-convenience api for determining if the running user can edit / update the specified object
+convenience api for determining if the running user can
+edit / update the specified object
 
 #### Parameters
 
@@ -198,7 +205,8 @@ System.debug(CanTheUser.edit(new Account()));
 
 ### `public static Boolean edit(List<SObject> objs)`
 
-convenience api for determining if the running user can edit / update the specified objects
+convenience api for determining if the running user can
+edit / update the specified objects
 
 #### Parameters
 
@@ -219,7 +227,8 @@ convenience api for determining if the running user can edit / update the specif
 
 ### `public static Boolean edit(String objName)`
 
-convenience api for determining if the running user can edit the specified object
+convenience api for determining if the running user can
+edit the specified object
 
 #### Parameters
 
@@ -241,7 +250,8 @@ System.debug(CanTheUser.edit('Account'));
 
 ### `public static Boolean ups(SObject obj)`
 
-convenience api for determining if the running user can upsert (insert and update) the specified objects
+convenience api for determining if the running user can
+upsert (insert and update) the specified objects
 
 #### Parameters
 
@@ -263,7 +273,8 @@ System.debug(CanTheUser.ups(new Account()));
 
 ### `public static Boolean ups(List<SObject> objs)`
 
-convenience api for determining if the running user can edit / update the specified objects
+convenience api for determining if the running user can
+edit / update the specified objects
 
 #### Parameters
 
@@ -284,7 +295,8 @@ convenience api for determining if the running user can edit / update the specif
 
 ### `public static Boolean ups(String objName)`
 
-convenience api for determining if the running user can upsert the specified object
+convenience api for determining if the running user can
+upsert the specified object
 
 #### Parameters
 
@@ -306,7 +318,8 @@ System.debug(CanTheUser.ups('Account'));
 
 ### `public static Boolean destroy(SObject obj)`
 
-convenience api for determining if the running user can delete/destroy the specified object
+convenience api for determining if the running user can
+delete/destroy the specified object
 
 #### Parameters
 
@@ -328,7 +341,8 @@ System.debug(CanTheUser.destroy(new Account()));
 
 ### `public static Boolean destroy(List<SObject> objs)`
 
-convenience api for determining if the running user can delete the specified object
+convenience api for determining if the running user can
+delete the specified object
 
 #### Parameters
 
@@ -344,7 +358,8 @@ convenience api for determining if the running user can delete the specified obj
 
 ### `public static Boolean destroy(String objName)`
 
-convenience api for determining if the running user can delete the specified object
+convenience api for determining if the running user can
+delete the specified object
 
 #### Parameters
 
@@ -366,7 +381,8 @@ System.debug(CanTheUser.destroy('Account'));
 
 ### `public static Boolean flsAccessible(String obj, String field)`
 
-public method to determine if a given field on a given object is Accessible (readable)
+public method to determine if a given field on a given
+object is Accessible (readable)
 
 #### Parameters
 
@@ -413,7 +429,8 @@ System.debug(CanTheUser.bulkFLSAccessible('Account', fields));
 
 ### `public static Boolean flsUpdatable(String obj, String field)`
 
-public method to determine if a given field on a given object is Updatable.
+public method to determine if a given field on a given
+object is Updatable.
 
 #### Parameters
 
@@ -464,7 +481,14 @@ System.debug(CanTheUser.bulkFLSUpdatable('Account', fields));
 
 `TESTVISIBLE`
 
-Utilizes the Metadata catalog to determine FLS Note: this method contains a false-positive PMD violation. Normally, we'd want to check for FLS/CRUD here, but for metadata catalog objects that admins cannot remove permissions to we're ok. Additionally, even the minimum access profile user has read access to the FieldPermissions object.
+Utilizes the Metadata catalog to determine FLS
+
+Note: this method contains a false-positive PMD violation.
+Normally, we'd want to check for FLS/CRUD here, but for metadata catalog
+objects that admins cannot remove permissions to we're ok.
+
+Additionally, even the minimum access profile user has read access
+to the FieldPermissions object.
 
 #### Parameters
 
@@ -481,7 +505,8 @@ Utilizes the Metadata catalog to determine FLS Note: this method contains a fals
 
 ### `private static Boolean getFLSForFieldOnObject(String obj, String field, FLSType checkType)`
 
-Abstracted method for retrieving or calculating (memoization) of the FLS for a given field on a given object.
+Abstracted method for retrieving or calculating
+(memoization) of the FLS for a given field on a given object.
 
 #### Parameters
 
@@ -530,7 +555,12 @@ Schema.Describe* calls
 #### Methods
 ##### `public Object doLoad(String objType)`
 
-Required method for the CacheBuilder interface. Used here to either calculate an objects per-user FLS, OR to return it from Cache. The return datastructure for this is Map&lt;String, Map&lt;FLSType,Boolean&gt;&gt; and represents: FieldName -&gt; FLStype -&gt; True/False
+Required method for the CacheBuilder interface. Used
+here to either calculate an objects per-user FLS, OR to return it
+from Cache.
+The return datastructure for this is
+Map&lt;String, Map&lt;FLSType,Boolean&gt;&gt; and represents:
+FieldName -&gt; FLStype -&gt; True/False
 
 ###### Parameters
 

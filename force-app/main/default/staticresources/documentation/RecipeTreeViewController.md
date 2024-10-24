@@ -17,7 +17,8 @@ component with recipe and group information
 ### `private GROUP_TAG` → `String`
 
 
-The String here represents a relatively unique tag that Apex Recipe uses to help group related classes.
+The String here represents a relatively unique tag that
+Apex Recipe uses to help group related classes.
 
 ---
 ## Methods
@@ -25,7 +26,10 @@ The String here represents a relatively unique tag that Apex Recipe uses to help
 
 `AURAENABLED`
 
-Generates a recursive list of RecipeTreeData objects to feed to a Lightning-tree-view component. Importantly, the returning array has two RecipeTreeData objects - One for Recipes, the other for our supporting, shared code.
+Generates a recursive list of RecipeTreeData objects
+to feed to a Lightning-tree-view component. Importantly, the returning
+array has two RecipeTreeData objects - One for Recipes, the other
+for our supporting, shared code.
 
 #### Returns
 
@@ -43,7 +47,13 @@ System.debug(RecipeTreeViewController.generateTreeData());
 
 `SUPPRESSWARNINGS`
 
-Generates a map containing Group names as the Keys tied to a List of class names. Note: this method contains a false-positive PMD violation. Normally, we'd want to check for FLS/CRUD here, but for ApexClass a system level object that Admins and users cannot really change we're ok.
+Generates a map containing Group names as the Keys tied to
+a List of class names.
+
+Note: this method contains a false-positive PMD violation.
+Normally, we'd want to check for FLS/CRUD here, but for ApexClass
+a system level object that Admins and users cannot really change
+we're ok.
 
 #### Returns
 
@@ -85,7 +95,8 @@ that uses this data
 #### Methods
 ##### `public Integer compareTo(Object compareTo)`
 
-Required by the Comparable interface, this method, once implemented allows us to sort of this object type.
+Required by the Comparable interface, this method,
+once implemented allows us to sort of this object type.
 
 ###### Parameters
 

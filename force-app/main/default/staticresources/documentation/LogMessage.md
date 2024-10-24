@@ -9,7 +9,8 @@ like Quiddity and RequestID
 ## Constructors
 ### `public LogMessage(String message)`
 
-Constructor accepting a message to log. Severity is auto set to info
+Constructor accepting a message to log.
+Severity is auto set to info
 
 #### Parameters
 

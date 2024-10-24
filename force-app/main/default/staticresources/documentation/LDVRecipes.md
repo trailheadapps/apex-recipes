@@ -6,8 +6,10 @@ is that Queueables, in production, have no max-queue depth. Meaning that so
 long as you only enqueue one new queueable, it can keep cycling through until
 the entire data set is processed. This is useful for instance, when you want
 to process hundreds of thousands of records.
+
 Note: You're not able to re-enqueue within a test context, so the unit test
 for this code is limited to the same number of records as chunkSize below.
+
 Note: This should be refactored to be an abstract class that you can extend
 named 'Ouroboros'. (Ouroboros = the snake eating it's own tail)
 
@@ -26,7 +28,8 @@ No param constructor. Use for starting the chain.
 
 ### `public LDVRecipes(Id offsetId)`
 
-Constructor accepting an ID to use as an offset. Use this version to *continue* the chain.
+Constructor accepting an ID to use as an offset. Use
+this version to *continue* the chain.
 
 #### Parameters
 
@@ -52,9 +55,12 @@ Constructor accepting an ID to use as an offset. Use this version to *continue* 
 
 ---
 ## Methods
-### `public void execute(System queueableContext)`
+### `public void execute(System.QueueableContext queueableContext)`
 
-This method contains the 'what' happens to each chunk of records. Note, that this example doesn't actually do any processing. In a real-life use case you'd iterate over the records stored in this.objectsToProcess.
+This method contains the 'what' happens to each
+chunk of records. Note, that this example doesn't actually do any
+processing. In a real-life use case you'd iterate over the records stored
+in this.objectsToProcess.
 
 #### Parameters
 
@@ -64,7 +70,12 @@ This method contains the 'what' happens to each chunk of records. Note, that thi
 
 ### `private List<ContentDocumentLink> getRecordsToProcess(Id offsetId)`
 
-Returns a 'cursor' - a set of records of size X from a given offset. Note: We originally intended to use OFFSET - the SOQL keyword, but discovered the max OFFSET size is 2000. This obviously won't work for large data volumes greater than 2000 so we switched to using the ID of the record. Since ID is an indexed field, this should also allow us to prevent full table scans even on the largest tables.
+Returns a 'cursor' - a set of records of size X from a
+given offset. Note: We originally intended to use OFFSET - the SOQL
+keyword, but discovered the max OFFSET size is 2000. This obviously won't
+work for large data volumes greater than 2000 so we switched to using the
+ID of the record. Since ID is an indexed field, this should also allow
+us to prevent full table scans even on the largest tables.
 
 #### Parameters
 

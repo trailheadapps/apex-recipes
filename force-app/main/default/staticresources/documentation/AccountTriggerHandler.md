@@ -22,7 +22,8 @@ AccountTriggerHandler
 ## Constructors
 ### `public AccountTriggerHandler()`
 
-Constructor that sets class variables based on Trigger context vars
+Constructor that sets class variables based on Trigger
+context vars
 
 ---
 ## Fields
@@ -52,7 +53,8 @@ Constructor that sets class variables based on Trigger context vars
 ## Methods
 ### `public override void beforeInsert()`
 
-Before Insert context method. Called automatically by the trigger framework this class extends.
+Before Insert context method. Called automatically by the
+trigger framework this class extends.
 
 #### Example
 ```apex
@@ -65,7 +67,8 @@ insert accounts;
 
 ### `public override void afterInsert()`
 
-after insert context method. Called automatically by the trigger framework this class extends
+after insert context method. Called automatically by the
+trigger framework this class extends
 
 #### Example
 ```apex
@@ -78,7 +81,8 @@ insert accounts;
 
 ### `public override void beforeUpdate()`
 
-before update context method. Called automatically by the trigger framework this class extends
+before update context method. Called automatically by the
+trigger framework this class extends
 
 #### Example
 ```apex
@@ -95,7 +99,14 @@ update accounts;
 
 `SUPPRESSWARNINGS`
 
-after update context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn't make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+after update context method. Called automatically by the
+trigger framework this class extends
+
+Note: this method contains a PMD false-positive report about CRUD
+checking before insert. However, trigger code is run in system mode,
+regardless of users, so it doesn't make sense to check for Account and
+Task permissions. This code is therefore only safe to execute in the
+context of a trigger.
 
 #### Example
 ```apex
@@ -112,7 +123,14 @@ update accounts;
 
 `SUPPRESSWARNINGS`
 
-before delete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn't make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+before delete context method. Called automatically by the
+trigger framework this class extends
+
+Note: this method contains a PMD false-positive report about CRUD
+checking before insert. However, trigger code is run in system mode,
+regardless of users, so it doesn't make sense to check for Account and
+Task permissions. This code is therefore only safe to execute in the
+context of a trigger.
 
 #### Example
 ```apex
@@ -127,7 +145,14 @@ delete accounts;
 
 `SUPPRESSWARNINGS`
 
-after delete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn't make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+after delete context method. Called automatically by the
+trigger framework this class extends
+
+Note: this method contains a PMD false-positive report about CRUD
+checking before insert. However, trigger code is run in system mode,
+regardless of users, so it doesn't make sense to check for Account and
+Task permissions. This code is therefore only safe to execute in the
+context of a trigger.
 
 #### Example
 ```apex
@@ -142,7 +167,14 @@ delete accounts;
 
 `SUPPRESSWARNINGS`
 
-after undelete context method. Called automatically by the trigger framework this class extends Note: this method contains a PMD false-positive report about CRUD checking before insert. However, trigger code is run in system mode, regardless of users, so it doesn't make sense to check for Account and Task permissions. This code is therefore only safe to execute in the context of a trigger.
+after undelete context method. Called automatically by the
+trigger framework this class extends
+
+Note: this method contains a PMD false-positive report about CRUD
+checking before insert. However, trigger code is run in system mode,
+regardless of users, so it doesn't make sense to check for Account and
+Task permissions. This code is therefore only safe to execute in the
+context of a trigger.
 
 #### Example
 ```apex
@@ -159,7 +191,9 @@ undelete accounts;
 *Inherited*
 
 
-This is main brokering method that is called by the trigger. It's responsible for determining the proper context, and calling the correct method
+This is main brokering method that is called by the trigger.
+It's responsible for determining the proper context, and calling the
+correct method
 
 #### Example
 ```apex
@@ -172,7 +206,9 @@ AccountTriggerHandler.run();
 *Inherited*
 
 
-Allows developers to prevent trigger loops, or allow a limited number of them by setting the maximum number of times this trigger is called.
+Allows developers to prevent trigger loops, or allow
+a limited number of them by setting the maximum number of times
+this trigger is called.
 
 #### Parameters
 
@@ -206,7 +242,8 @@ this.clearMaxLoopCount();
 *Inherited*
 
 
-Allows developers to conditionally bypass (disable) other triggers that *also* implement this triggerHandler
+Allows developers to conditionally bypass (disable)
+other triggers that *also* implement this triggerHandler
 
 #### Parameters
 
@@ -225,7 +262,8 @@ TriggerHandler.bypass('AccountTriggerHandler');
 *Inherited*
 
 
-Removes a given trigger handler class name from the list of bypassed trigger handlers.
+Removes a given trigger handler class name from
+the list of bypassed trigger handlers.
 
 #### Parameters
 
@@ -244,7 +282,8 @@ TriggerHandler.clearBypass('AccountTriggerHandler');
 *Inherited*
 
 
-Allows developers to check whether a given trigger handler class is currently bypassed.
+Allows developers to check whether a given trigger
+handler class is currently bypassed.
 
 #### Parameters
 

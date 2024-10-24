@@ -18,7 +18,9 @@ A demo class to be scheduled by ScheduledApexRecipes
 ## Methods
 ### `public void runAtMidnight()`
 
-A method demosrating the best practice of separating your logic from the schedulable interface code that executes it.
+A method demosrating the best practice of separating your
+logic from
+the schedulable interface code that executes it.
 
 #### Example
 ```apex

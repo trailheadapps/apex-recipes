@@ -41,7 +41,12 @@ The name of the Named Credential to use
 ## Methods
 ### `public static String rawCallout()`
 
-Demonstrates how to make a raw HTTP request. This method demonstrates how to use the Http, HttpRequest and HttpResponse objects to construct a single get request. The other methods in this class demonstrate the use of an intelligent abstraction layer - `RestClient.cls` - to make sending Http Requests easier, easier to test, and less error prone.
+Demonstrates how to make a raw HTTP request. This method
+demonstrates how to use the Http, HttpRequest and HttpResponse objects to
+construct a single get request. The other methods in this class
+demonstrate the use of an intelligent abstraction layer - `RestClient.cls`
+- to make sending Http Requests easier, easier to test, and less error
+prone.
 
 #### Returns
 
@@ -57,7 +62,14 @@ System.debug(CalloutRecipes.rawCallout());
 
 ### `public List<Account> httpGetCalloutToSecondOrg()`
 
-Demonstrates a GET request to a second Salesforce org. A Get request is used to retrieve data from a target endpoint, We will be using the `performRestCallout` method to make the callout. In this example, we will be requesting a list of Accounts from our second org. We will pass the endpoint our named credential, the url path to our integration-service custom REST endpoint, a null body and the GET method. We will then deserialize the JSON into a known object, in this case, a list of Accounts.
+Demonstrates a GET request to a second Salesforce org. A Get
+request is used to retrieve data from a target endpoint, We will be using
+the `performRestCallout` method to make the callout. In this example, we
+will be requesting a list of Accounts from our second org. We will pass
+the endpoint our named credential, the url path to our integration-service
+custom REST endpoint, a null body and the GET method. We will then
+deserialize the JSON into a known object, in this case, a list of
+Accounts.
 
 #### Returns
 
@@ -73,7 +85,12 @@ System.debug(CalloutRecipes.httpGetCalloutToSecondOrg());
 
 ### `public Integer httpDeleteCalloutToSecondOrg(Id contactId)`
 
-Demonstrates a DELETE request to a second Salesforce org - A DELETE request is used to delete data from the target endpoint. In this example, we will be deleting a contact from another Salesforce org. We will store the parameters in the urlPath which can then be accessed through the .getParams() method in the org receiving the delete request.
+Demonstrates a DELETE request to a second Salesforce org - A
+DELETE request is used to delete data from the target endpoint.
+In this example, we will be deleting a contact from another Salesforce
+org. We will store the parameters in the urlPath which can then be
+accessed through the .getParams() method in the org receiving the delete
+request.
 
 #### Parameters
 
@@ -96,7 +113,11 @@ System.debug(CalloutRecipes.httpDeleteCalloutToSecondOrg(contactId));
 
 ### `public Integer httpPostCalloutToSecondOrg(List<Contact> contactRecords)`
 
-Demonstrates a POST request to a second Salesforce org a POST request is used to send data to a target endpoint and insert it. In this example, we will be sending a list of contact records to a second Salesforce org. We will serilaize the list and POST it in body of the callout.
+Demonstrates a POST request to a second Salesforce org a
+POST request is used to send data to a target endpoint and insert it.
+In this example, we will be sending a list of contact records to a second
+Salesforce org.
+We will serilaize the list and POST it in body of the callout.
 
 #### Parameters
 
@@ -119,7 +140,9 @@ System.debug(CalloutRecipes.httpPostCalloutToSecondOrg(contacts));
 
 ### `public Integer httpPutCalloutToSecondOrg(List<Contact> contactRecords)`
 
-Demonstrates a PUT request to a second Salesforce org a PUT request is used to send data to a target endpoint and upsert it. In this example, we will be sending a list of contact records to a second org.
+Demonstrates a PUT request to a second Salesforce org a PUT
+request is used to send data to a target endpoint and upsert it. In this
+example, we will be sending a list of contact records to a second org.
 
 #### Parameters
 
@@ -142,7 +165,10 @@ System.debug(CalloutRecipes.httpPutCalloutToSecondOrg(contacts));
 
 ### `public Integer httpPatchCalloutToSecondOrg(List<Account> accountRecords)`
 
-Demonstrates a PATCH request to a second Salesforce org a PATCH request is used to send data to a target endpoint and update already existing data. In this example, we will be sending a list of Account records to a second salesforce org for updating.
+Demonstrates a PATCH request to a second Salesforce org a
+PATCH request is used to send data to a target endpoint and update
+already existing data. In this example, we will be sending a list of
+Account records to a second salesforce org for updating.
 
 #### Parameters
 
@@ -165,7 +191,12 @@ System.debug(CalloutRecipes.httpPatchCalloutToSecondOrg(contacts));
 
 ### `public Map<String,Object> httpCalloutWithUntypedResponse()`
 
-Now that we have demonstrated how to callout to an endpoint, lets take a look at what else we can do with the response. When calling out to an external endpoint, the data may not always be in a format that can be directly deserialised into a Salesforce Object. If your callout returns untyped JSON, you can deserialize this into a Map&lt;String, Object&gt; by using a deserializeUntyped method to convert the string.
+Now that we have demonstrated how to callout to an endpoint,
+lets take a look at what else we can do with the response. When calling
+out to an external endpoint, the data may not always be in a format that
+can be directly deserialised into a Salesforce Object. If your callout
+returns untyped JSON, you can deserialize this into a Map&lt;String, Object&gt;
+by using a deserializeUntyped method to convert the string.
 
 #### Returns
 
@@ -181,7 +212,11 @@ System.debug(CalloutRecipes.httpCalloutWithUntypedResponse());
 
 ### `public void insertAccountAndContactsFromUntypedResponse(String untypedResponse)`
 
-As seen in the httpCalloutWithUntypedResponse method, we don't always get a perfect datastructure back from our callout. In this case, we have received and account and it's contacts that need to be inserted into Salesforce. Check out the Test class for an example of an untyped data structure.
+As seen in the httpCalloutWithUntypedResponse method, we
+don't always get a perfect datastructure back from our callout. In this
+case, we have received and account and it's contacts that need to be
+inserted into Salesforce. Check out the Test class for an example of an
+untyped data structure.
 
 #### Parameters
 
@@ -204,7 +239,9 @@ CalloutRecipes.insertAccountAndContactsFromUntypedResponse(CalloutRecipes_Tests.
 
 `SUPPRESSWARNINGS`
 
-Omnibus callout method. This is the primary method for making a REST callout. Most of the other methods in this class serve as convient, syntactic sugar on this method.
+Omnibus callout method. This is the primary method for
+making a REST callout. Most of the other methods in this class serve
+as convient, syntactic sugar on this method.
 
 #### Parameters
 
@@ -231,7 +268,8 @@ Omnibus callout method. This is the primary method for making a REST callout. Mo
 
 `SUPPRESSWARNINGS`
 
-Makes an HTTP Callout to an api resource. Convienence method that assumes the Default Headers.
+Makes an HTTP Callout to an api resource.
+Convienence method that assumes the Default Headers.
 
 #### Parameters
 
@@ -255,7 +293,8 @@ Makes an HTTP Callout to an api resource. Convienence method that assumes the De
 
 `TESTVISIBLE`
 
-convenience version of makeApiCall without body param. Invokes omnibus version above, with blank body param and default headers.
+convenience version of makeApiCall without body param.
+Invokes omnibus version above, with blank body param and default headers.
 
 #### Parameters
 
@@ -278,7 +317,9 @@ convenience version of makeApiCall without body param. Invokes omnibus version a
 
 `TESTVISIBLE`
 
-convenience version of makeApiCall without body or query params. Invokes omnibus version above, with blank body and query params
+convenience version of makeApiCall without body or query
+params.
+Invokes omnibus version above, with blank body and query params
 
 #### Parameters
 
@@ -321,7 +362,8 @@ convenience method for a GET Call that only requires a path
 
 `TESTVISIBLE`
 
-convenience method for a GET Call that only requires a path and query
+convenience method for a GET Call that only requires a path
+and query
 
 #### Parameters
 
@@ -343,7 +385,8 @@ convenience method for a GET Call that only requires a path and query
 
 `TESTVISIBLE`
 
-convenience method for deleteing a resource based only on path
+convenience method for deleteing a resource based only on
+path
 
 #### Parameters
 
@@ -364,7 +407,8 @@ convenience method for deleteing a resource based only on path
 
 `TESTVISIBLE`
 
-convenience method for a Delete Call that only requires a path and query
+convenience method for a Delete Call that only requires a
+path and query
 
 #### Parameters
 
@@ -386,7 +430,8 @@ convenience method for a Delete Call that only requires a path and query
 
 `TESTVISIBLE`
 
-convenience method for a POST Call that only requires a path and body
+convenience method for a POST Call that only requires a path
+and body
 
 #### Parameters
 
@@ -408,7 +453,8 @@ convenience method for a POST Call that only requires a path and body
 
 `TESTVISIBLE`
 
-convenience method for a POST Call that only requires a path, query and body
+convenience method for a POST Call that only requires a
+path, query and body
 
 #### Parameters
 
@@ -431,7 +477,8 @@ convenience method for a POST Call that only requires a path, query and body
 
 `TESTVISIBLE`
 
-convenience method for a PUT Call that only requires a path and body
+convenience method for a PUT Call that only requires a path
+and body
 
 #### Parameters
 
@@ -453,7 +500,8 @@ convenience method for a PUT Call that only requires a path and body
 
 `TESTVISIBLE`
 
-convenience method for a PUT Call that only requires a path, query and body
+convenience method for a PUT Call that only requires a path,
+query and body
 
 #### Parameters
 
@@ -476,7 +524,8 @@ convenience method for a PUT Call that only requires a path, query and body
 
 `TESTVISIBLE`
 
-convenience method for a PATCH Call that only requires a path, query and body
+convenience method for a PATCH Call that only requires a
+path, query and body
 
 #### Parameters
 
@@ -498,7 +547,8 @@ convenience method for a PATCH Call that only requires a path, query and body
 
 `TESTVISIBLE`
 
-convenience method for a PATCH Call that only requires a path, query and body
+convenience method for a PATCH Call that only requires a
+path, query and body
 
 #### Parameters
 
@@ -521,7 +571,8 @@ convenience method for a PATCH Call that only requires a path, query and body
 
 `TESTVISIBLE`
 
-Ensures that the inputted string ends in a `/` makes callouts more robust.
+Ensures that the inputted string ends in a `/`
+makes callouts more robust.
 
 #### Parameters
 
@@ -579,7 +630,8 @@ System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
 
 `SUPPRESSWARNINGS`
 
-A static wrapper for the main makeApiCall method that assumes default headers.
+A static wrapper for the main makeApiCall method
+that assumes default headers.
 
 #### Parameters
 
@@ -610,7 +662,8 @@ System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
 *Inherited*
 
 
-A static wrapper for the main makeApiCall method where you only need the path
+A static wrapper for the main makeApiCall method
+where you only need the path
 
 #### Parameters
 

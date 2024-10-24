@@ -10,7 +10,8 @@ Notice that all script output MIME types are set to `application/apex`.
 ## Methods
 ### `public static List<Contact> convertCsvToContacts(String inputCsv)`
 
-Converts CSV data into a list of contact records. Uses the `/dw/csvToContacts.dwl` DataWeave script.
+Converts CSV data into a list of contact records.
+Uses the `/dw/csvToContacts.dwl` DataWeave script.
 
 #### Parameters
 
@@ -26,7 +27,8 @@ Converts CSV data into a list of contact records. Uses the `/dw/csvToContacts.dw
 
 ### `public static List<Contact> convertJsonToContacts(String inputJson)`
 
-Converts JSON data into a list of contact records. Uses the `/dw/jsonToContacts.dwl` DataWeave script.
+Converts JSON data into a list of contact records.
+Uses the `/dw/jsonToContacts.dwl` DataWeave script.
 
 #### Parameters
 
@@ -42,7 +44,8 @@ Converts JSON data into a list of contact records. Uses the `/dw/jsonToContacts.
 
 ### `public static List<CsvData> convertCsvToApexObject(String inputCsv)`
 
-Converts CSV data into a list of Apex objects. Uses the `/dw/csvToApexObject.dwl` DataWeave script.
+Converts CSV data into a list of Apex objects.
+Uses the `/dw/csvToApexObject.dwl` DataWeave script.
 
 #### Parameters
 

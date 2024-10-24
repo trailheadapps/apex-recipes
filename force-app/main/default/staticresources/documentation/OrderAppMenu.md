@@ -18,7 +18,8 @@ for instance accounts.
 
 `SUPPRESSWARNINGS`
 
-reorders the org wide AppMenu order so Apex Recipes is the first seen.
+reorders the org wide AppMenu order so Apex Recipes is the
+first seen.
 
 #### Parameters
 

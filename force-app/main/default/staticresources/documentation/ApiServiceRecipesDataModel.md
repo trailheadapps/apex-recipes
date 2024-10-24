@@ -15,7 +15,8 @@ web service response JSON to Apex objects.
 ### `public exampleArray` → `List<Integer>`
 
 
-These properties represent the JSON keys that we need to send or receive.
+These properties represent the JSON keys that we need
+to send or receive.
 
 ### `public exampleBoolean` → `Boolean`
 
@@ -39,7 +40,8 @@ These properties represent the JSON keys that we need to send or receive.
 ## Methods
 ### `public static List<ApiServiceRecipesDataModel> parse(String json)`
 
-Parses the provided JSON string into a list of ApiServiceRecipesDataModel objects
+Parses the provided JSON string into a list of
+ApiServiceRecipesDataModel objects
 
 #### Parameters
 

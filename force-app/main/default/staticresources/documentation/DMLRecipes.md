@@ -10,7 +10,8 @@ well as DML Keywords.
 ## Methods
 ### `public static Account insertAccountViaInsertKeywordInSystemMode(String name)`
 
-Demonstrates how to use the `insert` keyword to persist a net-new record to the database in system mode
+Demonstrates how to use the `insert` keyword to persist a
+net-new record to the database in system mode
 
 #### Parameters
 
@@ -32,7 +33,8 @@ DMLRecipes.insertAccountViaInsertKeywordInSystemMode('Hello');
 
 ### `public static Account insertAccountViaInsertKeywordInUserMode(String name)`
 
-Demonstrates how to use the `insert` keyword to persist a net-new record to the database in user mode
+Demonstrates how to use the `insert` keyword to persist a
+net-new record to the database in user mode
 
 #### Parameters
 
@@ -52,9 +54,10 @@ DMLRecipes.insertAccountViaInsertKeywordInUserMode('Hello');
 ```
 
 
-### `public static List<Account> insertAccountsViaDatabaseMethod(List<String> names, Boolean allOrNothing, System accessLevel)`
+### `public static List<Account> insertAccountsViaDatabaseMethod(List<String> names, Boolean allOrNothing, System.AccessLevel accessLevel)`
 
-Demonstrates how to use the `Database.insert()` method to persist a net-new record to the database.
+Demonstrates how to use the `Database.insert()` method to
+persist a net-new record to the database.
 
 #### Parameters
 
@@ -77,7 +80,8 @@ DMLRecipes.insertAccountsViaDatabaseMethod('Hello', false, AccessLevel.USER_MODE
 
 ### `public static Account upsertAccountViaUpsertKeywordInSystemMode(Account acct)`
 
-Demonstrates the use of the `upsert` keyword to either insert or update a record in system mode
+Demonstrates the use of the `upsert` keyword to either insert
+or update a record in system mode
 
 #### Parameters
 
@@ -99,7 +103,8 @@ DMLRecipes.upsertAccountViaUpsertKeywordInSystemMode(new Account(name='Hello Wor
 
 ### `public static Account upsertAccountViaUpsertKeywordInUserMode(Account acct)`
 
-Demonstrates the use of the `upsert` keyword to either insert or update a record in user mode
+Demonstrates the use of the `upsert` keyword to either insert
+or update a record in user mode
 
 #### Parameters
 
@@ -119,9 +124,10 @@ DMLRecipes.upsertAccountViaUpsertKeywordInUserMode(new Account(name='Hello World
 ```
 
 
-### `public static Database upsertAccountViaDatabaseMethod(Account acct, Boolean allOrNothing, System accessLevel)`
+### `public static Database.UpsertResult upsertAccountViaDatabaseMethod(Account acct, Boolean allOrNothing, System.AccessLevel accessLevel)`
 
-Upserts an account with a potential of all or nothing, using the `Database.upsert` method
+Upserts an account with a potential of all or nothing, using
+the `Database.upsert` method
 
 #### Parameters
 
@@ -134,7 +140,7 @@ Upserts an account with a potential of all or nothing, using the `Database.upser
 
 |Type|Description|
 |---|---|
-|`Database`|Upsert operation result|
+|`Database.UpsertResult`|Upsert operation result|
 
 #### Example
 ```apex
@@ -145,7 +151,8 @@ DMLRecipes.upsertAccountViaDatabaseMethod(
 
 ### `public static List<Account> updateAcccountViaKeywordInSystemMode(List<Account> accts)`
 
-Demonstrates how to Update a list of accounts via the `update` DML keyword in System Mode
+Demonstrates how to Update a list of accounts via the `update`
+DML keyword in System Mode
 
 #### Parameters
 
@@ -169,7 +176,8 @@ DMLRecipes.updateAcccountViaKeywordInSystemMode(acct);
 
 ### `public static List<Account> updateAcccountViaKeywordInUserMode(List<Account> accts)`
 
-Demonstrates how to Update a list of accounts via the `update` DML keyword
+Demonstrates how to Update a list of accounts via the `update`
+DML keyword
 
 #### Parameters
 
@@ -191,9 +199,10 @@ DMLRecipes.updateAcccountViaKeyword(acct);
 ```
 
 
-### `public static List<Account> updateAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
+### `public static List<Account> updateAccountViaDatabaseMethod(List<Account> accts, System.AccessLevel accessLevel)`
 
-Demonstrates how to update a list of accounts via the `Database.update()` method
+Demonstrates how to update a list of accounts via the
+`Database.update()` method
 
 #### Parameters
 
@@ -252,7 +261,7 @@ DMLRecipes.deleteAccountViaKeywordInUserMode(accounts);
 ```
 
 
-### `public static void deleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
+### `public static void deleteAccountViaDatabaseMethod(List<Account> accts, System.AccessLevel accessLevel)`
 
 Deletes a list of accounts via the `Database.delete` method
 
@@ -322,7 +331,7 @@ System.debug(results);
 ```
 
 
-### `public static List<Account> undeleteAccountViaDatabaseMethod(List<Account> accts, System accessLevel)`
+### `public static List<Account> undeleteAccountViaDatabaseMethod(List<Account> accts, System.AccessLevel accessLevel)`
 
 undeletes a list of accounts via the `Database.undelete` method.
 

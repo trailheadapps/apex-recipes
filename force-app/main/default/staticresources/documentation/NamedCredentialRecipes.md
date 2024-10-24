@@ -13,7 +13,7 @@ Demonstrates how to manage named credentials from Apex
 ### `public NAMED_CREDENTIAL_DEVELOPER_NAME` → `String`
 
 
-### `public NAMED_CREDENTIAL_TYPE` → `ConnectApi`
+### `public NAMED_CREDENTIAL_TYPE` → `ConnectApi.NamedCredentialType`
 
 
 ### `public NAMED_CREDENTIAL_CALLOUT_URL` → `String`
@@ -34,13 +34,13 @@ Demonstrates how to manage named credentials from Apex
 ### `public EXTERNAL_CREDENTIAL_DEVELOPER_NAME` → `String`
 
 
-### `public EXTERNAL_CREDENTIAL_AUTHENTICATION_PROTOCOL` → `ConnectApi`
+### `public EXTERNAL_CREDENTIAL_AUTHENTICATION_PROTOCOL` → `ConnectApi.CredentialAuthenticationProtocol`
 
 
 ### `public PRINCIPAL_NAME` → `String`
 
 
-### `public PRINCIPAL_TYPE` → `ConnectApi`
+### `public PRINCIPAL_TYPE` → `ConnectApi.CredentialPrincipalType`
 
 
 ### `public PRINCIPAL_SEQUENCE_NUMBER` → `Integer`
@@ -48,7 +48,7 @@ Demonstrates how to manage named credentials from Apex
 
 ---
 ## Methods
-### `public static ConnectApi createNamedCredential(ConnectApiWrapper connectApiWrapper, String permissionSetName)`
+### `public static ConnectApi.NamedCredential createNamedCredential(ConnectApiWrapper connectApiWrapper, String permissionSetName)`
 
 Demonstrates how create a named credential from Apex.
 
@@ -63,7 +63,7 @@ Demonstrates how create a named credential from Apex.
 
 |Type|Description|
 |---|---|
-|`ConnectApi`|ConnectApi.NamedCredential The created named credential|
+|`ConnectApi.NamedCredential`|ConnectApi.NamedCredential The created named credential|
 
 #### Example
 ```apex
@@ -77,9 +77,11 @@ System.debug(response.getBody());
 ```
 
 
-### `private static ConnectApi createExternalCredential(ConnectApiWrapper connectApiWrapper, String permissionSetName)`
+### `private static ConnectApi.ExternalCredential createExternalCredential(ConnectApiWrapper connectApiWrapper, String permissionSetName)`
 
-This example shows how to create an external credential in Apex. An external credential contains the authentication and authorization information for the callout, and needs to be linked to a named credential in order to be used.
+This example shows how to create an external credential in Apex.
+An external credential contains the authentication and authorization information for the callout,
+and needs to be linked to a named credential in order to be used.
 
 #### Parameters
 
@@ -92,7 +94,7 @@ This example shows how to create an external credential in Apex. An external cre
 
 |Type|Description|
 |---|---|
-|`ConnectApi`|ConnectApi.ExternalCredential The created external credential|
+|`ConnectApi.ExternalCredential`|ConnectApi.ExternalCredential The created external credential|
 
 #### Example
 ```apex

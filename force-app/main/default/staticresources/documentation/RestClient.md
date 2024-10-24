@@ -6,9 +6,11 @@ for security. This class is designated as Virtual so that
 API Service classes can extend it, and make use of it's methods easily.
 See the CovidTrackerAPI class for an example of how an API service class
 can extend RestClient.
+
 This class also provides static methods - so that the abstractions
 provided can be used in a one-off or ad-hoc manner for situations
 where a full API Service class isn't needed.
+
 More on Named Credentials:
 https://sfdc.co/named-credentials
 
@@ -42,7 +44,13 @@ Constructor that sets Named Credential
 
 `SUPPRESSWARNINGS`
 
-This constructor isn't intended for use, which is why it's access modifier is 'Protected'. However, any child class extending this class will either have to implement constructors matching the one above, or this constructor must exist. In order to make this abstraction as useful as possible, we've elected to leave this constructor here, but unavailable to anything but inner classes and classes that extend this one.
+This constructor isn't intended for use, which is why it's
+access modifier is 'Protected'. However, any child class extending
+this class will either have to implement constructors matching the one
+above, or this constructor must exist. In order to make this abstraction
+as useful as possible, we've elected to leave this constructor here,
+but unavailable to anything but inner classes and classes that
+extend this one.
 
 ---
 ## Fields
@@ -51,7 +59,9 @@ This constructor isn't intended for use, which is why it's access modifier is 'P
 
 `TESTVISIBLE` 
 
-These two properties are not public - which means that in order to manipulate them during a Unit test, we have to mark them
+These two properties are not public - which means that in
+order to manipulate them during a Unit test, we have to
+mark them
 
 ---
 ## Properties
@@ -70,7 +80,9 @@ The name of the Named Credential to use
 
 `SUPPRESSWARNINGS`
 
-Omnibus callout method. This is the primary method for making a REST callout. Most of the other methods in this class serve as convient, syntactic sugar on this method.
+Omnibus callout method. This is the primary method for
+making a REST callout. Most of the other methods in this class serve
+as convient, syntactic sugar on this method.
 
 #### Parameters
 
@@ -94,7 +106,8 @@ Omnibus callout method. This is the primary method for making a REST callout. Mo
 
 `SUPPRESSWARNINGS`
 
-Makes an HTTP Callout to an api resource. Convienence method that assumes the Default Headers.
+Makes an HTTP Callout to an api resource.
+Convienence method that assumes the Default Headers.
 
 #### Parameters
 
@@ -115,7 +128,8 @@ Makes an HTTP Callout to an api resource. Convienence method that assumes the De
 
 `TESTVISIBLE`
 
-convenience version of makeApiCall without body param. Invokes omnibus version above, with blank body param and default headers.
+convenience version of makeApiCall without body param.
+Invokes omnibus version above, with blank body param and default headers.
 
 #### Parameters
 
@@ -135,7 +149,9 @@ convenience version of makeApiCall without body param. Invokes omnibus version a
 
 `TESTVISIBLE`
 
-convenience version of makeApiCall without body or query params. Invokes omnibus version above, with blank body and query params
+convenience version of makeApiCall without body or query
+params.
+Invokes omnibus version above, with blank body and query params
 
 #### Parameters
 
@@ -172,7 +188,8 @@ convenience method for a GET Call that only requires a path
 
 `TESTVISIBLE`
 
-convenience method for a GET Call that only requires a path and query
+convenience method for a GET Call that only requires a path
+and query
 
 #### Parameters
 
@@ -191,7 +208,8 @@ convenience method for a GET Call that only requires a path and query
 
 `TESTVISIBLE`
 
-convenience method for deleteing a resource based only on path
+convenience method for deleteing a resource based only on
+path
 
 #### Parameters
 
@@ -209,7 +227,8 @@ convenience method for deleteing a resource based only on path
 
 `TESTVISIBLE`
 
-convenience method for a Delete Call that only requires a path and query
+convenience method for a Delete Call that only requires a
+path and query
 
 #### Parameters
 
@@ -228,7 +247,8 @@ convenience method for a Delete Call that only requires a path and query
 
 `TESTVISIBLE`
 
-convenience method for a POST Call that only requires a path and body
+convenience method for a POST Call that only requires a path
+and body
 
 #### Parameters
 
@@ -247,7 +267,8 @@ convenience method for a POST Call that only requires a path and body
 
 `TESTVISIBLE`
 
-convenience method for a POST Call that only requires a path, query and body
+convenience method for a POST Call that only requires a
+path, query and body
 
 #### Parameters
 
@@ -267,7 +288,8 @@ convenience method for a POST Call that only requires a path, query and body
 
 `TESTVISIBLE`
 
-convenience method for a PUT Call that only requires a path and body
+convenience method for a PUT Call that only requires a path
+and body
 
 #### Parameters
 
@@ -286,7 +308,8 @@ convenience method for a PUT Call that only requires a path and body
 
 `TESTVISIBLE`
 
-convenience method for a PUT Call that only requires a path, query and body
+convenience method for a PUT Call that only requires a path,
+query and body
 
 #### Parameters
 
@@ -306,7 +329,8 @@ convenience method for a PUT Call that only requires a path, query and body
 
 `TESTVISIBLE`
 
-convenience method for a PATCH Call that only requires a path, query and body
+convenience method for a PATCH Call that only requires a
+path, query and body
 
 #### Parameters
 
@@ -325,7 +349,8 @@ convenience method for a PATCH Call that only requires a path, query and body
 
 `TESTVISIBLE`
 
-convenience method for a PATCH Call that only requires a path, query and body
+convenience method for a PATCH Call that only requires a
+path, query and body
 
 #### Parameters
 
@@ -345,7 +370,8 @@ convenience method for a PATCH Call that only requires a path, query and body
 
 `TESTVISIBLE`
 
-Ensures that the inputted string ends in a `/` makes callouts more robust.
+Ensures that the inputted string ends in a `/`
+makes callouts more robust.
 
 #### Parameters
 
@@ -397,7 +423,8 @@ System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
 
 `SUPPRESSWARNINGS`
 
-A static wrapper for the main makeApiCall method that assumes default headers.
+A static wrapper for the main makeApiCall method
+that assumes default headers.
 
 #### Parameters
 
@@ -425,7 +452,8 @@ System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
 
 ### `public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path)`
 
-A static wrapper for the main makeApiCall method where you only need the path
+A static wrapper for the main makeApiCall method
+where you only need the path
 
 #### Parameters
 

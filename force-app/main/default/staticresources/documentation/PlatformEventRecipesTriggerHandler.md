@@ -19,7 +19,8 @@ PlatformEventRecipesTriggerHandler
 ## Constructors
 ### `public PlatformEventRecipesTriggerHandler()`
 
-Constructor responsible for transfering Trigger.new into a class variable
+Constructor responsible for transfering Trigger.new into a
+class variable
 
 ---
 ## Fields
@@ -36,7 +37,12 @@ Constructor responsible for transfering Trigger.new into a class variable
 ## Methods
 ### `public override void afterInsert()`
 
-This is an admittedly contrived example. The key to Platform Event's utility is their interoperabilty. This recipe demonstrate what happens when a Platform Event is committed. Platform Event Triggers fire regardless of how the event was created:  - You can create these events either through Apex, low code tools  - and external system integrations
+This is an admittedly contrived example.
+The key to Platform Event's utility is their interoperabilty.
+This recipe demonstrate what happens when a Platform Event is committed.
+Platform Event Triggers fire regardless of how the event was created:
+ - You can create these events either through Apex, low code tools
+ - and external system integrations
 
 #### Example
 ```apex
@@ -53,7 +59,9 @@ System.debug(result + [SELECT Name, Website FROM Account WHERE Id = :acct.id]);
 *Inherited*
 
 
-This is main brokering method that is called by the trigger. It's responsible for determining the proper context, and calling the correct method
+This is main brokering method that is called by the trigger.
+It's responsible for determining the proper context, and calling the
+correct method
 
 #### Example
 ```apex
@@ -66,7 +74,9 @@ AccountTriggerHandler.run();
 *Inherited*
 
 
-Allows developers to prevent trigger loops, or allow a limited number of them by setting the maximum number of times this trigger is called.
+Allows developers to prevent trigger loops, or allow
+a limited number of them by setting the maximum number of times
+this trigger is called.
 
 #### Parameters
 
@@ -100,7 +110,8 @@ this.clearMaxLoopCount();
 *Inherited*
 
 
-Allows developers to conditionally bypass (disable) other triggers that *also* implement this triggerHandler
+Allows developers to conditionally bypass (disable)
+other triggers that *also* implement this triggerHandler
 
 #### Parameters
 
@@ -119,7 +130,8 @@ TriggerHandler.bypass('AccountTriggerHandler');
 *Inherited*
 
 
-Removes a given trigger handler class name from the list of bypassed trigger handlers.
+Removes a given trigger handler class name from
+the list of bypassed trigger handlers.
 
 #### Parameters
 
@@ -138,7 +150,8 @@ TriggerHandler.clearBypass('AccountTriggerHandler');
 *Inherited*
 
 
-Allows developers to check whether a given trigger handler class is currently bypassed.
+Allows developers to check whether a given trigger
+handler class is currently bypassed.
 
 #### Parameters
 
