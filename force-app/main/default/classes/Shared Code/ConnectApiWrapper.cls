@@ -17,7 +17,7 @@ public with sharing class ConnectApiWrapper {
     }
 
     public ConnectApi.NamedCredential createNamedCredential(
-        ConnectApi.NAmedCredentialInput namedCredentialInput
+        ConnectApi.NamedCredentialInput namedCredentialInput
     ) {
         return ConnectApi.NamedCredentials.createNamedCredential(
             namedCredentialInput
