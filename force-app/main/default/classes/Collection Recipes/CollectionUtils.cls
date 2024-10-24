@@ -101,11 +101,11 @@ public with sharing class CollectionUtils {
                         (Id) current.get(key)
                     );
                     existingList.add(current);
-                    returnValues.put((id) current.get(key), existingList);
+                    returnValues.put((Id) current.get(key), existingList);
                 } else {
                     List<SObject> newList = (List<SObject>) listObjType.newInstance();
                     newList.add(current);
-                    returnValues.put((id) current.get(key), newList);
+                    returnValues.put((Id) current.get(key), newList);
                 }
             }
         }
