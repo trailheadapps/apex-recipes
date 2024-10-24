@@ -57,7 +57,7 @@ public with sharing class CollectionUtils {
      * @return            `Map<String, sObject>`
      * @example
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
-     * Map<String, Contact> contactsByAccountId = (Map<String, Contact>) CollectionUtils.StringMapFromCollectionByKey('shippingStreet', contacts);
+     * Map<String, Contact> contactsByAccountId = (Map<String, Contact>) CollectionUtils.stringMapFromCollectionByKey('shippingStreet', contacts);
      */
     public static Map<String, SObject> stringMapFromCollectionByKey(
         String key,
@@ -84,7 +84,7 @@ public with sharing class CollectionUtils {
      * @return            `Map<Id, List<sObject>>`
      * @example
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
-     * Map<Id, List<Contact>> contactsByAccountId = (Map<Id, List<Contact>>) CollectionUtils.idMapFromCollectionByKey('accountId', contacts);
+     * Map<Id, List<Contact>> contactsByAccountId = (Map<Id, List<Contact>>) CollectionUtils.mapFromCollectionWithCollectionValues('accountId', contacts);
      */
     public static Map<Id, List<SObject>> mapFromCollectionWithCollectionValues(
         String key,
