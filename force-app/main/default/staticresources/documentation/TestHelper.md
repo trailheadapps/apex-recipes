@@ -10,7 +10,7 @@ for identifying the name of an object's class expressed as a string.
 **Group** Testing Recipes
 
 ## Methods
-### `public static String getUnkownObjectType(Object obj)`
+### `public static String getUnknownObjectType(Object obj)`
 
 It can be useful to know what the type of an object
 is at runtime. This is especially useful when you're dynamically

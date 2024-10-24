@@ -102,7 +102,7 @@ private class MetadataTriggerHandler_Tests {
 
         System.Assert.areEqual(
             'SampleHandler',
-            TestHelper.getUnkownObjectType(mdtHandler.activeHandler),
+            TestHelper.getUnknownObjectType(mdtHandler.activeHandler),
             'Expected the activeHandler Property to be \'SampleHandler\'.'
         );
     }
