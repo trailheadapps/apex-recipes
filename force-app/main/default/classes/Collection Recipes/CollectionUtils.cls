@@ -97,7 +97,7 @@ public with sharing class CollectionUtils {
         for (SObject current : incomingList) {
             if (current.get(key) != null) {
                 if (returnValues.keySet().contains((Id) current.get(key))) {
-                    List<SObject> existingList = (List<SObject>) returnValues.get(
+                    List<SObject> existingList = returnValues.get(
                         (Id) current.get(key)
                     );
                     existingList.add(current);
