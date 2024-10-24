@@ -41,7 +41,6 @@ public class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler
         Messaging.InboundEnvelope envelope
     ) {
         Messaging.InboundEmailResult result = new Messaging.InboundEmailresult();
-        String errorMessage = '';
         try {
             // identify contact
             Contact sender = getContactBySender(email);
