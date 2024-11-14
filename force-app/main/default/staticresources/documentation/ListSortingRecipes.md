@@ -14,7 +14,10 @@ Demonstrates how to sort lists using the Comparator Interface
 ## Methods
 ### `public static void sortAccountsByShippingCountry(List<Account> accounts)`
 
-Demonstrates how to sort a list of Account using Comparator Interface In this example we pass in the implementation class `AccountShippingCountryComparator` as a parameter to the sort method of a list. This method sorts Accounts by shipping address in ascending alphabetical order
+Demonstrates how to sort a list of Account using Comparator Interface
+In this example we pass in the implementation class `AccountShippingCountryComparator`
+as a parameter to the sort method of a list. This method sorts Accounts
+by shipping address in ascending alphabetical order
 
 #### Parameters
 
@@ -24,7 +27,10 @@ Demonstrates how to sort a list of Account using Comparator Interface In this ex
 
 ### `public static void sortAccountsByShippingCountryInDescending(List<Account> accounts)`
 
-Demonstrates how to sort a list of Account using Comparator Interface In this example we pass in the implementation class `AccountShippingCountryComparator` as a parameter to the sort method of a list. This method sorts Accounts by shipping address in descending alphabetical order
+Demonstrates how to sort a list of Account using Comparator Interface
+In this example we pass in the implementation class `AccountShippingCountryComparator`
+as a parameter to the sort method of a list. This method sorts Accounts
+by shipping address in descending alphabetical order
 
 #### Parameters
 
@@ -34,7 +40,10 @@ Demonstrates how to sort a list of Account using Comparator Interface In this ex
 
 ### `public static void sortAccountsByNumberOfEmployees(List<Account> accounts)`
 
-Demonstrates how to sort a list of Account using Comparator Interface In this example we pass in the implementation class `AccountNumberOfEmployeesComparator` as a parameter to the sort method of a list.This method sorts Accounts by employee number in the ascending order
+Demonstrates how to sort a list of Account using Comparator Interface
+In this example we pass in the implementation class `AccountNumberOfEmployeesComparator`
+as a parameter to the sort method of a list.This method sorts Accounts
+by employee number in the ascending order
 
 #### Parameters
 

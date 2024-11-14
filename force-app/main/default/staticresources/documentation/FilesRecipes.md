@@ -8,7 +8,8 @@ Demonstrates how to create, link and share Files
 ## Methods
 ### `public static void createFileFromStringAttachedToRecord(String text, Id firstLocation)`
 
-creates a file attachment containing the given string and links it to the object specified in firstLocation
+creates a file attachment containing the given string and
+links it to the object specified in firstLocation
 
 #### Parameters
 
@@ -25,7 +26,7 @@ System.debug('Look for files assoicated with account: ' + acct.id);
 ```
 
 
-### `public static Database createFileAttachedToRecord(Blob fileContents, Id attachedTo, String fileName)`
+### `public static Database.SaveResult createFileAttachedToRecord(Blob fileContents, Id attachedTo, String fileName)`
 
 Creates a file and links it to a given record
 
@@ -41,7 +42,7 @@ Creates a file and links it to a given record
 
 |Type|Description|
 |---|---|
-|`Database`|`Database.SaveResult`|
+|`Database.SaveResult`|`Database.SaveResult`|
 
 #### Example
 ```apex
@@ -56,7 +57,7 @@ System.debug('Look for files assoicated with account: ' + acct.id);
 ```
 
 
-### `public static Database createFileAttachedToRecord(FilesRecipes toCreate)`
+### `public static Database.SaveResult createFileAttachedToRecord(FilesRecipes.FileAndLinkObject toCreate)`
 
 Convenience method for creating a file and linking it to a given record
 
@@ -70,7 +71,7 @@ Convenience method for creating a file and linking it to a given record
 
 |Type|Description|
 |---|---|
-|`Database`|`Database.SaveResult`|
+|`Database.SaveResult`|`Database.SaveResult`|
 
 ### `public static List<Database.SaveResult> createFilesAttachedToRecords(List<FilesRecipes.FileAndLinkObject> toCreate)`
 
@@ -88,11 +89,17 @@ Bulk method for inserting multiple files and link them to records
 |---|---|
 |`List<Database.SaveResult>`|`List<Database.SaveResult>`|
 
-### `public static List<ContentVersion> getFilteredAttachmentsForRecord(FilesRecipes genericFileType, Id recordId)`
+### `public static List<ContentVersion> getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType genericFileType, Id recordId)`
 
 `SUPPRESSWARNINGS`
 
-Searches for content version records linked to this record Filtering by a generic file type: image, audio, document etc. Note: This method has a false-positive PMD warning. Our Query includes the keyword 'WITH USER_MODE' which prevents this Query from accessing fields and objects that they don't have permission to access. This is a form of inline CRUD/FLS Check.
+Searches for content version records linked to this record
+Filtering by a generic file type: image, audio, document etc.
+
+Note: This method has a false-positive PMD warning. Our Query
+includes the keyword 'WITH USER_MODE' which prevents this
+Query from accessing fields and objects that they don't have permission
+to access. This is a form of inline CRUD/FLS Check.
 
 #### Parameters
 
@@ -115,7 +122,7 @@ System.debug('Found the following ContentVersion Ids: ' + FilesRecipes.getFilter
 ```
 
 
-### `public static Database publishContent(ContentDocumentLink cdl)`
+### `public static Database.SaveResult publishContent(ContentDocumentLink cdl)`
 
 Given a content document link, publish the content version
 
@@ -129,7 +136,7 @@ Given a content document link, publish the content version
 
 |Type|Description|
 |---|---|
-|`Database`|`Database.SaveResult`|
+|`Database.SaveResult`|`Database.SaveResult`|
 
 #### Throws
 

@@ -13,9 +13,10 @@ In this example we show how to sort all the accounts by their country names in a
 
 No param constructor. Assigns sort order as ascending by default
 
-### `public AccountShippingCountryComparator(AccountShippingCountryComparator order)`
+### `public AccountShippingCountryComparator(AccountShippingCountryComparator.SortOrder order)`
 
-Constructor accepting sort order as ascending/descending. Use this constructor to *control* the sort order.
+Constructor accepting sort order as ascending/descending. Use
+this constructor to *control* the sort order.
 
 #### Parameters
 

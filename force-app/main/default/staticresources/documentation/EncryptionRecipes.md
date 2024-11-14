@@ -25,7 +25,8 @@ Demonstrates how to use different encryption and signing algorithms in Apex
 
 `AURAENABLED`
 
-Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. In this case the initialization vector is managed by Salesforce.
+Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver.
+In this case the initialization vector is managed by Salesforce.
 
 #### Parameters
 
@@ -51,7 +52,8 @@ System.debug(EncodingUtil.base64Encode(encryptedData));
 
 `AURAENABLED`
 
-Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. In this case the initialization vector will be the first 128 bits (16 bytes) of the received data.
+Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver.
+In this case the initialization vector will be the first 128 bits (16 bytes) of the received data.
 
 #### Parameters
 
@@ -76,7 +78,8 @@ System.debug(decryptedData.toString());
 
 `AURAENABLED`
 
-Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. In this case the initialization vector is specified by the sender. It needs to be random and 16 bytes (128 bits).
+Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver.
+In this case the initialization vector is specified by the sender. It needs to be random and 16 bytes (128 bits).
 
 #### Parameters
 
@@ -103,7 +106,8 @@ System.debug(EncodingUtil.base64Encode(encryptedData));
 
 `AURAENABLED`
 
-Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. In this case the sender needs to share the initialization vector with the receiver.
+Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver.
+In this case the sender needs to share the initialization vector with the receiver.
 
 #### Parameters
 
@@ -306,7 +310,8 @@ try {
 
 `AURAENABLED`
 
-Encrypts the message with AES and then generates Digital Signature (encrypted with an asymmetric key) that can be checked in destination. This ensure confidentiality, integrity, authenticity and non-repudiation.
+Encrypts the message with AES and then generates Digital Signature (encrypted with an asymmetric key) that can be checked in destination.
+This ensure confidentiality, integrity, authenticity and non-repudiation.
 
 #### Parameters
 
@@ -361,7 +366,9 @@ try {
 
 ### `public static boolean areEqualConstantTime(String first, String second)`
 
-Comparisons which involve cryptography need to be performed in constant time using specialized functions to avoid timing attack effects. https://en.wikipedia.org/wiki/Timing_attack
+Comparisons which involve cryptography need to be performed in constant time
+using specialized functions to avoid timing attack effects.
+https://en.wikipedia.org/wiki/Timing_attack
 
 #### Parameters
 

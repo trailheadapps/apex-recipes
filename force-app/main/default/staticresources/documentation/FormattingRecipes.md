@@ -8,7 +8,8 @@ Demonstrates various ways to apply formatting using DataWeave scripts in Apex.
 ## Methods
 ### `public static String formatDateInJson(List<Contact> contacts)`
 
-Outputs a list of contacts in JSON with properly formatted dates. Uses the `dw/jsonDateFormat.dwl` DataWeave script.
+Outputs a list of contacts in JSON with properly formatted dates.
+Uses the `dw/jsonDateFormat.dwl` DataWeave script.
 
 #### Parameters
 
@@ -24,7 +25,8 @@ Outputs a list of contacts in JSON with properly formatted dates. Uses the `dw/j
 
 ### `public static String pluralize(String singularWords)`
 
-Uses the DataWeave `pluralize` function in a script (https://docs.mulesoft.com/dataweave/2.4/dw-strings-functions-pluralize). Uses the `dw/pluralizeFunction.dwl` DataWeave script.
+Uses the DataWeave `pluralize` function in a script (https://docs.mulesoft.com/dataweave/2.4/dw-strings-functions-pluralize).
+Uses the `dw/pluralizeFunction.dwl` DataWeave script.
 
 #### Parameters
 
@@ -40,7 +42,9 @@ Uses the DataWeave `pluralize` function in a script (https://docs.mulesoft.com/d
 
 ### `public static String escapeApexReservedKeywords(String jsonInput)`
 
-Parses a JSON input and escape properties named after Apex reserved keywords (private, object, currency...). Full list of reserved keywords: https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_reserved_words.htm Uses the `dw/reservedApexKeywords.dwl` DataWeave script.
+Parses a JSON input and escape properties named after Apex reserved keywords (private, object, currency...).
+Full list of reserved keywords: https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_reserved_words.htm
+Uses the `dw/reservedApexKeywords.dwl` DataWeave script.
 
 #### Parameters
 

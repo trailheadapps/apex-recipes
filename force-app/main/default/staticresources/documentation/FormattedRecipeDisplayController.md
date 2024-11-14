@@ -18,7 +18,13 @@ and syntax highlighting
 
 `AURAENABLED`
 
-AuraEnabled, and cached read-only method for grabbing the body of a given Apex Class Note: this method contains a false-positive PMD violation. Normally, we'd want to check for FLS/CRUD here, but for ApexClass a system level object that Admins and users cannot really change we're ok.
+AuraEnabled, and cached read-only method for
+grabbing the body of a given Apex Class
+
+Note: this method contains a false-positive PMD violation.
+Normally, we'd want to check for FLS/CRUD here, but for ApexClass
+a system level object that Admins and users cannot really change
+we're ok.
 
 #### Parameters
 
@@ -48,7 +54,8 @@ class to the LWC that consumes it
 #### Constructors
 ##### `public ClassData(ApexClass klass)`
 
-constructor for ClassData that accepts an ApexClass object
+constructor for ClassData that accepts an ApexClass
+object
 
 ###### Parameters
 

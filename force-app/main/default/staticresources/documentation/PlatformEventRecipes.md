@@ -12,7 +12,7 @@ Demonstrates how to publish events on the event bus
 **See** [PlatformEventPublishCallback](https://github.com/trailheadapps/apex-recipes/wiki/PlatformEventPublishCallback)
 
 ## Methods
-### `public static Database publishEvent(Event_Recipes_Demo__e event)`
+### `public static Database.SaveResult publishEvent(Event_Recipes_Demo__e event)`
 
 publishes a platform event
 
@@ -26,7 +26,7 @@ publishes a platform event
 
 |Type|Description|
 |---|---|
-|`Database`|Database.SaveResult|
+|`Database.SaveResult`|Database.SaveResult|
 
 #### Example
 ```apex
@@ -38,7 +38,7 @@ System.debug(result);
 ```
 
 
-### `public static Database publishEventWithCallbacks(Event_Recipes_Demo__e event)`
+### `public static Database.SaveResult publishEventWithCallbacks(Event_Recipes_Demo__e event)`
 
 publishes a platform event and handles success/failure with callbacks
 
@@ -52,7 +52,7 @@ publishes a platform event and handles success/failure with callbacks
 
 |Type|Description|
 |---|---|
-|`Database`|Database.SaveResult|
+|`Database.SaveResult`|Database.SaveResult|
 
 #### Example
 ```apex

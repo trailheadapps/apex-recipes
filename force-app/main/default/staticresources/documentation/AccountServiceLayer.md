@@ -21,7 +21,8 @@ by the AccountTriggerHandler
 ## Methods
 ### `public static void justWriteALogStatement(String toLog)`
 
-Method exists to demonstrate what it might look like to  call a service layer method from a trigger handler.
+Method exists to demonstrate what it might look like to
+ call a service layer method from a trigger handler.
 
 #### Parameters
 
@@ -35,11 +36,17 @@ AccountServiceLayer.justWriteALogStatement('Hello World');
 ```
 
 
-### `public static void changeShippingStreet(List<Account> accounts, System accessLevel)`
+### `public static void changeShippingStreet(List<Account> accounts, System.AccessLevel accessLevel)`
 
 `SUPPRESSWARNINGS`
 
-Changes the account's Shipping Street field to a hardcoded value. You should do this kind of work in a before trigger, but this is a demo. Note: This method contains a false-positive PMD viloation around not checking FLS/CRUD before doing DML. This is because PMD is unaware of what the CanTheUser call right before it is doing - namely checking CRUD.
+Changes the account's Shipping Street field to a hardcoded
+value. You should do this kind of work in a before trigger, but this is a
+demo.
+
+Note: This method contains a false-positive PMD viloation around not
+checking FLS/CRUD before doing DML. This is because PMD is unaware of
+what the CanTheUser call right before it is doing - namely checking CRUD.
 
 #### Parameters
 
@@ -57,7 +64,8 @@ System.debug([SELECT Name, ShippingStreet FROM Account WHERE Id in : accounts]);
 
 ### `public static List<Account> incrementCounterInDescription(List<Account> incomingAccounts, Boolean save)`
 
-Increments a counter stored in the Description field.  Demonstration method of the kind of work a service layer may do.
+Increments a counter stored in the Description field.
+ Demonstration method of the kind of work a service layer may do.
 
 #### Parameters
 
@@ -84,7 +92,9 @@ System.debug([SELECT Name, Description FROM Account WHERE Id in : accounts]);
 
 `TESTVISIBLE`
 
-Updates a list of accounts if the user has access to update  the Account Object. Demonstrates simple usage of  Security.stripInacessible(), and DML with a try/catch block.
+Updates a list of accounts if the user has access to update
+ the Account Object. Demonstrates simple usage of
+ Security.stripInacessible(), and DML with a try/catch block.
 
 #### Parameters
 

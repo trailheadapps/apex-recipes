@@ -9,7 +9,8 @@ including multi-object queries, and aggregate queries
 ## Methods
 ### `public static List<Account> getRecords()`
 
-Demonstrates the proper way to query accounts with SOQL   keeping FLS and CRUD in account.
+Demonstrates the proper way to query accounts with SOQL
+  keeping FLS and CRUD in account.
 
 #### Returns
 
@@ -42,7 +43,16 @@ System.debug(SOQLRecipes.getLargeNumberOfRecords());
 
 ### `public static Integer getChunksOfLargeNumbersOfRecords()`
 
-One of the little known features of SOQL for loops is that you can iterate not only over each record returned by the query, but also over each *chunk of records*. As the code below demonstrates, specifying the iteration variable as a list/array will return 200 record chunks from the query, rather than individual records. Note: Normally, if you're only dealing with counts of records, you'd utilize the Count() soql method, but in this case we're demonstrating that this form of a soql for loop gives you access both to a list of records, and to the records themselves.
+One of the little known features of SOQL for loops is that
+you can iterate not only over each record returned by the query, but also
+over each *chunk of records*. As the code below demonstrates, specifying
+the iteration variable as a list/array will return 200 record chunks
+from the query, rather than individual records.
+
+Note: Normally, if you're only dealing with counts of records, you'd
+utilize the Count() soql method, but in this case we're demonstrating
+that this form of a soql for loop gives you access both to a list of
+records, and to the records themselves.
 
 #### Returns
 
@@ -68,7 +78,8 @@ System.debug(SOQLRecipes.getRecordsByFieldValue());
 
 ### `public static List<Account> getRecordsByMultipleFieldValues()`
 
-Demonstrates how to use a complex WHERE clause in a SOQL query
+Demonstrates how to use a complex WHERE clause in a SOQL
+query
 
 #### Returns
 
@@ -144,7 +155,8 @@ System.debug(SOQLRecipes.getAccountRecordsInState('ks'));
 
 ### `public static List<Account> getSecond10AccountRecords()`
 
-Demonstrates how to get a limited number of results with a given offset; Ie: get the second set of 10 records.
+Demonstrates how to get a limited number of results with a
+given offset; Ie: get the second set of 10 records.
 
 #### Returns
 
@@ -160,7 +172,8 @@ System.debug(SOQLRecipes.getSecond10AccountRecords());
 
 ### `public static List<Account> getRecordsWithRelatedRecords()`
 
-Demonstrates how to query an object, as well as it's related child objects
+Demonstrates how to query an object, as well as it's related
+child objects
 
 #### Returns
 
@@ -176,7 +189,8 @@ System.debug(SOQLRecipes.getRecordsWithRelatedRecords());
 
 ### `public static List<Contact> getParentRecordDetailsFromChildRecord()`
 
-Demonstrates how to query fields from a parent object through the relationship field
+Demonstrates how to query fields from a parent object
+through the relationship field
 
 #### Returns
 
@@ -192,7 +206,8 @@ System.debug(SOQLRecipes.getParentRecordDetailsFromChildRecord());
 
 ### `public static List<Junction__c> getDetailsFromBothParentRecords()`
 
-Demonstrates how to write a query that pulls information from two parent objects through a junction object
+Demonstrates how to write a query that pulls information
+from two parent objects through a junction object
 
 #### Returns
 
@@ -208,7 +223,9 @@ System.debug(SOQLRecipes.getDetailsFromBothParentRecords());
 
 ### `public static Double getSumOfOpportunityRecords(Id accountId)`
 
-demonstrates how to use aggregate methods, like Sum() or Count() in a SOQL query. This example generates the sum of opportunities associated with a specified Account
+demonstrates how to use aggregate methods, like Sum() or
+Count() in a SOQL query. This example generates the sum of opportunities
+associated with a specified Account
 
 #### Parameters
 

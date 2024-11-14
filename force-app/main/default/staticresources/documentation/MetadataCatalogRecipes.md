@@ -11,7 +11,14 @@ sometimes faster that Schema Describe calls especially for large complex orgs
 
 `SUPPRESSWARNINGS`
 
-Demonstrates how to query the EntityDefinition Object to find all formula fields in your Org. This method returns a Map of Object's Qualified API name -&gt; Map of Field Names -&gt; Types Note: This method has a false-positive PMD warning. PMD isn't aware of the purpose or functionality of CanTheUser.* so it doesn't undersatnd that we are, in fact, checking for CRUD / FLS permissions prior to querying.
+Demonstrates how to query the EntityDefinition Object to
+find all formula fields in your Org. This method returns a Map of
+Object's Qualified API name -&gt; Map of Field Names -&gt; Types
+
+Note: This method has a false-positive PMD warning. PMD isn't aware of
+the purpose or functionality of CanTheUser.* so it doesn't undersatnd
+that we are, in fact, checking for CRUD / FLS permissions prior to
+querying.
 
 #### Returns
 
@@ -31,7 +38,14 @@ System.debug(results);
 
 `SUPPRESSWARNINGS`
 
-Demonstrates how to query the metadata catalog to find all fields on the Contact object that establish a relationship to the Account Object. Note: This method has a false-positive PMD warning. PMD isn't aware of the purpose or functionality of CanTheUser.* so it doesn't undersatnd that we are, in fact, checking for CRUD / FLS permissions prior to querying.
+Demonstrates how to query the metadata catalog to find all
+fields on the Contact object that establish a relationship to the Account
+Object.
+
+Note: This method has a false-positive PMD warning. PMD isn't aware of
+the purpose or functionality of CanTheUser.* so it doesn't undersatnd
+that we are, in fact, checking for CRUD / FLS permissions prior to
+querying.
 
 #### Returns
 
@@ -57,7 +71,8 @@ Relationship
 #### Constructors
 ##### `public LookupRelationshipDefinition(FieldDefinition fd)`
 
-Constructor that transforms a Field Definition object   into a LookupRelationshipDefinition Object.
+Constructor that transforms a Field Definition object
+  into a LookupRelationshipDefinition Object.
 
 ###### Parameters
 

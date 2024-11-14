@@ -3,6 +3,7 @@
 Class wraps DML Calls in FLS / Crud checks. Library is baseed on
 a fluent api system. All calls are constructed, then chained with options.
 For instances. `new Safely().allOrNothing().doInsert(List&lt;sObject&gt;);`
+
 Notable chainable methods include:
 - allOrNothing() - this enforces the AllOrNothing DML flag. All DML is
      eventually executed via Database.* methods which accept an allOrNothing
@@ -34,8 +35,8 @@ Notable chainable methods include:
 ### `public List<Database.DeleteResult> doDelete(List<SObject> records)`
 ### `public List<Database.DeleteResult> doDelete(SObject record)`
 ### `public List<SObject> doQuery(String query)`
-### `private List<Database.SaveResult> doDML(System accessType, List<SObject> records)`
-### `private SObjectAccessDecision guardAgainstRemovedFields(System accessType, List<SObject> records)`
+### `private List<Database.SaveResult> doDML(System.AccessType accessType, List<SObject> records)`
+### `private SObjectAccessDecision guardAgainstRemovedFields(System.AccessType accessType, List<SObject> records)`
 ---
 ## Classes
 ### RemovedFieldsException

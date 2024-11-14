@@ -8,7 +8,8 @@ Demonstrates the use and functionaly of Quiddity
 ## Methods
 ### `public static Quiddity demonstrateGetQuiddity()`
 
-demonstrates the code needed to get the current requests Quiddity value.
+demonstrates the code needed to get the current requests
+Quiddity value.
 
 #### Returns
 

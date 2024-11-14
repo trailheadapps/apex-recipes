@@ -9,7 +9,9 @@ by publishing a Platform Event
 ## Constructors
 ### `private Log()`
 
-establishes the buffer, if one doesn't yet exist private, to ensure we can't directly construct this class. Use the Singleton, Luke.
+establishes the buffer, if one doesn't yet exist
+private, to ensure we can't directly construct this class. Use the
+Singleton, Luke.
 
 ---
 ## Fields
@@ -17,12 +19,14 @@ establishes the buffer, if one doesn't yet exist private, to ensure we can't dir
 ### `private currentInstance` → `Log`
 
 
-private instance of this log class that backs the singleton get() method.
+private instance of this log class that backs the
+singleton get() method.
 
 ### `private buffer` → `List<LogMessage>`
 
 
-private list of LogMessage objects to be published in the future
+private list of LogMessage objects to be published in the
+future
 
 ---
 ## Methods
@@ -38,7 +42,8 @@ Singleton pattern `get` method.
 
 ### `public void add(String messageToLog)`
 
-Add a message to the buffer without publishing it. Assumes a null severity
+Add a message to the buffer without publishing it.
+Assumes a null severity
 
 #### Parameters
 
@@ -59,7 +64,8 @@ Add a message to the buffer without publishing it.
 
 ### `public void add(Exception exceptionToLog)`
 
-Add an formated exception message to the buffer without publishing it. Assumes a null Severity
+Add an formated exception message to the buffer without
+publishing it. Assumes a null Severity
 
 #### Parameters
 
@@ -69,7 +75,8 @@ Add an formated exception message to the buffer without publishing it. Assumes a
 
 ### `public void add(Exception exceptionToLog, LogSeverity severity)`
 
-Add an formated exception message to the buffer without publishing it.
+Add an formated exception message to the buffer without
+publishing it.
 
 #### Parameters
 
@@ -80,11 +87,15 @@ Add an formated exception message to the buffer without publishing it.
 
 ### `public void publish()`
 
-Publish any messages currently in the buffer, without adding any new ones.
+Publish any messages currently in the buffer, without adding
+any new ones.
 
 ### `public void publish(Exception exceptionToLog)`
 
-Auto-format exception details, add it to the log buffer, and then publish the current buffer. Use the equivelent add method if you intend to add multiple messages rapidly to minimize DML usage.
+Auto-format exception details, add it to the log buffer,
+and then publish the current buffer. Use the equivelent add
+method if you intend to add multiple messages rapidly to minimize DML
+usage.
 
 #### Parameters
 
@@ -94,7 +105,10 @@ Auto-format exception details, add it to the log buffer, and then publish the cu
 
 ### `public void publish(String messageToLog)`
 
-Auto-format a custom log message string, add it to the log buffer, and then publish the current buffer. Use the equivelent add method if you intend to add multiple messages rapidly to minimize DML usage.
+Auto-format a custom log message string, add it to the log
+buffer, and then publish the current buffer. Use the equivelent add
+method if you intend to add multiple messages rapidly to minimize DML
+usage.
 
 #### Parameters
 

@@ -3,6 +3,7 @@
 Demonstrates the use of the Database.Batchable interface. The
 methods in this class are called by the system as the batch executes.
 To execute this batch use `Database.executeBatch(new BatchApexRecipes());`
+
 More on the Batchable interface:
 https://sfdc.co/batch_interface
 
@@ -37,9 +38,13 @@ https://sfdc.co/batch_interface
 
 ---
 ## Methods
-### `public Database start(Database context)`
+### `public Database.QueryLocator start(Database.BatchableContext context)`
 
-This method is required by the Batchable interface. It's responsible for identifying the records that will be affected Your start method can either return a QueryLocator or an Iterable (List) The records identified here will be made available to the execute method below, in batches of up to 200 records at a time.
+This method is required by the Batchable interface.
+It's responsible for identifying the records that will be affected
+Your start method can either return a QueryLocator or an Iterable
+(List) The records identified here will be made available to the
+execute method below, in batches of up to 200 records at a time.
 
 #### Parameters
 
@@ -51,7 +56,7 @@ This method is required by the Batchable interface. It's responsible for identif
 
 |Type|Description|
 |---|---|
-|`Database`|Database.QueryLocator QueryLocator object used for context|
+|`Database.QueryLocator`|Database.QueryLocator QueryLocator object used for context|
 
 #### Example
 ```apex
@@ -59,9 +64,10 @@ Database.executeBatch(new BatchApexRecipes());
 ```
 
 
-### `public void execute(Database context, List<Account> scope)`
+### `public void execute(Database.BatchableContext context, List<Account> scope)`
 
-This method is where the actual work occurs. It's run once per batch.
+This method is where the actual work occurs. It's run once
+per batch.
 
 #### Parameters
 
@@ -76,9 +82,11 @@ Database.executeBatch(new BatchApexRecipes());
 ```
 
 
-### `public void finish(Database context)`
+### `public void finish(Database.BatchableContext context)`
 
-This method is called by the system when all the individual batches have completed. Intrepid developers may send emails, or otherwise notify others of the job's completion here.
+This method is called by the system when all the individual
+batches have completed. Intrepid developers may send emails, or otherwise
+notify others of the job's completion here.
 
 #### Parameters
 

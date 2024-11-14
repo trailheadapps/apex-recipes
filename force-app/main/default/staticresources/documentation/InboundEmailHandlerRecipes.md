@@ -6,6 +6,7 @@ Demonstrates how to use the inboundEmailHandler
 interface to create custom logic and automation on the reception
 of an email. This class demonstrates saving the email
 to an EmailMessage Object along with Attachments.
+
 NOTE: This class *does not* specify a sharing model.
 This is on purpose - When this class is executed, by the inbound
 email system, it will execute in a system context and pieces of
@@ -28,9 +29,15 @@ ApexSharingViolation warning.
 **See** [FilesRecipes](https://github.com/trailheadapps/apex-recipes/wiki/FilesRecipes)
 
 ## Methods
-### `public Messaging handleInboundEmail(Messaging email, Messaging envelope)`
+### `public Messaging.InboundEmailResult handleInboundEmail(Messaging.InboundEmail email, Messaging.InboundEnvelope envelope)`
 
-Messaging.InboundEmailHandler interface has one required method - handleInboundEmail. This method must return an Messaging.InboundEmailResult object, and you should take care to set that object's success property. This method is where you will write business logic to ... do whatever it is you want to do with the incoming email. Here you can attach the email to the contact record who sent it, a case or ... The sky's the limit.
+Messaging.InboundEmailHandler interface has one required
+method - handleInboundEmail. This method must return an
+Messaging.InboundEmailResult object, and you should take care to set that
+object's success property. This method is where you will write business
+logic to ... do whatever it is you want to do with the incoming email.
+Here you can attach the email to the contact record who sent it, a case
+or ... The sky's the limit.
 
 #### Parameters
 
@@ -43,14 +50,17 @@ Messaging.InboundEmailHandler interface has one required method - handleInboundE
 
 |Type|Description|
 |---|---|
-|`Messaging`|`Messaging.InboundEmailResult`|
+|`Messaging.InboundEmailResult`|`Messaging.InboundEmailResult`|
 
 
 **See** [FilesRecipes](https://github.com/trailheadapps/apex-recipes/wiki/FilesRecipes)
 
 ### `private void createFilesByEmailAttachments(List<Messaging.inboundEmail.BinaryAttachment> inboundAttachments, Id contactId)`
 
-This helper method bulk saves attachments from the incoming email. It relies on FilesRecipes.cls to do the actual creation of the Files attachments as well as publishing the file to the specified record.
+This helper method bulk saves attachments from
+the incoming email. It relies on FilesRecipes.cls to do the actual
+creation of the Files attachments as well as publishing the file to the
+specified record.
 
 #### Parameters
 
@@ -59,9 +69,12 @@ This helper method bulk saves attachments from the incoming email. It relies on 
 |`inboundAttachments`||
 |`contactId`||
 
-### `private Contact getContactBySender(Messaging email)`
+### `private Contact getContactBySender(Messaging.InboundEmail email)`
 
-Determines if we have an existing contact record with an email address that matches the sender of this email. If we do not have a contact that matches, return a new contact object with the email address set.
+Determines if we have an existing contact record
+with an email address that matches the sender of this email.
+If we do not have a contact that matches, return a new contact object
+with the email address set.
 
 #### Parameters
 
@@ -75,9 +88,11 @@ Determines if we have an existing contact record with an email address that matc
 |---|---|
 |`Contact`|`Contact`|
 
-### `private void createEmailRecord(Contact sender, Messaging email)`
+### `private void createEmailRecord(Contact sender, Messaging.InboundEmail email)`
 
-Creates a Salesforce Email record and relates that email to the sender's contact record. This surfaces the Email record on the contact object.
+Creates a Salesforce Email record and relates that email to
+the sender's contact record. This surfaces the Email record on the
+contact object.
 
 #### Parameters
 

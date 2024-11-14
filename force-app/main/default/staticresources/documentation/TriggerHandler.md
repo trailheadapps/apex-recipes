@@ -15,7 +15,8 @@ Originally by Kevin O'Hara github.com/kevinohara80/sfdc-trigger-framework
 ## Constructors
 ### `public TriggerHandler()`
 
-Constructs a trigger handler object and ensures the context is set
+Constructs a trigger handler object and ensures the context
+is set
 
 ---
 ## Fields
@@ -38,7 +39,9 @@ Constructs a trigger handler object and ensures the context is set
 ## Methods
 ### `public virtual void run()`
 
-This is main brokering method that is called by the trigger. It's responsible for determining the proper context, and calling the correct method
+This is main brokering method that is called by the trigger.
+It's responsible for determining the proper context, and calling the
+correct method
 
 #### Example
 ```apex
@@ -48,7 +51,9 @@ AccountTriggerHandler.run();
 
 ### `public void setMaxLoopCount(Integer max)`
 
-Allows developers to prevent trigger loops, or allow a limited number of them by setting the maximum number of times this trigger is called.
+Allows developers to prevent trigger loops, or allow
+a limited number of them by setting the maximum number of times
+this trigger is called.
 
 #### Parameters
 
@@ -76,7 +81,8 @@ this.clearMaxLoopCount();
 
 ### `public static void bypass(String handlerName)`
 
-Allows developers to conditionally bypass (disable) other triggers that *also* implement this triggerHandler
+Allows developers to conditionally bypass (disable)
+other triggers that *also* implement this triggerHandler
 
 #### Parameters
 
@@ -92,7 +98,8 @@ TriggerHandler.bypass('AccountTriggerHandler');
 
 ### `public static void clearBypass(String handlerName)`
 
-Removes a given trigger handler class name from the list of bypassed trigger handlers.
+Removes a given trigger handler class name from
+the list of bypassed trigger handlers.
 
 #### Parameters
 
@@ -108,7 +115,8 @@ TriggerHandler.clearBypass('AccountTriggerHandler');
 
 ### `public static Boolean isBypassed(String handlerName)`
 
-Allows developers to check whether a given trigger handler class is currently bypassed.
+Allows developers to check whether a given trigger
+handler class is currently bypassed.
 
 #### Parameters
 
@@ -191,7 +199,8 @@ make sure this trigger should continue to run
 
 `TESTVISIBLE`
 
-Returns the string version of the handler class being invoked
+Returns the string version of the handler class being
+invoked
 
 #### Returns
 
@@ -310,7 +319,8 @@ Sets loop count based on the param.
 #### Methods
 ##### `public Boolean increment()`
 
-Increment the internal counter returning the results of this.exceeded().
+Increment the internal counter returning the results of
+this.exceeded().
 
 ###### Returns
 

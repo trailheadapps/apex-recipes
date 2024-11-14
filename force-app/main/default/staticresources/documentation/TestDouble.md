@@ -6,12 +6,15 @@ Implements an easy and re-usable StubProvider
 Utilizes a fluent interface for ease of use.
 This is merly an example of how you could build a reusable stub provider
 class. There are definitely edge cases or features not handled by this class.
+
 The general mechanism for use looks like this:
 ```apex
  TestDouble stub = new TestDouble(SomeClass.class);
  TestDouble.Method methodToTrack = new TestDouble.Method('methodName')
      .returning(someObject);
+
  stub.track(methodToTrack);
+
  ConsumingClass consumer = new ConsumingClass(
     (someClass) stub.generate()
  );
@@ -25,7 +28,8 @@ The general mechanism for use looks like this:
 ## Constructors
 ### `public TestDouble(Type objectType)`
 
-Constructor requiring the Type parameter to ensure we always set the Type property.
+Constructor requiring the Type parameter to
+ensure we always set the Type property.
 
 #### Parameters
 
@@ -39,18 +43,24 @@ Constructor requiring the Type parameter to ensure we always set the Type proper
 ### `private methods` → `List<Method>`
 
 
-Property holds a list of objects specifying method calls that the developer has actively specified a TestDouble or stub for.
+Property holds a list of objects specifying method calls that
+the developer has actively specified a TestDouble or stub for.
 
 ### `private objectType` → `Type`
 
 
-This is a required property! it specifies the Apex Type that is being actively stubbed. Note, you cannot stub system provided classes, sObjects and static methods. see: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_testing_stub_api.htm for details on the limitations of the StubProvider interface
+This is a required property! it specifies the Apex Type
+that is being actively stubbed. Note, you cannot stub
+system provided classes, sObjects and static methods.
+see: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_testing_stub_api.htm
+for details on the limitations of the StubProvider interface
 
 ---
 ## Methods
 ### `public TestDouble track(Method toTrack)`
 
-This adds a given method object to the list of Methods that are actively overridden and stubbed by this TestDouble instance.
+This adds a given method object to the list of Methods
+that are actively overridden and stubbed by this TestDouble instance.
 
 #### Parameters
 
@@ -78,7 +88,10 @@ Generates the actual stub object for use in tests.
 
 `SUPPRESSWARNINGS`
 
-Required method for the StubProvider interface This extensive parameter list is used to help disambiguate overloaded method names where needed. This method is used to delegate response to appropriate Method object - matched by name and params.
+Required method for the StubProvider interface
+This extensive parameter list is used to help disambiguate overloaded
+method names where needed. This method is used to delegate response to
+appropriate Method object - matched by name and params.
 
 #### Parameters
 
@@ -158,7 +171,8 @@ Minimalist constructor for this class.
 #### Methods
 ##### `public Method withParamTypes(List&lt;Type&gt; paramTypes)`
 
-Adds a matching ParamTypes list to this method definition. If added,
+Adds a matching ParamTypes list to this method
+definition. If added,
 
 ###### Parameters
 

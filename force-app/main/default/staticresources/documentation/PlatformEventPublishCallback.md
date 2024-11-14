@@ -27,13 +27,15 @@ Map that correlates event UUIDs with event data
 
 ---
 ## Methods
-### `public void onFailure(EventBus result)`
+### `public void onFailure(EventBus.FailureResult result)`
 
-Callback for events that failed to publish Note: this method is always called by the Automation user
+Callback for events that failed to publish
+Note: this method is always called by the Automation user
 
-### `public void onSuccess(EventBus result)`
+### `public void onSuccess(EventBus.SuccessResult result)`
 
-Callback for events that were successfully published Note: this method is always called by the Automation user
+Callback for events that were successfully published
+Note: this method is always called by the Automation user
 
 ### `private void insertTask(List<String> eventUuids, Boolean isSuccess)`
 ---
