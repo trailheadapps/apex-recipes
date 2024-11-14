@@ -1,13 +1,36 @@
-# CsvData
+# CsvData Class
+
 ## Fields
+### `FirstName`
 
-### `public FirstName` → `String`
+#### Signature
+```apex
+public FirstName
+```
 
-
-### `public LastName` → `String`
-
-
-### `public Email` → `String`
-
+#### Type
+String
 
 ---
+
+### `LastName`
+
+#### Signature
+```apex
+public LastName
+```
+
+#### Type
+String
+
+---
+
+### `Email`
+
+#### Signature
+```apex
+public Email
+```
+
+#### Type
+String

@@ -28,8 +28,10 @@ public with sharing class CalloutRecipes extends RestClient {
      * prone.
      * @return Response body as a string
      * @example
+     * ```
      * System.debug(CalloutRecipes.rawCallout());
-     **/
+     * ```
+     */
     public static String rawCallout() {
         // Configure request. Calling a third party domain requires that
         // you specify a Remote Site or a Named Credential first.
@@ -67,7 +69,9 @@ public with sharing class CalloutRecipes extends RestClient {
      * Accounts.
      * @return List<Account>
      * @example
+     * ```
      * System.debug(CalloutRecipes.httpGetCalloutToSecondOrg());
+     * ```
      */
     public List<Account> httpGetCalloutToSecondOrg() {
         // Perform a REST callout to our custom REST endpoint
@@ -106,8 +110,10 @@ public with sharing class CalloutRecipes extends RestClient {
      * the second org.
      * @return String
      * @example
+     * ```
      * Id contactId = [SELECT Id FROM Contact LIMIT 1].id;
      * System.debug(CalloutRecipes.httpDeleteCalloutToSecondOrg(contactId));
+     * ```
      */
     public Integer httpDeleteCalloutToSecondOrg(Id contactId) {
         // Construct the URL path to include the contact Id that has been passed
@@ -135,8 +141,10 @@ public with sharing class CalloutRecipes extends RestClient {
      * second salesforce org
      * @return String
      * @example
+     * ```
      * List<Contact> contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
      * System.debug(CalloutRecipes.httpPostCalloutToSecondOrg(contacts));
+     * ```
      */
     public Integer httpPostCalloutToSecondOrg(List<Contact> contactRecords) {
         // We will wrap code in a try catch as we are going to attempt to
@@ -172,8 +180,10 @@ public with sharing class CalloutRecipes extends RestClient {
      * second salesforce org
      * @return String
      * @example
+     * ```
      * List<Contact> contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
      * System.debug(CalloutRecipes.httpPutCalloutToSecondOrg(contacts));
+     * ```
      */
     public Integer httpPutCalloutToSecondOrg(List<Contact> contactRecords) {
         // We will wrap code in a try catch as we are going to attempt to
@@ -218,8 +228,10 @@ public with sharing class CalloutRecipes extends RestClient {
      * second salesforce org
      * @return String The status of the callout
      * @example
+     * ```
      * List<Contact> contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
      * System.debug(CalloutRecipes.httpPatchCalloutToSecondOrg(contacts));
+     * ```
      */
     public Integer httpPatchCalloutToSecondOrg(List<Account> accountRecords) {
         // We will wrap code in a try catch as we are going to attempt to
@@ -258,7 +270,9 @@ public with sharing class CalloutRecipes extends RestClient {
      * by using a deserializeUntyped method to convert the string.
      * @return Map<String, Object>
      * @example
+     * ```
      * System.debug(CalloutRecipes.httpCalloutWithUntypedResponse());
+     * ```
      */
     public Map<String, Object> httpCalloutWithUntypedResponse() {
         // This Recipe also demonstrates how to do a one-off override of the
@@ -301,7 +315,9 @@ public with sharing class CalloutRecipes extends RestClient {
      * @param untypedResponse the untyped JSON response that we received from
      * our previous callout
      * @example
+     * ```
      * CalloutRecipes.insertAccountAndContactsFromUntypedResponse(CalloutRecipes_Tests.goodUntypedJSON)
+     * ```
      */
     public void insertAccountAndContactsFromUntypedResponse(
         String untypedResponse

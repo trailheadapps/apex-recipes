@@ -24,11 +24,13 @@ public with sharing class PlatformEventRecipesTriggerHandler extends TriggerHand
      *  - and external system integrations
      *
      * @example
+     * ```
      * Account acct = new Account(Name = 'Awesome Events Ltd.');
      * insert acct;
      * Event_Recipes_Demo__e evt = new Event_Recipes_Demo__e(AccountId__c = acct.id, Title__c='Updated website', Url__c = 'https://developer.salesforce.com');
      * Database.saveResults result = PlatformEventsRecipes.publishEvent(evt);
      * System.debug(result + [SELECT Name, Website FROM Account WHERE Id = :acct.id]);
+     * ```
      */
     public override void afterInsert() {
         Set<Id> accountIds = new Set<Id>();

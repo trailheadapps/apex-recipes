@@ -42,7 +42,9 @@ public virtual class TriggerHandler {
      * It's responsible for determining the proper context, and calling the
      * correct method
      * @example
+     * ```
      * AccountTriggerHandler.run();
+     * ```
      */
     public virtual void run() {
         if (!validateRun()) {
@@ -84,8 +86,10 @@ public virtual class TriggerHandler {
      * @param max   A valid number (generally 1) of times you'd like
      * to allow the trigger to run.
      * @example
-     * In the context of a TriggerHandler class,
+     * In the context of a `TriggerHandler` class:
+     * ```
      * this.setMaxLoopCount(5);
+     * ```
      */
     public void setMaxLoopCount(Integer max) {
         String handlerName = getHandlerName();
@@ -99,8 +103,10 @@ public virtual class TriggerHandler {
     /**
      * @description Allows developers to turn off the max loop count
      * @example
-     * In the context of a TriggerHandler class,
+     * In the context of a `TriggerHandler` class:
+     * ```
      * this.clearMaxLoopCount();
+     * ```
      */
     public void clearMaxLoopCount() {
         this.setMaxLoopCount(-1);
@@ -111,7 +117,9 @@ public virtual class TriggerHandler {
      * other triggers that *also* implement this triggerHandler
      * @param handlerName Class name (String) of the trigger handler to bypass
      * @example
+     * ```
      * TriggerHandler.bypass('AccountTriggerHandler');
+     * ```
      */
     public static void bypass(String handlerName) {
         TriggerHandler.bypassedHandlers.add(handlerName);
@@ -122,7 +130,9 @@ public virtual class TriggerHandler {
      * the list of bypassed trigger handlers.
      * @param handlerName Handler class name to remove from the bypass list
      * @example
+     * ```
      * TriggerHandler.clearBypass('AccountTriggerHandler');
+     * ```
      */
     public static void clearBypass(String handlerName) {
         TriggerHandler.bypassedHandlers.remove(handlerName);
@@ -134,7 +144,9 @@ public virtual class TriggerHandler {
      * @param handlerName The name of the trigger handler class to check for
      * @return           `Boolean`
      * @example
+     * ```
      * TriggerHandler.isBypassed('AccountTriggerHandler');
+     * ```
      */
     public static Boolean isBypassed(String handlerName) {
         return TriggerHandler.bypassedHandlers.contains(handlerName);
@@ -143,7 +155,9 @@ public virtual class TriggerHandler {
     /**
      * @description removes all classes from the bypass list
      * @example
+     * ```
      * Triggerhandler.clearAllBypasses();
+     * ```
      */
     public static void clearAllBypasses() {
         TriggerHandler.bypassedHandlers.clear();

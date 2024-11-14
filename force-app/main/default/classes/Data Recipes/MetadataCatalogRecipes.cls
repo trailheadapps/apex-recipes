@@ -31,12 +31,14 @@ public with sharing class MetadataCatalogRecipes {
          *   into a LookupRelationshipDefinition Object.
          * @param fd a FieldDefinition Object
          * @example
+         * ```
          * FieldDefinition fd = [SELECT Id, DeveloperName, RelationshipNme,
          *                          DataType
          *                       FROM FieldDefinition LIMIT 1];
          * MetadataCatalogRecipes.LookupRelationshipDefinition lrd = new
          *      MetadataCatalogRecipes.LookupRelationshipDefinition(fd);
          * System.debug(lrd);
+         * ```
          **/
         public LookupRelationshipDefinition(FieldDefinition fd) {
             this.looksUpTo = String.valueOf(fd.EntityDefinition.DeveloperName);
@@ -58,9 +60,11 @@ public with sharing class MetadataCatalogRecipes {
      *
      * @return Map<String, Map<String, String>>
      * @example
+     * ```
      * Map<String, Map<String, String>> results =
      *      MetadataCatalogRecipes.findAllFormulaFields();
      * System.debug(results);
+     * ```
      **/
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public static Map<String, Map<String, String>> findAllFormulaFields() {
@@ -108,9 +112,11 @@ public with sharing class MetadataCatalogRecipes {
      * querying.
      * @return List<MetadataCatalogRecipes.LookupRelationshipDefinition>
      * @example
+     * ```
      * List<MetadataCatalogRecipes.LookupRelationshipDefinition> results =
      *      MetadataCatalogRecipes.findAllContactFieldsThatLookupToAccount();
      * System.debug(results);
+     * ```
      **/
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public static List<MetadataCatalogRecipes.LookupRelationshipDefinition> findAllContactFieldsThatLookupToAccount() {

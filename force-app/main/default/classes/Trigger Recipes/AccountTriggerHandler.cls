@@ -37,10 +37,12 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * @description Before Insert context method. Called automatically by the
      * trigger framework this class extends.
      * @example
+     * ```
      * Account[] accounts = new Account[]();
      * accounts.add(new Account(name='example 1'));
      * accounts.add(new Account(name='example 2'));
      * insert accounts;
+     * ```
      **/
     public override void beforeInsert() {
         // Note: You don't need to put your logic directly in this method.
@@ -64,10 +66,12 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * @description after insert context method. Called automatically by the
      * trigger framework this class extends
      * @example
+     * ```
      * Account[] accounts = new Account[]();
      * accounts.add(new Account(name='example 1'));
      * accounts.add(new Account(name='example 2'));
      * insert accounts;
+     * ```
      **/
     public override void afterInsert() {
         AccountServiceLayer.changeShippingStreet(
@@ -82,12 +86,14 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * @description before update context method. Called automatically by the
      * trigger framework this class extends
      * @example
+     * ```
      * Account[] accounts = new Account[]();
      * accounts.add(new Account(name='example 1'));
      * accounts.add(new Account(name='example 2'));
      * insert accounts;
      * accounts[0].name += ' Updated';
      * update accounts;
+     * ```
      **/
     public override void beforeUpdate() {
         // While it's often best to utilize these context methods to call other
@@ -115,12 +121,14 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * Task permissions. This code is therefore only safe to execute in the
      * context of a trigger.
      * @example
+     * ```
      * Account[] accounts = new Account[]();
      * accounts.add(new Account(name='example 1'));
      * accounts.add(new Account(name='example 2'));
      * insert accounts;
      * accounts[0].name += ' Updated';
      * update accounts;
+     * ```
      **/
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public override void afterUpdate() {
@@ -164,10 +172,12 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * context of a trigger.
      *
      * @example
+     * ```
      * Account[] accounts = new Account[]();
      * accounts.add(new Account(name='example 1'));
      * insert accounts;
      * delete accounts;
+     * ```
      **/
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public override void beforeDelete() {
@@ -199,10 +209,12 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * context of a trigger.
      *
      * @example
+     * ```
      * Account[] accounts = new Account[]();
      * accounts.add(new Account(name='example 1'));
      * insert accounts;
      * delete accounts;
+     * ```
      **/
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public override void afterDelete() {
@@ -240,11 +252,13 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * context of a trigger.
      *
      * @example
+     * ```
      * Account[] accounts = new Account[]();
      * accounts.add(new Account(name='example 1'));
      * insert accounts;
      * delete accounts;
      * undelete accounts;
+     * ```
      **/
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public override void afterUndelete() {

@@ -19,7 +19,9 @@ public with sharing class QueueableChainingRecipes implements Queueable {
      * passed through to the next Queueable.
      * @param context Dependency Injected by the System
      * @example
+     * ```
      * System.enqueueJob(new QueueableChainingRecipes());
+     * ```
      **/
     public static void execute(QueueableContext context) {
         List<Account> accounts = [SELECT Id, Description FROM Account];

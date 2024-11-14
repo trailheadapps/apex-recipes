@@ -38,9 +38,11 @@ public with sharing class FilesRecipes {
      * @param  text          String to write to the file
      * @param  firstLocation object to immediately link this file to
      * @example
+     * ```
      * Account acct = [SELECT Id FROM Account LIMIT 1];
      * FilesRecipes.createFileFromStringAttachedToRecord('Hello World', acct.Id);
      * System.debug('Look for files assoicated with account: ' + acct.id);
+     * ```
      */
     public static void createFileFromStringAttachedToRecord(
         String text,
@@ -62,6 +64,7 @@ public with sharing class FilesRecipes {
      *  the filetype from the file extension here
      * @return            `Database.SaveResult`
      * @example
+     * ```
      * Blob fileContents = Blob.valueOf('Hello World 2');
      * Account acct = [SELECT Id FROM Account LIMIT 1];
      *  FilesRecipes.createFileAttachedToRecord(
@@ -70,6 +73,7 @@ public with sharing class FilesRecipes {
      *      'AwesomeFile1'
      *  );
      * System.debug('Look for files assoicated with account: ' + acct.id);
+     * ```
      */
     public static Database.SaveResult createFileAttachedToRecord(
         Blob fileContents,
@@ -155,9 +159,11 @@ public with sharing class FilesRecipes {
      * @param recordId        Record ID to limit searching to
      * @return               `List<ContentVersion>`
      * @example
+     * ```
      * Account acct = [SELECT Id FROM Account LIMIT 1];
      * FilesRecipes.createFileFromStringAttachedToRecord('Hello World', acct.Id);
      * System.debug('Found the following ContentVersion Ids: ' + FilesRecipes.getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType.ALL, acct.id));
+     * ```
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public static List<ContentVersion> getFilteredAttachmentsForRecord(
@@ -213,10 +219,12 @@ public with sharing class FilesRecipes {
      * @return     `Database.SaveResult`
      * @exception   FilesRecipesException
      * @example
+     * ```
      * Account acct = [SELECT Id FROM Account LIMIT 1];
      * FilesRecipes.createFileFromStringAttachedToRecord('Hello World', acct.Id);
      * ContentDocumentLink cdl = [SELECT LinkedEntityId, ContentDocument.LatestPublishedVersionId FROM ContentDocumentLink WHERE LinkedEntityId = :acct.id LIMIT 1];
      * System.debug('Found the following ContentVersion Ids: ' + FilesRecipes.getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType.ALL, acct.id));
+     * ```
      */
     public static Database.SaveResult publishContent(ContentDocumentLink cdl) {
         ContentDistribution dist = new ContentDistribution();

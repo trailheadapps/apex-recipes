@@ -14,8 +14,10 @@ public with sharing class ApexClassUtilities {
      * @return     `String` This is the text following `@group` through
      * the end of the line.
      * @example
+     * ```
      * ApexClass klass = [SELECT Name, Body FROM ApexClass LIMIT 1];
      * System.debug(ApexClassUtilities.getGroupFromClassBody(klass));
+     * ```
      */
     public static String getGroupFromClassBody(ApexClass klass) {
         Pattern patternForFindingGroupTagInHeader = Pattern.compile(
@@ -41,8 +43,10 @@ public with sharing class ApexClassUtilities {
      * @param klass an ApexClass object
      * @return     `List<String>` These are the values following `@see` annotations
      * @example
+     * ```
      * ApexClass klass = [SELECT Name, Body FROM ApexClass LIMIT 1];
      * System.debug(ApexClassUtilities.getRelatedClassesFromClassBody(klass));
+     * ```
      */
     public static List<String> getRelatedClassesFromClassBody(ApexClass klass) {
         Pattern patternForFindingSeeTagInHeader = Pattern.compile(

@@ -1,373 +1,614 @@
-# virtual TriggerHandler
+# TriggerHandler Class
+`virtual`
 
-An opinionated trigger handler framework.
-Originally by Kevin O'Hara github.com/kevinohara80/sfdc-trigger-framework
-
+An opinionated trigger handler framework. 
+Originally by Kevin O&#x27;Hara github.com/kevinohara80/sfdc-trigger-framework
 
 **Group** Shared Code
 
-
 **See** [AccountTriggerHandler](https://github.com/trailheadapps/apex-recipes/wiki/AccountTriggerHandler)
-
 
 **See** [PlatformEventRecipesTriggerHandler](https://github.com/trailheadapps/apex-recipes/wiki/PlatformEventRecipesTriggerHandler)
 
-## Constructors
-### `public TriggerHandler()`
+## Fields
+### `loopCountMap`
 
-Constructs a trigger handler object and ensures the context
+#### Signature
+```apex
+private static loopCountMap
+```
+
+#### Type
+Map&lt;String,LoopCount&gt;
+
+---
+
+### `bypassedHandlers`
+
+#### Signature
+```apex
+private static bypassedHandlers
+```
+
+#### Type
+Set&lt;String&gt;
+
+---
+
+### `context`
+
+`TESTVISIBLE`
+
+#### Signature
+```apex
+protected context
+```
+
+#### Type
+TriggerContext
+
+---
+
+### `isTriggerExecuting`
+
+`TESTVISIBLE`
+
+#### Signature
+```apex
+private isTriggerExecuting
+```
+
+#### Type
+Boolean
+
+## Constructors
+### `TriggerHandler()`
+
+Constructs a trigger handler object and ensures the context 
 is set
 
----
-## Fields
+#### Signature
+```apex
+public TriggerHandler()
+```
 
-### `private loopCountMap` → `Map<String,LoopCount>`
-
-
-### `private bypassedHandlers` → `Set<String>`
-
-
-### `protected context` → `TriggerContext`
-
-`TESTVISIBLE` 
-
-### `private isTriggerExecuting` → `Boolean`
-
-`TESTVISIBLE` 
-
----
 ## Methods
-### `public virtual void run()`
+### `run()`
 
-This is main brokering method that is called by the trigger.
-It's responsible for determining the proper context, and calling the
+This is main brokering method that is called by the trigger. 
+It&#x27;s responsible for determining the proper context, and calling the 
 correct method
+
+#### Signature
+```apex
+public virtual void run()
+```
+
+#### Return Type
+**void**
 
 #### Example
 ```apex
 AccountTriggerHandler.run();
 ```
 
+---
 
-### `public void setMaxLoopCount(Integer max)`
+### `setMaxLoopCount(max)`
 
-Allows developers to prevent trigger loops, or allow
-a limited number of them by setting the maximum number of times
+Allows developers to prevent trigger loops, or allow 
+a limited number of them by setting the maximum number of times 
 this trigger is called.
 
-#### Parameters
+#### Signature
+```apex
+public void setMaxLoopCount(Integer max)
+```
 
-|Param|Description|
-|---|---|
-|`max`|A valid number (generally 1) of times you'd like to allow the trigger to run.|
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| max | Integer | A valid number (generally 1) of times you&#x27;d like 
+to allow the trigger to run. |
+
+#### Return Type
+**void**
 
 #### Example
+In the context of a `TriggerHandler` class: 
 ```apex
-In the context of a TriggerHandler class,
 this.setMaxLoopCount(5);
 ```
 
+---
 
-### `public void clearMaxLoopCount()`
+### `clearMaxLoopCount()`
 
 Allows developers to turn off the max loop count
 
-#### Example
+#### Signature
 ```apex
-In the context of a TriggerHandler class,
+public void clearMaxLoopCount()
+```
+
+#### Return Type
+**void**
+
+#### Example
+In the context of a `TriggerHandler` class: 
+```apex
 this.clearMaxLoopCount();
 ```
 
+---
 
-### `public static void bypass(String handlerName)`
+### `bypass(handlerName)`
 
-Allows developers to conditionally bypass (disable)
+Allows developers to conditionally bypass (disable) 
 other triggers that *also* implement this triggerHandler
 
-#### Parameters
+#### Signature
+```apex
+public static void bypass(String handlerName)
+```
 
-|Param|Description|
-|---|---|
-|`handlerName`|Class name (String) of the trigger handler to bypass|
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| handlerName | String | Class name (String) of the trigger handler to bypass |
+
+#### Return Type
+**void**
 
 #### Example
 ```apex
 TriggerHandler.bypass('AccountTriggerHandler');
 ```
 
+---
 
-### `public static void clearBypass(String handlerName)`
+### `clearBypass(handlerName)`
 
-Removes a given trigger handler class name from
+Removes a given trigger handler class name from 
 the list of bypassed trigger handlers.
 
-#### Parameters
+#### Signature
+```apex
+public static void clearBypass(String handlerName)
+```
 
-|Param|Description|
-|---|---|
-|`handlerName`|Handler class name to remove from the bypass list|
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| handlerName | String | Handler class name to remove from the bypass list |
+
+#### Return Type
+**void**
 
 #### Example
 ```apex
 TriggerHandler.clearBypass('AccountTriggerHandler');
 ```
 
+---
 
-### `public static Boolean isBypassed(String handlerName)`
+### `isBypassed(handlerName)`
 
-Allows developers to check whether a given trigger
+Allows developers to check whether a given trigger 
 handler class is currently bypassed.
 
+#### Signature
+```apex
+public static Boolean isBypassed(String handlerName)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| handlerName | String | The name of the trigger handler class to check for |
 
-|Param|Description|
-|---|---|
-|`handlerName`|The name of the trigger handler class to check for|
+#### Return Type
+**Boolean**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`Boolean`|`Boolean`|
+,[object Object]
 
 #### Example
 ```apex
 TriggerHandler.isBypassed('AccountTriggerHandler');
 ```
 
+---
 
-### `public static void clearAllBypasses()`
+### `clearAllBypasses()`
 
 removes all classes from the bypass list
+
+#### Signature
+```apex
+public static void clearAllBypasses()
+```
+
+#### Return Type
+**void**
 
 #### Example
 ```apex
 Triggerhandler.clearAllBypasses();
 ```
 
+---
 
-### `private void setTriggerContext()`
+### `setTriggerContext()`
 
 `TESTVISIBLE`
 
 private instancemethods
 
-### `private void setTriggerContext(String ctx, Boolean testMode)`
+#### Signature
+```apex
+private void setTriggerContext()
+```
+
+#### Return Type
+**void**
+
+---
+
+### `setTriggerContext(ctx, testMode)`
 
 `TESTVISIBLE`
 
 Internal method for manually setting the trigger context
 
+#### Signature
+```apex
+private void setTriggerContext(String ctx, Boolean testMode)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| ctx | String | The current trigger Context |
+| testMode | Boolean | Is the trigger running in a test context? |
 
-|Param|Description|
-|---|---|
-|`ctx`|The current trigger Context|
-|`testMode`|Is the trigger running in a test context?|
+#### Return Type
+**void**
 
-### `protected void addToLoopCount()`
+---
+
+### `addToLoopCount()`
 
 `TESTVISIBLE`
 
 increment the loop count
 
+#### Signature
+```apex
+protected void addToLoopCount()
+```
+
+#### Return Type
+**void**
+
 #### Throws
+Throws: loop count exception if the max loop count is reached
 
-|Exception|Description|
-|---|---|
-|`Throws`|loop count exception if the max loop count is reached|
+---
 
-### `protected Boolean validateRun()`
+### `validateRun()`
 
 `TESTVISIBLE`
 
 make sure this trigger should continue to run
 
-#### Returns
+#### Signature
+```apex
+protected Boolean validateRun()
+```
 
-|Type|Description|
-|---|---|
-|`Boolean`|`Boolean`|
+#### Return Type
+**Boolean**
+
+,[object Object]
 
 #### Throws
+TriggerHandlerException: thrown when executing outside of a,[object Object],trigger
 
-|Exception|Description|
-|---|---|
-|`TriggerHandlerException`|thrown when executing outside of a trigger|
+---
 
-### `private String getHandlerName()`
+### `getHandlerName()`
 
 `TESTVISIBLE`
 
-Returns the string version of the handler class being
+Returns the string version of the handler class being 
 invoked
 
-#### Returns
+#### Signature
+```apex
+private String getHandlerName()
+```
 
-|Type|Description|
-|---|---|
-|`String`|`String` Name of the Handler|
+#### Return Type
+**String**
 
-### `protected virtual void beforeInsert()`
+,[object Object], Name of the Handler
+
+---
+
+### `beforeInsert()`
 
 `TESTVISIBLE`
-
 `SUPPRESSWARNINGS`
 
 context methods
 
-### `protected virtual void beforeUpdate()`
+#### Signature
+```apex
+protected virtual void beforeInsert()
+```
 
-`TESTVISIBLE`
-
-`SUPPRESSWARNINGS`
-
-Virtual method for the implementing class to override
-
-### `protected virtual void beforeDelete()`
-
-`TESTVISIBLE`
-
-`SUPPRESSWARNINGS`
-
-Virtual method for the implementing class to override
-
-### `protected virtual void afterInsert()`
-
-`TESTVISIBLE`
-
-`SUPPRESSWARNINGS`
-
-Virtual method for the implementing class to override
-
-### `protected virtual void afterUpdate()`
-
-`TESTVISIBLE`
-
-`SUPPRESSWARNINGS`
-
-Virtual method for the implementing class to override
-
-### `protected virtual void afterDelete()`
-
-`TESTVISIBLE`
-
-`SUPPRESSWARNINGS`
-
-Virtual method for the implementing class to override
-
-### `protected virtual void afterUndelete()`
-
-`TESTVISIBLE`
-
-`SUPPRESSWARNINGS`
-
-Virtual method for the implementing class to override
+#### Return Type
+**void**
 
 ---
-## Enums
-### TriggerContext
+
+### `beforeUpdate()`
 
 `TESTVISIBLE`
+`SUPPRESSWARNINGS`
 
-possible trigger contexts
+Virtual method for the implementing class to override
 
+#### Signature
+```apex
+protected virtual void beforeUpdate()
+```
+
+#### Return Type
+**void**
 
 ---
+
+### `beforeDelete()`
+
+`TESTVISIBLE`
+`SUPPRESSWARNINGS`
+
+Virtual method for the implementing class to override
+
+#### Signature
+```apex
+protected virtual void beforeDelete()
+```
+
+#### Return Type
+**void**
+
+---
+
+### `afterInsert()`
+
+`TESTVISIBLE`
+`SUPPRESSWARNINGS`
+
+Virtual method for the implementing class to override
+
+#### Signature
+```apex
+protected virtual void afterInsert()
+```
+
+#### Return Type
+**void**
+
+---
+
+### `afterUpdate()`
+
+`TESTVISIBLE`
+`SUPPRESSWARNINGS`
+
+Virtual method for the implementing class to override
+
+#### Signature
+```apex
+protected virtual void afterUpdate()
+```
+
+#### Return Type
+**void**
+
+---
+
+### `afterDelete()`
+
+`TESTVISIBLE`
+`SUPPRESSWARNINGS`
+
+Virtual method for the implementing class to override
+
+#### Signature
+```apex
+protected virtual void afterDelete()
+```
+
+#### Return Type
+**void**
+
+---
+
+### `afterUndelete()`
+
+`TESTVISIBLE`
+`SUPPRESSWARNINGS`
+
+Virtual method for the implementing class to override
+
+#### Signature
+```apex
+protected virtual void afterUndelete()
+```
+
+#### Return Type
+**void**
+
 ## Classes
-### TriggerHandlerException
+### TriggerHandlerException Class
 
 Internal TriggerHandler custom exception class
 
-
-**Inheritance**
-
-TriggerHandlerException
-
-
-### LoopCount
+### LoopCount Class
 
 `TESTVISIBLE`
 
 inner classes
 
+#### Fields
+##### `max`
+
+###### Signature
+```apex
+private max
+```
+
+###### Type
+Integer
+
+---
+
+##### `count`
+
+###### Signature
+```apex
+private count
+```
+
+###### Type
+Integer
+
 #### Constructors
-##### `public LoopCount()`
+##### `LoopCount()`
 
 Loop counter method with default of 5.
 
-##### `public LoopCount(Integer max)`
+###### Signature
+```apex
+public LoopCount()
+```
+
+---
+
+##### `LoopCount(max)`
 
 Sets loop count based on the param.
 
+###### Signature
+```apex
+public LoopCount(Integer max)
+```
+
 ###### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| max | Integer | Maximum number of loops to allow. |
 
-|Param|Description|
-|---|---|
-|`max`|Maximum number of loops to allow.|
-
----
-#### Fields
-
-##### `private max` → `Integer`
-
-
-##### `private count` → `Integer`
-
-
----
 #### Methods
-##### `public Boolean increment()`
+##### `increment()`
 
-Increment the internal counter returning the results of
+Increment the internal counter returning the results of 
 this.exceeded().
 
-###### Returns
+###### Signature
+```apex
+public Boolean increment()
+```
 
-|Type|Description|
-|---|---|
-|`Boolean`|`Boolean` true if count will exceed max count or is less than 0.|
+###### Return Type
+**Boolean**
 
-##### `public Boolean exceeded()`
+,[object Object], true if count will exceed max count or is less,[object Object],than 0.
 
-Determines if this we're about to exceed the loop count.
+---
 
-###### Returns
+##### `exceeded()`
 
-|Type|Description|
-|---|---|
-|`Boolean`|`Boolean` true if less than 0 or more than max.|
+Determines if this we&#x27;re about to exceed the loop count.
 
-##### `public Integer getMax()`
+###### Signature
+```apex
+public Boolean exceeded()
+```
+
+###### Return Type
+**Boolean**
+
+,[object Object], true if less than 0 or more than max.
+
+---
+
+##### `getMax()`
 
 Returns the max loop count.
 
-###### Returns
+###### Signature
+```apex
+public Integer getMax()
+```
 
-|Type|Description|
-|---|---|
-|`Integer`|`Integer` max loop count.|
+###### Return Type
+**Integer**
 
-##### `public Integer getCount()`
+,[object Object], max loop count.
+
+---
+
+##### `getCount()`
 
 Returns the current loop count.
 
-###### Returns
+###### Signature
+```apex
+public Integer getCount()
+```
 
-|Type|Description|
-|---|---|
-|`Integer`|`Integer` current loop count.|
+###### Return Type
+**Integer**
 
-##### `public void setMax(Integer max)`
+,[object Object], current loop count.
+
+---
+
+##### `setMax(max)`
 
 Sets the max loop size
 
+###### Signature
+```apex
+public void setMax(Integer max)
+```
+
 ###### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| max | Integer | The integer to set max to. |
 
-|Param|Description|
-|---|---|
-|`max`|The integer to set max to.|
+###### Return Type
+**void**
 
----
+## Enums
+### TriggerContext Enum
 
----
+`TESTVISIBLE`
+
+possible trigger contexts
+
+#### Values
+| Value | Description |
+|-------|-------------|
+| BEFORE_INSERT |  |
+| BEFORE_UPDATE |  |
+| BEFORE_DELETE |  |
+| AFTER_INSERT |  |
+| AFTER_UPDATE |  |
+| AFTER_DELETE |  |
+| AFTER_UNDELETE |  |

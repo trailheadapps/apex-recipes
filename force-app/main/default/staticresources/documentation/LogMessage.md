@@ -1,72 +1,119 @@
-# LogMessage
+# LogMessage Class
 
-A class for automatically attaching metadata to log messages
+A class for automatically attaching metadata to log messages 
 like Quiddity and RequestID
-
 
 **Group** Shared Code
 
-## Constructors
-### `public LogMessage(String message)`
-
-Constructor accepting a message to log.
-Severity is auto set to info
-
-#### Parameters
-
-|Param|Description|
-|---|---|
-|`message`||
-
-### `public LogMessage(Exception ex)`
-
-Constructor accepting an exception object.
-
-#### Parameters
-
-|Param|Description|
-|---|---|
-|`ex`||
-
----
 ## Fields
+### `EXCEPTION_STRING_FORMAT`
 
-### `private EXCEPTION_STRING_FORMAT` → `String`
+#### Signature
+```apex
+private static final EXCEPTION_STRING_FORMAT
+```
 
+#### Type
+String
 
----
 ## Properties
-
-### `public requestId` → `String`
-
+### `requestId`
 
 public read only property for the request ID. Privately set.
 
-### `public quiddity` → `Quiddity`
+#### Signature
+```apex
+public requestId
+```
 
+#### Type
+String
+
+---
+
+### `quiddity`
 
 Public read only property for quiddity. Privately set.
 
-### `public message` → `String`
+#### Signature
+```apex
+public quiddity
+```
 
+#### Type
+Quiddity
+
+---
+
+### `message`
 
 Public message property.
 
-### `public severity` → `LogSeverity`
+#### Signature
+```apex
+public message
+```
 
+#### Type
+String
+
+---
+
+### `severity`
 
 Public severity property.
 
+#### Signature
+```apex
+public severity
+```
+
+#### Type
+[LogSeverity](LogSeverity.md)
+
+## Constructors
+### `LogMessage(message)`
+
+Constructor accepting a message to log. 
+Severity is auto set to info
+
+#### Signature
+```apex
+public LogMessage(String message)
+```
+
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| message | String |  |
+
 ---
+
+### `LogMessage(ex)`
+
+Constructor accepting an exception object.
+
+#### Signature
+```apex
+public LogMessage(Exception ex)
+```
+
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| ex | Exception |  |
+
 ## Methods
-### `public Log__e toEvent()`
+### `toEvent()`
 
 converts this object to an event for publishing
 
-#### Returns
+#### Signature
+```apex
+public Log__e toEvent()
+```
 
-|Type|Description|
-|---|---|
-|`Log__e`|`SObject`|
+#### Return Type
+**Log__e**
 
----
+,[object Object]

@@ -1,28 +1,28 @@
-# MultipleInputRecipes
+# MultipleInputRecipes Class
 
 Demonstrates how use multiple input parameters in a DataWeave script in Apex.
-
 
 **Group** DataWeaveInApex Recipes
 
 ## Methods
-### `public static String runScriptWithMultipleInputs(String products, String attributes, String exchangeRates)`
+### `runScriptWithMultipleInputs(products, attributes, exchangeRates)`
 
-Converts the information of a shopping basket into another currency.
+Converts the information of a shopping basket into another currency. 
 Uses the `/dw/multipleInputs.dwl` DataWeave script.
 
+#### Signature
+```apex
+public static String runScriptWithMultipleInputs(String products, String attributes, String exchangeRates)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| products | String | list of products in the form of a JSON string |
+| attributes | String | list of product attributes used as a filters in the form of a JSON string |
+| exchangeRates | String | list of currency exchange rates in the form of a JSON string |
 
-|Param|Description|
-|---|---|
-|`products`|list of products in the form of a JSON string|
-|`attributes`|list of product attributes used as a filters in the form of a JSON string|
-|`exchangeRates`|list of currency exchange rates in the form of a JSON string|
+#### Return Type
+**String**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`String`|script output as an XML string|
-
----
+script output as an XML string

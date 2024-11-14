@@ -348,12 +348,14 @@ public virtual class RestClient {
      * headers
      * @return               `HTTPResponse`
      * @example
+     * ```
      * System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
      *                                      RestClient.HttpVerb.GET,
      *                                      'volumes',
      *                                      'q=salesforce',
      *                                      '',
      *                                      new Map<String,String>()));
+     * ```
      */
     @SuppressWarnings('PMD.ExcessiveParameterList')
     public static HttpResponse makeApiCall(
@@ -377,10 +379,12 @@ public virtual class RestClient {
      * @param query           Query component of the URL ie: after `?foo=bar`
      * @return               `HTTPResponse`
      * @example
+     * ```
      * System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
      *                                      RestClient.HttpVerb.GET,
      *                                      'volumes',
      *                                      'q=salesforce'));
+     * ```
      */
     @SuppressWarnings('PMD.ExcessiveParameterList')
     public static HttpResponse makeApiCall(
@@ -401,9 +405,11 @@ public virtual class RestClient {
      * @param path           Http path component of the URL. ie: `/path/to/resource`
      * @return               `HTTPResponse`
      * @example
+     * ```
      * System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
      *                                      RestClient.HttpVerb.GET,
      *                                      'volumes'));
+     * ```
      */
     public static HttpResponse makeApiCall(
         String namedCredential,

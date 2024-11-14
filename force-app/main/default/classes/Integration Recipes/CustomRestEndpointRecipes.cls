@@ -2,9 +2,9 @@
  * @description An Apex class can be used to generate a custom REST endpoint
  * that can be exposed to the Salesforce API. In order to achieve this, we can
  * annotate the class with `@RestResource` and then provide a URL mapping. In
- * this example we are using /integration-service/* to expose the class. It can
+ * this example we are using `/integration-service/*` to expose the class. It can
  * then be accessed at by performing a callout to
- * <INSTANCEURL>/services/apexrest/integration-service. Once the class has been
+ * `<INSTANCEURL>/services/apexrest/integration-service`. Once the class has been
  * designated as a REST resource, we can then annoate our apex methods with
  * `@HttpGet`, `@HttpDelete`, `@HttpPut`, `@HttpPost`, and `@HttpPatch` to enable access
  * via it's relative Http Method.
@@ -50,7 +50,7 @@ global inherited sharing class CustomRestEndpointRecipes {
      * case, Salesforce will supply the error code.
      *
      * Note: This method has a false-positive PMD warning. Our Query
-     * includes the keyword 'WITH USER_MODE' which prevents this
+     * includes the keyword `WITH USER_MODE` which prevents this
      * Query from accessing fields and objects that they don't have permission
      * to access. This is a form of inline CRUD/FLS Check.
      *
@@ -58,7 +58,9 @@ global inherited sharing class CustomRestEndpointRecipes {
      * responseBody.
      * @return RestResponse  A list of Accounts or the exception message
      * @example
+     * ```sh
      * curl -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/integration-service"
+     * ```
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @HttpGet
@@ -103,15 +105,17 @@ global inherited sharing class CustomRestEndpointRecipes {
      * custom REST endpoint is called. A DELETE request allows us to delete data
      * in Salesforce. In this Example, we're going to take a record Id that was
      * sent in the RestRequest and delete the record from Salesforce. We will
-     * take the RestRequest Parameters and get the ExternalSalesforceId__c param
+     * take the RestRequest Parameters and get the `ExternalSalesforceId__c` param
      * from the request.
      * Note: This method has a false-positive PMD warning. Our Query
-     * includes the keyword 'WITH USER_MODE' which prevents this
+     * includes the keyword `WITH USER_MODE` which prevents this
      * Query from accessing fields and objects that they don't have permission
      * to access. This is a form of inline CRUD/FLS Check.
      * @return RestResponse A success message or the exception message
      * @example
+     * ```sh
      * curl —X DELETE -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/integration-service"
+     * ```
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @HttpDelete
@@ -185,18 +189,22 @@ global inherited sharing class CustomRestEndpointRecipes {
      * that was sent in the request and insert them into Salesforce.
      *
      * Note: This method has a false-positive PMD warning. PMD isn't aware of
-     * the purpose or functionality of CanTheUser.* so it doesn't undersatnd
+     * the purpose or functionality of `CanTheUser.*` so it doesn't undersatnd
      * that we are, in fact, checking for Crud / FLS permissions prior to querying.
      *
      * @return RestResponse A success message or the exception message
      * @example
-     * Create file with the following JSON, named newContact.json
-     *     {
-     *       "firstName" : "Apex",
-     *       "lastName": "Recipes",
-     *       "phone" : "919-867-5309",
-     *     }
+     * Create file with the following JSON, named `newContact.json`
+     * ```json
+     * {
+     *   "firstName" : "Apex",
+     *   "lastName": "Recipes",
+     *   "phone" : "919-867-5309",
+     * }
+     * ```
+     * ```sh
      * curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
+     * ```
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @HttpPost
@@ -260,22 +268,28 @@ global inherited sharing class CustomRestEndpointRecipes {
      * was sent in the request and upsert them into Salesforce.
      *
      * This method has a false-positive PMD warning. PMD isn't aware of
-     * the purpose or functionality of CanTheUser.* so it doesn't undersatnd
+     * the purpose or functionality of `CanTheUser.*` so it doesn't undersatnd
      * that we are, in fact, checking for Crud / FLS permissions prior to
      * querying.
      *
      * @return RestResponse A success message or the exception message
      * @example
-     * Create file with the following JSON, named newContact.json
-     *     {
-     *       "firstName" : "Apex",
-     *       "lastName": "Recipes",
-     *       "phone" : "919-867-5309",
-     *       "ExternalSalesforceId__c": "
-     *     }
+     * Create file with the following JSON, named `newContact.json`
+     * ```json
+     * {
+     *   "firstName" : "Apex",
+     *   "lastName": "Recipes",
+     *   "phone" : "919-867-5309",
+     *   "ExternalSalesforceId__c": "
+     * }
+     * ```
+     * ```sh
      * curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
-     * Then, Modify the first name of your newContact.json file so it says "Apex2" and run
+     * ```
+     * Then, modify the first name of your `newContact.json` file so it says `Apex2` and run
+     * ```sh
      * curl —X PUT -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
+     * ```
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @HttpPut
@@ -341,22 +355,28 @@ global inherited sharing class CustomRestEndpointRecipes {
      * Accounts that was sent in the request and update in Salesforce.
      *
      * Note: This method has a false-positive PMD warning. PMD isn't aware of
-     * the purpose or functionality of CanTheUser.* so it doesn't undersatnd
+     * the purpose or functionality of `CanTheUser.*` so it doesn't undersatnd
      * that we are, in fact, checking for CRUD / FLS permissions prior to
      * querying.
      *
      * @return RestResponse A success message or the exception message
      * @example
-     * Create file with the following JSON, named newContact.json
-     *     {
-     *       "firstName" : "Apex",
-     *       "lastName": "Recipes",
-     *       "phone" : "919-867-5309",
-     *       "ExternalSalesforceId__c": "
-     *     }
+     * Create file with the following JSON, named `newContact.json`
+     * ```json
+     * {
+     *   "firstName" : "Apex",
+     *   "lastName": "Recipes",
+     *   "phone" : "919-867-5309",
+     *   "ExternalSalesforceId__c": "
+     * }
+     * ```
+     * ```sh
      * curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
-     * Then, Modify the first name of your newContact.json file so it says "Apex2" and run
+     * ```
+     * Then, modify the first name of your `newContact.json` file so it says `Apex2` and run
+     * ```sh
      * curl —X PATCH -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
+     * ```
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @HttpPatch

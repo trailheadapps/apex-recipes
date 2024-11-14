@@ -21,7 +21,9 @@ public with sharing class AccountServiceLayer {
      *  call a service layer method from a trigger handler.
      * @param toLog String to Log.
      * @example
+     * ```
      * AccountServiceLayer.justWriteALogStatement('Hello World');
+     * ```
      */
     public static void justWriteALogStatement(String toLog) {
         AccountServiceLayer.didExecuteMethod = toLog;
@@ -42,9 +44,11 @@ public with sharing class AccountServiceLayer {
      *
      * @param accounts List of account objects to change the shipping street on
      * @example
+     * ```
      * Account[] accounts = [SELECT Name FROM Account LIMIT 50];
      * AccountServiceLayer.changeShippingStreet(accounts);
      * System.debug([SELECT Name, ShippingStreet FROM Account WHERE Id in : accounts]);
+     * ```
      **/
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public static void changeShippingStreet(
@@ -67,9 +71,11 @@ public with sharing class AccountServiceLayer {
      * @param save Boolean determining if DML update is requested.
      * @return List<Account>
      * @example
+     * ```
      * Account[] accounts = [SELECT Description FROM Account LIMIT 50];
      * AccountServiceLayer.incrementCounterInDescription(accounts, true);
      * System.debug([SELECT Name, Description FROM Account WHERE Id in : accounts]);
+     * ```
      **/
     public static List<Account> incrementCounterInDescription(
         List<Account> incomingAccounts,
@@ -99,15 +105,17 @@ public with sharing class AccountServiceLayer {
     /**
      * @description Updates a list of accounts if the user has access to update
      *  the Account Object. Demonstrates simple usage of
-     *  Security.stripInacessible(), and DML with a try/catch block.
+     *  `Security.stripInacessible()`, and DML with a try/catch block.
      * @param accounts
      * @example
+     * ```
      * Account[] accounts = [SELECT Name FROM Account LIMIT 50];
      * for(Account acct: accounts){
      *      acct.description = 'safely save example';
      * }
      * AccountServiceLayer.safelySave(accounts);
      * System.debug([SELECT Name, Description FROM Account WHERE Id in : accounts]);
+     * ```
      **/
     @testVisible
     private static void safelySave(List<Account> accounts) {

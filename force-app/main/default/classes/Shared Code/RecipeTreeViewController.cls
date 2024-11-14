@@ -52,7 +52,9 @@ public with sharing class RecipeTreeViewController {
      * for our supporting, shared code.
      * @return list of RecipeTreeData objects
      * @example
+     * ```
      * System.debug(RecipeTreeViewController.generateTreeData());
+     * ```
      */
     @AuraEnabled(cacheable=true)
     public static List<RecipeTreeData> generateTreeData() {

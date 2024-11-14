@@ -16,11 +16,13 @@ public with sharing class PlatformEventRecipes {
      * @param event an `Event_Recipes_Demo__e` object
      * @return Database.SaveResult
      * @example
+     * ```
      * Account acct = new Account(Name = 'Awesome Events Ltd.');
      * insert acct;
      * Event_Recipes_Demo__e evt = new Event_Recipes_Demo__e(AccountId__c = acct.id, Title__c='Updated website', Url__c = 'https://developer.salesforce.com');
      * Database.saveResults result = PlatformEventsRecipes.publishEvent(evt);
      * System.debug(result);
+     * ```
      **/
     public static Database.SaveResult publishEvent(
         Event_Recipes_Demo__e event
@@ -39,6 +41,7 @@ public with sharing class PlatformEventRecipes {
      * @param event an `Event_Recipes_Demo__e` object
      * @return Database.SaveResult
      * @example
+     * ```
      * Account acct = new Account(Name = 'Awesome Events Ltd.');
      * insert acct;
      * // Creating the event via sObjectType.newSObject is required to obtain an EventUuid
@@ -47,6 +50,7 @@ public with sharing class PlatformEventRecipes {
      * event.Title__c = 'Updated website';
      * event.Url__c = 'https://developer.salesforce.com';
      * PlatformEventRecipes.publishEventWithCallbacks(event);
+     * ```
      **/
     public static Database.SaveResult publishEventWithCallbacks(
         Event_Recipes_Demo__e event
