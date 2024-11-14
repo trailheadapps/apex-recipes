@@ -59,8 +59,6 @@ public static Log get()
 #### Return Type
 **[Log](Log.md)**
 
-,[object Object]
-
 ---
 
 ### `add(messageToLog)`

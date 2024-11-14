@@ -37,5 +37,3 @@ public static String getUnknownObjectType(Object obj)
 
 #### Return Type
 **String**
-
-,[object Object]

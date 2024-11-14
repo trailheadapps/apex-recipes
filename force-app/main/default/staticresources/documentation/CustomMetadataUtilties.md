@@ -85,8 +85,6 @@ public List<Bucketed_Picklist__mdt> getBucketedPicklistsForObject(List<Id> objId
 #### Return Type
 **List&lt;Bucketed_Picklist__mdt&gt;**
 
-,[object Object]
-
 ---
 
 ### `getPicklistBucketWithValues(bPL, search)`
@@ -109,5 +107,3 @@ public List<Picklist_Bucket__mdt> getPicklistBucketWithValues(List<Bucketed_Pick
 
 #### Return Type
 **List&lt;Picklist_Bucket__mdt&gt;**
-
-,[object Object]

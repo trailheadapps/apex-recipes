@@ -56,7 +56,7 @@ global inherited sharing class CustomRestEndpointRecipes {
      *
      * The return statement is atomically serialized and returned in the
      * responseBody.
-     * @return RestResponse  A list of Accounts or the exception message
+     * @return JSON string holding the list of Accounts or the exception message
      * @example
      * ```sh
      * curl -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/integration-service"
@@ -111,7 +111,7 @@ global inherited sharing class CustomRestEndpointRecipes {
      * includes the keyword `WITH USER_MODE` which prevents this
      * Query from accessing fields and objects that they don't have permission
      * to access. This is a form of inline CRUD/FLS Check.
-     * @return RestResponse A success message or the exception message
+     * @return JSON string holding a success message or the exception message
      * @example
      * ```sh
      * curl —X DELETE -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/integration-service"
@@ -192,7 +192,7 @@ global inherited sharing class CustomRestEndpointRecipes {
      * the purpose or functionality of `CanTheUser.*` so it doesn't undersatnd
      * that we are, in fact, checking for Crud / FLS permissions prior to querying.
      *
-     * @return RestResponse A success message or the exception message
+     * @return JSON string holding a success message or the exception message
      * @example
      * Create file with the following JSON, named `newContact.json`
      * ```json
@@ -272,7 +272,7 @@ global inherited sharing class CustomRestEndpointRecipes {
      * that we are, in fact, checking for Crud / FLS permissions prior to
      * querying.
      *
-     * @return RestResponse A success message or the exception message
+     * @return JSON string holding a success message or the exception message
      * @example
      * Create file with the following JSON, named `newContact.json`
      * ```json
@@ -359,7 +359,7 @@ global inherited sharing class CustomRestEndpointRecipes {
      * that we are, in fact, checking for CRUD / FLS permissions prior to
      * querying.
      *
-     * @return RestResponse A success message or the exception message
+     * @return A JSON string holding a success message or the exception message
      * @example
      * Create file with the following JSON, named `newContact.json`
      * ```json

@@ -252,8 +252,6 @@ public Boolean isPlatformCacheEnabled()
 #### Return Type
 **Boolean**
 
-,[object Object]
-
 ---
 
 ### `isSeeAllDataTrue()`
@@ -285,8 +283,6 @@ public Boolean isSeeAllDataTrue()
 #### Return Type
 **Boolean**
 
-,[object Object]
-
 ---
 
 ### `getAvailableOrgCachePartition()`
@@ -308,8 +304,6 @@ private Cache.OrgPartition getAvailableOrgCachePartition()
 #### Return Type
 **Cache.OrgPartition**
 
-,[object Object]
-
 ---
 
 ### `isAdvancedMultiCurrencyManagementEnabled()`
@@ -330,8 +324,6 @@ public Boolean isAdvancedMultiCurrencyManagementEnabled()
 #### Return Type
 **Boolean**
 
-,[object Object]
-
 ---
 
 ### `getOrgShape()`
@@ -349,8 +341,6 @@ private Organization getOrgShape()
 
 #### Return Type
 **Organization**
-
-,[object Object]
 
 ---
 

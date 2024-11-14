@@ -178,7 +178,7 @@ public static ConnectApi.NamedCredential createNamedCredential(ConnectApiWrapper
 #### Return Type
 **ConnectApi.NamedCredential**
 
-ConnectApi.NamedCredential The created named credential
+The created named credential
 
 #### Example
 ```apex
@@ -213,7 +213,7 @@ private static ConnectApi.ExternalCredential createExternalCredential(ConnectApi
 #### Return Type
 **ConnectApi.ExternalCredential**
 
-ConnectApi.ExternalCredential The created external credential
+The created external credential
 
 #### Example
 ```apex

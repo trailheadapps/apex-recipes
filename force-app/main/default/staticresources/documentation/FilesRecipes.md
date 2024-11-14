@@ -53,8 +53,6 @@ the filetype from the file extension here |
 #### Return Type
 **Database.SaveResult**
 
-,[object Object]
-
 #### Example
 ```apex
 Blob fileContents = Blob.valueOf('Hello World 2');
@@ -86,8 +84,6 @@ public static Database.SaveResult createFileAttachedToRecord(FilesRecipes.FileAn
 #### Return Type
 **Database.SaveResult**
 
-,[object Object]
-
 ---
 
 ### `createFilesAttachedToRecords(toCreate)`
@@ -102,12 +98,10 @@ public static List<Database.SaveResult> createFilesAttachedToRecords(List<FilesR
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| toCreate | List&lt;FilesRecipes.FileAndLinkObject&gt; | List&lt;FilesRecipes.FileAndLinkObject&gt; |
+| toCreate | List&lt;FilesRecipes.FileAndLinkObject&gt; |  |
 
 #### Return Type
 **List&lt;Database.SaveResult&gt;**
-
-,[object Object]
 
 ---
 
@@ -137,8 +131,6 @@ public static List<ContentVersion> getFilteredAttachmentsForRecord(FilesRecipes.
 #### Return Type
 **List&lt;ContentVersion&gt;**
 
-,[object Object]
-
 #### Example
 ```apex
 Account acct = [SELECT Id FROM Account LIMIT 1];
@@ -164,8 +156,6 @@ public static Database.SaveResult publishContent(ContentDocumentLink cdl)
 
 #### Return Type
 **Database.SaveResult**
-
-,[object Object]
 
 #### Throws
 FilesRecipesException: 

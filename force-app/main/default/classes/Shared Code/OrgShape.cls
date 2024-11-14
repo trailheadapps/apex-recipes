@@ -153,7 +153,6 @@ public with sharing class OrgShape {
      * Note: Allows override by setting OrgShape.disablePlatformCache
      * equal to true. Use this in test contexts where cache is not available like
      * when you have to use seeAllData=true
-     * @return      `Boolean`
      */
     public Boolean isPlatformCacheEnabled() {
         Cache.OrgPartition defaultCachePartition = getAvailableOrgCachePartition();
@@ -187,7 +186,6 @@ public with sharing class OrgShape {
      *
      * Note: It is not a good idea, and against best practices to use
      * seeAllData=true when not absolutely necessary.
-     * @return      `Boolean`
      */
     public Boolean isSeeAllDataTrue() {
         Boolean seeAllData = false;
@@ -219,8 +217,6 @@ public with sharing class OrgShape {
      *
      * Note: This method memoizes the result of the query, ensuring that the
      * underlying soql query is only ever run once per transaction.
-     *
-     * @return      `String`
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     private Cache.OrgPartition getAvailableOrgCachePartition() {
@@ -256,7 +252,6 @@ public with sharing class OrgShape {
      *
      * Note: This was originally written by the NPSP team and can be found here:
      * https://github.com/SalesforceFoundation/NPSP/blob/aad20ffb747ecda9a037c4bce9cd19617b6a727b/src/classes/UTIL_Currency.cls#L79
-     * @return      `Boolean`
      */
     public Boolean isAdvancedMultiCurrencyManagementEnabled() {
         Boolean isACMEnabled = false;
@@ -282,7 +277,6 @@ public with sharing class OrgShape {
      * @description Private method that memoizes the query result
      * Suppressing the PMD warning to validate crud permissions before
      * DML, because the Organization Object is always available.
-     * @return      `Organization`
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     private Organization getOrgShape() {

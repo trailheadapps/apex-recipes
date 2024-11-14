@@ -25,7 +25,7 @@ public with sharing class AtFutureRecipes {
      * ```
      * AtFutureRecipes.atFutureMethodWithoutCalloutPrivileges('Some Data');
      * ```
-     **/
+     */
     @future
     public static void atFutureMethodWithoutCalloutPrivileges(String data) {
         // this runs in the future!in a separate Apex transaction from the
@@ -46,7 +46,7 @@ public with sharing class AtFutureRecipes {
      * ```
      * AtFutureRecipes.atFutureMethodWithCalloutPrivileges('google.com');
      * ```
-     **/
+     */
     @future(callout=true)
     public static void atFutureMethodWithCalloutPrivileges(String url) {
         // This is the bare minimum code needed to make a HTTP callout without

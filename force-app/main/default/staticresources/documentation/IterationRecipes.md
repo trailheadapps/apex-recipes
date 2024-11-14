@@ -26,13 +26,13 @@ public static Integer iterateOnAccountList(List<Account> accounts)
 #### Return Type
 **Integer**
 
-Integer the total number of employees for the accounts
+Total number of employees for the accounts
 
 ---
 
 ### `iterableApiClientRecipe()`
 
-Demonstrates how to use a REST API client that leverages the Iterator interface. 
+Demonstrates how to use a REST API client that leverages the `Iterator` interface. 
 This example iterates on a paginated record list. Records are represented as strings for simplicity. 
 Remote records are retrieved on the fly by IterableApiClient when the Iterator is accessed.
 
@@ -44,4 +44,4 @@ public static List<String> iterableApiClientRecipe()
 #### Return Type
 **List&lt;String&gt;**
 
-List&lt;String&gt; the &#x27;records&#x27; retrieved
+List of &quot;records&quot; retrieved

@@ -17,5 +17,3 @@ public static Quiddity demonstrateGetQuiddity()
 
 #### Return Type
 **Quiddity**
-
-System.Quiddity

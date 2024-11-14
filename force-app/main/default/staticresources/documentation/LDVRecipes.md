@@ -141,8 +141,6 @@ records. |
 #### Return Type
 **List&lt;ContentDocumentLink&gt;**
 
-,[object Object]
-
 ---
 
 ### `safeToReenqueue()`

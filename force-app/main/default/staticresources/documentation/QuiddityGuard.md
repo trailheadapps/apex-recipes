@@ -85,8 +85,6 @@ public static Boolean isAcceptableQuiddity(List<Quiddity> acceptableQuiddites)
 #### Return Type
 **Boolean**
 
-,[object Object]
-
 ---
 
 ### `isNotAcceptableQuiddity(acceptableQuiddites)`

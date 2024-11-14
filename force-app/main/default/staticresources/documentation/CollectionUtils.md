@@ -42,8 +42,6 @@ sObjects |
 #### Return Type
 **Map&lt;Id,SObject&gt;**
 
-,[object Object]
-
 #### Example
 ```apex
 Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
@@ -73,8 +71,6 @@ public static Map<String,SObject> stringMapFromCollectionByKey(String key, List<
 #### Return Type
 **Map&lt;String,SObject&gt;**
 
-,[object Object]
-
 #### Example
 ```apex
 Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
@@ -103,8 +99,6 @@ public static Map<Id,List<SObject>> mapFromCollectionWithCollectionValues(String
 
 #### Return Type
 **Map&lt;Id,List&lt;SObject&gt;&gt;**
-
-,[object Object]
 
 #### Example
 ```apex

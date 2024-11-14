@@ -32,8 +32,8 @@ public MetadataTriggerService(String objectTypeName)
 This query finds an ordered list trigger handler classes 
 to execute. It ignores any classes that are marked as disabled. 
  
-Note: It will exclude any triggerHandler metadata records for which 
-the user&#x27;s email address is found in a related disabled_for__mdt 
+Note: It will exclude any `triggerHandler` metadata records for which 
+the user&#x27;s email address is found in a related `Disabled_for__mdt` 
 record. 
  
 Admin&#x27;s and Developers can selectively disable trigger handlers 
@@ -46,8 +46,6 @@ public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers()
 
 #### Return Type
 **List&lt;Metadata_Driven_Trigger__mdt&gt;**
-
-,[object Object]
 
 ---
 
@@ -63,8 +61,6 @@ public static String getSObjectType()
 
 #### Return Type
 **String**
-
-,[object Object]
 
 ## Classes
 ### MetadataTriggerServiceException Class

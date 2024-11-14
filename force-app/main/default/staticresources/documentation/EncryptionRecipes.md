@@ -72,8 +72,6 @@ public static Blob encryptAES256WithManagedIVRecipe(Blob dataToEncrypt)
 #### Return Type
 **Blob**
 
-Blob
-
 #### Example
 ```apex
 Blob dataToEncrypt = Blob.valueOf('Test data');
@@ -103,8 +101,6 @@ public static Blob decryptAES256WithManagedIVRecipe(Blob dataToDecrypt)
 #### Return Type
 **Blob**
 
-Blob
-
 #### Example
 ```apex
 Blob decryptedData = EncryptionRecipes.decryptAES256WithManagedIVRecipe(encryptedData);
@@ -133,8 +129,6 @@ public static Blob encryptAES256Recipe(Blob dataToEncrypt, Blob initializationVe
 
 #### Return Type
 **Blob**
-
-Blob
 
 #### Example
 ```apex
@@ -166,8 +160,6 @@ public static Blob decryptAES256Recipe(Blob dataToDecrypt)
 #### Return Type
 **Blob**
 
-Blob
-
 #### Example
 ```apex
 Blob decryptedData = EncryptionRecipes.decryptAES256Recipe(encryptedData);
@@ -187,8 +179,6 @@ public static Blob generateInitializationVector()
 
 #### Return Type
 **Blob**
-
-Blob
 
 ---
 
@@ -210,8 +200,6 @@ public static Blob generateSHA512HashRecipe(Blob dataToHash)
 
 #### Return Type
 **Blob**
-
-Blob
 
 #### Example
 ```apex
@@ -241,8 +229,6 @@ public static void checkSHA512HashRecipe(Blob hash, Blob dataToCheck)
 
 #### Return Type
 **void**
-
-void
 
 #### Example
 ```apex
@@ -275,8 +261,6 @@ public static Blob generateHMACSHA512Recipe(Blob dataToHmac)
 #### Return Type
 **Blob**
 
-Blob
-
 #### Example
 ```apex
 Blob dataToHmac = Blob.valueOf('Test data');
@@ -305,8 +289,6 @@ public static void checkHMACSHA512Recipe(Blob hmac, Blob dataToCheck)
 
 #### Return Type
 **void**
-
-void
 
 #### Example
 ```apex
@@ -339,8 +321,6 @@ public static Blob generateRSASHA512DigitalSignatureRecipe(Blob dataToSign)
 #### Return Type
 **Blob**
 
-Blob
-
 #### Example
 ```apex
 Blob dataToSign = Blob.valueOf('Test data');
@@ -369,8 +349,6 @@ public static void checkRSASHA512DigitalSignatureRecipe(Blob signature, Blob dat
 
 #### Return Type
 **void**
-
-void
 
 #### Example
 ```apex
@@ -404,8 +382,6 @@ public static EncryptedAndSignedData encryptAES256AndGenerateRSASHA512DigitalSig
 #### Return Type
 **EncryptedAndSignedData**
 
-Blob
-
 #### Example
 ```apex
 Blob dataToEncryptAndSign = Blob.valueOf('Test data');
@@ -436,7 +412,7 @@ public static Blob decryptAES256AndCheckRSASHA512DigitalSignRecipe(Blob signatur
 #### Return Type
 **Blob**
 
-Blob decrypted data
+Decrypted data
 
 #### Example
 ```apex
@@ -470,7 +446,7 @@ public static boolean areEqualConstantTime(String first, String second)
 #### Return Type
 **boolean**
 
-Boolean strings are equal
+True if strings are equal
 
 ## Classes
 ### CryptographicException Class

@@ -28,7 +28,7 @@ public Object doLoad(String key)
 #### Return Type
 **Object**
 
-,[object Object], This object should be casted at the call location
+Oject that should be casted at the call location
 
 #### Example
 Account[] accounts &#x3D; (Account[]) Cache.Session.get(PlatformCacheBuilderRecipes.class, &#x27;myAccounts&#x27;)

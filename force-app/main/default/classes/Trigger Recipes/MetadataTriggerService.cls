@@ -11,13 +11,12 @@ public with sharing class MetadataTriggerService {
      * @description This query finds an ordered list trigger handler classes
      * to execute. It ignores any classes that are marked as disabled.
      *
-     * Note: It will exclude any triggerHandler metadata records for which
-     * the user's email address is found in a related disabled_for__mdt
+     * Note: It will exclude any `triggerHandler` metadata records for which
+     * the user's email address is found in a related `Disabled_for__mdt`
      * record.
      *
      * Admin's and Developers can selectively disable trigger handlers
      * for all or selected individuals *without* deploying.
-     * @return      `List<Metadata_Driven_Trigger__mdt>`
      */
     @suppressWarnings('PMD.ApexCRUDViolation')
     public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers() {
@@ -55,7 +54,6 @@ public with sharing class MetadataTriggerService {
     /**
      * @description This determines the active sObject type by describing the first
      * record in the trigger New / Old list
-     * @return      `String`
      */
     public static String getSObjectType() {
         if (Trigger.new != null) {

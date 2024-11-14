@@ -35,8 +35,6 @@ public static Boolean updateAccountName(Id accountId, String newValue)
 #### Return Type
 **Boolean**
 
-Boolean
-
 #### Example
 ```apex
 Id accountId = [SELECT Id FROM Account LIMIT 1].Id;
@@ -60,8 +58,6 @@ public static String getFieldValue()
 
 #### Return Type
 **String**
-
-return description
 
 #### Example
 ```apex

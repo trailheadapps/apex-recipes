@@ -89,8 +89,6 @@ public List<Account> httpGetCalloutToSecondOrg()
 #### Return Type
 **List&lt;Account&gt;**
 
-List&lt;Account&gt;
-
 #### Example
 ```apex
 System.debug(CalloutRecipes.httpGetCalloutToSecondOrg());
@@ -120,8 +118,6 @@ the second org. |
 
 #### Return Type
 **Integer**
-
-String
 
 #### Example
 ```apex
@@ -153,8 +149,6 @@ second salesforce org |
 #### Return Type
 **Integer**
 
-String
-
 #### Example
 ```apex
 List<Contact> contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
@@ -182,8 +176,6 @@ second salesforce org |
 
 #### Return Type
 **Integer**
-
-String
 
 #### Example
 ```apex
@@ -214,7 +206,7 @@ second salesforce org |
 #### Return Type
 **Integer**
 
-String The status of the callout
+The status of the callout
 
 #### Example
 ```apex
@@ -240,8 +232,6 @@ public Map<String,Object> httpCalloutWithUntypedResponse()
 
 #### Return Type
 **Map&lt;String,Object&gt;**
-
-Map&lt;String, Object&gt;
 
 #### Example
 ```apex
@@ -307,8 +297,6 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query, S
 #### Return Type
 **HttpResponse**
 
-HttpResponse  HttpResponse Obj
-
 ---
 
 ### `makeApiCall(method, path, query, body)`
@@ -337,8 +325,6 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query, S
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 ---
 
 ### `makeApiCall(method, path, query)`
@@ -364,8 +350,6 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -393,8 +377,6 @@ protected HttpResponse makeApiCall(HttpVerb method, String path)
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 ---
 
 ### `get(path)`
@@ -417,8 +399,6 @@ protected HttpResponse get(String path)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -445,8 +425,6 @@ protected HttpResponse get(String path, String query)
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 ---
 
 ### `del(path)`
@@ -470,8 +448,6 @@ protected HttpResponse del(String path)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -498,8 +474,6 @@ protected HttpResponse del(String path, String query)
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 ---
 
 ### `post(path, body)`
@@ -524,8 +498,6 @@ protected HttpResponse post(String path, String body)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -553,8 +525,6 @@ protected HttpResponse post(String path, String query, String body)
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 ---
 
 ### `put(path, body)`
@@ -579,8 +549,6 @@ protected HttpResponse put(String path, String body)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -608,8 +576,6 @@ protected HttpResponse put(String path, String query, String body)
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 ---
 
 ### `patch(path, body)`
@@ -634,8 +600,6 @@ protected HttpResponse patch(String path, String body)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -662,8 +626,6 @@ protected HttpResponse patch(String path, String query, String body)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -720,8 +682,6 @@ headers |
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 #### Example
 ```apex
 System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
@@ -759,8 +719,6 @@ public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, 
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 #### Example
 ```apex
 System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
@@ -792,8 +750,6 @@ public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, 
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 #### Example
 ```apex

@@ -32,7 +32,7 @@ public with sharing class QueueableWithCalloutRecipes implements Queueable, Data
      * ```
      * System.enqueueJob(new QueueableWithCalloutRecipes());
      * ```
-     **/
+     */
     public static void execute(QueueableContext qc) {
         HttpResponse response = RestClient.makeApiCall(
             'GoogleBooksAPI',

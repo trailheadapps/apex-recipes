@@ -71,7 +71,6 @@ public with sharing class LDVRecipes implements Queueable {
      * us to prevent full table scans even on the largest tables.
      * @param offsetId The offset ID is used to demarcate already processed
      * records.
-     * @return         `List<ContentDocumentLink>`
      */
     private List<ContentDocumentLink> getRecordsToProcess(Id offsetId) {
         // Map to hold all the bind variables used in the query

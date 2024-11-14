@@ -210,8 +210,6 @@ public static Boolean isBypassed(String handlerName)
 #### Return Type
 **Boolean**
 
-,[object Object]
-
 #### Example
 ```apex
 TriggerHandler.isBypassed('AccountTriggerHandler');
@@ -309,8 +307,6 @@ protected Boolean validateRun()
 #### Return Type
 **Boolean**
 
-,[object Object]
-
 #### Throws
 TriggerHandlerException: thrown when executing outside of a,[object Object],trigger
 
@@ -331,7 +327,7 @@ private String getHandlerName()
 #### Return Type
 **String**
 
-,[object Object], Name of the Handler
+Name of the Handler
 
 ---
 
@@ -526,7 +522,7 @@ public Boolean increment()
 ###### Return Type
 **Boolean**
 
-,[object Object], true if count will exceed max count or is less,[object Object],than 0.
+true if count will exceed max count or is less,[object Object],than 0.
 
 ---
 
@@ -542,7 +538,7 @@ public Boolean exceeded()
 ###### Return Type
 **Boolean**
 
-,[object Object], true if less than 0 or more than max.
+true if less than 0 or more than max.
 
 ---
 
@@ -558,7 +554,7 @@ public Integer getMax()
 ###### Return Type
 **Integer**
 
-,[object Object], max loop count.
+max loop count.
 
 ---
 
@@ -574,7 +570,7 @@ public Integer getCount()
 ###### Return Type
 **Integer**
 
-,[object Object], current loop count.
+current loop count.
 
 ---
 

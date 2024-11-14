@@ -35,8 +35,6 @@ public static List<String> getRelatedClasses(String mainClassName)
 #### Return Type
 **List&lt;String&gt;**
 
-,[object Object]
-
 #### Example
 ```apex
 System.debug(RelatedCodeTabsController.getRelatedClasses('RelatedCodeTabsController'));

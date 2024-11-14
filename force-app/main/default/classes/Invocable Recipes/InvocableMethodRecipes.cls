@@ -52,7 +52,6 @@ public with sharing class InvocableMethodRecipes {
      * crafted specific to the incoming object, and it's type and the results
      * of the query are converted to a Result object and returned.
      * @param inputParams A list of ContactSearchRequest objects
-     * @return List<ContactSearchResult>
      * @example
      * From Apex:
      * ```
@@ -65,7 +64,7 @@ public with sharing class InvocableMethodRecipes {
      * InvocableMethodRecipes.ContactSearchResult results = InvocableMethodRecipes.findRelatedContacts(csr);
      * System.debug(results.output);
      * ```
-     **/
+     */
     @InvocableMethod(
         label='Example Invocable Method'
         description='Example Invocable Method'

@@ -36,7 +36,6 @@ public with sharing class ApiServiceRecipes extends RestClient {
      * @description Encapsulates a specific callout to the Named Credential
      * URL that returns JSON into an method that transforms the raw JSON
      * into an Apex Object.
-     * @return     `List<ApiServiceRecipesDataModel>`
      * @example
      * ```
      * ApiServiceRecipes asr = new ApiServiceRecipes();

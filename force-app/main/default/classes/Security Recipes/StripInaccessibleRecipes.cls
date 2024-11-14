@@ -15,7 +15,6 @@ public with sharing class StripInaccessibleRecipes {
     /**
      * @description Demonstrates how to use stripInaccessible to remove fields
      * and objects from a queries results.
-     * @return   List<Campaign>
      * @example
      * ```
      * System.debug(StripInaccessibleRecipes.stripInaccessibleFromQuery());
@@ -33,7 +32,6 @@ public with sharing class StripInaccessibleRecipes {
      * @description Demonstrates how to use stripInaccessible to remove fields
      * and objects not only from the primary object in this case account but
      * also from related child objects that are queried in this case contacts.
-     * @return   List<Account>
      * @example
      * ```
      * System.debug(StripInaccessibleRecipes.stripInaccessibleFromSubquery());
@@ -64,7 +62,7 @@ public with sharing class StripInaccessibleRecipes {
      * stripInaccessibleRecipes.stripInaccessibleBeforeDML(contacts);
      * System.debug([SELECT Id, lastName FROM Contact WHERE lastName like 'example last name%']);
      * ```
-     **/
+     */
     public static void stripInaccessibleBeforeDML(List<Contact> contacts) {
         SObjectAccessDecision securityDecision = Security.stripInaccessible(
             AccessType.CREATABLE,

@@ -27,7 +27,6 @@ public with sharing class CollectionUtils {
      * This must be of type Id for this method.
      * @param incomingList Any list of objects that can be cast to a list of
      * sObjects
-     * @return            `Map<Id, sObject>`
      * @example
      * ```
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
@@ -56,7 +55,6 @@ public with sharing class CollectionUtils {
      * of the key's value when using this.
      * @param key          String field name of a field who's value is castable to String.
      * @param incomingList List of incoming sObjects to build the map from
-     * @return            `Map<String, sObject>`
      * @example
      * ```
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
@@ -85,7 +83,6 @@ public with sharing class CollectionUtils {
      * and get a Map of AccountIds to a List<Contacts>.
      * @param key          String name of an field that is of the ID type.
      * @param incomingList List of sObjects to build the map from.
-     * @return            `Map<Id, List<sObject>>`
      * @example
      * ```
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];

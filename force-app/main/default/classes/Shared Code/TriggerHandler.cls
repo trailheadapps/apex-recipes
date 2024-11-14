@@ -142,7 +142,6 @@ public virtual class TriggerHandler {
      * @description       Allows developers to check whether a given trigger
      * handler class is currently bypassed.
      * @param handlerName The name of the trigger handler class to check for
-     * @return           `Boolean`
      * @example
      * ```
      * TriggerHandler.isBypassed('AccountTriggerHandler');
@@ -269,8 +268,7 @@ public virtual class TriggerHandler {
 
     /**
      * @description make sure this trigger should continue to run
-     * @return     `Boolean`
-     * @exception   TriggerHandlerException thrown when executing outside of a
+     * @exception TriggerHandlerException thrown when executing outside of a
      * trigger
      */
     @testVisible
@@ -289,7 +287,7 @@ public virtual class TriggerHandler {
     /**
      * @description Returns the string version of the handler class being
      * invoked
-     * @return     `String` Name of the Handler
+     * @return Name of the Handler
      */
     @testVisible
     private String getHandlerName() {
@@ -389,7 +387,7 @@ public virtual class TriggerHandler {
         /**
          * @description Increment the internal counter returning the results of
          * this.exceeded().
-         * @return     `Boolean` true if count will exceed max count or is less
+         * @return true if count will exceed max count or is less
          * than 0.
          */
         public Boolean increment() {
@@ -399,7 +397,7 @@ public virtual class TriggerHandler {
 
         /**
          * @description Determines if this we're about to exceed the loop count.
-         * @return     `Boolean` true if less than 0 or more than max.
+         * @return true if less than 0 or more than max.
          */
         public Boolean exceeded() {
             if (this.max < 0) {
@@ -413,7 +411,7 @@ public virtual class TriggerHandler {
 
         /**
          * @description Returns the max loop count.
-         * @return     `Integer` max loop count.
+         * @return max loop count.
          */
         public Integer getMax() {
             return this.max;
@@ -421,7 +419,7 @@ public virtual class TriggerHandler {
 
         /**
          * @description Returns the current loop count.
-         * @return     `Integer` current loop count.
+         * @return current loop count.
          */
         public Integer getCount() {
             return this.count;

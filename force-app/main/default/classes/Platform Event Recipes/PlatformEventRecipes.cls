@@ -14,7 +14,6 @@ public with sharing class PlatformEventRecipes {
     /**
      * @description publishes a platform event
      * @param event an `Event_Recipes_Demo__e` object
-     * @return Database.SaveResult
      * @example
      * ```
      * Account acct = new Account(Name = 'Awesome Events Ltd.');
@@ -23,7 +22,7 @@ public with sharing class PlatformEventRecipes {
      * Database.saveResults result = PlatformEventsRecipes.publishEvent(evt);
      * System.debug(result);
      * ```
-     **/
+     */
     public static Database.SaveResult publishEvent(
         Event_Recipes_Demo__e event
     ) {
@@ -39,7 +38,6 @@ public with sharing class PlatformEventRecipes {
     /**
      * @description publishes a platform event and handles success/failure with callbacks
      * @param event an `Event_Recipes_Demo__e` object
-     * @return Database.SaveResult
      * @example
      * ```
      * Account acct = new Account(Name = 'Awesome Events Ltd.');
@@ -51,7 +49,7 @@ public with sharing class PlatformEventRecipes {
      * event.Url__c = 'https://developer.salesforce.com';
      * PlatformEventRecipes.publishEventWithCallbacks(event);
      * ```
-     **/
+     */
     public static Database.SaveResult publishEventWithCallbacks(
         Event_Recipes_Demo__e event
     ) {

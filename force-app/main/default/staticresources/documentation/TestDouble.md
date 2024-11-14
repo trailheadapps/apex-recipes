@@ -76,7 +76,7 @@ public TestDouble(Type objectType)
 ### `track(toTrack)`
 
 This adds a given method object to the list of Methods 
-that are actively overridden and stubbed by this TestDouble instance.
+that are actively overridden and stubbed by this `TestDouble` instance.
 
 #### Signature
 ```apex
@@ -86,12 +86,10 @@ public TestDouble track(Method toTrack)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| toTrack | Method | A TestDouble.Method object |
+| toTrack | Method | A `TestDouble.Method` object |
 
 #### Return Type
 **[TestDouble](TestDouble.md)**
-
-,[object Object]
 
 ---
 
@@ -107,7 +105,7 @@ public Object generate()
 #### Return Type
 **Object**
 
-,[object Object], This object has to be casted back to the,[object Object],class being stubbed at the point of calling. See StubbingRecipes_Tests,[object Object],for an example of when, and how to cast this.
+This object has to be casted back to the,[object Object],class being stubbed at the point of calling. See ,[object Object],[object Object],for an example of when, and how to cast this.
 
 ---
 
@@ -138,7 +136,7 @@ public Object handleMethodCall(Object stubbedObject, String stubbedMethodName, T
 #### Return Type
 **Object**
 
-,[object Object], Object to be returned by the Method,[object Object],object this method delegates to.
+Object to be returned by the Method object this method delegates to.
 
 ## Classes
 ### TestDoubleException Class
@@ -280,8 +278,6 @@ public Method withParamTypes(List<Type> paramTypes)
 
 ###### Return Type
 **Method**
-
-,[object Object]
 
 ---
 

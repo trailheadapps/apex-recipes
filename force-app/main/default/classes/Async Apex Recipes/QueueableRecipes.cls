@@ -23,7 +23,7 @@ public with sharing class QueueableRecipes implements Queueable {
      * ```
      * System.enqueueJob(new QueueableRecipes());
      * ```
-     **/
+     */
     public static void execute(QueueableContext qc) {
         List<Account> accounts = [
             SELECT Id, Description

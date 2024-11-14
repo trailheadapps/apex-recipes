@@ -33,8 +33,6 @@ public static List<ContactSearchResult> findRelatedContacts(List<ContactSearchRe
 #### Return Type
 **List&lt;ContactSearchResult&gt;**
 
-List&lt;ContactSearchResult&gt;
-
 #### Example
 From Apex: 
 ```apex

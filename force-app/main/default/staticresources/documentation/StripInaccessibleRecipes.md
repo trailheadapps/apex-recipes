@@ -21,8 +21,6 @@ public static List<Campaign> stripInaccessibleFromQuery()
 #### Return Type
 **List&lt;Campaign&gt;**
 
-List&lt;Campaign&gt;
-
 #### Example
 ```apex
 System.debug(StripInaccessibleRecipes.stripInaccessibleFromQuery());
@@ -43,8 +41,6 @@ public static List<Account> stripInaccessibleFromSubquery()
 
 #### Return Type
 **List&lt;Account&gt;**
-
-List&lt;Account&gt;
 
 #### Example
 ```apex

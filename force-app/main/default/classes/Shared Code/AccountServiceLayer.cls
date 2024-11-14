@@ -49,7 +49,7 @@ public with sharing class AccountServiceLayer {
      * AccountServiceLayer.changeShippingStreet(accounts);
      * System.debug([SELECT Name, ShippingStreet FROM Account WHERE Id in : accounts]);
      * ```
-     **/
+     */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public static void changeShippingStreet(
         List<Account> accounts,
@@ -69,14 +69,13 @@ public with sharing class AccountServiceLayer {
      *  Demonstration method of the kind of work a service layer may do.
      * @param incomingAccounts List of Account Objects.
      * @param save Boolean determining if DML update is requested.
-     * @return List<Account>
      * @example
      * ```
      * Account[] accounts = [SELECT Description FROM Account LIMIT 50];
      * AccountServiceLayer.incrementCounterInDescription(accounts, true);
      * System.debug([SELECT Name, Description FROM Account WHERE Id in : accounts]);
      * ```
-     **/
+     */
     public static List<Account> incrementCounterInDescription(
         List<Account> incomingAccounts,
         Boolean save
@@ -116,7 +115,7 @@ public with sharing class AccountServiceLayer {
      * AccountServiceLayer.safelySave(accounts);
      * System.debug([SELECT Name, Description FROM Account WHERE Id in : accounts]);
      * ```
-     **/
+     */
     @testVisible
     private static void safelySave(List<Account> accounts) {
         try {

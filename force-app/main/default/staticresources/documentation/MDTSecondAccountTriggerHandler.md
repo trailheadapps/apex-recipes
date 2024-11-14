@@ -187,8 +187,6 @@ public static Boolean isBypassed(String handlerName)
 #### Return Type
 **Boolean**
 
-,[object Object]
-
 #### Example
 ```apex
 TriggerHandler.isBypassed('AccountTriggerHandler');
@@ -253,8 +251,6 @@ protected Boolean validateRun()
 
 #### Return Type
 **Boolean**
-
-,[object Object]
 
 #### Throws
 TriggerHandlerException: thrown when executing outside of a,[object Object],trigger

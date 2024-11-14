@@ -19,8 +19,6 @@ public static List<Account> getRecords()
 #### Return Type
 **List&lt;Account&gt;**
 
-list&lt;Account&gt;
-
 #### Example
 ```apex
 List<Account> results = SOQLRecipes.querySingleObject();
@@ -40,8 +38,6 @@ public static Integer getLargeNumberOfRecords()
 
 #### Return Type
 **Integer**
-
-integer
 
 #### Example
 ```apex
@@ -71,8 +67,6 @@ public static Integer getChunksOfLargeNumbersOfRecords()
 #### Return Type
 **Integer**
 
-,[object Object]
-
 ---
 
 ### `getRecordsByFieldValue()`
@@ -86,8 +80,6 @@ public static List<Account> getRecordsByFieldValue()
 
 #### Return Type
 **List&lt;Account&gt;**
-
-List&lt;Account&gt;
 
 #### Example
 ```apex
@@ -109,8 +101,6 @@ public static List<Account> getRecordsByMultipleFieldValues()
 #### Return Type
 **List&lt;Account&gt;**
 
-List&lt;Account&gt;
-
 #### Example
 ```apex
 System.debug(SOQLRecipes.getRecordsByMultipleFieldValues());
@@ -129,8 +119,6 @@ public static List<Account> getSpecificNumberOfRecords()
 
 #### Return Type
 **List&lt;Account&gt;**
-
-List&lt;Account&gt;
 
 #### Example
 ```apex
@@ -156,8 +144,6 @@ public static List<Account> getFirstXRecords(Integer wantedNumberOfRows)
 #### Return Type
 **List&lt;Account&gt;**
 
-List&lt;Account&gt;
-
 #### Example
 ```apex
 System.debug(SOQLRecipes.getFirstXRecords(5));
@@ -182,8 +168,6 @@ public static List<Account> getAccountRecordsInState(String state)
 #### Return Type
 **List&lt;Account&gt;**
 
-List&lt;Account&gt;
-
 #### Example
 ```apex
 System.debug(SOQLRecipes.getAccountRecordsInState('ks'));
@@ -203,8 +187,6 @@ public static List<Account> getSecond10AccountRecords()
 
 #### Return Type
 **List&lt;Account&gt;**
-
-List&lt;Account&gt;
 
 #### Example
 ```apex
@@ -226,8 +208,6 @@ public static List<Account> getRecordsWithRelatedRecords()
 #### Return Type
 **List&lt;Account&gt;**
 
-List&lt;Account&gt;
-
 #### Example
 ```apex
 System.debug(SOQLRecipes.getRecordsWithRelatedRecords());
@@ -248,8 +228,6 @@ public static List<Contact> getParentRecordDetailsFromChildRecord()
 #### Return Type
 **List&lt;Contact&gt;**
 
-List&lt;Contact&gt;
-
 #### Example
 ```apex
 System.debug(SOQLRecipes.getParentRecordDetailsFromChildRecord());
@@ -269,8 +247,6 @@ public static List<Junction__c> getDetailsFromBothParentRecords()
 
 #### Return Type
 **List&lt;Junction__c&gt;**
-
-List&lt;Junction__c&gt;
 
 #### Example
 ```apex
@@ -297,8 +273,6 @@ public static Double getSumOfOpportunityRecords(Id accountId)
 
 #### Return Type
 **Double**
-
-Double
 
 #### Example
 ```apex

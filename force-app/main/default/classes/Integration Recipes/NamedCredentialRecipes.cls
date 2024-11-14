@@ -21,7 +21,7 @@ public with sharing class NamedCredentialRecipes {
      * @description Demonstrates how create a named credential from Apex.
      * @param connectApiWrapper instance of ConnectApiWrapper, created to allow mocking
      * @param permissionSetName name of the permission set that will have access to the external credential
-     * @return ConnectApi.NamedCredential The created named credential
+     * @return The created named credential
      * @example
      * ```
      * System.debug(NamedCredentialRecipes.createNamedCredential(new ConnectApiWrapper(), 'Apex_Recipes'));
@@ -32,7 +32,7 @@ public with sharing class NamedCredentialRecipes {
      * );
      * System.debug(response.getBody());
      * ```
-     **/
+     */
     public static ConnectApi.NamedCredential createNamedCredential(
         ConnectApiWrapper connectApiWrapper,
         String permissionSetName
@@ -74,12 +74,12 @@ public with sharing class NamedCredentialRecipes {
      * and needs to be linked to a named credential in order to be used.
      * @param connectApiWrapper instance of ConnectApiWrapper, created to allow mocking
      * @param permissionSetName name of the permission set that will have access to the external credential
-     * @return ConnectApi.ExternalCredential The created external credential
+     * @return The created external credential
      * @example
      * ```
      * System.debug(NamedCredentialRecipes.createExternalCredential(new ConnectApiWrapper(), 'Apex_Recipes'));
      * ```
-     **/
+     */
     private static ConnectApi.ExternalCredential createExternalCredential(
         ConnectApiWrapper connectApiWrapper,
         String permissionSetName

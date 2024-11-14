@@ -29,7 +29,7 @@ public with sharing class ScheduledApexRecipes implements Schedulable {
      *                  ScheduledApexRecipes.TEST_CRON_STATEMENT,
      *                  new ScheduledApexRecipes());
      * ```
-     **/
+     */
     public void execute(SchedulableContext context) {
         /**
          * Note, this recipe only shows the code needed to *run* code at a

@@ -67,7 +67,6 @@ public with sharing class CalloutRecipes extends RestClient {
      * custom REST endpoint, a null body and the GET method. We will then
      * deserialize the JSON into a known object, in this case, a list of
      * Accounts.
-     * @return List<Account>
      * @example
      * ```
      * System.debug(CalloutRecipes.httpGetCalloutToSecondOrg());
@@ -108,7 +107,6 @@ public with sharing class CalloutRecipes extends RestClient {
      * request.
      * @param contactId the Id of the contact that you would like to delete in
      * the second org.
-     * @return String
      * @example
      * ```
      * Id contactId = [SELECT Id FROM Contact LIMIT 1].id;
@@ -139,7 +137,6 @@ public with sharing class CalloutRecipes extends RestClient {
      * We will serilaize the list and POST it in body of the callout.
      * @param contactRecords a list of contact records to be inserted in the
      * second salesforce org
-     * @return String
      * @example
      * ```
      * List<Contact> contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
@@ -178,7 +175,6 @@ public with sharing class CalloutRecipes extends RestClient {
      * example, we will be sending a list of contact records to a second org.
      * @param contactRecords a list of contact records to be upsert in the
      * second salesforce org
-     * @return String
      * @example
      * ```
      * List<Contact> contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
@@ -226,7 +222,7 @@ public with sharing class CalloutRecipes extends RestClient {
      * Account records to a second salesforce org for updating.
      * @param accountRecords a list of account records to be updated in the
      * second salesforce org
-     * @return String The status of the callout
+     * @return The status of the callout
      * @example
      * ```
      * List<Contact> contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
@@ -268,7 +264,6 @@ public with sharing class CalloutRecipes extends RestClient {
      * can be directly deserialised into a Salesforce Object. If your callout
      * returns untyped JSON, you can deserialize this into a Map<String, Object>
      * by using a deserializeUntyped method to convert the string.
-     * @return Map<String, Object>
      * @example
      * ```
      * System.debug(CalloutRecipes.httpCalloutWithUntypedResponse());

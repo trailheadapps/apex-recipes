@@ -11,14 +11,13 @@ public with sharing class SOSLRecipes {
     /**
      * @description Demonstrates the syntax for a SOSL search.
      *  Note: SOSL Cannot be unit tested directly - you must use
-     * Test.setFixedSearchResults()
+     * `Test.setFixedSearchResults()`
      *  See SOSLRecipes_Tests.cls for more information
-     * @return List<List<SObject>>
      * @example
      * ```
      * System.debug(SOSLRecipes.basicSOSLSearch());
      * ```
-     **/
+     */
     public static List<List<SObject>> basicSOSLSearch() {
         String keyword = 'Kan*';
         List<List<SObject>> searchResults = [
@@ -33,12 +32,11 @@ public with sharing class SOSLRecipes {
     /**
      * @description Demonstrates how to write a SOSL query that searches only
      * name fields
-     * @return List<List<SObject>>
      * @example
      * ```
      * System.debug(SOSLRecipes.nameFieldSearch());
      * ```
-     **/
+     */
     public static List<List<SObject>> nameFieldSearch() {
         String keyword = 'Alaska';
         List<List<SObject>> searchResults = [

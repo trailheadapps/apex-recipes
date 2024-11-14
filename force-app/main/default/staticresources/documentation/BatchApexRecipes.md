@@ -99,7 +99,7 @@ public Database.QueryLocator start(Database.BatchableContext context)
 #### Return Type
 **Database.QueryLocator**
 
-Database.QueryLocator QueryLocator object used for context
+QueryLocator object used for context
 
 #### Example
 ```apex

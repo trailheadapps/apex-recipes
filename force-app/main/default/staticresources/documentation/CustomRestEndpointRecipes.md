@@ -82,7 +82,7 @@ global static String getRecordsToReturn()
 #### Return Type
 **String**
 
-RestResponse  A list of Accounts or the exception message
+JSON string holding the list of Accounts or the exception message
 
 #### Example
 ```sh
@@ -115,7 +115,7 @@ global static String deleteSingleContact()
 #### Return Type
 **String**
 
-RestResponse A success message or the exception message
+JSON string holding a success message or the exception message
 
 #### Example
 ```sh
@@ -146,7 +146,7 @@ global static String parseAndCreateNewContacts()
 #### Return Type
 **String**
 
-RestResponse A success message or the exception message
+JSON string holding a success message or the exception message
 
 #### Example
 Create file with the following JSON, named `newContact.json` 
@@ -187,7 +187,7 @@ global static String upsertContactRecords()
 #### Return Type
 **String**
 
-RestResponse A success message or the exception message
+JSON string holding a success message or the exception message
 
 #### Example
 Create file with the following JSON, named `newContact.json` 
@@ -234,7 +234,7 @@ global static String updateAccountRecords()
 #### Return Type
 **String**
 
-RestResponse A success message or the exception message
+A JSON string holding a success message or the exception message
 
 #### Example
 Create file with the following JSON, named `newContact.json` 

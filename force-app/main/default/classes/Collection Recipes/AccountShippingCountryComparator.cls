@@ -1,7 +1,7 @@
 /**
  * @description An example implementation of the Comparator Interface
  * In this example we show how to sort all the accounts by their country names in alphabetical order
- **/
+ */
 
 public with sharing class AccountShippingCountryComparator implements Comparator<Account> {
     /**

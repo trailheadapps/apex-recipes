@@ -46,7 +46,6 @@ public with sharing class LogMessage {
 
     /**
      * @description converts this object to an event for publishing
-     * @return      `SObject`
      */
     public Log__e toEvent() {
         return new Log__e(

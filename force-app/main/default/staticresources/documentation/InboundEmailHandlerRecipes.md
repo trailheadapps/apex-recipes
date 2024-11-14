@@ -28,8 +28,8 @@ Messaging.InboundEmailHandler
 ### `handleInboundEmail(email, envelope)`
 
 Messaging.InboundEmailHandler interface has one required 
-method - handleInboundEmail. This method must return an 
-Messaging.InboundEmailResult object, and you should take care to set that 
+method - `handleInboundEmail` . This method must return an 
+ `Messaging.InboundEmailResult` object, and you should take care to set that 
 object&#x27;s success property. This method is where you will write business 
 logic to ... do whatever it is you want to do with the incoming email. 
 Here you can attach the email to the contact record who sent it, a case 
@@ -43,17 +43,15 @@ public Messaging.InboundEmailResult handleInboundEmail(Messaging.InboundEmail em
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| email | Messaging.InboundEmail | This is an Messaging.InboundEmail Object that is 
+| email | Messaging.InboundEmail | This is an `Messaging.InboundEmail` Object that is 
 dependency injected by the system at runtime. Aside from testing, you 
 should not need to call this method or worry about its params. |
-| envelope | Messaging.InboundEnvelope | This is an Messaging.InboundEnvelope object that is 
+| envelope | Messaging.InboundEnvelope | This is an `Messaging.InboundEnvelope` object that is 
 dependency injected by the system at runtime. Aside form testing, you 
 should not need to call this method or worry about its params. |
 
 #### Return Type
 **Messaging.InboundEmailResult**
-
-,[object Object]
 
 ---
 
@@ -99,8 +97,6 @@ private Contact getContactBySender(Messaging.InboundEmail email)
 
 #### Return Type
 **Contact**
-
-,[object Object]
 
 ---
 

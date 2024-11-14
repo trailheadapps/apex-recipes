@@ -77,8 +77,6 @@ public List<ApiServiceRecipesDataModel> getCurrentData()
 #### Return Type
 **List&lt;ApiServiceRecipesDataModel&gt;**
 
-,[object Object]
-
 #### Example
 ```apex
 ApiServiceRecipes asr = new ApiServiceRecipes();
@@ -115,8 +113,6 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query, S
 #### Return Type
 **HttpResponse**
 
-HttpResponse  HttpResponse Obj
-
 ---
 
 ### `makeApiCall(method, path, query, body)`
@@ -145,8 +141,6 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query, S
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 ---
 
 ### `makeApiCall(method, path, query)`
@@ -172,8 +166,6 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -201,8 +193,6 @@ protected HttpResponse makeApiCall(HttpVerb method, String path)
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 ---
 
 ### `get(path)`
@@ -225,8 +215,6 @@ protected HttpResponse get(String path)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -253,8 +241,6 @@ protected HttpResponse get(String path, String query)
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 ---
 
 ### `del(path)`
@@ -278,8 +264,6 @@ protected HttpResponse del(String path)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -306,8 +290,6 @@ protected HttpResponse del(String path, String query)
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 ---
 
 ### `post(path, body)`
@@ -332,8 +314,6 @@ protected HttpResponse post(String path, String body)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -361,8 +341,6 @@ protected HttpResponse post(String path, String query, String body)
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 ---
 
 ### `put(path, body)`
@@ -387,8 +365,6 @@ protected HttpResponse put(String path, String body)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -416,8 +392,6 @@ protected HttpResponse put(String path, String query, String body)
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 ---
 
 ### `patch(path, body)`
@@ -442,8 +416,6 @@ protected HttpResponse patch(String path, String body)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -470,8 +442,6 @@ protected HttpResponse patch(String path, String query, String body)
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 ---
 
@@ -528,8 +498,6 @@ headers |
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 #### Example
 ```apex
 System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
@@ -567,8 +535,6 @@ public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, 
 #### Return Type
 **HttpResponse**
 
-,[object Object]
-
 #### Example
 ```apex
 System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
@@ -600,8 +566,6 @@ public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, 
 
 #### Return Type
 **HttpResponse**
-
-,[object Object]
 
 #### Example
 ```apex

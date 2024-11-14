@@ -57,7 +57,6 @@ public with sharing class FormattedRecipeDisplayController {
      * we're ok.
      *
      * @param recipeName Name of the Class to return
-     * @return          `ClassData`
      * @example
      * ```
      * System.debug(FormattedRecipeDisplayController.getRecipeCode('FormattedRecipeDisplayController'));

@@ -16,7 +16,6 @@ public with sharing class RelatedCodeTabsController {
      * we're ok.
      *
      * @param mainClassName The name of the class to inspect
-     * @return             `List<String>`
      * @example
      * ```
      * System.debug(RelatedCodeTabsController.getRelatedClasses('RelatedCodeTabsController'));

@@ -115,5 +115,3 @@ public Log__e toEvent()
 
 #### Return Type
 **Log__e**
-
-,[object Object]

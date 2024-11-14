@@ -54,8 +54,6 @@ public static Boolean crud(SObject obj, CrudType permission)
 #### Return Type
 **Boolean**
 
-Boolean
-
 #### Example
 ```apex
 System.debug(CanTheUser.crud(new Account(), CanTheUser.CrudType.READ));
@@ -121,8 +119,6 @@ public static Boolean create(SObject obj)
 #### Return Type
 **Boolean**
 
-Boolean
-
 #### Example
 ```apex
 System.debug(CanTheUser.create(new Account()));
@@ -149,8 +145,6 @@ and, and if the user can create one) |
 #### Return Type
 **Boolean**
 
-Boolean
-
 ---
 
 ### `create(objName)`
@@ -170,8 +164,6 @@ public static Boolean create(String objName)
 
 #### Return Type
 **Boolean**
-
-Boolean
 
 #### Example
 ```apex
@@ -198,8 +190,6 @@ public static Boolean read(SObject obj)
 #### Return Type
 **Boolean**
 
-Boolean
-
 #### Example
 ```apex
 System.debug(CanTheUser.read(new Account()));
@@ -225,8 +215,6 @@ public static Boolean read(List<SObject> objs)
 #### Return Type
 **Boolean**
 
-Boolean
-
 ---
 
 ### `read(objName)`
@@ -246,8 +234,6 @@ public static Boolean read(String objName)
 
 #### Return Type
 **Boolean**
-
-Boolean
 
 #### Example
 ```apex
@@ -274,8 +260,6 @@ public static Boolean edit(SObject obj)
 #### Return Type
 **Boolean**
 
-Boolean
-
 #### Example
 ```apex
 System.debug(CanTheUser.edit(new Account()));
@@ -301,8 +285,6 @@ public static Boolean edit(List<SObject> objs)
 #### Return Type
 **Boolean**
 
-Boolean
-
 ---
 
 ### `edit(objName)`
@@ -322,8 +304,6 @@ public static Boolean edit(String objName)
 
 #### Return Type
 **Boolean**
-
-Boolean
 
 #### Example
 ```apex
@@ -350,8 +330,6 @@ public static Boolean ups(SObject obj)
 #### Return Type
 **Boolean**
 
-Boolean
-
 #### Example
 ```apex
 System.debug(CanTheUser.ups(new Account()));
@@ -377,8 +355,6 @@ public static Boolean ups(List<SObject> objs)
 #### Return Type
 **Boolean**
 
-Boolean
-
 ---
 
 ### `ups(objName)`
@@ -398,8 +374,6 @@ public static Boolean ups(String objName)
 
 #### Return Type
 **Boolean**
-
-Boolean
 
 #### Example
 ```apex
@@ -426,8 +400,6 @@ public static Boolean destroy(SObject obj)
 #### Return Type
 **Boolean**
 
-Boolean
-
 #### Example
 ```apex
 System.debug(CanTheUser.destroy(new Account()));
@@ -453,8 +425,6 @@ public static Boolean destroy(List<SObject> objs)
 #### Return Type
 **Boolean**
 
-Boolean
-
 ---
 
 ### `destroy(objName)`
@@ -474,8 +444,6 @@ public static Boolean destroy(String objName)
 
 #### Return Type
 **Boolean**
-
-Boolean
 
 #### Example
 ```apex
@@ -503,8 +471,6 @@ public static Boolean flsAccessible(String obj, String field)
 #### Return Type
 **Boolean**
 
-Boolean
-
 #### Example
 ```apex
 System.debug(CanTheUser.flsAccessible('Account', 'Name'));
@@ -529,8 +495,6 @@ public static Map<String,Boolean> bulkFLSAccessible(String obj, Set<String> fiel
 
 #### Return Type
 **Map&lt;String,Boolean&gt;**
-
-,[object Object]
 
 #### Example
 ```apex
@@ -559,8 +523,6 @@ public static Boolean flsUpdatable(String obj, String field)
 #### Return Type
 **Boolean**
 
-Boolean
-
 #### Example
 ```apex
 System.debug(CanTheUser.flsUpdatable('Account', 'Name'));
@@ -585,8 +547,6 @@ public static Map<String,Boolean> bulkFLSUpdatable(String obj, Set<String> field
 
 #### Return Type
 **Map&lt;String,Boolean&gt;**
-
-,[object Object]
 
 #### Example
 ```apex
@@ -624,8 +584,6 @@ private static Set<String> memoizeFLSMDC(String objType, FLSType action)
 #### Return Type
 **Set&lt;String&gt;**
 
-,[object Object]
-
 ---
 
 ### `getFLSForFieldOnObject(obj, field, checkType)`
@@ -647,8 +605,6 @@ private static Boolean getFLSForFieldOnObject(String obj, String field, FLSType 
 
 #### Return Type
 **Boolean**
-
-,[object Object]
 
 ## Classes
 ### CanTheUserException Class
@@ -689,8 +645,6 @@ public Object doLoad(String objType)
 ###### Return Type
 **Object**
 
-,[object Object]
-
 ---
 
 ##### `calculateFLS(objType)`
@@ -709,8 +663,6 @@ public Map<String,Map<FLSType,Boolean>> calculateFLS(string objType)
 
 ###### Return Type
 **Map&lt;String,Map&lt;FLSType,Boolean&gt;&gt;**
-
-,[object Object]
 
 ## Enums
 ### CrudType Enum

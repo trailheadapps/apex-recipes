@@ -29,7 +29,7 @@ public static String getGroupFromClassBody(ApexClass klass)
 #### Return Type
 **String**
 
-,[object Object], This is the text following ,[object Object], through,[object Object],the end of the line.
+Text following ,[object Object], through the end of the line.
 
 #### Example
 ```apex
@@ -57,7 +57,7 @@ public static List<String> getRelatedClassesFromClassBody(ApexClass klass)
 #### Return Type
 **List&lt;String&gt;**
 
-,[object Object], These are the values following ,[object Object], annotations
+Values following ,[object Object], annotations
 
 #### Example
 ```apex

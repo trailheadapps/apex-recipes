@@ -15,7 +15,7 @@ public with sharing class ScheduledApexDemo {
      * ```
      * ScheduledApexDemo.runAtMidnight();
      * ```
-     **/
+     */
     public void runAtMidnight() {
         System.debug(
             LoggingLevel.INFO,

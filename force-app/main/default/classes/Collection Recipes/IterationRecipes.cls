@@ -10,8 +10,8 @@ public with sharing class IterationRecipes {
      * This example iterates on Accounts to sum the 'number of employees' field values
      * (use the `SUM` SOQL function for a real-life application).
      * @param accounts a list of accounts that will be iterated on
-     * @return Integer the total number of employees for the accounts
-     **/
+     * @return Total number of employees for the accounts
+     */
     public static Integer iterateOnAccountList(List<Account> accounts) {
         Integer employeeCount = 0;
         // Lists and Sets implement the Iterable interface in Apex
@@ -28,11 +28,11 @@ public with sharing class IterationRecipes {
     }
 
     /**
-     * @description Demonstrates how to use a REST API client that leverages the Iterator interface.
+     * @description Demonstrates how to use a REST API client that leverages the `Iterator` interface.
      * This example iterates on a paginated record list. Records are represented as strings for simplicity.
      * Remote records are retrieved on the fly by IterableApiClient when the Iterator is accessed.
-     * @return List<String> the 'records' retrieved
-     **/
+     * @return List of "records" retrieved
+     */
     public static List<String> iterableApiClientRecipe() {
         List<String> records = new List<String>();
         IterableApiClient client = new IterableApiClient('myNamedCredential');

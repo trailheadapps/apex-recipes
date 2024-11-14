@@ -12,7 +12,6 @@ public class TestFactory {
     /**
      * @description Creates a single sObject.
      * @param sObj  Type of sObject to create.
-     * @return     `SObject`
      */
     public static SObject createSObject(SObject sObj) {
         // Check what type of object we are creating and add any defaults that are needed.
@@ -33,8 +32,7 @@ public class TestFactory {
     /**
      * @description    Creates a single sObject
      * @param sObj     Type of sObject to create
-     * @param doInsert Boolean should this object be inserted?
-     * @return        `SObject`
+     * @param doInsert Whether this object should be inserted
      */
     public static SObject createSObject(SObject sObj, Boolean doInsert) {
         SObject retObject = createSObject(sObj);
@@ -48,7 +46,6 @@ public class TestFactory {
      * @description            creates a single sObject
      * @param sObj             Type of sObject to create
      * @param defaultClassName Name of the class to provide field defaults
-     * @return                `SObject`
      * @exception              TestFactoryException when defaultClassName param is not a valid type.
      */
     public static SObject createSObject(SObject sObj, String defaultClassName) {
@@ -67,7 +64,6 @@ public class TestFactory {
      * @param sObj             Type of sObject to create
      * @param defaultClassName String name of a class providing default values
      * @param doInsert         Boolean should this method insert the created object?
-     * @return                 `SObject`
      */
     public static SObject createSObject(
         SObject sObj,
@@ -85,7 +81,6 @@ public class TestFactory {
      * @description           Creates a list of sObjects
      * @param sObj            Type of sObjects to create
      * @param numberOfObjects Integer number of objects to create
-     * @return                `SObject[]`
      */
     public static SObject[] createSObjectList(
         SObject sObj,
@@ -99,7 +94,6 @@ public class TestFactory {
      * @param sObj            Type of sObjects to create
      * @param numberOfObjects Integer number of objects to create
      * @param doInsert         Boolean should this method insert the created object?
-     * @return                `SObject[]`
      */
     public static SObject[] createSObjectList(
         SObject sObj,
@@ -123,7 +117,6 @@ public class TestFactory {
      * @param numberOfObjects Integer number of objects to create
      * @param defaultClassName String name of a class providing defaults
      * @param doInsert         Boolean should this method insert the created object?
-     * @return                `SObject[]`
      */
     @SuppressWarnings('PMD.ExcessiveParameterList')
     public static SObject[] createSObjectList(
@@ -148,7 +141,6 @@ public class TestFactory {
      * @param sObj            Type of sObjects to create
      * @param numberOfObjects Integer number of objects to create
      * @param defaultClassName String name of a class providing defaults
-     * @return                `SObject[]`
      */
     public static SObject[] createSObjectList(
         SObject sObj,
@@ -223,7 +215,6 @@ public class TestFactory {
     public interface FieldDefaults {
         /**
          * @description Interface used by implementing classes to define defaults.
-         * @return     `Map<Schema.SObjectField, Object>`
          */
         Map<Schema.SObjectField, Object> getFieldDefaults();
     }
@@ -232,7 +223,6 @@ public class TestFactory {
      * @description     creates a test user. Useful for permissions testing
      * @param profileId Profile Id to use when creating a user.
      * @param doInsert  Boolean, should this code insert the user?
-     * @return          `User`
      */
     public static User createTestUser(Id profileId, boolean doInsert) {
         User u = new User(
@@ -258,7 +248,6 @@ public class TestFactory {
      * @description       Creates a test user with a given profile.
      * @param doInsert    Should this code insert the created user?
      * @param profileName Name of the profile to create the user with.
-     * @return           `User`
      */
     public static User createTestUser(Boolean doInsert, String profileName) {
         Profile selectedProfile = [
@@ -272,8 +261,7 @@ public class TestFactory {
     /**
      * @description    Creates a user with the Minimum Access Profile
      * Relies on the previous method for creating the user.
-     * @param doInsert Should this code insert the user?
-     * @return        `User`
+     * @param doInsert Whether this code should insert the user.
      */
     public static User createMinAccessUser(Boolean doInsert) {
         Id profileId = [
@@ -309,7 +297,6 @@ public class TestFactory {
      * @description    Intentionally invalidates a list of sObjects. This is useful for
      *                  intentionally causing DML errors during testing.
      * @param incoming List of SObjects
-     * @return        `List<sObject>`
      */
     public static List<sObject> invalidateSObjectList(List<sObject> incoming) {
         for (sObject obj : incoming) {

@@ -12,7 +12,6 @@ public class TestDataHelpers {
     /**
      * @description       Generates a list of Accounts.
      * @param numAccounts Nubmer of accounts to generate.
-     * @return           `List<Account>`
      */
     public static List<Account> genXNumberOfAccounts(Integer numAccounts) {
         List<Account> toInsert = new List<Account>();
@@ -26,7 +25,6 @@ public class TestDataHelpers {
      * @description      Generates an Account with (optionally) the Country code Set
      * @param setCountry Boolean should the country field be populated
      * @param country    What to populate the ShippingCountry field with
-     * @return          `Account`
      */
     public static Account genAccountWithOptions(
         Boolean setCountry,
@@ -48,7 +46,6 @@ public class TestDataHelpers {
     /**
      * @description  Generates a contact associated with the acctId param.
      * @param acctId AccountID to set the contact's accountId to.
-     * @return      `Contact`
      */
     public static Contact genContactForAccount(Id acctId) {
         return new Contact(

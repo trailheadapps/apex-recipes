@@ -31,12 +31,12 @@ public with sharing class BatchApexRecipes implements Database.Batchable<SObject
      * (List) The records identified here will be made available to the
      * execute method below, in batches of up to 200 records at a time.
      * @param context dependency injected by the system
-     * @return Database.QueryLocator QueryLocator object used for context
+     * @return QueryLocator object used for context
      * @example
      * ```
      * Database.executeBatch(new BatchApexRecipes());
      * ```
-     **/
+     */
     public Database.QueryLocator start(Database.BatchableContext context) {
         return Database.getQueryLocator(queryString);
     }
@@ -52,7 +52,7 @@ public with sharing class BatchApexRecipes implements Database.Batchable<SObject
      * ```
      * Database.executeBatch(new BatchApexRecipes());
      * ```
-     **/
+     */
     public void execute(
         Database.BatchableContext context,
         List<Account> scope
@@ -105,7 +105,7 @@ public with sharing class BatchApexRecipes implements Database.Batchable<SObject
      * ```
      * Database.executeBatch(new BatchApexRecipes());
      * ```
-     **/
+     */
     public void finish(Database.BatchableContext context) {
         BatchApexRecipes.result =
             'Successes: ' +

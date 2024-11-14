@@ -91,7 +91,7 @@ public with sharing class DMLRecipes {
      * ```
      * DMLRecipes.upsertAccountViaUpsertKeywordInSystemMode(new Account(name='Hello World'));
      * ```
-     **/
+     */
     public static Account upsertAccountViaUpsertKeywordInSystemMode(
         Account acct
     ) {
@@ -114,7 +114,7 @@ public with sharing class DMLRecipes {
      * ```
      * DMLRecipes.upsertAccountViaUpsertKeywordInUserMode(new Account(name='Hello World'));
      * ```
-     **/
+     */
     public static Account upsertAccountViaUpsertKeywordInUserMode(
         Account acct
     ) {
@@ -139,7 +139,7 @@ public with sharing class DMLRecipes {
      * DMLRecipes.upsertAccountViaDatabaseMethod(
      *            new Account(Name='Hello World'), false, AccessLevel.USER_MODE);
      * ```
-     **/
+     */
     public static Database.UpsertResult upsertAccountViaDatabaseMethod(
         Account acct,
         Boolean allOrNothing,
@@ -165,7 +165,7 @@ public with sharing class DMLRecipes {
      * insert acct;
      * DMLRecipes.updateAcccountViaKeywordInSystemMode(acct);
      * ```
-     **/
+     */
     public static List<Account> updateAcccountViaKeywordInSystemMode(
         List<Account> accts
     ) {
@@ -191,7 +191,7 @@ public with sharing class DMLRecipes {
      * insert acct;
      * DMLRecipes.updateAcccountViaKeyword(acct);
      * ```
-     **/
+     */
     public static List<Account> updateAcccountViaKeywordInUserMode(
         List<Account> accts
     ) {
@@ -218,7 +218,7 @@ public with sharing class DMLRecipes {
      * List<Account> results = DMLRecipes.updateAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
      * System.debug(results);
      * ```
-     **/
+     */
     public static List<Account> updateAccountViaDatabaseMethod(
         List<Account> accts,
         System.AccessLevel accessLevel
@@ -244,7 +244,7 @@ public with sharing class DMLRecipes {
      * insert accounts;
      * DMLRecipes.deleteAccountViaKeywordInSystemMode(accounts);
      * ```
-     **/
+     */
     public static void deleteAccountViaKeywordInSystemMode(
         List<Account> accts
     ) {
@@ -265,7 +265,7 @@ public with sharing class DMLRecipes {
      * insert accounts;
      * DMLRecipes.deleteAccountViaKeywordInUserMode(accounts);
      * ```
-     **/
+     */
     public static void deleteAccountViaKeywordInUserMode(List<Account> accts) {
         try {
             delete as user accts;
@@ -284,7 +284,7 @@ public with sharing class DMLRecipes {
      * insert accounts in user mode;
      * DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
      * ```
-     **/
+     */
     public static void deleteAccountViaDatabaseMethod(
         List<Account> accts,
         System.AccessLevel accessLevel
@@ -308,7 +308,7 @@ public with sharing class DMLRecipes {
      * List<Account> results = DMLRecipes.undeleteAccountViaKeywordInSystemMode(accounts);
      * System.debug(results);
      * ```
-     **/
+     */
     public static List<Account> undeleteAccountViaKeywordInSystemMode(
         List<Account> accts
     ) {
@@ -333,7 +333,7 @@ public with sharing class DMLRecipes {
      * List<Account> results = DMLRecipes.undeleteAccountViaKeywordInUserMode(accounts);
      * System.debug(results);
      * ```
-     **/
+     */
     public static List<Account> undeleteAccountViaKeywordInUserMode(
         List<Account> accts
     ) {
@@ -358,7 +358,7 @@ public with sharing class DMLRecipes {
      * List<Account> results = DMLRecipes.undeleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
      * System.debug(results);
      * ```
-     **/
+     */
     public static List<Account> undeleteAccountViaDatabaseMethod(
         List<Account> accts,
         System.AccessLevel accessLevel

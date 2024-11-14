@@ -102,8 +102,6 @@ public static List<Account> incrementCounterInDescription(List<Account> incoming
 #### Return Type
 **List&lt;Account&gt;**
 
-List&lt;Account&gt;
-
 #### Example
 ```apex
 Account[] accounts = [SELECT Description FROM Account LIMIT 50];

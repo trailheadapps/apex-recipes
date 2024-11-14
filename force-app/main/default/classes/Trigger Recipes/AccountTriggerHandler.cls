@@ -43,7 +43,7 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * accounts.add(new Account(name='example 2'));
      * insert accounts;
      * ```
-     **/
+     */
     public override void beforeInsert() {
         // Note: You don't need to put your logic directly in this method.
         // If, for instance, you have a service layer, you can call methods on
@@ -72,7 +72,7 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * accounts.add(new Account(name='example 2'));
      * insert accounts;
      * ```
-     **/
+     */
     public override void afterInsert() {
         AccountServiceLayer.changeShippingStreet(
             this.triggerNew,
@@ -94,7 +94,7 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * accounts[0].name += ' Updated';
      * update accounts;
      * ```
-     **/
+     */
     public override void beforeUpdate() {
         // While it's often best to utilize these context methods to call other
         // classes and methods it's entirely possible to place your trigger
@@ -129,7 +129,7 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * accounts[0].name += ' Updated';
      * update accounts;
      * ```
-     **/
+     */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public override void afterUpdate() {
         List<Task> newTasks = new List<Task>();
@@ -178,7 +178,7 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * insert accounts;
      * delete accounts;
      * ```
-     **/
+     */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public override void beforeDelete() {
         System.debug(LoggingLevel.INFO, 'Deleting an account');
@@ -215,7 +215,7 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * insert accounts;
      * delete accounts;
      * ```
-     **/
+     */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public override void afterDelete() {
         System.debug(LoggingLevel.INFO, 'After Delete Action');
@@ -259,7 +259,7 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
      * delete accounts;
      * undelete accounts;
      * ```
-     **/
+     */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public override void afterUndelete() {
         System.debug(LoggingLevel.INFO, 'After undelete context method called');

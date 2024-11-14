@@ -21,7 +21,6 @@ public class TestHelper {
      * It generates the exception by forcing a cast from the Object parameter
      * to DateTime. If no typeException occurs, we know it's a dateTime object.
      * @param obj
-     * @return      `String`
      */
     public static String getUnknownObjectType(Object obj) {
         String result = 'DateTime';
