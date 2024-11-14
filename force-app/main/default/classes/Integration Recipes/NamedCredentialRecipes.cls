@@ -23,6 +23,7 @@ public with sharing class NamedCredentialRecipes {
      * @param permissionSetName name of the permission set that will have access to the external credential
      * @return ConnectApi.NamedCredential The created named credential
      * @example
+     * ```
      * System.debug(NamedCredentialRecipes.createNamedCredential(new ConnectApiWrapper(), 'Apex_Recipes'));
      * HttpResponse response = RestClient.makeApiCall(
      *     NAMED_CREDENTIAL_DEVELOPER_NAME,
@@ -30,6 +31,7 @@ public with sharing class NamedCredentialRecipes {
      *     '/volumes?q=salesforce'
      * );
      * System.debug(response.getBody());
+     * ```
      **/
     public static ConnectApi.NamedCredential createNamedCredential(
         ConnectApiWrapper connectApiWrapper,
@@ -74,7 +76,9 @@ public with sharing class NamedCredentialRecipes {
      * @param permissionSetName name of the permission set that will have access to the external credential
      * @return ConnectApi.ExternalCredential The created external credential
      * @example
+     * ```
      * System.debug(NamedCredentialRecipes.createExternalCredential(new ConnectApiWrapper(), 'Apex_Recipes'));
+     * ```
      **/
     private static ConnectApi.ExternalCredential createExternalCredential(
         ConnectApiWrapper connectApiWrapper,

@@ -1,44 +1,78 @@
-# EncryptionRecipes
+# EncryptionRecipes Class
 
 Demonstrates how to use different encryption and signing algorithms in Apex
-
 
 **Group** Encryption Recipes
 
 ## Fields
+### `AES_KEY`
 
-### `public AES_KEY` → `Blob`
+#### Signature
+```apex
+public static final AES_KEY
+```
 
-
-### `public HMAC_KEY` → `Blob`
-
-
-### `public DIGITAL_SIGNATURE_PRIVATE_KEY` → `Blob`
-
-
-### `public DIGITAL_SIGNATURE_PUBLIC_KEY` → `Blob`
-
+#### Type
+Blob
 
 ---
+
+### `HMAC_KEY`
+
+#### Signature
+```apex
+public static final HMAC_KEY
+```
+
+#### Type
+Blob
+
+---
+
+### `DIGITAL_SIGNATURE_PRIVATE_KEY`
+
+#### Signature
+```apex
+public static final DIGITAL_SIGNATURE_PRIVATE_KEY
+```
+
+#### Type
+Blob
+
+---
+
+### `DIGITAL_SIGNATURE_PUBLIC_KEY`
+
+#### Signature
+```apex
+public static final DIGITAL_SIGNATURE_PUBLIC_KEY
+```
+
+#### Type
+Blob
+
 ## Methods
-### `public static Blob encryptAES256WithManagedIVRecipe(Blob dataToEncrypt)`
+### `encryptAES256WithManagedIVRecipe(dataToEncrypt)`
 
 `AURAENABLED`
 
-Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver.
+Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. 
 In this case the initialization vector is managed by Salesforce.
 
+#### Signature
+```apex
+public static Blob encryptAES256WithManagedIVRecipe(Blob dataToEncrypt)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| dataToEncrypt | Blob | Blob that contains the data to encrypt |
 
-|Param|Description|
-|---|---|
-|`dataToEncrypt`|Blob that contains the data to encrypt|
+#### Return Type
+**Blob**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`Blob`|Blob|
+Blob
 
 #### Example
 ```apex
@@ -47,25 +81,29 @@ Blob encryptedData = EncryptionRecipes.encryptAES256WithManagedIVRecipe(dataToEn
 System.debug(EncodingUtil.base64Encode(encryptedData));
 ```
 
+---
 
-### `public static Blob decryptAES256WithManagedIVRecipe(Blob dataToDecrypt)`
+### `decryptAES256WithManagedIVRecipe(dataToDecrypt)`
 
 `AURAENABLED`
 
-Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver.
+Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. 
 In this case the initialization vector will be the first 128 bits (16 bytes) of the received data.
 
+#### Signature
+```apex
+public static Blob decryptAES256WithManagedIVRecipe(Blob dataToDecrypt)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| dataToDecrypt | Blob | Blob that contains the data to be decrypted |
 
-|Param|Description|
-|---|---|
-|`dataToDecrypt`|Blob that contains the data to be decrypted|
+#### Return Type
+**Blob**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`Blob`|Blob|
+Blob
 
 #### Example
 ```apex
@@ -73,25 +111,30 @@ Blob decryptedData = EncryptionRecipes.decryptAES256WithManagedIVRecipe(encrypte
 System.debug(decryptedData.toString());
 ```
 
+---
 
-### `public static Blob encryptAES256Recipe(Blob dataToEncrypt, Blob initializationVector)`
+### `encryptAES256Recipe(dataToEncrypt, initializationVector)`
 
 `AURAENABLED`
 
-Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver.
+Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. 
 In this case the initialization vector is specified by the sender. It needs to be random and 16 bytes (128 bits).
 
+#### Signature
+```apex
+public static Blob encryptAES256Recipe(Blob dataToEncrypt, Blob initializationVector)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| dataToEncrypt | Blob | Blob that contains the data to encrypt |
+| initializationVector | Blob |  |
 
-|Param|Description|
-|---|---|
-|`dataToEncrypt`|Blob that contains the data to encrypt|
+#### Return Type
+**Blob**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`Blob`|Blob|
+Blob
 
 #### Example
 ```apex
@@ -101,25 +144,29 @@ Blob encryptedData = EncryptionRecipes.encryptAES256Recipe(dataToEncrypt, initia
 System.debug(EncodingUtil.base64Encode(encryptedData));
 ```
 
+---
 
-### `public static Blob decryptAES256Recipe(Blob dataToDecrypt)`
+### `decryptAES256Recipe(dataToDecrypt)`
 
 `AURAENABLED`
 
-Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver.
+Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver. 
 In this case the sender needs to share the initialization vector with the receiver.
 
+#### Signature
+```apex
+public static Blob decryptAES256Recipe(Blob dataToDecrypt)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| dataToDecrypt | Blob | Blob that contains the data to be decrypted |
 
-|Param|Description|
-|---|---|
-|`dataToDecrypt`|Blob that contains the data to be decrypted|
+#### Return Type
+**Blob**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`Blob`|Blob|
+Blob
 
 #### Example
 ```apex
@@ -127,34 +174,44 @@ Blob decryptedData = EncryptionRecipes.decryptAES256Recipe(encryptedData);
 System.debug(decryptedData.toString());
 ```
 
+---
 
-### `public static Blob generateInitializationVector()`
+### `generateInitializationVector()`
 
 Aux method to generate a random initialization vector.
 
-#### Returns
+#### Signature
+```apex
+public static Blob generateInitializationVector()
+```
 
-|Type|Description|
-|---|---|
-|`Blob`|Blob|
+#### Return Type
+**Blob**
 
-### `public static Blob generateSHA512HashRecipe(Blob dataToHash)`
+Blob
+
+---
+
+### `generateSHA512HashRecipe(dataToHash)`
 
 `AURAENABLED`
 
 Generates one-way hash digest that can be checked in destination to ensure integrity.
 
+#### Signature
+```apex
+public static Blob generateSHA512HashRecipe(Blob dataToHash)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| dataToHash | Blob |  |
 
-|Param|Description|
-|---|---|
-|`dataToHmac`|Blob that contains some data for which to generate a hash|
+#### Return Type
+**Blob**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`Blob`|Blob|
+Blob
 
 #### Example
 ```apex
@@ -163,25 +220,29 @@ Blob hash = EncryptionRecipes.generateSHA512HashRecipe();
 System.debug(EncodingUtil.base64Encode(hash));
 ```
 
+---
 
-### `public static void checkSHA512HashRecipe(Blob hash, Blob dataToCheck)`
+### `checkSHA512HashRecipe(hash, dataToCheck)`
 
 `AURAENABLED`
 
-Recomputes hash digest for and compares it with the received one, throwing an exception if they're not equal.
+Recomputes hash digest for and compares it with the received one, throwing an exception if they&#x27;re not equal.
+
+#### Signature
+```apex
+public static void checkSHA512HashRecipe(Blob hash, Blob dataToCheck)
+```
 
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| hash | Blob | Blob that contains the received hash |
+| dataToCheck | Blob | Blob that contains the data to check the hash for |
 
-|Param|Description|
-|---|---|
-|`hash`|Blob that contains the received hash|
-|`dataToCheck`|Blob that contains the data to check the hash for|
+#### Return Type
+**void**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`void`|void|
+void
 
 #### Example
 ```apex
@@ -193,24 +254,28 @@ try {
 }
 ```
 
+---
 
-### `public static Blob generateHMACSHA512Recipe(Blob dataToHmac)`
+### `generateHMACSHA512Recipe(dataToHmac)`
 
 `AURAENABLED`
 
 Generates one-way HMAC (using a symmetric key) that can be checked in destination to ensure integrity and authenticity.
 
+#### Signature
+```apex
+public static Blob generateHMACSHA512Recipe(Blob dataToHmac)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| dataToHmac | Blob | Blob that contains some data for which to generate an HMAC |
 
-|Param|Description|
-|---|---|
-|`dataToHmac`|Blob that contains some data for which to generate an HMAC|
+#### Return Type
+**Blob**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`Blob`|Blob|
+Blob
 
 #### Example
 ```apex
@@ -219,25 +284,29 @@ Blob hmac = EncryptionRecipes.generateHMACSHA512Recipe();
 System.debug(EncodingUtil.base64Encode(hmac));
 ```
 
+---
 
-### `public static void checkHMACSHA512Recipe(Blob hmac, Blob dataToCheck)`
+### `checkHMACSHA512Recipe(hmac, dataToCheck)`
 
 `AURAENABLED`
 
-Recomputes HMAC using the symmetric key and compares it with the received one, throwing an exception if they're not equal.
+Recomputes HMAC using the symmetric key and compares it with the received one, throwing an exception if they&#x27;re not equal.
+
+#### Signature
+```apex
+public static void checkHMACSHA512Recipe(Blob hmac, Blob dataToCheck)
+```
 
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| hmac | Blob | Blob that contains the received hmac |
+| dataToCheck | Blob | Blob that contains the data to check the hmac for |
 
-|Param|Description|
-|---|---|
-|`hmac`|Blob that contains the received hmac|
-|`dataToCheck`|Blob that contains the data to check the hmac for|
+#### Return Type
+**void**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`void`|void|
+void
 
 #### Example
 ```apex
@@ -249,24 +318,28 @@ try {
 }
 ```
 
+---
 
-### `public static Blob generateRSASHA512DigitalSignatureRecipe(Blob dataToSign)`
+### `generateRSASHA512DigitalSignatureRecipe(dataToSign)`
 
 `AURAENABLED`
 
 Generates one-way Digital Signature (encrypted with an asymmetric key) that can be checked in destination to ensure integrity, authenticity and non-repudiation.
 
+#### Signature
+```apex
+public static Blob generateRSASHA512DigitalSignatureRecipe(Blob dataToSign)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| dataToSign | Blob | Blob that contains some data to sign |
 
-|Param|Description|
-|---|---|
-|`dataToSign`|Blob that contains some data to sign|
+#### Return Type
+**Blob**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`Blob`|Blob|
+Blob
 
 #### Example
 ```apex
@@ -275,25 +348,29 @@ Blob signature = EncryptionRecipes.generateRSASHA512DigitalSignatureRecipe();
 System.debug(EncodingUtil.base64Encode(signature));
 ```
 
+---
 
-### `public static void checkRSASHA512DigitalSignatureRecipe(Blob signature, Blob dataToCheck)`
+### `checkRSASHA512DigitalSignatureRecipe(signature, dataToCheck)`
 
 `AURAENABLED`
 
-Recomputes Digital Signature for and compares it with the received one, throwing an exception if they're not equal.
+Recomputes Digital Signature for and compares it with the received one, throwing an exception if they&#x27;re not equal.
+
+#### Signature
+```apex
+public static void checkRSASHA512DigitalSignatureRecipe(Blob signature, Blob dataToCheck)
+```
 
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| signature | Blob | Blob that contains the received signature |
+| dataToCheck | Blob | Blob that contains the data to check the signature for |
 
-|Param|Description|
-|---|---|
-|`signature`|Blob that contains the received signature|
-|`dataToCheck`|Blob that contains the data to check the signature for|
+#### Return Type
+**void**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`void`|void|
+void
 
 #### Example
 ```apex
@@ -305,25 +382,29 @@ try {
 }
 ```
 
+---
 
-### `public static EncryptedAndSignedData encryptAES256AndGenerateRSASHA512DigitalSignRecipe(Blob dataToEncryptAndSign)`
+### `encryptAES256AndGenerateRSASHA512DigitalSignRecipe(dataToEncryptAndSign)`
 
 `AURAENABLED`
 
-Encrypts the message with AES and then generates Digital Signature (encrypted with an asymmetric key) that can be checked in destination.
+Encrypts the message with AES and then generates Digital Signature (encrypted with an asymmetric key) that can be checked in destination. 
 This ensure confidentiality, integrity, authenticity and non-repudiation.
 
+#### Signature
+```apex
+public static EncryptedAndSignedData encryptAES256AndGenerateRSASHA512DigitalSignRecipe(Blob dataToEncryptAndSign)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| dataToEncryptAndSign | Blob | Blob that contains some data to encrypt and sign |
 
-|Param|Description|
-|---|---|
-|`dataToEncryptAndSign`|Blob that contains some data to encrypt and sign|
+#### Return Type
+**EncryptedAndSignedData**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`EncryptedAndSignedData`|Blob|
+Blob
 
 #### Example
 ```apex
@@ -333,25 +414,29 @@ System.debug(EncodingUtil.base64Encode(wrapper.encryptedData));
 System.debug(EncodingUtil.base64Encode(wrapper.signature));
 ```
 
+---
 
-### `public static Blob decryptAES256AndCheckRSASHA512DigitalSignRecipe(Blob signature, Blob dataToDecryptAndCheck)`
+### `decryptAES256AndCheckRSASHA512DigitalSignRecipe(signature, dataToDecryptAndCheck)`
 
 `AURAENABLED`
 
 Decrypts the message and verifies its Digital Signature.
 
+#### Signature
+```apex
+public static Blob decryptAES256AndCheckRSASHA512DigitalSignRecipe(Blob signature, Blob dataToDecryptAndCheck)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| signature | Blob | Blob that contains the received signature |
+| dataToDecryptAndCheck | Blob | Blob that contains the data to check the signature for |
 
-|Param|Description|
-|---|---|
-|`signature`|Blob that contains the received signature|
-|`dataToDecryptAndCheck`|Blob that contains the data to check the signature for|
+#### Return Type
+**Blob**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`Blob`|Blob decrypted data|
+Blob decrypted data
 
 #### Example
 ```apex
@@ -363,57 +448,97 @@ try {
 }
 ```
 
+---
 
-### `public static boolean areEqualConstantTime(String first, String second)`
+### `areEqualConstantTime(first, second)`
 
-Comparisons which involve cryptography need to be performed in constant time
-using specialized functions to avoid timing attack effects.
+Comparisons which involve cryptography need to be performed in constant time 
+using specialized functions to avoid timing attack effects. 
 https://en.wikipedia.org/wiki/Timing_attack
 
+#### Signature
+```apex
+public static boolean areEqualConstantTime(String first, String second)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| first | String | first String to compare |
+| second | String | second String to compare |
 
-|Param|Description|
-|---|---|
-|`first`|first String to compare|
-|`second`|second String to compare|
+#### Return Type
+**boolean**
 
-#### Returns
+Boolean strings are equal
 
-|Type|Description|
-|---|---|
-|`boolean`|Boolean strings are equal|
-
----
-## Enums
-### AESAlgorithm
-
-### HashAlgorithm
-
-### HMACAlgorithm
-
-### DigitalSignatureAlgorithm
-
----
 ## Classes
-### CryptographicException
+### CryptographicException Class
 
 Internal custom exception class
 
+### EncryptedAndSignedData Class
 
-**Inheritance**
-
-CryptographicException
-
-
-### EncryptedAndSignedData
 #### Fields
+##### `encryptedData`
 
-##### `public encryptedData` → `Blob`
+###### Signature
+```apex
+public encryptedData
+```
 
-
-##### `public signature` → `Blob`
-
+###### Type
+Blob
 
 ---
 
----
+##### `signature`
+
+###### Signature
+```apex
+public signature
+```
+
+###### Type
+Blob
+
+## Enums
+### AESAlgorithm Enum
+
+#### Values
+| Value | Description |
+|-------|-------------|
+| AES128 |  |
+| AES192 |  |
+| AES256 |  |
+### HashAlgorithm Enum
+
+#### Values
+| Value | Description |
+|-------|-------------|
+| MD5 |  |
+| SHA1 |  |
+| SHA256 |  |
+| SHA512 |  |
+### HMACAlgorithm Enum
+
+#### Values
+| Value | Description |
+|-------|-------------|
+| HMACMD5 |  |
+| HMACSHA1 |  |
+| HMACSHA256 |  |
+| HMACSHA512 |  |
+### DigitalSignatureAlgorithm Enum
+
+#### Values
+| Value | Description |
+|-------|-------------|
+| RSA |  |
+| RSA_SHA1 |  |
+| RSA_SHA256 |  |
+| RSA_SHA384 |  |
+| RSA_SHA512 |  |
+| ECDSA_SHA256 |  |
+| ECDSA_SHA384 |  |
+| ECDSA_SHA512 |  |

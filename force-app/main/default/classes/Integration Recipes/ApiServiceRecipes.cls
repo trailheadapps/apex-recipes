@@ -38,8 +38,10 @@ public with sharing class ApiServiceRecipes extends RestClient {
      * into an Apex Object.
      * @return     `List<ApiServiceRecipesDataModel>`
      * @example
+     * ```
      * ApiServiceRecipes asr = new ApiServiceRecipes();
      * System.debug(asr.getCurrentData());
+     * ```
      */
     public List<ApiServiceRecipesDataModel> getCurrentData() {
         /**

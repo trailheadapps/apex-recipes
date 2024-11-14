@@ -88,9 +88,11 @@ public with sharing class EncryptionRecipes {
      * @param dataToEncrypt Blob that contains the data to encrypt
      * @return Blob
      * @example
+     * ```
      * Blob dataToEncrypt = Blob.valueOf('Test data');
      * Blob encryptedData = EncryptionRecipes.encryptAES256WithManagedIVRecipe(dataToEncrypt);
      * System.debug(EncodingUtil.base64Encode(encryptedData));
+     * ```
      **/
     @AuraEnabled
     public static Blob encryptAES256WithManagedIVRecipe(Blob dataToEncrypt) {
@@ -108,8 +110,10 @@ public with sharing class EncryptionRecipes {
      * @param dataToDecrypt Blob that contains the data to be decrypted
      * @return Blob
      * @example
+     * ```
      * Blob decryptedData = EncryptionRecipes.decryptAES256WithManagedIVRecipe(encryptedData);
      * System.debug(decryptedData.toString());
+     * ```
      **/
     @AuraEnabled
     public static Blob decryptAES256WithManagedIVRecipe(Blob dataToDecrypt) {
@@ -127,10 +131,12 @@ public with sharing class EncryptionRecipes {
      * @param dataToEncrypt Blob that contains the data to encrypt
      * @return Blob
      * @example
+     * ```
      * Blob initializationVector = EncryptionRecipes.generateInitializationVector();
      * Blob dataToEncrypt = Blob.valueOf('Test data');
      * Blob encryptedData = EncryptionRecipes.encryptAES256Recipe(dataToEncrypt, initializationVector);
      * System.debug(EncodingUtil.base64Encode(encryptedData));
+     * ```
      **/
     @AuraEnabled
     public static Blob encryptAES256Recipe(
@@ -157,8 +163,10 @@ public with sharing class EncryptionRecipes {
      * @param dataToDecrypt Blob that contains the data to be decrypted
      * @return Blob
      * @example
+     * ```
      * Blob decryptedData = EncryptionRecipes.decryptAES256Recipe(encryptedData);
      * System.debug(decryptedData.toString());
+     * ```
      **/
     @AuraEnabled
     public static Blob decryptAES256Recipe(Blob dataToDecrypt) {
@@ -197,9 +205,11 @@ public with sharing class EncryptionRecipes {
      * @param dataToHmac Blob that contains some data for which to generate a hash
      * @return Blob
      * @example
+     * ```
      * Blob dataToHash = Blob.valueOf('Test data');
      * Blob hash = EncryptionRecipes.generateSHA512HashRecipe();
      * System.debug(EncodingUtil.base64Encode(hash));
+     * ```
      **/
     @AuraEnabled
     public static Blob generateSHA512HashRecipe(Blob dataToHash) {
@@ -213,12 +223,14 @@ public with sharing class EncryptionRecipes {
      * @param dataToCheck Blob that contains the data to check the hash for
      * @return void
      * @example
+     * ```
      * try {
      *  EncryptionRecipes.checkSHA512HashRecipe(hash, corruptedData);
      * } catch(Exception e) {
      *  // Should log exception
      *  System.debug(e.getMessage());
      * }
+     * ```
      **/
     @AuraEnabled
     public static void checkSHA512HashRecipe(Blob hash, Blob dataToCheck) {
@@ -243,9 +255,11 @@ public with sharing class EncryptionRecipes {
      * @param dataToHmac Blob that contains some data for which to generate an HMAC
      * @return Blob
      * @example
+     * ```
      * Blob dataToHmac = Blob.valueOf('Test data');
      * Blob hmac = EncryptionRecipes.generateHMACSHA512Recipe();
      * System.debug(EncodingUtil.base64Encode(hmac));
+     * ```
      **/
     @AuraEnabled
     public static Blob generateHMACSHA512Recipe(Blob dataToHmac) {
@@ -263,12 +277,14 @@ public with sharing class EncryptionRecipes {
      * @param dataToCheck Blob that contains the data to check the hmac for
      * @return void
      * @example
+     * ```
      * try {
      *  EncryptionRecipes.checkHMACSHA512Recipe(hmac, corruptedData);
      * } catch(Exception e) {
      *  // Should log exception
      *  System.debug(e.getMessage());
      * }
+     * ```
      **/
     @AuraEnabled
     public static void checkHMACSHA512Recipe(Blob hmac, Blob dataToCheck) {
@@ -289,9 +305,11 @@ public with sharing class EncryptionRecipes {
      * @param dataToSign Blob that contains some data to sign
      * @return Blob
      * @example
+     * ```
      * Blob dataToSign = Blob.valueOf('Test data');
      * Blob signature = EncryptionRecipes.generateRSASHA512DigitalSignatureRecipe();
      * System.debug(EncodingUtil.base64Encode(signature));
+     * ```
      **/
     @AuraEnabled
     public static Blob generateRSASHA512DigitalSignatureRecipe(
@@ -311,12 +329,14 @@ public with sharing class EncryptionRecipes {
      * @param dataToCheck Blob that contains the data to check the signature for
      * @return void
      * @example
+     * ```
      * try {
      *  EncryptionRecipes.checkRSASHA512DigitalSignatureRecipe(signature, corruptedData);
      * } catch(Exception e) {
      *  // Should log exception
      *  System.debug(e.getMessage());
      * }
+     * ```
      **/
     @AuraEnabled
     public static void checkRSASHA512DigitalSignatureRecipe(
@@ -341,10 +361,12 @@ public with sharing class EncryptionRecipes {
      * @param dataToEncryptAndSign Blob that contains some data to encrypt and sign
      * @return Blob
      * @example
+     * ```
      * Blob dataToEncryptAndSign = Blob.valueOf('Test data');
      * EncryptedAndSignedData wrapper = EncryptionRecipes.encryptAES256AndGenerateRSASHA512DigitalSignRecipe();
      * System.debug(EncodingUtil.base64Encode(wrapper.encryptedData));
      * System.debug(EncodingUtil.base64Encode(wrapper.signature));
+     * ```
      **/
     @AuraEnabled
     public static EncryptedAndSignedData encryptAES256AndGenerateRSASHA512DigitalSignRecipe(
@@ -382,12 +404,14 @@ public with sharing class EncryptionRecipes {
      * @param dataToDecryptAndCheck Blob that contains the data to check the signature for
      * @return Blob decrypted data
      * @example
+     * ```
      * try {
      *  EncryptionRecipes.decryptAES256AndCheckRSASHA512DigitalSignRecipe(signature, corruptedData);
      * } catch(Exception e) {
      *  // Should log exception
      *  System.debug(e.getMessage());
      * }
+     * ```
      **/
     @AuraEnabled
     public static Blob decryptAES256AndCheckRSASHA512DigitalSignRecipe(

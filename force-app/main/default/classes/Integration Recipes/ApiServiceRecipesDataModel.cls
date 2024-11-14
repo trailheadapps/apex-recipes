@@ -32,7 +32,9 @@ public with sharing class ApiServiceRecipesDataModel {
      * @param json  Incoming JSON string. Often from an api call's results.
      * @return     `List<ApiServiceRecipesDataModel>`
      * @example
+     * ```
      * System.debug(ApiServiceRecipesDataModel.parse(ApiServiceRecipesDataModel_Tests.testJSON));
+     * ```
      */
     public static List<ApiServiceRecipesDataModel> parse(String json) {
         return (List<ApiServiceRecipesDataModel>) System.JSON.deserialize(

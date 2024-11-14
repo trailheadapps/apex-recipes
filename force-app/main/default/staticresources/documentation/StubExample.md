@@ -1,19 +1,93 @@
-# StubExample
+# StubExample Class
+
 ## Fields
+### `isTrue`
 
-### `public isTrue` → `Boolean`
+#### Signature
+```apex
+public isTrue
+```
 
-
-### `public greeting` → `String`
-
-
-### `public notMocked` → `Boolean`
-
+#### Type
+Boolean
 
 ---
+
+### `greeting`
+
+#### Signature
+```apex
+public greeting
+```
+
+#### Type
+String
+
+---
+
+### `notMocked`
+
+#### Signature
+```apex
+public notMocked
+```
+
+#### Type
+Boolean
+
 ## Methods
-### `public Boolean getIsTrue()`
-### `public String getGreeting()`
-### `public void setGreeting(String greeting)`
-### `public void setGreeting(Integer greeting)`
+### `getIsTrue()`
+
+#### Signature
+```apex
+public Boolean getIsTrue()
+```
+
+#### Return Type
+**Boolean**
+
 ---
+
+### `getGreeting()`
+
+#### Signature
+```apex
+public String getGreeting()
+```
+
+#### Return Type
+**String**
+
+---
+
+### `setGreeting(greeting)`
+
+#### Signature
+```apex
+public void setGreeting(String greeting)
+```
+
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| greeting | String |  |
+
+#### Return Type
+**void**
+
+---
+
+### `setGreeting(greeting)`
+
+#### Signature
+```apex
+public void setGreeting(Integer greeting)
+```
+
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| greeting | Integer |  |
+
+#### Return Type
+**void**

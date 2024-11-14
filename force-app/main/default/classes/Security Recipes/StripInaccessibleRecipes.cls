@@ -17,7 +17,9 @@ public with sharing class StripInaccessibleRecipes {
      * and objects from a queries results.
      * @return   List<Campaign>
      * @example
+     * ```
      * System.debug(StripInaccessibleRecipes.stripInaccessibleFromQuery());
+     * ```
      */
     public static List<Campaign> stripInaccessibleFromQuery() {
         SObjectAccessDecision securityDecision = Security.stripInaccessible(
@@ -33,7 +35,9 @@ public with sharing class StripInaccessibleRecipes {
      * also from related child objects that are queried in this case contacts.
      * @return   List<Account>
      * @example
+     * ```
      * System.debug(StripInaccessibleRecipes.stripInaccessibleFromSubquery());
+     * ```
      */
     public static List<Account> stripInaccessibleFromSubquery() {
         SObjectAccessDecision securityDecision = Security.stripInaccessible(
@@ -52,12 +56,14 @@ public with sharing class StripInaccessibleRecipes {
      * objects the do not have access to.
      * @param contacts A list of Contacts
      * @example
+     * ```
      * Contact[] contacts = new Contact[]();
      * for(Integer i = 0, i < 5; i++){
      *      contacts.add(new Contact(lastName='example last name' + i));
      * }
      * stripInaccessibleRecipes.stripInaccessibleBeforeDML(contacts);
      * System.debug([SELECT Id, lastName FROM Contact WHERE lastName like 'example last name%']);
+     * ```
      **/
     public static void stripInaccessibleBeforeDML(List<Contact> contacts) {
         SObjectAccessDecision securityDecision = Security.stripInaccessible(
@@ -71,14 +77,16 @@ public with sharing class StripInaccessibleRecipes {
      * @description Demonstrates how to use stripInaccessible to sanitize
      * untrusted data prior to DML. In this case, the code demonstrates how to
      * deserialize a JSON string, and strip fields / objects that the user has
-     * no access to. This pattern is especially useful for `@auraenabled` methods!
+     * no access to. This pattern is especially useful for `@AuraEnabled` methods!
      * @param  jsonText jsonText description
      * @example
+     * ```
      * Account acct = new Account(name='Awesome Strip Inaccessible example');
      * insert acct;
      * acct.ShippingStreet = '123 To Be Updated st.';
      * stripInaccessibleRecipes.stripInaccessibleFromUntrustedData(JSON.serialize(acct));
      * System.debug([SELECT Name, ShippingStreet FROM Account WHERE Id = :acct.id]);
+     * ```
      */
     public static void stripInaccessibleFromUntrustedData(String jsonText) {
         List<Account> accounts = (List<Account>) JSON.deserialize(

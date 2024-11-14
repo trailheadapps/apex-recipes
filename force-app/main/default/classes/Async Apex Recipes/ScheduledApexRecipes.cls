@@ -24,9 +24,11 @@ public with sharing class ScheduledApexRecipes implements Schedulable {
      * BatchApexRecipes for more information.
      * @param context Dependency Injected by the System
      * @example
+     * ```
      * System.schedule('Friendly Message to identify this job',
      *                  ScheduledApexRecipes.TEST_CRON_STATEMENT,
      *                  new ScheduledApexRecipes());
+     * ```
      **/
     public void execute(SchedulableContext context) {
         /**

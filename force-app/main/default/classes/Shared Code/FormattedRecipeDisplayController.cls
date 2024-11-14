@@ -59,7 +59,9 @@ public with sharing class FormattedRecipeDisplayController {
      * @param recipeName Name of the Class to return
      * @return          `ClassData`
      * @example
+     * ```
      * System.debug(FormattedRecipeDisplayController.getRecipeCode('FormattedRecipeDisplayController'));
+     * ```
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @AuraEnabled(cacheable=true)

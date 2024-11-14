@@ -1,60 +1,76 @@
-# StripInaccessibleRecipes
+# StripInaccessibleRecipes Class
 
-Demonstrates the use of Security.stripInaccessible()
-and the SObjectAccessDecision object. This helps developers write
-secure code that prevents users from seeing and accessing fields
+Demonstrates the use of Security.stripInaccessible() 
+and the SObjectAccessDecision object. This helps developers write 
+secure code that prevents users from seeing and accessing fields 
 they cannot access.
-
 
 **Group** Security Recipes
 
 ## Methods
-### `public static List<Campaign> stripInaccessibleFromQuery()`
+### `stripInaccessibleFromQuery()`
 
-Demonstrates how to use stripInaccessible to remove fields
+Demonstrates how to use stripInaccessible to remove fields 
 and objects from a queries results.
 
-#### Returns
+#### Signature
+```apex
+public static List<Campaign> stripInaccessibleFromQuery()
+```
 
-|Type|Description|
-|---|---|
-|`List<Campaign>`|List<Campaign>|
+#### Return Type
+**List&lt;Campaign&gt;**
+
+List&lt;Campaign&gt;
 
 #### Example
 ```apex
 System.debug(StripInaccessibleRecipes.stripInaccessibleFromQuery());
 ```
 
+---
 
-### `public static List<Account> stripInaccessibleFromSubquery()`
+### `stripInaccessibleFromSubquery()`
 
-Demonstrates how to use stripInaccessible to remove fields
-and objects not only from the primary object in this case account but
+Demonstrates how to use stripInaccessible to remove fields 
+and objects not only from the primary object in this case account but 
 also from related child objects that are queried in this case contacts.
 
-#### Returns
+#### Signature
+```apex
+public static List<Account> stripInaccessibleFromSubquery()
+```
 
-|Type|Description|
-|---|---|
-|`List<Account>`|List<Account>|
+#### Return Type
+**List&lt;Account&gt;**
+
+List&lt;Account&gt;
 
 #### Example
 ```apex
 System.debug(StripInaccessibleRecipes.stripInaccessibleFromSubquery());
 ```
 
+---
 
-### `public static void stripInaccessibleBeforeDML(List<Contact> contacts)`
+### `stripInaccessibleBeforeDML(contacts)`
 
-Demonstrates how to use stripInacessible in a pre-DML
-context. This prevents a user from persisting changes to fields and
+Demonstrates how to use stripInacessible in a pre-DML 
+context. This prevents a user from persisting changes to fields and 
 objects the do not have access to.
 
-#### Parameters
+#### Signature
+```apex
+public static void stripInaccessibleBeforeDML(List<Contact> contacts)
+```
 
-|Param|Description|
-|---|---|
-|`contacts`|A list of Contacts|
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| contacts | List&lt;Contact&gt; | A list of Contacts |
+
+#### Return Type
+**void**
 
 #### Example
 ```apex
@@ -66,19 +82,27 @@ stripInaccessibleRecipes.stripInaccessibleBeforeDML(contacts);
 System.debug([SELECT Id, lastName FROM Contact WHERE lastName like 'example last name%']);
 ```
 
+---
 
-### `public static void stripInaccessibleFromUntrustedData(String jsonText)`
+### `stripInaccessibleFromUntrustedData(jsonText)`
 
-Demonstrates how to use stripInaccessible to sanitize
-untrusted data prior to DML. In this case, the code demonstrates how to
-deserialize a JSON string, and strip fields / objects that the user has
-no access to. This pattern is especially useful for `@auraenabled` methods!
+Demonstrates how to use stripInaccessible to sanitize 
+untrusted data prior to DML. In this case, the code demonstrates how to 
+deserialize a JSON string, and strip fields / objects that the user has 
+no access to. This pattern is especially useful for `@AuraEnabled` methods!
+
+#### Signature
+```apex
+public static void stripInaccessibleFromUntrustedData(String jsonText)
+```
 
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| jsonText | String | jsonText description |
 
-|Param|Description|
-|---|---|
-|`jsonText`|jsonText description|
+#### Return Type
+**void**
 
 #### Example
 ```apex
@@ -89,17 +113,7 @@ stripInaccessibleRecipes.stripInaccessibleFromUntrustedData(JSON.serialize(acct)
 System.debug([SELECT Name, ShippingStreet FROM Account WHERE Id = :acct.id]);
 ```
 
-
----
 ## Classes
-### StripInaccessibleRecipesException
+### StripInaccessibleRecipesException Class
 
 Internal custom exception used by this class.
-
-
-**Inheritance**
-
-StripInaccessibleRecipesException
-
-
----

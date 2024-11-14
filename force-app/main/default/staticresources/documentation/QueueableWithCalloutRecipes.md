@@ -1,66 +1,75 @@
-# QueueableWithCalloutRecipes
+# QueueableWithCalloutRecipes Class
 
-Demmonstrates the use of the Queueable interface to make
-callouts. The methods in this class are called by the system at run time.
-To enqueue this job and see it's results, use `System.enqueueJob(new QueueableWithCalloutRecipes());`
-
-More on the Queable interface:
+Demmonstrates the use of the Queueable interface to make 
+callouts. The methods in this class are called by the system at run time. 
+To enqueue this job and see it&#x27;s results, use `System.enqueueJob(new QueueableWithCalloutRecipes());` 
+ 
+More on the Queable interface: 
 https://sfdc.co/queueable-apex
-
-
-**Implemented types**
-
-[Queueable](Queueable)
-, 
-[Database.AllowsCallouts](Database.AllowsCallouts)
-
 
 **Group** Async Apex Recipes
 
-
 **See** [RestClient](https://github.com/trailheadapps/apex-recipes/wiki/RestClient)
 
+**Implements**
+
+Queueable, 
+Database.AllowsCallouts
+
 ## Fields
+### `throwError`
 
-### `private throwError` → `Boolean`
+`TESTVISIBLE`
 
-`TESTVISIBLE` 
+#### Signature
+```apex
+private static throwError
+```
 
-### `private circuitBreakerThrown` → `Boolean`
-
-`TESTVISIBLE` 
+#### Type
+Boolean
 
 ---
-## Methods
-### `public static void execute(QueueableContext qc)`
 
-This is the only required method to implement Queueable.
-Queueable classes that also implement Database.allowsCallouts can make
-HTTP requests to external services. In this recipe we make a GET request
+### `circuitBreakerThrown`
+
+`TESTVISIBLE`
+
+#### Signature
+```apex
+private static circuitBreakerThrown
+```
+
+#### Type
+Boolean
+
+## Methods
+### `execute(qc)`
+
+This is the only required method to implement Queueable. 
+Queueable classes that also implement Database.allowsCallouts can make 
+HTTP requests to external services. In this recipe we make a GET request 
 to developer.salesforce.com
 
-#### Parameters
+#### Signature
+```apex
+public static void execute(QueueableContext qc)
+```
 
-|Param|Description|
-|---|---|
-|`qc`|dependency injected by the system|
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| qc | QueueableContext | dependency injected by the system |
+
+#### Return Type
+**void**
 
 #### Example
 ```apex
 System.enqueueJob(new QueueableWithCalloutRecipes());
 ```
 
-
----
 ## Classes
-### QueueableWithCalloutRecipesException
+### QueueableWithCalloutRecipesException Class
 
 Internal custom exception class
-
-
-**Inheritance**
-
-QueueableWithCalloutRecipesException
-
-
----

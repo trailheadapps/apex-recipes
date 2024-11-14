@@ -20,7 +20,9 @@ public with sharing class QueueableRecipes implements Queueable {
      * details.
      * @param qc dependency injected by the system
      * @example
+     * ```
      * System.enqueueJob(new QueueableRecipes());
+     * ```
      **/
     public static void execute(QueueableContext qc) {
         List<Account> accounts = [

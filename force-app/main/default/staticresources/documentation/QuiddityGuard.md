@@ -1,56 +1,105 @@
-# QuiddityGuard
+# QuiddityGuard Class
 
-contains methods and static lists for rapid acceptence of a
+contains methods and static lists for rapid acceptence of a 
 particular set of quiddities
-
 
 **Group** Quiddity Recipes
 
 ## Fields
+### `testQuiddityOverride`
 
-### `private testQuiddityOverride` → `Quiddity`
+`TESTVISIBLE`
 
-`TESTVISIBLE` 
-
-a private testvisible variable allowing developers to
+a private testvisible variable allowing developers to 
 inject a custom quiddity value during test execution.
 
-### `public trustedQuiddities` → `List<Quiddity>`
+#### Signature
+```apex
+private static testQuiddityOverride
+```
 
+#### Type
+Quiddity
 
-a non-exhaustive list of Quiddities that do not include user
+---
+
+### `trustedQuiddities`
+
+a non-exhaustive list of Quiddities that do not include user 
 situations where users could be injecting malicious data.
 
-### `public trustedTestQuiddities` → `List<Quiddity>`
+#### Signature
+```apex
+public static trustedQuiddities
+```
 
+#### Type
+List&lt;Quiddity&gt;
 
-An exaustive list of quiddities that are valid for a test
+---
+
+### `trustedTestQuiddities`
+
+An exaustive list of quiddities that are valid for a test 
 execution
 
-### `public untrustedQuiddities` → `List<Quiddity>`
+#### Signature
+```apex
+public static trustedTestQuiddities
+```
 
+#### Type
+List&lt;Quiddity&gt;
 
-A list of quiddities that may include user-defined data and
+---
+
+### `untrustedQuiddities`
+
+A list of quiddities that may include user-defined data and 
 therefore should not be trusted without manual FLS/CRUD checks
 
----
-## Methods
-### `public static Boolean isAcceptableQuiddity(List<Quiddity> acceptableQuiddites)`
+#### Signature
+```apex
+public static untrustedQuiddities
+```
 
-A method to determine if the current Quiddity context is
+#### Type
+List&lt;Quiddity&gt;
+
+## Methods
+### `isAcceptableQuiddity(acceptableQuiddites)`
+
+A method to determine if the current Quiddity context is 
 within a caller-supplied list of acceptable quiddity values.
 
+#### Signature
+```apex
+public static Boolean isAcceptableQuiddity(List<Quiddity> acceptableQuiddites)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| acceptableQuiddites | List&lt;Quiddity&gt; | A list of quiddities to check against |
 
-|Param|Description|
-|---|---|
-|`acceptableQuiddites`|A list of quiddities to check against|
+#### Return Type
+**Boolean**
 
-#### Returns
+,[object Object]
 
-|Type|Description|
-|---|---|
-|`Boolean`|`boolean`|
-
-### `public static Boolean isNotAcceptableQuiddity(List<Quiddity> acceptableQuiddites)`
 ---
+
+### `isNotAcceptableQuiddity(acceptableQuiddites)`
+
+#### Signature
+```apex
+public static Boolean isNotAcceptableQuiddity(List<Quiddity> acceptableQuiddites)
+```
+
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| acceptableQuiddites | List&lt;Quiddity&gt; |  |
+
+#### Return Type
+**Boolean**

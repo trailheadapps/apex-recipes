@@ -1,115 +1,169 @@
-# RecipeTreeViewController
+# RecipeTreeViewController Class
 
-Provides the necessary data to populate a lightning-tree base
+Provides the necessary data to populate a lightning-tree base 
 component with recipe and group information
-
 
 **Group** Shared Code
 
-
-**See** [ApexClassUtilities](https://github.com/trailheadapps/apex-recipes/wiki/ApexClassUtilities)
+**See** [ApexClassUtilities](ApexClassUtilities.md)
 
 ## Fields
+### `groupToListOfNames`
 
-### `private groupToListOfNames` → `Map<String,List<String>>`
+#### Signature
+```apex
+private static groupToListOfNames
+```
 
-
-### `private GROUP_TAG` → `String`
-
-
-The String here represents a relatively unique tag that
-Apex Recipe uses to help group related classes.
+#### Type
+Map&lt;String,List&lt;String&gt;&gt;
 
 ---
+
+### `GROUP_TAG`
+
+The String here represents a relatively unique tag that 
+Apex Recipe uses to help group related classes.
+
+#### Signature
+```apex
+private static final GROUP_TAG
+```
+
+#### Type
+String
+
 ## Methods
-### `public static List<RecipeTreeData> generateTreeData()`
+### `generateTreeData()`
 
 `AURAENABLED`
 
-Generates a recursive list of RecipeTreeData objects
-to feed to a Lightning-tree-view component. Importantly, the returning
-array has two RecipeTreeData objects - One for Recipes, the other
+Generates a recursive list of RecipeTreeData objects 
+to feed to a Lightning-tree-view component. Importantly, the returning 
+array has two RecipeTreeData objects - One for Recipes, the other 
 for our supporting, shared code.
 
-#### Returns
+#### Signature
+```apex
+public static List<RecipeTreeData> generateTreeData()
+```
 
-|Type|Description|
-|---|---|
-|`List<RecipeTreeData>`|list of RecipeTreeData objects|
+#### Return Type
+**List&lt;RecipeTreeData&gt;**
+
+list of RecipeTreeData objects
 
 #### Example
 ```apex
 System.debug(RecipeTreeViewController.generateTreeData());
 ```
 
+---
 
-### `private static Map<String,List<String>> generateMapOfGroupToListOfNames()`
+### `generateMapOfGroupToListOfNames()`
 
 `SUPPRESSWARNINGS`
 
-Generates a map containing Group names as the Keys tied to
-a List of class names.
+Generates a map containing Group names as the Keys tied to 
+a List of class names. 
+ 
+Note: this method contains a false-positive PMD violation. 
+Normally, we&#x27;d want to check for FLS/CRUD here, but for ApexClass 
+a system level object that Admins and users cannot really change 
+we&#x27;re ok.
 
-Note: this method contains a false-positive PMD violation.
-Normally, we'd want to check for FLS/CRUD here, but for ApexClass
-a system level object that Admins and users cannot really change
-we're ok.
+#### Signature
+```apex
+private static Map<String,List<String>> generateMapOfGroupToListOfNames()
+```
 
-#### Returns
+#### Return Type
+**Map&lt;String,List&lt;String&gt;&gt;**
 
-|Type|Description|
-|---|---|
-|`Map<String,List<String>>`|map containing Group names as the Keys tied to a List of class names.|
+map containing Group names as the Keys tied to a List of class names.
 
----
 ## Classes
-### RecipeTreeData
+### RecipeTreeData Class
 
-Used to marshall data between Apex and the LWC component
+Used to marshall data between Apex and the LWC component 
 that uses this data
 
+**Implements**
 
-**Implemented types**
-
-[Comparable](Comparable)
+Comparable
 
 #### Fields
+##### `label`
 
-##### `public label` → `String`
+`AURAENABLED`
 
-`AURAENABLED` 
+###### Signature
+```apex
+public label
+```
 
-##### `public name` → `String`
-
-`AURAENABLED` 
-
-##### `public expanded` → `Boolean`
-
-`AURAENABLED` 
-
-##### `public items` → `RecipeTreeData`
-
-`AURAENABLED` 
+###### Type
+String
 
 ---
-#### Methods
-##### `public Integer compareTo(Object compareTo)`
 
-Required by the Comparable interface, this method,
+##### `name`
+
+`AURAENABLED`
+
+###### Signature
+```apex
+public name
+```
+
+###### Type
+String
+
+---
+
+##### `expanded`
+
+`AURAENABLED`
+
+###### Signature
+```apex
+public expanded
+```
+
+###### Type
+Boolean
+
+---
+
+##### `items`
+
+`AURAENABLED`
+
+###### Signature
+```apex
+public items
+```
+
+###### Type
+RecipeTreeData
+
+#### Methods
+##### `compareTo(compareTo)`
+
+Required by the Comparable interface, this method, 
 once implemented allows us to sort of this object type.
 
+###### Signature
+```apex
+public Integer compareTo(Object compareTo)
+```
+
 ###### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| compareTo | Object | A RecipeTreeData object to compare this instance against. |
 
-|Param|Description|
-|---|---|
-|`compareTo`|A RecipeTreeData object to compare this instance against.|
+###### Return Type
+**Integer**
 
-###### Returns
-
-|Type|Description|
-|---|---|
-|`Integer`|sort index|
-
----
-
----
+sort index

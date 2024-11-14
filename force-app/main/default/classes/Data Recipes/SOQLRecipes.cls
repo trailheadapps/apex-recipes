@@ -10,8 +10,10 @@ public with sharing class SOQLRecipes {
      *
      * @return list<Account>
      * @example
+     * ```
      * List<Account> results = SOQLRecipes.querySingleObject();
      * System.debug(results);
+     * ```
      **/
     public static List<Account> getRecords() {
         List<Account> accounts = new List<Account>();
@@ -28,7 +30,9 @@ public with sharing class SOQLRecipes {
      *
      * @return integer
      * @example
+     * ```
      * System.debug(SOQLRecipes.getLargeNumberOfRecords());
+     * ```
      **/
     public static Integer getLargeNumberOfRecords() {
         Integer count = 0;
@@ -78,7 +82,9 @@ public with sharing class SOQLRecipes {
      *
      * @return List<Account>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getRecordsByFieldValue());
+     * ```
      **/
     public static List<Account> getRecordsByFieldValue() {
         return [
@@ -94,7 +100,9 @@ public with sharing class SOQLRecipes {
      * query
      * @return List<Account>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getRecordsByMultipleFieldValues());
+     * ```
      **/
     public static List<Account> getRecordsByMultipleFieldValues() {
         return [
@@ -113,7 +121,9 @@ public with sharing class SOQLRecipes {
      * @description Demonstrates how to use the LIMIT clause in a SOQL statement
      * @return List<Account>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getSpecificNumberOfRecords());
+     * ```
      **/
     public static List<Account> getSpecificNumberOfRecords() {
         //LIMIT clause
@@ -132,7 +142,9 @@ public with sharing class SOQLRecipes {
      *
      * @return List<Account>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getFirstXRecords(5));
+     * ```
      **/
     public static List<Account> getFirstXRecords(Integer wantedNumberOfRows) {
         return [
@@ -149,7 +161,9 @@ public with sharing class SOQLRecipes {
      * @param state String representing a US State code (AK, KS, etc.)
      * @return List<Account>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getAccountRecordsInState('ks'));
+     * ```
      **/
     public static List<Account> getAccountRecordsInState(String state) {
         return [
@@ -166,7 +180,9 @@ public with sharing class SOQLRecipes {
      *
      * @return List<Account>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getSecond10AccountRecords());
+     * ```
      **/
     public static List<Account> getSecond10AccountRecords() {
         return [
@@ -185,7 +201,9 @@ public with sharing class SOQLRecipes {
      *
      * @return List<Account>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getRecordsWithRelatedRecords());
+     * ```
      **/
     public static List<Account> getRecordsWithRelatedRecords() {
         return [
@@ -201,7 +219,9 @@ public with sharing class SOQLRecipes {
      *
      * @return List<Contact>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getParentRecordDetailsFromChildRecord());
+     * ```
      **/
     public static List<Contact> getParentRecordDetailsFromChildRecord() {
         return [
@@ -218,7 +238,9 @@ public with sharing class SOQLRecipes {
      *
      * @return List<Junction__c>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getDetailsFromBothParentRecords());
+     * ```
      **/
     public static List<Junction__c> getDetailsFromBothParentRecords() {
         return [
@@ -236,8 +258,10 @@ public with sharing class SOQLRecipes {
      * @param accountId an AccountId
      * @return Double
      * @example
+     * ```
      * Id accountId = [SELECT Id FROM Account LIMIT 1].Id;
      * System.debug(SOQLRecipes.getSumOfOpportunityRecords(accountId));
+     * ```
      **/
     public static Double getSumOfOpportunityRecords(Id accountId) {
         List<AggregateResult> groupedResults = [

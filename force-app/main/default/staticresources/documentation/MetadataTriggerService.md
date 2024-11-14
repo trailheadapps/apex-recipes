@@ -1,52 +1,70 @@
-# MetadataTriggerService
-## Constructors
-### `public MetadataTriggerService(String objectTypeName)`
----
+# MetadataTriggerService Class
+
 ## Fields
+### `objType`
 
-### `private objType` → `String`
+#### Signature
+```apex
+private objType
+```
 
+#### Type
+String
 
----
+## Constructors
+### `MetadataTriggerService(objectTypeName)`
+
+#### Signature
+```apex
+public MetadataTriggerService(String objectTypeName)
+```
+
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| objectTypeName | String |  |
+
 ## Methods
-### `public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers()`
+### `getMetadataTriggers()`
 
 `SUPPRESSWARNINGS`
 
-This query finds an ordered list trigger handler classes
-to execute. It ignores any classes that are marked as disabled.
-
-Note: It will exclude any triggerHandler metadata records for which
-the user's email address is found in a related disabled_for__mdt
-record.
-
-Admin's and Developers can selectively disable trigger handlers
+This query finds an ordered list trigger handler classes 
+to execute. It ignores any classes that are marked as disabled. 
+ 
+Note: It will exclude any triggerHandler metadata records for which 
+the user&#x27;s email address is found in a related disabled_for__mdt 
+record. 
+ 
+Admin&#x27;s and Developers can selectively disable trigger handlers 
 for all or selected individuals *without* deploying.
 
-#### Returns
+#### Signature
+```apex
+public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers()
+```
 
-|Type|Description|
-|---|---|
-|`List<Metadata_Driven_Trigger__mdt>`|`List<Metadata_Driven_Trigger__mdt>`|
+#### Return Type
+**List&lt;Metadata_Driven_Trigger__mdt&gt;**
 
-### `public static String getSObjectType()`
+,[object Object]
 
-This determines the active sObject type by describing the first
+---
+
+### `getSObjectType()`
+
+This determines the active sObject type by describing the first 
 record in the trigger New / Old list
 
-#### Returns
+#### Signature
+```apex
+public static String getSObjectType()
+```
 
-|Type|Description|
-|---|---|
-|`String`|`String`|
+#### Return Type
+**String**
 
----
+,[object Object]
+
 ## Classes
-### MetadataTriggerServiceException
-
-**Inheritance**
-
-MetadataTriggerServiceException
-
-
----
+### MetadataTriggerServiceException Class

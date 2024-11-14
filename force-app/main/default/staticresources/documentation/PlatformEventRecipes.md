@@ -1,32 +1,32 @@
-# PlatformEventRecipes
+# PlatformEventRecipes Class
 
 Demonstrates how to publish events on the event bus
 
-
 **Group** Platform Event Recipes
-
 
 **See** [PlatformEventRecipesTriggerHandler](https://github.com/trailheadapps/apex-recipes/wiki/PlatformEventRecipesTriggerHandler)
 
-
-**See** [PlatformEventPublishCallback](https://github.com/trailheadapps/apex-recipes/wiki/PlatformEventPublishCallback)
+**See** [PlatformEventPublishCallback](PlatformEventPublishCallback.md)
 
 ## Methods
-### `public static Database.SaveResult publishEvent(Event_Recipes_Demo__e event)`
+### `publishEvent(event)`
 
 publishes a platform event
 
+#### Signature
+```apex
+public static Database.SaveResult publishEvent(Event_Recipes_Demo__e event)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| event | Event_Recipes_Demo__e | an `Event_Recipes_Demo__e` object |
 
-|Param|Description|
-|---|---|
-|`event`|an `Event_Recipes_Demo__e` object|
+#### Return Type
+**Database.SaveResult**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`Database.SaveResult`|Database.SaveResult|
+Database.SaveResult
 
 #### Example
 ```apex
@@ -37,22 +37,26 @@ Database.saveResults result = PlatformEventsRecipes.publishEvent(evt);
 System.debug(result);
 ```
 
+---
 
-### `public static Database.SaveResult publishEventWithCallbacks(Event_Recipes_Demo__e event)`
+### `publishEventWithCallbacks(event)`
 
 publishes a platform event and handles success/failure with callbacks
 
+#### Signature
+```apex
+public static Database.SaveResult publishEventWithCallbacks(Event_Recipes_Demo__e event)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| event | Event_Recipes_Demo__e | an `Event_Recipes_Demo__e` object |
 
-|Param|Description|
-|---|---|
-|`event`|an `Event_Recipes_Demo__e` object|
+#### Return Type
+**Database.SaveResult**
 
-#### Returns
-
-|Type|Description|
-|---|---|
-|`Database.SaveResult`|Database.SaveResult|
+Database.SaveResult
 
 #### Example
 ```apex
@@ -66,17 +70,7 @@ event.Url__c = 'https://developer.salesforce.com';
 PlatformEventRecipes.publishEventWithCallbacks(event);
 ```
 
-
----
 ## Classes
-### PlatformEventRecipesException
+### PlatformEventRecipesException Class
 
 Internal custom exception class
-
-
-**Inheritance**
-
-PlatformEventRecipesException
-
-
----

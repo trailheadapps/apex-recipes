@@ -15,7 +15,9 @@ public with sharing class DynamicSOQLRecipes {
      * does not include any input parameters so SOQL Injection is not possible.
      * @return List<Account> with security enforced using USER_MODE
      * @example
+     * ```
      * System.debug(DynamicSOQLRecipes.simpleDynamicSOQLQuery());
+     * ```
      **/
     @SuppressWarnings('PMD.ApexSOQLInjection')
     public static List<Account> simpleDynamicSOQLQuery() {
@@ -30,7 +32,9 @@ public with sharing class DynamicSOQLRecipes {
      * @param name Name of the account to search for
      * @return List<Account>
      * @example
+     * ```
      * System.debug(DynamicSoqlRecipes.simpleBindingSOQLQuery('hello'))
+     * ```
      **/
     public static List<Account> simpleBindingSOQLQuery(String name) {
         Map<String, Object> nameBind = new Map<String, Object>{
@@ -54,9 +58,11 @@ public with sharing class DynamicSOQLRecipes {
      * @param acct Account to base the search off of
      * @return List<Account>
      * @example
+     * ```
      * Account acct = [SELECT Name FROM Account WHERE Name = 'hello' LIMIT 1];
      * Account[] results = DynamicSOQLRecipes.dynamicFieldsBindingSOQLQuery(acct);
      * System.debug(results);
+     * ```
      **/
     public static List<Account> dynamicFieldsBindingSOQLQuery(Account acct) {
         Map<String, Object> accountNameBind = new Map<String, Object>{
@@ -91,7 +97,9 @@ public with sharing class DynamicSOQLRecipes {
      * @param numberOfRecords String to be used as the comparison in the query
      * @return List<Account>
      * @example
+     * ```
      * System.debug(DynamicSOQLRecipes.typecastDataIntelligently(2).size());
+     * ```
      **/
     @SuppressWarnings('PMD.ApexSOQLInjection')
     public static List<Account> typecastDataIntelligently(
@@ -135,6 +143,7 @@ public with sharing class DynamicSOQLRecipes {
      * @param whereClause A string containing the where clause
      * @return           `List<Account>`
      * @example
+     * ```
      * List<String> fields = new List<String>{
      *       'Name',
      *       'NumberOfEmployees',
@@ -149,6 +158,7 @@ public with sharing class DynamicSOQLRecipes {
      *       whereClause
      *   );
      *   System.debug(results);
+     * ```
      */
     @SuppressWarnings('PMD.ApexSOQLInjection')
     public static List<Account> simpleQueryBuilder(

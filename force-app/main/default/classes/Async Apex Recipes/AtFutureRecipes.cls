@@ -22,7 +22,9 @@ public with sharing class AtFutureRecipes {
      * transaction than the calling code.
      * @param data String to be logged
      * @example
+     * ```
      * AtFutureRecipes.atFutureMethodWithoutCalloutPrivileges('Some Data');
+     * ```
      **/
     @future
     public static void atFutureMethodWithoutCalloutPrivileges(String data) {
@@ -41,7 +43,9 @@ public with sharing class AtFutureRecipes {
      *
      * @param url       The URL to make a callout to.
      * @example
+     * ```
      * AtFutureRecipes.atFutureMethodWithCalloutPrivileges('google.com');
+     * ```
      **/
     @future(callout=true)
     public static void atFutureMethodWithCalloutPrivileges(String url) {

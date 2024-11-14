@@ -15,7 +15,9 @@ public with sharing class SOSLRecipes {
      *  See SOSLRecipes_Tests.cls for more information
      * @return List<List<SObject>>
      * @example
+     * ```
      * System.debug(SOSLRecipes.basicSOSLSearch());
+     * ```
      **/
     public static List<List<SObject>> basicSOSLSearch() {
         String keyword = 'Kan*';
@@ -33,7 +35,9 @@ public with sharing class SOSLRecipes {
      * name fields
      * @return List<List<SObject>>
      * @example
+     * ```
      * System.debug(SOSLRecipes.nameFieldSearch());
+     * ```
      **/
     public static List<List<SObject>> nameFieldSearch() {
         String keyword = 'Alaska';
