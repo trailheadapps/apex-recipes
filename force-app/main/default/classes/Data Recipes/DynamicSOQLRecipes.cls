@@ -8,7 +8,6 @@
  * @group Data Recipes
  */
 public with sharing class DynamicSOQLRecipes {
-
     /**
      * @description demonstrates a simple dynamic SOQL query where the query is
      * defined in Apex

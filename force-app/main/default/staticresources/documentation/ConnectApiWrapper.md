@@ -14,7 +14,6 @@ allowing its methods to be mocked in test classes.
 
 ## Methods
 ### `public ConnectApi.ExternalCredential createExternalCredential(ConnectApi.ExternalCredentialInput externalCredentialInput)`
-
 ### `public ConnectApi.NamedCredential createNamedCredential(ConnectApi.NamedCredentialInput namedCredentialInput)`
-
 ### `public ConnectApi.ExternalCredential getExternalCredential(String developerName)`
+---
