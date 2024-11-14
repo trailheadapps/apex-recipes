@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 /**
  * @description This class serves as a library of useful methods for writing
  * more expressive, cleaner unit tests. Initialy this class contains a method
@@ -23,7 +23,7 @@ public class TestHelper {
      * @param obj
      * @return      `String`
      */
-    public static String getUnkownObjectType(Object obj) {
+    public static String getUnknownObjectType(Object obj) {
         String result = 'DateTime';
         try {
             DateTime typeCheck = (DateTime) obj;

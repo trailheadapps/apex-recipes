@@ -9,12 +9,6 @@
  */
 public with sharing class DynamicSOQLRecipes {
     /**
-     * @description Internal exception class
-     */
-    public class DynamicSoqlException extends Exception {
-    }
-
-    /**
      * @description demonstrates a simple dynamic SOQL query where the query is
      * defined in Apex
      * Note: This method has a false-positive PMD warning. Our Query

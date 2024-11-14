@@ -4,7 +4,7 @@
 
 Implements an easy and re-usable StubProvider
 Utilizes a fluent interface for ease of use.
-This is merly an example of how you could build a reusable stub provider
+This is merely an example of how you could build a reusable stub provider
 class. There are definitely edge cases or features not handled by this class.
 
 The general mechanism for use looks like this:

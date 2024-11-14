@@ -83,7 +83,7 @@ Stores a value in the Org cache with a custom timeout.
 |`value`|value to store in the cache.|
 |`ttl`|Time To Live (ttl) is the number of seconds this item will remain in cache.|
 
-### `public static String getValuefromOrgCache(String key)`
+### `public static String getValueFromOrgCache(String key)`
 
 Retrieves a value from the cache identified by key
 

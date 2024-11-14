@@ -57,7 +57,7 @@ public with sharing class CollectionUtils {
      * @return            `Map<String, sObject>`
      * @example
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
-     * Map<String, Contact> contactsByAccountId = (Map<String, Contact>) CollectionUtils.StringMapFromCollectionByKey('shippingStreet', contacts);
+     * Map<String, Contact> contactsByAccountId = (Map<String, Contact>) CollectionUtils.stringMapFromCollectionByKey('shippingStreet', contacts);
      */
     public static Map<String, SObject> stringMapFromCollectionByKey(
         String key,
@@ -84,7 +84,7 @@ public with sharing class CollectionUtils {
      * @return            `Map<Id, List<sObject>>`
      * @example
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
-     * Map<Id, List<Contact>> contactsByAccountId = (Map<Id, List<Contact>>) CollectionUtils.idMapFromCollectionByKey('accountId', contacts);
+     * Map<Id, List<Contact>> contactsByAccountId = (Map<Id, List<Contact>>) CollectionUtils.mapFromCollectionWithCollectionValues('accountId', contacts);
      */
     public static Map<Id, List<SObject>> mapFromCollectionWithCollectionValues(
         String key,
@@ -97,15 +97,15 @@ public with sharing class CollectionUtils {
         for (SObject current : incomingList) {
             if (current.get(key) != null) {
                 if (returnValues.keySet().contains((Id) current.get(key))) {
-                    List<SObject> existingList = (List<SObject>) returnValues.get(
+                    List<SObject> existingList = returnValues.get(
                         (Id) current.get(key)
                     );
                     existingList.add(current);
-                    returnValues.put((id) current.get(key), existingList);
+                    returnValues.put((Id) current.get(key), existingList);
                 } else {
                     List<SObject> newList = (List<SObject>) listObjType.newInstance();
                     newList.add(current);
-                    returnValues.put((id) current.get(key), newList);
+                    returnValues.put((Id) current.get(key), newList);
                 }
             }
         }

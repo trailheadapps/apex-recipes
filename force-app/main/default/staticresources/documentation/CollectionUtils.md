@@ -70,7 +70,7 @@ of the key's value when using this.
 #### Example
 ```apex
 Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
-Map<String, Contact> contactsByAccountId = (Map<String, Contact>) CollectionUtils.StringMapFromCollectionByKey('shippingStreet', contacts);
+Map<String, Contact> contactsByAccountId = (Map<String, Contact>) CollectionUtils.stringMapFromCollectionByKey('shippingStreet', contacts);
 ```
 
 
@@ -97,7 +97,7 @@ and get a Map of AccountIds to a List&lt;Contacts&gt;.
 #### Example
 ```apex
 Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
-Map<Id, List<Contact>> contactsByAccountId = (Map<Id, List<Contact>>) CollectionUtils.idMapFromCollectionByKey('accountId', contacts);
+Map<Id, List<Contact>> contactsByAccountId = (Map<Id, List<Contact>>) CollectionUtils.mapFromCollectionWithCollectionValues('accountId', contacts);
 ```
 
 

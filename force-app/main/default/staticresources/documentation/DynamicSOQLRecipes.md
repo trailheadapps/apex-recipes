@@ -174,15 +174,3 @@ List<Account> results = DynamicSOQLRecipes.simpleQueryBuilder(
 
 
 ---
-## Classes
-### DynamicSoqlException
-
-Internal exception class
-
-
-**Inheritance**
-
-DynamicSoqlException
-
-
----
