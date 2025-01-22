@@ -53,6 +53,8 @@ public with sharing class AccountShippingCountryComparator implements Comparator
             compareResult = -1;
         } else if (a2 == null) {
             compareResult = 1;
+         else if  (a1.ShippingCountry == null && a2.ShippingCountry == null) {
+            compareResult = 0;
         } else {
             String a1ShippingCountry = a1?.ShippingCountry;
             String a2ShippingCountry = a2?.ShippingCountry;

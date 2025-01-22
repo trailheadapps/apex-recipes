@@ -3,6 +3,23 @@
  * @group DataWeaveInApex Recipes
  */
 public with sharing class DataWeaveErrorRecipes {
+    public with sharing class CsvConvertRecipe {
+        /**
+         * @description Converts CSV to XML
+         * @param csvPayload CSV data to convert to XML
+         * @return XML string
+         */
+        public static String convertCsvToXml(String csvPayload) {
+            DataWeave.Script script = new DataWeaveScriptResource.csvToXMLBasic();
+            DataWeave.Result result = script.execute(
+                new Map<String, Object>{'payload' => csvPayload}
+            );
+            return result.getValueAsString();
+        }
+    }
+
+
+
     /**
      * @description Runs a DataWeave script that triggers a runtime error on pupose.
      * Uses the `dw/error.dwl` DataWeave script.
