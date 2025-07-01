@@ -40,7 +40,7 @@
         "@cparra/apexdocs": "^3.12.1",
         "@lwc/eslint-plugin-lwc": "^1.9.0",
         "@prettier/plugin-xml": "^3.4.1",
-        "@sa11y/jest": "^6.13.0",
+        "@sa11y/jest": "^7.3.0",
         "@salesforce/eslint-config-lwc": "^3.6.0",
         "@salesforce/eslint-plugin-aura": "^2.1.0",
         "@salesforce/eslint-plugin-lightning": "^1.0.1",
