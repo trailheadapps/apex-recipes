@@ -1,51 +1,77 @@
-# AccountShippingCountryComparator
+# AccountShippingCountryComparator Class
 
-An example implementation of the Comparator Interface
+An example implementation of the Comparator Interface 
 In this example we show how to sort all the accounts by their country names in alphabetical order
 
+**Implements**
 
-**Implemented types**
+Comparator&lt;Account&gt;
 
-[Comparator&lt;Account&gt;](Comparator&lt;Account&gt;)
+## Properties
+### `order`
+
+#### Signature
+```apex
+public order
+```
+
+#### Type
+SortOrder
 
 ## Constructors
-### `public AccountShippingCountryComparator()`
+### `AccountShippingCountryComparator()`
 
 No param constructor. Assigns sort order as ascending by default
 
-### `public AccountShippingCountryComparator(AccountShippingCountryComparator order)`
+#### Signature
+```apex
+public AccountShippingCountryComparator()
+```
 
-Constructor accepting sort order as ascending/descending. Use this constructor to *control* the sort order.
+---
+
+### `AccountShippingCountryComparator(order)`
+
+Constructor accepting sort order as ascending/descending. Use 
+this constructor to *control* the sort order.
+
+#### Signature
+```apex
+public AccountShippingCountryComparator(AccountShippingCountryComparator.SortOrder order)
+```
 
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| order | AccountShippingCountryComparator.SortOrder |  |
 
-|Param|Description|
-|---|---|
-|`sortOrder`||
-
----
-## Properties
-
-### `public order` → `SortOrder`
-
-
----
 ## Methods
-### `public Integer compare(Account a1, Account a2)`
----
-## Enums
-### SortOrder
+### `compare(a1, a2)`
 
----
+#### Signature
+```apex
+public Integer compare(Account a1, Account a2)
+```
+
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| a1 | Account |  |
+| a2 | Account |  |
+
+#### Return Type
+**Integer**
+
 ## Classes
-### ASCComparatorException
+### ASCComparatorException Class
 
 This exception class is for throwing a custom exception
 
+## Enums
+### SortOrder Enum
 
-**Inheritance**
-
-ASCComparatorException
-
-
----
+#### Values
+| Value | Description |
+|-------|-------------|
+| ASCENDING |  |
+| DESCENDING |  |

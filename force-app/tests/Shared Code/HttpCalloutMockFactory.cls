@@ -9,7 +9,7 @@ public class HttpCalloutMockFactory implements HttpCalloutMock {
      * @param status HTTP text status. ie: "ok" for 200
      * @param bodyAsString This is the string that will be returned as the body
      * @param headers a map of headers applied to the response object
-     **/
+     */
     @SuppressWarnings('PMD.ExcessiveParameterList')
     public HttpCalloutMockFactory(
         Integer code,
@@ -30,7 +30,7 @@ public class HttpCalloutMockFactory implements HttpCalloutMock {
     /**
      * @description This constructor accepts a list of HTTP responses to be returned.
      * @param orderedResponses HTTP status code (200, 201, 301, 302, 400, 404, 503, etc)
-     **/
+     */
     public HttpCalloutMockFactory(List<HttpResponse> orderedResponses) {
         this.responseQueue = orderedResponses;
     }
@@ -40,8 +40,8 @@ public class HttpCalloutMockFactory implements HttpCalloutMock {
      * multiple callouts, this response method removes the first reponse from the queue
      * and returns that. Additional callouts will respond with the next first items.
      * @param request injected by the system but we don't use it in this mock.
-     * @return HttpResponse the first mock reponse in the queue.
-     **/
+     * @return First mock reponse in the queue.
+     */
     public HttpResponse respond(HttpRequest request) {
         if (this.responseQueue.size() > 0) {
             return this.responseQueue.remove(0);

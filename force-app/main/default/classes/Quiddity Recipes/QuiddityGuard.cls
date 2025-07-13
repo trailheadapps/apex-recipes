@@ -56,7 +56,6 @@ public with sharing class QuiddityGuard {
      * @description A method to determine if the current Quiddity context is
      * within a caller-supplied list of acceptable quiddity values.
      * @param acceptableQuiddites A list of quiddities to check against
-     * @return `boolean`
      */
     public static Boolean isAcceptableQuiddity(
         List<Quiddity> acceptableQuiddites

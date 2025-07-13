@@ -4,20 +4,22 @@
       "path": "force-app",
       "default": true,
       "package": "ApexRecipes",
-      "versionName": "Winter 24 release",
-      "versionNumber": "59.0.0.NEXT"
+      "versionName": "Summer 24 release",
+      "versionNumber": "62.0.0.NEXT"
     }
   ],
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "59.0",
+  "sourceApiVersion": "62.0",
   "packageAliases": {
     "ApexRecipes": "0Ho3g000000XZAHCA4",
-    "ApexRecipes@58.0.0-5": "04t3g000000LSZlAAO",
-    "ApexRecipes@59.0.0-6": "04tKf000000PhqhIAC",
-    "ApexRecipes@59.0.0-7": "04tKf000000PhqmIAC",
-    "ApexRecipes@59.0.0-8": "04tKf000000PhqrIAC",
-    "ApexRecipes@59.0.0-9": "04tKf000000PhqwIAC",
-    "ApexRecipes@59.0.0-14": "04tKf000000PhrLIAS"
+    "ApexRecipes@60.0.0-3": "04tKf000000D7s3IAC",
+    "ApexRecipes@61.0.0-1": "04tKf000000D7sNIAS",
+    "ApexRecipes@61.0.0-2": "04tKf000000D7sSIAS",
+    "ApexRecipes@61.0.0-3": "04tKf000000D7sXIAS",
+    "ApexRecipes@62.0.0-1": "04tKf000000D7shIAC",
+    "ApexRecipes@62.0.0-2": "04tKf000000D7wuIAC",
+    "ApexRecipes@62.0.0-4": "04tKf000000D7x4IAC",
+    "ApexRecipes@62.0.0-5": "04tKf000000D7x9IAC"
   }
 }

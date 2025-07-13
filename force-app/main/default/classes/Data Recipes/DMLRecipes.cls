@@ -38,7 +38,9 @@ public with sharing class DMLRecipes {
      * @param  name name of the created account
      * @return the inserted Account
      * @example
+     * ```
      * DMLRecipes.insertAccountViaInsertKeywordInUserMode('Hello');
+     * ```
      */
     public static Account insertAccountViaInsertKeywordInUserMode(String name) {
         Account acct = new Account();
@@ -59,7 +61,9 @@ public with sharing class DMLRecipes {
      * to be inserted must insert successfully
      * @return list of inserted accounts
      * @example
+     * ```
      * DMLRecipes.insertAccountsViaDatabaseMethod('Hello', false, AccessLevel.USER_MODE);
+     * ```
      */
     public static List<Account> insertAccountsViaDatabaseMethod(
         List<String> names,
@@ -84,8 +88,10 @@ public with sharing class DMLRecipes {
      * @param acct account to upsert
      * @return Upserted Account record
      * @example
+     * ```
      * DMLRecipes.upsertAccountViaUpsertKeywordInSystemMode(new Account(name='Hello World'));
-     **/
+     * ```
+     */
     public static Account upsertAccountViaUpsertKeywordInSystemMode(
         Account acct
     ) {
@@ -105,8 +111,10 @@ public with sharing class DMLRecipes {
      * @param acct account to upsert
      * @return Upserted Account record
      * @example
+     * ```
      * DMLRecipes.upsertAccountViaUpsertKeywordInUserMode(new Account(name='Hello World'));
-     **/
+     * ```
+     */
     public static Account upsertAccountViaUpsertKeywordInUserMode(
         Account acct
     ) {
@@ -127,9 +135,11 @@ public with sharing class DMLRecipes {
      * @param allOrNothing all or nothing flag
      * @return Upsert operation result
      * @example
+     * ```
      * DMLRecipes.upsertAccountViaDatabaseMethod(
      *            new Account(Name='Hello World'), false, AccessLevel.USER_MODE);
-     **/
+     * ```
+     */
     public static Database.UpsertResult upsertAccountViaDatabaseMethod(
         Account acct,
         Boolean allOrNothing,
@@ -150,10 +160,12 @@ public with sharing class DMLRecipes {
      * @param accts List of accounts to update
      * @return List of updated records
      * @example
+     * ```
      * Account acct = new Account(name='Hello World');
      * insert acct;
      * DMLRecipes.updateAcccountViaKeywordInSystemMode(acct);
-     **/
+     * ```
+     */
     public static List<Account> updateAcccountViaKeywordInSystemMode(
         List<Account> accts
     ) {
@@ -174,10 +186,12 @@ public with sharing class DMLRecipes {
      * @param accts List of accounts to update
      * @return List of updated records
      * @example
+     * ```
      * Account acct = new Account(name='Hello World');
      * insert acct;
      * DMLRecipes.updateAcccountViaKeyword(acct);
-     **/
+     * ```
+     */
     public static List<Account> updateAcccountViaKeywordInUserMode(
         List<Account> accts
     ) {
@@ -198,11 +212,13 @@ public with sharing class DMLRecipes {
      * @param accts list of accounts to update
      * @return List of updated records
      * @example
+     * ```
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
      * List<Account> results = DMLRecipes.updateAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
      * System.debug(results);
-     **/
+     * ```
+     */
     public static List<Account> updateAccountViaDatabaseMethod(
         List<Account> accts,
         System.AccessLevel accessLevel
@@ -223,10 +239,12 @@ public with sharing class DMLRecipes {
      * @description Deletes a list of accounts via the `delete` DML keyword
      * @param accts list of accounts to delete in system mode
      * @example
+     * ```
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
      * DMLRecipes.deleteAccountViaKeywordInSystemMode(accounts);
-     **/
+     * ```
+     */
     public static void deleteAccountViaKeywordInSystemMode(
         List<Account> accts
     ) {
@@ -242,10 +260,12 @@ public with sharing class DMLRecipes {
      * @description Deletes a list of accounts via the `delete` DML keyword
      * @param accts list of accounts to delete in user mode
      * @example
+     * ```
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
      * DMLRecipes.deleteAccountViaKeywordInUserMode(accounts);
-     **/
+     * ```
+     */
     public static void deleteAccountViaKeywordInUserMode(List<Account> accts) {
         try {
             delete as user accts;
@@ -259,10 +279,12 @@ public with sharing class DMLRecipes {
      * @description Deletes a list of accounts via the `Database.delete` method
      * @param accts List of Accounts to delete
      * @example
+     * ```
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts in user mode;
      * DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
-     **/
+     * ```
+     */
     public static void deleteAccountViaDatabaseMethod(
         List<Account> accts,
         System.AccessLevel accessLevel
@@ -279,12 +301,14 @@ public with sharing class DMLRecipes {
      * @param accts List of accounts to undelete in user mode
      * @return list of undeleted accounts
      * @example
+     * ```
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
      * delete accounts;
      * List<Account> results = DMLRecipes.undeleteAccountViaKeywordInSystemMode(accounts);
      * System.debug(results);
-     **/
+     * ```
+     */
     public static List<Account> undeleteAccountViaKeywordInSystemMode(
         List<Account> accts
     ) {
@@ -302,12 +326,14 @@ public with sharing class DMLRecipes {
      * @param accts List of accounts to undelete in user mode
      * @return list of undeleted accounts
      * @example
+     * ```
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
      * delete accounts;
      * List<Account> results = DMLRecipes.undeleteAccountViaKeywordInUserMode(accounts);
      * System.debug(results);
-     **/
+     * ```
+     */
     public static List<Account> undeleteAccountViaKeywordInUserMode(
         List<Account> accts
     ) {
@@ -325,12 +351,14 @@ public with sharing class DMLRecipes {
      * @param accts list of accounts to undelete
      * @return list of undeleted accounts
      * @example
+     * ```
      * List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
      * insert accounts;
      * delete accounts;
      * List<Account> results = DMLRecipes.undeleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
      * System.debug(results);
-     **/
+     * ```
+     */
     public static List<Account> undeleteAccountViaDatabaseMethod(
         List<Account> accts,
         System.AccessLevel accessLevel

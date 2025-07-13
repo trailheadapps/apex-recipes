@@ -29,7 +29,6 @@ public with sharing class Log {
 
     /**
      * @description Singleton pattern `get` method.
-     * @return     `Log`
      */
     public static Log get() {
         if (currentInstance == null) {

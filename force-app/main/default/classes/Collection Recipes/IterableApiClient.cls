@@ -28,7 +28,7 @@ public with sharing class IterableApiClient extends RestClient implements Iterab
 
     /**
      * @description Internal method that issues a REST request to read a record page
-     * @return RecordPage a page with a list of records
+     * @return A page with a list of records
      */
     private RecordPage getRecordPage(Integer pageIndex) {
         HttpResponse response = this.get(

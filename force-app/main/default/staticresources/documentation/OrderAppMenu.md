@@ -1,29 +1,33 @@
-# OrderAppMenu
+# OrderAppMenu Class
 
-A queueable class to prioritize this sample app in the org wide
-App Menu. This is done as a Queuable, because calling setOrgSortOrder causes
-an exeception if your setup script is also creating non-metadata records,
+A queueable class to prioritize this sample app in the org wide 
+App Menu. This is done as a Queuable, because calling setOrgSortOrder causes 
+an exeception if your setup script is also creating non-metadata records, 
 for instance accounts.
-
-
-**Implemented types**
-
-[System.Queueable](System.Queueable)
-
 
 **Group** Shared Code
 
+**Implements**
+
+System.Queueable
+
 ## Methods
-### `public void execute(QueueableContext qc)`
+### `execute(qc)`
 
 `SUPPRESSWARNINGS`
 
-reorders the org wide AppMenu order so Apex Recipes is the first seen.
+reorders the org wide AppMenu order so Apex Recipes is the 
+first seen.
+
+#### Signature
+```apex
+public void execute(QueueableContext qc)
+```
 
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| qc | QueueableContext | dependency injected by the system at runtime. |
 
-|Param|Description|
-|---|---|
-|`qc`|dependency injected by the system at runtime.|
-
----
+#### Return Type
+**void**

@@ -9,20 +9,16 @@
  */
 public with sharing class DynamicSOQLRecipes {
     /**
-     * @description Internal exception class
-     */
-    public class DynamicSoqlException extends Exception {
-    }
-
-    /**
      * @description demonstrates a simple dynamic SOQL query where the query is
      * defined in Apex
      * Note: This method has a false-positive PMD warning. Our Query
      * does not include any input parameters so SOQL Injection is not possible.
-     * @return List<Account> with security enforced using USER_MODE
+     * @return Account list with security enforced using `USER_MODE`
      * @example
+     * ```
      * System.debug(DynamicSOQLRecipes.simpleDynamicSOQLQuery());
-     **/
+     * ```
+     */
     @SuppressWarnings('PMD.ApexSOQLInjection')
     public static List<Account> simpleDynamicSOQLQuery() {
         String queryString = 'SELECT Id FROM Account LIMIT 1';
@@ -34,10 +30,11 @@ public with sharing class DynamicSOQLRecipes {
      * query. DANGER Because this method accepts user input (name param), it
      * must be sanitized against SOQL injections
      * @param name Name of the account to search for
-     * @return List<Account>
      * @example
+     * ```
      * System.debug(DynamicSoqlRecipes.simpleBindingSOQLQuery('hello'))
-     **/
+     * ```
+     */
     public static List<Account> simpleBindingSOQLQuery(String name) {
         Map<String, Object> nameBind = new Map<String, Object>{
             'name' => name
@@ -58,12 +55,13 @@ public with sharing class DynamicSOQLRecipes {
      * bound dynamic SOQL queryString. DANGER: because this method accepts user
      * input (name param), it must be sanitized against SOQL injections
      * @param acct Account to base the search off of
-     * @return List<Account>
      * @example
+     * ```
      * Account acct = [SELECT Name FROM Account WHERE Name = 'hello' LIMIT 1];
      * Account[] results = DynamicSOQLRecipes.dynamicFieldsBindingSOQLQuery(acct);
      * System.debug(results);
-     **/
+     * ```
+     */
     public static List<Account> dynamicFieldsBindingSOQLQuery(Account acct) {
         Map<String, Object> accountNameBind = new Map<String, Object>{
             'accountName' => acct.Name
@@ -95,10 +93,11 @@ public with sharing class DynamicSOQLRecipes {
      * integer will throw an exception.
      *
      * @param numberOfRecords String to be used as the comparison in the query
-     * @return List<Account>
      * @example
+     * ```
      * System.debug(DynamicSOQLRecipes.typecastDataIntelligently(2).size());
-     **/
+     * ```
+     */
     @SuppressWarnings('PMD.ApexSOQLInjection')
     public static List<Account> typecastDataIntelligently(
         String numberOfRecords
@@ -139,8 +138,8 @@ public with sharing class DynamicSOQLRecipes {
      *
      * @param fields      A list of String field names to include in the query
      * @param whereClause A string containing the where clause
-     * @return           `List<Account>`
      * @example
+     * ```
      * List<String> fields = new List<String>{
      *       'Name',
      *       'NumberOfEmployees',
@@ -155,6 +154,7 @@ public with sharing class DynamicSOQLRecipes {
      *       whereClause
      *   );
      *   System.debug(results);
+     * ```
      */
     @SuppressWarnings('PMD.ApexSOQLInjection')
     public static List<Account> simpleQueryBuilder(

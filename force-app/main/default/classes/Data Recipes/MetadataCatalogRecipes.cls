@@ -31,13 +31,15 @@ public with sharing class MetadataCatalogRecipes {
          *   into a LookupRelationshipDefinition Object.
          * @param fd a FieldDefinition Object
          * @example
+         * ```
          * FieldDefinition fd = [SELECT Id, DeveloperName, RelationshipNme,
          *                          DataType
          *                       FROM FieldDefinition LIMIT 1];
          * MetadataCatalogRecipes.LookupRelationshipDefinition lrd = new
          *      MetadataCatalogRecipes.LookupRelationshipDefinition(fd);
          * System.debug(lrd);
-         **/
+         * ```
+         */
         public LookupRelationshipDefinition(FieldDefinition fd) {
             this.looksUpTo = String.valueOf(fd.EntityDefinition.DeveloperName);
             this.developerName = String.valueOf(fd.DeveloperName);
@@ -56,12 +58,13 @@ public with sharing class MetadataCatalogRecipes {
      * that we are, in fact, checking for CRUD / FLS permissions prior to
      * querying.
      *
-     * @return Map<String, Map<String, String>>
      * @example
+     * ```
      * Map<String, Map<String, String>> results =
      *      MetadataCatalogRecipes.findAllFormulaFields();
      * System.debug(results);
-     **/
+     * ```
+     */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public static Map<String, Map<String, String>> findAllFormulaFields() {
         List<EntityDefinition> objects = [
@@ -106,12 +109,13 @@ public with sharing class MetadataCatalogRecipes {
      * the purpose or functionality of CanTheUser.* so it doesn't undersatnd
      * that we are, in fact, checking for CRUD / FLS permissions prior to
      * querying.
-     * @return List<MetadataCatalogRecipes.LookupRelationshipDefinition>
      * @example
+     * ```
      * List<MetadataCatalogRecipes.LookupRelationshipDefinition> results =
      *      MetadataCatalogRecipes.findAllContactFieldsThatLookupToAccount();
      * System.debug(results);
-     **/
+     * ```
+     */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public static List<MetadataCatalogRecipes.LookupRelationshipDefinition> findAllContactFieldsThatLookupToAccount() {
         List<FieldDefinition> looksUpToAccount = [

@@ -121,7 +121,7 @@ public with sharing class PlatformCacheRecipes {
      * @param key key of which value to retrieve.
      * @return the value associated with the supplied key
      */
-    public static String getValuefromOrgCache(String key) {
+    public static String getValueFromOrgCache(String key) {
         Cache.Partition defPartition = getDefaultPartition(PartitionType.ORG);
         if (defPartition.contains(key)) {
             return (String) defPartition.get(key);

@@ -9,7 +9,7 @@ public with sharing class PlatformCacheBuilderRecipes implements Cache.CacheBuil
      * is either calculated by this method, or returned from the Cache by the
      * key
      * @param key   String used to help generate the Cache Key
-     * @return     `Object` This object should be casted at the call location
+     * @return     Oject that should be casted at the call location
      * @group Platform Cache Recipes
      * @see CanTheUser
      * @example Account[] accounts = (Account[]) Cache.Session.get(PlatformCacheBuilderRecipes.class, 'myAccounts')
