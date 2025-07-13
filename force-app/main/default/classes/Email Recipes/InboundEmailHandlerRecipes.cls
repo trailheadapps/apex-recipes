@@ -21,19 +21,18 @@ public class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler
     }
     /**
      * @description    Messaging.InboundEmailHandler interface has one required
-     * method - handleInboundEmail. This method must return an
-     * Messaging.InboundEmailResult object, and you should take care to set that
+     * method - `handleInboundEmail`. This method must return an
+     * `Messaging.InboundEmailResult` object, and you should take care to set that
      * object's success property. This method is where you will write business
      * logic to ... do whatever it is you want to do with the incoming email.
      * Here you can attach the email to the contact record who sent it, a case
      * or ... The sky's the limit.
-     * @param email    This is an Messaging.InboundEmail Object that is
+     * @param email    This is an `Messaging.InboundEmail` Object that is
      * dependency injected by the system at runtime. Aside from testing, you
      * should not need to call this method or worry about its params.
-     * @param envelope This is an Messaging.InboundEnvelope object that is
+     * @param envelope This is an `Messaging.InboundEnvelope` object that is
      * dependency injected by the system at runtime. Aside form testing, you
      * should not need to call this method or worry about its params.
-     * @return         `Messaging.InboundEmailResult`
      * @see FilesRecipes
      */
     public Messaging.InboundEmailResult handleInboundEmail(
@@ -41,7 +40,6 @@ public class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler
         Messaging.InboundEnvelope envelope
     ) {
         Messaging.InboundEmailResult result = new Messaging.InboundEmailresult();
-        String errorMessage = '';
         try {
             // identify contact
             Contact sender = getContactBySender(email);
@@ -104,7 +102,6 @@ public class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler
      * If we do not have a contact that matches, return a new contact object
      * with the email address set.
      * @param senderAddress
-     * @return              `Contact`
      */
     private Contact getContactBySender(Messaging.InboundEmail email) {
         List<Contact> contactList = [

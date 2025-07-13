@@ -27,10 +27,11 @@ public with sharing class CollectionUtils {
      * This must be of type Id for this method.
      * @param incomingList Any list of objects that can be cast to a list of
      * sObjects
-     * @return            `Map<Id, sObject>`
      * @example
+     * ```
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
      * Map<Id, Contact> contactsByAccountId = (Map<Id, Contact>) CollectionUtils.idMapFromCollectionByKey('accountId', contacts);
+     * ```
      */
     public static Map<Id, SObject> idMapFromCollectionByKey(
         String key,
@@ -54,10 +55,11 @@ public with sharing class CollectionUtils {
      * of the key's value when using this.
      * @param key          String field name of a field who's value is castable to String.
      * @param incomingList List of incoming sObjects to build the map from
-     * @return            `Map<String, sObject>`
      * @example
+     * ```
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
-     * Map<String, Contact> contactsByAccountId = (Map<String, Contact>) CollectionUtils.StringMapFromCollectionByKey('shippingStreet', contacts);
+     * Map<String, Contact> contactsByAccountId = (Map<String, Contact>) CollectionUtils.stringMapFromCollectionByKey('shippingStreet', contacts);
+     * ```
      */
     public static Map<String, SObject> stringMapFromCollectionByKey(
         String key,
@@ -81,10 +83,11 @@ public with sharing class CollectionUtils {
      * and get a Map of AccountIds to a List<Contacts>.
      * @param key          String name of an field that is of the ID type.
      * @param incomingList List of sObjects to build the map from.
-     * @return            `Map<Id, List<sObject>>`
      * @example
+     * ```
      * Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
-     * Map<Id, List<Contact>> contactsByAccountId = (Map<Id, List<Contact>>) CollectionUtils.idMapFromCollectionByKey('accountId', contacts);
+     * Map<Id, List<Contact>> contactsByAccountId = (Map<Id, List<Contact>>) CollectionUtils.mapFromCollectionWithCollectionValues('accountId', contacts);
+     * ```
      */
     public static Map<Id, List<SObject>> mapFromCollectionWithCollectionValues(
         String key,
@@ -97,15 +100,15 @@ public with sharing class CollectionUtils {
         for (SObject current : incomingList) {
             if (current.get(key) != null) {
                 if (returnValues.keySet().contains((Id) current.get(key))) {
-                    List<SObject> existingList = (List<SObject>) returnValues.get(
+                    List<SObject> existingList = returnValues.get(
                         (Id) current.get(key)
                     );
                     existingList.add(current);
-                    returnValues.put((id) current.get(key), existingList);
+                    returnValues.put((Id) current.get(key), existingList);
                 } else {
                     List<SObject> newList = (List<SObject>) listObjType.newInstance();
                     newList.add(current);
-                    returnValues.put((id) current.get(key), newList);
+                    returnValues.put((Id) current.get(key), newList);
                 }
             }
         }

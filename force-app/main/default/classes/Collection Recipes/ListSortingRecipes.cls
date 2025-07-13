@@ -12,7 +12,7 @@ public with sharing class ListSortingRecipes {
      * as a parameter to the sort method of a list. This method sorts Accounts
      * by shipping address in ascending alphabetical order
      * @param accounts a list of accounts that will be sorted in place
-     **/
+     */
     public static void sortAccountsByShippingCountry(List<Account> accounts) {
         accounts.sort(new AccountShippingCountryComparator());
     }
@@ -23,7 +23,7 @@ public with sharing class ListSortingRecipes {
      * as a parameter to the sort method of a list. This method sorts Accounts
      * by shipping address in descending alphabetical order
      * @param accounts a list of accounts that will be sorted in place
-     **/
+     */
     public static void sortAccountsByShippingCountryInDescending(
         List<Account> accounts
     ) {
@@ -40,7 +40,7 @@ public with sharing class ListSortingRecipes {
      * as a parameter to the sort method of a list.This method sorts Accounts
      * by employee number in the ascending order
      * @param accounts a list of accounts that will be sorted in place
-     **/
+     */
     public static void sortAccountsByNumberOfEmployees(List<Account> accounts) {
         accounts.sort(new AccountNumberOfEmployeesComparator());
     }

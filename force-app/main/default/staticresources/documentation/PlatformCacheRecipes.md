@@ -1,151 +1,229 @@
-# PlatformCacheRecipes
+# PlatformCacheRecipes Class
 
-Illustrates how to programatically use the Platform Cache
-feature of Salesforce. Many of these recipes are, taken together, not very
-DRY (don't repeat yourself). However, they're intentionally listed here as a
+Illustrates how to programatically use the Platform Cache 
+feature of Salesforce. Many of these recipes are, taken together, not very 
+DRY (don&#x27;t repeat yourself). However, they&#x27;re intentionally listed here as a 
 way of repeatedly demonstrating Platform Cache functionality
-
 
 **Group** Platform Cache Recipes
 
 ## Fields
-
-### `private DEFAULT_PARTITION` → `String`
-
+### `DEFAULT_PARTITION`
 
 Defines the default cache partition for use in this class.
 
----
+#### Signature
+```apex
+private static final DEFAULT_PARTITION
+```
+
+#### Type
+String
+
 ## Methods
-### `public static void storeValueInSessionCache(String key, String value)`
+### `storeValueInSessionCache(key, value)`
 
-These methods are for the Session Cache Max TTL for Session partion is 8 hours.
+These methods are for the Session Cache 
+Max TTL for Session partion is 8 hours.
 
-### `public static void storeValueInSessionCache(String key, String value, Integer ttl)`
+#### Signature
+```apex
+public static void storeValueInSessionCache(String key, String value)
+```
+
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| key | String |  |
+| value | String |  |
+
+#### Return Type
+**void**
+
+---
+
+### `storeValueInSessionCache(key, value, ttl)`
 
 Stores a value in the Session cache with a custom timeout.
 
+#### Signature
+```apex
+public static void storeValueInSessionCache(String key, String value, Integer ttl)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| key | String | key under which the value is saved. |
+| value | String | value to store in the cache |
+| ttl | Integer | Time To Live (ttl) is the number of seconds this 
+item will remain in cache. |
 
-|Param|Description|
-|---|---|
-|`key`|key under which the value is saved.|
-|`value`|value to store in the cache|
-|`ttl`|Time To Live (ttl) is the number of seconds this item will remain in cache.|
+#### Return Type
+**void**
 
-### `public static String getValueFromSessionCache(String key)`
+---
+
+### `getValueFromSessionCache(key)`
 
 Retrieves a value from the cache identified by key
 
+#### Signature
+```apex
+public static String getValueFromSessionCache(String key)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| key | String | key of which value to retrieve. |
 
-|Param|Description|
-|---|---|
-|`key`|key of which value to retrieve.|
+#### Return Type
+**String**
 
-#### Returns
+the value
 
-|Type|Description|
-|---|---|
-|`String`|the value|
+---
 
-### `public static void removeKeyFromSessionCache(String key)`
+### `removeKeyFromSessionCache(key)`
 
 removes a key/value from the cache manually
 
-#### Parameters
+#### Signature
+```apex
+public static void removeKeyFromSessionCache(String key)
+```
 
-|Param|Description|
-|---|---|
-|`key`|key to remove|
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| key | String | key to remove |
+
+#### Return Type
+**void**
 
 #### Throws
+CacheException: custom exception when key not found.
 
-|Exception|Description|
-|---|---|
-|`CacheException`|custom exception when key not found.|
+---
 
-### `public static void storeValueInOrgCache(String key, String value)`
+### `storeValueInOrgCache(key, value)`
 
-These methods relate to the ORG cache Max TTL for Org Cache is 48 hours.
+These methods relate to the ORG cache 
+Max TTL for Org Cache is 48 hours.
 
-### `public static void storeValueInOrgCache(String key, String value, Integer ttl)`
+#### Signature
+```apex
+public static void storeValueInOrgCache(String key, String value)
+```
+
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| key | String |  |
+| value | String |  |
+
+#### Return Type
+**void**
+
+---
+
+### `storeValueInOrgCache(key, value, ttl)`
 
 Stores a value in the Org cache with a custom timeout.
 
+#### Signature
+```apex
+public static void storeValueInOrgCache(String key, String value, Integer ttl)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| key | String | key under which the value is saved. |
+| value | String | value to store in the cache. |
+| ttl | Integer | Time To Live (ttl) is the number of seconds this 
+item will remain in cache. |
 
-|Param|Description|
-|---|---|
-|`key`|key under which the value is saved.|
-|`value`|value to store in the cache.|
-|`ttl`|Time To Live (ttl) is the number of seconds this item will remain in cache.|
+#### Return Type
+**void**
 
-### `public static String getValuefromOrgCache(String key)`
+---
+
+### `getValueFromOrgCache(key)`
 
 Retrieves a value from the cache identified by key
 
+#### Signature
+```apex
+public static String getValueFromOrgCache(String key)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| key | String | key of which value to retrieve. |
 
-|Param|Description|
-|---|---|
-|`key`|key of which value to retrieve.|
+#### Return Type
+**String**
 
-#### Returns
+the value associated with the supplied key
 
-|Type|Description|
-|---|---|
-|`String`|the value associated with the supplied key|
+---
 
-### `public static void removeKeyFromOrgCache(String key)`
+### `removeKeyFromOrgCache(key)`
 
 removes a key/value from the cache manually
 
-#### Parameters
+#### Signature
+```apex
+public static void removeKeyFromOrgCache(String key)
+```
 
-|Param|Description|
-|---|---|
-|`key`|key to remove|
+#### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| key | String | key to remove |
+
+#### Return Type
+**void**
 
 #### Throws
+CacheException: custom exception when key not found.
 
-|Exception|Description|
-|---|---|
-|`CacheException`|custom exception when key not found.|
+---
 
-### `public static Cache getDefaultPartition(PartitionType type)`
+### `getDefaultPartition(type)`
 
 returns a partition for a given name, and type
 
+#### Signature
+```apex
+public static Cache.Partition getDefaultPartition(PartitionType type)
+```
+
 #### Parameters
+| Name | Type | Description |
+|------|------|-------------|
+| type | PartitionType | the partition type |
 
-|Param|Description|
-|---|---|
-|`type`|the partition type|
+#### Return Type
+**Cache.Partition**
 
-#### Returns
+the partition
 
-|Type|Description|
-|---|---|
-|`Cache`|the partition|
-
----
-## Enums
-### PartitionType
-
-Enum for partition type.
-
-
----
 ## Classes
-### CacheException
+### CacheException Class
 
 internal custom exception class.
 
+## Enums
+### PartitionType Enum
 
-**Inheritance**
+Enum for partition type.
 
-CacheException
-
-
----
+#### Values
+| Value | Description |
+|-------|-------------|
+| SESSION |  |
+| ORG |  |

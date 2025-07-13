@@ -12,8 +12,10 @@ public with sharing class ScheduledApexDemo {
      * logic from
      * the schedulable interface code that executes it.
      * @example
+     * ```
      * ScheduledApexDemo.runAtMidnight();
-     **/
+     * ```
+     */
     public void runAtMidnight() {
         System.debug(
             LoggingLevel.INFO,

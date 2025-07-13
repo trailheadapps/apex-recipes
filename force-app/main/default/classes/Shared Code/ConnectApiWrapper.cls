@@ -1,6 +1,6 @@
 /**
  * @description Most Connect in Apex methods require access to real organization data,
- * and fail unless used in test methods marked @IsTest(SeeAllData=true).
+ * and fail unless used in test methods marked `@isTest(SeeAllData=true)`.
  * An alternative to that, is mocking the calls to the ConnectAPI class.
  * This class can be used to inject the ConnectAPI dependency,
  * allowing its methods to be mocked in test classes.
@@ -17,7 +17,7 @@ public with sharing class ConnectApiWrapper {
     }
 
     public ConnectApi.NamedCredential createNamedCredential(
-        ConnectApi.NAmedCredentialInput namedCredentialInput
+        ConnectApi.NamedCredentialInput namedCredentialInput
     ) {
         return ConnectApi.NamedCredentials.createNamedCredential(
             namedCredentialInput

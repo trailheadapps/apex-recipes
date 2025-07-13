@@ -38,9 +38,11 @@ public with sharing class FilesRecipes {
      * @param  text          String to write to the file
      * @param  firstLocation object to immediately link this file to
      * @example
+     * ```
      * Account acct = [SELECT Id FROM Account LIMIT 1];
      * FilesRecipes.createFileFromStringAttachedToRecord('Hello World', acct.Id);
      * System.debug('Look for files assoicated with account: ' + acct.id);
+     * ```
      */
     public static void createFileFromStringAttachedToRecord(
         String text,
@@ -60,8 +62,8 @@ public with sharing class FilesRecipes {
      * @param attachedTo   the record to link this file to, initially
      * @param fileName     the name of the file. Note that the system determines
      *  the filetype from the file extension here
-     * @return            `Database.SaveResult`
      * @example
+     * ```
      * Blob fileContents = Blob.valueOf('Hello World 2');
      * Account acct = [SELECT Id FROM Account LIMIT 1];
      *  FilesRecipes.createFileAttachedToRecord(
@@ -70,6 +72,7 @@ public with sharing class FilesRecipes {
      *      'AwesomeFile1'
      *  );
      * System.debug('Look for files assoicated with account: ' + acct.id);
+     * ```
      */
     public static Database.SaveResult createFileAttachedToRecord(
         Blob fileContents,
@@ -99,7 +102,6 @@ public with sharing class FilesRecipes {
     /**
      * @description    Convenience method for creating a file and linking it to a given record
      * @param toCreate a FileAndLinkObject (inner class above) object representing the file to be created and linked
-     * @return         `Database.SaveResult`
      */
     public static Database.SaveResult createFileAttachedToRecord(
         FilesRecipes.FileAndLinkObject toCreate
@@ -113,8 +115,7 @@ public with sharing class FilesRecipes {
 
     /**
      * @description    Bulk method for inserting multiple files and link them to records
-     * @param toCreate List<FilesRecipes.FileAndLinkObject>
-     * @return         `List<Database.SaveResult>`
+     * @param toCreate
      */
     public static List<Database.SaveResult> createFilesAttachedToRecords(
         List<FilesRecipes.FileAndLinkObject> toCreate
@@ -153,11 +154,12 @@ public with sharing class FilesRecipes {
      *
      * @param genericFileType Enum of image, audio, document
      * @param recordId        Record ID to limit searching to
-     * @return               `List<ContentVersion>`
      * @example
+     * ```
      * Account acct = [SELECT Id FROM Account LIMIT 1];
      * FilesRecipes.createFileFromStringAttachedToRecord('Hello World', acct.Id);
      * System.debug('Found the following ContentVersion Ids: ' + FilesRecipes.getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType.ALL, acct.id));
+     * ```
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public static List<ContentVersion> getFilteredAttachmentsForRecord(
@@ -210,13 +212,14 @@ public with sharing class FilesRecipes {
     /**
      * @description Given a content document link, publish the content version
      * @param cdl   Content Document link record to publish
-     * @return     `Database.SaveResult`
      * @exception   FilesRecipesException
      * @example
+     * ```
      * Account acct = [SELECT Id FROM Account LIMIT 1];
      * FilesRecipes.createFileFromStringAttachedToRecord('Hello World', acct.Id);
      * ContentDocumentLink cdl = [SELECT LinkedEntityId, ContentDocument.LatestPublishedVersionId FROM ContentDocumentLink WHERE LinkedEntityId = :acct.id LIMIT 1];
      * System.debug('Found the following ContentVersion Ids: ' + FilesRecipes.getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType.ALL, acct.id));
+     * ```
      */
     public static Database.SaveResult publishContent(ContentDocumentLink cdl) {
         ContentDistribution dist = new ContentDistribution();

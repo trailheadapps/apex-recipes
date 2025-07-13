@@ -1,7 +1,7 @@
 /**
  * @description An example implementation of the Comparator Interface
  * In this example we show how to sort all the accounts by their employee numbers in ascending order
- **/
+ */
 
 public with sharing class AccountNumberOfEmployeesComparator implements Comparator<Account> {
     public Integer compare(Account a1, Account a2) {

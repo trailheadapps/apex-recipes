@@ -8,11 +8,12 @@ public with sharing class SOQLRecipes {
      * @description Demonstrates the proper way to query accounts with SOQL
      *   keeping FLS and CRUD in account.
      *
-     * @return list<Account>
      * @example
+     * ```
      * List<Account> results = SOQLRecipes.querySingleObject();
      * System.debug(results);
-     **/
+     * ```
+     */
     public static List<Account> getRecords() {
         List<Account> accounts = new List<Account>();
         accounts = [
@@ -26,10 +27,11 @@ public with sharing class SOQLRecipes {
     /**
      * @description Demonstrates how to loop over a SOQL query
      *
-     * @return integer
      * @example
+     * ```
      * System.debug(SOQLRecipes.getLargeNumberOfRecords());
-     **/
+     * ```
+     */
     public static Integer getLargeNumberOfRecords() {
         Integer count = 0;
         /**
@@ -56,7 +58,6 @@ public with sharing class SOQLRecipes {
      * utilize the Count() soql method, but in this case we're demonstrating
      * that this form of a soql for loop gives you access both to a list of
      * records, and to the records themselves.
-     * @return      `Integer`
      */
     public static Integer[] getChunksOfLargeNumbersOfRecords() {
         Integer countOfChunks = 0;
@@ -76,10 +77,11 @@ public with sharing class SOQLRecipes {
     /**
      * @description Demonstrates how to use a WHERE clause in a SOQL query
      *
-     * @return List<Account>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getRecordsByFieldValue());
-     **/
+     * ```
+     */
     public static List<Account> getRecordsByFieldValue() {
         return [
             SELECT Name
@@ -92,10 +94,11 @@ public with sharing class SOQLRecipes {
     /**
      * @description Demonstrates how to use a complex WHERE clause in a SOQL
      * query
-     * @return List<Account>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getRecordsByMultipleFieldValues());
-     **/
+     * ```
+     */
     public static List<Account> getRecordsByMultipleFieldValues() {
         return [
             SELECT Name
@@ -111,10 +114,11 @@ public with sharing class SOQLRecipes {
 
     /**
      * @description Demonstrates how to use the LIMIT clause in a SOQL statement
-     * @return List<Account>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getSpecificNumberOfRecords());
-     **/
+     * ```
+     */
     public static List<Account> getSpecificNumberOfRecords() {
         //LIMIT clause
         return [
@@ -130,10 +134,11 @@ public with sharing class SOQLRecipes {
      * @description Demonstrates how to use a bound variable to define the LIMIT
      * @param wantedNumberOfRows the number of rows desired
      *
-     * @return List<Account>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getFirstXRecords(5));
-     **/
+     * ```
+     */
     public static List<Account> getFirstXRecords(Integer wantedNumberOfRows) {
         return [
             SELECT Name
@@ -147,10 +152,11 @@ public with sharing class SOQLRecipes {
     /**
      * @description Demonstrates how to use a bound variable in a WHERE clause
      * @param state String representing a US State code (AK, KS, etc.)
-     * @return List<Account>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getAccountRecordsInState('ks'));
-     **/
+     * ```
+     */
     public static List<Account> getAccountRecordsInState(String state) {
         return [
             SELECT Name
@@ -164,10 +170,11 @@ public with sharing class SOQLRecipes {
      * @description Demonstrates how to get a limited number of results with a
      * given offset; Ie: get the second set of 10 records.
      *
-     * @return List<Account>
      * @example
-     * System.debug('SOQLRecipes.getSecond10AccountRecords()');
-     **/
+     * ```
+     * System.debug(SOQLRecipes.getSecond10AccountRecords());
+     * ```
+     */
     public static List<Account> getSecond10AccountRecords() {
         return [
             SELECT Id
@@ -183,10 +190,11 @@ public with sharing class SOQLRecipes {
      * @description Demonstrates how to query an object, as well as it's related
      * child objects
      *
-     * @return List<Account>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getRecordsWithRelatedRecords());
-     **/
+     * ```
+     */
     public static List<Account> getRecordsWithRelatedRecords() {
         return [
             SELECT Name, (SELECT Name, AccountId FROM Contacts)
@@ -199,10 +207,11 @@ public with sharing class SOQLRecipes {
      * @description Demonstrates how to query fields from a parent object
      * through the relationship field
      *
-     * @return List<Contact>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getParentRecordDetailsFromChildRecord());
-     **/
+     * ```
+     */
     public static List<Contact> getParentRecordDetailsFromChildRecord() {
         return [
             SELECT Id, Name, Email, Account.Name, Account.ShippingState
@@ -216,10 +225,11 @@ public with sharing class SOQLRecipes {
      * @description Demonstrates how to write a query that pulls information
      * from two parent objects through a junction object
      *
-     * @return List<Junction__c>
      * @example
+     * ```
      * System.debug(SOQLRecipes.getDetailsFromBothParentRecords());
-     **/
+     * ```
+     */
     public static List<Junction__c> getDetailsFromBothParentRecords() {
         return [
             SELECT Id, parent1__r.Name, Parent2__r.Name
@@ -234,11 +244,12 @@ public with sharing class SOQLRecipes {
      * associated with a specified Account
      *
      * @param accountId an AccountId
-     * @return Double
      * @example
+     * ```
      * Id accountId = [SELECT Id FROM Account LIMIT 1].Id;
      * System.debug(SOQLRecipes.getSumOfOpportunityRecords(accountId));
-     **/
+     * ```
+     */
     public static Double getSumOfOpportunityRecords(Id accountId) {
         List<AggregateResult> groupedResults = [
             SELECT SUM(Amount) total

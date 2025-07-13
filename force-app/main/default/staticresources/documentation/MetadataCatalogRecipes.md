@@ -1,23 +1,31 @@
-# MetadataCatalogRecipes
+# MetadataCatalogRecipes Class
 
-Demonstrates how to query the Metadata Catalog. This is
+Demonstrates how to query the Metadata Catalog. This is 
 sometimes faster that Schema Describe calls especially for large complex orgs
-
 
 **Group** Data Recipes
 
 ## Methods
-### `public static Map<String,Map<String,String>> findAllFormulaFields()`
+### `findAllFormulaFields()`
 
 `SUPPRESSWARNINGS`
 
-Demonstrates how to query the EntityDefinition Object to find all formula fields in your Org. This method returns a Map of Object's Qualified API name -&gt; Map of Field Names -&gt; Types Note: This method has a false-positive PMD warning. PMD isn't aware of the purpose or functionality of CanTheUser.* so it doesn't undersatnd that we are, in fact, checking for CRUD / FLS permissions prior to querying.
+Demonstrates how to query the EntityDefinition Object to 
+find all formula fields in your Org. This method returns a Map of 
+Object&#x27;s Qualified API name -&gt; Map of Field Names -&gt; Types 
+ 
+Note: This method has a false-positive PMD warning. PMD isn&#x27;t aware of 
+the purpose or functionality of CanTheUser.* so it doesn&#x27;t undersatnd 
+that we are, in fact, checking for CRUD / FLS permissions prior to 
+querying.
 
-#### Returns
+#### Signature
+```apex
+public static Map<String,Map<String,String>> findAllFormulaFields()
+```
 
-|Type|Description|
-|---|---|
-|`Map<String,Map<String,String>>`|Map<String, Map<String, String>>|
+#### Return Type
+**Map&lt;String,Map&lt;String,String&gt;&gt;**
 
 #### Example
 ```apex
@@ -26,18 +34,28 @@ Map<String, Map<String, String>> results =
 System.debug(results);
 ```
 
+---
 
-### `public static List<MetadataCatalogRecipes.LookupRelationshipDefinition> findAllContactFieldsThatLookupToAccount()`
+### `findAllContactFieldsThatLookupToAccount()`
 
 `SUPPRESSWARNINGS`
 
-Demonstrates how to query the metadata catalog to find all fields on the Contact object that establish a relationship to the Account Object. Note: This method has a false-positive PMD warning. PMD isn't aware of the purpose or functionality of CanTheUser.* so it doesn't undersatnd that we are, in fact, checking for CRUD / FLS permissions prior to querying.
+Demonstrates how to query the metadata catalog to find all 
+fields on the Contact object that establish a relationship to the Account 
+Object. 
+ 
+Note: This method has a false-positive PMD warning. PMD isn&#x27;t aware of 
+the purpose or functionality of CanTheUser.* so it doesn&#x27;t undersatnd 
+that we are, in fact, checking for CRUD / FLS permissions prior to 
+querying.
 
-#### Returns
+#### Signature
+```apex
+public static List<MetadataCatalogRecipes.LookupRelationshipDefinition> findAllContactFieldsThatLookupToAccount()
+```
 
-|Type|Description|
-|---|---|
-|`List<MetadataCatalogRecipes.LookupRelationshipDefinition>`|List<MetadataCatalogRecipes.LookupRelationshipDefinition>|
+#### Return Type
+**List&lt;MetadataCatalogRecipes.LookupRelationshipDefinition&gt;**
 
 #### Example
 ```apex
@@ -46,24 +64,82 @@ List<MetadataCatalogRecipes.LookupRelationshipDefinition> results =
 System.debug(results);
 ```
 
-
----
 ## Classes
-### LookupRelationshipDefinition
+### LookupRelationshipDefinition Class
 
-internal data object for information about a Lookup
+internal data object for information about a Lookup 
 Relationship
 
-#### Constructors
-##### `public LookupRelationshipDefinition(FieldDefinition fd)`
+#### Properties
+##### `looksUpTo`
 
-Constructor that transforms a Field Definition object   into a LookupRelationshipDefinition Object.
+Specifies what object this one looks up to
+
+###### Signature
+```apex
+public looksUpTo
+```
+
+###### Type
+String
+
+---
+
+##### `developerName`
+
+Specifies the name of the Object
+
+###### Signature
+```apex
+public developerName
+```
+
+###### Type
+String
+
+---
+
+##### `relationshipName`
+
+Specifies the Relationship field name
+
+###### Signature
+```apex
+public relationshipName
+```
+
+###### Type
+String
+
+---
+
+##### `dataType`
+
+Specifies the Data Type Of this Object
+
+###### Signature
+```apex
+public dataType
+```
+
+###### Type
+String
+
+#### Constructors
+##### `LookupRelationshipDefinition(fd)`
+
+Constructor that transforms a Field Definition object 
+into a LookupRelationshipDefinition Object.
+
+###### Signature
+```apex
+public LookupRelationshipDefinition(FieldDefinition fd)
+```
 
 ###### Parameters
-
-|Param|Description|
-|---|---|
-|`fd`|a FieldDefinition Object|
+| Name | Type | Description |
+|------|------|-------------|
+| fd | FieldDefinition | a FieldDefinition Object |
 
 ###### Example
 ```apex
@@ -74,31 +150,3 @@ MetadataCatalogRecipes.LookupRelationshipDefinition lrd = new
      MetadataCatalogRecipes.LookupRelationshipDefinition(fd);
 System.debug(lrd);
 ```
-
-
----
-#### Properties
-
-##### `public dataType` → `String`
-
-
-Specifies the Data Type Of this Object
-
-##### `public developerName` → `String`
-
-
-Specifies the name of the Object
-
-##### `public looksUpTo` → `String`
-
-
-Specifies what object this one looks up to
-
-##### `public relationshipName` → `String`
-
-
-Specifies the Relationship field name
-
----
-
----

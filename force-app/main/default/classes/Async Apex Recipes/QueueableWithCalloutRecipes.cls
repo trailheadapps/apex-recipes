@@ -29,8 +29,10 @@ public with sharing class QueueableWithCalloutRecipes implements Queueable, Data
      * to developer.salesforce.com
      * @param qc dependency injected by the system
      * @example
+     * ```
      * System.enqueueJob(new QueueableWithCalloutRecipes());
-     **/
+     * ```
+     */
     public static void execute(QueueableContext qc) {
         HttpResponse response = RestClient.makeApiCall(
             'GoogleBooksAPI',

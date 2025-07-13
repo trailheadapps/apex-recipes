@@ -19,11 +19,12 @@ public with sharing class AuraEnabledRecipes {
      *
      * @param  accountId Id of the account to update
      * @param  newValue  String of the name to set
-     * @return Boolean
      * @example
+     * ```
      * Id accountId = [SELECT Id FROM Account LIMIT 1].Id;
      * System.debug(AuraEnabledRecipes.updateAccountName(accountId, 'New value set by AuraEnabled method'));
-     **/
+     * ```
+     */
     public static Boolean updateAccountName(Id accountId, String newValue) {
         Account acct = [
             SELECT Id
@@ -60,9 +61,10 @@ public with sharing class AuraEnabledRecipes {
      * @description Demonstrates how to make a method available to Aura or LWC
      * for read-only operations. This method returns a hard-coded string, but
      * you could do a SOQL query, or other work.
-     * @return   return description
      * @example
+     * ```
      * System.debug(AuraEnabledRecipes.getFieldValue());
+     * ```
      */
     public static String getFieldValue() {
         return 'hello world';

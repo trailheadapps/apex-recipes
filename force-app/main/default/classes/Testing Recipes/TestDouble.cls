@@ -1,7 +1,7 @@
 /**
  * @description Implements an easy and re-usable StubProvider
  * Utilizes a fluent interface for ease of use.
- * This is merly an example of how you could build a reusable stub provider
+ * This is merely an example of how you could build a reusable stub provider
  * class. There are definitely edge cases or features not handled by this class.
  *
  * The general mechanism for use looks like this:
@@ -51,9 +51,8 @@ public class TestDouble implements System.StubProvider {
 
     /**
      * @description   This adds a given method object to the list of Methods
-     * that are actively overridden and stubbed by this TestDouble instance.
-     * @param toTrack A TestDouble.Method object
-     * @return        `TestDouble`
+     * that are actively overridden and stubbed by this `TestDouble` instance.
+     * @param toTrack A `TestDouble.Method` object
      */
     public TestDouble track(Method toTrack) {
         this.methods.add(toTrack);
@@ -63,8 +62,8 @@ public class TestDouble implements System.StubProvider {
 
     /**
      * @description Generates the actual stub object for use in tests.
-     * @return      `Object` This object has to be casted back to the
-     * class being stubbed at the point of calling. See StubbingRecipes_Tests
+     * @return This object has to be casted back to the
+     * class being stubbed at the point of calling. See `StubbingRecipes_Tests`
      * for an example of when, and how to cast this.
      */
     public Object generate() {
@@ -82,8 +81,7 @@ public class TestDouble implements System.StubProvider {
      * @param listOfParamTypes   - List of parameter types
      * @param listOfParamNames   - List of parameter names
      * @param listOfArgs         - List of parameter values
-     * @return                  `Object` Object to be returned by the Method
-     * object this method delegates to.
+     * @return Object to be returned by the Method object this method delegates to.
      */
     @SuppressWarnings('PMD.ExcessiveParameterList')
     public Object handleMethodCall(
@@ -165,7 +163,6 @@ public class TestDouble implements System.StubProvider {
          * @description      Adds a matching ParamTypes list to this method
          * definition. If added,
          * @param paramTypes
-         * @return           `Method`
          */
         public Method withParamTypes(List<Type> paramTypes) {
             this.listOfParamTypes = paramTypes;

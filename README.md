@@ -5,11 +5,11 @@
 ## Introduction
 
 Apex Recipes is a library of concise, meaningful examples of code for common use cases utilizing best practices. They reflect enterprise patterns that can be utilized
-for real world solutions and should relevant to developers of all skill levels. The code is intended to reflect clarity while trying to maintain brevity. See the Table of Contents for installation options. We recommend using the [Salesforce CLI](https://developer.salesforce.com/tools/sfdxcli) and a scratch org for your initial deployment.
+for real world solutions and should be relevant to developers of all skill levels. The code is intended to reflect clarity while trying to maintain brevity. See the Table of Contents for installation options. We recommend using the [Salesforce CLI](https://developer.salesforce.com/tools/sfdxcli) and a scratch org for your initial deployment.
 
 <div>
    <img src="https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/projects/quick-start-explore-the-apex-recipes-sample-app/185b61248727a9711d31e2f54b62e230_badge.png" align="left" alt="Trailhead Badge" height="40px" width="40px"/>
-   <p>Learn more about this app by completing the <a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-explore-the-apex-recipes-sample-app">Quick Start: Explore the Apex Recipes Sample App</a> Trailhead project.</p>
+   <p>Learn more about this app by completing the <a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-explore-the-apex-recipes-sample-app">Quick Start: Explore the Apex Recipes Sample App</a> Trailhead project or by watching this <a href="https://www.youtube.com/watch?v=Fd0m1Cyaq4Q&list=PLgIMQe2PKPSJcuCwM61dEc4jFG_jHqV2t&index=5">short presentation video</a>.</p>
 </div>
 
 ## Table of contents
@@ -99,7 +99,7 @@ Make sure to start from a **brand-new environment** to avoid conflicts with prev
 
 1. Go to **Setup**, under **Platform Cache**, and click the "Request Trial Capacity" button. [Request a Platform Cache Trial](https://help.salesforce.com/articleView?id=data_platform_cache_trial.htm&type=5)
 
-1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tKf000000PhrLIAS) to install the Apex Recipes unlocked package in your org.
+1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tKf000000D7x9IAC) to install the Apex Recipes unlocked package in your org.
 
 1. Select **Install for All Users**
 

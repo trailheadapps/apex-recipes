@@ -1,19 +1,19 @@
-# QuiddityRecipes
+# QuiddityRecipes Class
 
 Demonstrates the use and functionaly of Quiddity
-
 
 **Group** Quiddity Recipes
 
 ## Methods
-### `public static Quiddity demonstrateGetQuiddity()`
+### `demonstrateGetQuiddity()`
 
-demonstrates the code needed to get the current requests Quiddity value.
+demonstrates the code needed to get the current requests 
+Quiddity value.
 
-#### Returns
+#### Signature
+```apex
+public static Quiddity demonstrateGetQuiddity()
+```
 
-|Type|Description|
-|---|---|
-|`Quiddity`|System.Quiddity|
-
----
+#### Return Type
+**Quiddity**
