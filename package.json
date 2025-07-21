@@ -1,5 +1,5 @@
 {
-    "name": "apex-recipes",
+    "name": "@salesforce/apex-recipes",
     "private": true,
     "version": "1.0.0",
     "description": "A sample app demonstrating various aspects of the Apex programming language and the Salesforce Platform",
