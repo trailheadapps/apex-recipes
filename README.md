@@ -18,7 +18,7 @@ for real world solutions and should be relevant to developers of all skill level
 
 -   [Installing Apex Recipes Using an Unlocked Package](#installing-the-app-using-an-unlocked-package): This option allows anybody to experience the sample app without installing a local development environment.
 
--   [Installing Apex Recipes using a Developer Edition Org or a Trailhead Playground via the Salesforce CLI](#installing-the-app-using-a-developer-edition-org-or-a-trailhead-playground): Useful when tackling Trailhead Badges or if you want the app deployed to a more permanent environment than a Scratch org.
+-   [Installing Apex Recipes using a Developer Edition Org or a Trailhead Playground via the Salesforce CLI](#installing-the-app-using-a-developer-edition-org-or-a-trailhead-playground-via-the-salesforce-cli): Useful when tackling Trailhead Badges or if you want the app deployed to a more permanent environment than a Scratch org.
 
 -   [Optional installation instructions](#optional-installation-instructions)
 
