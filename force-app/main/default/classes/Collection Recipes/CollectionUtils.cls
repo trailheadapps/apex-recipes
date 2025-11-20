@@ -72,6 +72,7 @@ public with sharing class CollectionUtils {
             if (current.get(key) != null) {
                 returnValues.put((String) current.get(key), current);
             }
+
         }
         return returnValues;
     }
