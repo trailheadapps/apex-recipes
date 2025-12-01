@@ -37,7 +37,7 @@
         "url": "git+https://github.com/trailheadapps/apex-recipes"
     },
     "devDependencies": {
-        "@cparra/apexdocs": "^3.14.1",
+        "@cparra/apexdocs": "^3.15.1",
         "@lwc/eslint-plugin-lwc": "^1.9.0",
         "@prettier/plugin-xml": "^3.4.2",
         "@sa11y/jest": "^6.13.0",
