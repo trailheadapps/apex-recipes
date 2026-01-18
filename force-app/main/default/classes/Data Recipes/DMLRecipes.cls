@@ -321,6 +321,21 @@ public with sharing class DMLRecipes {
         return accts;
     }
 
+
+    public static<Account> deleteActiviaKeywordInSystemMode(
+        List<Account> accts 
+    )  {
+        try {
+            delete as system accts;
+            System.debug(LoggingLevel.INFO, DMLe.getMessage());
+            throw new CustomDMLException('Failed');
+
+        }
+    }
+
+
+
+
     /**
      * @description Undeletes a list of accounts via the `undelete` DML keyword
      * @param accts List of accounts to undelete in user mode
