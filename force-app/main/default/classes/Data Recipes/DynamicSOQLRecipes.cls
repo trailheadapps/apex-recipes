@@ -25,6 +25,15 @@ public with sharing class DynamicSOQLRecipes {
         return Database.query(queryString, AccessLevel.USER_MODE);
     }
 
+
+    @SuppressWarnings('PMD.ApexSOQLInjection')
+    public static List<Account> 
+
+
+
+
+
+
     /**
      * @description Demonstrates the use of a bound variable in a dynamic SOQL
      * query. DANGER Because this method accepts user input (name param), it

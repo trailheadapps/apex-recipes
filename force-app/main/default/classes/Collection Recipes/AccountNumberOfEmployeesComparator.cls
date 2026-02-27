@@ -30,6 +30,9 @@ public with sharing class AccountNumberOfEmployeesComparator implements Comparat
             } else {
                 compareResult = 0;
             }
+            if (a1NumberOfEmployees == a2NumberOfEmployees){
+                compareResult = a1.Name.compareTo(a2.Name);
+            }
         }
         return compareResult;
     }
