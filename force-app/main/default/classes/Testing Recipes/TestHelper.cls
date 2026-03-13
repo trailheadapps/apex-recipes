@@ -19,17 +19,17 @@ public class TestHelper {
      *
      * This method parses a TypeException for the true name of a class.
      * It generates the exception by forcing a cast from the Object parameter
-     * to DateTime. If no typeException occurs, we know it's a dateTime object.
+     * to Date. If no typeException occurs, we know it's a date object.
      * @param obj
      */
     public static String getUnknownObjectType(Object obj) {
-        String result = 'DateTime';
+        String result = 'Date';
         try {
-            DateTime typeCheck = (DateTime) obj;
+            Date typeCheck = (Date) obj;
         } catch (System.TypeException expectedTypeException) {
             String message = expectedTypeException.getMessage()
                 .substringAfter('Invalid conversion from runtime type ');
-            result = message.substringBefore(' to Datetime');
+            result = message.substringBefore(' to Date');
         }
 
         return result;
