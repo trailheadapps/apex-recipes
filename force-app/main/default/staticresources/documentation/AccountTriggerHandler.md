@@ -22,7 +22,7 @@ private triggerNew
 ```
 
 #### Type
-List&lt;Account&gt;
+List<Account>
 
 ---
 
@@ -34,7 +34,7 @@ private triggerOld
 ```
 
 #### Type
-List&lt;Account&gt;
+List<Account>
 
 ---
 
@@ -46,7 +46,7 @@ private triggerMapNew
 ```
 
 #### Type
-Map&lt;Id,Account&gt;
+Map<Id,Account>
 
 ---
 
@@ -58,7 +58,7 @@ private triggerMapOld
 ```
 
 #### Type
-Map&lt;Id,Account&gt;
+Map<Id,Account>
 
 ---
 

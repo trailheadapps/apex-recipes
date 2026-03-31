@@ -33,7 +33,7 @@ public static List<String> getRelatedClasses(String mainClassName)
 | mainClassName | String | The name of the class to inspect |
 
 #### Return Type
-**List&lt;String&gt;**
+**List<String>**
 
 #### Example
 ```apex

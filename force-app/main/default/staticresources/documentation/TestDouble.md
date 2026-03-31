@@ -36,7 +36,7 @@ private methods
 ```
 
 #### Type
-List&lt;Method&gt;
+List<Method>
 
 ---
 
@@ -129,9 +129,9 @@ public Object handleMethodCall(Object stubbedObject, String stubbedMethodName, T
 | stubbedObject | Object | - This is the object being stubbed |
 | stubbedMethodName | String | - This is the name of the Method being stubbed |
 | returnType | Type | - Return type |
-| listOfParamTypes | List&lt;System.Type&gt; | - List of parameter types |
-| listOfParamNames | List&lt;String&gt; | - List of parameter names |
-| listOfArgs | List&lt;Object&gt; | - List of parameter values |
+| listOfParamTypes | List<System.Type> | - List of parameter types |
+| listOfParamNames | List<String> | - List of parameter names |
+| listOfArgs | List<Object> | - List of parameter values |
 
 #### Return Type
 **Object**
@@ -219,7 +219,7 @@ private listOfParamTypes
 ```
 
 ###### Type
-List&lt;Type&gt;
+List<Type>
 
 ---
 
@@ -231,7 +231,7 @@ private listOfParamNames
 ```
 
 ###### Type
-List&lt;String&gt;
+List<String>
 
 ---
 
@@ -243,7 +243,7 @@ private listOfArgs
 ```
 
 ###### Type
-List&lt;Object&gt;
+List<Object>
 
 #### Constructors
 ##### `Method(methodName)`
@@ -274,7 +274,7 @@ public Method withParamTypes(List<Type> paramTypes)
 ###### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| paramTypes | List&lt;Type&gt; |  |
+| paramTypes | List<Type> |  |
 
 ###### Return Type
 **Method**
@@ -291,7 +291,7 @@ public Method withParamNames(List<String> paramNames)
 ###### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| paramNames | List&lt;String&gt; |  |
+| paramNames | List<String> |  |
 
 ###### Return Type
 **Method**
@@ -308,7 +308,7 @@ public Method withArgs(List<Object> args)
 ###### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| args | List&lt;Object&gt; |  |
+| args | List<Object> |  |
 
 ###### Return Type
 **Method**

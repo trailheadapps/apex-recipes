@@ -87,7 +87,7 @@ public List<Account> httpGetCalloutToSecondOrg()
 ```
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -143,7 +143,7 @@ public Integer httpPostCalloutToSecondOrg(List<Contact> contactRecords)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| contactRecords | List&lt;Contact&gt; | a list of contact records to be inserted in the 
+| contactRecords | List<Contact> | a list of contact records to be inserted in the 
 second salesforce org |
 
 #### Return Type
@@ -171,7 +171,7 @@ public Integer httpPutCalloutToSecondOrg(List<Contact> contactRecords)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| contactRecords | List&lt;Contact&gt; | a list of contact records to be upsert in the 
+| contactRecords | List<Contact> | a list of contact records to be upsert in the 
 second salesforce org |
 
 #### Return Type
@@ -200,7 +200,7 @@ public Integer httpPatchCalloutToSecondOrg(List<Account> accountRecords)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accountRecords | List&lt;Account&gt; | a list of account records to be updated in the 
+| accountRecords | List<Account> | a list of account records to be updated in the 
 second salesforce org |
 
 #### Return Type
@@ -231,7 +231,7 @@ public Map<String,Object> httpCalloutWithUntypedResponse()
 ```
 
 #### Return Type
-**Map&lt;String,Object&gt;**
+**Map<String,Object>**
 
 #### Example
 ```apex
@@ -292,7 +292,7 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query, S
 | path | String | patch component of the callout url i.e. `/services/data/v39.0/SObjects` |
 | query | String | Query portion of the URL i.e. `?q=SELECT Id FROM Account` |
 | body | String | JSON string representing the body of the callout in post/patch situations |
-| headers | Map&lt;String,String&gt; | A map&lt;String,String&gt; of headers to use while making this callout |
+| headers | Map<String,String> | A map&lt;String,String&gt; of headers to use while making this callout |
 
 #### Return Type
 **HttpResponse**
@@ -676,7 +676,7 @@ public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, 
 | path | String | Http path component of the URL. ie: `/path/to/resource` |
 | query | String | Query component of the URL ie: after `?foo=bar` |
 | body | String | JSON string to post |
-| headers | Map&lt;String,String&gt; | Map&lt;String,String&gt; representing outgoing Request 
+| headers | Map<String,String> | Map&lt;String,String&gt; representing outgoing Request 
 headers |
 
 #### Return Type

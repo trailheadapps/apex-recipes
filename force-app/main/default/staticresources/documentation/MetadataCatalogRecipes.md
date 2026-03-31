@@ -25,7 +25,7 @@ public static Map<String,Map<String,String>> findAllFormulaFields()
 ```
 
 #### Return Type
-**Map&lt;String,Map&lt;String,String&gt;&gt;**
+**Map<String,Map<String,String>>**
 
 #### Example
 ```apex
@@ -55,7 +55,7 @@ public static List<MetadataCatalogRecipes.LookupRelationshipDefinition> findAllC
 ```
 
 #### Return Type
-**List&lt;MetadataCatalogRecipes.LookupRelationshipDefinition&gt;**
+**List<MetadataCatalogRecipes.LookupRelationshipDefinition>**
 
 #### Example
 ```apex

@@ -23,7 +23,7 @@ public static List<Contact> convertCsvToContacts(String inputCsv)
 | inputCsv | String | CSV data to tranform |
 
 #### Return Type
-**List&lt;Contact&gt;**
+**List<Contact>**
 
 List of contact records
 
@@ -45,7 +45,7 @@ public static List<Contact> convertJsonToContacts(String inputJson)
 | inputJson | String | JSON data to tranform |
 
 #### Return Type
-**List&lt;Contact&gt;**
+**List<Contact>**
 
 List of contact records
 
@@ -67,6 +67,6 @@ public static List<CsvData> convertCsvToApexObject(String inputCsv)
 | inputCsv | String | CSV data to tranform |
 
 #### Return Type
-**List&lt;CsvData&gt;**
+**List<CsvData>**
 
 List of Apex ,[object Object], objects

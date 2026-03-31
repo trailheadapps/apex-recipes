@@ -74,10 +74,10 @@ public List<Database.SaveResult> doInsert(List<SObject> records)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| records | List&lt;SObject&gt; |  |
+| records | List<SObject> |  |
 
 #### Return Type
-**List&lt;Database.SaveResult&gt;**
+**List<Database.SaveResult>**
 
 ---
 
@@ -94,7 +94,7 @@ public List<Database.SaveResult> doInsert(SObject record)
 | record | SObject |  |
 
 #### Return Type
-**List&lt;Database.SaveResult&gt;**
+**List<Database.SaveResult>**
 
 ---
 
@@ -108,10 +108,10 @@ public List<Database.SaveResult> doUpdate(List<SObject> records)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| records | List&lt;SObject&gt; |  |
+| records | List<SObject> |  |
 
 #### Return Type
-**List&lt;Database.SaveResult&gt;**
+**List<Database.SaveResult>**
 
 ---
 
@@ -128,7 +128,7 @@ public List<Database.SaveResult> doUpdate(SObject record)
 | record | SObject |  |
 
 #### Return Type
-**List&lt;Database.SaveResult&gt;**
+**List<Database.SaveResult>**
 
 ---
 
@@ -142,10 +142,10 @@ public List<Database.UpsertResult> doUpsert(List<SObject> records)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| records | List&lt;SObject&gt; |  |
+| records | List<SObject> |  |
 
 #### Return Type
-**List&lt;Database.UpsertResult&gt;**
+**List<Database.UpsertResult>**
 
 ---
 
@@ -162,7 +162,7 @@ public List<Database.UpsertResult> doUpsert(Sobject record)
 | record | Sobject |  |
 
 #### Return Type
-**List&lt;Database.UpsertResult&gt;**
+**List<Database.UpsertResult>**
 
 ---
 
@@ -176,10 +176,10 @@ public List<Database.DeleteResult> doDelete(List<SObject> records)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| records | List&lt;SObject&gt; |  |
+| records | List<SObject> |  |
 
 #### Return Type
-**List&lt;Database.DeleteResult&gt;**
+**List<Database.DeleteResult>**
 
 ---
 
@@ -196,7 +196,7 @@ public List<Database.DeleteResult> doDelete(SObject record)
 | record | SObject |  |
 
 #### Return Type
-**List&lt;Database.DeleteResult&gt;**
+**List<Database.DeleteResult>**
 
 ---
 
@@ -213,7 +213,7 @@ public List<SObject> doQuery(String query)
 | query | String |  |
 
 #### Return Type
-**List&lt;SObject&gt;**
+**List<SObject>**
 
 ---
 
@@ -228,10 +228,10 @@ private List<Database.SaveResult> doDML(System.AccessType accessType, List<SObje
 | Name | Type | Description |
 |------|------|-------------|
 | accessType | System.AccessType |  |
-| records | List&lt;SObject&gt; |  |
+| records | List<SObject> |  |
 
 #### Return Type
-**List&lt;Database.SaveResult&gt;**
+**List<Database.SaveResult>**
 
 ---
 
@@ -246,7 +246,7 @@ private SObjectAccessDecision guardAgainstRemovedFields(System.AccessType access
 | Name | Type | Description |
 |------|------|-------------|
 | accessType | System.AccessType |  |
-| records | List&lt;SObject&gt; |  |
+| records | List<SObject> |  |
 
 #### Return Type
 **SObjectAccessDecision**

@@ -16,7 +16,7 @@ private static groupToListOfNames
 ```
 
 #### Type
-Map&lt;String,List&lt;String&gt;&gt;
+Map<String,List<String>>
 
 ---
 
@@ -49,7 +49,7 @@ public static List<RecipeTreeData> generateTreeData()
 ```
 
 #### Return Type
-**List&lt;RecipeTreeData&gt;**
+**List<RecipeTreeData>**
 
 list of RecipeTreeData objects
 
@@ -78,7 +78,7 @@ private static Map<String,List<String>> generateMapOfGroupToListOfNames()
 ```
 
 #### Return Type
-**Map&lt;String,List&lt;String&gt;&gt;**
+**Map<String,List<String>>**
 
 map containing Group names as the Keys tied to a List of class names.
 

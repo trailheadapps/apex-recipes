@@ -21,7 +21,7 @@ public static Integer iterateOnAccountList(List<Account> accounts)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accounts | List&lt;Account&gt; | a list of accounts that will be iterated on |
+| accounts | List<Account> | a list of accounts that will be iterated on |
 
 #### Return Type
 **Integer**
@@ -42,6 +42,6 @@ public static List<String> iterableApiClientRecipe()
 ```
 
 #### Return Type
-**List&lt;String&gt;**
+**List<String>**
 
 List of &quot;records&quot; retrieved

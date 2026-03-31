@@ -98,10 +98,10 @@ public static List<Database.SaveResult> createFilesAttachedToRecords(List<FilesR
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| toCreate | List&lt;FilesRecipes.FileAndLinkObject&gt; |  |
+| toCreate | List<FilesRecipes.FileAndLinkObject> |  |
 
 #### Return Type
-**List&lt;Database.SaveResult&gt;**
+**List<Database.SaveResult>**
 
 ---
 
@@ -129,7 +129,7 @@ public static List<ContentVersion> getFilteredAttachmentsForRecord(FilesRecipes.
 | recordId | Id | Record ID to limit searching to |
 
 #### Return Type
-**List&lt;ContentVersion&gt;**
+**List<ContentVersion>**
 
 #### Example
 ```apex
