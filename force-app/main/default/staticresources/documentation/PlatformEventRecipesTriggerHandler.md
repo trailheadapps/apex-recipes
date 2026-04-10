@@ -20,7 +20,7 @@ private triggerNew
 ```
 
 #### Type
-List&lt;Event_Recipes_Demo__e&gt;
+List<Event_Recipes_Demo__e>
 
 ---
 

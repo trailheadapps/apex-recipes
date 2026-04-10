@@ -17,7 +17,7 @@ public static List<Account> getRecords()
 ```
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -79,7 +79,7 @@ public static List<Account> getRecordsByFieldValue()
 ```
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -99,7 +99,7 @@ public static List<Account> getRecordsByMultipleFieldValues()
 ```
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -118,7 +118,7 @@ public static List<Account> getSpecificNumberOfRecords()
 ```
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -142,7 +142,7 @@ public static List<Account> getFirstXRecords(Integer wantedNumberOfRows)
 | wantedNumberOfRows | Integer | the number of rows desired |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -166,7 +166,7 @@ public static List<Account> getAccountRecordsInState(String state)
 | state | String | String representing a US State code (AK, KS, etc.) |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -186,7 +186,7 @@ public static List<Account> getSecond10AccountRecords()
 ```
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -206,7 +206,7 @@ public static List<Account> getRecordsWithRelatedRecords()
 ```
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -226,7 +226,7 @@ public static List<Contact> getParentRecordDetailsFromChildRecord()
 ```
 
 #### Return Type
-**List&lt;Contact&gt;**
+**List<Contact>**
 
 #### Example
 ```apex
@@ -246,7 +246,7 @@ public static List<Junction__c> getDetailsFromBothParentRecords()
 ```
 
 #### Return Type
-**List&lt;Junction__c&gt;**
+**List<Junction__c>**
 
 #### Example
 ```apex

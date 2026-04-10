@@ -34,7 +34,7 @@ These two properties are not public - which means that in
 order to manipulate them during a Unit test, we have to 
 mark them
 
-**TestVisible** 
+**TestVisible**
 
 The namedCredentialName also demonstrates how to auto 
 create a getter/setter for a property with the 
@@ -46,7 +46,7 @@ private static defaultHeaders
 ```
 
 #### Type
-Map&lt;String,String&gt;
+Map<String,String>
 
 ## Properties
 ### `namedCredentialName`
@@ -119,7 +119,7 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query, S
 | path | String | patch component of the callout url i.e. `/services/data/v39.0/SObjects` |
 | query | String | Query portion of the URL i.e. `?q=SELECT Id FROM Account` |
 | body | String | JSON string representing the body of the callout in post/patch situations |
-| headers | Map&lt;String,String&gt; | A map&lt;String,String&gt; of headers to use while making this callout |
+| headers | Map<String,String> | A map&lt;String,String&gt; of headers to use while making this callout |
 
 #### Return Type
 **HttpResponse**
@@ -473,7 +473,7 @@ public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, 
 | path | String | Http path component of the URL. ie: `/path/to/resource` |
 | query | String | Query component of the URL ie: after `?foo=bar` |
 | body | String | JSON string to post |
-| headers | Map&lt;String,String&gt; | Map&lt;String,String&gt; representing outgoing Request 
+| headers | Map<String,String> | Map&lt;String,String&gt; representing outgoing Request 
 headers |
 
 #### Return Type

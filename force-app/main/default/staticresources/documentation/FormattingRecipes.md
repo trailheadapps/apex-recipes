@@ -18,7 +18,7 @@ public static String formatDateInJson(List<Contact> contacts)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| contacts | List&lt;Contact&gt; | list of contacts to convert into JSON |
+| contacts | List<Contact> | list of contacts to convert into JSON |
 
 #### Return Type
 **String**

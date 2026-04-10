@@ -8,7 +8,7 @@ Demonstrates an interable REST API client that loads paginated records (strings)
 
 **Implements**
 
-Iterable&lt;RecordPage&gt;
+Iterable<RecordPage>
 
 ## Fields
 ### `RESPONSE_PAGE_SIZE`
@@ -65,7 +65,7 @@ public Iterator<RecordPage> iterator()
 ```
 
 #### Return Type
-**Iterator&lt;RecordPage&gt;**
+**Iterator<RecordPage>**
 
 ---
 
@@ -113,7 +113,7 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query, S
 | path | String | patch component of the callout url i.e. `/services/data/v39.0/SObjects` |
 | query | String | Query portion of the URL i.e. `?q=SELECT Id FROM Account` |
 | body | String | JSON string representing the body of the callout in post/patch situations |
-| headers | Map&lt;String,String&gt; | A map&lt;String,String&gt; of headers to use while making this callout |
+| headers | Map<String,String> | A map&lt;String,String&gt; of headers to use while making this callout |
 
 #### Return Type
 **HttpResponse**
@@ -497,7 +497,7 @@ public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, 
 | path | String | Http path component of the URL. ie: `/path/to/resource` |
 | query | String | Query component of the URL ie: after `?foo=bar` |
 | body | String | JSON string to post |
-| headers | Map&lt;String,String&gt; | Map&lt;String,String&gt; representing outgoing Request 
+| headers | Map<String,String> | Map&lt;String,String&gt; representing outgoing Request 
 headers |
 
 #### Return Type
@@ -592,7 +592,7 @@ It uses IterableApiClient to perform REST requests to load the record pages.
 
 **Implements**
 
-Iterator&lt;RecordPage&gt;
+Iterator<RecordPage>
 
 #### Fields
 ##### `client`
@@ -678,7 +678,7 @@ private records
 ```
 
 ###### Type
-List&lt;String&gt;
+List<String>
 
 ---
 
@@ -701,4 +701,4 @@ public List<String> getRecords()
 ```
 
 ###### Return Type
-**List&lt;String&gt;**
+**List<String>**

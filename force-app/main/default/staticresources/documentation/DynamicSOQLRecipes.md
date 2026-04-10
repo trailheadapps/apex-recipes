@@ -24,7 +24,7 @@ public static List<Account> simpleDynamicSOQLQuery()
 ```
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 Account list with security enforced using ,[object Object]
 
@@ -52,7 +52,7 @@ public static List<Account> simpleBindingSOQLQuery(String name)
 | name | String | Name of the account to search for |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -78,7 +78,7 @@ public static List<Account> dynamicFieldsBindingSOQLQuery(Account acct)
 | acct | Account | Account to base the search off of |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -117,7 +117,7 @@ public static List<Account> typecastDataIntelligently(String numberOfRecords)
 | numberOfRecords | String | String to be used as the comparison in the query |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -159,11 +159,11 @@ public static List<Account> simpleQueryBuilder(List<String> fields, String where
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| fields | List&lt;String&gt; | A list of String field names to include in the query |
+| fields | List<String> | A list of String field names to include in the query |
 | whereClause | String | A string containing the where clause |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex

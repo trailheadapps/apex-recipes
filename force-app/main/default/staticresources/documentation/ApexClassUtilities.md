@@ -55,7 +55,7 @@ public static List<String> getRelatedClassesFromClassBody(ApexClass klass)
 | klass | ApexClass | an ApexClass object |
 
 #### Return Type
-**List&lt;String&gt;**
+**List<String>**
 
 Values following ,[object Object], annotations
 

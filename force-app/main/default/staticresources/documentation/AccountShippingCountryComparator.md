@@ -5,7 +5,7 @@ In this example we show how to sort all the accounts by their country names in a
 
 **Implements**
 
-Comparator&lt;Account&gt;
+Comparator<Account>
 
 ## Properties
 ### `order`
