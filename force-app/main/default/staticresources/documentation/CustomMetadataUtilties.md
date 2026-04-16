@@ -63,7 +63,7 @@ public List<Bucketed_Picklist__mdt> getBucketedPicklistsForObject(Id objId)
 | objId | Id |  |
 
 #### Return Type
-**List&lt;Bucketed_Picklist__mdt&gt;**
+**List<Bucketed_Picklist__mdt>**
 
 ---
 
@@ -80,10 +80,10 @@ public List<Bucketed_Picklist__mdt> getBucketedPicklistsForObject(List<Id> objId
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objIds | List&lt;Id&gt; |  |
+| objIds | List<Id> |  |
 
 #### Return Type
-**List&lt;Bucketed_Picklist__mdt&gt;**
+**List<Bucketed_Picklist__mdt>**
 
 ---
 
@@ -102,8 +102,8 @@ public List<Picklist_Bucket__mdt> getPicklistBucketWithValues(List<Bucketed_Pick
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| bPL | List&lt;Bucketed_Picklist__mdt&gt; | Bucketed Picklist list |
+| bPL | List<Bucketed_Picklist__mdt> | Bucketed Picklist list |
 | search | String | Search String for Bucketed_Picklist_Value__mdt.label |
 
 #### Return Type
-**List&lt;Picklist_Bucket__mdt&gt;**
+**List<Picklist_Bucket__mdt>**

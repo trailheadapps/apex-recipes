@@ -32,7 +32,7 @@ private buffer
 ```
 
 #### Type
-List&lt;LogMessage&gt;
+List<LogMessage>
 
 ## Constructors
 ### `Log()`
