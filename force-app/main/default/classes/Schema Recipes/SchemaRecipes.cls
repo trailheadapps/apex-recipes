@@ -5,10 +5,16 @@
  */
 public with sharing class SchemaRecipes {
     /**
-     * @description demonstrates how to use a field token for schema access
+     * @description Demonstrates how to use schema field tokens
+     * and DescribeFieldResult for schema metadata access.
      */
     public void schemaTokenRecipe() {
-        Schema.DescribeFieldResult dfr = Schema.SObjectType.Account.fields.Name;
+
+        // Retrieve describe information for Account.Name field
+        Schema.DescribeFieldResult dfr =
+            Schema.SObjectType.Account.fields.Name;
+
+        // Reference a custom field token
         Schema.SObjectField token2 = Junction__c.parent1__c;
 
         System.assert(dfr.getSObjectField() == Account.Name);
