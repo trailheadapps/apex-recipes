@@ -19,7 +19,7 @@ jobs:
         steps:
             # Install Volta to enforce proper node and package manager versions
             - name: 'Install Volta'
-              uses: volta-cli/action@v4
+              uses: volta-cli/action@v5.0.0
 
             # Install Salesforce CLI
             - name: 'Install Salesforce CLI'
@@ -31,7 +31,7 @@ jobs:
 
             # Checkout the source code
             - name: 'Checkout source code'
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7.0.0
 
             # Store secret for dev hub
             - name: 'Populate auth file with DEVHUB_SFDX_URL secret'

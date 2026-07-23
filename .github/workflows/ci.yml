@@ -18,16 +18,16 @@ jobs:
         steps:
             # Checkout the source code
             - name: 'Checkout source code'
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7.0.0
 
             # Install Volta to enforce proper node and package manager versions
             - name: 'Install Volta'
-              uses: volta-cli/action@v4
+              uses: volta-cli/action@v5.0.0
 
             # Cache node_modules to speed up the process
             - name: 'Restore node_modules cache'
               id: cache-npm
-              uses: actions/cache@v4
+              uses: actions/cache@v6.0.0
               with:
                   path: node_modules
                   key: npm-${{ hashFiles('**/package-lock.json') }}
@@ -67,7 +67,7 @@ jobs:
         steps:
             # Checkout the source code
             - name: 'Checkout source code'
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7.0.0
 
             # Run PMD scan
             - name: 'Run PMD scan'
@@ -132,7 +132,7 @@ jobs:
 
             # Upload code coverage data
             - name: 'Upload code coverage for Apex to Codecov.io'
-              uses: codecov/codecov-action@v4
+              uses: codecov/codecov-action@v7.0.0
               with:
                   token: ${{ secrets.CODECOV_TOKEN }}
                   flags: Apex
@@ -148,7 +148,7 @@ jobs:
         steps:
             # Checkout the code
             - name: 'Checkout source code'
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7.0.0
 
             # Fetch history
             - name: 'Fetch history'
@@ -156,7 +156,7 @@ jobs:
 
             # Upload documentation to wiki
             - name: 'Upload documentation to wiki'
-              uses: SwiftDocOrg/github-wiki-publish-action@v1
+              uses: SwiftDocOrg/github-wiki-publish-action@v1.0.0
               with:
                   path: 'force-app/main/default/staticresources/documentation'
               env:
@@ -168,7 +168,7 @@ jobs:
         steps:
             # Checkout the source code
             - name: 'Checkout source code'
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7.0.0
 
             # Check for package changes using git diff
             - name: 'Check for package changes'
@@ -185,7 +185,7 @@ jobs:
 
             # Trigger packaging workflow if needed
             - name: 'Trigger packaging workflow if needed'
-              uses: peter-evans/repository-dispatch@v3
+              uses: peter-evans/repository-dispatch@v4.0.1
               if: steps.checkForChanges.outputs.hasChanges == 'true'
               with:
                   token: ${{ secrets.BOT_ACCESS_TOKEN }}
