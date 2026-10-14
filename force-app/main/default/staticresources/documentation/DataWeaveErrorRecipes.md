@@ -34,9 +34,9 @@ public static DataWeave.Result convertContactsToExcel(List<Contact> contacts)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| contacts | List&lt;Contact&gt; | list of contacts |
+| contacts | List<Contact> | list of contacts |
 
 #### Return Type
 **DataWeave.Result**
 
-DataWeave script result (never used as a ,[object Object], is thrown)
+DataWeave script result (never used as a `DataWeaveScriptException` is thrown)

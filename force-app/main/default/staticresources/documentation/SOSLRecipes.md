@@ -22,7 +22,7 @@ public static List<List<SObject>> basicSOSLSearch()
 ```
 
 #### Return Type
-**List&lt;List&lt;SObject&gt;&gt;**
+**List<List<SObject>>**
 
 #### Example
 ```apex
@@ -42,7 +42,7 @@ public static List<List<SObject>> nameFieldSearch()
 ```
 
 #### Return Type
-**List&lt;List&lt;SObject&gt;&gt;**
+**List<List<SObject>>**
 
 #### Example
 ```apex

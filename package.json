@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "description": "A sample app demonstrating various aspects of the Apex programming language and the Salesforce Platform",
     "scripts": {
-        "lint": "eslint **/lwc/**/*.js",
+        "lint": "eslint .",
         "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prettier:verify": "prettier --check \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prettier:apex:local": "prettier --plugin=@prettier/plugin-xml --plugin=prettier-plugin-apex --apex-standalone-parser built-in --apex-standalone-host 127.0.0.1 --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
@@ -38,22 +38,20 @@
     },
     "devDependencies": {
         "@cparra/apexdocs": "^3.24.2",
-        "@lwc/eslint-plugin-lwc": "^1.9.0",
         "@prettier/plugin-xml": "^3.4.2",
-        "@sa11y/jest": "^6.13.0",
-        "@salesforce/eslint-config-lwc": "^3.6.0",
-        "@salesforce/eslint-plugin-aura": "^2.1.0",
-        "@salesforce/eslint-plugin-lightning": "^1.0.1",
+        "@sa11y/jest": "^8.1.1",
+        "@salesforce/eslint-config-lwc": "^4.1.2",
+        "@salesforce/eslint-plugin-lightning": "^2.0.0",
         "@salesforce/sfdx-lwc-jest": "^7.9.0",
-        "eslint": "^8.57.0",
+        "eslint": "^9.39.5",
         "eslint-plugin-import": "^2.32.0",
-        "eslint-plugin-jest": "^28.12.0",
+        "eslint-plugin-jest": "^29.16.6",
         "husky": "^9.1.7",
-        "lint-staged": "^15.5.1",
-        "prettier": "^3.3.3",
+        "lint-staged": "^17.6.0",
+        "prettier": "^3.9.8",
         "prettier-plugin-apex": "^2.3.0"
     },
     "volta": {
-        "node": "20.15.0"
+        "node": "22.23.1"
     }
 }

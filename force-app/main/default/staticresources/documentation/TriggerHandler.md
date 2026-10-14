@@ -19,7 +19,7 @@ private static loopCountMap
 ```
 
 #### Type
-Map&lt;String,LoopCount&gt;
+Map<String,LoopCount>
 
 ---
 
@@ -31,7 +31,7 @@ private static bypassedHandlers
 ```
 
 #### Type
-Set&lt;String&gt;
+Set<String>
 
 ---
 
@@ -240,7 +240,7 @@ Triggerhandler.clearAllBypasses();
 
 `TESTVISIBLE`
 
-private instancemethods
+internal method to forcibly set the trigger context
 
 #### Signature
 ```apex
@@ -308,7 +308,8 @@ protected Boolean validateRun()
 **Boolean**
 
 #### Throws
-TriggerHandlerException: thrown when executing outside of a,[object Object],trigger
+TriggerHandlerException: thrown when executing outside of a 
+trigger
 
 ---
 
@@ -336,7 +337,7 @@ Name of the Handler
 `TESTVISIBLE`
 `SUPPRESSWARNINGS`
 
-context methods
+Virtual method for the implementing class to override
 
 #### Signature
 ```apex
@@ -457,7 +458,7 @@ Internal TriggerHandler custom exception class
 
 `TESTVISIBLE`
 
-inner classes
+inner class for managing the loop count per handler
 
 #### Fields
 ##### `max`
@@ -522,7 +523,8 @@ public Boolean increment()
 ###### Return Type
 **Boolean**
 
-true if count will exceed max count or is less,[object Object],than 0.
+true if count will exceed max count or is less 
+than 0.
 
 ---
 

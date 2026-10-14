@@ -259,7 +259,7 @@ public Boolean isPlatformCacheEnabled()
 Certain features of the platform are incompatible with 
 data-siloed tests. These features require testing with the annotation
 
-**Test** 
+**Test**
 
 (seeAllData&#x3D;true). Other platform features are incompatible with 
 seeAllData&#x3D;true. When used in a test context, this method determines if 

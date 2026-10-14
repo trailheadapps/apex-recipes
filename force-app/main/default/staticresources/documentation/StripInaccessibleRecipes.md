@@ -19,7 +19,7 @@ public static List<Campaign> stripInaccessibleFromQuery()
 ```
 
 #### Return Type
-**List&lt;Campaign&gt;**
+**List<Campaign>**
 
 #### Example
 ```apex
@@ -40,7 +40,7 @@ public static List<Account> stripInaccessibleFromSubquery()
 ```
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -63,7 +63,7 @@ public static void stripInaccessibleBeforeDML(List<Contact> contacts)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| contacts | List&lt;Contact&gt; | A list of Contacts |
+| contacts | List<Contact> | A list of Contacts |
 
 #### Return Type
 **void**

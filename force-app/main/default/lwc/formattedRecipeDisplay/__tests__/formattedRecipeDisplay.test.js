@@ -8,6 +8,7 @@ jest.mock(
     () => {
         const {
             createApexTestWireAdapter
+            // eslint-disable-next-line no-undef
         } = require('@salesforce/sfdx-lwc-jest');
         return {
             default: createApexTestWireAdapter(jest.fn())
@@ -17,6 +18,7 @@ jest.mock(
 );
 
 // Realistic data with a list of records
+// eslint-disable-next-line no-undef
 const mockGetRecipeCode = require('./data/getRecipeCode.json');
 
 // Sample error for loadScript error

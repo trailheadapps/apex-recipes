@@ -34,7 +34,7 @@ public static trustedQuiddities
 ```
 
 #### Type
-List&lt;Quiddity&gt;
+List<Quiddity>
 
 ---
 
@@ -49,7 +49,7 @@ public static trustedTestQuiddities
 ```
 
 #### Type
-List&lt;Quiddity&gt;
+List<Quiddity>
 
 ---
 
@@ -64,7 +64,7 @@ public static untrustedQuiddities
 ```
 
 #### Type
-List&lt;Quiddity&gt;
+List<Quiddity>
 
 ## Methods
 ### `isAcceptableQuiddity(acceptableQuiddites)`
@@ -80,7 +80,7 @@ public static Boolean isAcceptableQuiddity(List<Quiddity> acceptableQuiddites)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| acceptableQuiddites | List&lt;Quiddity&gt; | A list of quiddities to check against |
+| acceptableQuiddites | List<Quiddity> | A list of quiddities to check against |
 
 #### Return Type
 **Boolean**
@@ -97,7 +97,7 @@ public static Boolean isNotAcceptableQuiddity(List<Quiddity> acceptableQuiddites
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| acceptableQuiddites | List&lt;Quiddity&gt; |  |
+| acceptableQuiddites | List<Quiddity> |  |
 
 #### Return Type
 **Boolean**

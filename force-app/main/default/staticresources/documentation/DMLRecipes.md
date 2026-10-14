@@ -72,13 +72,13 @@ public static List<Account> insertAccountsViaDatabaseMethod(List<String> names, 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| names | List&lt;String&gt; | names used for account creation |
+| names | List<String> | names used for account creation |
 | allOrNothing | Boolean | determines whether or not all accounts 
 to be inserted must insert successfully |
 | accessLevel | System.AccessLevel |  |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 list of inserted accounts
 
@@ -186,10 +186,10 @@ public static List<Account> updateAcccountViaKeywordInSystemMode(List<Account> a
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List&lt;Account&gt; | List of accounts to update |
+| accts | List<Account> | List of accounts to update |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 List of updated records
 
@@ -215,10 +215,10 @@ public static List<Account> updateAcccountViaKeywordInUserMode(List<Account> acc
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List&lt;Account&gt; | List of accounts to update |
+| accts | List<Account> | List of accounts to update |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 List of updated records
 
@@ -244,11 +244,11 @@ public static List<Account> updateAccountViaDatabaseMethod(List<Account> accts, 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List&lt;Account&gt; | list of accounts to update |
+| accts | List<Account> | list of accounts to update |
 | accessLevel | System.AccessLevel |  |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 List of updated records
 
@@ -274,7 +274,7 @@ public static void deleteAccountViaKeywordInSystemMode(List<Account> accts)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List&lt;Account&gt; | list of accounts to delete in system mode |
+| accts | List<Account> | list of accounts to delete in system mode |
 
 #### Return Type
 **void**
@@ -300,7 +300,7 @@ public static void deleteAccountViaKeywordInUserMode(List<Account> accts)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List&lt;Account&gt; | list of accounts to delete in user mode |
+| accts | List<Account> | list of accounts to delete in user mode |
 
 #### Return Type
 **void**
@@ -326,7 +326,7 @@ public static void deleteAccountViaDatabaseMethod(List<Account> accts, System.Ac
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List&lt;Account&gt; | List of Accounts to delete |
+| accts | List<Account> | List of Accounts to delete |
 | accessLevel | System.AccessLevel |  |
 
 #### Return Type
@@ -353,10 +353,10 @@ public static List<Account> undeleteAccountViaKeywordInSystemMode(List<Account> 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List&lt;Account&gt; | List of accounts to undelete in user mode |
+| accts | List<Account> | List of accounts to undelete in user mode |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 list of undeleted accounts
 
@@ -383,10 +383,10 @@ public static List<Account> undeleteAccountViaKeywordInUserMode(List<Account> ac
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List&lt;Account&gt; | List of accounts to undelete in user mode |
+| accts | List<Account> | List of accounts to undelete in user mode |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 list of undeleted accounts
 
@@ -413,11 +413,11 @@ public static List<Account> undeleteAccountViaDatabaseMethod(List<Account> accts
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List&lt;Account&gt; | list of accounts to undelete |
+| accts | List<Account> | list of accounts to undelete |
 | accessLevel | System.AccessLevel |  |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 list of undeleted accounts
 

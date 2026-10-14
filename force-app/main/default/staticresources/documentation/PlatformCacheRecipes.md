@@ -23,8 +23,8 @@ String
 ## Methods
 ### `storeValueInSessionCache(key, value)`
 
-These methods are for the Session Cache 
-Max TTL for Session partion is 8 hours.
+Stores a value in the Session cache with a default 
+timeout of 3600 seconds (1hr)
 
 #### Signature
 ```apex
@@ -34,8 +34,8 @@ public static void storeValueInSessionCache(String key, String value)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| key | String |  |
-| value | String |  |
+| key | String | key under which the value is saved. |
+| value | String | value to store in the cache. |
 
 #### Return Type
 **void**
@@ -109,8 +109,8 @@ CacheException: custom exception when key not found.
 
 ### `storeValueInOrgCache(key, value)`
 
-These methods relate to the ORG cache 
-Max TTL for Org Cache is 48 hours.
+Stores a value in the Org cache with a default 
+timeout of 3600 seconds (1hr)
 
 #### Signature
 ```apex
@@ -120,8 +120,8 @@ public static void storeValueInOrgCache(String key, String value)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| key | String |  |
-| value | String |  |
+| key | String | key under which the value is saved. |
+| value | String | value to store in the cache. |
 
 #### Return Type
 **void**

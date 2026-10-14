@@ -36,11 +36,11 @@ public static Map<Id,SObject> idMapFromCollectionByKey(String key, List<SObject>
 |------|------|-------------|
 | key | String | String representation of the field name to use as the Key. 
 This must be of type Id for this method. |
-| incomingList | List&lt;SObject&gt; | Any list of objects that can be cast to a list of 
+| incomingList | List<SObject> | Any list of objects that can be cast to a list of 
 sObjects |
 
 #### Return Type
-**Map&lt;Id,SObject&gt;**
+**Map<Id,SObject>**
 
 #### Example
 ```apex
@@ -66,10 +66,10 @@ public static Map<String,SObject> stringMapFromCollectionByKey(String key, List<
 | Name | Type | Description |
 |------|------|-------------|
 | key | String | String field name of a field who&#x27;s value is castable to String. |
-| incomingList | List&lt;SObject&gt; | List of incoming sObjects to build the map from |
+| incomingList | List<SObject> | List of incoming sObjects to build the map from |
 
 #### Return Type
-**Map&lt;String,SObject&gt;**
+**Map<String,SObject>**
 
 #### Example
 ```apex
@@ -95,10 +95,10 @@ public static Map<Id,List<SObject>> mapFromCollectionWithCollectionValues(String
 | Name | Type | Description |
 |------|------|-------------|
 | key | String | String name of an field that is of the ID type. |
-| incomingList | List&lt;SObject&gt; | List of sObjects to build the map from. |
+| incomingList | List<SObject> | List of sObjects to build the map from. |
 
 #### Return Type
-**Map&lt;Id,List&lt;SObject&gt;&gt;**
+**Map<Id,List<SObject>>**
 
 #### Example
 ```apex
@@ -118,7 +118,7 @@ private static String getSobjectTypeFromList(List<SObject> incomingList)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| incomingList | List&lt;SObject&gt; |  |
+| incomingList | List<SObject> |  |
 
 #### Return Type
 **String**

@@ -28,10 +28,10 @@ public static List<ContactSearchResult> findRelatedContacts(List<ContactSearchRe
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| inputParams | List&lt;ContactSearchRequest&gt; | A list of ContactSearchRequest objects |
+| inputParams | List<ContactSearchRequest> | A list of ContactSearchRequest objects |
 
 #### Return Type
-**List&lt;ContactSearchResult&gt;**
+**List<ContactSearchResult>**
 
 #### Example
 From Apex: 
@@ -66,7 +66,7 @@ public inputs
 ```
 
 ###### Type
-List&lt;SObject&gt;
+List<SObject>
 
 ### ContactSearchResult Class
 

@@ -52,7 +52,7 @@ private objectsToProcess
 ```
 
 #### Type
-List&lt;ContentDocumentLink&gt;
+List<ContentDocumentLink>
 
 ---
 
@@ -139,7 +139,7 @@ private List<ContentDocumentLink> getRecordsToProcess(Id offsetId)
 records. |
 
 #### Return Type
-**List&lt;ContentDocumentLink&gt;**
+**List<ContentDocumentLink>**
 
 ---
 

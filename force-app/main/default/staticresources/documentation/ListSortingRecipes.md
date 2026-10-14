@@ -24,7 +24,7 @@ public static void sortAccountsByShippingCountry(List<Account> accounts)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accounts | List&lt;Account&gt; | a list of accounts that will be sorted in place |
+| accounts | List<Account> | a list of accounts that will be sorted in place |
 
 #### Return Type
 **void**
@@ -46,7 +46,7 @@ public static void sortAccountsByShippingCountryInDescending(List<Account> accou
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accounts | List&lt;Account&gt; | a list of accounts that will be sorted in place |
+| accounts | List<Account> | a list of accounts that will be sorted in place |
 
 #### Return Type
 **void**
@@ -68,7 +68,7 @@ public static void sortAccountsByNumberOfEmployees(List<Account> accounts)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accounts | List&lt;Account&gt; | a list of accounts that will be sorted in place |
+| accounts | List<Account> | a list of accounts that will be sorted in place |
 
 #### Return Type
 **void**

@@ -21,7 +21,7 @@ private static accessibleFieldsByObject
 ```
 
 #### Type
-Map&lt;String,Set&lt;String&gt;&gt;
+Map<String,Set<String>>
 
 ---
 
@@ -35,7 +35,7 @@ private static updatableFieldsByObject
 ```
 
 #### Type
-Map&lt;String,Set&lt;String&gt;&gt;
+Map<String,Set<String>>
 
 ## Methods
 ### `crud(obj, permission)`
@@ -73,7 +73,7 @@ private static Boolean crud(List<SObject> objs, CrudType permission)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objs | List&lt;SObject&gt; |  |
+| objs | List<SObject> |  |
 | permission | CrudType |  |
 
 #### Return Type
@@ -139,7 +139,7 @@ public static Boolean create(List<SObject> objs)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objs | List&lt;SObject&gt; | list of objects. Only the first will be checked. (logically, a list is of uniform type 
+| objs | List<SObject> | list of objects. Only the first will be checked. (logically, a list is of uniform type 
 and, and if the user can create one) |
 
 #### Return Type
@@ -210,7 +210,7 @@ public static Boolean read(List<SObject> objs)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objs | List&lt;SObject&gt; |  |
+| objs | List<SObject> |  |
 
 #### Return Type
 **Boolean**
@@ -280,7 +280,7 @@ public static Boolean edit(List<SObject> objs)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objs | List&lt;SObject&gt; |  |
+| objs | List<SObject> |  |
 
 #### Return Type
 **Boolean**
@@ -350,7 +350,7 @@ public static Boolean ups(List<SObject> objs)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objs | List&lt;SObject&gt; |  |
+| objs | List<SObject> |  |
 
 #### Return Type
 **Boolean**
@@ -420,7 +420,7 @@ public static Boolean destroy(List<SObject> objs)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objs | List&lt;SObject&gt; |  |
+| objs | List<SObject> |  |
 
 #### Return Type
 **Boolean**
@@ -491,10 +491,10 @@ public static Map<String,Boolean> bulkFLSAccessible(String obj, Set<String> fiel
 | Name | Type | Description |
 |------|------|-------------|
 | obj | String | Obj name on which to check |
-| fields | Set&lt;String&gt; | Set of Fields to check for accessibility. |
+| fields | Set<String> | Set of Fields to check for accessibility. |
 
 #### Return Type
-**Map&lt;String,Boolean&gt;**
+**Map<String,Boolean>**
 
 #### Example
 ```apex
@@ -543,10 +543,10 @@ public static Map<String,Boolean> bulkFLSUpdatable(String obj, Set<String> field
 | Name | Type | Description |
 |------|------|-------------|
 | obj | String | Name of the object |
-| fields | Set&lt;String&gt; | Set of Field names to check |
+| fields | Set<String> | Set of Field names to check |
 
 #### Return Type
-**Map&lt;String,Boolean&gt;**
+**Map<String,Boolean>**
 
 #### Example
 ```apex
@@ -582,7 +582,7 @@ private static Set<String> memoizeFLSMDC(String objType, FLSType action)
 | action | FLSType | Enum of the FLS action to check permissions for |
 
 #### Return Type
-**Set&lt;String&gt;**
+**Set<String>**
 
 ---
 
@@ -662,7 +662,7 @@ public Map<String,Map<FLSType,Boolean>> calculateFLS(string objType)
 | objType | string | String name of the object type |
 
 ###### Return Type
-**Map&lt;String,Map&lt;FLSType,Boolean&gt;&gt;**
+**Map<String,Map<FLSType,Boolean>>**
 
 ## Enums
 ### CrudType Enum

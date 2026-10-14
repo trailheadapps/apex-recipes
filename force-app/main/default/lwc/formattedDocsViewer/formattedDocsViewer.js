@@ -35,7 +35,7 @@ export default class FormattedDocsViewer extends LightningElement {
                 this.prism = Prism;
                 this.markdownIt = window.markdownit();
             } catch (e) {
-                this.error = 'Unable to load Prism or MarkdownIt';
+                this.error = 'Unable to load Prism or MarkdownIt: ' + e;
             }
             this.loadDocumentation();
         } catch (error) {

@@ -20,7 +20,7 @@ public exampleArray
 ```
 
 #### Type
-List&lt;Integer&gt;
+List<Integer>
 
 ---
 
@@ -111,7 +111,7 @@ public static List<ApiServiceRecipesDataModel> parse(String json)
 | json | String | Incoming JSON string. Often from an api call&#x27;s results. |
 
 #### Return Type
-**List&lt;ApiServiceRecipesDataModel&gt;**
+**List<ApiServiceRecipesDataModel>**
 
 #### Example
 ```apex

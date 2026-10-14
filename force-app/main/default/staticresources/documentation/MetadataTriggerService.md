@@ -45,7 +45,7 @@ public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers()
 ```
 
 #### Return Type
-**List&lt;Metadata_Driven_Trigger__mdt&gt;**
+**List<Metadata_Driven_Trigger__mdt>**
 
 ---
 

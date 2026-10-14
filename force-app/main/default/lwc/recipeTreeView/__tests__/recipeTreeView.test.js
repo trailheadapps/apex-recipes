@@ -14,6 +14,7 @@ jest.mock(
 );
 
 // Realistic data with a list of records
+// eslint-disable-next-line no-undef
 const mockGenerateTreeData = require('./data/generateTreeData.json');
 
 // Helper function to wait until the microtask queue is empty. This is needed for promise

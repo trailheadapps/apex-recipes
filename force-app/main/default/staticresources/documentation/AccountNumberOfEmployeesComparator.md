@@ -5,7 +5,7 @@ In this example we show how to sort all the accounts by their employee numbers i
 
 **Implements**
 
-Comparator&lt;Account&gt;
+Comparator<Account>
 
 ## Methods
 ### `compare(a1, a2)`

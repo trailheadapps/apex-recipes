@@ -20,7 +20,7 @@ private incomingRecords
 ```
 
 #### Type
-List&lt;Log__e&gt;
+List<Log__e>
 
 ---
 
@@ -278,7 +278,8 @@ protected Boolean validateRun()
 **Boolean**
 
 #### Throws
-TriggerHandlerException: thrown when executing outside of a,[object Object],trigger
+TriggerHandlerException: thrown when executing outside of a 
+trigger
 
 ---
 
@@ -289,7 +290,7 @@ TriggerHandlerException: thrown when executing outside of a,[object Object],trig
 `TESTVISIBLE`
 `SUPPRESSWARNINGS`
 
-context methods
+Virtual method for the implementing class to override
 
 #### Signature
 ```apex

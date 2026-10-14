@@ -68,7 +68,7 @@ public static void changeShippingStreet(List<Account> accounts, System.AccessLev
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accounts | List&lt;Account&gt; | List of account objects to change the shipping street on |
+| accounts | List<Account> | List of account objects to change the shipping street on |
 | accessLevel | System.AccessLevel |  |
 
 #### Return Type
@@ -96,11 +96,11 @@ public static List<Account> incrementCounterInDescription(List<Account> incoming
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| incomingAccounts | List&lt;Account&gt; | List of Account Objects. |
+| incomingAccounts | List<Account> | List of Account Objects. |
 | save | Boolean | Boolean determining if DML update is requested. |
 
 #### Return Type
-**List&lt;Account&gt;**
+**List<Account>**
 
 #### Example
 ```apex
@@ -127,7 +127,7 @@ private static void safelySave(List<Account> accounts)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accounts | List&lt;Account&gt; |  |
+| accounts | List<Account> |  |
 
 #### Return Type
 **void**

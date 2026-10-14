@@ -53,6 +53,8 @@ should not need to call this method or worry about its params. |
 #### Return Type
 **Messaging.InboundEmailResult**
 
+**See** [FilesRecipes](https://github.com/trailheadapps/apex-recipes/wiki/FilesRecipes)
+
 ---
 
 ### `createFilesByEmailAttachments(inboundAttachments, contactId)`
@@ -70,7 +72,7 @@ private void createFilesByEmailAttachments(List<Messaging.inboundEmail.BinaryAtt
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| inboundAttachments | List&lt;Messaging.inboundEmail.BinaryAttachment&gt; |  |
+| inboundAttachments | List<Messaging.inboundEmail.BinaryAttachment> |  |
 | contactId | Id |  |
 
 #### Return Type

@@ -22,7 +22,7 @@ private eventMap
 ```
 
 #### Type
-Map&lt;String,EventInfo&gt;
+Map<String,EventInfo>
 
 ## Constructors
 ### `PlatformEventPublishCallback(eventInfos)`
@@ -35,7 +35,7 @@ public PlatformEventPublishCallback(List<EventInfo> eventInfos)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| eventInfos | List&lt;EventInfo&gt; |  |
+| eventInfos | List<EventInfo> |  |
 
 ## Methods
 ### `onFailure(result)`
@@ -88,7 +88,7 @@ private void insertTask(List<String> eventUuids, Boolean isSuccess)
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| eventUuids | List&lt;String&gt; |  |
+| eventUuids | List<String> |  |
 | isSuccess | Boolean |  |
 
 #### Return Type

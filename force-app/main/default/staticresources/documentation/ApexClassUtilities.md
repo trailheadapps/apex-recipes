@@ -29,7 +29,7 @@ public static String getGroupFromClassBody(ApexClass klass)
 #### Return Type
 **String**
 
-Text following ,[object Object], through the end of the line.
+Text following `@group` through the end of the line.
 
 #### Example
 ```apex
@@ -55,9 +55,9 @@ public static List<String> getRelatedClassesFromClassBody(ApexClass klass)
 | klass | ApexClass | an ApexClass object |
 
 #### Return Type
-**List&lt;String&gt;**
+**List<String>**
 
-Values following ,[object Object], annotations
+Values following `@see` annotations
 
 #### Example
 ```apex
