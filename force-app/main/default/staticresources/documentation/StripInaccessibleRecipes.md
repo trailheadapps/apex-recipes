@@ -15,11 +15,11 @@ and objects from a queries results.
 
 #### Signature
 ```apex
-public static List<Campaign> stripInaccessibleFromQuery()
+public static List&lt;Campaign&gt; stripInaccessibleFromQuery()
 ```
 
 #### Return Type
-**List<Campaign>**
+**List&lt;Campaign&gt;**
 
 #### Example
 ```apex
@@ -36,11 +36,11 @@ also from related child objects that are queried in this case contacts.
 
 #### Signature
 ```apex
-public static List<Account> stripInaccessibleFromSubquery()
+public static List&lt;Account&gt; stripInaccessibleFromSubquery()
 ```
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
@@ -57,13 +57,13 @@ objects the do not have access to.
 
 #### Signature
 ```apex
-public static void stripInaccessibleBeforeDML(List<Contact> contacts)
+public static void stripInaccessibleBeforeDML(List&lt;Contact&gt; contacts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| contacts | List<Contact> | A list of Contacts |
+| contacts | List&lt;Contact&gt; | A list of Contacts |
 
 #### Return Type
 **void**
@@ -71,7 +71,7 @@ public static void stripInaccessibleBeforeDML(List<Contact> contacts)
 #### Example
 ```apex
 Contact[] contacts = new Contact[]();
-for(Integer i = 0, i < 5; i++){
+for(Integer i = 0, i &lt; 5; i++){
      contacts.add(new Contact(lastName='example last name' + i));
 }
 stripInaccessibleRecipes.stripInaccessibleBeforeDML(contacts);

@@ -66,19 +66,19 @@ persist a net-new record to the database.
 
 #### Signature
 ```apex
-public static List<Account> insertAccountsViaDatabaseMethod(List<String> names, Boolean allOrNothing, System.AccessLevel accessLevel)
+public static List&lt;Account&gt; insertAccountsViaDatabaseMethod(List&lt;String&gt; names, Boolean allOrNothing, System.AccessLevel accessLevel)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| names | List<String> | names used for account creation |
+| names | List&lt;String&gt; | names used for account creation |
 | allOrNothing | Boolean | determines whether or not all accounts 
 to be inserted must insert successfully |
 | accessLevel | System.AccessLevel |  |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 list of inserted accounts
 
@@ -180,16 +180,16 @@ DML keyword in System Mode
 
 #### Signature
 ```apex
-public static List<Account> updateAcccountViaKeywordInSystemMode(List<Account> accts)
+public static List&lt;Account&gt; updateAcccountViaKeywordInSystemMode(List&lt;Account&gt; accts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List<Account> | List of accounts to update |
+| accts | List&lt;Account&gt; | List of accounts to update |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 List of updated records
 
@@ -209,16 +209,16 @@ DML keyword
 
 #### Signature
 ```apex
-public static List<Account> updateAcccountViaKeywordInUserMode(List<Account> accts)
+public static List&lt;Account&gt; updateAcccountViaKeywordInUserMode(List&lt;Account&gt; accts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List<Account> | List of accounts to update |
+| accts | List&lt;Account&gt; | List of accounts to update |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 List of updated records
 
@@ -238,25 +238,25 @@ Demonstrates how to update a list of accounts via the
 
 #### Signature
 ```apex
-public static List<Account> updateAccountViaDatabaseMethod(List<Account> accts, System.AccessLevel accessLevel)
+public static List&lt;Account&gt; updateAccountViaDatabaseMethod(List&lt;Account&gt; accts, System.AccessLevel accessLevel)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List<Account> | list of accounts to update |
+| accts | List&lt;Account&gt; | list of accounts to update |
 | accessLevel | System.AccessLevel |  |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 List of updated records
 
 #### Example
 ```apex
-List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
+List&lt;Account&gt; accounts = new List&lt;Account&gt;{new Account(name = 'Hello World')};
 insert accounts;
-List<Account> results = DMLRecipes.updateAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
+List&lt;Account&gt; results = DMLRecipes.updateAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 System.debug(results);
 ```
 
@@ -268,20 +268,20 @@ Deletes a list of accounts via the `delete` DML keyword
 
 #### Signature
 ```apex
-public static void deleteAccountViaKeywordInSystemMode(List<Account> accts)
+public static void deleteAccountViaKeywordInSystemMode(List&lt;Account&gt; accts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List<Account> | list of accounts to delete in system mode |
+| accts | List&lt;Account&gt; | list of accounts to delete in system mode |
 
 #### Return Type
 **void**
 
 #### Example
 ```apex
-List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
+List&lt;Account&gt; accounts = new List&lt;Account&gt;{new Account(name = 'Hello World')};
 insert accounts;
 DMLRecipes.deleteAccountViaKeywordInSystemMode(accounts);
 ```
@@ -294,20 +294,20 @@ Deletes a list of accounts via the `delete` DML keyword
 
 #### Signature
 ```apex
-public static void deleteAccountViaKeywordInUserMode(List<Account> accts)
+public static void deleteAccountViaKeywordInUserMode(List&lt;Account&gt; accts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List<Account> | list of accounts to delete in user mode |
+| accts | List&lt;Account&gt; | list of accounts to delete in user mode |
 
 #### Return Type
 **void**
 
 #### Example
 ```apex
-List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
+List&lt;Account&gt; accounts = new List&lt;Account&gt;{new Account(name = 'Hello World')};
 insert accounts;
 DMLRecipes.deleteAccountViaKeywordInUserMode(accounts);
 ```
@@ -320,13 +320,13 @@ Deletes a list of accounts via the `Database.delete` method
 
 #### Signature
 ```apex
-public static void deleteAccountViaDatabaseMethod(List<Account> accts, System.AccessLevel accessLevel)
+public static void deleteAccountViaDatabaseMethod(List&lt;Account&gt; accts, System.AccessLevel accessLevel)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List<Account> | List of Accounts to delete |
+| accts | List&lt;Account&gt; | List of Accounts to delete |
 | accessLevel | System.AccessLevel |  |
 
 #### Return Type
@@ -334,7 +334,7 @@ public static void deleteAccountViaDatabaseMethod(List<Account> accts, System.Ac
 
 #### Example
 ```apex
-List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
+List&lt;Account&gt; accounts = new List&lt;Account&gt;{new Account(name = 'Hello World')};
 insert accounts in user mode;
 DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 ```
@@ -347,25 +347,25 @@ Undeletes a list of accounts via the `undelete` DML keyword
 
 #### Signature
 ```apex
-public static List<Account> undeleteAccountViaKeywordInSystemMode(List<Account> accts)
+public static List&lt;Account&gt; undeleteAccountViaKeywordInSystemMode(List&lt;Account&gt; accts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List<Account> | List of accounts to undelete in user mode |
+| accts | List&lt;Account&gt; | List of accounts to undelete in user mode |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 list of undeleted accounts
 
 #### Example
 ```apex
-List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
+List&lt;Account&gt; accounts = new List&lt;Account&gt;{new Account(name = 'Hello World')};
 insert accounts;
 delete accounts;
-List<Account> results = DMLRecipes.undeleteAccountViaKeywordInSystemMode(accounts);
+List&lt;Account&gt; results = DMLRecipes.undeleteAccountViaKeywordInSystemMode(accounts);
 System.debug(results);
 ```
 
@@ -377,25 +377,25 @@ Undeletes a list of accounts via the `undelete` DML keyword
 
 #### Signature
 ```apex
-public static List<Account> undeleteAccountViaKeywordInUserMode(List<Account> accts)
+public static List&lt;Account&gt; undeleteAccountViaKeywordInUserMode(List&lt;Account&gt; accts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List<Account> | List of accounts to undelete in user mode |
+| accts | List&lt;Account&gt; | List of accounts to undelete in user mode |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 list of undeleted accounts
 
 #### Example
 ```apex
-List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
+List&lt;Account&gt; accounts = new List&lt;Account&gt;{new Account(name = 'Hello World')};
 insert accounts;
 delete accounts;
-List<Account> results = DMLRecipes.undeleteAccountViaKeywordInUserMode(accounts);
+List&lt;Account&gt; results = DMLRecipes.undeleteAccountViaKeywordInUserMode(accounts);
 System.debug(results);
 ```
 
@@ -407,26 +407,26 @@ undeletes a list of accounts via the `Database.undelete` method.
 
 #### Signature
 ```apex
-public static List<Account> undeleteAccountViaDatabaseMethod(List<Account> accts, System.AccessLevel accessLevel)
+public static List&lt;Account&gt; undeleteAccountViaDatabaseMethod(List&lt;Account&gt; accts, System.AccessLevel accessLevel)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accts | List<Account> | list of accounts to undelete |
+| accts | List&lt;Account&gt; | list of accounts to undelete |
 | accessLevel | System.AccessLevel |  |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 list of undeleted accounts
 
 #### Example
 ```apex
-List<Account> accounts = new List<Account>{new Account(name = 'Hello World')};
+List&lt;Account&gt; accounts = new List&lt;Account&gt;{new Account(name = 'Hello World')};
 insert accounts;
 delete accounts;
-List<Account> results = DMLRecipes.undeleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
+List&lt;Account&gt; results = DMLRecipes.undeleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 System.debug(results);
 ```
 

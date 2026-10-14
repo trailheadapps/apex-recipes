@@ -24,7 +24,7 @@ we&#x27;re ok.
 
 #### Signature
 ```apex
-public static List<String> getRelatedClasses(String mainClassName)
+public static List&lt;String&gt; getRelatedClasses(String mainClassName)
 ```
 
 #### Parameters
@@ -33,7 +33,7 @@ public static List<String> getRelatedClasses(String mainClassName)
 | mainClassName | String | The name of the class to inspect |
 
 #### Return Type
-**List<String>**
+**List&lt;String&gt;**
 
 #### Example
 ```apex

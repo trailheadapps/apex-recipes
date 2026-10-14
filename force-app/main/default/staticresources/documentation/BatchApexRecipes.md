@@ -11,7 +11,7 @@ https://sfdc.co/batch_interface
 
 **Implements**
 
-Database.Batchable<SObject>, 
+Database.Batchable&lt;SObject&gt;, 
 Database.Stateful
 
 ## Fields
@@ -23,7 +23,7 @@ private successes
 ```
 
 #### Type
-List<Id>
+List&lt;Id&gt;
 
 ---
 
@@ -35,7 +35,7 @@ private failures
 ```
 
 #### Type
-List<Id>
+List&lt;Id&gt;
 
 ---
 
@@ -115,7 +115,7 @@ per batch.
 
 #### Signature
 ```apex
-public void execute(Database.BatchableContext context, List<Account> scope)
+public void execute(Database.BatchableContext context, List&lt;Account&gt; scope)
 ```
 
 #### Parameters
@@ -124,7 +124,7 @@ public void execute(Database.BatchableContext context, List<Account> scope)
 | context | Database.BatchableContext | dependency injected by the system in this batch. It&#x27;s this 
 mechanism of breaking a large number of records into smaller batches 
 called scope (in this example) that make this easier. |
-| scope | List<Account> | a list of up to 200 SObject records to be processed |
+| scope | List&lt;Account&gt; | a list of up to 200 SObject records to be processed |
 
 #### Return Type
 **void**

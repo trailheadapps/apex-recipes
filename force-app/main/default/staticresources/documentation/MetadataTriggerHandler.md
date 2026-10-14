@@ -69,7 +69,7 @@ private tryggers
 ```
 
 #### Type
-List<Metadata_Driven_Trigger__mdt>
+List&lt;Metadata_Driven_Trigger__mdt&gt;
 
 ---
 

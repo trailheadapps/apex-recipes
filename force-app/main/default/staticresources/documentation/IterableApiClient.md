@@ -8,7 +8,7 @@ Demonstrates an interable REST API client that loads paginated records (strings)
 
 **Implements**
 
-Iterable<RecordPage>
+Iterable&lt;RecordPage&gt;
 
 ## Fields
 ### `RESPONSE_PAGE_SIZE`
@@ -61,11 +61,11 @@ Returns an iterator on RecordPage
 
 #### Signature
 ```apex
-public Iterator<RecordPage> iterator()
+public Iterator&lt;RecordPage&gt; iterator()
 ```
 
 #### Return Type
-**Iterator<RecordPage>**
+**Iterator&lt;RecordPage&gt;**
 
 ---
 
@@ -103,7 +103,7 @@ as convient, syntactic sugar on this method.
 
 #### Signature
 ```apex
-protected HttpResponse makeApiCall(HttpVerb method, String path, String query, String body, Map<String,String> headers)
+protected HttpResponse makeApiCall(HttpVerb method, String path, String query, String body, Map&lt;String,String&gt; headers)
 ```
 
 #### Parameters
@@ -113,7 +113,7 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query, S
 | path | String | patch component of the callout url i.e. `/services/data/v39.0/SObjects` |
 | query | String | Query portion of the URL i.e. `?q=SELECT Id FROM Account` |
 | body | String | JSON string representing the body of the callout in post/patch situations |
-| headers | Map<String,String> | A map&lt;String,String&gt; of headers to use while making this callout |
+| headers | Map&lt;String,String&gt; | A map&lt;String,String&gt; of headers to use while making this callout |
 
 #### Return Type
 **HttpResponse**
@@ -486,7 +486,7 @@ A static wrapper for the main makeApiCall method
 
 #### Signature
 ```apex
-public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path, String query, String body, Map<String,String> headers)
+public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path, String query, String body, Map&lt;String,String&gt; headers)
 ```
 
 #### Parameters
@@ -497,7 +497,7 @@ public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, 
 | path | String | Http path component of the URL. ie: `/path/to/resource` |
 | query | String | Query component of the URL ie: after `?foo=bar` |
 | body | String | JSON string to post |
-| headers | Map<String,String> | Map&lt;String,String&gt; representing outgoing Request 
+| headers | Map&lt;String,String&gt; | Map&lt;String,String&gt; representing outgoing Request 
 headers |
 
 #### Return Type
@@ -510,7 +510,7 @@ System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
                                      'volumes',
                                      'q=salesforce',
                                      '',
-                                     new Map<String,String>()));
+                                     new Map&lt;String,String&gt;()));
 ```
 
 ---
@@ -592,7 +592,7 @@ It uses IterableApiClient to perform REST requests to load the record pages.
 
 **Implements**
 
-Iterator<RecordPage>
+Iterator&lt;RecordPage&gt;
 
 #### Fields
 ##### `client`
@@ -678,7 +678,7 @@ private records
 ```
 
 ###### Type
-List<String>
+List&lt;String&gt;
 
 ---
 
@@ -697,8 +697,8 @@ Integer
 
 ###### Signature
 ```apex
-public List<String> getRecords()
+public List&lt;String&gt; getRecords()
 ```
 
 ###### Return Type
-**List<String>**
+**List&lt;String&gt;**

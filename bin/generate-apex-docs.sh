@@ -18,6 +18,9 @@ find docs/* -mindepth 1 -type f -exec mv -i '{}' docs ';' && \
 # Remove empty folders
 find docs/* -type d -empty -delete && \
 
+# Escape < and > characters
+find docs/ -type f -name "*.md" -print0 | xargs -0 sed -i "" -E "s/</\&lt;/g; s/>/\&gt;/g" && \
+
 # Replace relative links and remove .md extension
 find docs/ -type f -name "*.md" -print0 | xargs -0 sed -i "" -E "s@]\(\.\/(.*)\.md@](https://github.com/trailheadapps/apex-recipes/wiki/\1@g" && \
 find docs/ -type f -name "*.md" -print0 | xargs -0 sed -i "" -E "s@\]\(\.\.\/.*\/(.*)\.md@](https://github.com/trailheadapps/apex-recipes/wiki/\1@g" && \

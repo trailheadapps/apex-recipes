@@ -20,7 +20,7 @@ private incomingRecords
 ```
 
 #### Type
-List<Log__e>
+List&lt;Log__e&gt;
 
 ---
 

@@ -41,11 +41,11 @@ for all or selected individuals *without* deploying.
 
 #### Signature
 ```apex
-public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers()
+public List&lt;Metadata_Driven_Trigger__mdt&gt; getMetadataTriggers()
 ```
 
 #### Return Type
-**List<Metadata_Driven_Trigger__mdt>**
+**List&lt;Metadata_Driven_Trigger__mdt&gt;**
 
 ---
 

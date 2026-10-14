@@ -19,7 +19,7 @@ private static loopCountMap
 ```
 
 #### Type
-Map<String,LoopCount>
+Map&lt;String,LoopCount&gt;
 
 ---
 
@@ -31,7 +31,7 @@ private static bypassedHandlers
 ```
 
 #### Type
-Set<String>
+Set&lt;String&gt;
 
 ---
 

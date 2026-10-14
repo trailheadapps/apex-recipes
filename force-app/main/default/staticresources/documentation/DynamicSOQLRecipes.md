@@ -20,11 +20,11 @@ does not include any input parameters so SOQL Injection is not possible.
 
 #### Signature
 ```apex
-public static List<Account> simpleDynamicSOQLQuery()
+public static List&lt;Account&gt; simpleDynamicSOQLQuery()
 ```
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 Account list with security enforced using `USER_MODE`
 
@@ -43,7 +43,7 @@ must be sanitized against SOQL injections
 
 #### Signature
 ```apex
-public static List<Account> simpleBindingSOQLQuery(String name)
+public static List&lt;Account&gt; simpleBindingSOQLQuery(String name)
 ```
 
 #### Parameters
@@ -52,7 +52,7 @@ public static List<Account> simpleBindingSOQLQuery(String name)
 | name | String | Name of the account to search for |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
@@ -69,7 +69,7 @@ input (name param), it must be sanitized against SOQL injections
 
 #### Signature
 ```apex
-public static List<Account> dynamicFieldsBindingSOQLQuery(Account acct)
+public static List&lt;Account&gt; dynamicFieldsBindingSOQLQuery(Account acct)
 ```
 
 #### Parameters
@@ -78,7 +78,7 @@ public static List<Account> dynamicFieldsBindingSOQLQuery(Account acct)
 | acct | Account | Account to base the search off of |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
@@ -108,7 +108,7 @@ integer will throw an exception.
 
 #### Signature
 ```apex
-public static List<Account> typecastDataIntelligently(String numberOfRecords)
+public static List&lt;Account&gt; typecastDataIntelligently(String numberOfRecords)
 ```
 
 #### Parameters
@@ -117,7 +117,7 @@ public static List<Account> typecastDataIntelligently(String numberOfRecords)
 | numberOfRecords | String | String to be used as the comparison in the query |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
@@ -153,21 +153,21 @@ contexts where input sanitization is unlikey or impossible.
 
 #### Signature
 ```apex
-public static List<Account> simpleQueryBuilder(List<String> fields, String whereClause)
+public static List&lt;Account&gt; simpleQueryBuilder(List&lt;String&gt; fields, String whereClause)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| fields | List<String> | A list of String field names to include in the query |
+| fields | List&lt;String&gt; | A list of String field names to include in the query |
 | whereClause | String | A string containing the where clause |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
-List<String> fields = new List<String>{
+List&lt;String&gt; fields = new List&lt;String&gt;{
       'Name',
       'NumberOfEmployees',
       'BillingAddress'
@@ -176,7 +176,7 @@ String whereClause =
       'id = \'' +
       String.escapeSingleQuotes(acctId) +
       '\'';
-List<Account> results = DynamicSOQLRecipes.simpleQueryBuilder(
+List&lt;Account&gt; results = DynamicSOQLRecipes.simpleQueryBuilder(
       fields,
       whereClause
   );

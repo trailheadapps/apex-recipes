@@ -12,13 +12,13 @@ Uses the `dw/jsonDateFormat.dwl` DataWeave script.
 
 #### Signature
 ```apex
-public static String formatDateInJson(List<Contact> contacts)
+public static String formatDateInJson(List&lt;Contact&gt; contacts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| contacts | List<Contact> | list of contacts to convert into JSON |
+| contacts | List&lt;Contact&gt; | list of contacts to convert into JSON |
 
 #### Return Type
 **String**

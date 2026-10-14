@@ -14,7 +14,7 @@ Uses the `/dw/csvToContacts.dwl` DataWeave script.
 
 #### Signature
 ```apex
-public static List<Contact> convertCsvToContacts(String inputCsv)
+public static List&lt;Contact&gt; convertCsvToContacts(String inputCsv)
 ```
 
 #### Parameters
@@ -23,7 +23,7 @@ public static List<Contact> convertCsvToContacts(String inputCsv)
 | inputCsv | String | CSV data to tranform |
 
 #### Return Type
-**List<Contact>**
+**List&lt;Contact&gt;**
 
 List of contact records
 
@@ -36,7 +36,7 @@ Uses the `/dw/jsonToContacts.dwl` DataWeave script.
 
 #### Signature
 ```apex
-public static List<Contact> convertJsonToContacts(String inputJson)
+public static List&lt;Contact&gt; convertJsonToContacts(String inputJson)
 ```
 
 #### Parameters
@@ -45,7 +45,7 @@ public static List<Contact> convertJsonToContacts(String inputJson)
 | inputJson | String | JSON data to tranform |
 
 #### Return Type
-**List<Contact>**
+**List&lt;Contact&gt;**
 
 List of contact records
 
@@ -58,7 +58,7 @@ Uses the `/dw/csvToApexObject.dwl` DataWeave script.
 
 #### Signature
 ```apex
-public static List<CsvData> convertCsvToApexObject(String inputCsv)
+public static List&lt;CsvData&gt; convertCsvToApexObject(String inputCsv)
 ```
 
 #### Parameters
@@ -67,6 +67,6 @@ public static List<CsvData> convertCsvToApexObject(String inputCsv)
 | inputCsv | String | CSV data to tranform |
 
 #### Return Type
-**List<CsvData>**
+**List&lt;CsvData&gt;**
 
 List of Apex `CsvData` objects

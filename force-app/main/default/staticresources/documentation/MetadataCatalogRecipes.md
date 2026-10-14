@@ -21,15 +21,15 @@ querying.
 
 #### Signature
 ```apex
-public static Map<String,Map<String,String>> findAllFormulaFields()
+public static Map&lt;String,Map&lt;String,String&gt;&gt; findAllFormulaFields()
 ```
 
 #### Return Type
-**Map<String,Map<String,String>>**
+**Map&lt;String,Map&lt;String,String&gt;&gt;**
 
 #### Example
 ```apex
-Map<String, Map<String, String>> results =
+Map&lt;String, Map&lt;String, String&gt;&gt; results =
      MetadataCatalogRecipes.findAllFormulaFields();
 System.debug(results);
 ```
@@ -51,15 +51,15 @@ querying.
 
 #### Signature
 ```apex
-public static List<MetadataCatalogRecipes.LookupRelationshipDefinition> findAllContactFieldsThatLookupToAccount()
+public static List&lt;MetadataCatalogRecipes.LookupRelationshipDefinition&gt; findAllContactFieldsThatLookupToAccount()
 ```
 
 #### Return Type
-**List<MetadataCatalogRecipes.LookupRelationshipDefinition>**
+**List&lt;MetadataCatalogRecipes.LookupRelationshipDefinition&gt;**
 
 #### Example
 ```apex
-List<MetadataCatalogRecipes.LookupRelationshipDefinition> results =
+List&lt;MetadataCatalogRecipes.LookupRelationshipDefinition&gt; results =
      MetadataCatalogRecipes.findAllContactFieldsThatLookupToAccount();
 System.debug(results);
 ```

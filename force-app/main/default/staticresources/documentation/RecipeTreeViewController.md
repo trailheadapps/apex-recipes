@@ -16,7 +16,7 @@ private static groupToListOfNames
 ```
 
 #### Type
-Map<String,List<String>>
+Map&lt;String,List&lt;String&gt;&gt;
 
 ---
 
@@ -45,11 +45,11 @@ for our supporting, shared code.
 
 #### Signature
 ```apex
-public static List<RecipeTreeData> generateTreeData()
+public static List&lt;RecipeTreeData&gt; generateTreeData()
 ```
 
 #### Return Type
-**List<RecipeTreeData>**
+**List&lt;RecipeTreeData&gt;**
 
 list of RecipeTreeData objects
 
@@ -74,11 +74,11 @@ we&#x27;re ok.
 
 #### Signature
 ```apex
-private static Map<String,List<String>> generateMapOfGroupToListOfNames()
+private static Map&lt;String,List&lt;String&gt;&gt; generateMapOfGroupToListOfNames()
 ```
 
 #### Return Type
-**Map<String,List<String>>**
+**Map&lt;String,List&lt;String&gt;&gt;**
 
 map containing Group names as the Keys tied to a List of class names.
 

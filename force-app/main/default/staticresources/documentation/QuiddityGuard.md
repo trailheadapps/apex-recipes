@@ -34,7 +34,7 @@ public static trustedQuiddities
 ```
 
 #### Type
-List<Quiddity>
+List&lt;Quiddity&gt;
 
 ---
 
@@ -49,7 +49,7 @@ public static trustedTestQuiddities
 ```
 
 #### Type
-List<Quiddity>
+List&lt;Quiddity&gt;
 
 ---
 
@@ -64,7 +64,7 @@ public static untrustedQuiddities
 ```
 
 #### Type
-List<Quiddity>
+List&lt;Quiddity&gt;
 
 ## Methods
 ### `isAcceptableQuiddity(acceptableQuiddites)`
@@ -74,13 +74,13 @@ within a caller-supplied list of acceptable quiddity values.
 
 #### Signature
 ```apex
-public static Boolean isAcceptableQuiddity(List<Quiddity> acceptableQuiddites)
+public static Boolean isAcceptableQuiddity(List&lt;Quiddity&gt; acceptableQuiddites)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| acceptableQuiddites | List<Quiddity> | A list of quiddities to check against |
+| acceptableQuiddites | List&lt;Quiddity&gt; | A list of quiddities to check against |
 
 #### Return Type
 **Boolean**
@@ -91,13 +91,13 @@ public static Boolean isAcceptableQuiddity(List<Quiddity> acceptableQuiddites)
 
 #### Signature
 ```apex
-public static Boolean isNotAcceptableQuiddity(List<Quiddity> acceptableQuiddites)
+public static Boolean isNotAcceptableQuiddity(List&lt;Quiddity&gt; acceptableQuiddites)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| acceptableQuiddites | List<Quiddity> |  |
+| acceptableQuiddites | List&lt;Quiddity&gt; |  |
 
 #### Return Type
 **Boolean**

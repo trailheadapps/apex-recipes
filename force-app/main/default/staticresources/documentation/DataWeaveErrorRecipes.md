@@ -28,13 +28,13 @@ Uses the `dw/excelOutputError.dwl` DataWeave script.
 
 #### Signature
 ```apex
-public static DataWeave.Result convertContactsToExcel(List<Contact> contacts)
+public static DataWeave.Result convertContactsToExcel(List&lt;Contact&gt; contacts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| contacts | List<Contact> | list of contacts |
+| contacts | List&lt;Contact&gt; | list of contacts |
 
 #### Return Type
 **DataWeave.Result**

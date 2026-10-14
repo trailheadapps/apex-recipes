@@ -36,7 +36,7 @@ private methods
 ```
 
 #### Type
-List<Method>
+List&lt;Method&gt;
 
 ---
 
@@ -122,7 +122,7 @@ appropriate Method object - matched by name and params.
 
 #### Signature
 ```apex
-public Object handleMethodCall(Object stubbedObject, String stubbedMethodName, Type returnType, List<System.Type> listOfParamTypes, List<String> listOfParamNames, List<Object> listOfArgs)
+public Object handleMethodCall(Object stubbedObject, String stubbedMethodName, Type returnType, List&lt;System.Type&gt; listOfParamTypes, List&lt;String&gt; listOfParamNames, List&lt;Object&gt; listOfArgs)
 ```
 
 #### Parameters
@@ -131,9 +131,9 @@ public Object handleMethodCall(Object stubbedObject, String stubbedMethodName, T
 | stubbedObject | Object | - This is the object being stubbed |
 | stubbedMethodName | String | - This is the name of the Method being stubbed |
 | returnType | Type | - Return type |
-| listOfParamTypes | List<System.Type> | - List of parameter types |
-| listOfParamNames | List<String> | - List of parameter names |
-| listOfArgs | List<Object> | - List of parameter values |
+| listOfParamTypes | List&lt;System.Type&gt; | - List of parameter types |
+| listOfParamNames | List&lt;String&gt; | - List of parameter names |
+| listOfArgs | List&lt;Object&gt; | - List of parameter values |
 
 #### Return Type
 **Object**
@@ -221,7 +221,7 @@ private listOfParamTypes
 ```
 
 ###### Type
-List<Type>
+List&lt;Type&gt;
 
 ---
 
@@ -233,7 +233,7 @@ private listOfParamNames
 ```
 
 ###### Type
-List<String>
+List&lt;String&gt;
 
 ---
 
@@ -245,7 +245,7 @@ private listOfArgs
 ```
 
 ###### Type
-List<Object>
+List&lt;Object&gt;
 
 #### Constructors
 ##### `Method(methodName)`
@@ -270,13 +270,13 @@ definition. If added,
 
 ###### Signature
 ```apex
-public Method withParamTypes(List<Type> paramTypes)
+public Method withParamTypes(List&lt;Type&gt; paramTypes)
 ```
 
 ###### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| paramTypes | List<Type> |  |
+| paramTypes | List&lt;Type&gt; |  |
 
 ###### Return Type
 **Method**
@@ -287,13 +287,13 @@ public Method withParamTypes(List<Type> paramTypes)
 
 ###### Signature
 ```apex
-public Method withParamNames(List<String> paramNames)
+public Method withParamNames(List&lt;String&gt; paramNames)
 ```
 
 ###### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| paramNames | List<String> |  |
+| paramNames | List&lt;String&gt; |  |
 
 ###### Return Type
 **Method**
@@ -304,13 +304,13 @@ public Method withParamNames(List<String> paramNames)
 
 ###### Signature
 ```apex
-public Method withArgs(List<Object> args)
+public Method withArgs(List&lt;Object&gt; args)
 ```
 
 ###### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| args | List<Object> |  |
+| args | List&lt;Object&gt; |  |
 
 ###### Return Type
 **Method**

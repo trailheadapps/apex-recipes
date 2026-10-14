@@ -52,7 +52,7 @@ private objectsToProcess
 ```
 
 #### Type
-List<ContentDocumentLink>
+List&lt;ContentDocumentLink&gt;
 
 ---
 
@@ -129,7 +129,7 @@ us to prevent full table scans even on the largest tables.
 
 #### Signature
 ```apex
-private List<ContentDocumentLink> getRecordsToProcess(Id offsetId)
+private List&lt;ContentDocumentLink&gt; getRecordsToProcess(Id offsetId)
 ```
 
 #### Parameters
@@ -139,7 +139,7 @@ private List<ContentDocumentLink> getRecordsToProcess(Id offsetId)
 records. |
 
 #### Return Type
-**List<ContentDocumentLink>**
+**List&lt;ContentDocumentLink&gt;**
 
 ---
 

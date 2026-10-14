@@ -8,7 +8,7 @@ that can be exposed to the Salesforce API. In order to achieve this, we can
 annotate the class with `@RestResource` and then provide a URL mapping. In 
 this example we are using `/integration-service/*` to expose the class. It can 
 then be accessed at by performing a callout to 
- `<INSTANCEURL>/services/apexrest/integration-service` . Once the class has been 
+ `&lt;INSTANCEURL&gt;/services/apexrest/integration-service` . Once the class has been 
 designated as a REST resource, we can then annoate our apex methods with 
  `@HttpGet` , `@HttpDelete` , `@HttpPut` , `@HttpPost` , and `@HttpPatch` to enable access 
 via it&#x27;s relative Http Method. 
@@ -86,7 +86,7 @@ JSON string holding the list of Accounts or the exception message
 
 #### Example
 ```sh
-curl -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/integration-service"
+curl -H "Authorization: Bearer &lt;SessionID&gt;" "https://&lt;Org Base URL&gt;/services/apexrest/integration-service"
 ```
 
 ---
@@ -119,7 +119,7 @@ JSON string holding a success message or the exception message
 
 #### Example
 ```sh
-curl —X DELETE -H "Authorization: Bearer <SessionID>" "https://<Org Base URL>/services/apexrest/integration-service"
+curl —X DELETE -H "Authorization: Bearer &lt;SessionID&gt;" "https://&lt;Org Base URL&gt;/services/apexrest/integration-service"
 ```
 
 ---
@@ -159,7 +159,7 @@ Create file with the following JSON, named `newContact.json`
 ```
 
 ```sh
-curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
+curl -H "Authorization: Bearer &lt;SessionID&gt;" -H "Content-Type: application/json" -d @newContact.json "https://&lt;Org Base URL&gt;/services/apexrest/integration-service"
 ```
 
 ---
@@ -201,12 +201,12 @@ Create file with the following JSON, named `newContact.json`
 ```
 
 ```sh
-curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
+curl -H "Authorization: Bearer &lt;SessionID&gt;" -H "Content-Type: application/json" -d @newContact.json "https://&lt;Org Base URL&gt;/services/apexrest/integration-service"
 ```
 
 Then, modify the first name of your `newContact.json` file so it says `Apex2` and run 
 ```sh
-curl —X PUT -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
+curl —X PUT -H "Authorization: Bearer &lt;SessionID&gt;" -H "Content-Type: application/json" -d @newContact.json "https://&lt;Org Base URL&gt;/services/apexrest/integration-service"
 ```
 
 ---
@@ -248,10 +248,10 @@ Create file with the following JSON, named `newContact.json`
 ```
 
 ```sh
-curl -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
+curl -H "Authorization: Bearer &lt;SessionID&gt;" -H "Content-Type: application/json" -d @newContact.json "https://&lt;Org Base URL&gt;/services/apexrest/integration-service"
 ```
 
 Then, modify the first name of your `newContact.json` file so it says `Apex2` and run 
 ```sh
-curl —X PATCH -H "Authorization: Bearer <SessionID>" -H "Content-Type: application/json" -d @newContact.json "https://<Org Base URL>/services/apexrest/integration-service"
+curl —X PATCH -H "Authorization: Bearer &lt;SessionID&gt;" -H "Content-Type: application/json" -d @newContact.json "https://&lt;Org Base URL&gt;/services/apexrest/integration-service"
 ```

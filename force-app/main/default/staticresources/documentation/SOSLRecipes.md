@@ -18,11 +18,11 @@ See SOSLRecipes_Tests.cls for more information
 
 #### Signature
 ```apex
-public static List<List<SObject>> basicSOSLSearch()
+public static List&lt;List&lt;SObject&gt;&gt; basicSOSLSearch()
 ```
 
 #### Return Type
-**List<List<SObject>>**
+**List&lt;List&lt;SObject&gt;&gt;**
 
 #### Example
 ```apex
@@ -38,11 +38,11 @@ name fields
 
 #### Signature
 ```apex
-public static List<List<SObject>> nameFieldSearch()
+public static List&lt;List&lt;SObject&gt;&gt; nameFieldSearch()
 ```
 
 #### Return Type
-**List<List<SObject>>**
+**List&lt;List&lt;SObject&gt;&gt;**
 
 #### Example
 ```apex

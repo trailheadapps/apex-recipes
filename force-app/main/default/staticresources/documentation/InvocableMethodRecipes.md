@@ -22,16 +22,16 @@ of the query are converted to a Result object and returned.
 
 #### Signature
 ```apex
-public static List<ContactSearchResult> findRelatedContacts(List<ContactSearchRequest> inputParams)
+public static List&lt;ContactSearchResult&gt; findRelatedContacts(List&lt;ContactSearchRequest&gt; inputParams)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| inputParams | List<ContactSearchRequest> | A list of ContactSearchRequest objects |
+| inputParams | List&lt;ContactSearchRequest&gt; | A list of ContactSearchRequest objects |
 
 #### Return Type
-**List<ContactSearchResult>**
+**List&lt;ContactSearchResult&gt;**
 
 #### Example
 From Apex: 
@@ -41,7 +41,7 @@ insert account;
 Contact contact = new Contact(accountId = account.id, firstName='Kevin', lastName='Awesome');
 insert contact;
 InvocableMethodRecipes.ContactSearchRequest csr = new InvocableMethodRecipes.ContactSearchRequest();
-csr.inputs = new List<sObject>{account};
+csr.inputs = new List&lt;sObject&gt;{account};
 InvocableMethodRecipes.ContactSearchResult results = InvocableMethodRecipes.findRelatedContacts(csr);
 System.debug(results.output);
 ```
@@ -66,7 +66,7 @@ public inputs
 ```
 
 ###### Type
-List<SObject>
+List&lt;SObject&gt;
 
 ### ContactSearchResult Class
 

@@ -28,7 +28,7 @@ a map context, the concrete sObject type is not lost.
 
 #### Signature
 ```apex
-public static Map<Id,SObject> idMapFromCollectionByKey(String key, List<SObject> incomingList)
+public static Map&lt;Id,SObject&gt; idMapFromCollectionByKey(String key, List&lt;SObject&gt; incomingList)
 ```
 
 #### Parameters
@@ -36,16 +36,16 @@ public static Map<Id,SObject> idMapFromCollectionByKey(String key, List<SObject>
 |------|------|-------------|
 | key | String | String representation of the field name to use as the Key. 
 This must be of type Id for this method. |
-| incomingList | List<SObject> | Any list of objects that can be cast to a list of 
+| incomingList | List&lt;SObject&gt; | Any list of objects that can be cast to a list of 
 sObjects |
 
 #### Return Type
-**Map<Id,SObject>**
+**Map&lt;Id,SObject&gt;**
 
 #### Example
 ```apex
 Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
-Map<Id, Contact> contactsByAccountId = (Map<Id, Contact>) CollectionUtils.idMapFromCollectionByKey('accountId', contacts);
+Map&lt;Id, Contact&gt; contactsByAccountId = (Map&lt;Id, Contact&gt;) CollectionUtils.idMapFromCollectionByKey('accountId', contacts);
 ```
 
 ---
@@ -59,22 +59,22 @@ of the key&#x27;s value when using this.
 
 #### Signature
 ```apex
-public static Map<String,SObject> stringMapFromCollectionByKey(String key, List<SObject> incomingList)
+public static Map&lt;String,SObject&gt; stringMapFromCollectionByKey(String key, List&lt;SObject&gt; incomingList)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
 | key | String | String field name of a field who&#x27;s value is castable to String. |
-| incomingList | List<SObject> | List of incoming sObjects to build the map from |
+| incomingList | List&lt;SObject&gt; | List of incoming sObjects to build the map from |
 
 #### Return Type
-**Map<String,SObject>**
+**Map&lt;String,SObject&gt;**
 
 #### Example
 ```apex
 Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
-Map<String, Contact> contactsByAccountId = (Map<String, Contact>) CollectionUtils.stringMapFromCollectionByKey('shippingStreet', contacts);
+Map&lt;String, Contact&gt; contactsByAccountId = (Map&lt;String, Contact&gt;) CollectionUtils.stringMapFromCollectionByKey('shippingStreet', contacts);
 ```
 
 ---
@@ -88,22 +88,22 @@ and get a Map of AccountIds to a List&lt;Contacts&gt;.
 
 #### Signature
 ```apex
-public static Map<Id,List<SObject>> mapFromCollectionWithCollectionValues(String key, List<SObject> incomingList)
+public static Map&lt;Id,List&lt;SObject&gt;&gt; mapFromCollectionWithCollectionValues(String key, List&lt;SObject&gt; incomingList)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
 | key | String | String name of an field that is of the ID type. |
-| incomingList | List<SObject> | List of sObjects to build the map from. |
+| incomingList | List&lt;SObject&gt; | List of sObjects to build the map from. |
 
 #### Return Type
-**Map<Id,List<SObject>>**
+**Map&lt;Id,List&lt;SObject&gt;&gt;**
 
 #### Example
 ```apex
 Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
-Map<Id, List<Contact>> contactsByAccountId = (Map<Id, List<Contact>>) CollectionUtils.mapFromCollectionWithCollectionValues('accountId', contacts);
+Map&lt;Id, List&lt;Contact&gt;&gt; contactsByAccountId = (Map&lt;Id, List&lt;Contact&gt;&gt;) CollectionUtils.mapFromCollectionWithCollectionValues('accountId', contacts);
 ```
 
 ---
@@ -112,13 +112,13 @@ Map<Id, List<Contact>> contactsByAccountId = (Map<Id, List<Contact>>) Collection
 
 #### Signature
 ```apex
-private static String getSobjectTypeFromList(List<SObject> incomingList)
+private static String getSobjectTypeFromList(List&lt;SObject&gt; incomingList)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| incomingList | List<SObject> |  |
+| incomingList | List&lt;SObject&gt; |  |
 
 #### Return Type
 **String**

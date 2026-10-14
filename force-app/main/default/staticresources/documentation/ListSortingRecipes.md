@@ -18,13 +18,13 @@ by shipping address in ascending alphabetical order
 
 #### Signature
 ```apex
-public static void sortAccountsByShippingCountry(List<Account> accounts)
+public static void sortAccountsByShippingCountry(List&lt;Account&gt; accounts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accounts | List<Account> | a list of accounts that will be sorted in place |
+| accounts | List&lt;Account&gt; | a list of accounts that will be sorted in place |
 
 #### Return Type
 **void**
@@ -40,13 +40,13 @@ by shipping address in descending alphabetical order
 
 #### Signature
 ```apex
-public static void sortAccountsByShippingCountryInDescending(List<Account> accounts)
+public static void sortAccountsByShippingCountryInDescending(List&lt;Account&gt; accounts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accounts | List<Account> | a list of accounts that will be sorted in place |
+| accounts | List&lt;Account&gt; | a list of accounts that will be sorted in place |
 
 #### Return Type
 **void**
@@ -62,13 +62,13 @@ by employee number in the ascending order
 
 #### Signature
 ```apex
-public static void sortAccountsByNumberOfEmployees(List<Account> accounts)
+public static void sortAccountsByNumberOfEmployees(List&lt;Account&gt; accounts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accounts | List<Account> | a list of accounts that will be sorted in place |
+| accounts | List&lt;Account&gt; | a list of accounts that will be sorted in place |
 
 #### Return Type
 **void**

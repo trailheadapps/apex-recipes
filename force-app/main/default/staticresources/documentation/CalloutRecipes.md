@@ -83,11 +83,11 @@ Accounts.
 
 #### Signature
 ```apex
-public List<Account> httpGetCalloutToSecondOrg()
+public List&lt;Account&gt; httpGetCalloutToSecondOrg()
 ```
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
@@ -137,13 +137,13 @@ We will serilaize the list and POST it in body of the callout.
 
 #### Signature
 ```apex
-public Integer httpPostCalloutToSecondOrg(List<Contact> contactRecords)
+public Integer httpPostCalloutToSecondOrg(List&lt;Contact&gt; contactRecords)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| contactRecords | List<Contact> | a list of contact records to be inserted in the 
+| contactRecords | List&lt;Contact&gt; | a list of contact records to be inserted in the 
 second salesforce org |
 
 #### Return Type
@@ -151,7 +151,7 @@ second salesforce org |
 
 #### Example
 ```apex
-List<Contact> contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
+List&lt;Contact&gt; contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
 System.debug(CalloutRecipes.httpPostCalloutToSecondOrg(contacts));
 ```
 
@@ -165,13 +165,13 @@ example, we will be sending a list of contact records to a second org.
 
 #### Signature
 ```apex
-public Integer httpPutCalloutToSecondOrg(List<Contact> contactRecords)
+public Integer httpPutCalloutToSecondOrg(List&lt;Contact&gt; contactRecords)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| contactRecords | List<Contact> | a list of contact records to be upsert in the 
+| contactRecords | List&lt;Contact&gt; | a list of contact records to be upsert in the 
 second salesforce org |
 
 #### Return Type
@@ -179,7 +179,7 @@ second salesforce org |
 
 #### Example
 ```apex
-List<Contact> contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
+List&lt;Contact&gt; contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
 System.debug(CalloutRecipes.httpPutCalloutToSecondOrg(contacts));
 ```
 
@@ -194,13 +194,13 @@ Account records to a second salesforce org for updating.
 
 #### Signature
 ```apex
-public Integer httpPatchCalloutToSecondOrg(List<Account> accountRecords)
+public Integer httpPatchCalloutToSecondOrg(List&lt;Account&gt; accountRecords)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accountRecords | List<Account> | a list of account records to be updated in the 
+| accountRecords | List&lt;Account&gt; | a list of account records to be updated in the 
 second salesforce org |
 
 #### Return Type
@@ -210,7 +210,7 @@ The status of the callout
 
 #### Example
 ```apex
-List<Contact> contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
+List&lt;Contact&gt; contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
 System.debug(CalloutRecipes.httpPatchCalloutToSecondOrg(contacts));
 ```
 
@@ -227,11 +227,11 @@ by using a deserializeUntyped method to convert the string.
 
 #### Signature
 ```apex
-public Map<String,Object> httpCalloutWithUntypedResponse()
+public Map&lt;String,Object&gt; httpCalloutWithUntypedResponse()
 ```
 
 #### Return Type
-**Map<String,Object>**
+**Map&lt;String,Object&gt;**
 
 #### Example
 ```apex
@@ -282,7 +282,7 @@ as convient, syntactic sugar on this method.
 
 #### Signature
 ```apex
-protected HttpResponse makeApiCall(HttpVerb method, String path, String query, String body, Map<String,String> headers)
+protected HttpResponse makeApiCall(HttpVerb method, String path, String query, String body, Map&lt;String,String&gt; headers)
 ```
 
 #### Parameters
@@ -292,7 +292,7 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query, S
 | path | String | patch component of the callout url i.e. `/services/data/v39.0/SObjects` |
 | query | String | Query portion of the URL i.e. `?q=SELECT Id FROM Account` |
 | body | String | JSON string representing the body of the callout in post/patch situations |
-| headers | Map<String,String> | A map&lt;String,String&gt; of headers to use while making this callout |
+| headers | Map&lt;String,String&gt; | A map&lt;String,String&gt; of headers to use while making this callout |
 
 #### Return Type
 **HttpResponse**
@@ -665,7 +665,7 @@ A static wrapper for the main makeApiCall method
 
 #### Signature
 ```apex
-public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path, String query, String body, Map<String,String> headers)
+public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, String path, String query, String body, Map&lt;String,String&gt; headers)
 ```
 
 #### Parameters
@@ -676,7 +676,7 @@ public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, 
 | path | String | Http path component of the URL. ie: `/path/to/resource` |
 | query | String | Query component of the URL ie: after `?foo=bar` |
 | body | String | JSON string to post |
-| headers | Map<String,String> | Map&lt;String,String&gt; representing outgoing Request 
+| headers | Map&lt;String,String&gt; | Map&lt;String,String&gt; representing outgoing Request 
 headers |
 
 #### Return Type
@@ -689,7 +689,7 @@ System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
                                      'volumes',
                                      'q=salesforce',
                                      '',
-                                     new Map<String,String>()));
+                                     new Map&lt;String,String&gt;()));
 ```
 
 ---

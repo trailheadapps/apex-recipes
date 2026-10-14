@@ -21,7 +21,7 @@ private static accessibleFieldsByObject
 ```
 
 #### Type
-Map<String,Set<String>>
+Map&lt;String,Set&lt;String&gt;&gt;
 
 ---
 
@@ -35,7 +35,7 @@ private static updatableFieldsByObject
 ```
 
 #### Type
-Map<String,Set<String>>
+Map&lt;String,Set&lt;String&gt;&gt;
 
 ## Methods
 ### `crud(obj, permission)`
@@ -67,13 +67,13 @@ System.debug(CanTheUser.crud(new Account(), CanTheUser.CrudType.READ));
 
 #### Signature
 ```apex
-private static Boolean crud(List<SObject> objs, CrudType permission)
+private static Boolean crud(List&lt;SObject&gt; objs, CrudType permission)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objs | List<SObject> |  |
+| objs | List&lt;SObject&gt; |  |
 | permission | CrudType |  |
 
 #### Return Type
@@ -133,13 +133,13 @@ create the specified object
 
 #### Signature
 ```apex
-public static Boolean create(List<SObject> objs)
+public static Boolean create(List&lt;SObject&gt; objs)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objs | List<SObject> | list of objects. Only the first will be checked. (logically, a list is of uniform type 
+| objs | List&lt;SObject&gt; | list of objects. Only the first will be checked. (logically, a list is of uniform type 
 and, and if the user can create one) |
 
 #### Return Type
@@ -204,13 +204,13 @@ read / access the specified objects
 
 #### Signature
 ```apex
-public static Boolean read(List<SObject> objs)
+public static Boolean read(List&lt;SObject&gt; objs)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objs | List<SObject> |  |
+| objs | List&lt;SObject&gt; |  |
 
 #### Return Type
 **Boolean**
@@ -274,13 +274,13 @@ edit / update the specified objects
 
 #### Signature
 ```apex
-public static Boolean edit(List<SObject> objs)
+public static Boolean edit(List&lt;SObject&gt; objs)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objs | List<SObject> |  |
+| objs | List&lt;SObject&gt; |  |
 
 #### Return Type
 **Boolean**
@@ -344,13 +344,13 @@ edit / update the specified objects
 
 #### Signature
 ```apex
-public static Boolean ups(List<SObject> objs)
+public static Boolean ups(List&lt;SObject&gt; objs)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objs | List<SObject> |  |
+| objs | List&lt;SObject&gt; |  |
 
 #### Return Type
 **Boolean**
@@ -414,13 +414,13 @@ delete the specified object
 
 #### Signature
 ```apex
-public static Boolean destroy(List<SObject> objs)
+public static Boolean destroy(List&lt;SObject&gt; objs)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objs | List<SObject> |  |
+| objs | List&lt;SObject&gt; |  |
 
 #### Return Type
 **Boolean**
@@ -484,17 +484,17 @@ bulk form of flsAccessible
 
 #### Signature
 ```apex
-public static Map<String,Boolean> bulkFLSAccessible(String obj, Set<String> fields)
+public static Map&lt;String,Boolean&gt; bulkFLSAccessible(String obj, Set&lt;String&gt; fields)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
 | obj | String | Obj name on which to check |
-| fields | Set<String> | Set of Fields to check for accessibility. |
+| fields | Set&lt;String&gt; | Set of Fields to check for accessibility. |
 
 #### Return Type
-**Map<String,Boolean>**
+**Map&lt;String,Boolean&gt;**
 
 #### Example
 ```apex
@@ -536,17 +536,17 @@ bulk form of flsUpdatable call
 
 #### Signature
 ```apex
-public static Map<String,Boolean> bulkFLSUpdatable(String obj, Set<String> fields)
+public static Map&lt;String,Boolean&gt; bulkFLSUpdatable(String obj, Set&lt;String&gt; fields)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
 | obj | String | Name of the object |
-| fields | Set<String> | Set of Field names to check |
+| fields | Set&lt;String&gt; | Set of Field names to check |
 
 #### Return Type
-**Map<String,Boolean>**
+**Map&lt;String,Boolean&gt;**
 
 #### Example
 ```apex
@@ -572,7 +572,7 @@ to the FieldPermissions object.
 
 #### Signature
 ```apex
-private static Set<String> memoizeFLSMDC(String objType, FLSType action)
+private static Set&lt;String&gt; memoizeFLSMDC(String objType, FLSType action)
 ```
 
 #### Parameters
@@ -582,7 +582,7 @@ private static Set<String> memoizeFLSMDC(String objType, FLSType action)
 | action | FLSType | Enum of the FLS action to check permissions for |
 
 #### Return Type
-**Set<String>**
+**Set&lt;String&gt;**
 
 ---
 
@@ -653,7 +653,7 @@ Calculates the FLS for a given object type
 
 ###### Signature
 ```apex
-public Map<String,Map<FLSType,Boolean>> calculateFLS(string objType)
+public Map&lt;String,Map&lt;FLSType,Boolean&gt;&gt; calculateFLS(string objType)
 ```
 
 ###### Parameters
@@ -662,7 +662,7 @@ public Map<String,Map<FLSType,Boolean>> calculateFLS(string objType)
 | objType | string | String name of the object type |
 
 ###### Return Type
-**Map<String,Map<FLSType,Boolean>>**
+**Map&lt;String,Map&lt;FLSType,Boolean&gt;&gt;**
 
 ## Enums
 ### CrudType Enum

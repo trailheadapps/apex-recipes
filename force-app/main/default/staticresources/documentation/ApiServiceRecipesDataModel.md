@@ -20,7 +20,7 @@ public exampleArray
 ```
 
 #### Type
-List<Integer>
+List&lt;Integer&gt;
 
 ---
 
@@ -102,7 +102,7 @@ ApiServiceRecipesDataModel objects
 
 #### Signature
 ```apex
-public static List<ApiServiceRecipesDataModel> parse(String json)
+public static List&lt;ApiServiceRecipesDataModel&gt; parse(String json)
 ```
 
 #### Parameters
@@ -111,7 +111,7 @@ public static List<ApiServiceRecipesDataModel> parse(String json)
 | json | String | Incoming JSON string. Often from an api call&#x27;s results. |
 
 #### Return Type
-**List<ApiServiceRecipesDataModel>**
+**List&lt;ApiServiceRecipesDataModel&gt;**
 
 #### Example
 ```apex

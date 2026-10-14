@@ -17,7 +17,7 @@ associated with it.
 
 #### Signature
 ```apex
-public List<Bucketed_Picklist__mdt> getBucketedPicklistsForObject(Id objId)
+public List&lt;Bucketed_Picklist__mdt&gt; getBucketedPicklistsForObject(Id objId)
 ```
 
 #### Parameters
@@ -26,7 +26,7 @@ public List<Bucketed_Picklist__mdt> getBucketedPicklistsForObject(Id objId)
 | objId | Id |  |
 
 #### Return Type
-**List<Bucketed_Picklist__mdt>**
+**List&lt;Bucketed_Picklist__mdt&gt;**
 
 ---
 
@@ -37,16 +37,16 @@ entry in the list to it&#x27;s twin above.
 
 #### Signature
 ```apex
-public List<Bucketed_Picklist__mdt> getBucketedPicklistsForObject(List<Id> objIds)
+public List&lt;Bucketed_Picklist__mdt&gt; getBucketedPicklistsForObject(List&lt;Id&gt; objIds)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| objIds | List<Id> |  |
+| objIds | List&lt;Id&gt; |  |
 
 #### Return Type
-**List<Bucketed_Picklist__mdt>**
+**List&lt;Bucketed_Picklist__mdt&gt;**
 
 ---
 
@@ -59,14 +59,14 @@ term, and list of possible fields.
 
 #### Signature
 ```apex
-public List<Picklist_Bucket__mdt> getPicklistBucketWithValues(List<Bucketed_Picklist__mdt> bPL, String search)
+public List&lt;Picklist_Bucket__mdt&gt; getPicklistBucketWithValues(List&lt;Bucketed_Picklist__mdt&gt; bPL, String search)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| bPL | List<Bucketed_Picklist__mdt> | Bucketed Picklist list |
+| bPL | List&lt;Bucketed_Picklist__mdt&gt; | Bucketed Picklist list |
 | search | String | Search String for Bucketed_Picklist_Value__mdt.label |
 
 #### Return Type
-**List<Picklist_Bucket__mdt>**
+**List&lt;Picklist_Bucket__mdt&gt;**

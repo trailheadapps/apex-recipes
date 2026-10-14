@@ -22,20 +22,20 @@ private eventMap
 ```
 
 #### Type
-Map<String,EventInfo>
+Map&lt;String,EventInfo&gt;
 
 ## Constructors
 ### `PlatformEventPublishCallback(eventInfos)`
 
 #### Signature
 ```apex
-public PlatformEventPublishCallback(List<EventInfo> eventInfos)
+public PlatformEventPublishCallback(List&lt;EventInfo&gt; eventInfos)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| eventInfos | List<EventInfo> |  |
+| eventInfos | List&lt;EventInfo&gt; |  |
 
 ## Methods
 ### `onFailure(result)`
@@ -82,13 +82,13 @@ public void onSuccess(EventBus.SuccessResult result)
 
 #### Signature
 ```apex
-private void insertTask(List<String> eventUuids, Boolean isSuccess)
+private void insertTask(List&lt;String&gt; eventUuids, Boolean isSuccess)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| eventUuids | List<String> |  |
+| eventUuids | List&lt;String&gt; |  |
 | isSuccess | Boolean |  |
 
 #### Return Type

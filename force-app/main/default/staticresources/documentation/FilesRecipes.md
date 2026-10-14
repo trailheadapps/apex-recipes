@@ -92,16 +92,16 @@ Bulk method for inserting multiple files and link them to records
 
 #### Signature
 ```apex
-public static List<Database.SaveResult> createFilesAttachedToRecords(List<FilesRecipes.FileAndLinkObject> toCreate)
+public static List&lt;Database.SaveResult&gt; createFilesAttachedToRecords(List&lt;FilesRecipes.FileAndLinkObject&gt; toCreate)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| toCreate | List<FilesRecipes.FileAndLinkObject> |  |
+| toCreate | List&lt;FilesRecipes.FileAndLinkObject&gt; |  |
 
 #### Return Type
-**List<Database.SaveResult>**
+**List&lt;Database.SaveResult&gt;**
 
 ---
 
@@ -119,7 +119,7 @@ to access. This is a form of inline CRUD/FLS Check.
 
 #### Signature
 ```apex
-public static List<ContentVersion> getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType genericFileType, Id recordId)
+public static List&lt;ContentVersion&gt; getFilteredAttachmentsForRecord(FilesRecipes.GenericFileType genericFileType, Id recordId)
 ```
 
 #### Parameters
@@ -129,7 +129,7 @@ public static List<ContentVersion> getFilteredAttachmentsForRecord(FilesRecipes.
 | recordId | Id | Record ID to limit searching to |
 
 #### Return Type
-**List<ContentVersion>**
+**List&lt;ContentVersion&gt;**
 
 #### Example
 ```apex

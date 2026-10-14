@@ -2,7 +2,7 @@
 
 Class wraps DML Calls in FLS / Crud checks. Library is baseed on 
 a fluent api system. All calls are constructed, then chained with options. 
-For instances. `new Safely().allOrNothing().doInsert(List<sObject>);` 
+For instances. `new Safely().allOrNothing().doInsert(List&lt;sObject&gt;);` 
  
 Notable chainable methods include: 
 - allOrNothing() - this enforces the AllOrNothing DML flag. All DML is 
@@ -68,16 +68,16 @@ public Safely throwIfRemovedFields()
 
 #### Signature
 ```apex
-public List<Database.SaveResult> doInsert(List<SObject> records)
+public List&lt;Database.SaveResult&gt; doInsert(List&lt;SObject&gt; records)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| records | List<SObject> |  |
+| records | List&lt;SObject&gt; |  |
 
 #### Return Type
-**List<Database.SaveResult>**
+**List&lt;Database.SaveResult&gt;**
 
 ---
 
@@ -85,7 +85,7 @@ public List<Database.SaveResult> doInsert(List<SObject> records)
 
 #### Signature
 ```apex
-public List<Database.SaveResult> doInsert(SObject record)
+public List&lt;Database.SaveResult&gt; doInsert(SObject record)
 ```
 
 #### Parameters
@@ -94,7 +94,7 @@ public List<Database.SaveResult> doInsert(SObject record)
 | record | SObject |  |
 
 #### Return Type
-**List<Database.SaveResult>**
+**List&lt;Database.SaveResult&gt;**
 
 ---
 
@@ -102,16 +102,16 @@ public List<Database.SaveResult> doInsert(SObject record)
 
 #### Signature
 ```apex
-public List<Database.SaveResult> doUpdate(List<SObject> records)
+public List&lt;Database.SaveResult&gt; doUpdate(List&lt;SObject&gt; records)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| records | List<SObject> |  |
+| records | List&lt;SObject&gt; |  |
 
 #### Return Type
-**List<Database.SaveResult>**
+**List&lt;Database.SaveResult&gt;**
 
 ---
 
@@ -119,7 +119,7 @@ public List<Database.SaveResult> doUpdate(List<SObject> records)
 
 #### Signature
 ```apex
-public List<Database.SaveResult> doUpdate(SObject record)
+public List&lt;Database.SaveResult&gt; doUpdate(SObject record)
 ```
 
 #### Parameters
@@ -128,7 +128,7 @@ public List<Database.SaveResult> doUpdate(SObject record)
 | record | SObject |  |
 
 #### Return Type
-**List<Database.SaveResult>**
+**List&lt;Database.SaveResult&gt;**
 
 ---
 
@@ -136,16 +136,16 @@ public List<Database.SaveResult> doUpdate(SObject record)
 
 #### Signature
 ```apex
-public List<Database.UpsertResult> doUpsert(List<SObject> records)
+public List&lt;Database.UpsertResult&gt; doUpsert(List&lt;SObject&gt; records)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| records | List<SObject> |  |
+| records | List&lt;SObject&gt; |  |
 
 #### Return Type
-**List<Database.UpsertResult>**
+**List&lt;Database.UpsertResult&gt;**
 
 ---
 
@@ -153,7 +153,7 @@ public List<Database.UpsertResult> doUpsert(List<SObject> records)
 
 #### Signature
 ```apex
-public List<Database.UpsertResult> doUpsert(Sobject record)
+public List&lt;Database.UpsertResult&gt; doUpsert(Sobject record)
 ```
 
 #### Parameters
@@ -162,7 +162,7 @@ public List<Database.UpsertResult> doUpsert(Sobject record)
 | record | Sobject |  |
 
 #### Return Type
-**List<Database.UpsertResult>**
+**List&lt;Database.UpsertResult&gt;**
 
 ---
 
@@ -170,16 +170,16 @@ public List<Database.UpsertResult> doUpsert(Sobject record)
 
 #### Signature
 ```apex
-public List<Database.DeleteResult> doDelete(List<SObject> records)
+public List&lt;Database.DeleteResult&gt; doDelete(List&lt;SObject&gt; records)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| records | List<SObject> |  |
+| records | List&lt;SObject&gt; |  |
 
 #### Return Type
-**List<Database.DeleteResult>**
+**List&lt;Database.DeleteResult&gt;**
 
 ---
 
@@ -187,7 +187,7 @@ public List<Database.DeleteResult> doDelete(List<SObject> records)
 
 #### Signature
 ```apex
-public List<Database.DeleteResult> doDelete(SObject record)
+public List&lt;Database.DeleteResult&gt; doDelete(SObject record)
 ```
 
 #### Parameters
@@ -196,7 +196,7 @@ public List<Database.DeleteResult> doDelete(SObject record)
 | record | SObject |  |
 
 #### Return Type
-**List<Database.DeleteResult>**
+**List&lt;Database.DeleteResult&gt;**
 
 ---
 
@@ -204,7 +204,7 @@ public List<Database.DeleteResult> doDelete(SObject record)
 
 #### Signature
 ```apex
-public List<SObject> doQuery(String query)
+public List&lt;SObject&gt; doQuery(String query)
 ```
 
 #### Parameters
@@ -213,7 +213,7 @@ public List<SObject> doQuery(String query)
 | query | String |  |
 
 #### Return Type
-**List<SObject>**
+**List&lt;SObject&gt;**
 
 ---
 
@@ -221,17 +221,17 @@ public List<SObject> doQuery(String query)
 
 #### Signature
 ```apex
-private List<Database.SaveResult> doDML(System.AccessType accessType, List<SObject> records)
+private List&lt;Database.SaveResult&gt; doDML(System.AccessType accessType, List&lt;SObject&gt; records)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
 | accessType | System.AccessType |  |
-| records | List<SObject> |  |
+| records | List&lt;SObject&gt; |  |
 
 #### Return Type
-**List<Database.SaveResult>**
+**List&lt;Database.SaveResult&gt;**
 
 ---
 
@@ -239,14 +239,14 @@ private List<Database.SaveResult> doDML(System.AccessType accessType, List<SObje
 
 #### Signature
 ```apex
-private SObjectAccessDecision guardAgainstRemovedFields(System.AccessType accessType, List<SObject> records)
+private SObjectAccessDecision guardAgainstRemovedFields(System.AccessType accessType, List&lt;SObject&gt; records)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
 | accessType | System.AccessType |  |
-| records | List<SObject> |  |
+| records | List&lt;SObject&gt; |  |
 
 #### Return Type
 **SObjectAccessDecision**

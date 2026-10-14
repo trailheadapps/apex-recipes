@@ -66,13 +66,13 @@ specified record.
 
 #### Signature
 ```apex
-private void createFilesByEmailAttachments(List<Messaging.inboundEmail.BinaryAttachment> inboundAttachments, Id contactId)
+private void createFilesByEmailAttachments(List&lt;Messaging.inboundEmail.BinaryAttachment&gt; inboundAttachments, Id contactId)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| inboundAttachments | List<Messaging.inboundEmail.BinaryAttachment> |  |
+| inboundAttachments | List&lt;Messaging.inboundEmail.BinaryAttachment&gt; |  |
 | contactId | Id |  |
 
 #### Return Type

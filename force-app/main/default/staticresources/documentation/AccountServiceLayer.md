@@ -62,13 +62,13 @@ what the CanTheUser call right before it is doing - namely checking CRUD.
 
 #### Signature
 ```apex
-public static void changeShippingStreet(List<Account> accounts, System.AccessLevel accessLevel)
+public static void changeShippingStreet(List&lt;Account&gt; accounts, System.AccessLevel accessLevel)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accounts | List<Account> | List of account objects to change the shipping street on |
+| accounts | List&lt;Account&gt; | List of account objects to change the shipping street on |
 | accessLevel | System.AccessLevel |  |
 
 #### Return Type
@@ -90,17 +90,17 @@ Demonstration method of the kind of work a service layer may do.
 
 #### Signature
 ```apex
-public static List<Account> incrementCounterInDescription(List<Account> incomingAccounts, Boolean save)
+public static List&lt;Account&gt; incrementCounterInDescription(List&lt;Account&gt; incomingAccounts, Boolean save)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| incomingAccounts | List<Account> | List of Account Objects. |
+| incomingAccounts | List&lt;Account&gt; | List of Account Objects. |
 | save | Boolean | Boolean determining if DML update is requested. |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
@@ -121,13 +121,13 @@ the Account Object. Demonstrates simple usage of
 
 #### Signature
 ```apex
-private static void safelySave(List<Account> accounts)
+private static void safelySave(List&lt;Account&gt; accounts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accounts | List<Account> |  |
+| accounts | List&lt;Account&gt; |  |
 
 #### Return Type
 **void**

@@ -13,15 +13,15 @@ keeping FLS and CRUD in account.
 
 #### Signature
 ```apex
-public static List<Account> getRecords()
+public static List&lt;Account&gt; getRecords()
 ```
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
-List<Account> results = SOQLRecipes.querySingleObject();
+List&lt;Account&gt; results = SOQLRecipes.querySingleObject();
 System.debug(results);
 ```
 
@@ -75,11 +75,11 @@ Demonstrates how to use a WHERE clause in a SOQL query
 
 #### Signature
 ```apex
-public static List<Account> getRecordsByFieldValue()
+public static List&lt;Account&gt; getRecordsByFieldValue()
 ```
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
@@ -95,11 +95,11 @@ query
 
 #### Signature
 ```apex
-public static List<Account> getRecordsByMultipleFieldValues()
+public static List&lt;Account&gt; getRecordsByMultipleFieldValues()
 ```
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
@@ -114,11 +114,11 @@ Demonstrates how to use the LIMIT clause in a SOQL statement
 
 #### Signature
 ```apex
-public static List<Account> getSpecificNumberOfRecords()
+public static List&lt;Account&gt; getSpecificNumberOfRecords()
 ```
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
@@ -133,7 +133,7 @@ Demonstrates how to use a bound variable to define the LIMIT
 
 #### Signature
 ```apex
-public static List<Account> getFirstXRecords(Integer wantedNumberOfRows)
+public static List&lt;Account&gt; getFirstXRecords(Integer wantedNumberOfRows)
 ```
 
 #### Parameters
@@ -142,7 +142,7 @@ public static List<Account> getFirstXRecords(Integer wantedNumberOfRows)
 | wantedNumberOfRows | Integer | the number of rows desired |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
@@ -157,7 +157,7 @@ Demonstrates how to use a bound variable in a WHERE clause
 
 #### Signature
 ```apex
-public static List<Account> getAccountRecordsInState(String state)
+public static List&lt;Account&gt; getAccountRecordsInState(String state)
 ```
 
 #### Parameters
@@ -166,7 +166,7 @@ public static List<Account> getAccountRecordsInState(String state)
 | state | String | String representing a US State code (AK, KS, etc.) |
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
@@ -182,11 +182,11 @@ given offset; Ie: get the second set of 10 records.
 
 #### Signature
 ```apex
-public static List<Account> getSecond10AccountRecords()
+public static List&lt;Account&gt; getSecond10AccountRecords()
 ```
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
@@ -202,11 +202,11 @@ child objects
 
 #### Signature
 ```apex
-public static List<Account> getRecordsWithRelatedRecords()
+public static List&lt;Account&gt; getRecordsWithRelatedRecords()
 ```
 
 #### Return Type
-**List<Account>**
+**List&lt;Account&gt;**
 
 #### Example
 ```apex
@@ -222,11 +222,11 @@ through the relationship field
 
 #### Signature
 ```apex
-public static List<Contact> getParentRecordDetailsFromChildRecord()
+public static List&lt;Contact&gt; getParentRecordDetailsFromChildRecord()
 ```
 
 #### Return Type
-**List<Contact>**
+**List&lt;Contact&gt;**
 
 #### Example
 ```apex
@@ -242,11 +242,11 @@ from two parent objects through a junction object
 
 #### Signature
 ```apex
-public static List<Junction__c> getDetailsFromBothParentRecords()
+public static List&lt;Junction__c&gt; getDetailsFromBothParentRecords()
 ```
 
 #### Return Type
-**List<Junction__c>**
+**List&lt;Junction__c&gt;**
 
 #### Example
 ```apex

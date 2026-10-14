@@ -46,7 +46,7 @@ Also demonstrates the use of Regex matchers in Apex.
 
 #### Signature
 ```apex
-public static List<String> getRelatedClassesFromClassBody(ApexClass klass)
+public static List&lt;String&gt; getRelatedClassesFromClassBody(ApexClass klass)
 ```
 
 #### Parameters
@@ -55,7 +55,7 @@ public static List<String> getRelatedClassesFromClassBody(ApexClass klass)
 | klass | ApexClass | an ApexClass object |
 
 #### Return Type
-**List<String>**
+**List&lt;String&gt;**
 
 Values following `@see` annotations
 

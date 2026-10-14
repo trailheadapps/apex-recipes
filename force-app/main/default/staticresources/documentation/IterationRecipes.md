@@ -15,13 +15,13 @@ This example iterates on Accounts to sum the &#x27;number of employees&#x27; fie
 
 #### Signature
 ```apex
-public static Integer iterateOnAccountList(List<Account> accounts)
+public static Integer iterateOnAccountList(List&lt;Account&gt; accounts)
 ```
 
 #### Parameters
 | Name | Type | Description |
 |------|------|-------------|
-| accounts | List<Account> | a list of accounts that will be iterated on |
+| accounts | List&lt;Account&gt; | a list of accounts that will be iterated on |
 
 #### Return Type
 **Integer**
@@ -38,10 +38,10 @@ Remote records are retrieved on the fly by IterableApiClient when the Iterator i
 
 #### Signature
 ```apex
-public static List<String> iterableApiClientRecipe()
+public static List&lt;String&gt; iterableApiClientRecipe()
 ```
 
 #### Return Type
-**List<String>**
+**List&lt;String&gt;**
 
 List of &quot;records&quot; retrieved
