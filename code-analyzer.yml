@@ -6,12 +6,8 @@ engines:
         # Disable flow validation
         disable_engine: true
     eslint:
-        # Force our local ESlint config to be used
-        eslint_config_file: 'eslint.config.js'
-        auto_discover_eslint_config: true
-        disable_javascript_base_config: true
-        disable_lwc_base_config: true
-        disable_typescript_base_config: true
+        # Disable ESLint as we're running it manually
+        disable_engine: true
 ignores:
     files:
         - 'bin/**'
