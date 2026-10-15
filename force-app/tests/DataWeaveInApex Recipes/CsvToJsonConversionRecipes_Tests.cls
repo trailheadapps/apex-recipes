@@ -1,11 +1,11 @@
-@isTest
+@IsTest
 public class CsvToJsonConversionRecipes_Tests {
     private static final String SAMPLE_CSV =
         'first_name,last_name,company,address\n' +
         'Abel,Maclead,"Rousseaux, Michael Esq","6649 N Blue Gum St,\n' +
         'New Orleans"';
 
-    @isTest
+    @IsTest
     static void testConvertCsvToJson() {
         Test.startTest();
         String jsonResult = CsvToJsonConversionRecipes.convertCsvToJson(
@@ -31,7 +31,7 @@ public class CsvToJsonConversionRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testConvertCsvToJsonWithFieldRenaming() {
         Test.startTest();
         String jsonResult = CsvToJsonConversionRecipes.convertCsvToJsonWithFieldRenaming(
@@ -57,7 +57,7 @@ public class CsvToJsonConversionRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testConvertCsvWithCustomSeparatorToJson() {
         // Note the use of the ; separator rather than ,
         String csvPayload = 'col1;col2\na;b';

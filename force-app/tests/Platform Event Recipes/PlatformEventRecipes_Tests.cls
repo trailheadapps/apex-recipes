@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private inherited sharing class PlatformEventRecipes_Tests {
-    @isTest
+    @IsTest
     static void testEventPublishPositive() {
         Account acct = (Account) TestFactory.createSObject(
             new Account(Name = 'testEvent'),
@@ -24,7 +24,7 @@ private inherited sharing class PlatformEventRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testEventPublishNegativeInvalidFields() {
         Event_Recipes_Demo__e event = new Event_Recipes_Demo__e(
             Url__c = 'https://google.com',
@@ -43,7 +43,7 @@ private inherited sharing class PlatformEventRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testEventPublishNegativeMinAccessUser() {
         Event_Recipes_Demo__e event = new Event_Recipes_Demo__e(
             Url__c = 'https://google.com',
@@ -75,7 +75,7 @@ private inherited sharing class PlatformEventRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testEventPublishCallbackFailsWhenNoEventUuid() {
         // Create event without an EventUuid
         Event_Recipes_Demo__e event = new Event_Recipes_Demo__e(
@@ -101,7 +101,7 @@ private inherited sharing class PlatformEventRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testEventPublishCallbackSuccess() {
         Account acct = (Account) TestFactory.createSObject(
             new Account(Name = 'testEvent'),
@@ -138,7 +138,7 @@ private inherited sharing class PlatformEventRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testEventPublishCallbackFailure() {
         Account acct = (Account) TestFactory.createSObject(
             new Account(Name = 'testEvent'),

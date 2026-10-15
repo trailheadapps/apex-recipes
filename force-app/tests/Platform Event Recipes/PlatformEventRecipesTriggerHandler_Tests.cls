@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class PlatformEventRecipesTriggerHandler_Tests {
-    @isTest
+    @IsTest
     static void testPlatformEventRecipesTriggerHandlerPositive() {
         Account acct = (Account) TestFactory.createSObject(
             new Account(Name = 'testEvent'),

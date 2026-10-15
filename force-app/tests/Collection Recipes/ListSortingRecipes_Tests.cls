@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 /**
  * @description: Tests the ListSortingRecipes class used in list sorting recipes.
  */
@@ -32,7 +32,7 @@ public class ListSortingRecipes_Tests {
     private final static Account A3NULL = new Account();
     private final static Account A4NULL = new Account();
 
-    @isTest
+    @IsTest
     private static void testSortAccountsByShippingCountry() {
         List<Account> accounts = new List<Account>{
             A4,
@@ -62,7 +62,7 @@ public class ListSortingRecipes_Tests {
         System.Assert.areEqual(expected, accounts);
     }
 
-    @isTest
+    @IsTest
     private static void testSortAccountsByShippingCountryInDescending() {
         List<Account> accounts = new List<Account>{
             A5,
@@ -92,7 +92,7 @@ public class ListSortingRecipes_Tests {
         System.Assert.areEqual(expected, accounts);
     }
 
-    @isTest
+    @IsTest
     private static void testASCComparatorException() {
         List<Account> accounts = new List<Account>{
             A4,
@@ -115,7 +115,7 @@ public class ListSortingRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     private static void testSortAccountsByNumberOfEmployees() {
         List<Account> accounts = new List<Account>{
             A1,

@@ -58,6 +58,8 @@ public with sharing class MetadataCatalogRecipes {
      * that we are, in fact, checking for CRUD / FLS permissions prior to
      * querying.
      *
+     * @return Map of Object Qualified API Name to a Map of formula Field
+     * Developer Names to their Data Type
      * @example
      * ```
      * Map<String, Map<String, String>> results =
@@ -109,6 +111,8 @@ public with sharing class MetadataCatalogRecipes {
      * the purpose or functionality of CanTheUser.* so it doesn't undersatnd
      * that we are, in fact, checking for CRUD / FLS permissions prior to
      * querying.
+     * @return List of LookupRelationshipDefinition describing each Contact
+     * field that looks up to Account
      * @example
      * ```
      * List<MetadataCatalogRecipes.LookupRelationshipDefinition> results =

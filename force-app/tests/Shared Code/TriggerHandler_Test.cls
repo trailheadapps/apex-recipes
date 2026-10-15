@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 @testVisible
 private class TriggerHandler_Test {
     private static final String TRIGGER_CONTEXT_ERROR = 'Trigger handler called outside of Trigger execution';
@@ -22,7 +22,7 @@ private class TriggerHandler_Test {
     /**
      * @description Tests the BeforeInsert method is properly brokered.
      */
-    @isTest
+    @IsTest
     static void testBeforeInsert() {
         beforeInsertMode();
         handler.run();
@@ -33,7 +33,7 @@ private class TriggerHandler_Test {
         );
     }
 
-    @isTest
+    @IsTest
     static void testBeforeUpdate() {
         beforeUpdateMode();
         handler.run();
@@ -44,7 +44,7 @@ private class TriggerHandler_Test {
         );
     }
 
-    @isTest
+    @IsTest
     static void testBeforeDelete() {
         beforeDeleteMode();
         handler.run();
@@ -55,7 +55,7 @@ private class TriggerHandler_Test {
         );
     }
 
-    @isTest
+    @IsTest
     static void testAfterInsert() {
         afterInsertMode();
         handler.run();
@@ -66,7 +66,7 @@ private class TriggerHandler_Test {
         );
     }
 
-    @isTest
+    @IsTest
     static void testAfterUpdate() {
         afterUpdateMode();
         handler.run();
@@ -77,7 +77,7 @@ private class TriggerHandler_Test {
         );
     }
 
-    @isTest
+    @IsTest
     static void testAfterDelete() {
         afterDeleteMode();
         handler.run();
@@ -88,7 +88,7 @@ private class TriggerHandler_Test {
         );
     }
 
-    @isTest
+    @IsTest
     static void testAfterUndelete() {
         afterUndeleteMode();
         handler.run();
@@ -99,7 +99,7 @@ private class TriggerHandler_Test {
         );
     }
 
-    @isTest
+    @IsTest
     static void testNonTriggerContext() {
         try {
             handler.run();
@@ -122,7 +122,7 @@ private class TriggerHandler_Test {
 
     // test bypass api
 
-    @isTest
+    @IsTest
     static void testBypassAPI() {
         afterUpdateMode();
 
@@ -183,7 +183,7 @@ private class TriggerHandler_Test {
 
     // instance method tests
 
-    @isTest
+    @IsTest
     static void testLoopCount() {
         beforeInsertMode();
 
@@ -246,7 +246,7 @@ private class TriggerHandler_Test {
         }
     }
 
-    @isTest
+    @IsTest
     static void testLoopCountClass() {
         TriggerHandler.LoopCount lc = new TriggerHandler.LoopCount();
         System.Assert.areEqual(5, lc.getMax(), 'Max should be five on init');
@@ -283,7 +283,7 @@ private class TriggerHandler_Test {
 
     // private method tests
 
-    @isTest
+    @IsTest
     static void testGetHandlerName() {
         System.Assert.areEqual(
             'TestHandler',
@@ -294,7 +294,7 @@ private class TriggerHandler_Test {
 
     // test virtual methods
 
-    @isTest
+    @IsTest
     static void testVirtualMethods() {
         TriggerHandler h = new TriggerHandler();
         h.beforeInsert();

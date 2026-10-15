@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private inherited sharing class ScheduledApexRecipes_Tests {
-    @isTest
+    @IsTest
     static void scheduledExecutionTimeIsCorrectPositive() {
         // Schedule the job @ the TEST_CRON_STATEMENT
         // query for the job to make sure it's scheduled at the right time/date

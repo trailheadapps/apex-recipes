@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 public class BasicDataWeaveInApexRecipes_Tests {
-    @isTest
+    @IsTest
     static void testStaticInvocation() {
         Test.startTest();
         String result = BasicDataWeaveInApexRecipes.staticInvocation();
@@ -8,7 +8,7 @@ public class BasicDataWeaveInApexRecipes_Tests {
         Assert.areEqual('"Hello World"', result);
     }
 
-    @isTest
+    @IsTest
     static void testDynamicInvocation() {
         Test.startTest();
         String result = BasicDataWeaveInApexRecipes.dynamicInvocation(
@@ -18,7 +18,7 @@ public class BasicDataWeaveInApexRecipes_Tests {
         Assert.areEqual('"Hello World"', result);
     }
 
-    @isTest
+    @IsTest
     static void testDynamicInvocationError() {
         Test.startTest();
         try {

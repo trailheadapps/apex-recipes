@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class SOQLRecipes_Tests {
-    @isTest
+    @IsTest
     static void testPermSetGrantsAccessToAccountNamePositve() {
         // create user account
         User testUser = TestFactory.createTestUser(true, 'Standard User');
@@ -31,7 +31,7 @@ private class SOQLRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testProfileDeniesAccountAccessNegative() {
         TestDataHelpers.createAccount(false, '');
         User testUser = TestFactory.createMinAccessUser(true);
@@ -58,7 +58,7 @@ private class SOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testSimplegetRecordsPositive() {
         TestDataHelpers.createAccount(false, '');
 
@@ -81,7 +81,7 @@ private class SOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testCountOfLargeDataVolumesPositive() {
         /**
          * this next line is a feature of the trigger handler in use
@@ -106,7 +106,7 @@ private class SOQLRecipes_Tests {
         System.Assert.areEqual(3000, count, 'Expected to find 3k records');
     }
 
-    @isTest
+    @IsTest
     /**
      * @description This test method demonstrates an alternative form of a soql
      * for loop. This form gives you lists of records, rather than one record
@@ -144,7 +144,7 @@ private class SOQLRecipes_Tests {
     /**
      * @description Executes a positive test case against getRecordsByFieldValue
      */
-    @isTest
+    @IsTest
     static void testQueryWithFilterWithNoMatchingAcctsPositive() {
         TestDataHelpers.createAccount(false, '');
         System.Assert.areEqual(
@@ -162,7 +162,7 @@ private class SOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testQueryWithFilterNegativeNoPermsToAccountNegative() {
         TestDataHelpers.createAccount(true, 'UK');
         System.Assert.areEqual(
@@ -202,7 +202,7 @@ private class SOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testQueryWithFilterPositive() {
         TestDataHelpers.createAccount(true, 'UK');
         System.Assert.areEqual(
@@ -220,7 +220,7 @@ private class SOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testComplexFilterOmnibusPositive() {
         TestFactory.createSObject(
             new Account(
@@ -251,7 +251,7 @@ private class SOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testComplexFilterOmnibusPositiveNoResults() {
         TestFactory.createSObjectList(new Account(), 5, true);
         Test.startTest();
@@ -264,7 +264,7 @@ private class SOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testLimitClauseMoreThan10AccountsPositive() {
         /**
          * Our method is limited to 10, so we need to
@@ -288,7 +288,7 @@ private class SOQLRecipes_Tests {
      * @description Executes a postiive test case against
      * .getSpecifiedNumberOfResults()
      */
-    @isTest
+    @IsTest
     static void testLimitClauseLessThan10AccountsPositive() {
         // our method is limited to 10, so we need to
         // make two assertions.
@@ -307,7 +307,7 @@ private class SOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testDynamicLimitClausePositive() {
         List<Account> toInsert = TestDataHelpers.genXnumberOfAccounts(8);
         insert toInsert;
@@ -321,7 +321,7 @@ private class SOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetAccountFilterByStatePositive() {
         List<Account> toInsert = TestDataHelpers.genXnumberOfAccounts(3);
         for (Account acct : toInsert) {
@@ -348,7 +348,7 @@ private class SOQLRecipes_Tests {
     }
 
     // we get a full 10 results when there's > 20 records
-    @isTest
+    @IsTest
     static void testGetRecords11Through20Positive() {
         List<Account> toInsert = TestDataHelpers.genXnumberOfAccounts(25);
         insert toInsert;
@@ -379,7 +379,7 @@ private class SOQLRecipes_Tests {
     }
 
     // we get say 5, when there's only 15 records
-    @isTest
+    @IsTest
     static void testGetRecords11Through15Positive() {
         List<Account> toInsert = TestDataHelpers.genXnumberOfAccounts(15);
         insert toinsert;
@@ -395,7 +395,7 @@ private class SOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetAccountsAndContactsPositive() {
         List<Account> accts = TestDataHelpers.genXnumberOfAccounts(5);
         insert accts;
@@ -438,7 +438,7 @@ private class SOQLRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testGetAccountInfoWhenQueryingContactPositive() {
         List<Account> accts = TestDataHelpers.genXnumberOfAccounts(1);
         accts[0].ShippingState = 'KS';
@@ -465,7 +465,7 @@ private class SOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testgetDetailsFromBothParentRecordsPositive() {
         Junction_Demo_1__c jd1 = new Junction_Demo_1__c();
         Junction_Demo_2__c jd2 = new Junction_Demo_2__c();
@@ -494,7 +494,7 @@ private class SOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testgetSumOfOpportunityRecordsPositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;

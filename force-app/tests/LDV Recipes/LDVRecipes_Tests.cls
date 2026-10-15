@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class LDVRecipes_Tests {
-    @isTest
+    @IsTest
     static void testLDVRecipesQueueable() {
         StaticResource testData = [
             SELECT Id, Body, Name

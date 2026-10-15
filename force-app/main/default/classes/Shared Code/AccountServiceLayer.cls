@@ -69,6 +69,8 @@ public with sharing class AccountServiceLayer {
      *  Demonstration method of the kind of work a service layer may do.
      * @param incomingAccounts List of Account Objects.
      * @param save Boolean determining if DML update is requested.
+     * @return The incoming list of Account objects with their Description
+     * counter incremented.
      * @example
      * ```
      * Account[] accounts = [SELECT Description FROM Account LIMIT 50];

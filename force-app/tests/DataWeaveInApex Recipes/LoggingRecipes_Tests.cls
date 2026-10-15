@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 public with sharing class LoggingRecipes_Tests {
-    @isTest
+    @IsTest
     static void testLogWithDataWeaveScript() {
         String jsonInput = '[{"name": "Hare", "isWinner": false}, {"name": "Turtles", "isWinner": true}]';
 

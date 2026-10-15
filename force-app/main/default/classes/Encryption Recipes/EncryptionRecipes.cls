@@ -86,6 +86,7 @@ public with sharing class EncryptionRecipes {
      * @description Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver.
      * In this case the initialization vector is managed by Salesforce.
      * @param dataToEncrypt Blob that contains the data to encrypt
+     * @return Encrypted data, with the initialization vector managed by Salesforce
      * @example
      * ```
      * Blob dataToEncrypt = Blob.valueOf('Test data');
@@ -107,6 +108,7 @@ public with sharing class EncryptionRecipes {
      * @description Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver.
      * In this case the initialization vector will be the first 128 bits (16 bytes) of the received data.
      * @param dataToDecrypt Blob that contains the data to be decrypted
+     * @return Decrypted data
      * @example
      * ```
      * Blob decryptedData = EncryptionRecipes.decryptAES256WithManagedIVRecipe(encryptedData);
@@ -127,6 +129,7 @@ public with sharing class EncryptionRecipes {
      * @description Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver.
      * In this case the initialization vector is specified by the sender. It needs to be random and 16 bytes (128 bits).
      * @param dataToEncrypt Blob that contains the data to encrypt
+     * @return Encrypted data combined with the initialization vector, as a single Blob
      * @example
      * ```
      * Blob initializationVector = EncryptionRecipes.generateInitializationVector();
@@ -158,6 +161,7 @@ public with sharing class EncryptionRecipes {
      * @description Encrypts data using AES algorithm, which needs a symmetric key to be shared with the receiver.
      * In this case the sender needs to share the initialization vector with the receiver.
      * @param dataToDecrypt Blob that contains the data to be decrypted
+     * @return Decrypted data
      * @example
      * ```
      * Blob decryptedData = EncryptionRecipes.decryptAES256Recipe(encryptedData);
@@ -188,6 +192,7 @@ public with sharing class EncryptionRecipes {
 
     /**
      * @description Aux method to generate a random initialization vector.
+     * @return Randomly generated initialization vector
      */
     public static Blob generateInitializationVector() {
         // Generating IV this way until there's an Apex method for it
@@ -198,6 +203,7 @@ public with sharing class EncryptionRecipes {
     /**
      * @description Generates one-way hash digest that can be checked in destination to ensure integrity.
      * @param dataToHmac Blob that contains some data for which to generate a hash
+     * @return SHA-512 hash digest of the data
      * @example
      * ```
      * Blob dataToHash = Blob.valueOf('Test data');
@@ -246,6 +252,7 @@ public with sharing class EncryptionRecipes {
     /**
      * @description Generates one-way HMAC (using a symmetric key) that can be checked in destination to ensure integrity and authenticity.
      * @param dataToHmac Blob that contains some data for which to generate an HMAC
+     * @return HMAC-SHA512 digest of the data
      * @example
      * ```
      * Blob dataToHmac = Blob.valueOf('Test data');
@@ -294,6 +301,7 @@ public with sharing class EncryptionRecipes {
     /**
      * @description Generates one-way Digital Signature (encrypted with an asymmetric key) that can be checked in destination to ensure integrity, authenticity and non-repudiation.
      * @param dataToSign Blob that contains some data to sign
+     * @return RSA-SHA512 digital signature of the data
      * @example
      * ```
      * Blob dataToSign = Blob.valueOf('Test data');
@@ -348,6 +356,7 @@ public with sharing class EncryptionRecipes {
      * @description Encrypts the message with AES and then generates Digital Signature (encrypted with an asymmetric key) that can be checked in destination.
      * This ensure confidentiality, integrity, authenticity and non-repudiation.
      * @param dataToEncryptAndSign Blob that contains some data to encrypt and sign
+     * @return Wrapper containing the encrypted data and its digital signature
      * @example
      * ```
      * Blob dataToEncryptAndSign = Blob.valueOf('Test data');

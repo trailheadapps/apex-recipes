@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 public class ApiServiceRecipesDataModel_Tests {
     @testVisible
     public static String testJSONBad =
@@ -45,7 +45,9 @@ public class ApiServiceRecipesDataModel_Tests {
         '    \"c\": \"d\"' +
         '  },' +
         '  \"exampleString\": \"Hello World\"}]';
-    static testMethod void testParse() {
+
+    @IsTest
+    static void testParse() {
         List<ApiServiceRecipesDataModel> obj = ApiServiceRecipesDataModel.parse(
             ApiServiceRecipesDataModel_Tests.testJSON
         );

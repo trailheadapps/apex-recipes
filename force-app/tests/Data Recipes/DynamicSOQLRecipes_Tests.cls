@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 private inherited sharing class DynamicSOQLRecipes_Tests {
     // Test Setup methods are called before every test method
     @TestSetup
@@ -7,7 +7,7 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         insert acct;
     }
 
-    @isTest
+    @IsTest
     static void simpleDynamicSOQLQueryTest() {
         Test.startTest();
         List<Account> results = DynamicSOQLRecipes.simpleDynamicSOQLQuery();
@@ -20,7 +20,7 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void simpleBindingSOQLQueryTestPositive() {
         String acctName = [SELECT Name FROM Account LIMIT 1].Name;
         Test.startTest();
@@ -36,7 +36,7 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void simpleBindingSOQLQueryTestNegative() {
         String acctName = [SELECT Name FROM Account LIMIT 1].Name + '\'';
         Test.startTest();
@@ -52,7 +52,7 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void dynamicFieldsBindingSOQLQueryTestPositive() {
         Account acct = [SELECT Name FROM Account LIMIT 1];
         Test.startTest();
@@ -68,7 +68,7 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void typecastDataIntelligentlyTestPositive() {
         Account acct = [SELECT Name FROM Account LIMIT 1];
         acct.NumberOfEmployees = 55;
@@ -87,7 +87,7 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void typecastDataIntelligentlyTestNoResult() {
         Account acct = [SELECT Name FROM Account LIMIT 1];
         acct.NumberOfEmployees = 55;
@@ -106,7 +106,7 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void simpleQueryBuilderTestNegativeOverridenQuiddity() {
         Id acctId = [SELECT Id FROM Account LIMIT 1].Id;
         List<String> fields = new List<String>{
@@ -133,7 +133,7 @@ private inherited sharing class DynamicSOQLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void simpleQueryBuilderTestPositive() {
         Id acctId = [SELECT Id FROM Account LIMIT 1].Id;
         List<String> fields = new List<String>{

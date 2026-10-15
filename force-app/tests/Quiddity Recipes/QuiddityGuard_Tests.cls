@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class QuiddityGuard_Tests {
-    @isTest
+    @IsTest
     static void testQuiddityGuardFindsTestQuiddityPositive() {
         Test.startTest();
         System.Assert.isTrue(
@@ -10,7 +10,7 @@ private class QuiddityGuard_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testQuiddityOverrideReturnsFalsePositive() {
         QuiddityGuard.testQuiddityOverride = Quiddity.FUTURE;
         Test.startTest();

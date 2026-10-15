@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class PSGTestingRecipes {
-    @isTest
+    @IsTest
     static void testRecalculatePSG() {
         // get the PSG by name
         PermissionSetGroup psg = [

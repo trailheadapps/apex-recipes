@@ -1,11 +1,11 @@
-@isTest
+@IsTest
 private inherited sharing class QueueableChainingRecipes_Tests {
     @TestSetup
     static void makeData() {
         TestFactory.createSObjectList(new Account(), 20, true);
     }
 
-    @isTest
+    @IsTest
     static void chainedQueueableTestPositive() {
         Test.startTest();
         // You cannot chain queueables together in a Test context. Your options are either to

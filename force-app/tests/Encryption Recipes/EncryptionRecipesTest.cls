@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private with sharing class EncryptionRecipesTest {
-    @isTest
+    @IsTest
     static void encryptAndDecryptWithManagedIVRecipesTest() {
         // GIVEN
         String toEncrypt = 'Test data';
@@ -24,7 +24,7 @@ private with sharing class EncryptionRecipesTest {
         );
     }
 
-    @isTest
+    @IsTest
     static void encryptAndDecryptRecipesTest() {
         // GIVEN
         String toEncrypt = 'Test data';
@@ -50,7 +50,7 @@ private with sharing class EncryptionRecipesTest {
         );
     }
 
-    @isTest
+    @IsTest
     static void hashRecipesWhenSuccessTest() {
         // GIVEN
         String toHash = 'Test data';
@@ -66,7 +66,7 @@ private with sharing class EncryptionRecipesTest {
         System.assert(true, 'No error was expected');
     }
 
-    @isTest
+    @IsTest
     static void hashRecipesWhenErrorTest() {
         // GIVEN
         String toHash = 'Test data';
@@ -91,7 +91,7 @@ private with sharing class EncryptionRecipesTest {
         }
     }
 
-    @isTest
+    @IsTest
     static void hmacRecipesWhenSuccessTest() {
         // GIVEN
         String toHmac = 'Test data';
@@ -107,7 +107,7 @@ private with sharing class EncryptionRecipesTest {
         System.assert(true, 'No error was expected');
     }
 
-    @isTest
+    @IsTest
     static void hmacRecipesWhenErrorTest() {
         // GIVEN
         String toHmac = 'Test data';
@@ -132,7 +132,7 @@ private with sharing class EncryptionRecipesTest {
         }
     }
 
-    @isTest
+    @IsTest
     static void digitalSignatureRecipesWhenSuccessTest() {
         // GIVEN
         String toSign = 'Test data';
@@ -153,7 +153,7 @@ private with sharing class EncryptionRecipesTest {
         System.assert(true, 'No error was expected');
     }
 
-    @isTest
+    @IsTest
     static void digitalSignatureRecipesWhenErrorTest() {
         // GIVEN
         String toSign = 'Test data';
@@ -180,7 +180,7 @@ private with sharing class EncryptionRecipesTest {
         }
     }
 
-    @isTest
+    @IsTest
     static void encryptionAndDigitalSignatureRecipesWhenSuccessTest() {
         // GIVEN
         String toEncryptAndSign = 'Test data';
@@ -205,7 +205,7 @@ private with sharing class EncryptionRecipesTest {
         );
     }
 
-    @isTest
+    @IsTest
     static void encryptionAndDigitalSignatureRecipesWhenErrorTest() {
         // GIVEN
         String toEncryptAndSign = 'Test data';

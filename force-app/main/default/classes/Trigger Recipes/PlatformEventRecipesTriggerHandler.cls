@@ -39,7 +39,7 @@ public with sharing class PlatformEventRecipesTriggerHandler extends TriggerHand
         }
 
         Map<Id, Account> accounts = new Map<Id, Account>(
-            [SELECT Name FROM Account WHERE Id IN :accountIds]
+            [SELECT Name FROM Account WHERE Id IN :accountIds WITH USER_MODE]
         );
 
         for (Event_Recipes_Demo__e evt : this.triggerNew) {

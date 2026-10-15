@@ -1,9 +1,9 @@
-@isTest
+@IsTest
 private inherited sharing class CanTheUser_Tests {
     // These tests rely on the assumption that standard FLS/CRUD have not been modified
     // by the user, and use the Account Object for verification of the Can Logic.
 
-    @isTest
+    @IsTest
     static void canCrudAccountCreatePositive() {
         System.Assert.isTrue(
             CanTheUser.crud(new Account(), CanTheUser.CrudType.CREATE),
@@ -11,7 +11,7 @@ private inherited sharing class CanTheUser_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void canCrudCreateAccountPositive() {
         System.Assert.isTrue(
             CanTheUser.create(new Account()),
@@ -19,7 +19,7 @@ private inherited sharing class CanTheUser_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void canCrudAccountReadPositive() {
         System.Assert.isTrue(
             CanTheUser.crud(new Account(), CanTheUser.CrudType.READ),
@@ -27,7 +27,7 @@ private inherited sharing class CanTheUser_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void canCrudReadAccountPositive() {
         System.Assert.isTrue(
             CanTheUser.read(new Account()),
@@ -35,7 +35,7 @@ private inherited sharing class CanTheUser_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void canCrudAccountUpdatePositive() {
         System.Assert.isTrue(
             CanTheUser.crud(new Account(), CanTheUser.CrudType.EDIT),
@@ -43,7 +43,7 @@ private inherited sharing class CanTheUser_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void canCrudEditAccountPositive() {
         System.Assert.isTrue(
             CanTheUser.edit(new Account()),
@@ -51,7 +51,7 @@ private inherited sharing class CanTheUser_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void canCrudAccountDeletePositive() {
         System.Assert.isTrue(
             CanTheUser.crud(new Account(), CanTheUser.CrudType.DEL),
@@ -59,7 +59,7 @@ private inherited sharing class CanTheUser_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void canCrudDestroyAccountPositive() {
         System.Assert.isTrue(
             CanTheUser.destroy(new Account()),
@@ -67,7 +67,7 @@ private inherited sharing class CanTheUser_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void getFLSofAccountNamePositive() {
         System.Assert.isTrue(
             CanTheUser.flsAccessible('Account', 'Name'),
@@ -75,7 +75,7 @@ private inherited sharing class CanTheUser_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void getFLSofAccountIDNegative() {
         System.Assert.isFalse(
             CanTheUser.flsUpdatable('Account', 'id'),
@@ -83,7 +83,7 @@ private inherited sharing class CanTheUser_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void getBulkFLSAccessibleWithAccountPositive() {
         Set<String> fields = new Set<String>{ 'name', 'id' };
         Map<String, Boolean> bulkCheck = CanTheUser.bulkFLSAccessible(
@@ -98,7 +98,7 @@ private inherited sharing class CanTheUser_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void getBulkFLSAccessibleWithAccountPositiveWithNegativeResults() {
         Set<String> fields = new Set<String>{ 'name', 'nonExistingField__c' };
         Map<String, Boolean> bulkCheck = CanTheUser.bulkFLSAccessible(
@@ -117,7 +117,7 @@ private inherited sharing class CanTheUser_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void getBulkFLSUpdatableWithAccountPositive() {
         Set<String> fields = new Set<String>{ 'name', 'ShippingStreet' };
         Map<String, Boolean> bulkCheck = CanTheUser.bulkFLSUpdatable(
@@ -132,7 +132,7 @@ private inherited sharing class CanTheUser_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void getBulkFLSUpdatableWithAccountPositiveWithNegativeResults() {
         Set<String> fields = new Set<String>{ 'name', 'nonExistingField__c' };
         Map<String, Boolean> bulkCheck = CanTheUser.bulkFLSUpdatable(
@@ -151,7 +151,7 @@ private inherited sharing class CanTheUser_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void memoizedFLSMDCcomparesAccesibleToUpdatable() {
         Test.startTest();
         CanTheUser.memoizeFLSMDC('Account', CanTheUser.FLSType.UPDATABLE);

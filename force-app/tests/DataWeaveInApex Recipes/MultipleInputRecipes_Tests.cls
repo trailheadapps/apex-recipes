@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 public with sharing class MultipleInputRecipes_Tests {
-    @isTest
+    @IsTest
     public static void testRunScriptWithMultipleInputs() {
         String products = '[ { "type": "book", "price": 30, "properties": { "title": "Everyday Italian", "author": [ "Giada De Laurentiis" ], "year": 2005 } }, { "type": "book", "price": 29.99, "properties": { "title": "Harry Potter", "author": [ "J K. Rowling" ], "year": 2005 } }, { "type": "book", "price": 41.12, "properties": { "title": "Mule in Action", "author": [ "David Dossot", "John D\'Emic" ], "year": 2009 } }, { "type": "book", "price": 49.99, "properties": { "title": "XQuery Kick Start", "author": [ "James McGovern", "Per Bothner", "Kurt Cagle", "James Linn", "Kurt Cagle", "Vaidyanathan Nagarajan" ], "year": 2003 } }, { "type": "book", "price": 39.95, "properties": { "title": "Learning XML", "author": [ "Erik T. Ray" ], "year": 2003 } }]';
         String attributes = '{ "publishedAfter": 2004 }';

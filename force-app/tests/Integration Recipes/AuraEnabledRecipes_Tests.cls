@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private inherited sharing class AuraEnabledRecipes_Tests {
-    @isTest
+    @IsTest
     static void testUpdateAccountNamePositive() {
         Account acct = (Account) TestFactory.createSObject(
             new Account(name = 'Original Name'),
@@ -19,7 +19,7 @@ private inherited sharing class AuraEnabledRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUpdateAccountNameNegativeInvalidName() {
         Account acct = (Account) TestFactory.createSObject(
             new Account(name = 'Original'),
@@ -37,7 +37,7 @@ private inherited sharing class AuraEnabledRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testUpdateAccountNameNegativeMinAccessProfile() {
         Account acct = (Account) TestFactory.createSObject(
             new Account(name = 'Original Name'),
@@ -61,7 +61,7 @@ private inherited sharing class AuraEnabledRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testGetFieldValue() {
         Test.startTest();
         System.Assert.isTrue(

@@ -89,6 +89,7 @@ public virtual class RestClient {
      * @param   query Query portion of the URL i.e. `?q=SELECT Id FROM Account`
      * @param   body JSON string representing the body of the callout in post/patch situations
      * @param   headers A map<String,String> of headers to use while making this callout
+     * @return  The HttpResponse returned by the callout
      */
     @testVisible
     @SuppressWarnings('PMD.ExcessiveParameterList')
@@ -140,6 +141,7 @@ public virtual class RestClient {
      * @param path   Http path component of the URL. ie: `/path/to/resource`
      * @param query  Query component of the URL ie: after `?foo=bar`
      * @param body   Body to send with this call.
+     * @return       The HttpResponse returned by the callout
      */
     @testVisible
     @SuppressWarnings('PMD.ExcessiveParameterList')
@@ -164,6 +166,7 @@ public virtual class RestClient {
      * @param method HTTPVerb to use. See the enum above.
      * @param path   Http path component of the URL. ie: `/path/to/resource`
      * @param query  Query component of the URL ie: after `?foo=bar`
+     * @return       The HttpResponse returned by the callout
      */
     @testVisible
     protected HttpResponse makeApiCall(
@@ -186,6 +189,7 @@ public virtual class RestClient {
      * Invokes omnibus version above, with blank body and query params
      * @param method HTTPVerb to use. See the enum above.
      * @param path   Http path component of the URL. ie: `/path/to/resource`
+     * @return       The HttpResponse returned by the callout
      */
     @testVisible
     protected HttpResponse makeApiCall(HttpVerb method, String path) {
@@ -201,6 +205,7 @@ public virtual class RestClient {
     /**
      * @description convenience method for a GET Call that only requires a path
      * @param path   Http path component of the URL. ie: `/path/to/resource`
+     * @return       The HttpResponse returned by the callout
      */
     @testVisible
     protected HttpResponse get(String path) {
@@ -212,6 +217,7 @@ public virtual class RestClient {
      * and query
      * @param path   Http path component of the URL. ie: `/path/to/resource`
      * @param query  Query component of the URL ie: after `?foo=bar`
+     * @return       The HttpResponse returned by the callout
      */
     @testVisible
     protected HttpResponse get(String path, String query) {
@@ -222,6 +228,7 @@ public virtual class RestClient {
      * @description convenience method for deleteing a resource based only on
      * path
      * @param path   Http path component of the URL. ie: `/path/to/resource`
+     * @return       The HttpResponse returned by the callout
      */
     @testVisible
     protected HttpResponse del(String path) {
@@ -233,6 +240,7 @@ public virtual class RestClient {
      * path and query
      * @param path   Http path component of the URL. ie: `/path/to/resource`
      * @param query  Query component of the URL ie: after `?foo=bar`
+     * @return       The HttpResponse returned by the callout
      */
     @testVisible
     protected HttpResponse del(String path, String query) {
@@ -244,6 +252,7 @@ public virtual class RestClient {
      * and body
      * @param path   Http path component of the URL. ie: `/path/to/resource`
      * @param body   JSON string to post
+     * @return       The HttpResponse returned by the callout
      */
     @testVisible
     protected HttpResponse post(String path, String body) {
@@ -256,6 +265,7 @@ public virtual class RestClient {
      * @param path   Http path component of the URL. ie: `/path/to/resource`
      * @param query  Query component of the URL ie: after `?foo=bar`
      * @param body   JSON string to post
+     * @return       The HttpResponse returned by the callout
      */
     @testVisible
     protected HttpResponse post(String path, String query, String body) {
@@ -267,6 +277,7 @@ public virtual class RestClient {
      * and body
      * @param path   Http path component of the URL. ie: `/path/to/resource`
      * @param body   JSON string to post
+     * @return       The HttpResponse returned by the callout
      */
     @testVisible
     protected HttpResponse put(String path, String body) {
@@ -279,6 +290,7 @@ public virtual class RestClient {
      * @param path   Http path component of the URL. ie: `/path/to/resource`
      * @param query  Query component of the URL ie: after `?foo=bar`
      * @param body   JSON string to post
+     * @return       The HttpResponse returned by the callout
      */
     @testVisible
     protected HttpResponse put(String path, String query, String body) {
@@ -290,6 +302,7 @@ public virtual class RestClient {
      * path, query and body
      * @param path   Http path component of the URL. ie: `/path/to/resource`
      * @param body   JSON string to post
+     * @return       The HttpResponse returned by the callout
      */
     @testVisible
     protected HttpResponse patch(String path, String body) {
@@ -302,6 +315,7 @@ public virtual class RestClient {
      * @param path   Http path component of the URL. ie: `/path/to/resource`
      * @param query  Query component of the URL ie: after `?foo=bar`
      * @param body   JSON string to post
+     * @return       The HttpResponse returned by the callout
      */
     @testVisible
     protected HttpResponse patch(String path, String query, String body) {
@@ -332,6 +346,7 @@ public virtual class RestClient {
      * @param body            JSON string to post
      * @param headers         Map<String,String> representing outgoing Request
      * headers
+     * @return                The HttpResponse returned by the callout
      * @example
      * ```
      * System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
@@ -362,6 +377,7 @@ public virtual class RestClient {
      * @param method          HTTPVerb enum value. See Enum above
      * @param path           Http path component of the URL. ie: `/path/to/resource`
      * @param query           Query component of the URL ie: after `?foo=bar`
+     * @return                The HttpResponse returned by the callout
      * @example
      * ```
      * System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
@@ -387,6 +403,7 @@ public virtual class RestClient {
      * @param namedCredential The named credential to use
      * @param method          HTTPVerb enum value. See Enum above
      * @param path           Http path component of the URL. ie: `/path/to/resource`
+     * @return                The HttpResponse returned by the callout
      * @example
      * ```
      * System.Debug(RestClient.makeApiCall('GoogleBooksAPI',

@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 public class TestFactory {
     /**
      * @description When we create a list of SObjects, we need to have a unique field for the insert if there isn't an autonumber field.
@@ -12,6 +12,7 @@ public class TestFactory {
     /**
      * @description Creates a single sObject.
      * @param sObj  Type of sObject to create.
+     * @return      The sObject with any applicable field defaults applied.
      */
     public static SObject createSObject(SObject sObj) {
         // Check what type of object we are creating and add any defaults that are needed.
@@ -33,6 +34,7 @@ public class TestFactory {
      * @description    Creates a single sObject
      * @param sObj     Type of sObject to create
      * @param doInsert Whether this object should be inserted
+     * @return         The created (and optionally inserted) sObject
      */
     public static SObject createSObject(SObject sObj, Boolean doInsert) {
         SObject retObject = createSObject(sObj);
@@ -47,6 +49,7 @@ public class TestFactory {
      * @param sObj             Type of sObject to create
      * @param defaultClassName Name of the class to provide field defaults
      * @exception              TestFactoryException when defaultClassName param is not a valid type.
+     * @return                 The sObject with field defaults from defaultClassName applied.
      */
     public static SObject createSObject(SObject sObj, String defaultClassName) {
         // Create an instance of the defaults class so we can get the Map of field defaults
@@ -64,6 +67,7 @@ public class TestFactory {
      * @param sObj             Type of sObject to create
      * @param defaultClassName String name of a class providing default values
      * @param doInsert         Boolean should this method insert the created object?
+     * @return                 The created (and optionally inserted) sObject
      */
     public static SObject createSObject(
         SObject sObj,
@@ -81,6 +85,7 @@ public class TestFactory {
      * @description           Creates a list of sObjects
      * @param sObj            Type of sObjects to create
      * @param numberOfObjects Integer number of objects to create
+     * @return                The list of created sObjects
      */
     public static SObject[] createSObjectList(
         SObject sObj,
@@ -94,6 +99,7 @@ public class TestFactory {
      * @param sObj            Type of sObjects to create
      * @param numberOfObjects Integer number of objects to create
      * @param doInsert         Boolean should this method insert the created object?
+     * @return                The list of created (and optionally inserted) sObjects
      */
     public static SObject[] createSObjectList(
         SObject sObj,
@@ -117,6 +123,7 @@ public class TestFactory {
      * @param numberOfObjects Integer number of objects to create
      * @param defaultClassName String name of a class providing defaults
      * @param doInsert         Boolean should this method insert the created object?
+     * @return                The list of created (and optionally inserted) sObjects
      */
     @SuppressWarnings('PMD.ExcessiveParameterList')
     public static SObject[] createSObjectList(
@@ -141,6 +148,7 @@ public class TestFactory {
      * @param sObj            Type of sObjects to create
      * @param numberOfObjects Integer number of objects to create
      * @param defaultClassName String name of a class providing defaults
+     * @return                The list of created sObjects with unique name field values
      */
     public static SObject[] createSObjectList(
         SObject sObj,
@@ -215,6 +223,7 @@ public class TestFactory {
     public interface FieldDefaults {
         /**
          * @description Interface used by implementing classes to define defaults.
+         * @return       Map of sObjectField to its default value
          */
         Map<Schema.SObjectField, Object> getFieldDefaults();
     }
@@ -223,6 +232,7 @@ public class TestFactory {
      * @description     creates a test user. Useful for permissions testing
      * @param profileId Profile Id to use when creating a user.
      * @param doInsert  Boolean, should this code insert the user?
+     * @return          The created (and optionally inserted) test User
      */
     public static User createTestUser(Id profileId, boolean doInsert) {
         User u = new User(
@@ -248,6 +258,7 @@ public class TestFactory {
      * @description       Creates a test user with a given profile.
      * @param doInsert    Should this code insert the created user?
      * @param profileName Name of the profile to create the user with.
+     * @return            The created (and optionally inserted) test User
      */
     public static User createTestUser(Boolean doInsert, String profileName) {
         Profile selectedProfile = [
@@ -262,6 +273,7 @@ public class TestFactory {
      * @description    Creates a user with the Minimum Access Profile
      * Relies on the previous method for creating the user.
      * @param doInsert Whether this code should insert the user.
+     * @return         The created (and optionally inserted) Minimum Access User
      */
     public static User createMinAccessUser(Boolean doInsert) {
         Id profileId = [
@@ -297,6 +309,7 @@ public class TestFactory {
      * @description    Intentionally invalidates a list of sObjects. This is useful for
      *                  intentionally causing DML errors during testing.
      * @param incoming List of SObjects
+     * @return         The list of sObjects with their name field blanked out
      */
     public static List<sObject> invalidateSObjectList(List<sObject> incoming) {
         for (sObject obj : incoming) {

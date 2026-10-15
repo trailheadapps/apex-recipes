@@ -142,6 +142,7 @@ public virtual class TriggerHandler {
      * @description       Allows developers to check whether a given trigger
      * handler class is currently bypassed.
      * @param handlerName The name of the trigger handler class to check for
+     * @return            True if the given handler class is currently bypassed
      * @example
      * ```
      * TriggerHandler.isBypassed('AccountTriggerHandler');
@@ -270,6 +271,8 @@ public virtual class TriggerHandler {
      * @description make sure this trigger should continue to run
      * @exception TriggerHandlerException thrown when executing outside of a
      * trigger
+     * @return    True if the trigger should continue to run, false if the
+     * current handler is bypassed
      */
     @testVisible
     protected Boolean validateRun() {

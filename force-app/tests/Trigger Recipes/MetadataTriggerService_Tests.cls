@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class MetadataTriggerService_Tests {
-    @isTest
+    @IsTest
     static void testGetMetadataTriggers() {
         MetadataTriggerService mts = new MetadataTriggerService(
             'Invalid_Object__c'
@@ -16,7 +16,7 @@ private class MetadataTriggerService_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetSObjectTypeNegative() {
         Boolean didCatchProperException = false;
         Test.startTest();

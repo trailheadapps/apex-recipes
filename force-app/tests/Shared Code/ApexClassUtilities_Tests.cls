@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class ApexClassUtilities_Tests {
-    @isTest
+    @IsTest
     static void testGetGroupFromClassBodyPositive() {
         ApexClass klass = [
             SELECT name, body
@@ -14,7 +14,7 @@ private class ApexClassUtilities_Tests {
         System.Assert.areEqual('Shared Code', groupName);
     }
 
-    @isTest
+    @IsTest
     static void testGetRelatedClassesFromClassBodyPositive() {
         ApexClass klass = [
             SELECT name, body
@@ -35,7 +35,7 @@ private class ApexClassUtilities_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetRelatedClassesFromClassBodyNegativeToComplex() {
         ApexClass klass = [
             SELECT name, body

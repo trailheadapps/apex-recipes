@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class RecipeTreeViewController_Tests {
-    @isTest
+    @IsTest
     static void testGenerateTreeDataPositive() {
         Map<Id, ApexClass> fakeResults = new Map<Id, ApexClass>(
             [

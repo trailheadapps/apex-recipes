@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class QuiddityRecipes_Tests {
-    @isTest
+    @IsTest
     static void testBasicFetchOfQuiddityPositive() {
         Test.startTest();
         Quiddity result = QuiddityRecipes.demonstrateGetQuiddity();

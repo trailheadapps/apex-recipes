@@ -30,6 +30,8 @@ public with sharing class DynamicSOQLRecipes {
      * query. DANGER Because this method accepts user input (name param), it
      * must be sanitized against SOQL injections
      * @param name Name of the account to search for
+     * @return Account list matching the given name, with security enforced
+     * using `USER_MODE`
      * @example
      * ```
      * System.debug(DynamicSoqlRecipes.simpleBindingSOQLQuery('hello'))
@@ -55,6 +57,8 @@ public with sharing class DynamicSOQLRecipes {
      * bound dynamic SOQL queryString. DANGER: because this method accepts user
      * input (name param), it must be sanitized against SOQL injections
      * @param acct Account to base the search off of
+     * @return Account list matching the given account's name, with security
+     * enforced using `USER_MODE`
      * @example
      * ```
      * Account acct = [SELECT Name FROM Account WHERE Name = 'hello' LIMIT 1];
@@ -93,6 +97,8 @@ public with sharing class DynamicSOQLRecipes {
      * integer will throw an exception.
      *
      * @param numberOfRecords String to be used as the comparison in the query
+     * @return Account list with NumberOfEmployees greater than the given
+     * value, with security enforced using `USER_MODE`
      * @example
      * ```
      * System.debug(DynamicSOQLRecipes.typecastDataIntelligently(2).size());
@@ -138,6 +144,8 @@ public with sharing class DynamicSOQLRecipes {
      *
      * @param fields      A list of String field names to include in the query
      * @param whereClause A string containing the where clause
+     * @return Account list matching the dynamically built query, or an empty
+     * list if the current Quiddity is not acceptable
      * @example
      * ```
      * List<String> fields = new List<String>{

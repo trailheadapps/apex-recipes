@@ -1,11 +1,11 @@
-@isTest
+@IsTest
 private inherited sharing class QueueableWithCalloutRecipes_Tests {
     @TestSetup
     static void makeData() {
         TestFactory.createSObjectList(new Account(), 200, true);
     }
 
-    @isTest
+    @IsTest
     static void testQueueableWithCalloutRecipesPositive() {
         HttpCalloutMockFactory httpMock = new HttpCalloutMockFactory(
             200,
@@ -33,7 +33,7 @@ private inherited sharing class QueueableWithCalloutRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testQueuableWithCalloutNegativeDMLError() {
         HttpCalloutMockFactory httpMock = new HttpCalloutMockFactory(
             200,

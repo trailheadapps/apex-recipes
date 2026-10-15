@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 private class SOSLRecipes_Tests {
     @TestSetup
     static void makeData() {
@@ -15,7 +15,7 @@ private class SOSLRecipes_Tests {
         insert new List<Contact>{ c1, c2, c3 };
     }
 
-    @isTest
+    @IsTest
     static void basicSOSLSearch() {
         Map<Id, Account> fakeResults = new Map<Id, Account>(
             [SELECT Id FROM Account WHERE Name = 'KS']
@@ -32,7 +32,7 @@ private class SOSLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void inNameFieldsTest() {
         Map<Id, Contact> fakeResults = new Map<Id, Contact>(
             [SELECT Id FROM Contact WHERE lastname = 'Alaska']

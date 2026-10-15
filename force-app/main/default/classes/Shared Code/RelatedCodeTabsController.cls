@@ -16,6 +16,8 @@ public with sharing class RelatedCodeTabsController {
      * we're ok.
      *
      * @param mainClassName The name of the class to inspect
+     * @return A list of class names parsed from the `@see` tag of the
+     * inspected class's doc comment, or an empty list if mainClassName is blank.
      * @example
      * ```
      * System.debug(RelatedCodeTabsController.getRelatedClasses('RelatedCodeTabsController'));

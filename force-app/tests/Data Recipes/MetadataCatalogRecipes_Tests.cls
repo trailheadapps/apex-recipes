@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private inherited sharing class MetadataCatalogRecipes_Tests {
-    @isTest
+    @IsTest
     static void testFindAllFormulaFieldsPositive() {
         Map<String, Map<String, String>> results;
         Test.startTest();
@@ -14,7 +14,7 @@ private inherited sharing class MetadataCatalogRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testFindAllContactFieldsThatLookupToAccountPositive() {
         List<MetadataCatalogRecipes.LookupRelationshipDefinition> relatesToAccounts;
         Test.startTest();

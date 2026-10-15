@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class RelatedCodeTabsController_Tests {
-    @isTest
+    @IsTest
     static void testGetRelatedClassesPositive() {
         Test.startTest();
         String[] relatedClasses = RelatedCodeTabsController.getRelatedClasses(
@@ -18,7 +18,7 @@ private class RelatedCodeTabsController_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetRElatedClassesNegative() {
         Boolean didCatchProperException = false;
         Test.startTest();
@@ -39,7 +39,7 @@ private class RelatedCodeTabsController_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetRElatedClassesNegativeNoRelated() {
         Test.startTest();
         String[] relatedClasses = RelatedCodeTabsController.getRelatedClasses(

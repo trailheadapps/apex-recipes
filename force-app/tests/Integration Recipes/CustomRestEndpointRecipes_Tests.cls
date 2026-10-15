@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private inherited sharing class CustomRestEndpointRecipes_Tests {
-    @isTest
+    @IsTest
     static void httpCalloutGetRecordsToReturnPositive() {
         TestFactory.createSObjectList(new Account(), 5, true);
         RestRequest request = new RestRequest();
@@ -31,7 +31,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpCalloutGetRecordsToReturnNegativeStringReturn() {
         List<Account> allAccounts = [SELECT Id, Name FROM Account];
         System.Assert.areEqual(
@@ -60,7 +60,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpCalloutDeleteSingleContactPositive() {
         SObject contact = TestFactory.createSObject(
             new Contact(LastName = 'test'),
@@ -87,7 +87,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpCalloutDeleteSingleContactNegativeQueryException() {
         SObject contact = TestFactory.createSObject(
             new Contact(LastName = 'test'),
@@ -115,7 +115,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpCalloutDeleteSingleContactNegativeDMLException() {
         SObject contact = TestFactory.createSObject(
             new Contact(LastName = 'test'),
@@ -141,7 +141,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpCalloutDeleteSingleContactNegativeException() {
         // Insert the contact
         TestFactory.createSObject(new Contact(LastName = 'test'), true);
@@ -164,7 +164,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.Assert.isTrue(nullObject, 'Expected no contact to be found');
     }
 
-    @isTest
+    @IsTest
     static void httpCalloutDeleteSingleContactNegativeNoAccess() {
         // Insert the contact
         TestFactory.createSObject(new Contact(LastName = 'test'), true);
@@ -198,7 +198,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.Assert.isTrue(expectedError, 'Expected to get error string');
     }
 
-    @isTest
+    @IsTest
     static void httpCalloutParseAndCreateNewContactsNegativeNoAccess() {
         Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
             new Contact(),
@@ -235,7 +235,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.Assert.isTrue(expectedError, 'Expected to get error string');
     }
 
-    @isTest
+    @IsTest
     static void httpCalloutParseAndCreateNewContactsNegativeJSONException() {
         Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
             new Contact(),
@@ -268,7 +268,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.Assert.isTrue(expectedError, 'Expected to get error string');
     }
 
-    @isTest
+    @IsTest
     static void httpCalloutParseAndCreateNewContactsNegativeDMLException() {
         Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
             new Contact(),
@@ -300,7 +300,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.Assert.isTrue(expectedError, 'Expected to get error string');
     }
 
-    @isTest
+    @IsTest
     static void httpPostParseAndCreateNewContactsPositive() {
         Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
             new Contact(),
@@ -325,7 +325,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpPostParseAndCreateNewContactsNegative() {
         RestRequest request = new RestRequest();
         request.requestUri = '/services/apexrest/integration-service/';
@@ -344,7 +344,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.Assert.isTrue(argumentNull, 'No contact records were provided');
     }
 
-    @isTest
+    @IsTest
     static void httpPutUpsertContactRecordsPositive() {
         TestFactory.createSObjectList(new Contact(), 5, true);
         List<Contact> contactsToUpdate = new List<Contact>();
@@ -373,7 +373,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpPutUpsertContactRecordsNegativeMinAccess() {
         Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
             new Contact(),
@@ -409,7 +409,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.Assert.isTrue(upsertFailed, 'Expected a no permissions return');
     }
 
-    @isTest
+    @IsTest
     static void httpPutUpsertContactRecordsNegativeJSONException() {
         Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
             new Contact(),
@@ -435,7 +435,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.Assert.isTrue(upsertFailed, 'Malformed JSON error Expected.');
     }
 
-    @isTest
+    @IsTest
     static void httpPutUpsertContactRecordsNegativeDMLException() {
         Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
             new Contact(),
@@ -460,7 +460,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.Assert.isTrue(upsertFailed, 'DMLException expected');
     }
 
-    @isTest
+    @IsTest
     static void httpPutUpsertContactRecordsNegativeException() {
         Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
             new Contact(),
@@ -487,7 +487,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.Assert.isTrue(upsertFailed, 'DMLException expected');
     }
 
-    @isTest
+    @IsTest
     static void httpPatchUpdateAccountRecordsPositive() {
         TestFactory.createSObjectList(new Account(), 5, true);
         List<Account> accountsToUpdate = new List<Account>();
@@ -533,7 +533,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpPatchUpdateAccountRecordsNegative() {
         TestFactory.createSObjectList(new Account(), 5, true);
         List<Account> accountsToUpdate = new List<Account>();
@@ -566,7 +566,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         System.Assert.isTrue(upsertFailed, 'No External Id was provided');
     }
 
-    @isTest
+    @IsTest
     static void httpPatchUpdateAccountRecordsNegativeCatchException() {
         TestFactory.createSObjectList(new Account(), 5, true);
         List<Account> accountsToUpdate = new List<Account>();
@@ -607,7 +607,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpPatchUpdateAccountRecordsNegativeNoAccess() {
         TestFactory.createSObjectList(new Account(), 5, true);
         List<Account> accountsToUpdate = new List<Account>();
@@ -651,7 +651,7 @@ private inherited sharing class CustomRestEndpointRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpPatchUpdateAccountRecordsNegativeJSONException() {
         TestFactory.createSObjectList(new Account(), 5, true);
         List<Account> accountsToUpdate = new List<Account>();

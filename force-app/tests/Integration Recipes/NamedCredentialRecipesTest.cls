@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private with sharing class NamedCredentialRecipesTest {
-    @isTest
+    @IsTest
     static void createNamedCredential() {
         // GIVEN
         ConnectApiWrapper connectApiWrapper = (ConnectApiWrapper) Test.createStub(

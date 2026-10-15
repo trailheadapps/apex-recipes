@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class StubExample_Tests {
-    @isTest
+    @IsTest
     static void testGetIsTruePositive() {
         StubExample example = new StubExample();
         Test.startTest();
@@ -13,7 +13,7 @@ private class StubExample_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetGreetingPositive() {
         StubExample example = new StubExample();
         Test.startTest();
@@ -26,7 +26,7 @@ private class StubExample_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testSetGreetingStringPositive() {
         StubExample example = new StubExample();
         Test.startTest();
@@ -40,7 +40,7 @@ private class StubExample_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testSetGreetingIntegerPositive() {
         StubExample example = new StubExample();
         Test.startTest();

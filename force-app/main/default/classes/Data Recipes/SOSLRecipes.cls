@@ -13,6 +13,8 @@ public with sharing class SOSLRecipes {
      *  Note: SOSL Cannot be unit tested directly - you must use
      * `Test.setFixedSearchResults()`
      *  See SOSLRecipes_Tests.cls for more information
+     * @return List of SObject result lists (Account and Contact records)
+     * matching the search keyword across all fields
      * @example
      * ```
      * System.debug(SOSLRecipes.basicSOSLSearch());
@@ -32,6 +34,8 @@ public with sharing class SOSLRecipes {
     /**
      * @description Demonstrates how to write a SOSL query that searches only
      * name fields
+     * @return List of SObject result lists (Account and Contact records)
+     * matching the search keyword in name fields only
      * @example
      * ```
      * System.debug(SOSLRecipes.nameFieldSearch());

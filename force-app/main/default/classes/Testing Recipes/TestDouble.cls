@@ -17,7 +17,7 @@
  *  );
  * ```
  */
-@isTest
+@IsTest
 public class TestDouble implements System.StubProvider {
     /**
      * Internal exception class.
@@ -53,6 +53,7 @@ public class TestDouble implements System.StubProvider {
      * @description   This adds a given method object to the list of Methods
      * that are actively overridden and stubbed by this `TestDouble` instance.
      * @param toTrack A `TestDouble.Method` object
+     * @return        This `TestDouble` instance, for chaining
      */
     public TestDouble track(Method toTrack) {
         this.methods.add(toTrack);
@@ -163,6 +164,7 @@ public class TestDouble implements System.StubProvider {
          * @description      Adds a matching ParamTypes list to this method
          * definition. If added,
          * @param paramTypes
+         * @return            This `Method` instance, for chaining
          */
         public Method withParamTypes(List<Type> paramTypes) {
             this.listOfParamTypes = paramTypes;

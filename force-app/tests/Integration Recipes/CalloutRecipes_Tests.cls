@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 private inherited sharing class CalloutRecipes_Tests {
     private static final String UNTYPED_JSON =
         '{\n' +
@@ -19,7 +19,7 @@ private inherited sharing class CalloutRecipes_Tests {
         ']\n' +
         '}';
 
-    @isTest
+    @IsTest
     static void testRawCalloutPositive() {
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
             200,
@@ -40,7 +40,7 @@ private inherited sharing class CalloutRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testRawCalloutNegative() {
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
             500,
@@ -70,7 +70,7 @@ private inherited sharing class CalloutRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpGetCalloutToSecondSalesforceOrgPositive() {
         Account[] accountList = (Account[]) TestFactory.createSObjectList(
             new Account(),
@@ -97,7 +97,7 @@ private inherited sharing class CalloutRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpGetCalloutToSecondSalesforceOrgNegative() {
         Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
             new Contact(),
@@ -120,7 +120,7 @@ private inherited sharing class CalloutRecipes_Tests {
         System.Assert.isNull(calloutResponse, 'Expected a null response');
     }
 
-    @isTest
+    @IsTest
     static void httpDeleteCalloutToSecondSalesforceOrgPositive() {
         SObject contact = TestFactory.createSObject(
             new Contact(LastName = 'test'),
@@ -143,7 +143,7 @@ private inherited sharing class CalloutRecipes_Tests {
         System.Assert.areEqual(200, statusCode, 'Expected a successful delete');
     }
 
-    @isTest
+    @IsTest
     static void httpDeleteCalloutToSecondSalesforceOrgNegative() {
         SObject contact = TestFactory.createSObject(
             new Contact(LastName = 'test'),
@@ -170,7 +170,7 @@ private inherited sharing class CalloutRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpPostCalloutToSecondSalesforceOrgPositive() {
         Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
             new Contact(),
@@ -197,7 +197,7 @@ private inherited sharing class CalloutRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpPostCalloutToSecondSalesforceOrgNegative() {
         Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
             new Contact(),
@@ -224,7 +224,7 @@ private inherited sharing class CalloutRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpPutCalloutToSecondSalesforceOrgPositive() {
         Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
             new Contact(),
@@ -251,7 +251,7 @@ private inherited sharing class CalloutRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpPutCalloutToSecondSalesforceOrgNegative() {
         Contact[] contactList = (Contact[]) TestFactory.createSObjectList(
             new Contact(),
@@ -278,7 +278,7 @@ private inherited sharing class CalloutRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpPatchCalloutToSecondSalesforceOrgPositive() {
         Account[] accountList = (Account[]) TestFactory.createSObjectList(
             new Account(),
@@ -305,7 +305,7 @@ private inherited sharing class CalloutRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void httpPatchCalloutToSecondSalesforceOrgNegative() {
         Account[] accountList = (Account[]) TestFactory.createSObjectList(
             new Account(),
@@ -332,7 +332,7 @@ private inherited sharing class CalloutRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void calloutWithUntypedResponsePositive() {
         String response =
             '{\n' +
@@ -377,7 +377,7 @@ private inherited sharing class CalloutRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void insertAccountAndContactsFromUntypedResponsePositive() {
         String response = CalloutRecipes_Tests.UNTYPED_JSON;
 

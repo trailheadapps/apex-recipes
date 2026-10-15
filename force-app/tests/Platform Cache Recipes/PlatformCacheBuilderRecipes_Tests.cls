@@ -1,10 +1,10 @@
-@isTest
+@IsTest
 private class PlatformCacheBuilderRecipes_Tests {
     static Cache.Partition defaultOrgPartition = PlatformCacheRecipes.getDefaultPartition(
         PlatformCacheRecipes.PartitionType.ORG
     );
 
-    @isTest
+    @IsTest
     static void testPlatformCacheBuilderRecipesPositiveColdCache() {
         Account[] accts = (Account[]) TestFactory.createSObjectList(
             new Account(),
