@@ -1,9 +1,7 @@
-@isTest
+@IsTest
 private class PSGAdvancedTestingRecipes {
-    @isTest
+    @IsTest
     static void testNegativePSGTestsWithMetadata() {
-        // any setup you need for this unit test
-
         Map<String, Permission_Set_Group_Testing_Result__mdt> mapOfPSGResultMetadata = getMapOfPSGResultMetadata(
             'PSGAdvancedTesting.testNegativePSGTestsWithMetadata'
         );
@@ -55,6 +53,10 @@ private class PSGAdvancedTestingRecipes {
         Test.stopTest();
     }
 
+    /**
+     * @description Queries the expected test result custom metadata records for the given test.
+     * @return       Map of permission set group developer name to its expected test result record
+     */
     private static Map<String, Permission_Set_Group_Testing_Result__mdt> getMapOfPSGResultMetadata(
         String testClassAndName
     ) {
@@ -79,8 +81,9 @@ private class PSGAdvancedTestingRecipes {
         PermissionSetGroup permissionSetGroup,
         Id userId
     ) {
+        // CRUD on PermissionSetAssignment require system level permissions
         // delete any existing permission set assignments
-        delete [
+        delete as system [
             SELECT id
             FROM PermissionSetAssignment
             WHERE
@@ -90,8 +93,9 @@ private class PSGAdvancedTestingRecipes {
                     FROM PermissionSet
                     WHERE IsOwnedByProfile = FALSE
                 )
+            WITH SYSTEM_MODE
         ];
-        insert new PermissionSetAssignment(
+        insert as system new PermissionSetAssignment(
             PermissionSetGroupId = PermissionSetGroup.Id,
             AssigneeId = userId
         );
