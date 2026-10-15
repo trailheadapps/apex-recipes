@@ -384,8 +384,6 @@ Cache.CacheBuilder
 #### Methods
 ##### `doLoad(requiredButNotUsed)`
 
-`SUPPRESSWARNINGS`
-
 Note: We&#x27;re suppressing PMD warning on Crud Checking because we want 
 everyone to be able to pull this read-only record.
 
