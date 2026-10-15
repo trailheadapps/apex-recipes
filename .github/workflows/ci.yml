@@ -89,7 +89,6 @@ jobs:
                   run-arguments: >-
                       --config-file "code-analyzer.yml"
                       --target "force-app/**"
-                      --rule-selector ApexSecurity
                       --view detail
                       --output-file "sca-results.csv"
                   results-artifact-name: code-analyzer-results
