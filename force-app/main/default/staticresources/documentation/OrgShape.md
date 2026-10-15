@@ -358,8 +358,6 @@ The current org&#x27;s Organization record
 
 ### `getOrgRecord()`
 
-`SUPPRESSWARNINGS`
-
 Private method for pulling the Organization record 
 Note: We&#x27;re suppressing PMD warning on Crud Checking because we want 
 everyone to be able to pull this read-only record.

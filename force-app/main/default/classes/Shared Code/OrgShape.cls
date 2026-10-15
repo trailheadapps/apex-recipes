@@ -300,7 +300,6 @@ public with sharing class OrgShape {
         }
     }
 
-    @SuppressWarnings('PMD.ApexCRUDViolation')
     /**
      * @description Private method for pulling the Organization record
      * Note: We're suppressing PMD warning on Crud Checking because we want
@@ -308,7 +307,12 @@ public with sharing class OrgShape {
      * @return The current org's Organization record
      */
     private Organization getOrgRecord() {
-        return [SELECT FIELDS(STANDARD) FROM Organization LIMIT 1];
+        return [
+            SELECT FIELDS(STANDARD)
+            FROM Organization
+            WITH SYSTEM_MODE
+            LIMIT 1
+        ];
     }
 
     public with sharing class CachedOrgShape implements Cache.CacheBuilder {
