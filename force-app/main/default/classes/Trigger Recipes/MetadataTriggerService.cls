@@ -17,8 +17,9 @@ public with sharing class MetadataTriggerService {
      *
      * Admin's and Developers can selectively disable trigger handlers
      * for all or selected individuals *without* deploying.
+     * @return The ordered list of enabled Metadata_Driven_Trigger__mdt
+     * records for this object type, excluding any disabled for the current user
      */
-    @suppressWarnings('PMD.ApexCRUDViolation')
     public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers() {
         return [
             SELECT Class__c
@@ -47,6 +48,7 @@ public with sharing class MetadataTriggerService {
                      */
                     WHERE User_Email__c = :UserInfo.getUsername()
                 )
+            WITH SYSTEM_MODE
             ORDER BY Execution_Order__c
         ];
     }
@@ -54,6 +56,7 @@ public with sharing class MetadataTriggerService {
     /**
      * @description This determines the active sObject type by describing the first
      * record in the trigger New / Old list
+     * @return The API name of the sObject type found in Trigger.new or Trigger.old
      */
     public static String getSObjectType() {
         if (Trigger.new != null) {
