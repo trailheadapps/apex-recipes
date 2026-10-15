@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 private class InboundEmailHandlerRecipes_tests {
     static final String FROM_EMAIL = 'kjp@codefriar.com';
 
@@ -65,7 +65,7 @@ private class InboundEmailHandlerRecipes_tests {
         return envelope;
     }
 
-    @isTest
+    @IsTest
     static void handleInboundEmailPositiveFailureWhenContactCreationFails() {
         Messaging.InboundEnvelope envelope = createEnvelope();
         Messaging.InboundEmail email = new Messaging.InboundEmail();
@@ -88,7 +88,7 @@ private class InboundEmailHandlerRecipes_tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void handleInboundEmailPositiveNewContactCreatedWhenNoContactFound() {
         Messaging.InboundEnvelope envelope = createEnvelope();
         Messaging.InboundEmail email = createEmail();
@@ -112,7 +112,7 @@ private class InboundEmailHandlerRecipes_tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void integrationTestPositive() {
         Messaging.InboundEnvelope envelope = createEnvelope();
         Messaging.InboundEmail email = createEmail();
@@ -123,7 +123,7 @@ private class InboundEmailHandlerRecipes_tests {
         Test.stopTest();
         System.Assert.isTrue(
             result.success,
-            'Expected result to be positive ' + result.message
+            'Expected result to be positive but got: ' + result.message
         );
         System.Assert.areEqual(
             2,
