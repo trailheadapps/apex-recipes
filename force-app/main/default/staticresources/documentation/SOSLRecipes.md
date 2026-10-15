@@ -24,6 +24,9 @@ public static List&lt;List&lt;SObject&gt;&gt; basicSOSLSearch()
 #### Return Type
 **List&lt;List&lt;SObject&gt;&gt;**
 
+List of SObject result lists (Account and Contact records) 
+matching the search keyword across all fields
+
 #### Example
 ```apex
 System.debug(SOSLRecipes.basicSOSLSearch());
@@ -43,6 +46,9 @@ public static List&lt;List&lt;SObject&gt;&gt; nameFieldSearch()
 
 #### Return Type
 **List&lt;List&lt;SObject&gt;&gt;**
+
+List of SObject result lists (Account and Contact records) 
+matching the search keyword in name fields only
 
 #### Example
 ```apex

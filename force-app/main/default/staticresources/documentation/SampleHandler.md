@@ -8,7 +8,7 @@ because the MetadataTriggerHandler instantiates handler classes from custom
 metadata records, even when we stub/mock the metadata record retrieval we 
 still need an actuall class that it can instantiate. 
  
-Note, this class is annotated with `@isTest` to prevent it&#x27;s use outside of 
+Note, this class is annotated with `@IsTest` to prevent it&#x27;s use outside of 
 tests, not because it contains tests.
 
 **Inheritance**
@@ -264,6 +264,8 @@ public static Boolean isBypassed(String handlerName)
 #### Return Type
 **Boolean**
 
+True if the given handler class is currently bypassed
+
 #### Example
 ```apex
 TriggerHandler.isBypassed('AccountTriggerHandler');
@@ -328,6 +330,9 @@ protected Boolean validateRun()
 
 #### Return Type
 **Boolean**
+
+True if the trigger should continue to run, false if the 
+current handler is bypassed
 
 #### Throws
 TriggerHandlerException: thrown when executing outside of a 

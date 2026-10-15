@@ -19,6 +19,9 @@ public static List&lt;Account&gt; getRecords()
 #### Return Type
 **List&lt;Account&gt;**
 
+List of Account records with Name, ShippingStreet and 
+ShippingCity
+
 #### Example
 ```apex
 List&lt;Account&gt; results = SOQLRecipes.querySingleObject();
@@ -38,6 +41,8 @@ public static Integer getLargeNumberOfRecords()
 
 #### Return Type
 **Integer**
+
+Count of Account records
 
 #### Example
 ```apex
@@ -67,6 +72,9 @@ public static Integer[] getChunksOfLargeNumbersOfRecords()
 #### Return Type
 **Integer[]**
 
+List containing the count of chunks iterated and the total 
+number of records across those chunks, in that order
+
 ---
 
 ### `getRecordsByFieldValue()`
@@ -80,6 +88,8 @@ public static List&lt;Account&gt; getRecordsByFieldValue()
 
 #### Return Type
 **List&lt;Account&gt;**
+
+List of Account records with ShippingCountry equal to &#x27;UK&#x27;
 
 #### Example
 ```apex
@@ -101,6 +111,9 @@ public static List&lt;Account&gt; getRecordsByMultipleFieldValues()
 #### Return Type
 **List&lt;Account&gt;**
 
+List of Account records matching the given ShippingCountry, 
+ShippingState and Industry criteria
+
 #### Example
 ```apex
 System.debug(SOQLRecipes.getRecordsByMultipleFieldValues());
@@ -119,6 +132,9 @@ public static List&lt;Account&gt; getSpecificNumberOfRecords()
 
 #### Return Type
 **List&lt;Account&gt;**
+
+List of up to 10 Account records ordered by Industry in 
+descending order
 
 #### Example
 ```apex
@@ -144,6 +160,8 @@ public static List&lt;Account&gt; getFirstXRecords(Integer wantedNumberOfRows)
 #### Return Type
 **List&lt;Account&gt;**
 
+List of Account records limited to the given number of rows
+
 #### Example
 ```apex
 System.debug(SOQLRecipes.getFirstXRecords(5));
@@ -168,6 +186,9 @@ public static List&lt;Account&gt; getAccountRecordsInState(String state)
 #### Return Type
 **List&lt;Account&gt;**
 
+List of Account records whose ShippingState matches the given 
+state code
+
 #### Example
 ```apex
 System.debug(SOQLRecipes.getAccountRecordsInState('ks'));
@@ -187,6 +208,9 @@ public static List&lt;Account&gt; getSecond10AccountRecords()
 
 #### Return Type
 **List&lt;Account&gt;**
+
+List of the second set of 10 Account records, ordered by 
+Industry in descending order
 
 #### Example
 ```apex
@@ -208,6 +232,9 @@ public static List&lt;Account&gt; getRecordsWithRelatedRecords()
 #### Return Type
 **List&lt;Account&gt;**
 
+List of Account records including their related Contact child 
+records
+
 #### Example
 ```apex
 System.debug(SOQLRecipes.getRecordsWithRelatedRecords());
@@ -228,6 +255,9 @@ public static List&lt;Contact&gt; getParentRecordDetailsFromChildRecord()
 #### Return Type
 **List&lt;Contact&gt;**
 
+List of Contact records in the state of Kansas, including Name 
+and ShippingState from their related parent Account
+
 #### Example
 ```apex
 System.debug(SOQLRecipes.getParentRecordDetailsFromChildRecord());
@@ -247,6 +277,9 @@ public static List&lt;Junction__c&gt; getDetailsFromBothParentRecords()
 
 #### Return Type
 **List&lt;Junction__c&gt;**
+
+List of Junction__c records including the Name field from both 
+related parent records
 
 #### Example
 ```apex
@@ -273,6 +306,9 @@ public static Double getSumOfOpportunityRecords(Id accountId)
 
 #### Return Type
 **Double**
+
+Sum of the Amount field across Opportunity records associated 
+with the given Account Id
 
 #### Example
 ```apex

@@ -115,3 +115,6 @@ public Log__e toEvent()
 
 #### Return Type
 **Log__e**
+
+A Log__e platform event populated with this message&#x27;s text, 
+request Id, quiddity and severity.

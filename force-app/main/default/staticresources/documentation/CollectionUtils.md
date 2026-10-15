@@ -42,6 +42,9 @@ sObjects |
 #### Return Type
 **Map&lt;Id,SObject&gt;**
 
+Map&lt;Id, SObject&gt; of the incoming records keyed by the Id value 
+of the specified field.
+
 #### Example
 ```apex
 Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
@@ -71,6 +74,9 @@ public static Map&lt;String,SObject&gt; stringMapFromCollectionByKey(String key,
 #### Return Type
 **Map&lt;String,SObject&gt;**
 
+Map&lt;String, SObject&gt; of the incoming records keyed by the 
+String value of the specified field.
+
 #### Example
 ```apex
 Contact[] contacts = [SELECT AccountId, firstName, lastName FROM Contact LIMIT 50];
@@ -99,6 +105,9 @@ public static Map&lt;Id,List&lt;SObject&gt;&gt; mapFromCollectionWithCollectionV
 
 #### Return Type
 **Map&lt;Id,List&lt;SObject&gt;&gt;**
+
+Map&lt;Id, List&lt;SObject&gt;&gt; grouping the incoming records by the Id 
+value of the specified field.
 
 #### Example
 ```apex

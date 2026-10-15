@@ -89,6 +89,9 @@ public List&lt;Account&gt; httpGetCalloutToSecondOrg()
 #### Return Type
 **List&lt;Account&gt;**
 
+List of Account records deserialized from the callout 
+response, or null if deserialization fails
+
 #### Example
 ```apex
 System.debug(CalloutRecipes.httpGetCalloutToSecondOrg());
@@ -118,6 +121,8 @@ the second org. |
 
 #### Return Type
 **Integer**
+
+The HTTP status code returned by the delete callout
 
 #### Example
 ```apex
@@ -149,6 +154,9 @@ second salesforce org |
 #### Return Type
 **Integer**
 
+The HTTP status code returned by the POST callout, or null if 
+the request body could not be serialized
+
 #### Example
 ```apex
 List&lt;Contact&gt; contacts = [SELECT id, firstName, lastName FROM Contact LIMIT 5];
@@ -176,6 +184,9 @@ second salesforce org |
 
 #### Return Type
 **Integer**
+
+The HTTP status code returned by the PUT callout, or null if 
+the request body could not be serialized
 
 #### Example
 ```apex
@@ -232,6 +243,9 @@ public Map&lt;String,Object&gt; httpCalloutWithUntypedResponse()
 
 #### Return Type
 **Map&lt;String,Object&gt;**
+
+The untyped JSON response deserialized into a 
+Map&amp;lt;String, Object&amp;gt;, or null if deserialization fails
 
 #### Example
 ```apex
@@ -297,6 +311,8 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query, S
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `makeApiCall(method, path, query, body)`
@@ -325,6 +341,8 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query, S
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `makeApiCall(method, path, query)`
@@ -350,6 +368,8 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -377,6 +397,8 @@ protected HttpResponse makeApiCall(HttpVerb method, String path)
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `get(path)`
@@ -399,6 +421,8 @@ protected HttpResponse get(String path)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -425,6 +449,8 @@ protected HttpResponse get(String path, String query)
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `del(path)`
@@ -448,6 +474,8 @@ protected HttpResponse del(String path)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -474,6 +502,8 @@ protected HttpResponse del(String path, String query)
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `post(path, body)`
@@ -498,6 +528,8 @@ protected HttpResponse post(String path, String body)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -525,6 +557,8 @@ protected HttpResponse post(String path, String query, String body)
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `put(path, body)`
@@ -549,6 +583,8 @@ protected HttpResponse put(String path, String body)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -576,6 +612,8 @@ protected HttpResponse put(String path, String query, String body)
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `patch(path, body)`
@@ -600,6 +638,8 @@ protected HttpResponse patch(String path, String body)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -626,6 +666,8 @@ protected HttpResponse patch(String path, String query, String body)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -682,6 +724,8 @@ headers |
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 #### Example
 ```apex
 System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
@@ -719,6 +763,8 @@ public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, 
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 #### Example
 ```apex
 System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
@@ -750,6 +796,8 @@ public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, 
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 #### Example
 ```apex

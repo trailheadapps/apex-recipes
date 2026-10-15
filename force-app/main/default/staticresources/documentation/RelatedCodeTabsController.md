@@ -35,6 +35,9 @@ public static List&lt;String&gt; getRelatedClasses(String mainClassName)
 #### Return Type
 **List&lt;String&gt;**
 
+A list of class names parsed from the `@see` tag of the 
+inspected class&#x27;s doc comment, or an empty list if mainClassName is blank.
+
 #### Example
 ```apex
 System.debug(RelatedCodeTabsController.getRelatedClasses('RelatedCodeTabsController'));

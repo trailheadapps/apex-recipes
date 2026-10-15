@@ -28,6 +28,9 @@ public List&lt;Bucketed_Picklist__mdt&gt; getBucketedPicklistsForObject(Id objId
 #### Return Type
 **List&lt;Bucketed_Picklist__mdt&gt;**
 
+List of Bucketed_Picklist__mdt records associated with the 
+given object Id, or an empty list if objId is null.
+
 ---
 
 ### `getBucketedPicklistsForObject(objIds)`
@@ -47,6 +50,9 @@ public List&lt;Bucketed_Picklist__mdt&gt; getBucketedPicklistsForObject(List&lt;
 
 #### Return Type
 **List&lt;Bucketed_Picklist__mdt&gt;**
+
+List of Bucketed_Picklist__mdt records associated with the 
+first object Id in the list.
 
 ---
 
@@ -70,3 +76,7 @@ public List&lt;Picklist_Bucket__mdt&gt; getPicklistBucketWithValues(List&lt;Buck
 
 #### Return Type
 **List&lt;Picklist_Bucket__mdt&gt;**
+
+List of Picklist_Bucket__mdt records, with their related 
+Bucketed_Picklist_values__r matching the search term, for the given 
+Bucketed Picklists.

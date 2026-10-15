@@ -85,6 +85,9 @@ public static Boolean isAcceptableQuiddity(List&lt;Quiddity&gt; acceptableQuiddi
 #### Return Type
 **Boolean**
 
+True if the current (or test-overridden) 
+Quiddity is contained in the supplied list
+
 ---
 
 ### `isNotAcceptableQuiddity(acceptableQuiddites)`

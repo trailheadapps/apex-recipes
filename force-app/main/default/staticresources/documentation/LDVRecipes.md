@@ -141,6 +141,9 @@ records. |
 #### Return Type
 **List&lt;ContentDocumentLink&gt;**
 
+A chunk of ContentDocumentLink records, ordered by Id, starting 
+after the given offsetId and limited to the configured chunk size.
+
 ---
 
 ### `safeToReenqueue()`

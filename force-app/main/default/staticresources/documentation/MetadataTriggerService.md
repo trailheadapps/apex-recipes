@@ -47,6 +47,9 @@ public List&lt;Metadata_Driven_Trigger__mdt&gt; getMetadataTriggers()
 #### Return Type
 **List&lt;Metadata_Driven_Trigger__mdt&gt;**
 
+The ordered list of enabled Metadata_Driven_Trigger__mdt 
+records for this object type, excluding any disabled for the current user
+
 ---
 
 ### `getSObjectType()`
@@ -61,6 +64,8 @@ public static String getSObjectType()
 
 #### Return Type
 **String**
+
+The API name of the sObject type found in Trigger.new or Trigger.old
 
 ## Classes
 ### MetadataTriggerServiceException Class

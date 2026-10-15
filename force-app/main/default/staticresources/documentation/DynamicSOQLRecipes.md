@@ -54,6 +54,9 @@ public static List&lt;Account&gt; simpleBindingSOQLQuery(String name)
 #### Return Type
 **List&lt;Account&gt;**
 
+Account list matching the given name, with security enforced 
+using `USER_MODE`
+
 #### Example
 ```apex
 System.debug(DynamicSoqlRecipes.simpleBindingSOQLQuery('hello'))
@@ -79,6 +82,9 @@ public static List&lt;Account&gt; dynamicFieldsBindingSOQLQuery(Account acct)
 
 #### Return Type
 **List&lt;Account&gt;**
+
+Account list matching the given account&#x27;s name, with security 
+enforced using `USER_MODE`
 
 #### Example
 ```apex
@@ -118,6 +124,9 @@ public static List&lt;Account&gt; typecastDataIntelligently(String numberOfRecor
 
 #### Return Type
 **List&lt;Account&gt;**
+
+Account list with NumberOfEmployees greater than the given 
+value, with security enforced using `USER_MODE`
 
 #### Example
 ```apex
@@ -164,6 +173,9 @@ public static List&lt;Account&gt; simpleQueryBuilder(List&lt;String&gt; fields, 
 
 #### Return Type
 **List&lt;Account&gt;**
+
+Account list matching the dynamically built query, or an empty 
+list if the current Quiddity is not acceptable
 
 #### Example
 ```apex

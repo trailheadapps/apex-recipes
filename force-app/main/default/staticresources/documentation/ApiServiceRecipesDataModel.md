@@ -113,6 +113,8 @@ public static List&lt;ApiServiceRecipesDataModel&gt; parse(String json)
 #### Return Type
 **List&lt;ApiServiceRecipesDataModel&gt;**
 
+List of ApiServiceRecipesDataModel objects deserialized from the JSON
+
 #### Example
 ```apex
 System.debug(ApiServiceRecipesDataModel.parse(ApiServiceRecipesDataModel_Tests.testJSON));

@@ -27,6 +27,9 @@ public static Map&lt;String,Map&lt;String,String&gt;&gt; findAllFormulaFields()
 #### Return Type
 **Map&lt;String,Map&lt;String,String&gt;&gt;**
 
+Map of Object Qualified API Name to a Map of formula Field 
+Developer Names to their Data Type
+
 #### Example
 ```apex
 Map&lt;String, Map&lt;String, String&gt;&gt; results =
@@ -56,6 +59,9 @@ public static List&lt;MetadataCatalogRecipes.LookupRelationshipDefinition&gt; fi
 
 #### Return Type
 **List&lt;MetadataCatalogRecipes.LookupRelationshipDefinition&gt;**
+
+List of LookupRelationshipDefinition describing each Contact 
+field that looks up to Account
 
 #### Example
 ```apex
