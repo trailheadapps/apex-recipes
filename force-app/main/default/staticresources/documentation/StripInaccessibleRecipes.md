@@ -21,6 +21,8 @@ public static List&lt;Campaign&gt; stripInaccessibleFromQuery()
 #### Return Type
 **List&lt;Campaign&gt;**
 
+List of Campaign records with inaccessible fields stripped
+
 #### Example
 ```apex
 System.debug(StripInaccessibleRecipes.stripInaccessibleFromQuery());
@@ -41,6 +43,9 @@ public static List&lt;Account&gt; stripInaccessibleFromSubquery()
 
 #### Return Type
 **List&lt;Account&gt;**
+
+List of Account records (with their Contacts subquery) with 
+inaccessible fields stripped
 
 #### Example
 ```apex

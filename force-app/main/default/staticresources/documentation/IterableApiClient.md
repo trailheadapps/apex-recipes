@@ -67,6 +67,8 @@ public Iterator&lt;RecordPage&gt; iterator()
 #### Return Type
 **Iterator&lt;RecordPage&gt;**
 
+Iterator&lt;RecordPage&gt; used to navigate the paginated records
+
 ---
 
 ### `getRecordPage(pageIndex)`
@@ -118,6 +120,8 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query, S
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `makeApiCall(method, path, query, body)`
@@ -146,6 +150,8 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query, S
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `makeApiCall(method, path, query)`
@@ -171,6 +177,8 @@ protected HttpResponse makeApiCall(HttpVerb method, String path, String query)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -198,6 +206,8 @@ protected HttpResponse makeApiCall(HttpVerb method, String path)
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `get(path)`
@@ -220,6 +230,8 @@ protected HttpResponse get(String path)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -246,6 +258,8 @@ protected HttpResponse get(String path, String query)
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `del(path)`
@@ -269,6 +283,8 @@ protected HttpResponse del(String path)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -295,6 +311,8 @@ protected HttpResponse del(String path, String query)
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `post(path, body)`
@@ -319,6 +337,8 @@ protected HttpResponse post(String path, String body)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -346,6 +366,8 @@ protected HttpResponse post(String path, String query, String body)
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `put(path, body)`
@@ -370,6 +392,8 @@ protected HttpResponse put(String path, String body)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -397,6 +421,8 @@ protected HttpResponse put(String path, String query, String body)
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 ---
 
 ### `patch(path, body)`
@@ -421,6 +447,8 @@ protected HttpResponse patch(String path, String body)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -447,6 +475,8 @@ protected HttpResponse patch(String path, String query, String body)
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 ---
 
@@ -503,6 +533,8 @@ headers |
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 #### Example
 ```apex
 System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
@@ -540,6 +572,8 @@ public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, 
 #### Return Type
 **HttpResponse**
 
+The HttpResponse returned by the callout
+
 #### Example
 ```apex
 System.Debug(RestClient.makeApiCall('GoogleBooksAPI',
@@ -571,6 +605,8 @@ public static HttpResponse makeApiCall(String namedCredential, HttpVerb method, 
 
 #### Return Type
 **HttpResponse**
+
+The HttpResponse returned by the callout
 
 #### Example
 ```apex

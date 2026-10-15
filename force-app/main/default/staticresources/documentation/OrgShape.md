@@ -252,6 +252,8 @@ public Boolean isPlatformCacheEnabled()
 #### Return Type
 **Boolean**
 
+True if platform cache is enabled and available for use
+
 ---
 
 ### `isSeeAllDataTrue()`
@@ -283,6 +285,9 @@ public Boolean isSeeAllDataTrue()
 #### Return Type
 **Boolean**
 
+True if the currently running test is executing with 
+seeAllData&#x3D;true
+
 ---
 
 ### `getAvailableOrgCachePartition()`
@@ -304,6 +309,9 @@ private Cache.OrgPartition getAvailableOrgCachePartition()
 #### Return Type
 **Cache.OrgPartition**
 
+The org&#x27;s default platform cache partition, or null if one 
+could not be found
+
 ---
 
 ### `isAdvancedMultiCurrencyManagementEnabled()`
@@ -324,6 +332,8 @@ public Boolean isAdvancedMultiCurrencyManagementEnabled()
 #### Return Type
 **Boolean**
 
+True if Advanced MultiCurrency Management is enabled for this org
+
 ---
 
 ### `getOrgShape()`
@@ -342,11 +352,11 @@ private Organization getOrgShape()
 #### Return Type
 **Organization**
 
+The current org&#x27;s Organization record
+
 ---
 
 ### `getOrgRecord()`
-
-`SUPPRESSWARNINGS`
 
 Private method for pulling the Organization record 
 Note: We&#x27;re suppressing PMD warning on Crud Checking because we want 
@@ -360,6 +370,8 @@ private Organization getOrgRecord()
 #### Return Type
 **Organization**
 
+The current org&#x27;s Organization record
+
 ## Classes
 ### CachedOrgShape Class
 
@@ -369,8 +381,6 @@ Cache.CacheBuilder
 
 #### Methods
 ##### `doLoad(requiredButNotUsed)`
-
-`SUPPRESSWARNINGS`
 
 Note: We&#x27;re suppressing PMD warning on Crud Checking because we want 
 everyone to be able to pull this read-only record.
@@ -387,3 +397,5 @@ public Organization doLoad(String requiredButNotUsed)
 
 ###### Return Type
 **Organization**
+
+The org&#x27;s single Organization record, with all standard fields.

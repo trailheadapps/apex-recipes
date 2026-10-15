@@ -102,6 +102,9 @@ public static List&lt;Account&gt; incrementCounterInDescription(List&lt;Account&
 #### Return Type
 **List&lt;Account&gt;**
 
+The incoming list of Account objects with their Description 
+counter incremented.
+
 #### Example
 ```apex
 Account[] accounts = [SELECT Description FROM Account LIMIT 50];

@@ -91,6 +91,8 @@ public TestDouble track(Method toTrack)
 #### Return Type
 **[TestDouble](TestDouble.md)**
 
+This `TestDouble` instance, for chaining
+
 ---
 
 ### `generate()`
@@ -280,6 +282,8 @@ public Method withParamTypes(List&lt;Type&gt; paramTypes)
 
 ###### Return Type
 **Method**
+
+This `Method` instance, for chaining
 
 ---
 

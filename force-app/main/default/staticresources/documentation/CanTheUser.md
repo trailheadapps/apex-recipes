@@ -54,6 +54,10 @@ public static Boolean crud(SObject obj, CrudType permission)
 #### Return Type
 **Boolean**
 
+True if the running user has the requested CRUD 
+permission on the object&#x27;s type, false if the permission check for the 
+requested type is not handled
+
 #### Example
 ```apex
 System.debug(CanTheUser.crud(new Account(), CanTheUser.CrudType.READ));
@@ -119,6 +123,8 @@ public static Boolean create(SObject obj)
 #### Return Type
 **Boolean**
 
+True if the running user can create the given object type
+
 #### Example
 ```apex
 System.debug(CanTheUser.create(new Account()));
@@ -145,6 +151,9 @@ and, and if the user can create one) |
 #### Return Type
 **Boolean**
 
+True if the running user can create the type of the first 
+object in the list
+
 ---
 
 ### `create(objName)`
@@ -164,6 +173,8 @@ public static Boolean create(String objName)
 
 #### Return Type
 **Boolean**
+
+True if the running user can create the named object type
 
 #### Example
 ```apex
@@ -190,6 +201,8 @@ public static Boolean read(SObject obj)
 #### Return Type
 **Boolean**
 
+True if the running user can read/access the given object
+
 #### Example
 ```apex
 System.debug(CanTheUser.read(new Account()));
@@ -215,6 +228,9 @@ public static Boolean read(List&lt;SObject&gt; objs)
 #### Return Type
 **Boolean**
 
+True if the running user can read/access the type of the 
+first object in the list
+
 ---
 
 ### `read(objName)`
@@ -234,6 +250,9 @@ public static Boolean read(String objName)
 
 #### Return Type
 **Boolean**
+
+True if the running user can read/access the named 
+object type
 
 #### Example
 ```apex
@@ -260,6 +279,8 @@ public static Boolean edit(SObject obj)
 #### Return Type
 **Boolean**
 
+True if the running user can edit/update the given object
+
 #### Example
 ```apex
 System.debug(CanTheUser.edit(new Account()));
@@ -285,6 +306,9 @@ public static Boolean edit(List&lt;SObject&gt; objs)
 #### Return Type
 **Boolean**
 
+True if the running user can edit/update the type of the 
+first object in the list
+
 ---
 
 ### `edit(objName)`
@@ -304,6 +328,9 @@ public static Boolean edit(String objName)
 
 #### Return Type
 **Boolean**
+
+True if the running user can edit/update the named 
+object type
 
 #### Example
 ```apex
@@ -330,6 +357,9 @@ public static Boolean ups(SObject obj)
 #### Return Type
 **Boolean**
 
+True if the running user can upsert (create and edit) the 
+given object
+
 #### Example
 ```apex
 System.debug(CanTheUser.ups(new Account()));
@@ -355,6 +385,9 @@ public static Boolean ups(List&lt;SObject&gt; objs)
 #### Return Type
 **Boolean**
 
+True if the running user can upsert the type of the first 
+object in the list
+
 ---
 
 ### `ups(objName)`
@@ -374,6 +407,8 @@ public static Boolean ups(String objName)
 
 #### Return Type
 **Boolean**
+
+True if the running user can upsert the named object type
 
 #### Example
 ```apex
@@ -400,6 +435,8 @@ public static Boolean destroy(SObject obj)
 #### Return Type
 **Boolean**
 
+True if the running user can delete the given object
+
 #### Example
 ```apex
 System.debug(CanTheUser.destroy(new Account()));
@@ -425,6 +462,9 @@ public static Boolean destroy(List&lt;SObject&gt; objs)
 #### Return Type
 **Boolean**
 
+True if the running user can delete the type of the 
+first object in the list
+
 ---
 
 ### `destroy(objName)`
@@ -444,6 +484,8 @@ public static Boolean destroy(String objName)
 
 #### Return Type
 **Boolean**
+
+True if the running user can delete the named object type
 
 #### Example
 ```apex
@@ -471,6 +513,9 @@ public static Boolean flsAccessible(String obj, String field)
 #### Return Type
 **Boolean**
 
+True if the running user has read access to the given 
+field on the given object
+
 #### Example
 ```apex
 System.debug(CanTheUser.flsAccessible('Account', 'Name'));
@@ -495,6 +540,9 @@ public static Map&lt;String,Boolean&gt; bulkFLSAccessible(String obj, Set&lt;Str
 
 #### Return Type
 **Map&lt;String,Boolean&gt;**
+
+Map of field name to whether the running user has read 
+access to that field
 
 #### Example
 ```apex
@@ -523,6 +571,9 @@ public static Boolean flsUpdatable(String obj, String field)
 #### Return Type
 **Boolean**
 
+True if the running user has update access to the given 
+field on the given object
+
 #### Example
 ```apex
 System.debug(CanTheUser.flsUpdatable('Account', 'Name'));
@@ -547,6 +598,9 @@ public static Map&lt;String,Boolean&gt; bulkFLSUpdatable(String obj, Set&lt;Stri
 
 #### Return Type
 **Map&lt;String,Boolean&gt;**
+
+Map of field name to whether the running user has update 
+access to that field
 
 #### Example
 ```apex
@@ -584,6 +638,9 @@ private static Set&lt;String&gt; memoizeFLSMDC(String objType, FLSType action)
 #### Return Type
 **Set&lt;String&gt;**
 
+Set of lowercased field names on objType that the 
+running user is accessible/updatable for, per the requested action
+
 ---
 
 ### `getFLSForFieldOnObject(obj, field, checkType)`
@@ -605,6 +662,9 @@ private static Boolean getFLSForFieldOnObject(String obj, String field, FLSType 
 
 #### Return Type
 **Boolean**
+
+True if the running user has the requested FLS 
+permission on the given field of the given object, false otherwise
 
 ## Classes
 ### CanTheUserException Class
@@ -645,6 +705,10 @@ public Object doLoad(String objType)
 ###### Return Type
 **Object**
 
+Map of lowercased field name to a map of FLSType to 
+Boolean, returned as a generic Object per the CacheBuilder interface 
+contract
+
 ---
 
 ##### `calculateFLS(objType)`
@@ -663,6 +727,9 @@ public Map&lt;String,Map&lt;FLSType,Boolean&gt;&gt; calculateFLS(string objType)
 
 ###### Return Type
 **Map&lt;String,Map&lt;FLSType,Boolean&gt;&gt;**
+
+Map of lowercased field name to a map of FLSType 
+(ACCESSIBLE/UPDATABLE) to Boolean for the given object type
 
 ## Enums
 ### CrudType Enum

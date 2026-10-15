@@ -36,6 +36,8 @@ public static ClassData getRecipeCode(String recipeName)
 #### Return Type
 **ClassData**
 
+A ClassData instance wrapping the matching ApexClass record
+
 #### Example
 ```apex
 System.debug(FormattedRecipeDisplayController.getRecipeCode('FormattedRecipeDisplayController'));

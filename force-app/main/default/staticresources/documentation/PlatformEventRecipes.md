@@ -26,6 +26,8 @@ public static Database.SaveResult publishEvent(Event_Recipes_Demo__e event)
 #### Return Type
 **Database.SaveResult**
 
+The Database.SaveResult from publishing the event on the event bus
+
 #### Example
 ```apex
 Account acct = new Account(Name = 'Awesome Events Ltd.');
@@ -53,6 +55,9 @@ public static Database.SaveResult publishEventWithCallbacks(Event_Recipes_Demo__
 
 #### Return Type
 **Database.SaveResult**
+
+The Database.SaveResult from publishing the event, with success 
+and failure handled asynchronously via the registered callback
 
 #### Example
 ```apex

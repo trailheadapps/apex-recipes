@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 private inherited sharing class StripInaccessibleRecipes_Tests {
     @TestSetup
     static void createCampaigns() {
@@ -25,7 +25,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         insert contacts;
     }
 
-    @isTest
+    @IsTest
     static void testStripInaccessibleFromQueryPositive() {
         Test.startTest();
         List<Campaign> results = StripInaccessibleRecipes.stripInaccessibleFromQuery();
@@ -49,7 +49,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testStripInaccessibleFromQueryNegative() {
         User minAccess = TestFactory.createMinAccessUser(true);
         Boolean didCatchTheRightException = false;
@@ -74,7 +74,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testStripInaccessibleFromQueryMinAccessWithPermsetPositive() {
         User minAccessWithPermset = TestFactory.createMinAccessUser(true);
         TestFactory.assignPermSetToUser(
@@ -102,7 +102,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testStripInaccessibleFromQueryMinAccessWithPermsetNegative() {
         User minAccessWithPermset = TestFactory.createMinAccessUser(true);
         TestFactory.assignPermSetToUser(
@@ -143,7 +143,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testStripInaccessibleFromSubQueryMinAccessWithpermsetPositive() {
         User minAccess = TestFactory.createMinAccessUser(true);
         TestFactory.assignPermSetToUser(
@@ -181,7 +181,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testStripInaccessibleFromSubQueryMinAccessWithPermsetNegative() {
         User minAccess = TestFactory.createMinAccessUser(true);
         TestFactory.assignPermSetToUser(
@@ -234,7 +234,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testStripInaccessibleBeforeDMLMinAccessWithPermSetPositive() {
         User minAccessWithPermSet = TestFactory.createMinAccessUser(true);
         TestFactory.assignPermSetToUser(
@@ -272,7 +272,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testStripInaccessibleBeforeDMLMinAccessProfileNegative() {
         User minAccess = TestFactory.createMinAccessUser(true);
         List<Contact> contacts = (List<Contact>) TestFactory.createSObjectList(
@@ -300,8 +300,10 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testStripInaccessibleFromUntrustedDataMinAccessWithPermSetPositive() {
+        TriggerHandler.bypass('AccountTriggerHandler');
+
         User minAccessWithPermSet = TestFactory.createMinAccessUser(true);
         TestFactory.assignPermSetToUser(
             minAccessWithPermSet,
@@ -338,7 +340,7 @@ private inherited sharing class StripInaccessibleRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testStripInaccessibleFromUntrustedDataNegative() {
         User minAccess = TestFactory.createMinAccessUser(true);
         List<Account> acct = (List<Account>) TestFactory.createSObjectList(

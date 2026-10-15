@@ -37,3 +37,5 @@ public static String getUnknownObjectType(Object obj)
 
 #### Return Type
 **String**
+
+The runtime class name of obj

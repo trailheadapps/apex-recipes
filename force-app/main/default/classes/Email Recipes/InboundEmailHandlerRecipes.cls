@@ -33,6 +33,8 @@ public class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler
      * @param envelope This is an `Messaging.InboundEnvelope` object that is
      * dependency injected by the system at runtime. Aside form testing, you
      * should not need to call this method or worry about its params.
+     * @return The `Messaging.InboundEmailResult` indicating whether the email
+     * was processed successfully, including an error message on failure.
      * @see FilesRecipes
      */
     public Messaging.InboundEmailResult handleInboundEmail(
@@ -102,6 +104,8 @@ public class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler
      * If we do not have a contact that matches, return a new contact object
      * with the email address set.
      * @param senderAddress
+     * @return The existing Contact matching the sender's email address, or a
+     * newly inserted Contact if no match is found.
      */
     private Contact getContactBySender(Messaging.InboundEmail email) {
         List<Contact> contactList = [
@@ -172,8 +176,7 @@ public class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler
             MessageDate = DateTime.now(),
             RelatedToId = sender.AccountId
         );
-
-        new Safely().doInsert(emailMessage);
+        insert as system emailMessage;
 
         EmailMessageRelation emailRelationshipObj = new EmailMessageRelation(
             EmailMessageId = emailMessage.id,
@@ -181,7 +184,6 @@ public class InboundEmailHandlerRecipes implements Messaging.InboundEmailHandler
             RelationType = 'FromAddress',
             RelationAddress = sender.email
         );
-
-        new Safely().doInsert(emailRelationshipObj);
+        insert as system emailRelationshipObj;
     }
 }

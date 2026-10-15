@@ -72,6 +72,8 @@ public static Blob encryptAES256WithManagedIVRecipe(Blob dataToEncrypt)
 #### Return Type
 **Blob**
 
+Encrypted data, with the initialization vector managed by Salesforce
+
 #### Example
 ```apex
 Blob dataToEncrypt = Blob.valueOf('Test data');
@@ -101,6 +103,8 @@ public static Blob decryptAES256WithManagedIVRecipe(Blob dataToDecrypt)
 #### Return Type
 **Blob**
 
+Decrypted data
+
 #### Example
 ```apex
 Blob decryptedData = EncryptionRecipes.decryptAES256WithManagedIVRecipe(encryptedData);
@@ -129,6 +133,8 @@ public static Blob encryptAES256Recipe(Blob dataToEncrypt, Blob initializationVe
 
 #### Return Type
 **Blob**
+
+Encrypted data combined with the initialization vector, as a single Blob
 
 #### Example
 ```apex
@@ -160,6 +166,8 @@ public static Blob decryptAES256Recipe(Blob dataToDecrypt)
 #### Return Type
 **Blob**
 
+Decrypted data
+
 #### Example
 ```apex
 Blob decryptedData = EncryptionRecipes.decryptAES256Recipe(encryptedData);
@@ -179,6 +187,8 @@ public static Blob generateInitializationVector()
 
 #### Return Type
 **Blob**
+
+Randomly generated initialization vector
 
 ---
 
@@ -200,6 +210,8 @@ public static Blob generateSHA512HashRecipe(Blob dataToHash)
 
 #### Return Type
 **Blob**
+
+SHA-512 hash digest of the data
 
 #### Example
 ```apex
@@ -261,6 +273,8 @@ public static Blob generateHMACSHA512Recipe(Blob dataToHmac)
 #### Return Type
 **Blob**
 
+HMAC-SHA512 digest of the data
+
 #### Example
 ```apex
 Blob dataToHmac = Blob.valueOf('Test data');
@@ -320,6 +334,8 @@ public static Blob generateRSASHA512DigitalSignatureRecipe(Blob dataToSign)
 
 #### Return Type
 **Blob**
+
+RSA-SHA512 digital signature of the data
 
 #### Example
 ```apex
@@ -381,6 +397,8 @@ public static EncryptedAndSignedData encryptAES256AndGenerateRSASHA512DigitalSig
 
 #### Return Type
 **EncryptedAndSignedData**
+
+Wrapper containing the encrypted data and its digital signature
 
 #### Example
 ```apex

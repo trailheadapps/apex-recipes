@@ -59,6 +59,8 @@ public static Log get()
 #### Return Type
 **[Log](Log.md)**
 
+The current singleton instance of Log, creating it if needed.
+
 ---
 
 ### `add(messageToLog)`

@@ -53,6 +53,9 @@ should not need to call this method or worry about its params. |
 #### Return Type
 **Messaging.InboundEmailResult**
 
+The `Messaging.InboundEmailResult` indicating whether the email 
+was processed successfully, including an error message on failure.
+
 **See** [FilesRecipes](https://github.com/trailheadapps/apex-recipes/wiki/FilesRecipes)
 
 ---
@@ -99,6 +102,9 @@ private Contact getContactBySender(Messaging.InboundEmail email)
 
 #### Return Type
 **Contact**
+
+The existing Contact matching the sender&#x27;s email address, or a 
+newly inserted Contact if no match is found.
 
 ---
 

@@ -212,6 +212,8 @@ public static Boolean isBypassed(String handlerName)
 #### Return Type
 **Boolean**
 
+True if the given handler class is currently bypassed
+
 #### Example
 ```apex
 TriggerHandler.isBypassed('AccountTriggerHandler');
@@ -276,6 +278,9 @@ protected Boolean validateRun()
 
 #### Return Type
 **Boolean**
+
+True if the trigger should continue to run, false if the 
+current handler is bypassed
 
 #### Throws
 TriggerHandlerException: thrown when executing outside of a 

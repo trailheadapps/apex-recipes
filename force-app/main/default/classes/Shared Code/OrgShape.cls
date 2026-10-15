@@ -153,6 +153,7 @@ public with sharing class OrgShape {
      * Note: Allows override by setting OrgShape.disablePlatformCache
      * equal to true. Use this in test contexts where cache is not available like
      * when you have to use seeAllData=true
+     * @return True if platform cache is enabled and available for use
      */
     public Boolean isPlatformCacheEnabled() {
         Cache.OrgPartition defaultCachePartition = getAvailableOrgCachePartition();
@@ -186,6 +187,8 @@ public with sharing class OrgShape {
      *
      * Note: It is not a good idea, and against best practices to use
      * seeAllData=true when not absolutely necessary.
+     * @return True if the currently running test is executing with
+     * seeAllData=true
      */
     public Boolean isSeeAllDataTrue() {
         Boolean seeAllData = false;
@@ -217,6 +220,8 @@ public with sharing class OrgShape {
      *
      * Note: This method memoizes the result of the query, ensuring that the
      * underlying soql query is only ever run once per transaction.
+     * @return The org's default platform cache partition, or null if one
+     * could not be found
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     private Cache.OrgPartition getAvailableOrgCachePartition() {
@@ -252,6 +257,7 @@ public with sharing class OrgShape {
      *
      * Note: This was originally written by the NPSP team and can be found here:
      * https://github.com/SalesforceFoundation/NPSP/blob/aad20ffb747ecda9a037c4bce9cd19617b6a727b/src/classes/UTIL_Currency.cls#L79
+     * @return True if Advanced MultiCurrency Management is enabled for this org
      */
     public Boolean isAdvancedMultiCurrencyManagementEnabled() {
         Boolean isACMEnabled = false;
@@ -277,6 +283,7 @@ public with sharing class OrgShape {
      * @description Private method that memoizes the query result
      * Suppressing the PMD warning to validate crud permissions before
      * DML, because the Organization Object is always available.
+     * @return The current org's Organization record
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     private Organization getOrgShape() {
@@ -293,21 +300,26 @@ public with sharing class OrgShape {
         }
     }
 
-    @SuppressWarnings('PMD.ApexCRUDViolation')
     /**
      * @description Private method for pulling the Organization record
      * Note: We're suppressing PMD warning on Crud Checking because we want
      * everyone to be able to pull this read-only record.
+     * @return The current org's Organization record
      */
     private Organization getOrgRecord() {
-        return [SELECT FIELDS(STANDARD) FROM Organization LIMIT 1];
+        return [
+            SELECT FIELDS(STANDARD)
+            FROM Organization
+            WITH SYSTEM_MODE
+            LIMIT 1
+        ];
     }
 
     public with sharing class CachedOrgShape implements Cache.CacheBuilder {
-        @SuppressWarnings('PMD.ApexCRUDViolation')
         /**
          * Note: We're suppressing PMD warning on Crud Checking because we want
          * everyone to be able to pull this read-only record.
+         * @return The org's single Organization record, with all standard fields.
          */
         public Organization doLoad(String requiredButNotUsed) {
             // Note: You should normally limit all your queries with
@@ -316,6 +328,7 @@ public with sharing class OrgShape {
             Organization org = [
                 SELECT FIELDS(STANDARD)
                 FROM Organization
+                WITH SYSTEM_MODE
                 LIMIT 1
             ];
             return org;

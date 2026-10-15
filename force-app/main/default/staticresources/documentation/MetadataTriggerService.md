@@ -27,8 +27,6 @@ public MetadataTriggerService(String objectTypeName)
 ## Methods
 ### `getMetadataTriggers()`
 
-`SUPPRESSWARNINGS`
-
 This query finds an ordered list trigger handler classes 
 to execute. It ignores any classes that are marked as disabled. 
  
@@ -47,6 +45,9 @@ public List&lt;Metadata_Driven_Trigger__mdt&gt; getMetadataTriggers()
 #### Return Type
 **List&lt;Metadata_Driven_Trigger__mdt&gt;**
 
+The ordered list of enabled Metadata_Driven_Trigger__mdt 
+records for this object type, excluding any disabled for the current user
+
 ---
 
 ### `getSObjectType()`
@@ -61,6 +62,8 @@ public static String getSObjectType()
 
 #### Return Type
 **String**
+
+The API name of the sObject type found in Trigger.new or Trigger.old
 
 ## Classes
 ### MetadataTriggerServiceException Class

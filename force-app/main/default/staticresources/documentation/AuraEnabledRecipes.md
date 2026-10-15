@@ -35,6 +35,8 @@ public static Boolean updateAccountName(Id accountId, String newValue)
 #### Return Type
 **Boolean**
 
+True if the account name was updated successfully
+
 #### Example
 ```apex
 Id accountId = [SELECT Id FROM Account LIMIT 1].Id;
@@ -58,6 +60,8 @@ public static String getFieldValue()
 
 #### Return Type
 **String**
+
+Hard-coded string value
 
 #### Example
 ```apex

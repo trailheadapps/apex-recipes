@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class Safely_Tests {
-    @isTest
+    @IsTest
     static void testConstructorChains() {
         Test.startTest();
         Safely instanceOne = new Safely().allOrNothing();
@@ -25,7 +25,7 @@ private class Safely_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testDoInsertMethodsNoThrowPositive() {
         Account account = (Account) new Account(Name = 'TestAccount');
         Test.startTest();
@@ -39,7 +39,7 @@ private class Safely_Tests {
         System.Assert.isTrue(results.get(0).success, 'This dml should succeed');
     }
 
-    @isTest
+    @IsTest
     static void testDoInsertNegative() {
         User minAccessUser = TestFactory.createMinAccessUser(true);
 
@@ -57,7 +57,7 @@ private class Safely_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testMarketingProfileGeneratesInsertExceptionPositive() {
         User marketingUser = TestFactory.createMarketingUser(true);
         Boolean didCatchTheRightException = false;
@@ -85,7 +85,7 @@ private class Safely_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testDoUpdateMethodsNoThrowPositive() {
         Account account = (Account) new Account(Name = 'TestAccount');
         insert account;
@@ -101,7 +101,7 @@ private class Safely_Tests {
         System.assert(results.get(0).success, 'This dml should succeed');
     }
 
-    @isTest
+    @IsTest
     static void testDoUpdateNegative() {
         User minAccessUser = TestFactory.createMinAccessUser(true);
 
@@ -143,7 +143,7 @@ private class Safely_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testMarketingProfileDeleteNegative() {
         User marketingUser = TestFactory.createMarketingUser(true);
         Case c = (Case) new Case(Subject = 'TestCase');
@@ -162,7 +162,7 @@ private class Safely_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testMarketingProfileGeneratesUpdateExceptionPositive() {
         User marketingUser = TestFactory.createMarketingUser(true);
         Boolean didCatchTheRightException = false;
@@ -189,7 +189,7 @@ private class Safely_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testDoUpsertMethodsNoThrowPositive() {
         Account account = (Account) new Account(Name = 'TestAccount');
         insert account;
@@ -227,7 +227,7 @@ private class Safely_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testDoUpsertMethodsNegative() {
         User minAccessUser = TestFactory.createMinAccessUser(true);
 
@@ -277,7 +277,7 @@ private class Safely_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testMarketingProfileGeneratesUpsertExceptionPositive() {
         User marketingUser = TestFactory.createMarketingUser(true);
         Boolean didCatchTheRightException = false;
@@ -304,7 +304,7 @@ private class Safely_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testDeleteWithRegularProfilePositive() {
         Account account = (Account) new Account(Name = 'TestAccount');
         insert account;
@@ -319,7 +319,7 @@ private class Safely_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testDeleteWithRegularProfileNegative() {
         User minAccessUser = TestFactory.createMinAccessUser(true);
         Account account = (Account) new Account(Name = 'TestAccount');
@@ -334,7 +334,7 @@ private class Safely_Tests {
         System.Assert.isTrue(results.isEmpty(), 'expected this dml to fail');
     }
 
-    @isTest
+    @IsTest
     static void testDoQueryPositive() {
         Account account = (Account) new Account(Name = 'TestAccount');
         insert account;
@@ -350,7 +350,7 @@ private class Safely_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testDoQueryThrowsRemovedFieldsException() {
         User minAccessUser = TestFactory.createMinAccessUser(true);
 
@@ -382,7 +382,9 @@ private class Safely_Tests {
             try {
                 List<Account> accounts = (List<Account>) saf
                     .throwIfRemovedFields()
-                    .doQuery('SELECT Id, Name, TradeStyle FROM Account');
+                    .doQuery(
+                        'SELECT Id, Name, TradeStyle FROM Account WITH SYSTEM_MODE'
+                    );
             } catch (Safely.RemovedFieldsException rfe) {
                 if (rfe.getMessage().containsIgnoreCase('TradeStyle')) {
                     didCatchTheRightException = true;
@@ -397,7 +399,7 @@ private class Safely_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void emptyCollections() {
         Test.startTest();
         List<Database.SaveResult> insertResults = new Safely()

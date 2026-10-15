@@ -33,6 +33,9 @@ public static List&lt;ContactSearchResult&gt; findRelatedContacts(List&lt;Contac
 #### Return Type
 **List&lt;ContactSearchResult&gt;**
 
+A list containing a single ContactSearchResult that wraps the 
+related Contact record found for the first incoming request
+
 #### Example
 From Apex: 
 ```apex

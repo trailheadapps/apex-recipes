@@ -17,3 +17,5 @@ public static Quiddity demonstrateGetQuiddity()
 
 #### Return Type
 **Quiddity**
+
+the Quiddity of the current request context

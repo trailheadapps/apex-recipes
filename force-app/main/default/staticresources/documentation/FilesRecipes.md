@@ -53,6 +53,8 @@ the filetype from the file extension here |
 #### Return Type
 **Database.SaveResult**
 
+Result of the DML insert of the ContentVersion record
+
 #### Example
 ```apex
 Blob fileContents = Blob.valueOf('Hello World 2');
@@ -84,6 +86,8 @@ public static Database.SaveResult createFileAttachedToRecord(FilesRecipes.FileAn
 #### Return Type
 **Database.SaveResult**
 
+Result of the DML insert of the ContentVersion record
+
 ---
 
 ### `createFilesAttachedToRecords(toCreate)`
@@ -102,6 +106,8 @@ public static List&lt;Database.SaveResult&gt; createFilesAttachedToRecords(List&
 
 #### Return Type
 **List&lt;Database.SaveResult&gt;**
+
+List of DML insert results, one per ContentVersion record created
 
 ---
 
@@ -131,6 +137,8 @@ public static List&lt;ContentVersion&gt; getFilteredAttachmentsForRecord(FilesRe
 #### Return Type
 **List&lt;ContentVersion&gt;**
 
+List of ContentVersion records matching the given file type and linked to the record
+
 #### Example
 ```apex
 Account acct = [SELECT Id FROM Account LIMIT 1];
@@ -156,6 +164,8 @@ public static Database.SaveResult publishContent(ContentDocumentLink cdl)
 
 #### Return Type
 **Database.SaveResult**
+
+Result of the DML insert of the ContentDistribution record
 
 #### Throws
 FilesRecipesException: 
