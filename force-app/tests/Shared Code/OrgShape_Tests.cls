@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 class OrgShape_Tests {
     private static OrgShape orgShape;
     private static Organization orgCheck;
@@ -7,7 +7,7 @@ class OrgShape_Tests {
         orgCheck = [SELECT FIELDS(STANDARD) FROM Organization LIMIT 1];
     }
 
-    @isTest
+    @IsTest
     static void testOrgShapeProperties() {
         System.Assert.areEqual(
             orgCheck.isSandbox,
@@ -86,7 +86,8 @@ class OrgShape_Tests {
         );
     }
 
-    @isTest
+    @IsTest
+    @SuppressWarnings('PMD.EmptyCatchBlock')
     static void testAdvancedMultiCurrencyManagement() {
         Boolean datedConversionRateObjectExists = false;
         try {
@@ -107,7 +108,7 @@ class OrgShape_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testPlatformCachePositive() {
         // Apex Recipes scratch org enable platform cache by default
         // If this fails and you think it should succeed, ensure you have
@@ -122,7 +123,7 @@ class OrgShape_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetSafeDefaultCachePartitionMemoized() {
         OrgShape.safeDefaultCachePartition = Cache.Org.getPartition(
             'local.default'
@@ -136,7 +137,7 @@ class OrgShape_Tests {
         );
     }
 
-    @isTest(SeeAllData=true)
+    @IsTest(SeeAllData=true)
     @SuppressWarnings('PMD.ApexUnitTestShouldNotUseSeeAllDataTrue')
     static void testPlatformCacheDisabledWhenSeeAllDataTrue() {
         Test.startTest();
@@ -148,7 +149,7 @@ class OrgShape_Tests {
         );
     }
 
-    @isTest(SeeAllData=true)
+    @IsTest(SeeAllData=true)
     @SuppressWarnings('PMD.ApexUnitTestShouldNotUseSeeAllDataTrue')
     static void testSeeAllDataPositiveWhenEnabled() {
         System.Assert.isTrue(
@@ -157,7 +158,7 @@ class OrgShape_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testSeeAllDataFalseWhenDisabled() {
         System.Assert.isTrue(
             !orgShape.isSeeAllDataTrue(),
@@ -165,7 +166,7 @@ class OrgShape_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testCacheIsUsedPositive() {
         Cache.OrgPartition defaultPartition = Cache.Org.getPartition(
             'local.default'

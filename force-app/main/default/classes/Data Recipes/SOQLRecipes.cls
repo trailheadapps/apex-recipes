@@ -8,6 +8,8 @@ public with sharing class SOQLRecipes {
      * @description Demonstrates the proper way to query accounts with SOQL
      *   keeping FLS and CRUD in account.
      *
+     * @return List of Account records with Name, ShippingStreet and
+     * ShippingCity
      * @example
      * ```
      * List<Account> results = SOQLRecipes.querySingleObject();
@@ -27,6 +29,7 @@ public with sharing class SOQLRecipes {
     /**
      * @description Demonstrates how to loop over a SOQL query
      *
+     * @return Count of Account records
      * @example
      * ```
      * System.debug(SOQLRecipes.getLargeNumberOfRecords());
@@ -58,6 +61,8 @@ public with sharing class SOQLRecipes {
      * utilize the Count() soql method, but in this case we're demonstrating
      * that this form of a soql for loop gives you access both to a list of
      * records, and to the records themselves.
+     * @return List containing the count of chunks iterated and the total
+     * number of records across those chunks, in that order
      */
     public static Integer[] getChunksOfLargeNumbersOfRecords() {
         Integer countOfChunks = 0;
@@ -77,6 +82,7 @@ public with sharing class SOQLRecipes {
     /**
      * @description Demonstrates how to use a WHERE clause in a SOQL query
      *
+     * @return List of Account records with ShippingCountry equal to 'UK'
      * @example
      * ```
      * System.debug(SOQLRecipes.getRecordsByFieldValue());
@@ -94,6 +100,8 @@ public with sharing class SOQLRecipes {
     /**
      * @description Demonstrates how to use a complex WHERE clause in a SOQL
      * query
+     * @return List of Account records matching the given ShippingCountry,
+     * ShippingState and Industry criteria
      * @example
      * ```
      * System.debug(SOQLRecipes.getRecordsByMultipleFieldValues());
@@ -114,6 +122,8 @@ public with sharing class SOQLRecipes {
 
     /**
      * @description Demonstrates how to use the LIMIT clause in a SOQL statement
+     * @return List of up to 10 Account records ordered by Industry in
+     * descending order
      * @example
      * ```
      * System.debug(SOQLRecipes.getSpecificNumberOfRecords());
@@ -133,6 +143,7 @@ public with sharing class SOQLRecipes {
     /**
      * @description Demonstrates how to use a bound variable to define the LIMIT
      * @param wantedNumberOfRows the number of rows desired
+     * @return List of Account records limited to the given number of rows
      *
      * @example
      * ```
@@ -152,6 +163,8 @@ public with sharing class SOQLRecipes {
     /**
      * @description Demonstrates how to use a bound variable in a WHERE clause
      * @param state String representing a US State code (AK, KS, etc.)
+     * @return List of Account records whose ShippingState matches the given
+     * state code
      * @example
      * ```
      * System.debug(SOQLRecipes.getAccountRecordsInState('ks'));
@@ -170,6 +183,8 @@ public with sharing class SOQLRecipes {
      * @description Demonstrates how to get a limited number of results with a
      * given offset; Ie: get the second set of 10 records.
      *
+     * @return List of the second set of 10 Account records, ordered by
+     * Industry in descending order
      * @example
      * ```
      * System.debug(SOQLRecipes.getSecond10AccountRecords());
@@ -190,6 +205,8 @@ public with sharing class SOQLRecipes {
      * @description Demonstrates how to query an object, as well as it's related
      * child objects
      *
+     * @return List of Account records including their related Contact child
+     * records
      * @example
      * ```
      * System.debug(SOQLRecipes.getRecordsWithRelatedRecords());
@@ -207,6 +224,8 @@ public with sharing class SOQLRecipes {
      * @description Demonstrates how to query fields from a parent object
      * through the relationship field
      *
+     * @return List of Contact records in the state of Kansas, including Name
+     * and ShippingState from their related parent Account
      * @example
      * ```
      * System.debug(SOQLRecipes.getParentRecordDetailsFromChildRecord());
@@ -225,6 +244,8 @@ public with sharing class SOQLRecipes {
      * @description Demonstrates how to write a query that pulls information
      * from two parent objects through a junction object
      *
+     * @return List of Junction__c records including the Name field from both
+     * related parent records
      * @example
      * ```
      * System.debug(SOQLRecipes.getDetailsFromBothParentRecords());
@@ -244,6 +265,8 @@ public with sharing class SOQLRecipes {
      * associated with a specified Account
      *
      * @param accountId an AccountId
+     * @return Sum of the Amount field across Opportunity records associated
+     * with the given Account Id
      * @example
      * ```
      * Id accountId = [SELECT Id FROM Account LIMIT 1].Id;

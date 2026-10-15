@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private inherited sharing class AccountServiceLayer_Tests {
-    @isTest
+    @IsTest
     static void justWriteALogStatementPositive() {
         Test.startTest();
         AccountServiceLayer.justWriteALogStatement('Hello Stream Viewers');
@@ -13,7 +13,7 @@ private inherited sharing class AccountServiceLayer_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testChangeShippingStreetNegativeNoEditAccess() {
         TriggerHandler.bypass('AccountTriggerHandler');
         Account[] accounts = (Account[]) TestFactory.createSObjectList(
@@ -41,7 +41,7 @@ private inherited sharing class AccountServiceLayer_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void incrementDescriptionOnBulkAccountsPositive() {
         List<Account> theAccounts = (List<Account>) TestFactory.createSObjectList(
             new Account(),
@@ -68,7 +68,7 @@ private inherited sharing class AccountServiceLayer_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void incrementDescriptionOnBulkAccountsPositiveInvalidInteger() {
         List<Account> theAccounts = (List<Account>) TestFactory.createSObjectList(
             new Account(description = 'Hello'),
@@ -94,7 +94,7 @@ private inherited sharing class AccountServiceLayer_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void incrementDescriptionOnBulkAccountsNegativeInvalidIntegerSaves() {
         List<Account> theAccounts = (List<Account>) TestFactory.createSObjectList(
             new Account(description = 'Hello'),
@@ -116,7 +116,7 @@ private inherited sharing class AccountServiceLayer_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void safelySaveNegative() {
         List<Account> theAccounts = (List<Account>) TestFactory.createSObjectList(
             new Account(description = 'Hello'),
@@ -142,7 +142,7 @@ private inherited sharing class AccountServiceLayer_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void safelySaveNegativeNoAccessException() {
         List<Account> theAccounts = (List<Account>) TestFactory.createSObjectList(
             new Account(description = 'Hello'),

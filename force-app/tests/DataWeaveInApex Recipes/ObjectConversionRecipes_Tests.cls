@@ -1,11 +1,11 @@
-@isTest
+@IsTest
 public with sharing class ObjectConversionRecipes_Tests {
     private static final String SAMPLE_CSV =
         'first_name,last_name,email\n' + 'Abel,Maclead,a.m@demo.org';
 
     private static final String SAMPLE_JSON = '[{ "first_name": "Abel", "last_name": "Maclead", "email": "a.m@demo.org" }]';
 
-    @isTest
+    @IsTest
     static void testConvertCsvToContacts() {
         Test.startTest();
         List<Contact> contacts = ObjectConversionRecipes.convertCsvToContacts(
@@ -20,7 +20,7 @@ public with sharing class ObjectConversionRecipes_Tests {
         System.assertEquals('a.m@demo.org', c.Email);
     }
 
-    @isTest
+    @IsTest
     static void testConvertJsonToContacts() {
         Test.startTest();
         List<Contact> contacts = ObjectConversionRecipes.convertJsonToContacts(
@@ -35,7 +35,7 @@ public with sharing class ObjectConversionRecipes_Tests {
         System.assertEquals('a.m@demo.org', c.Email);
     }
 
-    @isTest
+    @IsTest
     public static void testConvertCsvToApexObject() {
         Test.startTest();
         List<CsvData> results = ObjectConversionRecipes.convertCsvToApexObject(

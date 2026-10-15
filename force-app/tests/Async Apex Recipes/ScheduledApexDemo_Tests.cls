@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private inherited sharing class ScheduledApexDemo_Tests {
-    @isTest
+    @IsTest
     static void counterTest() {
         ScheduledApexDemo demoObj = new ScheduledApexDemo();
         Test.startTest();

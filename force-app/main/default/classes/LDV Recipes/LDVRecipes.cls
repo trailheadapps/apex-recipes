@@ -71,6 +71,8 @@ public with sharing class LDVRecipes implements Queueable {
      * us to prevent full table scans even on the largest tables.
      * @param offsetId The offset ID is used to demarcate already processed
      * records.
+     * @return A chunk of ContentDocumentLink records, ordered by Id, starting
+     * after the given offsetId and limited to the configured chunk size.
      */
     private List<ContentDocumentLink> getRecordsToProcess(Id offsetId) {
         // Map to hold all the bind variables used in the query

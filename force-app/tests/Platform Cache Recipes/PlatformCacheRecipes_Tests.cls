@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 /**
  * @description This test class exists not only to test the Platform Cache
  * Recipes class, but also to illustrate a key principle of unit testing:
@@ -9,7 +9,7 @@
  * confuse the results when, say, only ORG cache methods were failing.
  */
 private class PlatformCacheRecipes_Tests {
-    @isTest
+    @IsTest
     static void testStoreValueInSessionCachePositive() {
         Test.startTest();
         PlatformCacheRecipes.storeValueInSessionCache(
@@ -36,7 +36,7 @@ private class PlatformCacheRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testStoreValueInSessionCacheWithTTLPositive() {
         Test.startTest();
         PlatformCacheRecipes.storeValueInSessionCache(
@@ -64,7 +64,7 @@ private class PlatformCacheRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetValueFromSessionCachePositive() {
         PlatformCacheRecipes.storeValueInSessionCache(
             'Account',
@@ -82,7 +82,7 @@ private class PlatformCacheRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetValueFromSessionCacheNegativeNoValueForKey() {
         Test.startTest();
         String results = PlatformCacheRecipes.getValueFromSessionCache(
@@ -96,7 +96,7 @@ private class PlatformCacheRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testRemoveKeyFromSessionCachePositive() {
         PlatformCacheRecipes.storeValueInSessionCache(
             'Account',
@@ -115,7 +115,7 @@ private class PlatformCacheRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testRemoveKeyFromSessionCacheNegativeNoKey() {
         Boolean didCatchProperException = false;
         Test.startTest();
@@ -134,7 +134,7 @@ private class PlatformCacheRecipes_Tests {
     }
 
     // ORG partition
-    @isTest
+    @IsTest
     static void testStoreValueInOrgCachePositive() {
         Test.startTest();
         PlatformCacheRecipes.storeValueInOrgCache('Account', 'This is a test');
@@ -158,7 +158,7 @@ private class PlatformCacheRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testStoreValueInOrgCacheWithTTLPositive() {
         Test.startTest();
         PlatformCacheRecipes.storeValueInOrgCache(
@@ -186,7 +186,7 @@ private class PlatformCacheRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetValueFromOrgCachePositive() {
         PlatformCacheRecipes.storeValueInOrgCache('Contact', 'This is a test');
         Test.startTest();
@@ -199,7 +199,7 @@ private class PlatformCacheRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetValueFromOrgCacheNegativeNoValueForKey() {
         Test.startTest();
         String results = PlatformCacheRecipes.getValueFromOrgCache('Account');
@@ -211,7 +211,7 @@ private class PlatformCacheRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testRemoveKeyFromOrgCachePositive() {
         PlatformCacheRecipes.storeValueInOrgCache('Account', 'This is a test');
         Test.startTest();
@@ -227,7 +227,7 @@ private class PlatformCacheRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testRemoveKeyFromOrgCacheNegativeNoKey() {
         Boolean didCatchProperException = false;
         Test.startTest();

@@ -64,7 +64,12 @@ public with sharing class DMLRecipes {
      * ```
      * DMLRecipes.insertAccountsViaDatabaseMethod('Hello', false, AccessLevel.USER_MODE);
      * ```
+     *
+     * Note: This method has a false-positive PMD warning. The access level is
+     * caller-controlled and enforces CRUD/FLS whenever AccessLevel.USER_MODE
+     * is passed in, but PMD can't trace that at analysis time.
      */
+    @SuppressWarnings('PMD.ApexCRUDViolation')
     public static List<Account> insertAccountsViaDatabaseMethod(
         List<String> names,
         Boolean allOrNothing,
@@ -218,7 +223,12 @@ public with sharing class DMLRecipes {
      * List<Account> results = DMLRecipes.updateAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
      * System.debug(results);
      * ```
+     *
+     * Note: This method has a false-positive PMD warning. The access level is
+     * caller-controlled and enforces CRUD/FLS whenever AccessLevel.USER_MODE
+     * is passed in, but PMD can't trace that at analysis time.
      */
+    @SuppressWarnings('PMD.ApexCRUDViolation')
     public static List<Account> updateAccountViaDatabaseMethod(
         List<Account> accts,
         System.AccessLevel accessLevel
@@ -284,7 +294,12 @@ public with sharing class DMLRecipes {
      * insert accounts in user mode;
      * DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
      * ```
+     *
+     * Note: This method has a false-positive PMD warning. The access level is
+     * caller-controlled and enforces CRUD/FLS whenever AccessLevel.USER_MODE
+     * is passed in, but PMD can't trace that at analysis time.
      */
+    @SuppressWarnings('PMD.ApexCRUDViolation')
     public static void deleteAccountViaDatabaseMethod(
         List<Account> accts,
         System.AccessLevel accessLevel
@@ -358,7 +373,12 @@ public with sharing class DMLRecipes {
      * List<Account> results = DMLRecipes.undeleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
      * System.debug(results);
      * ```
+     *
+     * Note: This method has a false-positive PMD warning. The access level is
+     * caller-controlled and enforces CRUD/FLS whenever AccessLevel.USER_MODE
+     * is passed in, but PMD can't trace that at analysis time.
      */
+    @SuppressWarnings('PMD.ApexCRUDViolation')
     public static List<Account> undeleteAccountViaDatabaseMethod(
         List<Account> accts,
         System.AccessLevel accessLevel

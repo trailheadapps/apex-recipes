@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class InvocableMethodRecipes_Tests {
-    @isTest
+    @IsTest
     static void contactSearchRequestConstructorPositive() {
         Test.startTest();
         InvocableMethodRecipes.ContactSearchRequest request = new InvocableMethodRecipes.ContactSearchRequest();
@@ -14,7 +14,7 @@ private class InvocableMethodRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void endToEndInvocableMethodTestAccountPositive() {
         Account account = (Account) TestFactory.createSObject(
             new Account(name = 'Test'),
@@ -47,7 +47,7 @@ private class InvocableMethodRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void endToEndInvocableMethodTestTaskPositive() {
         Account account = (Account) TestFactory.createSObject(
             new Account(name = 'Test'),

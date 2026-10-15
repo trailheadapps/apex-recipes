@@ -14,6 +14,7 @@ public with sharing class PlatformEventRecipes {
     /**
      * @description publishes a platform event
      * @param event an `Event_Recipes_Demo__e` object
+     * @return The Database.SaveResult from publishing the event on the event bus
      * @example
      * ```
      * Account acct = new Account(Name = 'Awesome Events Ltd.');
@@ -38,6 +39,8 @@ public with sharing class PlatformEventRecipes {
     /**
      * @description publishes a platform event and handles success/failure with callbacks
      * @param event an `Event_Recipes_Demo__e` object
+     * @return The Database.SaveResult from publishing the event, with success
+     * and failure handled asynchronously via the registered callback
      * @example
      * ```
      * Account acct = new Account(Name = 'Awesome Events Ltd.');

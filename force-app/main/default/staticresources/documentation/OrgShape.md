@@ -316,6 +316,8 @@ could not be found
 
 ### `isAdvancedMultiCurrencyManagementEnabled()`
 
+`SUPPRESSWARNINGS`
+
 Uses a dynamic soql query to determine if Advanced 
 MultiCurrency Management is enabled. Note, this must be a dynamic soql 
 query because referencing DatedConversionRate will not compile in orgs 

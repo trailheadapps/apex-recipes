@@ -713,6 +713,8 @@ contract
 
 ##### `calculateFLS(objType)`
 
+`SUPPRESSWARNINGS`
+
 Calculates the FLS for a given object type
 
 ###### Signature

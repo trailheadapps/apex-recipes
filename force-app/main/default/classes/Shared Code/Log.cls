@@ -29,6 +29,7 @@ public with sharing class Log {
 
     /**
      * @description Singleton pattern `get` method.
+     * @return The current singleton instance of Log, creating it if needed.
      */
     public static Log get() {
         if (currentInstance == null) {

@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 public with sharing class FormattingRecipes_Tests {
-    @isTest
+    @IsTest
     static void testFormatDateInJson() {
         // Insert test contact
         List<Contact> contacts = new List<Contact>{
@@ -40,7 +40,7 @@ public with sharing class FormattingRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testPluralize() {
         String singularWords = '[ "box", "cat", "deer", "die", "person", "cactus", "datum" ]';
 
@@ -70,7 +70,7 @@ public with sharing class FormattingRecipes_Tests {
         // Assert.areEqual('cacti', pluralMappings.get('cactus'));
     }
 
-    @isTest
+    @IsTest
     static void testEscapeApexReservedKeywords() {
         String jsonInput = '[{"currency" : "ABC"}]';
 

@@ -48,6 +48,9 @@ public with sharing class CanTheUser {
          * Map<String, Map<FLSType,Boolean>> and represents:
          * FieldName -> FLStype -> True/False
          * @param objType String object name used as the cache key
+         * @return        Map of lowercased field name to a map of FLSType to
+         * Boolean, returned as a generic Object per the CacheBuilder interface
+         * contract
          */
         public Object doLoad(String objType) {
             return calculateFLS(objType);
@@ -56,10 +59,14 @@ public with sharing class CanTheUser {
         /**
          * @description   Calculates the FLS for a given object type
          * @param objType String name of the object type
+         * @return        Map of lowercased field name to a map of FLSType
+         * (ACCESSIBLE/UPDATABLE) to Boolean for the given object type
          */
+        @SuppressWarnings('PMD.EagerlyLoadedDescribeSObjectResult')
         public Map<String, Map<FLSType, Boolean>> calculateFLS(string objType) {
             Schema.DescribeSObjectResult[] descResult = Schema.describeSObjects(
-                new List<String>{ objType }
+                new List<String>{ objType },
+                Schema.SObjectDescribeOptions.DEFERRED
             );
 
             Map<String, Map<FLSType, Boolean>> results = new Map<String, Map<FLSType, Boolean>>();
@@ -80,6 +87,9 @@ public with sharing class CanTheUser {
      * @description
      * @param obj the object type to check
      * @param permission create, read, update or delete
+     * @return           True if the running user has the requested CRUD
+     * permission on the object's type, false if the permission check for the
+     * requested type is not handled
      * @example
      * ```
      * System.debug(CanTheUser.crud(new Account(), CanTheUser.CrudType.READ));
@@ -119,6 +129,7 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * create the specified object
      * @param obj Object type to check create permissions on
+     * @return    True if the running user can create the given object type
      * @example
      * ```
      * System.debug(CanTheUser.create(new Account()));
@@ -133,6 +144,8 @@ public with sharing class CanTheUser {
      * create the specified object
      * @param  objs list of objects. Only the first will be checked. (logically, a list is of uniform type
      * and, and if the user can create one)
+     * @return True if the running user can create the type of the first
+     * object in the list
      */
     public static Boolean create(List<SObject> objs) {
         return crud(objs?.get(0), CrudType.CREATE);
@@ -142,6 +155,7 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * create the specified object
      * @param String Object type to check create permissions on
+     * @return       True if the running user can create the named object type
      * @example
      * ```
      * System.debug(CanTheUser.create('Account'));
@@ -155,6 +169,7 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * read / access the specified object
      * @param obj object type to check read permissions on
+     * @return    True if the running user can read/access the given object
      * @example
      * ```
      * System.debug(CanTheUser.read(new Account()));
@@ -168,6 +183,8 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * read / access the specified objects
      * @param obj object type to check read permissions on
+     * @return    True if the running user can read/access the type of the
+     * first object in the list
      * @example
      */
     public static Boolean read(List<SObject> objs) {
@@ -178,6 +195,8 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * read the specified object
      * @param String Object type to check read permissions on
+     * @return       True if the running user can read/access the named
+     * object type
      * @example
      * ```
      * System.debug(CanTheUser.read('Account'));
@@ -191,6 +210,7 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * edit / update the specified object
      * @param obj object type to check edit permissions on
+     * @return    True if the running user can edit/update the given object
      * @example
      * ```
      * System.debug(CanTheUser.edit(new Account()));
@@ -204,6 +224,8 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * edit / update the specified objects
      * @param obj object type to check edit permissions on
+     * @return    True if the running user can edit/update the type of the
+     * first object in the list
      * @example
      */
     public static Boolean edit(List<SObject> objs) {
@@ -214,6 +236,8 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * edit the specified object
      * @param String Object type to check edit permissions on
+     * @return       True if the running user can edit/update the named
+     * object type
      * @example
      * ```
      * System.debug(CanTheUser.edit('Account'));
@@ -227,6 +251,8 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * upsert (insert and update) the specified objects
      * @param obj object type to check edit permissions on
+     * @return    True if the running user can upsert (create and edit) the
+     * given object
      * @example
      * ```
      * System.debug(CanTheUser.ups(new Account()));
@@ -240,6 +266,8 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * edit / update the specified objects
      * @param obj object type to check upsert permissions on
+     * @return    True if the running user can upsert the type of the first
+     * object in the list
      * @example
      */
     public static Boolean ups(List<SObject> objs) {
@@ -250,6 +278,7 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * upsert the specified object
      * @param String Object type to check upsert permissions on
+     * @return       True if the running user can upsert the named object type
      * @example
      * ```
      * System.debug(CanTheUser.ups('Account'));
@@ -263,6 +292,7 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * delete/destroy the specified object
      * @param obj object type to check destroy permissions on
+     * @return    True if the running user can delete the given object
      * @example
      * ```
      * System.debug(CanTheUser.destroy(new Account()));
@@ -276,6 +306,8 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * delete the specified object
      * @param String Object type to check delete permissions on
+     * @return       True if the running user can delete the type of the
+     * first object in the list
      */
     public static Boolean destroy(List<SObject> objs) {
         return crud(objs?.get(0), CrudType.DEL);
@@ -285,6 +317,7 @@ public with sharing class CanTheUser {
      * @description convenience api for determining if the running user can
      * delete the specified object
      * @param String Object type to check create permissions on
+     * @return       True if the running user can delete the named object type
      * @example
      * ```
      * System.debug(CanTheUser.destroy('Account'));
@@ -299,6 +332,8 @@ public with sharing class CanTheUser {
      * object is Accessible (readable)
      * @param obj the object in question, in string form
      * @param field the field in question in SObjectField form
+     * @return      True if the running user has read access to the given
+     * field on the given object
      * @example
      * ```
      * System.debug(CanTheUser.flsAccessible('Account', 'Name'));
@@ -312,6 +347,8 @@ public with sharing class CanTheUser {
      * @description  bulk form of flsAccessible
      * @param obj    Obj name on which to check
      * @param fields Set of Fields to check for accessibility.
+     * @return       Map of field name to whether the running user has read
+     * access to that field
      * @example
      * ```
      * String[] fields = new String[]{'Name', 'ShippingStreet'};
@@ -334,6 +371,8 @@ public with sharing class CanTheUser {
      * object is Updatable.
      * @param obj the string version of an object name
      * @param field the field to check
+     * @return      True if the running user has update access to the given
+     * field on the given object
      * @example
      * ```
      * System.debug(CanTheUser.flsUpdatable('Account', 'Name'));
@@ -347,6 +386,8 @@ public with sharing class CanTheUser {
      * @description  bulk form of flsUpdatable call
      * @param obj    Name of the object
      * @param fields Set of Field names to check
+     * @return       Map of field name to whether the running user has update
+     * access to that field
      * @example
      * ```
      * String[] fields = new String[]{'Name', 'ShippingStreet'};
@@ -376,6 +417,8 @@ public with sharing class CanTheUser {
      *
      * @param objType String version of the object type to check
      * @param action  Enum of the FLS action to check permissions for
+     * @return        Set of lowercased field names on objType that the
+     * running user is accessible/updatable for, per the requested action
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     @testVisible
@@ -415,6 +458,8 @@ public with sharing class CanTheUser {
      * @param obj       String version of object name to check
      * @param field     String version of the field to check
      * @param checkType Enum of Accessible or Updatable.
+     * @return          True if the running user has the requested FLS
+     * permission on the given field of the given object, false otherwise
      */
     private static Boolean getFLSForFieldOnObject(
         String obj,

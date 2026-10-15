@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class StubbingRecipes_Tests {
-    @isTest
+    @IsTest
     static void stubShouldReturnTruePositive() {
         TestDouble stub = new TestDouble(StubExample.class);
         TestDouble.Method methodToTrack = new TestDouble.Method('getIsTrue')
@@ -18,7 +18,7 @@ private class StubbingRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void stubShouldReturnNonDefaultGreetingPositive() {
         TestDouble.Method methodToTrack = new TestDouble.Method(
                 'getIsTestGreeting'
@@ -53,7 +53,7 @@ private class StubbingRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testStubbedMethodWithParametersPositive() {
         TestDouble.Method toTrack = new TestDouble.Method('setGreeting')
             .withParamTypes(new List<Type>{ String.class })
@@ -90,7 +90,7 @@ private class StubbingRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testStubbedOverloadedMethodsPositive() {
         TestDouble.Method toTrack = new TestDouble.Method('setGreeting')
             .withParamTypes(new List<Type>{ String.class })
@@ -130,7 +130,7 @@ private class StubbingRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testThrowingPositive() {
         TestDouble.Method methodToTrack = new TestDouble.Method('getGreeting')
             .throwing('Expected Error');

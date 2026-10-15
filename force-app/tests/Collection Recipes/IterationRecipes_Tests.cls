@@ -1,9 +1,9 @@
-@isTest
+@IsTest
 /**
  * @description Tests the IterationRecipes class.
  */
 public class IterationRecipes_Tests {
-    @isTest
+    @IsTest
     private static void testIterateOnAccountListPositive() {
         List<Account> accounts = new List<Account>{
             new Account(NumberOfEmployees = 2),
@@ -16,7 +16,7 @@ public class IterationRecipes_Tests {
         System.Assert.areEqual(5, employeeCount);
     }
 
-    @isTest
+    @IsTest
     private static void testIterableApiClientRecipePositive() {
         // Prepare mocks for REST API calls
         List<HttpResponse> responses = new List<HttpResponse>{
@@ -43,7 +43,7 @@ public class IterationRecipes_Tests {
         System.Assert.areEqual(11, records.size());
     }
 
-    @isTest
+    @IsTest
     private static void testIterableApiClientRecipeNegativeWhenRecordPageRequestFails() {
         HttpCalloutMockFactory mockHttp = new HttpCalloutMockFactory(
             500,

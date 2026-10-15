@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class FormattedRecipeDisplayController_Tests {
-    @isTest
+    @IsTest
     /**
      * @description Tests the getRecipeCode with both a
      * production class, and a test class.
@@ -26,8 +26,8 @@ private class FormattedRecipeDisplayController_Tests {
                 'Expected the name to equal the input'
             );
             System.Assert.isTrue(
-                result.apiVersion >= 62.0,
-                'Expected the apiVersion to be no earlier than 62.0'
+                result.apiVersion >= 68.0,
+                'Expected the apiVersion to be no earlier than 68.0'
             );
             System.Assert.isNotNull(
                 result.body,

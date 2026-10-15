@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 /**
  * @description This class is a sample trigger handler for use while testing
  * the metadataTriggerHandler. Because custom metadata cannot be inserted, and
@@ -6,7 +6,7 @@
  * metadata records, even when we stub/mock the metadata record retrieval we
  * still need an actuall class that it can instantiate.
  *
- * Note, this class is annotated with `@isTest` to prevent it's use outside of
+ * Note, this class is annotated with `@IsTest` to prevent it's use outside of
  * tests, not because it contains tests.
  */
 public with sharing class SampleHandler extends TriggerHandler {

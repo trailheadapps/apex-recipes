@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 private inherited sharing class RestClient_Tests {
     /**
      * The RestClient class is intended to be extended
@@ -13,7 +13,7 @@ private inherited sharing class RestClient_Tests {
      * @description Executes a positive test case of the Constructor.
      * Expects the named credential to be set.
      */
-    @isTest
+    @IsTest
     static void testConstructorPositive() {
         RestClient rc;
 
@@ -39,7 +39,7 @@ private inherited sharing class RestClient_Tests {
      * @description Executes a positive test case against the RestClients'
      * makeApiCall method, this time specifying all the method params
      */
-    @isTest
+    @IsTest
     static void testStaticMakeApiCallFullParamsPositive() {
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
             200,
@@ -67,7 +67,7 @@ private inherited sharing class RestClient_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testStaticMakeApiCallNoHeadersoOrBodyParamsPositive() {
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
             200,
@@ -93,7 +93,7 @@ private inherited sharing class RestClient_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testStaticMakeApiCallNoHeadersoOrBodyOrQueryParamsPositive() {
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
             200,
@@ -128,7 +128,7 @@ private inherited sharing class RestClient_Tests {
      * @description Postive test case for covienence method needing only
      * path and query params.
      */
-    @isTest
+    @IsTest
     static void testGetWithPathAndQueryPositive() {
         RestClient rc = new RestClient('DummyNamedCredential');
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
@@ -150,7 +150,7 @@ private inherited sharing class RestClient_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testDelWithPathPositive() {
         RestClient rc = new RestClient('DummyNamedCredential');
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
@@ -172,7 +172,7 @@ private inherited sharing class RestClient_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testPostWithPathQueryAndBodyPositive() {
         RestClient rc = new RestClient('DummyNamedCredential');
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
@@ -198,7 +198,7 @@ private inherited sharing class RestClient_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testPutWithPathAndBodyPositive() {
         RestClient rc = new RestClient('DummyNamedCredential');
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
@@ -220,7 +220,7 @@ private inherited sharing class RestClient_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testPutWithPathQueryAndBodyPositive() {
         RestClient rc = new RestClient('DummyNamedCredential');
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
@@ -242,7 +242,7 @@ private inherited sharing class RestClient_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testPatchWithPathQueryAndBodyPositive() {
         RestClient rc = new RestClient('DummyNamedCredential');
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(

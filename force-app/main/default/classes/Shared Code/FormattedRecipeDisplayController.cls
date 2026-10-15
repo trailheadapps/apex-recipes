@@ -57,6 +57,7 @@ public with sharing class FormattedRecipeDisplayController {
      * we're ok.
      *
      * @param recipeName Name of the Class to return
+     * @return A ClassData instance wrapping the matching ApexClass record
      * @example
      * ```
      * System.debug(FormattedRecipeDisplayController.getRecipeCode('FormattedRecipeDisplayController'));

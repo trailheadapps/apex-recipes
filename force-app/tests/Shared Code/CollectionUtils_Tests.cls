@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class CollectionUtils_Tests {
-    @isTest
+    @IsTest
     static void testDemonstrateIdMapFromCollectionByKeyPositiveWithList() {
         List<Account> accounts = (List<Account>) TestFactory.createSObjectList(
             new Account(),
@@ -52,7 +52,7 @@ private class CollectionUtils_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testDemonstrateStringMapFromCollectionByKeyPositiveWithList() {
         List<Account> accounts = (List<Account>) TestFactory.createSObjectList(
             new Account(),
@@ -86,7 +86,7 @@ private class CollectionUtils_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testMapFromCollectionWithListOfValuesPostive() {
         List<Account> accounts = (List<Account>) TestFactory.createSObjectList(
             new Account(),

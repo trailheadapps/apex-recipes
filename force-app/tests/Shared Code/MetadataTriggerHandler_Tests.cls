@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class MetadataTriggerHandler_Tests {
-    @isTest
+    @IsTest
     static void testMetadataTriggerHandlerNoOppWithoutRecordsPositive() {
         TestDouble stub = new TestDouble(MetadataTriggerService.class);
         TestDouble.Method stubbedGetMetatdataRecords = new TestDouble.Method(
@@ -26,49 +26,49 @@ private class MetadataTriggerHandler_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testExecutesBeforeInsertPositive() {
         MetadataTriggerHandler_Tests.exerciseTriggerHandlerPositive(
             'before insert'
         );
     }
 
-    @isTest
+    @IsTest
     static void testExecutesBeforeUpdatePositive() {
         MetadataTriggerHandler_Tests.exerciseTriggerHandlerPositive(
             'before update'
         );
     }
 
-    @isTest
+    @IsTest
     static void testExecutesBeforeDeletePositive() {
         MetadataTriggerHandler_Tests.exerciseTriggerHandlerPositive(
             'before delete'
         );
     }
 
-    @isTest
+    @IsTest
     static void testExecutesAfterInsertPositive() {
         MetadataTriggerHandler_Tests.exerciseTriggerHandlerPositive(
             'after insert'
         );
     }
 
-    @isTest
+    @IsTest
     static void testExecutesAfterUpdatePositive() {
         MetadataTriggerHandler_Tests.exerciseTriggerHandlerPositive(
             'after update'
         );
     }
 
-    @isTest
+    @IsTest
     static void testExecutesAfterDeletePositive() {
         MetadataTriggerHandler_Tests.exerciseTriggerHandlerPositive(
             'after delete'
         );
     }
 
-    @isTest
+    @IsTest
     static void testExecutesAfterUndeletePositive() {
         MetadataTriggerHandler_Tests.exerciseTriggerHandlerPositive(
             'after undelete'

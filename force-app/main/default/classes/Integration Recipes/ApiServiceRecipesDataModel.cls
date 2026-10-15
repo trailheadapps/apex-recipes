@@ -30,6 +30,7 @@ public with sharing class ApiServiceRecipesDataModel {
      * @description Parses the provided JSON string into a list of
      * ApiServiceRecipesDataModel objects
      * @param json  Incoming JSON string. Often from an api call's results.
+     * @return List of ApiServiceRecipesDataModel objects deserialized from the JSON
      * @example
      * ```
      * System.debug(ApiServiceRecipesDataModel.parse(ApiServiceRecipesDataModel_Tests.testJSON));

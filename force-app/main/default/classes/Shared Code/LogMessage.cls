@@ -46,6 +46,8 @@ public with sharing class LogMessage {
 
     /**
      * @description converts this object to an event for publishing
+     * @return A Log__e platform event populated with this message's text,
+     * request Id, quiddity and severity.
      */
     public Log__e toEvent() {
         return new Log__e(

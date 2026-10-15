@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 public class DMLRecipes_Tests {
-    @isTest
+    @IsTest
     static void testInsertInSystemModePositive() {
         Test.startTest();
         Account insertedAccount = DMLRecipes.insertAccountViaInsertKeywordInSystemMode(
@@ -20,7 +20,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testInsertInUserModePositive() {
         Test.startTest();
         Account insertedAccount = DMLRecipes.insertAccountViaInsertKeywordInUserMode(
@@ -40,7 +40,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testInsertInSystemModeNegative() {
         Test.startTest();
         try {
@@ -55,7 +55,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testInsertInUserModeNegative() {
         Test.startTest();
         try {
@@ -70,7 +70,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testDatabaseMethodInsertInSystemModePositive() {
         Test.startTest();
         DMLRecipes.insertAccountsViaDatabaseMethod(
@@ -96,7 +96,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testDatabaseMethodInsertInUserModePositive() {
         Test.startTest();
         DMLRecipes.insertAccountsViaDatabaseMethod(
@@ -122,7 +122,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testDatabaseMethodInsertInSystemModeNegative() {
         Test.startTest();
         try {
@@ -149,7 +149,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testDatabaseMethodInsertInUserModeNegative() {
         Test.startTest();
         try {
@@ -175,7 +175,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testUpsertAccountViaUpsertKeywordInSystemModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'IR');
 
@@ -195,7 +195,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUpsertAccountViaUpsertKeywordInUserModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'IR');
 
@@ -215,7 +215,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUpsertAccountViaUpsertKeywordInSystemModeNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'Ca');
         // Note: this is an intentionally invalid ID, used to trigger the failure case.
@@ -233,7 +233,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testUpsertAccountViaDatabaseMethodInSystemModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'Ca');
         Database.UpsertResult result;
@@ -256,7 +256,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUpsertAccountViaDatabaseMethodInUserModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'Ca');
         Database.UpsertResult result;
@@ -279,7 +279,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUpsertAccountViaUpsertKeywordInUserModeNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'Ca');
         // Note: this is an intentionally invalid ID, used to trigger the failure case.
@@ -297,7 +297,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testUpsertAccountViaDatabaseMethodInSystemModeNegative() {
         Account badAcct = TestDataHelpers.genAccountWithOptions(true, 'Ca');
         // Note: this is an intentionally invalid ID, used to trigger the failure case.
@@ -317,7 +317,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testUpsertAccountViaDatabaseMethodInUserModeNegative() {
         Account badAcct = TestDataHelpers.genAccountWithOptions(true, 'Ca');
         // Note: this is an intentionally invalid ID, used to trigger the failure case.
@@ -337,7 +337,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testUpdateAcccountViaKeywordInUserModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -356,7 +356,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUpdateAcccountViaKeywordInSystemModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -375,7 +375,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUpdateAcccountViaKeywordInSystemModeNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -395,7 +395,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testUpdateAcccountViaKeywordInUserModeNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -415,7 +415,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testUpdateAcccountViaDatabaseMethodInSystemModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -435,7 +435,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUpdateAcccountViaDatabaseMethodInUserModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -454,7 +454,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUpdateAcccountViaDatabaseMethodInSystemModeNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -475,7 +475,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testUpdateAcccountViaDatabaseMethodInUserModeNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -496,7 +496,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testDeleteAccountViaKeywordInSystemModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -518,7 +518,7 @@ public class DMLRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testDeleteAccountViaKeywordInUserModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -538,7 +538,7 @@ public class DMLRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testDeleteAccountViaKeywordInSystemModeNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -556,7 +556,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testDeleteAccountViaKeywordInUserModeNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -574,7 +574,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testDeleteAccountViaDatabaseMethodInUserModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -597,7 +597,7 @@ public class DMLRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testDeleteAccountViaDatabaseMethodInSystemModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -620,7 +620,7 @@ public class DMLRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testDeleteAccountViaDatabaseMethodInUserModeNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -639,7 +639,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testDeleteAccountViaDatabaseMethodInSystemNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'It');
         insert acct;
@@ -658,7 +658,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testUndeleteAccountViaKeywordInUserModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'IR');
         insert acct;
@@ -680,7 +680,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUndeleteAccountViaKeywordInSystemModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'IR');
         insert acct;
@@ -702,7 +702,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUndeleteAccountViaKeywordInSystemModeNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'IR');
         insert acct;
@@ -720,7 +720,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testUndeleteAccountViaKeywordInUserModeNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'IR');
         insert acct;
@@ -738,7 +738,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testUndeleteAccountViaDatabaseMethodInSystemModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'IR');
         insert acct;
@@ -761,7 +761,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUndeleteAccountViaDatabaseMethodInUserModePositive() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'IR');
         insert acct;
@@ -784,7 +784,7 @@ public class DMLRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUndeleteAccountViaDatabaseMethodInSystemModeNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'IR');
         insert acct;
@@ -803,7 +803,7 @@ public class DMLRecipes_Tests {
         Test.stopTest();
     }
 
-    @isTest
+    @IsTest
     static void testUndeleteAccountViaDatabaseMethodInUserModeNegative() {
         Account acct = TestDataHelpers.genAccountWithOptions(true, 'IR');
         insert acct;

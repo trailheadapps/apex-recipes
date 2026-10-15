@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class Log_Tests {
-    @isTest
+    @IsTest
     static void testDirectPublishMethodsPositive() {
         Test.startTest();
         Log.get().publish('This is a test');
@@ -44,7 +44,7 @@ private class Log_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testLogMultipleItemPositive() {
         Log logger = Log.get();
         Test.startTest();

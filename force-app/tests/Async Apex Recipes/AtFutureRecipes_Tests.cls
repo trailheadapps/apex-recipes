@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private inherited sharing class AtFutureRecipes_Tests {
-    @isTest
+    @IsTest
     static void callBasicAtFutureMethodTestPositive() {
         /**
          * Calling Test.startTest() and Test.stopTest() are critical for asynchronous apex tests
@@ -21,7 +21,7 @@ private inherited sharing class AtFutureRecipes_Tests {
      * Uses a HttpCalloutMock instance
      */
     @SuppressWarnings('PMD.ApexUnitTestClassShouldHaveAsserts')
-    @isTest
+    @IsTest
     static void callAtFutureCalloutPositive() {
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
             200,
@@ -61,7 +61,7 @@ private inherited sharing class AtFutureRecipes_Tests {
      * to ensure a failure state. Tests that we get the proper failure state,
      * and get full coverage.
      */
-    @isTest
+    @IsTest
     static void callAtFutureMethodWithCalloutNegative() {
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
             400,

@@ -259,6 +259,7 @@ public with sharing class OrgShape {
      * https://github.com/SalesforceFoundation/NPSP/blob/aad20ffb747ecda9a037c4bce9cd19617b6a727b/src/classes/UTIL_Currency.cls#L79
      * @return True if Advanced MultiCurrency Management is enabled for this org
      */
+    @SuppressWarnings('PMD.EmptyCatchBlock')
     public Boolean isAdvancedMultiCurrencyManagementEnabled() {
         Boolean isACMEnabled = false;
         if (this.multiCurrencyEnabled) {

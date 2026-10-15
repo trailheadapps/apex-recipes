@@ -52,6 +52,8 @@ public with sharing class CustomMetadataUtilties {
      * @description Identifies Bucketed Picklists the given object ID has
      * associated with it.
      * @param objId
+     * @return List of Bucketed_Picklist__mdt records associated with the
+     * given object Id, or an empty list if objId is null.
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public List<Bucketed_Picklist__mdt> getBucketedPicklistsForObject(
@@ -76,6 +78,8 @@ public with sharing class CustomMetadataUtilties {
      * @description  Convenience method accepts a list and send the first
      * entry in the list to it's twin above.
      * @param objIds
+     * @return List of Bucketed_Picklist__mdt records associated with the
+     * first object Id in the list.
      */
     public List<Bucketed_Picklist__mdt> getBucketedPicklistsForObject(
         List<Id> objIds
@@ -88,6 +92,9 @@ public with sharing class CustomMetadataUtilties {
      * term, and list of possible fields.
      * @param bPL    Bucketed Picklist list
      * @param search Search String for Bucketed_Picklist_Value__mdt.label
+     * @return List of Picklist_Bucket__mdt records, with their related
+     * Bucketed_Picklist_values__r matching the search term, for the given
+     * Bucketed Picklists.
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     public List<Picklist_Bucket__mdt> getPicklistBucketWithValues(

@@ -1,0 +1,26 @@
+engines:
+    cpd:
+        # Disable copy/paste validation
+        disable_engine: true
+    flow:
+        # Disable flow validation
+        disable_engine: true
+    eslint:
+        # Disable ESLint as we're running it manually
+        disable_engine: true
+ignores:
+    files:
+        - 'bin/**'
+        - '**/staticresources/**'
+suppressions:
+    'force-app/':
+        - rule_selector: 'pmd:AvoidDebugStatements'
+          max_suppressed_violations: null
+          reason: 'Recipes intentionally use debug statements to illustrate output for learning purposes'
+    'force-app/tests/':
+        - rule_selector: 'pmd:MethodNamingConventions'
+          max_suppressed_violations: null
+          reason: "Test method names don't need to follow standard naming conventions"
+        - rule_selector: 'pmd:ApexUnitTestClassShouldHaveRunAs'
+          max_suppressed_violations: null
+          reason: 'Recipes intentionally run as the default test user to keep examples simple'

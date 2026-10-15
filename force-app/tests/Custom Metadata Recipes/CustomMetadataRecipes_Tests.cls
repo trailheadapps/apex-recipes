@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 class CustomMetadataRecipes_Tests {
-    @isTest
+    @IsTest
     static void testBucketedPicklistsPositive() {
         Test.startTest();
         List<Bucketed_Picklist__mdt> picklists = [
@@ -14,7 +14,7 @@ class CustomMetadataRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testBucketingContactAttendancePositive() {
         final String asleep = 'Asleep';
         Contact con = (Contact) TestFactory.createSObject(

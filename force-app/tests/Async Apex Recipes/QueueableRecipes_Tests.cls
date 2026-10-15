@@ -1,11 +1,11 @@
-@isTest
+@IsTest
 private inherited sharing class QueueableRecipes_Tests {
     @TestSetup
     static void makeData() {
         TestFactory.createSObjectList(new Account(), 200, true);
     }
 
-    @isTest
+    @IsTest
     static void testQueueableWithCalloutRecipesPositive() {
         Test.startTest();
         QueueableRecipes queueable = new QueueableRecipes();

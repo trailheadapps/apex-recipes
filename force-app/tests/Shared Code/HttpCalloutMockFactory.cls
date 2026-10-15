@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 public class HttpCalloutMockFactory implements HttpCalloutMock {
     // Holds a list of HTTP Response objects to return.
     protected List<HttpResponse> responseQueue = new List<HttpResponse>();

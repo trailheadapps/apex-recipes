@@ -19,6 +19,7 @@ public with sharing class AuraEnabledRecipes {
      *
      * @param  accountId Id of the account to update
      * @param  newValue  String of the name to set
+     * @return True if the account name was updated successfully
      * @example
      * ```
      * Id accountId = [SELECT Id FROM Account LIMIT 1].Id;
@@ -61,6 +62,7 @@ public with sharing class AuraEnabledRecipes {
      * @description Demonstrates how to make a method available to Aura or LWC
      * for read-only operations. This method returns a hard-coded string, but
      * you could do a SOQL query, or other work.
+     * @return Hard-coded string value
      * @example
      * ```
      * System.debug(AuraEnabledRecipes.getFieldValue());

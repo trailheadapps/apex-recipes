@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 private inherited sharing class FilesRecipes_Tests {
     @TestSetup
     static void makeData() {
@@ -30,7 +30,7 @@ private inherited sharing class FilesRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testPublishContent() {
         Account acct = [SELECT Id FROM Account LIMIT 1];
         String text = 'Hello Good Friends, enjoy the stream!';
@@ -58,7 +58,7 @@ private inherited sharing class FilesRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testUploadFileFromText() {
         Account acct = [SELECT Id FROM Account LIMIT 1];
         String text = 'Hello Good Friends, enjoy the stream!';
@@ -76,7 +76,7 @@ private inherited sharing class FilesRecipes_Tests {
         System.Assert.areEqual(1, results.size(), 'Expected to find one file');
     }
 
-    @isTest
+    @IsTest
     static void testGetFilteredAttachmentsForRecords() {
         Id attachedRecordId = [SELECT Id FROM Account LIMIT 1].Id;
 

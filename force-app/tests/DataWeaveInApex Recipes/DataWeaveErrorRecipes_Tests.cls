@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 public with sharing class DataWeaveErrorRecipes_Tests {
-    @isTest
+    @IsTest
     static void testRuntimeError() {
         try {
             Test.startTest();
@@ -18,7 +18,7 @@ public with sharing class DataWeaveErrorRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testConvertContactsToExcel() {
         List<Contact> contacts = new List<Contact>{
             new Contact(FirstName = 'John', LastName = 'Doe')

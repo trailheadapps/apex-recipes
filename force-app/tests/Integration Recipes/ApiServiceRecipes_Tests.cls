@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class ApiServiceRecipes_Tests {
-    @isTest
+    @IsTest
     static void testConstructorAssignsNamedCredentialPositive() {
         Test.startTest();
         ApiServiceRecipes api = new ApiServiceRecipes();
@@ -13,7 +13,7 @@ private class ApiServiceRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetCurrentDataPositive200() {
         ApiServiceRecipes api = new ApiServiceRecipes();
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
@@ -56,7 +56,7 @@ private class ApiServiceRecipes_Tests {
         }
     }
 
-    @isTest
+    @IsTest
     static void testGetCurrentDataNegativeJSONExceptionThrown() {
         ApiServiceRecipes api = new ApiServiceRecipes();
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
@@ -85,7 +85,7 @@ private class ApiServiceRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetCurrentDataNegative404() {
         ApiServiceRecipes api = new ApiServiceRecipes();
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
@@ -113,7 +113,7 @@ private class ApiServiceRecipes_Tests {
         );
     }
 
-    @isTest
+    @IsTest
     static void testGetCurrentDataNegative500TriggersWhenElse() {
         ApiServiceRecipes api = new ApiServiceRecipes();
         HttpCalloutMockFactory mock = new HttpCalloutMockFactory(

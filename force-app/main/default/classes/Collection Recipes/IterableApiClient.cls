@@ -21,6 +21,7 @@ public with sharing class IterableApiClient extends RestClient implements Iterab
     /**
      * @description Returns an iterator on RecordPage
      * (as required by the Iterable interface)
+     * @return Iterator<RecordPage> used to navigate the paginated records
      */
     public Iterator<RecordPage> iterator() {
         return new RecordPageIterator(this);

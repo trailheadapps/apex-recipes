@@ -61,6 +61,8 @@ DMLRecipes.insertAccountViaInsertKeywordInUserMode('Hello');
 
 ### `insertAccountsViaDatabaseMethod(names, allOrNothing, accessLevel)`
 
+`SUPPRESSWARNINGS`
+
 Demonstrates how to use the `Database.insert()` method to 
 persist a net-new record to the database.
 
@@ -86,6 +88,11 @@ list of inserted accounts
 ```apex
 DMLRecipes.insertAccountsViaDatabaseMethod('Hello', false, AccessLevel.USER_MODE);
 ```
+
+ 
+Note: This method has a false-positive PMD warning. The access level is 
+caller-controlled and enforces CRUD/FLS whenever AccessLevel.USER_MODE 
+is passed in, but PMD can&#x27;t trace that at analysis time.
 
 ---
 
@@ -233,6 +240,8 @@ DMLRecipes.updateAcccountViaKeyword(acct);
 
 ### `updateAccountViaDatabaseMethod(accts, accessLevel)`
 
+`SUPPRESSWARNINGS`
+
 Demonstrates how to update a list of accounts via the 
  `Database.update()` method
 
@@ -259,6 +268,11 @@ insert accounts;
 List&lt;Account&gt; results = DMLRecipes.updateAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 System.debug(results);
 ```
+
+ 
+Note: This method has a false-positive PMD warning. The access level is 
+caller-controlled and enforces CRUD/FLS whenever AccessLevel.USER_MODE 
+is passed in, but PMD can&#x27;t trace that at analysis time.
 
 ---
 
@@ -316,6 +330,8 @@ DMLRecipes.deleteAccountViaKeywordInUserMode(accounts);
 
 ### `deleteAccountViaDatabaseMethod(accts, accessLevel)`
 
+`SUPPRESSWARNINGS`
+
 Deletes a list of accounts via the `Database.delete` method
 
 #### Signature
@@ -338,6 +354,11 @@ List&lt;Account&gt; accounts = new List&lt;Account&gt;{new Account(name = 'Hello
 insert accounts in user mode;
 DMLRecipes.deleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 ```
+
+ 
+Note: This method has a false-positive PMD warning. The access level is 
+caller-controlled and enforces CRUD/FLS whenever AccessLevel.USER_MODE 
+is passed in, but PMD can&#x27;t trace that at analysis time.
 
 ---
 
@@ -403,6 +424,8 @@ System.debug(results);
 
 ### `undeleteAccountViaDatabaseMethod(accts, accessLevel)`
 
+`SUPPRESSWARNINGS`
+
 undeletes a list of accounts via the `Database.undelete` method.
 
 #### Signature
@@ -429,6 +452,11 @@ delete accounts;
 List&lt;Account&gt; results = DMLRecipes.undeleteAccountViaDatabaseMethod(accounts, AccessLevel.USER_MODE);
 System.debug(results);
 ```
+
+ 
+Note: This method has a false-positive PMD warning. The access level is 
+caller-controlled and enforces CRUD/FLS whenever AccessLevel.USER_MODE 
+is passed in, but PMD can&#x27;t trace that at analysis time.
 
 ## Classes
 ### CustomDMLException Class

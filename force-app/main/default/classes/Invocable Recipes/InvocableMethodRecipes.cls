@@ -52,6 +52,8 @@ public with sharing class InvocableMethodRecipes {
      * crafted specific to the incoming object, and it's type and the results
      * of the query are converted to a Result object and returned.
      * @param inputParams A list of ContactSearchRequest objects
+     * @return A list containing a single ContactSearchResult that wraps the
+     * related Contact record found for the first incoming request
      * @example
      * From Apex:
      * ```
