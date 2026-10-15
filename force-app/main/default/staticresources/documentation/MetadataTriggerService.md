@@ -27,8 +27,6 @@ public MetadataTriggerService(String objectTypeName)
 ## Methods
 ### `getMetadataTriggers()`
 
-`SUPPRESSWARNINGS`
-
 This query finds an ordered list trigger handler classes 
 to execute. It ignores any classes that are marked as disabled. 
  
