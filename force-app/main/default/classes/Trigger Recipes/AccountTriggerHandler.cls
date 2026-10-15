@@ -148,9 +148,7 @@ public with sharing class AccountTriggerHandler extends TriggerHandler {
             ) {
                 throw AccountTriggerHandler.circuitBreaker;
             }
-            if (CanTheUser.create(new Task())) {
-                insert newTasks;
-            }
+            insert newTasks;
         } catch (DmlException dmle) {
             System.debug(
                 LoggingLevel.INFO,
