@@ -31,9 +31,11 @@ private inherited sharing class ScheduledApexRecipes_Tests {
             'Expected this cron trigger to never have been fired'
         );
 
+        // String.valueOf(Datetime) adds 543 to the year for a user with the
+        // th_TH locale; format with a pattern writes the year as stored.
         System.Assert.areEqual(
             '2099-05-28 00:00:00',
-            String.valueOf(checkCronTrigger.nextFireTime),
+            checkCronTrigger.nextFireTime.format('yyyy-MM-dd HH:mm:ss'),
             'Expected the next fire time to be set to 5/28/2099 at midnight'
         );
     }
